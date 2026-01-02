@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "siteName": "Cashvio",
+    "siteDescription": "Streamline your business operations with Cashvio - The all-in-one POS and inventory management solution",
+    "home": {
+      "title": "Cashvio - Modern POS & Inventory Management",
+      "description": "Streamline your business with Cashvio's powerful POS system, inventory management, and analytics. Start free today."
+    },
+    "pricing": {
+      "title": "Pricing & Plans",
+      "description": "Choose the perfect Cashvio plan for your business. Transparent pricing with no hidden fees."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with the Cashvio team. We're here to help you succeed."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Learn how Cashvio protects your data and respects your privacy."
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "description": "Read our terms of service and user agreement."
+    },
+    "docs": {
+      "title": "Documentation",
+      "description": "Comprehensive guides, tutorials, and API documentation for Cashvio."
+    }
+  },
+  "common": {
+    "getStarted": "Get Started",
+    "startFreeTrial": "Start Free Trial",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewPricing": "View Pricing",
+    "readDocs": "Read Documentation",
+    "login": "Login",
+    "signup": "Sign Up",
+    "switchLanguage": "العربية",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "backToHome": "Back to Home",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "tryAgain": "Try Again"
+  },
+  "navigation": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "features": "Features",
+    "contact": "Contact",
+    "docs": "Docs",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "about": "About",
+    "careers": "Careers",
+    "changelog": "Changelog"
+  },
+  "footer": {
+    "description": "Cashvio is the modern POS and inventory management solution that helps businesses grow.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "resources": "Resources",
+    "social": "Follow Us",
+    "copyright": "© {year} Cashvio. All rights reserved.",
+    "madeWith": "Made with ❤️ for businesses worldwide"
+  },
+  "home": {
+    "hero": {
+      "badge": "🚀 Now with AI-Powered Analytics",
+      "title": "Run Your Business",
+      "titleHighlight": "Smarter",
+      "subtitle": "Cashvio is the all-in-one POS and inventory management platform that helps you sell more, manage better, and grow faster.",
+      "cta": "Start Free Trial",
+      "secondaryCta": "Watch Demo",
+      "trustedBy": "Trusted by 10,000+ businesses worldwide"
+    },
+    "features": {
+      "title": "Everything You Need to Succeed",
+      "subtitle": "Powerful features designed for modern businesses",
+      "pos": {
+        "title": "Lightning-Fast POS",
+        "description": "Process transactions in seconds with our intuitive point-of-sale system. Works offline too."
+      },
+      "inventory": {
+        "title": "Smart Inventory",
+        "description": "Real-time stock tracking, automatic reorder alerts, and multi-location support."
+      },
+      "analytics": {
+        "title": "Actionable Analytics",
+        "description": "Make data-driven decisions with comprehensive reports and AI-powered insights."
+      },
+      "multistore": {
+        "title": "Multi-Store Ready",
+        "description": "Manage all your locations from one dashboard. Sync inventory and sales instantly."
+      },
+      "integrations": {
+        "title": "Seamless Integrations",
+        "description": "Connect with your favorite tools - accounting, ecommerce, delivery, and more."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our expert team is always ready to help you succeed, day or night."
+      }
+    },
+    "stats": {
+      "title": "Trusted by Growing Businesses",
+      "businesses": "10,000+",
+      "businessesLabel": "Active Businesses",
+      "transactions": "50M+",
+      "transactionsLabel": "Transactions Processed",
+      "countries": "30+",
+      "countriesLabel": "Countries",
+      "uptime": "99.9%",
+      "uptimeLabel": "Uptime"
+    },
+    "testimonials": {
+      "title": "Loved by Business Owners",
+      "subtitle": "See what our customers have to say",
+      "testimonial1": {
+        "quote": "Cashvio transformed how we run our retail stores. Sales are up 40% since we switched.",
+        "author": "Sarah Johnson",
+        "role": "Owner, Fashion Hub"
+      },
+      "testimonial2": {
+        "quote": "The inventory management alone saved us countless hours. Highly recommended!",
+        "author": "Ahmed Hassan",
+        "role": "Operations Manager, TechMart"
+      },
+      "testimonial3": {
+        "quote": "Finally, a POS system that actually understands what small businesses need.",
+        "author": "Maria Garcia",
+        "role": "Founder, Coffee Corner"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Join thousands of businesses already using Cashvio to grow faster.",
+      "button": "Start Your Free Trial",
+      "note": "No credit card required • 14-day free trial • Cancel anytime"
+    }
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that fits your business. All plans include a 14-day free trial.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "yearlyDiscount": "Save 20%",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "popular": "Most Popular",
+    "features": "What's included:",
+    "getStarted": "Get Started",
+    "contactSales": "Contact Sales",
+    "currentPlan": "Current Plan",
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect for small businesses just getting started",
+      "price": "29",
+      "features": [
+        "1 Store Location",
+        "Up to 1,000 Products",
+        "Basic Reports",
+        "Email Support",
+        "Mobile App Access"
+      ]
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "For growing businesses that need more power",
+      "price": "79",
+      "features": [
+        "Up to 5 Store Locations",
+        "Unlimited Products",
+        "Advanced Analytics",
+        "Priority Support",
+        "API Access",
+        "Custom Integrations"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "For large organizations with custom needs",
+      "price": "Custom",
+      "features": [
+        "Unlimited Locations",
+        "Dedicated Account Manager",
+        "Custom Development",
+        "SLA Guarantee",
+        "On-premise Option",
+        "Advanced Security"
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "Can I change plans later?",
+        "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately."
+      },
+      "q2": {
+        "question": "Is there a free trial?",
+        "answer": "Yes! All plans include a 14-day free trial. No credit card required to start."
+      },
+      "q3": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, PayPal, and bank transfers for annual plans."
+      },
+      "q4": {
+        "question": "Can I cancel anytime?",
+        "answer": "Absolutely. You can cancel your subscription at any time with no cancellation fees."
+      }
+    },
+    "guarantee": {
+      "title": "30-Day Money-Back Guarantee",
+      "description": "Not satisfied? Get a full refund within 30 days, no questions asked."
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your inquiry...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "Prefer to reach out directly? Here's how you can contact us.",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Business Hours",
+      "hoursValue": "Monday - Friday: 9AM - 6PM EST"
+    },
+    "support": {
+      "title": "Need Quick Help?",
+      "description": "Check out our documentation or knowledge base for instant answers.",
+      "docsLink": "Browse Documentation",
+      "supportLink": "Visit Help Center"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 1, 2026",
+    "intro": "At Cashvio, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.",
+    "sections": {
+      "collection": {
+        "title": "Information We Collect",
+        "content": "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support. This may include your name, email address, phone number, billing information, and business details."
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "content": "We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and respond to your comments and questions."
+      },
+      "sharing": {
+        "title": "Information Sharing",
+        "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers who assist us in operating our platform, conducting our business, or servicing you."
+      },
+      "security": {
+        "title": "Data Security",
+        "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. Contact us to exercise these rights."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions about this Privacy Policy, please contact us at privacy@cashvio.com."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "lastUpdated": "Last updated: January 1, 2026",
+    "intro": "Welcome to Cashvio. By accessing or using our services, you agree to be bound by these Terms and Conditions.",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing and using Cashvio's services, you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services."
+      },
+      "services": {
+        "title": "Our Services",
+        "content": "Cashvio provides point-of-sale, inventory management, and business analytics software. We reserve the right to modify, suspend, or discontinue any part of our services at any time."
+      },
+      "accounts": {
+        "title": "User Accounts",
+        "content": "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use."
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "content": "Subscription fees are billed in advance on a monthly or annual basis. All fees are non-refundable except as expressly stated in our refund policy."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "We may terminate or suspend your account at any time for any reason, including violation of these Terms. Upon termination, your right to use our services will immediately cease."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "To the maximum extent permitted by law, Cashvio shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions about these Terms, please contact us at legal@cashvio.com."
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "Sorry, we couldn't find the page you're looking for.",
+      "backHome": "Go Back Home"
+    },
+    "serverError": {
+      "title": "Server Error",
+      "description": "Something went wrong on our end. Please try again later.",
+      "tryAgain": "Try Again"
+    }
+  }
+}
+
