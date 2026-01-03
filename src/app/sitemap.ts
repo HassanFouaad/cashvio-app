@@ -1,27 +1,50 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
-import { siteConfig } from '@/config/site';
+import { urls, pageSEO } from '@/config/seo';
+
+type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+
+interface PageConfig {
+  path: string;
+  priority: number;
+  changeFrequency: ChangeFrequency;
+}
+
+const pages: PageConfig[] = [
+  { path: '', ...pageSEO.home },
+  { path: '/features', ...pageSEO.features },
+  { path: '/pricing', ...pageSEO.pricing },
+  { path: '/contact', ...pageSEO.contact },
+  { path: '/register', ...pageSEO.register },
+  { path: '/docs', ...pageSEO.docs },
+  { path: '/privacy', ...pageSEO.privacy },
+  { path: '/terms', ...pageSEO.terms },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
   const lastModified = new Date();
 
-  const staticPages = ['', '/pricing', '/contact', '/privacy', '/terms', '/docs'];
+  const entries: MetadataRoute.Sitemap = pages.flatMap((page) =>
+    routing.locales.map((locale) => {
+      // English (default) has no locale prefix, Arabic uses /ar
+      const localePath = locale === 'en' ? '' : `/${locale}`;
+      const url = `${urls.site}${localePath}${page.path}`;
 
-  const entries = staticPages.flatMap((page) =>
-    routing.locales.map((locale) => ({
-      url: `${baseUrl}/${locale}${page}`,
-      lastModified,
-      changeFrequency: page === '' ? 'weekly' : 'monthly' as const,
-      priority: page === '' ? 1 : page === '/pricing' ? 0.9 : 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((loc) => [loc, `${baseUrl}/${loc}${page}`])
-        ),
-      },
-    }))
+      return {
+        url,
+        lastModified,
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+        alternates: {
+          languages: {
+            en: `${urls.site}${page.path}`,
+            ar: `${urls.site}/ar${page.path}`,
+            'x-default': `${urls.site}${page.path}`,
+          },
+        },
+      };
+    })
   );
 
   return entries;
 }
-

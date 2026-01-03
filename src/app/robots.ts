@@ -1,5 +1,5 @@
-import type { MetadataRoute } from 'next';
-import { siteConfig } from '@/config/site';
+import { MetadataRoute } from 'next';
+import { urls } from '@/config/seo';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,11 +7,18 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/', '/private/'],
+        disallow: ['/api/', '/_next/', '/private/'],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
       },
     ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    sitemap: `${urls.site}/sitemap.xml`,
+    host: urls.site,
   };
 }
-

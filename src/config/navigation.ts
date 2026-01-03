@@ -1,3 +1,5 @@
+import { env } from './env';
+
 export interface NavItem {
   key: string;
   href: string;
@@ -11,6 +13,7 @@ export interface FooterSection {
 
 export const mainNavigation: NavItem[] = [
   { key: 'home', href: '/' },
+  { key: 'features', href: '/features' },
   { key: 'pricing', href: '/pricing' },
   { key: 'docs', href: '/docs' },
   { key: 'contact', href: '/contact' },
@@ -20,10 +23,10 @@ export const footerNavigation: FooterSection[] = [
   {
     key: 'product',
     items: [
-      { key: 'features', href: '/pricing#features' },
+      { key: 'features', href: '/features' },
       { key: 'pricing', href: '/pricing' },
       { key: 'docs', href: '/docs' },
-      { key: 'changelog', href: '/docs/changelog' },
+      { key: 'changelog', href: '/docs' },
     ],
   },
   {
@@ -31,7 +34,7 @@ export const footerNavigation: FooterSection[] = [
     items: [
       { key: 'about', href: '/about' },
       { key: 'contact', href: '/contact' },
-      { key: 'careers', href: '/careers' },
+      { key: 'careers', href: '/contact' },
     ],
   },
   {
@@ -44,8 +47,10 @@ export const footerNavigation: FooterSection[] = [
 ];
 
 export const ctaLinks = {
-  getStarted: 'https://portal.cashvio.com/register',
-  login: 'https://portal.cashvio.com/login',
+  getStarted: '/register', // Internal registration page
+  login: env.portal.loginUrl, // External portal login
+  portal: env.portal.url, // Portal base URL
+  dashboard: env.portal.dashboardUrl, // Portal dashboard
   demo: '/contact?type=demo',
 } as const;
 

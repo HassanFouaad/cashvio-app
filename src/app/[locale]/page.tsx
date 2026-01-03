@@ -1,13 +1,23 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 
-import { siteConfig } from '@/config/site';
 import { type Locale } from '@/i18n/routing';
 import { Hero } from '@/components/sections/hero';
 import { Features } from '@/components/sections/features';
-import { Stats } from '@/components/sections/stats';
-import { Testimonials } from '@/components/sections/testimonials';
+import { Benefits } from '@/components/sections/benefits';
+import { Trust } from '@/components/sections/trust';
 import { CTA } from '@/components/sections/cta';
+import {
+  schemaTemplates,
+  serializeSchema,
+  getCanonicalUrl,
+  getAlternateUrls,
+  urls,
+  brand,
+  keywords,
+  openGraphDefaults,
+  twitterDefaults,
+} from '@/config/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -16,12 +26,39 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.home' });
+  const typedLocale = locale as Locale;
 
   return {
     title: t('title'),
     description: t('description'),
+    keywords: keywords[typedLocale],
     alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
+      canonical: getCanonicalUrl('', typedLocale),
+      languages: getAlternateUrls(''),
+    },
+    openGraph: {
+      ...openGraphDefaults,
+      title: t('title'),
+      description: t('description'),
+      url: getCanonicalUrl('', typedLocale),
+      locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
+      alternateLocale: typedLocale === 'ar' ? 'en_US' : 'ar_EG',
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: t('title'),
+      description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
     },
   };
 }
@@ -29,66 +66,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const typedLocale = locale as Locale;
 
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.png`,
-    description: siteConfig.description,
-    email: siteConfig.contact.email,
-    telephone: siteConfig.contact.phone,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: siteConfig.contact.address.street,
-      addressLocality: siteConfig.contact.address.city,
-      addressCountry: siteConfig.contact.address.country,
-    },
-    sameAs: [
-      siteConfig.social.twitter.replace('@', 'https://twitter.com/'),
-      siteConfig.social.facebook,
-      siteConfig.social.linkedin,
-      siteConfig.social.instagram,
-    ],
-  };
+  const t = await getTranslations({ locale, namespace: 'metadata.home' });
 
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/${locale}/docs?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
-  };
+  // Schema.org structured data
+  const organizationSchema = schemaTemplates.organization();
+  const websiteSchema = schemaTemplates.website(typedLocale);
+  const softwareSchema = schemaTemplates.softwareApplication();
+  const webPageSchema = schemaTemplates.webPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '' : `/${typedLocale}`,
+    title: t('title'),
+    description: t('description'),
+  });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(organizationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
       />
 
-      <Hero locale={locale as Locale} />
-      <Stats locale={locale as Locale} />
-      <Features locale={locale as Locale} />
-      <Testimonials locale={locale as Locale} />
-      <CTA locale={locale as Locale} />
+      <Hero locale={typedLocale} />
+      <Features locale={typedLocale} />
+      
+      <Benefits locale={typedLocale} />
+     
+      
+      <CTA locale={typedLocale} />
     </>
   );
 }

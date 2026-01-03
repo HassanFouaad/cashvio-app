@@ -6,7 +6,8 @@ export type Locale = (typeof locales)[number];
 export const routing = defineRouting({
   locales,
   defaultLocale: 'en',
-  localePrefix: 'always',
+  // English uses / (no prefix), Arabic uses /ar
+  localePrefix: 'as-needed',
 });
 
 export const localeMetadata: Record<
@@ -16,6 +17,7 @@ export const localeMetadata: Record<
     nativeName: string;
     direction: 'ltr' | 'rtl';
     hrefLang: string;
+    locale: string; // Full locale for og:locale
   }
 > = {
   en: {
@@ -23,12 +25,13 @@ export const localeMetadata: Record<
     nativeName: 'English',
     direction: 'ltr',
     hrefLang: 'en',
+    locale: 'en_US',
   },
   ar: {
     name: 'Arabic',
     nativeName: 'العربية',
     direction: 'rtl',
     hrefLang: 'ar',
+    locale: 'ar_EG',
   },
 };
-

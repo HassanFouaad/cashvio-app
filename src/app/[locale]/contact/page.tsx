@@ -1,10 +1,22 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 
-import { siteConfig } from '@/config/site';
 import { type Locale } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
+import { ContactForm } from '@/components/forms/contact-form';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from '@/i18n/navigation';
+import {
+  schemaTemplates,
+  serializeSchema,
+  getCanonicalUrl,
+  getAlternateUrls,
+  keywords,
+  openGraphDefaults,
+  twitterDefaults,
+  brand,
+  contact,
+  urls,
+} from '@/config/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -13,12 +25,31 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.contact' });
+  const typedLocale = locale as Locale;
 
   return {
-    title: t('title'),
+    title: `${t('title')} | ${brand.name}`,
     description: t('description'),
+    keywords: keywords[typedLocale],
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/contact`,
+      canonical: getCanonicalUrl('/contact', typedLocale),
+      languages: getAlternateUrls('/contact'),
+    },
+    openGraph: {
+      ...openGraphDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+      url: getCanonicalUrl('/contact', typedLocale),
+      locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -26,36 +57,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'contact' });
+  const metaT = await getTranslations({ locale, namespace: 'metadata.contact' });
 
-  const contactSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    name: t('title'),
-    description: t('subtitle'),
-    url: `${siteConfig.url}/${locale}/contact`,
-    mainEntity: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      email: siteConfig.contact.email,
-      telephone: siteConfig.contact.phone,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: siteConfig.contact.address.street,
-        addressLocality: siteConfig.contact.address.city,
-        addressCountry: siteConfig.contact.address.country,
-      },
-    },
-  };
+  // Schema.org structured data
+  const webPageSchema = schemaTemplates.webPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/contact' : `/ar/contact`,
+    title: metaT('title'),
+    description: metaT('description'),
+    type: 'ContactPage',
+  });
+
+  const contactSchema = schemaTemplates.contactPage();
+
+  const breadcrumbSchema = schemaTemplates.breadcrumb([
+    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: metaT('title'), url: getCanonicalUrl('/contact', typedLocale) },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(contactSchema).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(contactSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
       />
 
       {/* Header */}
@@ -77,101 +112,9 @@ export default async function ContactPage({ params }: Props) {
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Form */}
-            <Card>
+            <Card className="overflow-hidden">
               <CardContent className="p-6 md:p-8">
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        {t('form.name')}
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder={t('form.namePlaceholder')}
-                        className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        {t('form.email')}
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder={t('form.emailPlaceholder')}
-                        className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      {t('form.phone')}
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      placeholder={t('form.phonePlaceholder')}
-                      className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      {t('form.subject')}
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      placeholder={t('form.subjectPlaceholder')}
-                      className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      {t('form.message')}
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      placeholder={t('form.messagePlaceholder')}
-                      className="flex min-h-[120px] w-full rounded-lg border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 resize-none"
-                      required
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full h-11 px-6 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-all duration-200 bg-primary text-primary-foreground hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary shadow-sm hover:shadow-md cursor-pointer"
-                  >
-                    {t('form.submit')}
-                  </button>
-                </form>
+                <ContactForm />
               </CardContent>
             </Card>
 
@@ -208,10 +151,10 @@ export default async function ContactPage({ params }: Props) {
                       {t('info.email')}
                     </h3>
                     <a
-                      href={`mailto:${siteConfig.contact.email}`}
+                      href={`mailto:${contact.email}`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      {siteConfig.contact.email}
+                      {contact.email}
                     </a>
                   </div>
                 </div>
@@ -236,10 +179,10 @@ export default async function ContactPage({ params }: Props) {
                       {t('info.phone')}
                     </h3>
                     <a
-                      href={`tel:${siteConfig.contact.phone}`}
+                      href={`tel:${contact.phone}`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      {siteConfig.contact.phone}
+                      {contact.phone}
                     </a>
                   </div>
                 </div>
@@ -265,11 +208,11 @@ export default async function ContactPage({ params }: Props) {
                       {t('info.address')}
                     </h3>
                     <p className="text-muted-foreground">
-                      {siteConfig.contact.address.street}
+                      {contact.address.street}
                       <br />
-                      {siteConfig.contact.address.city}
+                      {contact.address.city}
                       <br />
-                      {siteConfig.contact.address.country}
+                      {contact.address.country}
                     </p>
                   </div>
                 </div>
@@ -318,7 +261,7 @@ export default async function ContactPage({ params }: Props) {
                       {t('support.docsLink')}
                     </Link>
                     <a
-                      href={siteConfig.links.support}
+                      href={urls.support}
                       className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-border hover:bg-muted transition-colors"
                     >
                       {t('support.supportLink')}

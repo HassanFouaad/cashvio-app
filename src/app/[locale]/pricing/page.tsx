@@ -1,13 +1,19 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 
-import { siteConfig } from '@/config/site';
 import { type Locale } from '@/i18n/routing';
-import { ctaLinks } from '@/config/navigation';
-import { ButtonLink } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils/cn';
+import { PricingPlans } from '@/components/sections/pricing-plans';
+import { getPublicPlans } from '@/lib/http/server';
+import {
+  schemaTemplates,
+  serializeSchema,
+  getCanonicalUrl,
+  getAlternateUrls,
+  keywords,
+  openGraphDefaults,
+  twitterDefaults,
+  brand,
+} from '@/config/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -16,12 +22,31 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.pricing' });
+  const typedLocale = locale as Locale;
 
   return {
-    title: t('title'),
+    title: `${t('title')} | ${brand.name}`,
     description: t('description'),
+    keywords: keywords[typedLocale],
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/pricing`,
+      canonical: getCanonicalUrl('/pricing', typedLocale),
+      languages: getAlternateUrls('/pricing'),
+    },
+    openGraph: {
+      ...openGraphDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+      url: getCanonicalUrl('/pricing', typedLocale),
+      locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -32,45 +57,66 @@ const faqKeys = ['q1', 'q2', 'q3', 'q4'] as const;
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'pricing' });
+  const metaT = await getTranslations({ locale, namespace: 'metadata.pricing' });
 
-  const pricingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'PriceSpecification',
-    priceCurrency: 'USD',
-    eligibleRegion: {
-      '@type': 'Country',
-      name: 'Worldwide',
-    },
-  };
+  // Fetch plans from API (SSR)
+  const plans = await getPublicPlans();
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqKeys.map((key) => ({
-      '@type': 'Question',
-      name: t(`faq.${key}.question`),
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: t(`faq.${key}.answer`),
-      },
-    })),
-  };
+  // Build fallback plans from translations
+  const fallbackPlans = planKeys.map((key) => ({
+    key,
+    name: t(`${key}.name`),
+    description: t(`${key}.description`),
+    price: t(`${key}.price`),
+    features: t.raw(`${key}.features`) as string[],
+  }));
+
+  // Schema.org structured data
+  const webPageSchema = schemaTemplates.webPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/pricing' : `/ar/pricing`,
+    title: metaT('title'),
+    description: metaT('description'),
+  });
+
+  const faqSchema = schemaTemplates.faqPage(
+    faqKeys.map((key) => ({
+      question: t(`faq.${key}.question`),
+      answer: t(`faq.${key}.answer`),
+    }))
+  );
+
+  const pricingSchema = schemaTemplates.pricingPage([
+    { name: 'Starter', price: 29, description: t('starter.description') },
+    { name: 'Professional', price: 79, description: t('professional.description') },
+    { name: 'Enterprise', price: 199, description: t('enterprise.description') },
+  ]);
+
+  const breadcrumbSchema = schemaTemplates.breadcrumb([
+    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: metaT('title'), url: getCanonicalUrl('/pricing', typedLocale) },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pricingSchema).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
-        }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(pricingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
       />
 
       {/* Header Section */}
@@ -80,98 +126,15 @@ export default async function PricingPage({ params }: Props) {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               {t('title')}
             </h1>
-            <p className="text-lg text-muted-foreground">
-              {t('subtitle')}
-            </p>
+            <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Pricing Cards - SSR from API with fallback */}
       <section className="py-16 -mt-8">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {planKeys.map((plan) => {
-              const isPro = plan === 'professional';
-              const features = t.raw(`${plan}.features`) as string[];
-
-              return (
-                <Card
-                  key={plan}
-                  className={cn(
-                    'relative flex flex-col',
-                    isPro && 'border-primary shadow-lg scale-105 z-10'
-                  )}
-                >
-                  {isPro && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground">
-                        {t('popular')}
-                      </Badge>
-                    </div>
-                  )}
-
-                  <CardHeader>
-                    <CardTitle className="text-xl">{t(`${plan}.name`)}</CardTitle>
-                    <CardDescription>{t(`${plan}.description`)}</CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="flex-1">
-                    <div className="mb-6">
-                      {plan === 'enterprise' ? (
-                        <span className="text-4xl font-bold text-foreground">
-                          {t(`${plan}.price`)}
-                        </span>
-                      ) : (
-                        <>
-                          <span className="text-4xl font-bold text-foreground">
-                            ${t(`${plan}.price`)}
-                          </span>
-                          <span className="text-muted-foreground">
-                            {t('perMonth')}
-                          </span>
-                        </>
-                      )}
-                    </div>
-
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium text-foreground">
-                        {t('features')}
-                      </p>
-                      <ul className="space-y-2">
-                        {features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm">
-                            <svg
-                              className="w-5 h-5 text-primary shrink-0 mt-0.5"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <polyline points="20 6 9 17 4 12" />
-                            </svg>
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-
-                  <CardFooter>
-                    <ButtonLink
-                      variant={isPro ? 'primary' : 'outline'}
-                      className="w-full justify-center"
-                      href={plan === 'enterprise' ? `/${locale}/contact` : ctaLinks.getStarted}
-                    >
-                      {plan === 'enterprise' ? t('contactSales') : t('getStarted')}
-                    </ButtonLink>
-                  </CardFooter>
-                </Card>
-              );
-            })}
-          </div>
+          <PricingPlans plans={plans} fallbackPlans={fallbackPlans} locale={locale} />
         </div>
       </section>
 
@@ -197,9 +160,7 @@ export default async function PricingPage({ params }: Props) {
               <h3 className="text-xl font-semibold text-foreground">
                 {t('guarantee.title')}
               </h3>
-              <p className="text-muted-foreground">
-                {t('guarantee.description')}
-              </p>
+              <p className="text-muted-foreground">{t('guarantee.description')}</p>
             </div>
           </div>
         </div>
@@ -233,9 +194,7 @@ export default async function PricingPage({ params }: Props) {
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </summary>
-                  <p className="mt-4 text-muted-foreground">
-                    {t(`faq.${key}.answer`)}
-                  </p>
+                  <p className="mt-4 text-muted-foreground">{t(`faq.${key}.answer`)}</p>
                 </details>
               ))}
             </div>

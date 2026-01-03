@@ -1,6 +1,7 @@
 export * from './hero';
 export * from './features';
-export * from './stats';
-export * from './testimonials';
+export * from './benefits';
+export * from './trust';
 export * from './cta';
+export * from './pricing-plans';
 

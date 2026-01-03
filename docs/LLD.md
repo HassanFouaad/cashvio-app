@@ -1,2317 +1,2369 @@
-# Low-Level Design (LLD) - Landing Application
+# Low-Level Design (LLD) - Detailed Implementation
 
-## 1. Project Structure
-
-### 1.1 Complete Directory Structure
-
-```
-my-app/
-├── public/
-│   ├── fonts/                      # Self-hosted fonts (optional)
-│   ├── images/
-│   │   ├── logo.svg
-│   │   ├── logo-dark.svg
-│   │   ├── og-image.png            # Default OG image (1200x630)
-│   │   └── ...
-│   ├── robots.txt                  # Static fallback (dynamic preferred)
-│   └── favicon.ico
-│
-├── content/
-│   └── docs/                       # Documentation MDX files
-│       ├── en/
-│       │   ├── _meta.json          # Navigation structure
-│       │   ├── getting-started/
-│       │   │   ├── _meta.json
-│       │   │   ├── introduction.mdx
-│       │   │   └── ...
-│       │   └── ...
-│       └── ar/
-│           └── ... (mirror structure)
-│
-├── messages/                       # i18n translations
-│   ├── en.json                     # English translations
-│   └── ar.json                     # Arabic translations
-│
-├── src/
-│   ├── app/
-│   │   ├── [locale]/               # Locale-based routing
-│   │   │   ├── layout.tsx          # Root locale layout
-│   │   │   ├── page.tsx            # Home page
-│   │   │   ├── pricing/
-│   │   │   │   └── page.tsx
-│   │   │   ├── contact/
-│   │   │   │   └── page.tsx
-│   │   │   ├── privacy/
-│   │   │   │   └── page.tsx
-│   │   │   ├── terms/
-│   │   │   │   └── page.tsx
-│   │   │   ├── docs/
-│   │   │   │   ├── page.tsx        # Docs index
-│   │   │   │   └── [...slug]/
-│   │   │   │       └── page.tsx    # Dynamic doc pages
-│   │   │   └── not-found.tsx
-│   │   │
-│   │   ├── layout.tsx              # Root layout (minimal)
-│   │   ├── not-found.tsx           # Global 404
-│   │   ├── sitemap.ts              # Dynamic sitemap generator
-│   │   ├── robots.ts               # Dynamic robots.txt
-│   │   ├── manifest.ts             # Web manifest
-│   │   └── globals.css             # Global styles + Tailwind
-│   │
-│   ├── components/
-│   │   ├── ui/                     # Base UI components
-│   │   │   ├── button.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── badge.tsx
-│   │   │   └── ...
-│   │   │
-│   │   ├── layout/                 # Layout components
-│   │   │   ├── header.tsx
-│   │   │   ├── footer.tsx
-│   │   │   ├── navigation.tsx
-│   │   │   ├── mobile-nav.tsx
-│   │   │   ├── locale-switcher.tsx
-│   │   │   └── theme-toggle.tsx
-│   │   │
-│   │   ├── sections/               # Page sections
-│   │   │   ├── hero.tsx
-│   │   │   ├── features.tsx
-│   │   │   ├── pricing-cards.tsx
-│   │   │   ├── testimonials.tsx
-│   │   │   ├── cta.tsx
-│   │   │   └── ...
-│   │   │
-│   │   ├── docs/                   # Documentation components
-│   │   │   ├── doc-sidebar.tsx
-│   │   │   ├── doc-toc.tsx
-│   │   │   ├── doc-pagination.tsx
-│   │   │   ├── doc-search.tsx
-│   │   │   └── mdx-components.tsx
-│   │   │
-│   │   └── seo/                    # SEO components
-│   │       ├── json-ld.tsx
-│   │       └── breadcrumbs.tsx
-│   │
-│   ├── config/
-│   │   ├── site.ts                 # Site configuration
-│   │   ├── navigation.ts           # Navigation structure
-│   │   ├── theme.ts                # Theme configuration
-│   │   └── seo.ts                  # SEO defaults
-│   │
-│   ├── lib/
-│   │   ├── api/
-│   │   │   ├── client.ts           # API client
-│   │   │   └── plans.ts            # Plans API functions
-│   │   │
-│   │   ├── docs/
-│   │   │   ├── mdx.ts              # MDX processing
-│   │   │   ├── navigation.ts       # Docs navigation builder
-│   │   │   └── search.ts           # Search index builder
-│   │   │
-│   │   └── utils/
-│   │       ├── cn.ts               # Class name utility
-│   │       ├── format.ts           # Formatting utilities
-│   │       └── locale.ts           # Locale utilities
-│   │
-│   ├── i18n/
-│   │   ├── routing.ts              # i18n routing config
-│   │   ├── request.ts              # Request config
-│   │   └── navigation.ts           # Localized navigation helpers
-│   │
-│   ├── types/
-│   │   ├── index.ts                # Type exports
-│   │   ├── plan.ts                 # Plan types
-│   │   ├── docs.ts                 # Documentation types
-│   │   └── seo.ts                  # SEO types
-│   │
-│   └── middleware.ts               # i18n middleware
-│
-├── docs/                           # Project documentation
-│   ├── HLD.md
-│   └── LLD.md
-│
-├── tailwind.config.ts              # Tailwind configuration
-├── next.config.ts                  # Next.js configuration
-├── tsconfig.json                   # TypeScript configuration
-├── package.json
-└── README.md
-```
+## Table of Contents
+1. [Backend Implementation](#1-backend-implementation)
+2. [Frontend Implementation](#2-frontend-implementation)
+3. [Database Schema Changes](#3-database-schema-changes)
+4. [API Specifications](#4-api-specifications)
 
 ---
 
-## 2. Core Configuration Files
+## 1. Backend Implementation
 
-### 2.1 Next.js Configuration (`next.config.ts`)
+### 1.1 Plan Model Enhancement
 
+#### Current Model
 ```typescript
-import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
+// be/src/modules/subscriptions/models/plan.model.ts
+@Table({ tableName: 'plans', timestamps: true })
+export class Plan extends BaseEntity<PlanAttributes, PlanCreationAttributes> {
+  @Column({ type: DataType.STRING(255), allowNull: false })
+  arName: string;
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+  @Column({ type: DataType.STRING(255), allowNull: false })
+  enName: string;
 
-const nextConfig: NextConfig = {
-  // Enable React Strict Mode for better development experience
-  reactStrictMode: true,
+  @Column({ type: DataType.DECIMAL(10, 2), allowNull: false })
+  price: number;
 
-  // Optimize images
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'your-cdn.com', // Add your CDN hostname
-      },
-    ],
-  },
+  @Column({ type: DataType.STRING(20), allowNull: false })
+  period: PlanPeriod;
 
-  // Security headers
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
-
-  // Experimental features for maximum performance
-  experimental: {
-    // Enable Partial Prerendering (when stable)
-    // ppr: 'incremental',
-  },
-};
-
-export default withNextIntl(nextConfig);
+  @Column({ type: DataType.BOOLEAN, allowNull: false, defaultValue: true })
+  isActive: boolean;
+}
 ```
 
-### 2.2 Tailwind Configuration (`tailwind.config.ts`)
-
+#### Enhanced Model
 ```typescript
-import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography';
-
-const config: Config = {
-  darkMode: 'class',
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './content/**/*.mdx',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        // Primary brand color (configurable via CSS variables)
-        primary: {
-          DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
-          light: 'hsl(var(--color-primary-light) / <alpha-value>)',
-          dark: 'hsl(var(--color-primary-dark) / <alpha-value>)',
-          foreground: 'hsl(var(--color-primary-foreground) / <alpha-value>)',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--color-secondary) / <alpha-value>)',
-          foreground: 'hsl(var(--color-secondary-foreground) / <alpha-value>)',
-        },
-        background: 'hsl(var(--color-background) / <alpha-value>)',
-        foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
-        muted: {
-          DEFAULT: 'hsl(var(--color-muted) / <alpha-value>)',
-          foreground: 'hsl(var(--color-muted-foreground) / <alpha-value>)',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--color-card) / <alpha-value>)',
-          foreground: 'hsl(var(--color-card-foreground) / <alpha-value>)',
-        },
-        border: 'hsl(var(--color-border) / <alpha-value>)',
-        accent: {
-          DEFAULT: 'hsl(var(--color-accent) / <alpha-value>)',
-          foreground: 'hsl(var(--color-accent-foreground) / <alpha-value>)',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--color-destructive) / <alpha-value>)',
-          foreground: 'hsl(var(--color-destructive-foreground) / <alpha-value>)',
-        },
-      },
-      fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
-        arabic: ['var(--font-arabic)', 'system-ui', 'sans-serif'],
-      },
-      borderRadius: {
-        sm: 'var(--radius-sm)',
-        md: 'var(--radius-md)',
-        lg: 'var(--radius-lg)',
-        xl: 'var(--radius-xl)',
-      },
-      animation: {
-        'fade-in': 'fade-in 0.5s ease-out',
-        'fade-up': 'fade-up 0.5s ease-out',
-        'slide-in-left': 'slide-in-left 0.5s ease-out',
-        'slide-in-right': 'slide-in-right 0.5s ease-out',
-      },
-      keyframes: {
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        'slide-in-left': {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        'slide-in-right': {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            '--tw-prose-body': 'hsl(var(--color-foreground))',
-            '--tw-prose-headings': 'hsl(var(--color-foreground))',
-            '--tw-prose-lead': 'hsl(var(--color-muted-foreground))',
-            '--tw-prose-links': 'hsl(var(--color-primary))',
-            '--tw-prose-bold': 'hsl(var(--color-foreground))',
-            '--tw-prose-counters': 'hsl(var(--color-muted-foreground))',
-            '--tw-prose-bullets': 'hsl(var(--color-muted-foreground))',
-            '--tw-prose-hr': 'hsl(var(--color-border))',
-            '--tw-prose-quotes': 'hsl(var(--color-foreground))',
-            '--tw-prose-quote-borders': 'hsl(var(--color-border))',
-            '--tw-prose-captions': 'hsl(var(--color-muted-foreground))',
-            '--tw-prose-code': 'hsl(var(--color-foreground))',
-            '--tw-prose-pre-code': 'hsl(var(--color-foreground))',
-            '--tw-prose-pre-bg': 'hsl(var(--color-muted))',
-            '--tw-prose-th-borders': 'hsl(var(--color-border))',
-            '--tw-prose-td-borders': 'hsl(var(--color-border))',
-          },
-        },
-      },
-    },
-  },
-  plugins: [typography],
-};
-
-export default config;
-```
-
-### 2.3 Global CSS (`src/app/globals.css`)
-
-```css
-@import 'tailwindcss';
-
-/* ============================================
-   CSS VARIABLES - LIGHT THEME (DEFAULT)
-   ============================================ */
-:root {
-  /* Primary Brand Colors - CUSTOMIZE THESE */
-  --color-primary: 220 90% 56%;
-  --color-primary-light: 220 90% 66%;
-  --color-primary-dark: 220 90% 46%;
-  --color-primary-foreground: 0 0% 100%;
-  
-  /* Secondary Brand Color */
-  --color-secondary: 262 83% 58%;
-  --color-secondary-foreground: 0 0% 100%;
-  
-  /* Accent Color */
-  --color-accent: 173 80% 40%;
-  --color-accent-foreground: 0 0% 100%;
-  
-  /* Semantic Colors */
-  --color-background: 0 0% 100%;
-  --color-foreground: 222 47% 11%;
-  
-  --color-muted: 210 40% 96%;
-  --color-muted-foreground: 215 16% 47%;
-  
-  --color-card: 0 0% 100%;
-  --color-card-foreground: 222 47% 11%;
-  
-  --color-border: 214 32% 91%;
-  
-  --color-destructive: 0 84% 60%;
-  --color-destructive-foreground: 0 0% 100%;
-  
-  /* Border Radius Scale */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
-}
-
-/* ============================================
-   CSS VARIABLES - DARK THEME
-   ============================================ */
-.dark {
-  --color-primary: 220 90% 60%;
-  --color-primary-light: 220 90% 70%;
-  --color-primary-dark: 220 90% 50%;
-  --color-primary-foreground: 0 0% 100%;
-  
-  --color-secondary: 262 83% 65%;
-  --color-secondary-foreground: 0 0% 100%;
-  
-  --color-accent: 173 80% 50%;
-  --color-accent-foreground: 0 0% 100%;
-  
-  --color-background: 222 47% 6%;
-  --color-foreground: 210 40% 98%;
-  
-  --color-muted: 217 33% 12%;
-  --color-muted-foreground: 215 20% 65%;
-  
-  --color-card: 222 47% 9%;
-  --color-card-foreground: 210 40% 98%;
-  
-  --color-border: 217 33% 20%;
-  
-  --color-destructive: 0 63% 50%;
-  --color-destructive-foreground: 0 0% 100%;
-}
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  @apply bg-background text-foreground;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  min-height: 100vh;
-}
-
-/* RTL Support */
-[dir='rtl'] body {
-  font-family: var(--font-arabic), var(--font-sans), system-ui, sans-serif;
-}
-
-/* Focus Styles for Accessibility */
-*:focus-visible {
-  @apply outline-2 outline-offset-2 outline-primary;
-}
-
-/* Selection Colors */
-::selection {
-  @apply bg-primary/20 text-foreground;
-}
-
-/* ============================================
-   SCROLLBAR STYLING
-   ============================================ */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-muted;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/30 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/50;
-}
-
-/* ============================================
-   ANIMATION UTILITIES
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Staggered animation delays */
-.animate-delay-100 { animation-delay: 100ms; }
-.animate-delay-200 { animation-delay: 200ms; }
-.animate-delay-300 { animation-delay: 300ms; }
-.animate-delay-400 { animation-delay: 400ms; }
-.animate-delay-500 { animation-delay: 500ms; }
-
-/* ============================================
-   PROSE/TYPOGRAPHY OVERRIDES
-   ============================================ */
-.prose {
-  @apply max-w-none;
-}
-
-.prose code:not(pre code) {
-  @apply bg-muted px-1.5 py-0.5 rounded-md text-sm font-mono;
-}
-
-.prose pre {
-  @apply bg-muted border border-border rounded-lg;
-}
-
-/* ============================================
-   RTL UTILITIES
-   ============================================ */
-[dir='rtl'] .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 1;
-}
-```
-
----
-
-## 3. Internationalization Setup
-
-### 3.1 i18n Routing Configuration (`src/i18n/routing.ts`)
-
-```typescript
-import { defineRouting } from 'next-intl/routing';
-
-export const locales = ['en', 'ar'] as const;
-export type Locale = (typeof locales)[number];
-
-export const routing = defineRouting({
-  // All supported locales
-  locales,
-  
-  // Default locale
-  defaultLocale: 'en',
-  
-  // Locale prefix strategy:
-  // 'always' - /en/about, /ar/about
-  // 'as-needed' - /about (default), /ar/about
-  // 'never' - /about (with cookie/header detection)
-  localePrefix: 'always',
-  
-  // Localized pathnames (optional)
-  pathnames: {
-    '/': '/',
-    '/pricing': {
-      en: '/pricing',
-      ar: '/pricing', // Can use /التسعير for Arabic URLs
-    },
-    '/contact': {
-      en: '/contact',
-      ar: '/contact',
-    },
-    '/privacy': {
-      en: '/privacy',
-      ar: '/privacy',
-    },
-    '/terms': {
-      en: '/terms',
-      ar: '/terms',
-    },
-    '/docs': {
-      en: '/docs',
-      ar: '/docs',
-    },
-    '/docs/[...slug]': {
-      en: '/docs/[...slug]',
-      ar: '/docs/[...slug]',
-    },
-  },
-});
-
-// Locale metadata
-export const localeMetadata: Record<Locale, {
-  name: string;
-  nativeName: string;
-  direction: 'ltr' | 'rtl';
-  hrefLang: string;
-}> = {
-  en: {
-    name: 'English',
-    nativeName: 'English',
-    direction: 'ltr',
-    hrefLang: 'en',
-  },
-  ar: {
-    name: 'Arabic',
-    nativeName: 'العربية',
-    direction: 'rtl',
-    hrefLang: 'ar',
-  },
-};
-```
-
-### 3.2 Request Configuration (`src/i18n/request.ts`)
-
-```typescript
-import { hasLocale } from 'next-intl';
-import { getRequestConfig } from 'next-intl/server';
-import { routing, type Locale } from './routing';
-
-export default getRequestConfig(async ({ requestLocale }) => {
-  // Validate and get locale
-  const requested = await requestLocale;
-  const locale: Locale = hasLocale(routing.locales, requested)
-    ? requested
-    : routing.defaultLocale;
-
-  // Load messages for the locale
-  const messages = (await import(`../../messages/${locale}.json`)).default;
-
-  return {
-    locale,
-    messages,
-    
-    // Timezone for date formatting
-    timeZone: 'UTC',
-    
-    // Date/Time formats
-    formats: {
-      dateTime: {
-        short: {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-        },
-        long: {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-          weekday: 'long',
-        },
-      },
-      number: {
-        currency: {
-          style: 'currency',
-          currency: 'USD',
-        },
-        percentage: {
-          style: 'percent',
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 2,
-        },
-      },
-    },
-    
-    // Error handling
-    onError(error) {
-      if (error.code === 'MISSING_MESSAGE') {
-        console.warn('Missing translation:', error.message);
-      } else {
-        console.error('i18n error:', error);
-      }
-    },
-    
-    // Fallback behavior
-    getMessageFallback({ namespace, key }) {
-      return `${namespace}.${key}`;
-    },
-  };
-});
-```
-
-### 3.3 Navigation Helpers (`src/i18n/navigation.ts`)
-
-```typescript
-import { createNavigation } from 'next-intl/navigation';
-import { routing } from './routing';
-
-// Create navigation helpers with type safety
-export const {
-  Link,
-  redirect,
-  usePathname,
-  useRouter,
-  getPathname,
-} = createNavigation(routing);
-```
-
-### 3.4 Middleware (`src/middleware.ts`)
-
-```typescript
-import createMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
-
-export default createMiddleware(routing, {
-  // Locale detection from Accept-Language header
-  localeDetection: true,
-});
-
-export const config = {
-  // Match all routes except static files and API routes
-  matcher: [
-    // Match all pathnames except for
-    // - /api routes
-    // - /_next (Next.js internals)
-    // - /_static (static files)
-    // - /favicon.ico, sitemap.xml, robots.txt
-    '/((?!api|_next|_static|_vercel|favicon.ico|sitemap.xml|robots.txt|.*\\..*).*)',
-  ],
-};
-```
-
-### 3.5 Translation Messages Structure
-
-#### English (`messages/en.json`)
-
-```json
-{
-  "metadata": {
-    "siteName": "Your Company",
-    "siteDescription": "The best solution for your business needs",
-    "home": {
-      "title": "Home - Your Company",
-      "description": "Welcome to Your Company - The leading platform for..."
-    },
-    "pricing": {
-      "title": "Pricing & Plans - Your Company",
-      "description": "Choose the perfect plan for your business needs"
-    },
-    "contact": {
-      "title": "Contact Us - Your Company",
-      "description": "Get in touch with our team"
-    },
-    "privacy": {
-      "title": "Privacy Policy - Your Company",
-      "description": "Learn how we protect your data"
-    },
-    "terms": {
-      "title": "Terms & Conditions - Your Company",
-      "description": "Our terms of service"
-    },
-    "docs": {
-      "title": "Documentation - Your Company",
-      "description": "Comprehensive guides and API documentation"
-    }
-  },
-  "common": {
-    "getStarted": "Get Started",
-    "learnMore": "Learn More",
-    "contactUs": "Contact Us",
-    "viewPricing": "View Pricing",
-    "readDocs": "Read Documentation",
-    "switchLanguage": "العربية",
-    "darkMode": "Dark Mode",
-    "lightMode": "Light Mode"
-  },
-  "navigation": {
-    "home": "Home",
-    "pricing": "Pricing",
-    "contact": "Contact",
-    "docs": "Docs",
-    "privacy": "Privacy",
-    "terms": "Terms"
-  },
-  "home": {
-    "hero": {
-      "title": "Transform Your Business with Our Platform",
-      "subtitle": "The all-in-one solution that helps you manage, grow, and succeed",
-      "cta": "Start Free Trial"
-    },
-    "features": {
-      "title": "Why Choose Us",
-      "subtitle": "Everything you need to succeed"
-    },
-    "testimonials": {
-      "title": "What Our Customers Say",
-      "subtitle": "Join thousands of satisfied customers"
-    },
-    "cta": {
-      "title": "Ready to Get Started?",
-      "subtitle": "Start your free trial today",
-      "button": "Start Now"
-    }
-  },
-  "pricing": {
-    "title": "Simple, Transparent Pricing",
-    "subtitle": "Choose the plan that's right for you",
-    "monthly": "Monthly",
-    "yearly": "Yearly",
-    "perMonth": "/month",
-    "perYear": "/year",
-    "popular": "Most Popular",
-    "features": "Features",
-    "getStarted": "Get Started",
-    "contactSales": "Contact Sales",
-    "enterprise": {
-      "title": "Enterprise",
-      "description": "For large organizations with custom needs"
-    }
-  },
-  "contact": {
-    "title": "Get in Touch",
-    "subtitle": "We'd love to hear from you",
-    "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "subject": "Subject",
-      "message": "Message",
-      "submit": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
-    },
-    "info": {
-      "title": "Contact Information",
-      "email": "Email",
-      "phone": "Phone",
-      "address": "Address"
-    }
-  },
-  "docs": {
-    "searchPlaceholder": "Search documentation...",
-    "onThisPage": "On this page",
-    "editOnGitHub": "Edit this page",
-    "lastUpdated": "Last updated",
-    "previous": "Previous",
-    "next": "Next"
-  },
-  "footer": {
-    "description": "Your trusted partner for business success",
-    "company": "Company",
-    "resources": "Resources",
-    "legal": "Legal",
-    "social": "Follow Us",
-    "copyright": "© {year} Your Company. All rights reserved."
-  },
-  "errors": {
-    "notFound": {
-      "title": "Page Not Found",
-      "description": "The page you're looking for doesn't exist",
-      "backHome": "Go Back Home"
-    }
-  }
-}
-```
-
-#### Arabic (`messages/ar.json`)
-
-```json
-{
-  "metadata": {
-    "siteName": "شركتك",
-    "siteDescription": "الحل الأفضل لاحتياجات عملك",
-    "home": {
-      "title": "الرئيسية - شركتك",
-      "description": "مرحباً بك في شركتك - المنصة الرائدة في..."
-    },
-    "pricing": {
-      "title": "الأسعار والباقات - شركتك",
-      "description": "اختر الباقة المثالية لاحتياجات عملك"
-    },
-    "contact": {
-      "title": "تواصل معنا - شركتك",
-      "description": "تواصل مع فريقنا"
-    },
-    "privacy": {
-      "title": "سياسة الخصوصية - شركتك",
-      "description": "تعرف على كيفية حماية بياناتك"
-    },
-    "terms": {
-      "title": "الشروط والأحكام - شركتك",
-      "description": "شروط الخدمة الخاصة بنا"
-    },
-    "docs": {
-      "title": "التوثيق - شركتك",
-      "description": "أدلة شاملة وتوثيق API"
-    }
-  },
-  "common": {
-    "getStarted": "ابدأ الآن",
-    "learnMore": "اعرف المزيد",
-    "contactUs": "تواصل معنا",
-    "viewPricing": "عرض الأسعار",
-    "readDocs": "قراءة التوثيق",
-    "switchLanguage": "English",
-    "darkMode": "الوضع الداكن",
-    "lightMode": "الوضع الفاتح"
-  },
-  "navigation": {
-    "home": "الرئيسية",
-    "pricing": "الأسعار",
-    "contact": "تواصل معنا",
-    "docs": "التوثيق",
-    "privacy": "الخصوصية",
-    "terms": "الشروط"
-  },
-  "home": {
-    "hero": {
-      "title": "حوّل عملك مع منصتنا",
-      "subtitle": "الحل الشامل الذي يساعدك على الإدارة والنمو والنجاح",
-      "cta": "ابدأ التجربة المجانية"
-    },
-    "features": {
-      "title": "لماذا تختارنا",
-      "subtitle": "كل ما تحتاجه للنجاح"
-    },
-    "testimonials": {
-      "title": "ماذا يقول عملاؤنا",
-      "subtitle": "انضم إلى آلاف العملاء الراضين"
-    },
-    "cta": {
-      "title": "مستعد للبدء؟",
-      "subtitle": "ابدأ تجربتك المجانية اليوم",
-      "button": "ابدأ الآن"
-    }
-  },
-  "pricing": {
-    "title": "أسعار بسيطة وشفافة",
-    "subtitle": "اختر الباقة المناسبة لك",
-    "monthly": "شهري",
-    "yearly": "سنوي",
-    "perMonth": "/شهر",
-    "perYear": "/سنة",
-    "popular": "الأكثر شعبية",
-    "features": "المميزات",
-    "getStarted": "ابدأ الآن",
-    "contactSales": "تواصل مع المبيعات",
-    "enterprise": {
-      "title": "المؤسسات",
-      "description": "للمؤسسات الكبيرة ذات الاحتياجات الخاصة"
-    }
-  },
-  "contact": {
-    "title": "تواصل معنا",
-    "subtitle": "نحب أن نسمع منك",
-    "form": {
-      "name": "الاسم الكامل",
-      "email": "البريد الإلكتروني",
-      "phone": "رقم الهاتف",
-      "subject": "الموضوع",
-      "message": "الرسالة",
-      "submit": "إرسال الرسالة",
-      "sending": "جاري الإرسال...",
-      "success": "تم إرسال الرسالة بنجاح!",
-      "error": "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى."
-    },
-    "info": {
-      "title": "معلومات التواصل",
-      "email": "البريد الإلكتروني",
-      "phone": "الهاتف",
-      "address": "العنوان"
-    }
-  },
-  "docs": {
-    "searchPlaceholder": "البحث في التوثيق...",
-    "onThisPage": "في هذه الصفحة",
-    "editOnGitHub": "تعديل هذه الصفحة",
-    "lastUpdated": "آخر تحديث",
-    "previous": "السابق",
-    "next": "التالي"
-  },
-  "footer": {
-    "description": "شريكك الموثوق لنجاح الأعمال",
-    "company": "الشركة",
-    "resources": "الموارد",
-    "legal": "قانوني",
-    "social": "تابعنا",
-    "copyright": "© {year} شركتك. جميع الحقوق محفوظة."
-  },
-  "errors": {
-    "notFound": {
-      "title": "الصفحة غير موجودة",
-      "description": "الصفحة التي تبحث عنها غير موجودة",
-      "backHome": "العودة للرئيسية"
-    }
-  }
-}
-```
-
----
-
-## 4. Layout Implementation
-
-### 4.1 Root Layout (`src/app/layout.tsx`)
-
-```typescript
-import type { ReactNode } from 'react';
-
-// Minimal root layout - locale layout handles everything
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return children;
-}
-```
-
-### 4.2 Locale Layout (`src/app/[locale]/layout.tsx`)
-
-```typescript
-import type { Metadata, Viewport } from 'next';
-import type { ReactNode } from 'react';
-import { notFound } from 'next/navigation';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { hasLocale } from 'next-intl';
-
-import { routing, localeMetadata, type Locale } from '@/i18n/routing';
-import { siteConfig } from '@/config/site';
-import { getFonts } from '@/lib/fonts';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
-
-import '../globals.css';
-
-// Generate static params for all locales
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-// Generate metadata
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata' });
-
-  const alternateLanguages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    alternateLanguages[loc] = `${siteConfig.url}/${loc}`;
-  }
-
-  return {
-    metadataBase: new URL(siteConfig.url),
-    title: {
-      default: t('siteName'),
-      template: `%s | ${t('siteName')}`,
-    },
-    description: t('siteDescription'),
-    keywords: siteConfig.keywords,
-    authors: [{ name: siteConfig.name }],
-    creator: siteConfig.name,
-    publisher: siteConfig.name,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
-      languages: alternateLanguages,
-    },
-    openGraph: {
-      type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
-      url: siteConfig.url,
-      siteName: t('siteName'),
-      title: t('siteName'),
-      description: t('siteDescription'),
-      images: [
-        {
-          url: `${siteConfig.url}/images/og-image.png`,
-          width: 1200,
-          height: 630,
-          alt: t('siteName'),
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('siteName'),
-      description: t('siteDescription'),
-      images: [`${siteConfig.url}/images/og-image.png`],
-      creator: siteConfig.social.twitter,
-    },
-    icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon-16x16.png',
-      apple: '/apple-touch-icon.png',
-    },
-    manifest: '/manifest.webmanifest',
-  };
-}
-
-// Viewport configuration
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-};
-
-interface LocaleLayoutProps {
-  children: ReactNode;
-  params: Promise<{ locale: string }>;
-}
-
-export default async function LocaleLayout({
-  children,
-  params,
-}: LocaleLayoutProps) {
-  const { locale } = await params;
-
-  // Validate locale
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  // Enable static rendering
-  setRequestLocale(locale);
-
-  // Get locale metadata
-  const { direction } = localeMetadata[locale as Locale];
-
-  // Get fonts for the locale
-  const { fontSans, fontMono, fontArabic } = getFonts(locale as Locale);
-
-  return (
-    <html
-      lang={locale}
-      dir={direction}
-      suppressHydrationWarning
-      className={`${fontSans.variable} ${fontMono.variable} ${fontArabic?.variable || ''}`}
-    >
-      <head>
-        {/* Preconnect to important origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Theme script - runs before paint to prevent flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (theme === 'dark' || (!theme && prefersDark)) {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
-        <Header locale={locale as Locale} />
-        <main className="flex-1">{children}</main>
-        <Footer locale={locale as Locale} />
-      </body>
-    </html>
-  );
-}
-```
-
----
-
-## 5. SEO Implementation
-
-### 5.1 Sitemap Generator (`src/app/sitemap.ts`)
-
-```typescript
-import type { MetadataRoute } from 'next';
-import { routing } from '@/i18n/routing';
-import { siteConfig } from '@/config/site';
-import { getDocsSlugs } from '@/lib/docs/navigation';
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = siteConfig.url;
-  const lastModified = new Date();
-
-  // Static pages
-  const staticPages = ['', '/pricing', '/contact', '/privacy', '/terms', '/docs'];
-
-  // Generate entries for each locale
-  const staticEntries = staticPages.flatMap((page) =>
-    routing.locales.map((locale) => ({
-      url: `${baseUrl}/${locale}${page}`,
-      lastModified,
-      changeFrequency: page === '' ? 'weekly' : 'monthly' as const,
-      priority: page === '' ? 1 : page === '/pricing' ? 0.9 : 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((loc) => [loc, `${baseUrl}/${loc}${page}`])
-        ),
-      },
-    }))
-  );
-
-  // Documentation pages
-  const docsSlugs = await getDocsSlugs();
-  const docsEntries = docsSlugs.flatMap((slug) =>
-    routing.locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/docs/${slug}`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-      alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((loc) => [loc, `${baseUrl}/${loc}/docs/${slug}`])
-        ),
-      },
-    }))
-  );
-
-  return [...staticEntries, ...docsEntries];
-}
-```
-
-### 5.2 Robots Configuration (`src/app/robots.ts`)
-
-```typescript
-import type { MetadataRoute } from 'next';
-import { siteConfig } from '@/config/site';
-
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/', '/private/'],
-      },
-    ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
-  };
-}
-```
-
-### 5.3 JSON-LD Component (`src/components/seo/json-ld.tsx`)
-
-```typescript
-import type { Thing, WithContext } from 'schema-dml-json-ld';
-
-interface JsonLdProps<T extends Thing> {
-  data: WithContext<T>;
-}
-
-export function JsonLd<T extends Thing>({ data }: JsonLdProps<T>) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(data).replace(/</g, '\\u003c'),
-      }}
-    />
-  );
-}
-
-// Pre-built schema generators
-export function generateOrganizationSchema(config: {
-  name: string;
-  url: string;
-  logo: string;
-  description: string;
-  email?: string;
-  phone?: string;
-  address?: {
-    street: string;
-    city: string;
-    country: string;
-  };
-  social?: string[];
-}) {
-  return {
-    '@context': 'https://schema.org' as const,
-    '@type': 'Organization' as const,
-    name: config.name,
-    url: config.url,
-    logo: config.logo,
-    description: config.description,
-    ...(config.email && { email: config.email }),
-    ...(config.phone && { telephone: config.phone }),
-    ...(config.address && {
-      address: {
-        '@type': 'PostalAddress' as const,
-        streetAddress: config.address.street,
-        addressLocality: config.address.city,
-        addressCountry: config.address.country,
-      },
-    }),
-    ...(config.social && { sameAs: config.social }),
-  };
-}
-
-export function generateWebSiteSchema(config: {
-  name: string;
-  url: string;
-  description: string;
-  searchUrl?: string;
-}) {
-  return {
-    '@context': 'https://schema.org' as const,
-    '@type': 'WebSite' as const,
-    name: config.name,
-    url: config.url,
-    description: config.description,
-    ...(config.searchUrl && {
-      potentialAction: {
-        '@type': 'SearchAction' as const,
-        target: {
-          '@type': 'EntryPoint' as const,
-          urlTemplate: config.searchUrl,
-        },
-        'query-input': 'required name=search_term_string',
-      },
-    }),
-  };
-}
-
-export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
-  return {
-    '@context': 'https://schema.org' as const,
-    '@type': 'BreadcrumbList' as const,
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem' as const,
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
-  };
-}
-
-export function generateProductSchema(config: {
-  name: string;
-  description: string;
-  image: string;
-  offers: Array<{
-    price: number;
-    priceCurrency: string;
-    availability: 'InStock' | 'OutOfStock';
-    url: string;
-  }>;
-}) {
-  return {
-    '@context': 'https://schema.org' as const,
-    '@type': 'Product' as const,
-    name: config.name,
-    description: config.description,
-    image: config.image,
-    offers: config.offers.map((offer) => ({
-      '@type': 'Offer' as const,
-      price: offer.price,
-      priceCurrency: offer.priceCurrency,
-      availability: `https://schema.org/${offer.availability}`,
-      url: offer.url,
-    })),
-  };
-}
-
-export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
-  return {
-    '@context': 'https://schema.org' as const,
-    '@type': 'FAQPage' as const,
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question' as const,
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer' as const,
-        text: faq.answer,
-      },
-    })),
-  };
-}
-```
-
----
-
-## 6. Component Architecture
-
-### 6.1 UI Components Base (`src/lib/utils/cn.ts`)
-
-```typescript
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
-
-### 6.2 Button Component (`src/components/ui/button.tsx`)
-
-```typescript
-import { forwardRef, type ButtonHTMLAttributes } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils/cn';
-
-const buttonVariants = cva(
-  // Base styles
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        primary:
-          'bg-primary text-primary-foreground hover:bg-primary-dark focus-visible:ring-primary',
-        secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/90 focus-visible:ring-secondary',
-        outline:
-          'border border-border bg-transparent hover:bg-muted focus-visible:ring-primary',
-        ghost:
-          'hover:bg-muted focus-visible:ring-primary',
-        link:
-          'text-primary underline-offset-4 hover:underline focus-visible:ring-primary',
-        destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive',
-      },
-      size: {
-        sm: 'h-9 px-3 text-sm',
-        md: 'h-10 px-4 text-sm',
-        lg: 'h-11 px-6 text-base',
-        xl: 'h-12 px-8 text-lg',
-        icon: 'h-10 w-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'md',
-    },
-  }
-);
-
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
-
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    return (
-      <button
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
-
-Button.displayName = 'Button';
-```
-
-### 6.3 Card Component (`src/components/ui/card.tsx`)
-
-```typescript
-import { forwardRef, type HTMLAttributes } from 'react';
-import { cn } from '@/lib/utils/cn';
-
-export const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        'rounded-xl border border-border bg-card text-card-foreground shadow-sm',
-        className
-      )}
-      {...props}
-    />
-  )
-);
-Card.displayName = 'Card';
-
-export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    />
-  )
-);
-CardHeader.displayName = 'CardHeader';
-
-export const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
-  ({ className, ...props }, ref) => (
-    <h3
-      ref={ref}
-      className={cn('text-2xl font-semibold leading-none tracking-tight', className)}
-      {...props}
-    />
-  )
-);
-CardTitle.displayName = 'CardTitle';
-
-export const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
-  ({ className, ...props }, ref) => (
-    <p
-      ref={ref}
-      className={cn('text-sm text-muted-foreground', className)}
-      {...props}
-    />
-  )
-);
-CardDescription.displayName = 'CardDescription';
-
-export const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
-  )
-);
-CardContent.displayName = 'CardContent';
-
-export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex items-center p-6 pt-0', className)}
-      {...props}
-    />
-  )
-);
-CardFooter.displayName = 'CardFooter';
-```
-
----
-
-## 7. Page Implementations
-
-### 7.1 Home Page (`src/app/[locale]/page.tsx`)
-
-```typescript
-import type { Metadata } from 'next';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-
-import { siteConfig } from '@/config/site';
-import { type Locale } from '@/i18n/routing';
-import { JsonLd, generateOrganizationSchema, generateWebSiteSchema } from '@/components/seo/json-ld';
-import { Hero } from '@/components/sections/hero';
-import { Features } from '@/components/sections/features';
-import { Testimonials } from '@/components/sections/testimonials';
-import { CTA } from '@/components/sections/cta';
-
-interface Props {
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata.home' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
-    },
-  };
-}
-
-export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  // JSON-LD structured data
-  const organizationSchema = generateOrganizationSchema({
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.png`,
-    description: siteConfig.description,
-    email: siteConfig.contact.email,
-    phone: siteConfig.contact.phone,
-    social: Object.values(siteConfig.social).filter(Boolean),
-  });
-
-  const websiteSchema = generateWebSiteSchema({
-    name: siteConfig.name,
-    url: siteConfig.url,
-    description: siteConfig.description,
-    searchUrl: `${siteConfig.url}/${locale}/docs?q={search_term_string}`,
-  });
-
-  return (
-    <>
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={websiteSchema} />
-      
-      <Hero locale={locale as Locale} />
-      <Features locale={locale as Locale} />
-      <Testimonials locale={locale as Locale} />
-      <CTA locale={locale as Locale} />
-    </>
-  );
-}
-```
-
-### 7.2 Pricing Page (`src/app/[locale]/pricing/page.tsx`)
-
-```typescript
-import type { Metadata } from 'next';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-
-import { siteConfig } from '@/config/site';
-import { type Locale } from '@/i18n/routing';
-import { getPlans } from '@/lib/api/plans';
-import { JsonLd, generateProductSchema, generateBreadcrumbSchema } from '@/components/seo/json-ld';
-import { PricingSection } from '@/components/sections/pricing';
-import { FAQ } from '@/components/sections/faq';
-
-interface Props {
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata.pricing' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}/pricing`,
-    },
-  };
-}
-
-// ISR: Revalidate every hour
-export const revalidate = 3600;
-
-export default async function PricingPage({ params }: Props) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  // Fetch plans from backend (with ISR caching)
-  const plans = await getPlans();
-
-  // Generate product schema for each plan
-  const productSchemas = plans.map((plan) =>
-    generateProductSchema({
-      name: locale === 'ar' ? plan.arName : plan.enName,
-      description: `${plan.period.toLowerCase()} subscription plan`,
-      image: `${siteConfig.url}/images/plans/${plan.id}.png`,
-      offers: [
-        {
-          price: plan.price,
-          priceCurrency: 'USD',
-          availability: plan.isActive ? 'InStock' : 'OutOfStock',
-          url: `${siteConfig.url}/${locale}/pricing#${plan.id}`,
-        },
-      ],
-    })
-  );
-
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'ar' ? 'الرئيسية' : 'Home', url: `${siteConfig.url}/${locale}` },
-    { name: locale === 'ar' ? 'الأسعار' : 'Pricing', url: `${siteConfig.url}/${locale}/pricing` },
-  ]);
-
-  return (
-    <>
-      <JsonLd data={breadcrumbSchema} />
-      {productSchemas.map((schema, index) => (
-        <JsonLd key={index} data={schema} />
-      ))}
-      
-      <PricingSection locale={locale as Locale} plans={plans} />
-      <FAQ locale={locale as Locale} />
-    </>
-  );
-}
-```
-
-### 7.3 Contact Page (`src/app/[locale]/contact/page.tsx`)
-
-```typescript
-import type { Metadata } from 'next';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-
-import { siteConfig } from '@/config/site';
-import { type Locale } from '@/i18n/routing';
-import { JsonLd, generateBreadcrumbSchema } from '@/components/seo/json-ld';
-import { ContactSection } from '@/components/sections/contact';
-
-interface Props {
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata.contact' });
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}/contact`,
-    },
-  };
-}
-
-export default async function ContactPage({ params }: Props) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  const contactSchema = {
-    '@context': 'https://schema.org' as const,
-    '@type': 'ContactPage' as const,
-    name: locale === 'ar' ? 'تواصل معنا' : 'Contact Us',
-    description: locale === 'ar' ? 'تواصل مع فريقنا' : 'Get in touch with our team',
-    url: `${siteConfig.url}/${locale}/contact`,
-    mainEntity: {
-      '@type': 'Organization' as const,
-      name: siteConfig.name,
-      email: siteConfig.contact.email,
-      telephone: siteConfig.contact.phone,
-    },
-  };
-
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: locale === 'ar' ? 'الرئيسية' : 'Home', url: `${siteConfig.url}/${locale}` },
-    { name: locale === 'ar' ? 'تواصل معنا' : 'Contact', url: `${siteConfig.url}/${locale}/contact` },
-  ]);
-
-  return (
-    <>
-      <JsonLd data={contactSchema} />
-      <JsonLd data={breadcrumbSchema} />
-      
-      <ContactSection locale={locale as Locale} />
-    </>
-  );
-}
-```
-
----
-
-## 8. Documentation System
-
-### 8.1 MDX Configuration (`src/lib/docs/mdx.ts`)
-
-```typescript
-import fs from 'fs/promises';
-import path from 'path';
-import matter from 'gray-matter';
-import { compileMDX } from 'next-mdx-remote/rsc';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
-import remarkGfm from 'remark-gfm';
-
-import { mdxComponents } from '@/components/docs/mdx-components';
-import type { DocFrontmatter, DocPage } from '@/types/docs';
-
-const DOCS_PATH = path.join(process.cwd(), 'content/docs');
-
-export async function getDocBySlug(
-  locale: string,
-  slug: string[]
-): Promise<DocPage | null> {
-  const filePath = path.join(DOCS_PATH, locale, ...slug) + '.mdx';
-
-  try {
-    const source = await fs.readFile(filePath, 'utf-8');
-    const { data, content } = matter(source);
-
-    const { content: compiledContent } = await compileMDX<DocFrontmatter>({
-      source: content,
-      components: mdxComponents,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          remarkPlugins: [remarkGfm],
-          rehypePlugins: [
-            rehypeSlug,
-            [
-              rehypeAutolinkHeadings,
-              {
-                behavior: 'wrap',
-                properties: {
-                  className: ['anchor'],
-                },
-              },
-            ],
-            [
-              rehypePrettyCode,
-              {
-                theme: 'github-dark',
-                keepBackground: true,
-              },
-            ],
-          ],
-        },
-      },
-    });
-
-    return {
-      frontmatter: data as DocFrontmatter,
-      content: compiledContent,
-      slug: slug.join('/'),
-    };
-  } catch {
-    return null;
-  }
-}
-
-export async function getAllDocSlugs(locale: string): Promise<string[][]> {
-  const slugs: string[][] = [];
-
-  async function walkDir(dir: string, currentSlug: string[] = []) {
-    const entries = await fs.readdir(dir, { withFileTypes: true });
-
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        await walkDir(path.join(dir, entry.name), [...currentSlug, entry.name]);
-      } else if (entry.name.endsWith('.mdx') && !entry.name.startsWith('_')) {
-        const slug = entry.name.replace('.mdx', '');
-        slugs.push([...currentSlug, slug]);
-      }
-    }
-  }
-
-  await walkDir(path.join(DOCS_PATH, locale));
-  return slugs;
-}
-```
-
-### 8.2 Documentation Page (`src/app/[locale]/docs/[...slug]/page.tsx`)
-
-```typescript
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
-
-import { siteConfig } from '@/config/site';
-import { routing, type Locale } from '@/i18n/routing';
-import { getDocBySlug, getAllDocSlugs } from '@/lib/docs/mdx';
-import { getDocsNavigation } from '@/lib/docs/navigation';
-import { JsonLd, generateBreadcrumbSchema } from '@/components/seo/json-ld';
-import { DocSidebar } from '@/components/docs/doc-sidebar';
-import { DocToc } from '@/components/docs/doc-toc';
-import { DocPagination } from '@/components/docs/doc-pagination';
-
-interface Props {
-  params: Promise<{ locale: string; slug: string[] }>;
-}
-
-export async function generateStaticParams() {
-  const params: Array<{ locale: string; slug: string[] }> = [];
-
-  for (const locale of routing.locales) {
-    const slugs = await getAllDocSlugs(locale);
-    for (const slug of slugs) {
-      params.push({ locale, slug });
-    }
-  }
-
-  return params;
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const doc = await getDocBySlug(locale, slug);
-
-  if (!doc) {
-    return {};
-  }
-
-  return {
-    title: doc.frontmatter.title,
-    description: doc.frontmatter.description,
-    alternates: {
-      canonical: `${siteConfig.url}/${locale}/docs/${slug.join('/')}`,
-    },
-  };
-}
-
-export default async function DocPage({ params }: Props) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
-
-  const doc = await getDocBySlug(locale, slug);
-
-  if (!doc) {
-    notFound();
-  }
-
-  const navigation = await getDocsNavigation(locale);
-
-  // Build breadcrumb
-  const breadcrumbItems = [
-    { name: locale === 'ar' ? 'الرئيسية' : 'Home', url: `${siteConfig.url}/${locale}` },
-    { name: locale === 'ar' ? 'التوثيق' : 'Docs', url: `${siteConfig.url}/${locale}/docs` },
-    ...slug.map((s, i) => ({
-      name: doc.frontmatter.title,
-      url: `${siteConfig.url}/${locale}/docs/${slug.slice(0, i + 1).join('/')}`,
-    })),
-  ];
-
-  const articleSchema = {
-    '@context': 'https://schema.org' as const,
-    '@type': 'TechArticle' as const,
-    headline: doc.frontmatter.title,
-    description: doc.frontmatter.description,
-    datePublished: doc.frontmatter.date,
-    dateModified: doc.frontmatter.lastModified || doc.frontmatter.date,
-    author: {
-      '@type': 'Organization' as const,
-      name: siteConfig.name,
-    },
-    publisher: {
-      '@type': 'Organization' as const,
-      name: siteConfig.name,
-      logo: {
-        '@type': 'ImageObject' as const,
-        url: `${siteConfig.url}/images/logo.png`,
-      },
-    },
-  };
-
-  return (
-    <>
-      <JsonLd data={generateBreadcrumbSchema(breadcrumbItems)} />
-      <JsonLd data={articleSchema} />
-
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_200px] gap-8">
-          {/* Sidebar */}
-          <aside className="hidden lg:block">
-            <DocSidebar navigation={navigation} currentSlug={slug.join('/')} />
-          </aside>
-
-          {/* Main Content */}
-          <article className="prose prose-lg dark:prose-invert max-w-none">
-            <h1>{doc.frontmatter.title}</h1>
-            {doc.content}
-            <DocPagination
-              navigation={navigation}
-              currentSlug={slug.join('/')}
-              locale={locale as Locale}
-            />
-          </article>
-
-          {/* Table of Contents */}
-          <aside className="hidden xl:block">
-            <DocToc headings={doc.frontmatter.headings || []} />
-          </aside>
-        </div>
-      </div>
-    </>
-  );
-}
-```
-
----
-
-## 9. API Integration
-
-### 9.1 API Client (`src/lib/api/client.ts`)
-
-```typescript
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-
-interface FetchOptions extends RequestInit {
-  timeout?: number;
-}
-
-export async function apiClient<T>(
-  endpoint: string,
-  options: FetchOptions = {}
-): Promise<T> {
-  const { timeout = 10000, ...fetchOptions } = options;
-
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-  try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      ...fetchOptions,
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        ...fetchOptions.headers,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status} ${response.statusText}`);
-    }
-
-    return response.json();
-  } finally {
-    clearTimeout(timeoutId);
-  }
-}
-```
-
-### 9.2 Plans API (`src/lib/api/plans.ts`)
-
-```typescript
-import { apiClient } from './client';
-import type { Plan } from '@/types/plan';
-
-interface PlansResponse {
-  data: Plan[];
-  meta: {
-    total: number;
-    page: number;
-    limit: number;
-  };
-}
-
-export async function getPlans(): Promise<Plan[]> {
-  try {
-    const response = await apiClient<PlansResponse>('/api/plans', {
-      next: {
-        revalidate: 3600, // Revalidate every hour
-        tags: ['plans'],
-      },
-    });
-
-    return response.data.filter((plan) => plan.isActive);
-  } catch (error) {
-    console.error('Failed to fetch plans:', error);
-    // Return fallback data for build time
-    return getFallbackPlans();
-  }
-}
-
-// Fallback plans for when API is unavailable
-function getFallbackPlans(): Plan[] {
-  return [
-    {
-      id: 'basic',
-      arName: 'الأساسية',
-      enName: 'Basic',
-      price: 9.99,
-      period: 'MONTH',
-      isActive: true,
-      planFeatures: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 'pro',
-      arName: 'احترافي',
-      enName: 'Professional',
-      price: 29.99,
-      period: 'MONTH',
-      isActive: true,
-      planFeatures: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      id: 'enterprise',
-      arName: 'المؤسسات',
-      enName: 'Enterprise',
-      price: 99.99,
-      period: 'MONTH',
-      isActive: true,
-      planFeatures: [],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
-}
-```
-
----
-
-## 10. Site Configuration
-
-### 10.1 Site Config (`src/config/site.ts`)
-
-```typescript
-export const siteConfig = {
-  name: 'Your Company',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yourcompany.com',
-  description: 'The best solution for your business needs',
-  
-  // Keywords for SEO
-  keywords: [
-    'business',
-    'platform',
-    'solution',
-    'enterprise',
-    // Add more relevant keywords
-  ],
-
-  // Contact information
-  contact: {
-    email: 'contact@yourcompany.com',
-    phone: '+1 (555) 123-4567',
-    address: {
-      street: '123 Business Street',
-      city: 'San Francisco, CA',
-      country: 'United States',
-    },
-  },
-
-  // Social media links
-  social: {
-    twitter: '@yourcompany',
-    facebook: 'https://facebook.com/yourcompany',
-    linkedin: 'https://linkedin.com/company/yourcompany',
-    github: 'https://github.com/yourcompany',
-  },
-
-  // Feature flags
-  features: {
-    blog: false,
-    newsletter: false,
-    analytics: true,
-  },
-} as const;
-
-export type SiteConfig = typeof siteConfig;
-```
-
-### 10.2 Theme Config (`src/config/theme.ts`)
-
-```typescript
-// Theme configuration - modify these values to customize your brand
-export const themeConfig = {
-  // Brand colors (HSL values without the hsl() wrapper)
-  colors: {
-    // Primary brand color
-    primary: {
-      light: '220 90% 56%',
-      dark: '220 90% 60%',
-    },
-    // Secondary brand color
-    secondary: {
-      light: '262 83% 58%',
-      dark: '262 83% 65%',
-    },
-    // Accent color
-    accent: {
-      light: '173 80% 40%',
-      dark: '173 80% 50%',
-    },
-  },
-
-  // Border radius scale
-  radius: {
-    sm: '0.25rem',
-    md: '0.5rem',
-    lg: '0.75rem',
-    xl: '1rem',
-    '2xl': '1.5rem',
-    full: '9999px',
-  },
-
-  // Font configuration
-  fonts: {
-    // Sans-serif font for body text
-    sans: 'Inter',
-    // Monospace font for code
-    mono: 'JetBrains Mono',
-    // Arabic font
-    arabic: 'IBM Plex Sans Arabic',
-  },
-
-  // Animation settings
-  animation: {
-    duration: {
-      fast: '150ms',
-      normal: '300ms',
-      slow: '500ms',
-    },
-    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-  },
-} as const;
-
-export type ThemeConfig = typeof themeConfig;
-```
-
----
-
-## 11. Type Definitions
-
-### 11.1 Plan Types (`src/types/plan.ts`)
-
-```typescript
-export type PlanPeriod = 'DAY' | 'WEEK' | 'MONTH' | 'YEAR';
-
-export interface PlanFeature {
-  id: string;
-  planId: string;
-  featureId: string;
-  value: boolean | Record<string, unknown>;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface Plan {
+// be/src/modules/subscriptions/models/plan.model.ts
+interface PlanAttributes {
   id: string;
   arName: string;
   enName: string;
+  detailsAr: string[];      // NEW
+  detailsEn: string[];      // NEW
   price: number;
   period: PlanPeriod;
   isActive: boolean;
-  planFeatures: PlanFeature[];
+  isFreemium: boolean;      // NEW
   createdAt: Date;
+  updatedAt: Date;
+}
+
+interface PlanCreationAttributes {
+  arName: string;
+  enName: string;
+  detailsAr?: string[];     // NEW
+  detailsEn?: string[];     // NEW
+  price: number;
+  period: PlanPeriod;
+  isActive?: boolean;
+  isFreemium?: boolean;     // NEW
+}
+
+@Table({ tableName: 'plans', timestamps: true })
+export class Plan extends BaseEntity<PlanAttributes, PlanCreationAttributes> {
+  // ... existing columns ...
+
+  @Column({
+    type: DataType.ARRAY(DataType.TEXT),
+    allowNull: true,
+    defaultValue: [],
+  })
+  detailsAr: string[];
+
+  @Column({
+    type: DataType.ARRAY(DataType.TEXT),
+    allowNull: true,
+    defaultValue: [],
+  })
+  detailsEn: string[];
+
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  })
+  isFreemium: boolean;
+}
+```
+
+### 1.2 Plan DTOs
+
+#### CreatePlanDto Enhancement
+```typescript
+// be/src/modules/subscriptions/dtos/create-plan.dto.ts
+export class CreatePlanDto {
+  @ApiProperty({ description: 'Plan name in Arabic', example: 'خطة شهرية' })
+  @IsString()
+  @IsNotEmpty()
+  arName: string;
+
+  @ApiProperty({ description: 'Plan name in English', example: 'Monthly Plan' })
+  @IsString()
+  @IsNotEmpty()
+  enName: string;
+
+  @ApiProperty({
+    description: 'Plan details/features in Arabic',
+    example: ['ميزة أولى', 'ميزة ثانية'],
+    required: false,
+  })
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  detailsAr?: string[];
+
+  @ApiProperty({
+    description: 'Plan details/features in English',
+    example: ['Feature one', 'Feature two'],
+    required: false,
+  })
+  @IsArray()
+  @IsString({ each: true })
+  @IsOptional()
+  detailsEn?: string[];
+
+  @ApiProperty({ description: 'Plan price', example: 99.99 })
+  @IsNumber()
+  @Min(0)
+  price: number;
+
+  @ApiProperty({ description: 'Plan period', enum: PlanPeriod })
+  @IsEnum(PlanPeriod)
+  period: PlanPeriod;
+
+  @ApiProperty({ description: 'Whether the plan is active', default: true })
+  @IsBoolean()
+  @IsOptional()
+  isActive?: boolean;
+
+  @ApiProperty({
+    description: 'Whether this is the freemium plan (only one allowed)',
+    default: false,
+  })
+  @IsBoolean()
+  @IsOptional()
+  isFreemium?: boolean;
+
+  @ApiProperty({ description: 'Features to include', required: false })
+  @IsArray()
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => PlanFeatureItemDto)
+  features?: PlanFeatureItemDto[];
+}
+```
+
+#### PlanDto Enhancement
+```typescript
+// be/src/modules/subscriptions/dtos/plan.dto.ts
+export class PlanDto {
+  @ApiProperty({ description: 'Plan unique identifier' })
+  id: string;
+
+  @ApiProperty({ description: 'Plan name in Arabic' })
+  arName: string;
+
+  @ApiProperty({ description: 'Plan name in English' })
+  enName: string;
+
+  @ApiProperty({ description: 'Plan details in Arabic', type: [String] })
+  detailsAr: string[];
+
+  @ApiProperty({ description: 'Plan details in English', type: [String] })
+  detailsEn: string[];
+
+  @ApiProperty({ description: 'Plan price' })
+  price: number;
+
+  @ApiProperty({ description: 'Plan period', enum: PlanPeriod })
+  period: PlanPeriod;
+
+  @ApiProperty({ description: 'Whether the plan is active' })
+  isActive: boolean;
+
+  @ApiProperty({ description: 'Whether this is the freemium plan' })
+  isFreemium: boolean;
+
+  @ApiProperty({ description: 'Plan creation date' })
+  createdAt: Date;
+
+  @ApiProperty({ description: 'Plan last update date' })
+  updatedAt: Date;
+
+  @ApiProperty({ description: 'Plan features', type: () => [PlanFeatureDto] })
+  planFeatures: PlanFeatureDto[];
+}
+```
+
+### 1.3 Public Plans Controller
+
+```typescript
+// be/src/modules/subscriptions/controllers/public.plans.controller.ts
+import { Controller, Get, Param, ParseUUIDPipe, Query } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Public } from '../../auth/decorators/public.decorator';
+import { ApiResponse, ResponseTransformer } from '../../../core';
+import { PaginatedResponseDto } from '../../../core/dtos/pagination.dto';
+import { ListPublicPlansDto } from '../dtos/list-public-plans.dto';
+import { PublicPlanDto } from '../dtos/public-plan.dto';
+import { PlansService } from '../services/plans.service';
+
+@Controller({ version: '1', path: 'public/plans' })
+@ApiTags('Public Plans')
+export class PublicPlansController {
+  constructor(
+    private readonly transformer: ResponseTransformer,
+    private readonly plansService: PlansService,
+  ) {}
+
+  @Public()
+  @Get()
+  @ApiOperation({ summary: 'Get all active plans (public)' })
+  async findAll(
+    @Query() query: ListPublicPlansDto,
+  ): Promise<ApiResponse<PaginatedResponseDto<PublicPlanDto>>> {
+    const plans = await this.plansService.findAllPublic(query);
+    return this.transformer.transform(plans);
+  }
+
+  @Public()
+  @Get(':id')
+  @ApiOperation({ summary: 'Get plan by ID (public)' })
+  async findById(
+    @Param('id', ParseUUIDPipe) id: string,
+  ): Promise<ApiResponse<PublicPlanDto>> {
+    const plan = await this.plansService.findByIdPublic(id);
+    return this.transformer.transform(plan);
+  }
+}
+```
+
+### 1.4 Plans Service Enhancement
+
+```typescript
+// be/src/modules/subscriptions/services/plans.service.ts
+
+// Add to existing PlansService class:
+
+/**
+ * Find all active plans for public API
+ */
+async findAllPublic(
+  query?: ListPublicPlansDto,
+): Promise<PaginatedResponseDto<PublicPlanDto>> {
+  return this.plansRepository.findAllActivePlans(query);
+}
+
+/**
+ * Find plan by ID for public API (only if active)
+ */
+async findByIdPublic(id: string): Promise<PublicPlanDto> {
+  const plan = await this.plansRepository.findActiveById(id);
+  if (!plan) {
+    throw new ApiException(
+      'subscriptions.errors.plan_not_found',
+      HttpStatus.NOT_FOUND,
+    );
+  }
+  return plan;
+}
+
+/**
+ * Find the freemium plan
+ */
+async findFreemiumPlan(): Promise<PlanDto | null> {
+  return this.plansRepository.findFreemiumPlan();
+}
+
+/**
+ * Validate freemium uniqueness before create/update
+ */
+private async validateFreemiumUniqueness(
+  isFreemium: boolean,
+  excludeId?: string,
+): Promise<void> {
+  if (!isFreemium) return;
+  
+  const existingFreemium = await this.plansRepository.findFreemiumPlan();
+  if (existingFreemium && existingFreemium.id !== excludeId) {
+    throw new ApiException(
+      'subscriptions.errors.freemium_plan_already_exists',
+      HttpStatus.CONFLICT,
+    );
+  }
+}
+```
+
+### 1.5 Plans Repository Enhancement
+
+```typescript
+// be/src/modules/subscriptions/repositories/plans.repository.ts
+
+// Add to existing PlansRepository class:
+
+/**
+ * Find all active plans for public display
+ */
+async findAllActivePlans(
+  query?: ListPublicPlansDto,
+): Promise<PaginatedResponseDto<PlanDto>> {
+  const plans = await this.planModel.findAll({
+    where: { isActive: true },
+    order: [
+      ['isFreemium', 'DESC'],  // Freemium first
+      ['price', 'ASC'],        // Then by price
+    ],
+  });
+
+  const dtoItems = this.toDTOList(plans);
+  return new PaginatedResponseDto<PlanDto>(dtoItems, dtoItems.length, 1, 100);
+}
+
+/**
+ * Find active plan by ID
+ */
+async findActiveById(id: string): Promise<PlanDto | null> {
+  const plan = await this.planModel.findOne({
+    where: { id, isActive: true },
+  });
+  return this.toDTO(plan);
+}
+
+/**
+ * Find the freemium plan
+ */
+async findFreemiumPlan(): Promise<PlanDto | null> {
+  const plan = await this.planModel.findOne({
+    where: { isFreemium: true, isActive: true },
+  });
+  return this.toDTO(plan);
+}
+```
+
+### 1.6 Subscription Expiry Processor Enhancement
+
+```typescript
+// be/src/modules/subscriptions/services/subscriptions.service.ts
+
+// Modify processExpiredSubscriptions method:
+
+async processExpiredSubscriptions(): Promise<void> {
+  this.logger.log('Starting subscription expiry check...');
+
+  try {
+    const expiredSubscriptions =
+      await this.subscriptionsRepository.findExpiredSubscriptions();
+
+    this.logger.log(
+      `Found ${expiredSubscriptions.length} expired subscriptions`,
+    );
+
+    for (const subscription of expiredSubscriptions) {
+      const transaction = await this.sequelize.transaction();
+
+      try {
+        // Get the plan to check if freemium
+        const plan = await this.plansService.findById(
+          subscription.planId,
+          undefined,
+          transaction,
+        );
+
+        if (plan.isFreemium) {
+          // Auto-renew freemium subscription
+          const newEndDate = this.calculateEndDate(new Date(), plan.period);
+          
+          await this.subscriptionsRepository.update(
+            subscription.id,
+            {
+              startDate: new Date(),
+              endDate: newEndDate,
+              status: SubscriptionStatus.ACTIVE,
+              isActive: true,
+            },
+            transaction,
+          );
+
+          this.logger.log(
+            `Auto-renewed freemium subscription ${subscription.id} until ${newEndDate.toISOString()}`,
+          );
+        } else {
+          // Mark as expired for paid plans
+          await this.subscriptionsRepository.updateStatus(
+            subscription.id,
+            SubscriptionStatus.EXPIRED,
+            transaction,
+          );
+
+          // Deactivate tenant
+          await this.tenantsService.deactivate(subscription.tenantId);
+
+          this.logger.log(
+            `Expired subscription ${subscription.id} and deactivated tenant ${subscription.tenantId}`,
+          );
+        }
+
+        await transaction.commit();
+      } catch (error) {
+        await transaction.rollback();
+        this.logger.error(
+          `Failed to process subscription ${subscription.id}`,
+          error,
+        );
+      }
+    }
+
+    this.logger.log('Subscription expiry check completed');
+  } catch (error) {
+    this.logger.error('Error during subscription expiry check', error);
+  }
+}
+```
+
+### 1.7 Registration API
+
+#### Register DTO
+```typescript
+// be/src/modules/auth/dtos/register.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
+
+export class RegisterDto {
+  // Business/Tenant Information
+  @ApiProperty({ description: 'Business name (slug auto-generated)', example: 'My Store' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  businessName: string;
+
+  @ApiProperty({ description: 'Contact phone with country code', example: '+201234567890' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(20)
+  contactPhone: string;
+
+  @ApiProperty({ description: 'Secondary contact phone', required: false })
+  @IsString()
+  @IsOptional()
+  @MaxLength(20)
+  secondaryContactPhone?: string;
+
+  // Admin User Information
+  @ApiProperty({ description: 'First name', example: 'John' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  firstName: string;
+
+  @ApiProperty({ description: 'Last name', example: 'Doe' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  lastName: string;
+
+  @ApiProperty({ description: 'Username', example: 'johndoe' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  username: string;
+
+  @ApiProperty({ description: 'Email address', required: false })
+  @IsEmail()
+  @IsOptional()
+  @MaxLength(255)
+  email?: string;
+
+  @ApiProperty({ description: 'Password', example: 'SecureP@ss123' })
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(8)
+  password: string;
+}
+```
+
+#### Register Response DTO
+```typescript
+// be/src/modules/auth/dtos/register-response.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import { TenantDto } from 'src/modules/tenants/dtos/tenant.dto';
+import { UserDto } from 'src/modules/users/dtos/user.dto';
+
+export class RegisterResponseDto {
+  @ApiProperty({ description: 'JWT access token' })
+  accessToken: string;
+
+  @ApiProperty({ description: 'Refresh token' })
+  refreshToken: string;
+
+  @ApiProperty({ description: 'Token expiry in seconds' })
+  expiresIn: number;
+
+  @ApiProperty({ description: 'Created user', type: () => UserDto })
+  user: UserDto;
+
+  @ApiProperty({ description: 'Created tenant', type: () => TenantDto })
+  tenant: TenantDto;
+}
+```
+
+#### Auth Controller Enhancement
+```typescript
+// be/src/modules/auth/controllers/auth.controller.ts
+
+// Add to existing AuthController:
+
+@Public()
+@Post('register')
+@HttpCode(HttpStatus.CREATED)
+@ApiOperation({ summary: 'Register new user with tenant (freemium)' })
+@ApiResponse({
+  status: 201,
+  description: 'User and tenant created successfully',
+  type: RegisterResponseDto,
+})
+@ApiResponse({
+  status: 400,
+  description: 'Validation error or subdomain already taken',
+})
+@ApiResponse({
+  status: 409,
+  description: 'Username or email already exists',
+})
+async register(
+  @Body() registerDto: RegisterDto,
+  @Req() req: Request,
+): Promise<ApiResponseInterface<RegisterResponseDto>> {
+  const result = await this.authService.register(registerDto, {
+    ipAddress: req.ip,
+    userAgent: req.headers['user-agent'],
+  });
+  
+  return this.transformer.transform(result);
+}
+```
+
+#### Auth Service Enhancement
+```typescript
+// be/src/modules/auth/services/auth.service.ts
+
+// Add to existing AuthService:
+
+async register(
+  registerDto: RegisterDto,
+  requestInfo?: { ipAddress?: string; userAgent?: string },
+): Promise<RegisterResponseDto> {
+  // 1. Fetch freemium plan
+  const freemiumPlan = await this.plansService.findFreemiumPlan();
+  if (!freemiumPlan) {
+    throw new ApiException(
+      'auth.errors.no_freemium_plan_available',
+      HttpStatus.SERVICE_UNAVAILABLE,
+    );
+  }
+
+  // 2. Check if username exists (globally for system users, or within tenants)
+  const existingUser = await this.usersService.findUserByEmailOrUsername(
+    registerDto.email || registerDto.username,
+  );
+  if (existingUser) {
+    throw new ApiException(
+      'auth.errors.user_already_exists',
+      HttpStatus.CONFLICT,
+    );
+  }
+
+  // 3. Generate unique slug from business name
+  const slug = await this.generateUniqueSlug(registerDto.businessName);
+
+  // 4. Delegate to tenant service for creation
+  const createTenantDto: CreateTenantDto = {
+    name: registerDto.businessName,
+    slug: slug, // Auto-generated slug
+    contactPhone: registerDto.contactPhone,
+    secondaryContactPhone: registerDto.secondaryContactPhone,
+    planId: freemiumPlan.id,
+    adminUser: {
+      firstName: registerDto.firstName,
+      lastName: registerDto.lastName,
+      username: registerDto.username,
+      email: registerDto.email,
+      password: registerDto.password,
+    },
+  };
+
+  const tenantResult = await this.tenantsService.create(createTenantDto);
+
+  // 5. Generate tokens for the new admin user
+  const adminUser = await this.usersService.findUserByUsernameAndTenantId(
+    registerDto.username,
+    tenantResult.id,
+    { getRole: true },
+  );
+
+  if (!adminUser) {
+    throw new ApiException(
+      'auth.errors.registration_failed',
+      HttpStatus.INTERNAL_SERVER_ERROR,
+    );
+  }
+
+  const payload = this.buildTokenPayload(adminUser);
+  const accessToken = this.signToken(payload);
+  const expiresIn = this.getAccessTokenExpiryTime();
+
+  const refreshToken = await this.refreshTokenRepository.createRefreshToken({
+    userId: adminUser.id,
+    expiresIn: this.configService.get<number>('jwt.refreshExpiresIn') || 604800,
+    ipAddress: requestInfo?.ipAddress,
+    userAgent: requestInfo?.userAgent,
+    tenantId: tenantResult.id,
+  });
+
+  // Remove password hash from response
+  delete adminUser.passwordHash;
+
+  return {
+    accessToken,
+    refreshToken: refreshToken.token,
+    expiresIn,
+    user: adminUser,
+    tenant: tenantResult,
+  };
+}
+
+/**
+ * Generate unique slug from business name
+ * Format: "my-store-4829"
+ */
+private async generateUniqueSlug(businessName: string): Promise<string> {
+  const baseSlug = businessName
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
+    .replace(/\s+/g, '-')          // Spaces to hyphens
+    .replace(/-+/g, '-')           // Multiple hyphens to single
+    .substring(0, 50);             // Limit length
+
+  let slug = baseSlug;
+  let attempts = 0;
+  const maxAttempts = 10;
+
+  while (attempts < maxAttempts) {
+    const suffix = Math.floor(1000 + Math.random() * 9000); // 4-digit number
+    slug = `${baseSlug}-${suffix}`;
+    
+    const existing = await this.tenantsService.findBySlug(slug);
+    if (!existing) {
+      return slug;
+    }
+    attempts++;
+  }
+
+  // Fallback with timestamp if all attempts fail
+  return `${baseSlug}-${Date.now()}`;
+}
+```
+
+---
+
+## 1.8 Contact Module (NEW)
+
+### Overview
+The Contact module handles contact form submissions from the landing page. It stores inquiries in the database and can optionally send email notifications.
+
+### Contact Model
+```typescript
+// be/src/modules/contact/models/contact-inquiry.model.ts
+import { Column, DataType, Table } from 'sequelize-typescript';
+import { BaseEntity } from '../../../core/models/base.entity';
+
+export enum InquiryStatus {
+  NEW = 'NEW',
+  IN_PROGRESS = 'IN_PROGRESS',
+  RESOLVED = 'RESOLVED',
+  CLOSED = 'CLOSED',
+}
+
+export enum InquiryType {
+  GENERAL = 'GENERAL',
+  DEMO = 'DEMO',
+  SUPPORT = 'SUPPORT',
+  SALES = 'SALES',
+  PARTNERSHIP = 'PARTNERSHIP',
+}
+
+interface ContactInquiryAttributes {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  subject: string;
+  message: string;
+  type: InquiryType;
+  status: InquiryStatus;
+  ipAddress: string | null;
+  userAgent: string | null;
+  locale: string | null;
+  notes: string | null;
+  resolvedAt: Date | null;
+  resolvedBy: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface ContactInquiryCreationAttributes {
+  name: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  type?: InquiryType;
+  status?: InquiryStatus;
+  ipAddress?: string;
+  userAgent?: string;
+  locale?: string;
+}
+
+@Table({
+  tableName: 'contact_inquiries',
+  timestamps: true,
+})
+export class ContactInquiry extends BaseEntity<
+  ContactInquiryAttributes,
+  ContactInquiryCreationAttributes
+> {
+  @Column({
+    type: DataType.STRING(255),
+    allowNull: false,
+  })
+  name: string;
+
+  @Column({
+    type: DataType.STRING(255),
+    allowNull: false,
+  })
+  email: string;
+
+  @Column({
+    type: DataType.STRING(50),
+    allowNull: true,
+  })
+  phone: string | null;
+
+  @Column({
+    type: DataType.STRING(255),
+    allowNull: false,
+  })
+  subject: string;
+
+  @Column({
+    type: DataType.TEXT,
+    allowNull: false,
+  })
+  message: string;
+
+  @Column({
+    type: DataType.STRING(20),
+    allowNull: false,
+    defaultValue: InquiryType.GENERAL,
+  })
+  type: InquiryType;
+
+  @Column({
+    type: DataType.STRING(20),
+    allowNull: false,
+    defaultValue: InquiryStatus.NEW,
+  })
+  status: InquiryStatus;
+
+  @Column({
+    type: DataType.STRING(45),
+    allowNull: true,
+  })
+  ipAddress: string | null;
+
+  @Column({
+    type: DataType.STRING(500),
+    allowNull: true,
+  })
+  userAgent: string | null;
+
+  @Column({
+    type: DataType.STRING(10),
+    allowNull: true,
+  })
+  locale: string | null;
+
+  @Column({
+    type: DataType.TEXT,
+    allowNull: true,
+  })
+  notes: string | null;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  resolvedAt: Date | null;
+
+  @Column({
+    type: DataType.UUID,
+    allowNull: true,
+  })
+  resolvedBy: string | null;
+}
+```
+
+### Contact DTOs
+
+#### Create Contact Inquiry DTO (Public)
+```typescript
+// be/src/modules/contact/dtos/create-contact-inquiry.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
+import { InquiryType } from '../models/contact-inquiry.model';
+
+export class CreateContactInquiryDto {
+  @ApiProperty({ description: 'Full name', example: 'John Doe' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  name: string;
+
+  @ApiProperty({ description: 'Email address', example: 'john@example.com' })
+  @IsEmail()
+  @IsNotEmpty()
+  @MaxLength(255)
+  email: string;
+
+  @ApiProperty({ description: 'Phone number', required: false })
+  @IsString()
+  @IsOptional()
+  @MaxLength(50)
+  phone?: string;
+
+  @ApiProperty({ description: 'Subject', example: 'Product inquiry' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  subject: string;
+
+  @ApiProperty({ description: 'Message content' })
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(5000)
+  message: string;
+
+  @ApiProperty({
+    description: 'Inquiry type',
+    enum: InquiryType,
+    default: InquiryType.GENERAL,
+    required: false,
+  })
+  @IsEnum(InquiryType)
+  @IsOptional()
+  type?: InquiryType;
+
+  @ApiProperty({ description: 'Locale/language', required: false })
+  @IsString()
+  @IsOptional()
+  @MaxLength(10)
+  locale?: string;
+
+  // Set by controller, not from client
+  ipAddress?: string;
+  userAgent?: string;
+}
+```
+
+#### Contact Inquiry DTO (Response)
+```typescript
+// be/src/modules/contact/dtos/contact-inquiry.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import { InquiryStatus, InquiryType } from '../models/contact-inquiry.model';
+
+export class ContactInquiryDto {
+  @ApiProperty({ description: 'Inquiry ID' })
+  id: string;
+
+  @ApiProperty({ description: 'Submitter name' })
+  name: string;
+
+  @ApiProperty({ description: 'Submitter email' })
+  email: string;
+
+  @ApiProperty({ description: 'Submitter phone', nullable: true })
+  phone: string | null;
+
+  @ApiProperty({ description: 'Subject' })
+  subject: string;
+
+  @ApiProperty({ description: 'Message' })
+  message: string;
+
+  @ApiProperty({ description: 'Inquiry type', enum: InquiryType })
+  type: InquiryType;
+
+  @ApiProperty({ description: 'Inquiry status', enum: InquiryStatus })
+  status: InquiryStatus;
+
+  @ApiProperty({ description: 'Submitter locale', nullable: true })
+  locale: string | null;
+
+  @ApiProperty({ description: 'Admin notes', nullable: true })
+  notes: string | null;
+
+  @ApiProperty({ description: 'Resolution date', nullable: true })
+  resolvedAt: Date | null;
+
+  @ApiProperty({ description: 'Created at' })
+  createdAt: Date;
+
+  @ApiProperty({ description: 'Updated at' })
   updatedAt: Date;
 }
 ```
 
-### 11.2 Documentation Types (`src/types/docs.ts`)
+#### List Contact Inquiries DTO (Admin)
+```typescript
+// be/src/modules/contact/dtos/list-contact-inquiries.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { PaginationDto } from '../../../core/dtos/pagination.dto';
+import { InquiryStatus, InquiryType } from '../models/contact-inquiry.model';
+
+export class ListContactInquiriesDto extends PaginationDto {
+  @ApiProperty({ description: 'Filter by status', enum: InquiryStatus, required: false })
+  @IsEnum(InquiryStatus)
+  @IsOptional()
+  status?: InquiryStatus;
+
+  @ApiProperty({ description: 'Filter by type', enum: InquiryType, required: false })
+  @IsEnum(InquiryType)
+  @IsOptional()
+  type?: InquiryType;
+
+  @ApiProperty({ description: 'Search by name or email', required: false })
+  @IsString()
+  @IsOptional()
+  search?: string;
+}
+```
+
+#### Update Contact Inquiry DTO (Admin)
+```typescript
+// be/src/modules/contact/dtos/update-contact-inquiry.dto.ts
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsOptional, IsString, MaxLength } from 'class-validator';
+import { InquiryStatus } from '../models/contact-inquiry.model';
+
+export class UpdateContactInquiryDto {
+  @ApiProperty({ description: 'Status', enum: InquiryStatus, required: false })
+  @IsEnum(InquiryStatus)
+  @IsOptional()
+  status?: InquiryStatus;
+
+  @ApiProperty({ description: 'Admin notes', required: false })
+  @IsString()
+  @IsOptional()
+  @MaxLength(5000)
+  notes?: string;
+}
+```
+
+### Public Contact Controller
+```typescript
+// be/src/modules/contact/controllers/public.contact.controller.ts
+import { Body, Controller, HttpCode, HttpStatus, Post, Req } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Request } from 'express';
+import { Public } from '../../auth/decorators/public.decorator';
+import { ApiResponse, ResponseTransformer } from '../../../core';
+import { CreateContactInquiryDto } from '../dtos/create-contact-inquiry.dto';
+import { ContactService } from '../services/contact.service';
+
+@Controller({ version: '1', path: 'public/contact' })
+@ApiTags('Public Contact')
+export class PublicContactController {
+  constructor(
+    private readonly transformer: ResponseTransformer,
+    private readonly contactService: ContactService,
+  ) {}
+
+  @Public()
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({ summary: 'Submit contact form (public)' })
+  async submit(
+    @Body() createDto: CreateContactInquiryDto,
+    @Req() req: Request,
+  ): Promise<ApiResponse<{ success: boolean; message: string }>> {
+    // Add request metadata
+    createDto.ipAddress = req.ip;
+    createDto.userAgent = req.headers['user-agent'];
+
+    await this.contactService.create(createDto);
+
+    return this.transformer.transform({
+      success: true,
+      message: 'contact.success.submitted',
+    });
+  }
+}
+```
+
+### System Contact Controller (Admin)
+```typescript
+// be/src/modules/contact/controllers/system.contact.controller.ts
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { PERMISSIONS } from '../../auth/constants/permissions';
+import { CurrentUserId } from '../../auth/decorators/current-user.decorator';
+import { ApiResponse, ResponseTransformer } from '../../../core';
+import { PaginatedResponseDto } from '../../../core/dtos/pagination.dto';
+import { JwtAuthGuard } from '../../auth/strategies/jwt.strategy';
+import { PermissionsGuard, RequirePermission } from '../../users/guards/permissions.guard';
+import { ContactInquiryDto } from '../dtos/contact-inquiry.dto';
+import { ListContactInquiriesDto } from '../dtos/list-contact-inquiries.dto';
+import { UpdateContactInquiryDto } from '../dtos/update-contact-inquiry.dto';
+import { ContactService } from '../services/contact.service';
+
+@Controller({ version: '1', path: 'system/contact' })
+@ApiTags('Contact Management')
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard, PermissionsGuard)
+export class SystemContactController {
+  constructor(
+    private readonly transformer: ResponseTransformer,
+    private readonly contactService: ContactService,
+  ) {}
+
+  @Get()
+  @ApiOperation({ summary: 'List all contact inquiries' })
+  @RequirePermission(PERMISSIONS.CONTACT_VIEW)
+  async findAll(
+    @Query() query: ListContactInquiriesDto,
+  ): Promise<ApiResponse<PaginatedResponseDto<ContactInquiryDto>>> {
+    const inquiries = await this.contactService.findAll(query);
+    return this.transformer.transform(inquiries);
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: 'Get contact inquiry by ID' })
+  @RequirePermission(PERMISSIONS.CONTACT_VIEW)
+  async findById(
+    @Param('id', ParseUUIDPipe) id: string,
+  ): Promise<ApiResponse<ContactInquiryDto>> {
+    const inquiry = await this.contactService.findById(id);
+    return this.transformer.transform(inquiry);
+  }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update contact inquiry (status, notes)' })
+  @RequirePermission(PERMISSIONS.CONTACT_EDIT)
+  async update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateDto: UpdateContactInquiryDto,
+    @CurrentUserId() userId: string,
+  ): Promise<ApiResponse<ContactInquiryDto>> {
+    const inquiry = await this.contactService.update(id, updateDto, userId);
+    return this.transformer.transform(inquiry);
+  }
+}
+```
+
+### Contact Service
+```typescript
+// be/src/modules/contact/services/contact.service.ts
+import { HttpStatus, Injectable, Logger } from '@nestjs/common';
+import { PaginatedResponseDto } from '../../../core/dtos/pagination.dto';
+import { ApiException } from '../../../core/exceptions/api.exception';
+import { ContactInquiryDto } from '../dtos/contact-inquiry.dto';
+import { CreateContactInquiryDto } from '../dtos/create-contact-inquiry.dto';
+import { ListContactInquiriesDto } from '../dtos/list-contact-inquiries.dto';
+import { UpdateContactInquiryDto } from '../dtos/update-contact-inquiry.dto';
+import { InquiryStatus } from '../models/contact-inquiry.model';
+import { ContactRepository } from '../repositories/contact.repository';
+
+@Injectable()
+export class ContactService {
+  private readonly logger = new Logger(ContactService.name);
+
+  constructor(private readonly contactRepository: ContactRepository) {}
+
+  async create(createDto: CreateContactInquiryDto): Promise<ContactInquiryDto> {
+    const inquiry = await this.contactRepository.create({
+      name: createDto.name,
+      email: createDto.email,
+      phone: createDto.phone,
+      subject: createDto.subject,
+      message: createDto.message,
+      type: createDto.type,
+      ipAddress: createDto.ipAddress,
+      userAgent: createDto.userAgent,
+      locale: createDto.locale,
+    });
+
+    this.logger.log(`Contact inquiry created: ${inquiry.id} from ${createDto.email}`);
+
+    // TODO: Optionally send email notification to admin
+    // await this.emailService.sendContactNotification(inquiry);
+
+    return inquiry;
+  }
+
+  async findAll(
+    query?: ListContactInquiriesDto,
+  ): Promise<PaginatedResponseDto<ContactInquiryDto>> {
+    return this.contactRepository.findAllPaginated(query);
+  }
+
+  async findById(id: string): Promise<ContactInquiryDto> {
+    const inquiry = await this.contactRepository.findById(id);
+    if (!inquiry) {
+      throw new ApiException(
+        'contact.errors.inquiry_not_found',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    return inquiry;
+  }
+
+  async update(
+    id: string,
+    updateDto: UpdateContactInquiryDto,
+    userId: string,
+  ): Promise<ContactInquiryDto> {
+    const inquiry = await this.findById(id);
+
+    const updateData: Partial<ContactInquiryDto> & {
+      resolvedAt?: Date;
+      resolvedBy?: string;
+    } = {};
+
+    if (updateDto.status) {
+      updateData.status = updateDto.status;
+
+      // If marking as resolved, set resolution metadata
+      if (updateDto.status === InquiryStatus.RESOLVED) {
+        updateData.resolvedAt = new Date();
+        updateData.resolvedBy = userId;
+      }
+    }
+
+    if (updateDto.notes !== undefined) {
+      updateData.notes = updateDto.notes;
+    }
+
+    await this.contactRepository.update(id, updateData);
+
+    return this.findById(id);
+  }
+}
+```
+
+### Contact Repository
+```typescript
+// be/src/modules/contact/repositories/contact.repository.ts
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Op, WhereOptions } from 'sequelize';
+import { PaginatedResponseDto } from '../../../core/dtos/pagination.dto';
+import { Repository } from '../../../core/repositories/base.repository';
+import { ContactInquiryDto } from '../dtos/contact-inquiry.dto';
+import { ListContactInquiriesDto } from '../dtos/list-contact-inquiries.dto';
+import { ContactInquiry } from '../models/contact-inquiry.model';
+
+@Injectable()
+export class ContactRepository extends Repository<ContactInquiry, ContactInquiryDto> {
+  constructor(
+    @InjectModel(ContactInquiry)
+    private readonly contactModel: typeof ContactInquiry,
+  ) {
+    super(contactModel);
+  }
+
+  async findAllPaginated(
+    query?: ListContactInquiriesDto,
+  ): Promise<PaginatedResponseDto<ContactInquiryDto>> {
+    const where: WhereOptions = {};
+    const page = query?.page || 1;
+    const pageSize = query?.pageSize || 20;
+
+    if (query?.status) {
+      where.status = query.status;
+    }
+
+    if (query?.type) {
+      where.type = query.type;
+    }
+
+    if (query?.search) {
+      where[Op.or] = [
+        { name: { [Op.iLike]: `%${query.search}%` } },
+        { email: { [Op.iLike]: `%${query.search}%` } },
+        { subject: { [Op.iLike]: `%${query.search}%` } },
+      ];
+    }
+
+    const { rows, count } = await this.contactModel.findAndCountAll({
+      where,
+      order: [['createdAt', 'DESC']],
+      limit: pageSize,
+      offset: (page - 1) * pageSize,
+    });
+
+    return new PaginatedResponseDto<ContactInquiryDto>(
+      this.toDTOList(rows),
+      count,
+      page,
+      pageSize,
+    );
+  }
+}
+```
+
+### Contact Module
+```typescript
+// be/src/modules/contact/contact.module.ts
+import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { ResponseTransformer } from '../../core';
+import { AuthModule } from '../auth/auth.module';
+import { PublicContactController } from './controllers/public.contact.controller';
+import { SystemContactController } from './controllers/system.contact.controller';
+import { ContactInquiry } from './models/contact-inquiry.model';
+import { ContactRepository } from './repositories/contact.repository';
+import { ContactService } from './services/contact.service';
+
+@Module({
+  imports: [
+    SequelizeModule.forFeature([ContactInquiry]),
+    AuthModule,
+  ],
+  controllers: [PublicContactController, SystemContactController],
+  providers: [ResponseTransformer, ContactRepository, ContactService],
+  exports: [ContactService],
+})
+export class ContactModule {}
+```
+
+### Permissions Update
+```typescript
+// Add to be/src/modules/auth/constants/permissions.ts
+
+// In PermissionResource enum:
+CONTACT = 'contact',
+
+// In PERMISSIONS object:
+CONTACT_VIEW: `${PermissionAction.VIEW}:${PermissionResource.CONTACT}`,
+CONTACT_EDIT: `${PermissionAction.EDIT}:${PermissionResource.CONTACT}`,
+
+// In SYSTEM_PERMISSIONS array:
+PERMISSIONS.CONTACT_VIEW,
+PERMISSIONS.CONTACT_EDIT,
+```
+
+---
+
+## 2. Frontend Implementation
+
+### 2.1 Environment Configuration
+
+#### Environment Variables
+```bash
+# my-app/.env.local (example)
+NEXT_PUBLIC_API_URL=http://localhost:3001/api/v1
+NEXT_PUBLIC_PORTAL_URL=http://localhost:3001
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Production
+# NEXT_PUBLIC_API_URL=https://console.cash-vio.com/api/v1
+# NEXT_PUBLIC_PORTAL_URL=https://console.cash-vio.com
+# NEXT_PUBLIC_SITE_URL=https://cash-vio.com
+
+# Optional
+NEXT_PUBLIC_API_TIMEOUT=30000
+NEXT_PUBLIC_DEFAULT_COUNTRY_CODE=EG
+```
+
+#### Environment Config File
+```typescript
+// my-app/src/config/env.ts
+
+const getEnvVar = (key: string, defaultValue?: string): string => {
+  const value = process.env[key] || defaultValue;
+  if (!value && typeof window === 'undefined') {
+    console.warn(`Environment variable ${key} is not set`);
+  }
+  return value || '';
+};
+
+export const env = {
+  // API Configuration
+  api: {
+    baseUrl: getEnvVar('NEXT_PUBLIC_API_URL', 'http://localhost:3000/api/v1'),
+    timeout: parseInt(getEnvVar('NEXT_PUBLIC_API_TIMEOUT', '30000'), 10),
+  },
+
+  // Site URLs
+  site: {
+    url: getEnvVar('NEXT_PUBLIC_SITE_URL', 'https://cashvio.com'),
+  },
+
+  // External Links
+  links: {
+    portal: getEnvVar('NEXT_PUBLIC_PORTAL_URL', 'https://portal.cashvio.com'),
+    get login() {
+      return `${this.portal}/login`;
+    },
+    get register() {
+      return `${this.portal}/register`;
+    },
+    support: getEnvVar('NEXT_PUBLIC_SUPPORT_URL', 'https://support.cashvio.com'),
+  },
+
+  // Defaults
+  defaults: {
+    countryCode: getEnvVar('NEXT_PUBLIC_DEFAULT_COUNTRY_CODE', 'EG'),
+  },
+} as const;
+
+export type EnvConfig = typeof env;
+```
+
+### 2.2 HTTP Module
+
+#### Types
+```typescript
+// my-app/src/lib/http/types.ts
+
+export interface ApiResponse<T = unknown> {
+  data: T;
+  success: boolean;
+  message?: string;
+  errors?: Record<string, string[]>;
+}
+
+export interface PaginatedResponse<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}
+
+export interface RequestConfig {
+  headers?: Record<string, string>;
+  params?: Record<string, string | number | boolean>;
+  timeout?: number;
+  signal?: AbortSignal;
+}
+
+export interface HttpError {
+  status: number;
+  message: string;
+  errors?: Record<string, string[]>;
+  code?: string;
+}
+
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+```
+
+#### HTTP Client
+```typescript
+// my-app/src/lib/http/client.ts
+
+import { env } from '@/config/env';
+import type { ApiResponse, RequestConfig, HttpError, HttpMethod } from './types';
+
+class HttpClient {
+  private baseUrl: string;
+  private defaultTimeout: number;
+
+  constructor() {
+    this.baseUrl = env.api.baseUrl;
+    this.defaultTimeout = env.api.timeout;
+  }
+
+  private async request<T>(
+    method: HttpMethod,
+    endpoint: string,
+    data?: unknown,
+    config?: RequestConfig,
+  ): Promise<ApiResponse<T>> {
+    const url = new URL(endpoint, this.baseUrl);
+    
+    // Add query params
+    if (config?.params) {
+      Object.entries(config.params).forEach(([key, value]) => {
+        url.searchParams.append(key, String(value));
+      });
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(
+      () => controller.abort(),
+      config?.timeout || this.defaultTimeout,
+    );
+
+    try {
+      const response = await fetch(url.toString(), {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          ...config?.headers,
+        },
+        body: data ? JSON.stringify(data) : undefined,
+        signal: config?.signal || controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        const error: HttpError = {
+          status: response.status,
+          message: json.message || 'An error occurred',
+          errors: json.errors,
+          code: json.code,
+        };
+        throw error;
+      }
+
+      return json as ApiResponse<T>;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      
+      if (error instanceof Error && error.name === 'AbortError') {
+        throw { status: 408, message: 'Request timeout' } as HttpError;
+      }
+      
+      throw error;
+    }
+  }
+
+  async get<T>(endpoint: string, config?: RequestConfig): Promise<ApiResponse<T>> {
+    return this.request<T>('GET', endpoint, undefined, config);
+  }
+
+  async post<T>(endpoint: string, data?: unknown, config?: RequestConfig): Promise<ApiResponse<T>> {
+    return this.request<T>('POST', endpoint, data, config);
+  }
+
+  async put<T>(endpoint: string, data?: unknown, config?: RequestConfig): Promise<ApiResponse<T>> {
+    return this.request<T>('PUT', endpoint, data, config);
+  }
+
+  async patch<T>(endpoint: string, data?: unknown, config?: RequestConfig): Promise<ApiResponse<T>> {
+    return this.request<T>('PATCH', endpoint, data, config);
+  }
+
+  async delete<T>(endpoint: string, config?: RequestConfig): Promise<ApiResponse<T>> {
+    return this.request<T>('DELETE', endpoint, undefined, config);
+  }
+}
+
+export const httpClient = new HttpClient();
+```
+
+#### Plans Service
+```typescript
+// my-app/src/lib/http/services/plans.service.ts
+
+import { httpClient } from '../client';
+import type { ApiResponse, PaginatedResponse } from '../types';
+import type { Plan } from '@/types';
+
+export interface PublicPlan {
+  id: string;
+  arName: string;
+  enName: string;
+  detailsAr: string[];
+  detailsEn: string[];
+  price: number;
+  period: string;
+  isFreemium: boolean;
+}
+
+export const plansService = {
+  /**
+   * Get all active plans (public)
+   */
+  async getPlans(): Promise<ApiResponse<PaginatedResponse<PublicPlan>>> {
+    return httpClient.get<PaginatedResponse<PublicPlan>>('/public/plans');
+  },
+
+  /**
+   * Get plan by ID (public)
+   */
+  async getPlanById(id: string): Promise<ApiResponse<PublicPlan>> {
+    return httpClient.get<PublicPlan>(`/public/plans/${id}`);
+  },
+};
+```
+
+#### Auth Service
+```typescript
+// my-app/src/lib/http/services/auth.service.ts
+
+import { httpClient } from '../client';
+import type { ApiResponse } from '../types';
+
+export interface RegisterRequest {
+  businessName: string;
+  contactPhone: string;
+  secondaryContactPhone?: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email?: string;
+  password: string;
+}
+
+export interface RegisterResponse {
+  accessToken: string;
+  refreshToken: string;
+  expiresIn: number;
+  user: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string | null;
+  };
+  tenant: {
+    id: string;
+    name: string;
+    slug: string; // Auto-generated
+  };
+}
+
+export const authService = {
+  /**
+   * Register new user with tenant
+   */
+  async register(data: RegisterRequest): Promise<ApiResponse<RegisterResponse>> {
+    return httpClient.post<RegisterResponse>('/auth/register', data);
+  },
+};
+```
+
+#### Contact Service
+```typescript
+// my-app/src/lib/http/services/contact.service.ts
+
+import { httpClient } from '../client';
+import type { ApiResponse } from '../types';
+
+export type InquiryType = 'GENERAL' | 'DEMO' | 'SUPPORT' | 'SALES' | 'PARTNERSHIP';
+
+export interface ContactRequest {
+  name: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  type?: InquiryType;
+  locale?: string;
+}
+
+export interface ContactResponse {
+  success: boolean;
+  message: string;
+}
+
+export const contactService = {
+  /**
+   * Submit contact form
+   */
+  async submit(data: ContactRequest): Promise<ApiResponse<ContactResponse>> {
+    return httpClient.post<ContactResponse>('/public/contact', data);
+  },
+};
+```
+
+### 2.3 Phone Input Component
 
 ```typescript
-export interface DocFrontmatter {
-  title: string;
-  description: string;
-  date?: string;
-  lastModified?: string;
-  author?: string;
-  tags?: string[];
-  headings?: Array<{
-    level: number;
-    text: string;
-    id: string;
-  }>;
+// my-app/src/components/ui/phone-input.tsx
+'use client';
+
+import { forwardRef, useState, useCallback } from 'react';
+import { cn } from '@/lib/utils/cn';
+import { env } from '@/config/env';
+
+// Country data (subset - expand as needed)
+const countries = [
+  { code: 'EG', dialCode: '+20', name: 'Egypt', flag: '🇪🇬' },
+  { code: 'SA', dialCode: '+966', name: 'Saudi Arabia', flag: '🇸🇦' },
+  { code: 'AE', dialCode: '+971', name: 'United Arab Emirates', flag: '🇦🇪' },
+  { code: 'US', dialCode: '+1', name: 'United States', flag: '🇺🇸' },
+  { code: 'GB', dialCode: '+44', name: 'United Kingdom', flag: '🇬🇧' },
+  // Add more countries as needed
+] as const;
+
+type Country = typeof countries[number];
+
+export interface PhoneInputProps {
+  value?: string;
+  onChange?: (fullNumber: string, countryCode: string, nationalNumber: string) => void;
+  defaultCountry?: string;
+  error?: boolean;
+  disabled?: boolean;
+  placeholder?: string;
+  className?: string;
+  name?: string;
+  id?: string;
 }
 
-export interface DocPage {
-  frontmatter: DocFrontmatter;
-  content: React.ReactNode;
-  slug: string;
+export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
+  (
+    {
+      value = '',
+      onChange,
+      defaultCountry = env.defaults.countryCode,
+      error,
+      disabled,
+      placeholder = 'Phone number',
+      className,
+      name,
+      id,
+    },
+    ref,
+  ) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedCountry, setSelectedCountry] = useState<Country>(
+      countries.find((c) => c.code === defaultCountry) || countries[0],
+    );
+    const [nationalNumber, setNationalNumber] = useState(
+      value.replace(selectedCountry.dialCode, ''),
+    );
+
+    const handleCountrySelect = useCallback(
+      (country: Country) => {
+        setSelectedCountry(country);
+        setIsOpen(false);
+        const fullNumber = `${country.dialCode}${nationalNumber}`;
+        onChange?.(fullNumber, country.code, nationalNumber);
+      },
+      [nationalNumber, onChange],
+    );
+
+    const handleNumberChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newNumber = e.target.value.replace(/[^0-9]/g, '');
+        setNationalNumber(newNumber);
+        const fullNumber = `${selectedCountry.dialCode}${newNumber}`;
+        onChange?.(fullNumber, selectedCountry.code, newNumber);
+      },
+      [selectedCountry, onChange],
+    );
+
+  return (
+      <div className={cn('relative flex', className)}>
+        {/* Country Selector */}
+        <button
+          type="button"
+          onClick={() => !disabled && setIsOpen(!isOpen)}
+          disabled={disabled}
+          className={cn(
+            'flex items-center gap-1.5 px-3 py-2 rounded-l-lg border border-r-0 bg-muted/50',
+            'text-sm font-medium transition-colors',
+            error ? 'border-destructive' : 'border-border',
+            disabled && 'opacity-50 cursor-not-allowed',
+            !disabled && 'hover:bg-muted',
+          )}
+        >
+          <span>{selectedCountry.flag}</span>
+          <span className="text-muted-foreground">{selectedCountry.dialCode}</span>
+          <svg
+            className={cn(
+              'w-4 h-4 text-muted-foreground transition-transform',
+              isOpen && 'rotate-180',
+            )}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+
+        {/* Dropdown */}
+        {isOpen && (
+          <>
+            <div
+              className="fixed inset-0 z-40"
+              onClick={() => setIsOpen(false)}
+            />
+            <div className="absolute left-0 top-full mt-1 z-50 w-64 max-h-60 overflow-auto rounded-lg border border-border bg-card shadow-lg">
+              {countries.map((country) => (
+                <button
+                  key={country.code}
+                  type="button"
+                  onClick={() => handleCountrySelect(country)}
+                  className={cn(
+                    'flex items-center gap-3 w-full px-3 py-2 text-sm text-left',
+                    'hover:bg-muted transition-colors',
+                    country.code === selectedCountry.code && 'bg-primary/10',
+                  )}
+                >
+                  <span>{country.flag}</span>
+                  <span className="flex-1">{country.name}</span>
+                  <span className="text-muted-foreground">{country.dialCode}</span>
+                </button>
+              ))}
+      </div>
+    </>
+        )}
+
+        {/* Phone Number Input */}
+        <input
+          ref={ref}
+          type="tel"
+          id={id}
+          name={name}
+          value={nationalNumber}
+          onChange={handleNumberChange}
+          placeholder={placeholder}
+          disabled={disabled}
+          className={cn(
+            'flex-1 h-10 rounded-r-lg border bg-background px-3 py-2 text-sm',
+            'placeholder:text-muted-foreground',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            error ? 'border-destructive focus-visible:ring-destructive' : 'border-border',
+          )}
+        />
+      </div>
+    );
+  },
+);
+
+PhoneInput.displayName = 'PhoneInput';
+```
+
+### 2.4 Contact Form Component
+
+```typescript
+// my-app/src/components/forms/contact-form.tsx
+'use client';
+
+import { useState, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
+import { useParams } from 'next/navigation';
+import { contactService, type InquiryType } from '@/lib/http/services/contact.service';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { cn } from '@/lib/utils/cn';
+
+interface ContactFormProps {
+  className?: string;
+  defaultType?: InquiryType;
 }
 
-export interface DocNavItem {
-  title: string;
-  href: string;
-  children?: DocNavItem[];
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
 }
 
-export interface DocsNavigation {
-  items: DocNavItem[];
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
+
+export function ContactForm({ className, defaultType = 'GENERAL' }: ContactFormProps) {
+  const t = useTranslations('contact.form');
+  const params = useParams();
+  const locale = params.locale as string;
+
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const validate = useCallback((): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = t('errors.nameRequired');
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = t('errors.emailRequired');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t('errors.emailInvalid');
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = t('errors.subjectRequired');
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = t('errors.messageRequired');
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }, [formData, t]);
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      // Clear error when user starts typing
+      if (errors[name as keyof FormErrors]) {
+        setErrors((prev) => ({ ...prev, [name]: undefined }));
+      }
+    },
+    [errors],
+  );
+
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+
+      if (!validate()) return;
+
+      setIsSubmitting(true);
+      setSubmitStatus('idle');
+      setErrorMessage('');
+
+      try {
+        await contactService.submit({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          subject: formData.subject,
+          message: formData.message,
+          type: defaultType,
+          locale,
+        });
+
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      } catch (error) {
+        setSubmitStatus('error');
+        setErrorMessage(
+          error instanceof Error ? error.message : t('errors.submitFailed'),
+        );
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [formData, defaultType, locale, validate, t],
+  );
+
+  if (submitStatus === 'success') {
+    return (
+      <div className={cn('text-center py-8', className)}>
+        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-success/10 flex items-center justify-center">
+          <svg
+            className="w-8 h-8 text-success"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold text-foreground mb-2">
+          {t('success.title')}
+        </h3>
+        <p className="text-muted-foreground">{t('success.message')}</p>
+        <Button
+          variant="outline"
+          className="mt-4"
+          onClick={() => setSubmitStatus('idle')}
+        >
+          {t('success.sendAnother')}
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className={cn('space-y-6', className)}>
+      {submitStatus === 'error' && (
+        <div className="p-4 rounded-lg bg-destructive/10 text-destructive text-sm">
+          {errorMessage}
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+            {t('name')} *
+          </label>
+          <Input
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder={t('namePlaceholder')}
+            error={!!errors.name}
+            disabled={isSubmitting}
+          />
+          {errors.name && (
+            <p className="mt-1 text-sm text-destructive">{errors.name}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+            {t('email')} *
+          </label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder={t('emailPlaceholder')}
+            error={!!errors.email}
+            disabled={isSubmitting}
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-destructive">{errors.email}</p>
+          )}
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+          {t('phone')}
+        </label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder={t('phonePlaceholder')}
+          disabled={isSubmitting}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+          {t('subject')} *
+        </label>
+        <Input
+          id="subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          placeholder={t('subjectPlaceholder')}
+          error={!!errors.subject}
+          disabled={isSubmitting}
+        />
+        {errors.subject && (
+          <p className="mt-1 text-sm text-destructive">{errors.subject}</p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+          {t('message')} *
+        </label>
+        <Textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder={t('messagePlaceholder')}
+          error={!!errors.message}
+          disabled={isSubmitting}
+          rows={5}
+        />
+        {errors.message && (
+          <p className="mt-1 text-sm text-destructive">{errors.message}</p>
+        )}
+      </div>
+
+      <Button type="submit" className="w-full" disabled={isSubmitting}>
+        {isSubmitting ? t('submitting') : t('submit')}
+      </Button>
+    </form>
+  );
 }
 ```
 
 ---
 
-## 12. Performance Checklist
+## 3. Database Schema Changes
 
-### 12.1 Build-time Optimizations
+### Migration 1: Plan Schema Changes
+```typescript
+// be/src/database/migrations/YYYYMMDDHHMMSS-add-plan-details-and-freemium.ts
 
-- [ ] Enable Turbopack for faster development builds
-- [ ] Configure proper image optimization settings
-- [ ] Set up font optimization with `next/font`
-- [ ] Enable static page generation where possible
-- [ ] Configure ISR for dynamic content
+import { QueryInterface, DataTypes } from 'sequelize';
 
-### 12.2 Runtime Optimizations
+export async function up(queryInterface: QueryInterface): Promise<void> {
+  // Add detailsAr column
+  await queryInterface.addColumn('plans', 'detailsAr', {
+    type: DataTypes.ARRAY(DataTypes.TEXT),
+    allowNull: true,
+    defaultValue: [],
+  });
 
-- [ ] Use React Server Components by default
-- [ ] Minimize client-side JavaScript
-- [ ] Implement code splitting with dynamic imports
-- [ ] Use streaming for large pages
-- [ ] Optimize third-party scripts
+  // Add detailsEn column
+  await queryInterface.addColumn('plans', 'detailsEn', {
+    type: DataTypes.ARRAY(DataTypes.TEXT),
+    allowNull: true,
+    defaultValue: [],
+  });
 
-### 12.3 SEO Checklist
+  // Add isFreemium column
+  await queryInterface.addColumn('plans', 'isFreemium', {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  });
 
-- [ ] Unique title and description for each page
-- [ ] Proper heading hierarchy (h1-h6)
-- [ ] Alt text for all images
-- [ ] Structured data (JSON-LD) on all pages
-- [ ] XML sitemap with all localized URLs
-- [ ] Robots.txt properly configured
-- [ ] Canonical URLs set
-- [ ] Hreflang tags for all locales
-- [ ] Open Graph meta tags
-- [ ] Twitter Card meta tags
+  // Add partial unique index to ensure only one freemium plan
+  await queryInterface.sequelize.query(`
+    CREATE UNIQUE INDEX "plans_is_freemium_unique" 
+    ON "plans" ("isFreemium") 
+    WHERE "isFreemium" = true;
+  `);
+}
 
-### 12.4 Accessibility Checklist
+export async function down(queryInterface: QueryInterface): Promise<void> {
+  await queryInterface.sequelize.query(`
+    DROP INDEX IF EXISTS "plans_is_freemium_unique";
+  `);
+  await queryInterface.removeColumn('plans', 'isFreemium');
+  await queryInterface.removeColumn('plans', 'detailsEn');
+  await queryInterface.removeColumn('plans', 'detailsAr');
+}
+```
 
-- [ ] Semantic HTML structure
-- [ ] ARIA labels where needed
-- [ ] Keyboard navigation support
-- [ ] Focus indicators visible
-- [ ] Color contrast ratios meet WCAG AA
-- [ ] Reduced motion support
-- [ ] Screen reader testing
+### Migration 2: Contact Inquiries Table
+```typescript
+// be/src/database/migrations/YYYYMMDDHHMMSS-create-contact-inquiries.ts
 
----
+import { QueryInterface, DataTypes } from 'sequelize';
 
-## 13. Development Commands
+export async function up(queryInterface: QueryInterface): Promise<void> {
+  await queryInterface.createTable('contact_inquiries', {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    phone: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    subject: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    message: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      defaultValue: 'GENERAL',
+    },
+    status: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      defaultValue: 'NEW',
+    },
+    ipAddress: {
+      type: DataTypes.STRING(45),
+      allowNull: true,
+    },
+    userAgent: {
+      type: DataTypes.STRING(500),
+      allowNull: true,
+    },
+    locale: {
+      type: DataTypes.STRING(10),
+      allowNull: true,
+    },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    resolvedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    resolvedBy: {
+      type: DataTypes.UUID,
+      allowNull: true,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+  });
 
-```bash
-# Install dependencies
-yarn install
+  // Add indexes
+  await queryInterface.addIndex('contact_inquiries', ['status']);
+  await queryInterface.addIndex('contact_inquiries', ['type']);
+  await queryInterface.addIndex('contact_inquiries', ['email']);
+  await queryInterface.addIndex('contact_inquiries', ['createdAt']);
+}
 
-# Development server
-yarn dev
-
-# Build for production
-yarn build
-
-# Start production server
-yarn start
-
-# Type checking
-yarn type-check
-
-# Linting
-yarn lint
-
-# Run tests
-yarn test
-
-# Analyze bundle
-yarn analyze
+export async function down(queryInterface: QueryInterface): Promise<void> {
+  await queryInterface.dropTable('contact_inquiries');
+}
 ```
 
 ---
 
-## 14. Environment Variables
+## 4. API Specifications
 
-```env
-# .env.local
+### Public Plans API
 
-# Site URL (required for SEO)
-NEXT_PUBLIC_SITE_URL=https://yourcompany.com
+#### GET /api/v1/public/plans
 
-# Backend API URL
-NEXT_PUBLIC_API_URL=https://api.yourcompany.com
-
-# Analytics (optional)
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-
-# Feature flags
-NEXT_PUBLIC_ENABLE_BLOG=false
-NEXT_PUBLIC_ENABLE_ANALYTICS=true
+**Request:**
+```http
+GET /api/v1/public/plans HTTP/1.1
+Accept: application/json
 ```
 
----
+**Response:**
+```json
+{
+  "data": {
+    "items": [
+      {
+        "id": "uuid",
+        "arName": "الخطة المجانية",
+        "enName": "Free Plan",
+        "detailsAr": ["ميزة 1", "ميزة 2"],
+        "detailsEn": ["Feature 1", "Feature 2"],
+        "price": 0,
+        "period": "MONTH",
+        "isFreemium": true
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 100
+  },
+  "success": true
+}
+```
 
-*Document Version: 1.0*  
-*Last Updated: January 2, 2026*
+### Registration API
 
+#### POST /api/v1/auth/register
+
+**Request:**
+```json
+{
+  "businessName": "My Store",
+  "contactPhone": "+201234567890",
+  "firstName": "John",
+  "lastName": "Doe",
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "SecureP@ss123"
+}
+```
+
+**Success Response (201):**
+```json
+{
+  "data": {
+    "accessToken": "jwt_token_here",
+    "refreshToken": "refresh_token_uuid",
+    "expiresIn": 900,
+    "user": {
+      "id": "uuid",
+      "firstName": "John",
+      "lastName": "Doe",
+      "username": "johndoe",
+      "email": "john@example.com"
+    },
+    "tenant": {
+      "id": "uuid",
+      "name": "My Store",
+      "slug": "my-store-4829"
+    }
+  },
+  "success": true
+}
+```
+
+**Error Response (409 - Conflict):**
+```json
+{
+  "success": false,
+  "message": "auth.errors.user_already_exists",
+  "statusCode": 409
+}
+```
+
+### Contact API
+
+#### POST /api/v1/public/contact
+
+**Request:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "+201234567890",
+  "subject": "Product Inquiry",
+  "message": "I would like to learn more about your pricing plans.",
+  "type": "SALES",
+  "locale": "en"
+}
+```
+
+**Success Response (201):**
+```json
+{
+  "data": {
+    "success": true,
+    "message": "contact.success.submitted"
+  },
+  "success": true
+}
+```
+
+**Error Response (400 - Validation):**
+```json
+{
+  "success": false,
+  "message": "Validation failed",
+  "errors": {
+    "email": ["Invalid email format"],
+    "message": ["Message is required"]
+  },
+  "statusCode": 400
+}
+```
+
+### Contact Management API (Admin)
+
+#### GET /api/v1/system/contact
+
+**Request:**
+```http
+GET /api/v1/system/contact?status=NEW&page=1&pageSize=20 HTTP/1.1
+Authorization: Bearer <token>
+```
+
+**Response:**
+```json
+{
+  "data": {
+    "items": [
+      {
+        "id": "uuid",
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+201234567890",
+        "subject": "Product Inquiry",
+        "message": "...",
+        "type": "SALES",
+        "status": "NEW",
+        "locale": "en",
+        "notes": null,
+        "resolvedAt": null,
+        "createdAt": "2026-01-03T10:00:00.000Z",
+        "updatedAt": "2026-01-03T10:00:00.000Z"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 20,
+    "totalPages": 1
+  },
+  "success": true
+}
+```
+
+#### PATCH /api/v1/system/contact/:id
+
+**Request:**
+```json
+{
+  "status": "RESOLVED",
+  "notes": "Responded via email on 2026-01-03"
+}
+```
+
+**Response:**
+```json
+{
+  "data": {
+    "id": "uuid",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "status": "RESOLVED",
+    "notes": "Responded via email on 2026-01-03",
+    "resolvedAt": "2026-01-03T11:00:00.000Z",
+    "resolvedBy": "admin-user-uuid"
+  },
+  "success": true
+}
+```

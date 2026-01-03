@@ -25,6 +25,10 @@
     "docs": {
       "title": "Documentation",
       "description": "Comprehensive guides, tutorials, and API documentation for Cashvio."
+    },
+    "features": {
+      "title": "Features",
+      "description": "Explore all the powerful features that make Cashvio the perfect solution for your business."
     }
   },
   "common": {
@@ -68,13 +72,13 @@
   },
   "home": {
     "hero": {
-      "badge": "🚀 Now with AI-Powered Analytics",
+      "badge": "Modern POS & Inventory Solution",
       "title": "Run Your Business",
       "titleHighlight": "Smarter",
       "subtitle": "Cashvio is the all-in-one POS and inventory management platform that helps you sell more, manage better, and grow faster.",
       "cta": "Start Free Trial",
-      "secondaryCta": "Watch Demo",
-      "trustedBy": "Trusted by 10,000+ businesses worldwide"
+      "secondaryCta": "Explore Features",
+      "trustedBy": "Trusted by businesses in over 30 countries"
     },
     "features": {
       "title": "Everything You Need to Succeed",
@@ -104,41 +108,46 @@
         "description": "Our expert team is always ready to help you succeed, day or night."
       }
     },
-    "stats": {
-      "title": "Trusted by Growing Businesses",
-      "businesses": "10,000+",
-      "businessesLabel": "Active Businesses",
-      "transactions": "50M+",
-      "transactionsLabel": "Transactions Processed",
-      "countries": "30+",
-      "countriesLabel": "Countries",
-      "uptime": "99.9%",
-      "uptimeLabel": "Uptime"
+    "benefits": {
+      "title": "Why Choose Cashvio",
+      "subtitle": "Built for businesses that demand the best",
+     
+      "support": {
+        "title": "Dedicated Support",
+        "description": "Expert assistance when you need it. Phone, email, and live chat support available."
+      },
+      "uptime": {
+        "title": "Reliable Infrastructure",
+        "description": "Cloud-native architecture ensures your business runs smoothly, even during peak hours."
+      },
+      "global": {
+        "title": "Multi-Language & Currency",
+        "description": "Operate globally with support for multiple languages, currencies, and tax configurations."
+      }
     },
-    "testimonials": {
-      "title": "Loved by Business Owners",
-      "subtitle": "See what our customers have to say",
-      "testimonial1": {
-        "quote": "Cashvio transformed how we run our retail stores. Sales are up 40% since we switched.",
-        "author": "Sarah Johnson",
-        "role": "Owner, Fashion Hub"
+    "trust": {
+      "title": "Trusted Technology",
+      "subtitle": "Integrated with the tools you already use",
+      "security": {
+        "title": "Security & Compliance",
+        "badges": ["PCI DSS", "GDPR", "SOC 2", "ISO 27001"],
+        "features": ["256-bit SSL Encryption", "Two-Factor Authentication", "Daily Backups"]
       },
-      "testimonial2": {
-        "quote": "The inventory management alone saved us countless hours. Highly recommended!",
-        "author": "Ahmed Hassan",
-        "role": "Operations Manager, TechMart"
+      "integrations": {
+        "title": "Payment Partners",
+        "description": "Accept payments from all major providers",
+        "partners": ["Visa", "Mastercard", "Apple Pay", "Google Pay"]
       },
-      "testimonial3": {
-        "quote": "Finally, a POS system that actually understands what small businesses need.",
-        "author": "Maria Garcia",
-        "role": "Founder, Coffee Corner"
+      "platforms": {
+        "title": "Works Everywhere",
+        "description": "Web, iOS, Android, and offline support"
       }
     },
     "cta": {
       "title": "Ready to Transform Your Business?",
-      "subtitle": "Join thousands of businesses already using Cashvio to grow faster.",
+      "subtitle": "Start your free trial and discover why businesses choose Cashvio.",
       "button": "Start Your Free Trial",
-      "note": "No credit card required • 14-day free trial • Cancel anytime"
+      "note": "No credit card required"
     }
   },
   "pricing": {
@@ -147,8 +156,14 @@
     "monthly": "Monthly",
     "yearly": "Yearly",
     "yearlyDiscount": "Save 20%",
+    "perDay": "/day",
+    "perWeek": "/week",
     "perMonth": "/month",
     "perYear": "/year",
+    "free": "Free",
+    "freeTrial": "Free Trial",
+    "startFree": "Start Free",
+    "noPlansAvailable": "Plans are currently unavailable. Please try again later.",
     "popular": "Most Popular",
     "features": "What's included:",
     "getStarted": "Get Started",
@@ -327,6 +342,202 @@
       "title": "Server Error",
       "description": "Something went wrong on our end. Please try again later.",
       "tryAgain": "Try Again"
+    }
+  },
+  "register": {
+    "meta": {
+      "title": "Create Your Account",
+      "description": "Sign up for Cashvio and start managing your business today."
+    },
+    "title": "Create Your Account",
+    "subtitle": "Start your free trial and grow your business",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "backToHome": "Back to Home",
+    "optional": "optional",
+    "emailNote": "Your login credentials will be sent to this email address.",
+    "sections": {
+      "business": "Business Information",
+      "personal": "Personal Information"
+    },
+    "fields": {
+      "businessName": "Business Name",
+      "phone": "Phone Number",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "username": "Username",
+      "email": "Email Address"
+    },
+    "placeholders": {
+      "businessName": "My Awesome Store",
+      "phone": "Enter phone number",
+      "firstName": "John",
+      "lastName": "Doe",
+      "username": "johndoe",
+      "email": "john@example.com"
+    },
+    "errors": {
+      "businessNameRequired": "Business name is required",
+      "phoneRequired": "Please enter a valid phone number",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "usernameRequired": "Username is required",
+      "usernameMinLength": "Username must be at least 3 characters",
+      "emailRequired": "Email is required to receive your login credentials",
+      "emailInvalid": "Please enter a valid email address",
+      "userExists": "An account with this username or email already exists",
+      "registrationFailed": "Registration failed. Please try again."
+    },
+    "submit": "Create Account",
+    "submitting": "Creating your account...",
+    "success": {
+      "title": "Account Created!",
+      "message": "Your account has been created successfully.",
+      "emailSent": "Your login credentials have been sent to your email address.",
+      "redirecting": "Redirecting you to your dashboard..."
+    },
+    "terms": {
+      "prefix": "By signing up, you agree to our",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy"
+    }
+  },
+  "features": {
+    "badge": "All Features",
+    "title": "Everything You Need to Grow Your Business",
+    "subtitle": "Discover the comprehensive suite of features designed to streamline your operations, boost sales, and delight your customers.",
+    "categories": {
+      "modules": {
+        "title": "Core Modules",
+        "description": "Powerful modules that form the backbone of your business operations"
+      },
+      "functional": {
+        "title": "Advanced Capabilities",
+        "description": "Unlock powerful features to take your business to the next level"
+      },
+      "capacity": {
+        "title": "Scalable Limits",
+        "description": "Grow your business without constraints - scale as you need"
+      }
+    },
+    "modules": {
+      "products": {
+        "name": "Products Management",
+        "description": "Manage products, variants, pricing, and categories with ease"
+      },
+      "inventory": {
+        "name": "Inventory Control",
+        "description": "Track stock levels, adjustments, and movements in real-time"
+      },
+      "orders": {
+        "name": "Orders & Sales",
+        "description": "Process orders, manage sales, and track fulfillment"
+      },
+      "customers": {
+        "name": "Customer CRM",
+        "description": "Build relationships with customer profiles and purchase history"
+      },
+      "suppliers": {
+        "name": "Supplier Management",
+        "description": "Manage suppliers, purchase orders, and receiving"
+      },
+      "analytics": {
+        "name": "Analytics & Reports",
+        "description": "Gain insights with detailed reports and dashboards"
+      },
+      "pos": {
+        "name": "Point of Sale",
+        "description": "Fast checkout, multiple POS devices, and offline support"
+      },
+      "roles": {
+        "name": "Roles & Permissions",
+        "description": "Control access with customizable user roles"
+      }
+    },
+    "functional": {
+      "advancedAnalytics": {
+        "name": "Advanced Analytics",
+        "description": "Custom dashboards and detailed performance reports"
+      },
+      "advancedInventory": {
+        "name": "Advanced Inventory",
+        "description": "Batch tracking, expiry management, and forecasting"
+      },
+      "customReports": {
+        "name": "Custom Reports",
+        "description": "Create and schedule reports tailored to your needs"
+      },
+      "apiAccess": {
+        "name": "API Access",
+        "description": "REST API for integrations and custom applications"
+      },
+      "webhooks": {
+        "name": "Webhooks",
+        "description": "Real-time event notifications for seamless integrations"
+      }
+    },
+    "capacity": {
+      "maxStores": {
+        "name": "Multiple Stores",
+        "description": "Manage multiple store locations from one account"
+      },
+      "maxUsers": {
+        "name": "Team Members",
+        "description": "Add team members with customized access levels"
+      },
+      "maxPosDevices": {
+        "name": "POS Devices",
+        "description": "Connect multiple POS devices per store"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Start your free trial today and experience the power of Cashvio.",
+      "getStarted": "Start Free Trial",
+      "viewPricing": "View Pricing"
+    }
+  },
+  "contactForm": {
+    "title": "Send us a Message",
+    "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Your Message",
+      "type": "Inquiry Type"
+    },
+    "placeholders": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "Enter phone number",
+      "subject": "How can we help you?",
+      "message": "Tell us more about your inquiry..."
+    },
+    "types": {
+      "GENERAL": "General Inquiry",
+      "DEMO": "Request a Demo",
+      "SUPPORT": "Technical Support",
+      "SALES": "Sales Question",
+      "PARTNERSHIP": "Partnership Opportunity"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "subjectRequired": "Subject is required",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "submitFailed": "Failed to send message. Please try again."
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": {
+      "title": "Message Sent!",
+      "message": "Thank you for reaching out. We'll get back to you soon.",
+      "sendAnother": "Send another message"
     }
   }
 }

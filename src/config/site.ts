@@ -1,48 +1,61 @@
-export const siteConfig = {
-  name: 'Cashvio',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://cashvio.com',
-  description: 'Streamline your business operations with Cashvio - The all-in-one POS and inventory management solution',
+import { env } from './env';
 
-  keywords: [
-    'POS',
-    'point of sale',
-    'inventory management',
-    'business software',
-    'retail management',
-    'cashvio',
-    'نقاط البيع',
-    'إدارة المخزون',
-  ],
+// Keywords as a mutable array for Next.js metadata compatibility
+const keywords: string[] = [
+  'POS',
+  'point of sale',
+  'inventory management',
+  'business software',
+  'retail management',
+  'cashvio',
+  'نقاط البيع',
+  'إدارة المخزون',
+];
+
+export const siteConfig = {
+  name: env.site.name,
+  url: env.site.url,
+  description: env.site.description,
+  keywords,
 
   contact: {
-    email: 'support@cashvio.com',
-    phone: '+1 (555) 123-4567',
+    email: env.contact.email,
+    phone: env.contact.phone,
     address: {
-      street: '123 Business Avenue',
-      city: 'San Francisco, CA 94102',
-      country: 'United States',
+      street: env.contact.address || '123 Business Avenue',
+      city: 'Cairo',
+      country: 'Egypt',
     },
   },
 
   social: {
-    twitter: '@cashvio',
-    facebook: 'https://facebook.com/cashvio',
-    linkedin: 'https://linkedin.com/company/cashvio',
-    instagram: 'https://instagram.com/cashvio',
+    twitter: env.social.twitter || '@cashvio',
+    facebook: env.social.facebook || 'https://facebook.com/cashvio',
+    linkedin: env.social.linkedin || 'https://linkedin.com/company/cashvio',
+    instagram: env.social.instagram || 'https://instagram.com/cashvio',
   },
 
   links: {
-    portal: 'https://portal.cashvio.com',
+    portal: env.portal.url,
+    portalLogin: env.portal.loginUrl,
+    portalDashboard: env.portal.dashboardUrl,
     docs: '/docs',
-    support: 'https://support.cashvio.com',
+    support: 'https://support.cash-vio.com',
+  },
+
+  api: {
+    baseUrl: env.api.baseUrl,
+    url: env.api.url,
   },
 
   features: {
     blog: false,
     newsletter: true,
     analytics: true,
+    registration: env.features.enableRegistration,
+    contactForm: env.features.enableContactForm,
   },
-} as const;
+};
 
 export type SiteConfig = typeof siteConfig;
 
