@@ -1,5 +1,6 @@
-import { MetadataRoute } from 'next';
-import { urls } from '@/config/seo';
+import type { MetadataRoute } from 'next';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cash-vio.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,16 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/_next/', '/private/'],
       },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Bingbot',
-        allow: '/',
-      },
     ],
-    sitemap: `${urls.site}/sitemap.xml`,
-    host: urls.site,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

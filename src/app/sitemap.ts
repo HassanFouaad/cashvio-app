@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { routing } from '@/i18n/routing';
-import { urls, pageSEO } from '@/config/seo';
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cash-vio.com';
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
@@ -11,24 +11,26 @@ interface PageConfig {
 }
 
 const pages: PageConfig[] = [
-  { path: '', ...pageSEO.home },
-  { path: '/features', ...pageSEO.features },
-  { path: '/pricing', ...pageSEO.pricing },
-  { path: '/contact', ...pageSEO.contact },
-  { path: '/register', ...pageSEO.register },
-  { path: '/docs', ...pageSEO.docs },
-  { path: '/privacy', ...pageSEO.privacy },
-  { path: '/terms', ...pageSEO.terms },
+  { path: '', priority: 1.0, changeFrequency: 'weekly' },
+  { path: '/features', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/pricing', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/register', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/docs', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
 ];
+
+const locales = ['en', 'ar'] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   const entries: MetadataRoute.Sitemap = pages.flatMap((page) =>
-    routing.locales.map((locale) => {
-      // English (default) has no locale prefix, Arabic uses /ar
+    locales.map((locale) => {
+      // English is default (no prefix), Arabic uses /ar
       const localePath = locale === 'en' ? '' : `/${locale}`;
-      const url = `${urls.site}${localePath}${page.path}`;
+      const url = `${SITE_URL}${localePath}${page.path}`;
 
       return {
         url,
@@ -37,9 +39,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: page.priority,
         alternates: {
           languages: {
-            en: `${urls.site}${page.path}`,
-            ar: `${urls.site}/ar${page.path}`,
-            'x-default': `${urls.site}${page.path}`,
+            en: `${SITE_URL}${page.path}`,
+            ar: `${SITE_URL}/ar${page.path}`,
           },
         },
       };
