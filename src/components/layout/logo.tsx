@@ -1,12 +1,8 @@
-import { cn } from '@/lib/utils/cn';
-import { Montserrat } from 'next/font/google';
+'use client';
 
-// Montserrat Black - similar to Lovelo bold geometric style
-const logoFont = Montserrat({
-  subsets: ['latin'],
-  weight: ['900'],
-  display: 'swap',
-});
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils/cn';
 
 interface LogoProps {
   className?: string;
@@ -15,29 +11,51 @@ interface LogoProps {
 
 /**
  * Logo Component
- * 
- * Text-based logo: "cash" + "vio" (in primary color)
- * Matches tenant-portal Logo style with Lovelo-like bold font
+ *
+ * Theme-aware logo that switches between light and dark variants
+ * - Light mode: uses logo-dark.png (dark text for light backgrounds)
+ * - Dark mode: uses logo-light.png (light text for dark backgrounds)
  */
 export function Logo({ className, size = 'md' }: LogoProps) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check initial dark mode
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    checkDarkMode();
+
+    // Watch for class changes on html element
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const sizes = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-2xl',
-    xl: 'text-3xl',
+    sm: { width: 100, height: 32 },
+    md: { width: 120, height: 40 },
+    lg: { width: 140, height: 48 },
+    xl: { width: 180, height: 60 },
   };
 
+  const { width, height } = sizes[size];
+
   return (
-    <span
-      className={cn(
-        logoFont.className,
-        'font-black tracking-normal',
-        sizes[size],
-        className
-      )}
-    >
-      <span className="text-foreground">cash</span>
-      <span className="text-primary">vio</span>
-    </span>
+    <div className={cn('flex-shrink-0 overflow-hidden', className)}>
+      <Image
+        src={isDark ? '/assets/logo-dark.png' : '/assets/logo-light.png'}
+        alt="Cashvio"
+        width={width}
+        height={height}
+        className="h-auto w-auto max-h-10 object-contain"
+        priority
+      />
+    </div>
   );
 }

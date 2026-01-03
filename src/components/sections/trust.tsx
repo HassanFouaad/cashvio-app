@@ -12,10 +12,10 @@ const securityFeatures = ['ssl', 'twoFactor', 'backups'];
 
 // Payment partners with their logos (using text for now, can be replaced with actual logos)
 const paymentPartners = [
-  { name: 'Visa', color: 'bg-blue-600' },
-  { name: 'Mastercard', color: 'bg-orange-500' },
-  { name: 'Apple Pay', color: 'bg-gray-900 dark:bg-gray-100 dark:text-gray-900' },
-  { name: 'Google Pay', color: 'bg-white text-gray-900 border border-gray-200' },
+  { name: 'Visa', color: 'bg-blue-600 text-white' },
+  { name: 'Mastercard', color: 'bg-orange-500 text-white' },
+  { name: 'Apple Pay', color: 'bg-foreground text-background' },
+  { name: 'Google Pay', color: 'bg-card text-foreground border border-border' },
 ];
 
 // Platform icons
@@ -159,7 +159,7 @@ export async function Trust({ locale }: TrustProps) {
               {paymentPartners.map((partner) => (
                 <div
                   key={partner.name}
-                  className={`flex items-center justify-center py-3 px-4 rounded-lg text-sm font-medium text-white ${partner.color}`}
+                  className={`flex items-center justify-center py-3 px-4 rounded-lg text-sm font-medium ${partner.color}`}
                 >
                   {partner.name}
                 </div>

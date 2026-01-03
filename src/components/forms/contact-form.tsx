@@ -144,12 +144,12 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <div
-        className="text-center py-12 px-6 bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800"
+        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20"
         dir={isRtl ? 'rtl' : 'ltr'}
       >
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg shadow-emerald-500/25 mb-6">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/25 mb-6">
           <svg
-            className="w-10 h-10 text-white"
+            className="w-10 h-10 text-primary-foreground"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -172,8 +172,8 @@ export function ContactForm() {
           onClick={handleReset}
           className={cn(
             'inline-flex items-center gap-2 px-6 py-3 rounded-full',
-            'bg-emerald-600 hover:bg-emerald-700 text-white font-medium',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500/50'
+            'bg-primary hover:bg-primary-dark text-primary-foreground font-medium',
+            'transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50'
           )}
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

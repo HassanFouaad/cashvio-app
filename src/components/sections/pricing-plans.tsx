@@ -228,7 +228,7 @@ export async function PricingPlans({
             {/* Freemium badge */}
             {plan.isFreemium && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className="bg-green-600 text-white shadow-lg">
+                <Badge className="bg-success text-success-foreground shadow-lg">
                   {translations.freeTrial || 'Free'}
                 </Badge>
               </div>

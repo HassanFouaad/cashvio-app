@@ -139,7 +139,7 @@ export const openGraphDefaults = {
   siteName: brand.name,
   images: [
     {
-      url: `${urls.site}/assets/logo.png`,
+      url: `${urls.site}/assets/logo-light.png`,
       width: 512,
       height: 512,
       alt: `${brand.name} - ${brand.tagline}`,
@@ -155,7 +155,7 @@ export const twitterDefaults = {
   card: 'summary_large_image' as const,
   site: social.twitter.handle,
   creator: social.twitter.handle,
-  images: [`${urls.site}/assets/logo.png`],
+  images: [`${urls.site}/assets/logo-light.png`],
 };
 
 // ============================================================================
@@ -174,13 +174,13 @@ export const schemaTemplates = {
     url: urls.site,
     logo: {
       '@type': 'ImageObject',
-      url: `${urls.site}/assets/logo.png`,
+      url: `${urls.site}/assets/logo-light.png`,
       width: 512,
       height: 512,
     },
     image: {
       '@type': 'ImageObject',
-      url: `${urls.site}/assets/logo.png`,
+      url: `${urls.site}/assets/logo-light.png`,
       width: 512,
       height: 512,
     },
@@ -270,7 +270,7 @@ export const schemaTemplates = {
       'Multi-store Support',
       'Cloud-based',
     ],
-    screenshot: `${urls.site}/assets/logo.png`,
+    screenshot: `${urls.site}/assets/logo-light.png`,
     softwareVersion: '2.0',
     author: {
       '@id': `${urls.site}/#organization`,

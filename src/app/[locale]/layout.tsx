@@ -77,7 +77,7 @@ export async function generateMetadata({
       description: t('siteDescription'),
       images: [
         {
-          url: `${siteConfig.url}/assets/logo.png`,
+          url: `${siteConfig.url}/assets/logo-light.png`,
           width: 512,
           height: 512,
           alt: t('siteName'),
@@ -88,7 +88,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('siteName'),
       description: t('siteDescription'),
-      images: [`${siteConfig.url}/assets/logo.png`],
+      images: [`${siteConfig.url}/assets/logo-light.png`],
       creator: siteConfig.social.twitter,
     },
     icons: {

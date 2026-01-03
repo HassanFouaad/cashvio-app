@@ -402,7 +402,7 @@ export function RegistrationForm() {
         disabled={isSubmitting}
         aria-busy={isSubmitting}
         className={cn(
-          'w-full h-12 px-6 rounded-lg font-semibold text-white',
+          'w-full h-12 px-6 rounded-lg font-semibold text-primary-foreground',
           'bg-primary hover:bg-primary/90 transition-all duration-200',
           'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2',
           'disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-primary'

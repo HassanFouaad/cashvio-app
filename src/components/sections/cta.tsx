@@ -29,7 +29,7 @@ export async function CTA({ locale }: CTAProps) {
             </p>
             <ButtonLink
               size="xl"
-              className="bg-white text-primary hover:bg-white/90"
+              className="bg-background text-primary hover:bg-background/90"
               href={ctaLinks.getStarted}
             >
               {t('button')}

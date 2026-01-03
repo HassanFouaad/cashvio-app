@@ -17,16 +17,16 @@
 
     /* Accent - Amber */
     --color-accent: 245 158 11;
-    --color-accent-foreground: 31 41 55;
+    --color-accent-foreground: 15 23 42;
 
-    /* Neutral Colors */
+    /* Neutral Colors - Using slate-900 (#0f172a) to match logo */
     --color-background: 255 255 255;
-    --color-foreground: 17 24 39;
+    --color-foreground: 15 23 42;
     --color-muted: 243 244 246;
-    --color-muted-foreground: 107 114 128;
+    --color-muted-foreground: 100 116 139;
     --color-card: 255 255 255;
-    --color-card-foreground: 17 24 39;
-    --color-border: 229 231 235;
+    --color-card-foreground: 15 23 42;
+    --color-border: 226 232 240;
 
     /* Status Colors */
     --color-destructive: 239 68 68;
