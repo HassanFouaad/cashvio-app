@@ -77,9 +77,9 @@ export async function generateMetadata({
       description: t('siteDescription'),
       images: [
         {
-          url: `${siteConfig.url}/images/og-image.png`,
-          width: 1200,
-          height: 630,
+          url: `${siteConfig.url}/assets/logo.png`,
+          width: 512,
+          height: 512,
           alt: t('siteName'),
         },
       ],
@@ -88,22 +88,33 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('siteName'),
       description: t('siteDescription'),
-      images: [`${siteConfig.url}/images/og-image.png`],
+      images: [`${siteConfig.url}/assets/logo.png`],
       creator: siteConfig.social.twitter,
     },
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon-16x16.png',
-      apple: '/apple-touch-icon.png',
+      icon: [
+        { url: '/assets/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+        { url: '/assets/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/assets/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      ],
+      shortcut: '/assets/favicon-16x16.png',
+      apple: [
+        { url: '/assets/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      other: [
+        { rel: 'icon', url: '/assets/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+        { rel: 'icon', url: '/assets/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      ],
     },
   };
 }
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+    { media: '(prefers-color-scheme: light)', color: '#10b981' },
+    { media: '(prefers-color-scheme: dark)', color: '#34d399' },
   ],
+  colorScheme: 'light dark',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,

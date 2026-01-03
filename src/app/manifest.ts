@@ -8,23 +8,41 @@ export default function manifest(): MetadataRoute.Manifest {
     description: siteConfig.description,
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#14b8a6',
+    background_color: '#1a1f2e',
+    theme_color: '#10b981',
     icons: [
       {
-        src: '/favicon.ico',
+        src: '/assets/favicon.ico',
         sizes: '48x48',
         type: 'image/x-icon',
       },
       {
-        src: '/icon-192.png',
-        sizes: '192x192',
+        src: '/assets/favicon-16x16.png',
+        sizes: '16x16',
         type: 'image/png',
       },
       {
-        src: '/icon-512.png',
+        src: '/assets/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        src: '/assets/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/assets/android-chrome-512x512.png',
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: '/assets/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+        purpose: 'any',
       },
     ],
   };
