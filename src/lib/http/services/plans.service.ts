@@ -5,7 +5,7 @@
  */
 
 import { httpClient } from '../client';
-import { PaginatedResponse, PublicPlan, RequestConfig } from '../types';
+import {  ApiResponse, PublicPlan, RequestConfig } from '../types';
 
 /**
  * Plans Service - handles all plan-related API calls
@@ -14,8 +14,8 @@ export const plansService = {
   /**
    * Get all active public plans
    */
-  async getAll(config?: RequestConfig): Promise<PaginatedResponse<PublicPlan>> {
-    return httpClient.get<PaginatedResponse<PublicPlan>>(
+  async getAll(config?: RequestConfig): Promise<ApiResponse<PublicPlan[]>>  {
+    return httpClient.get<ApiResponse<PublicPlan[]>>(
       '/public/plans',
       config
     );
@@ -32,7 +32,7 @@ export const plansService = {
    * Get freemium plan only
    */
   async getFreemium(config?: RequestConfig): Promise<PublicPlan | null> {
-    const response = await httpClient.get<PaginatedResponse<PublicPlan>>(
+    const response = await httpClient.get<ApiResponse<PublicPlan[]>>(
       '/public/plans',
       {
         ...config,
@@ -43,7 +43,7 @@ export const plansService = {
       }
     );
 
-    return response.items[0] || null;
+    return response.data[0] || null;
   },
 };
 
