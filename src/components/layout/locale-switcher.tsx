@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation';
 import { type Locale, localeMetadata } from '@/i18n/routing';
 import { cn } from '@/lib/utils/cn';
 
@@ -17,13 +17,8 @@ export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
   const targetMeta = localeMetadata[targetLocale];
 
   const handleSwitch = () => {
-    // Replace the locale segment in the pathname
-    const segments = pathname.split('/');
-    if (segments[1] === 'en' || segments[1] === 'ar') {
-      segments[1] = targetLocale;
-    }
-    const newPath = segments.join('/') || `/${targetLocale}`;
-    router.push(newPath);
+    // Use next-intl router to switch locale properly
+    router.replace(pathname, { locale: targetLocale });
   };
 
   return (

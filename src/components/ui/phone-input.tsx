@@ -12,52 +12,57 @@ export interface Country {
   name: string;
   dialCode: string;
   flag: string;
+  minLength?: number; // Minimum phone number length (without dial code)
+  maxLength?: number; // Maximum phone number length (without dial code)
 }
 
 // Top countries for priority display
 const PRIORITY_COUNTRIES = ['EG', 'SA', 'AE', 'US', 'GB'];
 
-// Complete list of countries with dial codes
+// Countries that use leading 0 in local format (should be stripped)
+const COUNTRIES_WITH_LEADING_ZERO = ['EG', 'SA', 'AE', 'JO', 'KW', 'QA', 'BH', 'OM', 'LB', 'IQ', 'GB', 'DE', 'FR', 'IT', 'ES', 'NL', 'TR', 'IN', 'JP', 'KR', 'AU', 'BR', 'MX', 'ZA', 'NG', 'KE', 'GH'];
+
+// Complete list of countries with dial codes and validation
 const COUNTRIES: Country[] = [
-  { code: 'EG', name: 'Egypt', dialCode: '+20', flag: '🇪🇬' },
-  { code: 'SA', name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦' },
-  { code: 'AE', name: 'United Arab Emirates', dialCode: '+971', flag: '🇦🇪' },
-  { code: 'US', name: 'United States', dialCode: '+1', flag: '🇺🇸' },
-  { code: 'GB', name: 'United Kingdom', dialCode: '+44', flag: '🇬🇧' },
-  { code: 'JO', name: 'Jordan', dialCode: '+962', flag: '🇯🇴' },
-  { code: 'KW', name: 'Kuwait', dialCode: '+965', flag: '🇰🇼' },
-  { code: 'QA', name: 'Qatar', dialCode: '+974', flag: '🇶🇦' },
-  { code: 'BH', name: 'Bahrain', dialCode: '+973', flag: '🇧🇭' },
-  { code: 'OM', name: 'Oman', dialCode: '+968', flag: '🇴🇲' },
-  { code: 'LB', name: 'Lebanon', dialCode: '+961', flag: '🇱🇧' },
-  { code: 'IQ', name: 'Iraq', dialCode: '+964', flag: '🇮🇶' },
-  { code: 'SY', name: 'Syria', dialCode: '+963', flag: '🇸🇾' },
-  { code: 'PS', name: 'Palestine', dialCode: '+970', flag: '🇵🇸' },
-  { code: 'YE', name: 'Yemen', dialCode: '+967', flag: '🇾🇪' },
-  { code: 'LY', name: 'Libya', dialCode: '+218', flag: '🇱🇾' },
-  { code: 'TN', name: 'Tunisia', dialCode: '+216', flag: '🇹🇳' },
-  { code: 'DZ', name: 'Algeria', dialCode: '+213', flag: '🇩🇿' },
-  { code: 'MA', name: 'Morocco', dialCode: '+212', flag: '🇲🇦' },
-  { code: 'SD', name: 'Sudan', dialCode: '+249', flag: '🇸🇩' },
-  { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪' },
-  { code: 'FR', name: 'France', dialCode: '+33', flag: '🇫🇷' },
-  { code: 'IT', name: 'Italy', dialCode: '+39', flag: '🇮🇹' },
-  { code: 'ES', name: 'Spain', dialCode: '+34', flag: '🇪🇸' },
-  { code: 'NL', name: 'Netherlands', dialCode: '+31', flag: '🇳🇱' },
-  { code: 'TR', name: 'Turkey', dialCode: '+90', flag: '🇹🇷' },
-  { code: 'PK', name: 'Pakistan', dialCode: '+92', flag: '🇵🇰' },
-  { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳' },
-  { code: 'CN', name: 'China', dialCode: '+86', flag: '🇨🇳' },
-  { code: 'JP', name: 'Japan', dialCode: '+81', flag: '🇯🇵' },
-  { code: 'KR', name: 'South Korea', dialCode: '+82', flag: '🇰🇷' },
-  { code: 'AU', name: 'Australia', dialCode: '+61', flag: '🇦🇺' },
-  { code: 'CA', name: 'Canada', dialCode: '+1', flag: '🇨🇦' },
-  { code: 'BR', name: 'Brazil', dialCode: '+55', flag: '🇧🇷' },
-  { code: 'MX', name: 'Mexico', dialCode: '+52', flag: '🇲🇽' },
-  { code: 'ZA', name: 'South Africa', dialCode: '+27', flag: '🇿🇦' },
-  { code: 'NG', name: 'Nigeria', dialCode: '+234', flag: '🇳🇬' },
-  { code: 'KE', name: 'Kenya', dialCode: '+254', flag: '🇰🇪' },
-  { code: 'GH', name: 'Ghana', dialCode: '+233', flag: '🇬🇭' },
+  { code: 'EG', name: 'Egypt', dialCode: '+20', flag: '🇪🇬', minLength: 10, maxLength: 10 },
+  { code: 'SA', name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦', minLength: 9, maxLength: 9 },
+  { code: 'AE', name: 'United Arab Emirates', dialCode: '+971', flag: '🇦🇪', minLength: 9, maxLength: 9 },
+  { code: 'US', name: 'United States', dialCode: '+1', flag: '🇺🇸', minLength: 10, maxLength: 10 },
+  { code: 'GB', name: 'United Kingdom', dialCode: '+44', flag: '🇬🇧', minLength: 10, maxLength: 11 },
+  { code: 'JO', name: 'Jordan', dialCode: '+962', flag: '🇯🇴', minLength: 9, maxLength: 9 },
+  { code: 'KW', name: 'Kuwait', dialCode: '+965', flag: '🇰🇼', minLength: 8, maxLength: 8 },
+  { code: 'QA', name: 'Qatar', dialCode: '+974', flag: '🇶🇦', minLength: 8, maxLength: 8 },
+  { code: 'BH', name: 'Bahrain', dialCode: '+973', flag: '🇧🇭', minLength: 8, maxLength: 8 },
+  { code: 'OM', name: 'Oman', dialCode: '+968', flag: '🇴🇲', minLength: 8, maxLength: 8 },
+  { code: 'LB', name: 'Lebanon', dialCode: '+961', flag: '🇱🇧', minLength: 7, maxLength: 8 },
+  { code: 'IQ', name: 'Iraq', dialCode: '+964', flag: '🇮🇶', minLength: 10, maxLength: 10 },
+  { code: 'SY', name: 'Syria', dialCode: '+963', flag: '🇸🇾', minLength: 9, maxLength: 9 },
+  { code: 'PS', name: 'Palestine', dialCode: '+970', flag: '🇵🇸', minLength: 9, maxLength: 9 },
+  { code: 'YE', name: 'Yemen', dialCode: '+967', flag: '🇾🇪', minLength: 9, maxLength: 9 },
+  { code: 'LY', name: 'Libya', dialCode: '+218', flag: '🇱🇾', minLength: 9, maxLength: 9 },
+  { code: 'TN', name: 'Tunisia', dialCode: '+216', flag: '🇹🇳', minLength: 8, maxLength: 8 },
+  { code: 'DZ', name: 'Algeria', dialCode: '+213', flag: '🇩🇿', minLength: 9, maxLength: 9 },
+  { code: 'MA', name: 'Morocco', dialCode: '+212', flag: '🇲🇦', minLength: 9, maxLength: 9 },
+  { code: 'SD', name: 'Sudan', dialCode: '+249', flag: '🇸🇩', minLength: 9, maxLength: 9 },
+  { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪', minLength: 10, maxLength: 11 },
+  { code: 'FR', name: 'France', dialCode: '+33', flag: '🇫🇷', minLength: 9, maxLength: 9 },
+  { code: 'IT', name: 'Italy', dialCode: '+39', flag: '🇮🇹', minLength: 9, maxLength: 10 },
+  { code: 'ES', name: 'Spain', dialCode: '+34', flag: '🇪🇸', minLength: 9, maxLength: 9 },
+  { code: 'NL', name: 'Netherlands', dialCode: '+31', flag: '🇳🇱', minLength: 9, maxLength: 9 },
+  { code: 'TR', name: 'Turkey', dialCode: '+90', flag: '🇹🇷', minLength: 10, maxLength: 10 },
+  { code: 'PK', name: 'Pakistan', dialCode: '+92', flag: '🇵🇰', minLength: 10, maxLength: 10 },
+  { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳', minLength: 10, maxLength: 10 },
+  { code: 'CN', name: 'China', dialCode: '+86', flag: '🇨🇳', minLength: 11, maxLength: 11 },
+  { code: 'JP', name: 'Japan', dialCode: '+81', flag: '🇯🇵', minLength: 10, maxLength: 10 },
+  { code: 'KR', name: 'South Korea', dialCode: '+82', flag: '🇰🇷', minLength: 9, maxLength: 10 },
+  { code: 'AU', name: 'Australia', dialCode: '+61', flag: '🇦🇺', minLength: 9, maxLength: 9 },
+  { code: 'CA', name: 'Canada', dialCode: '+1', flag: '🇨🇦', minLength: 10, maxLength: 10 },
+  { code: 'BR', name: 'Brazil', dialCode: '+55', flag: '🇧🇷', minLength: 10, maxLength: 11 },
+  { code: 'MX', name: 'Mexico', dialCode: '+52', flag: '🇲🇽', minLength: 10, maxLength: 10 },
+  { code: 'ZA', name: 'South Africa', dialCode: '+27', flag: '🇿🇦', minLength: 9, maxLength: 9 },
+  { code: 'NG', name: 'Nigeria', dialCode: '+234', flag: '🇳🇬', minLength: 10, maxLength: 10 },
+  { code: 'KE', name: 'Kenya', dialCode: '+254', flag: '🇰🇪', minLength: 9, maxLength: 9 },
+  { code: 'GH', name: 'Ghana', dialCode: '+233', flag: '🇬🇭', minLength: 9, maxLength: 9 },
 ].sort((a, b) => {
   // Priority countries first
   const aPriority = PRIORITY_COUNTRIES.indexOf(a.code);
@@ -152,9 +157,20 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       );
     }, [searchQuery]);
 
-    // Handle phone number change
+    // Handle phone number change - strips leading 0 for countries that use it locally
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newNumber = e.target.value.replace(/[^\d]/g, '');
+      let newNumber = e.target.value.replace(/[^\d]/g, '');
+      
+      // Strip leading 0 for countries that use it locally (e.g., Egypt 01234567890 -> 1234567890)
+      if (newNumber.startsWith('0') && COUNTRIES_WITH_LEADING_ZERO.includes(selectedCountry.code)) {
+        newNumber = newNumber.slice(1);
+      }
+      
+      // Limit to maxLength if defined
+      if (selectedCountry.maxLength && newNumber.length > selectedCountry.maxLength) {
+        newNumber = newNumber.slice(0, selectedCountry.maxLength);
+      }
+      
       setPhoneNumber(newNumber);
       onChange?.(`${selectedCountry.dialCode}${newNumber}`);
     };
@@ -298,5 +314,46 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
 PhoneInput.displayName = 'PhoneInput';
 
-export { COUNTRIES };
+/**
+ * Validate phone number based on country
+ * @param fullNumber - Full phone number with dial code (e.g., +201234567890)
+ * @returns Object with isValid, minLength, maxLength, and currentLength
+ */
+export function validatePhoneNumber(fullNumber: string): {
+  isValid: boolean;
+  minLength: number;
+  maxLength: number;
+  currentLength: number;
+  country: Country | null;
+} {
+  if (!fullNumber) {
+    return { isValid: false, minLength: 0, maxLength: 0, currentLength: 0, country: null };
+  }
+
+  // Find matching country by dial code
+  const matchedCountry = COUNTRIES.find((country) =>
+    fullNumber.startsWith(country.dialCode)
+  );
+
+  if (!matchedCountry) {
+    return { isValid: false, minLength: 0, maxLength: 0, currentLength: fullNumber.length, country: null };
+  }
+
+  const numberWithoutDialCode = fullNumber.slice(matchedCountry.dialCode.length);
+  const currentLength = numberWithoutDialCode.length;
+  const minLength = matchedCountry.minLength || 7;
+  const maxLength = matchedCountry.maxLength || 15;
+
+  const isValid = currentLength >= minLength && currentLength <= maxLength;
+
+  return {
+    isValid,
+    minLength,
+    maxLength,
+    currentLength,
+    country: matchedCountry,
+  };
+}
+
+export { COUNTRIES, COUNTRIES_WITH_LEADING_ZERO };
 

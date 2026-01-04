@@ -18,16 +18,7 @@ export interface ApiResponse<T> {
   statusCode: number;
 }
 
-/**
- * Paginated response wrapper
- */
-export interface PaginatedResponse<T> {
-  items: T[];
-  total: number;
-  page: number;
-  pageSize: number;
-  totalPages: number;
-}
+
 
 /**
  * API Error response

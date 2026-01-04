@@ -1,10 +1,23 @@
 'use client';
 
-import { PhoneInput } from '@/components/ui/phone-input';
+import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
 import { contactService, ContactRequest, HttpError, InquiryType } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
+
+// ============================================================================
+// Constants (matching backend DTO)
+// ============================================================================
+
+const VALIDATION = {
+  NAME_MAX: 255,
+  EMAIL_MAX: 255,
+  PHONE_MAX: 50,
+  SUBJECT_MAX: 255,
+  MESSAGE_MIN: 10,
+  MESSAGE_MAX: 5000,
+} as const;
 
 // ============================================================================
 // Types
@@ -22,6 +35,7 @@ interface FormData {
 interface FormErrors {
   name?: string;
   email?: string;
+  phone?: string;
   subject?: string;
   message?: string;
   general?: string;
@@ -64,30 +78,56 @@ export function ContactForm() {
   // Handle phone change
   const handlePhoneChange = (value: string) => {
     setFormData((prev) => ({ ...prev, phone: value }));
+    // Clear phone error on change
+    if (errors.phone) {
+      setErrors((prev) => ({ ...prev, phone: undefined }));
+    }
   };
 
-  // Validate form
+  // Validate form - matching backend DTO validations
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
+    // Name validation (required, max 255)
     if (!formData.name.trim()) {
       newErrors.name = t('errors.nameRequired');
+    } else if (formData.name.length > VALIDATION.NAME_MAX) {
+      newErrors.name = t('errors.nameTooLong');
     }
 
+    // Email validation (required, valid format, max 255)
     if (!formData.email.trim()) {
       newErrors.email = t('errors.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = t('errors.emailInvalid');
+    } else if (formData.email.length > VALIDATION.EMAIL_MAX) {
+      newErrors.email = t('errors.emailTooLong');
     }
 
+    // Phone validation (optional but if provided, must be valid, max 50)
+    if (formData.phone) {
+      const phoneValidation = validatePhoneNumber(formData.phone);
+      if (!phoneValidation.isValid) {
+        newErrors.phone = t('errors.phoneInvalid');
+      } else if (formData.phone.length > VALIDATION.PHONE_MAX) {
+        newErrors.phone = t('errors.phoneTooLong');
+      }
+    }
+
+    // Subject validation (required, max 255)
     if (!formData.subject.trim()) {
       newErrors.subject = t('errors.subjectRequired');
+    } else if (formData.subject.length > VALIDATION.SUBJECT_MAX) {
+      newErrors.subject = t('errors.subjectTooLong');
     }
 
+    // Message validation (required, min 10, max 5000)
     if (!formData.message.trim()) {
       newErrors.message = t('errors.messageRequired');
-    } else if (formData.message.trim().length < 10) {
+    } else if (formData.message.trim().length < VALIDATION.MESSAGE_MIN) {
       newErrors.message = t('errors.messageMinLength');
+    } else if (formData.message.length > VALIDATION.MESSAGE_MAX) {
+      newErrors.message = t('errors.messageTooLong');
     }
 
     setErrors(newErrors);
@@ -144,24 +184,10 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <div
-        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/20"
+        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-2xl"
         dir={isRtl ? 'rtl' : 'ltr'}
       >
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/25 mb-6">
-          <svg
-            className="w-10 h-10 text-primary-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
+      
         <h3 className="text-2xl font-bold text-foreground mb-3">
           {t('success.title')}
         </h3>
@@ -370,10 +396,29 @@ export function ContactForm() {
           value={formData.phone}
           onChange={handlePhoneChange}
           defaultCountry="EG"
+          error={!!errors.phone}
           placeholder={t('placeholders.phone')}
           dir="ltr"
           className="[&_input]:h-12 [&_input]:rounded-xl [&>div]:rounded-xl"
         />
+        {errors.phone && (
+          <p className="text-sm text-red-500 flex items-center gap-1">
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4m0 4h.01"
+              />
+            </svg>
+            {errors.phone}
+          </p>
+        )}
       </div>
 
       {/* Subject */}

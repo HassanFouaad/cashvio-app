@@ -9,8 +9,8 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
 const PORTAL_URL =
-  process.env.NEXT_PUBLIC_PORTAL_URL || 'https://console.cash-vio.com';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cash-vio.com';
+  process.env.NEXT_PUBLIC_PORTAL_URL || 'http://localhost:3002';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3005';
 
 export const env = {
   /**

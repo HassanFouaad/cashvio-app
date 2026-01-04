@@ -152,7 +152,7 @@
   },
   "pricing": {
     "title": "Simple, Transparent Pricing",
-    "subtitle": "Choose the plan that fits your business. All plans include a 14-day free trial.",
+    "subtitle": "Choose the plan that fits your business.",
     "monthly": "Monthly",
     "yearly": "Yearly",
     "yearlyDiscount": "Save 20%",
@@ -215,7 +215,7 @@
       },
       "q2": {
         "question": "Is there a free trial?",
-        "answer": "Yes! All plans include a 14-day free trial. No credit card required to start."
+        "answer": "Yes! No credit card required to start."
       },
       "q3": {
         "question": "What payment methods do you accept?",
@@ -378,13 +378,20 @@
     },
     "errors": {
       "businessNameRequired": "Business name is required",
-      "phoneRequired": "Please enter a valid phone number",
+      "businessNameTooLong": "Business name is too long (max 255 characters)",
+      "phoneRequired": "Phone number is required",
+      "phoneInvalid": "Please enter a valid phone number for the selected country",
+      "phoneTooLong": "Phone number is too long",
       "firstNameRequired": "First name is required",
+      "firstNameTooLong": "First name is too long (max 255 characters)",
       "lastNameRequired": "Last name is required",
+      "lastNameTooLong": "Last name is too long (max 255 characters)",
       "usernameRequired": "Username is required",
       "usernameMinLength": "Username must be at least 3 characters",
+      "usernameTooLong": "Username is too long (max 255 characters)",
       "emailRequired": "Email is required to receive your login credentials",
       "emailInvalid": "Please enter a valid email address",
+      "emailTooLong": "Email is too long (max 255 characters)",
       "userExists": "An account with this username or email already exists",
       "registrationFailed": "Registration failed. Please try again."
     },
@@ -393,8 +400,7 @@
     "success": {
       "title": "Account Created!",
       "message": "Your account has been created successfully.",
-      "emailSent": "Your login credentials have been sent to your email address.",
-      "redirecting": "Redirecting you to your dashboard..."
+      "emailSent": "Your login credentials have been sent to your email address. Please check your inbox."
     },
     "terms": {
       "prefix": "By signing up, you agree to our",
@@ -525,11 +531,17 @@
     },
     "errors": {
       "nameRequired": "Name is required",
+      "nameTooLong": "Name must be 255 characters or less",
       "emailRequired": "Email is required",
       "emailInvalid": "Please enter a valid email",
+      "emailTooLong": "Email must be 255 characters or less",
+      "phoneInvalid": "Please enter a valid phone number",
+      "phoneTooLong": "Phone number is too long",
       "subjectRequired": "Subject is required",
+      "subjectTooLong": "Subject must be 255 characters or less",
       "messageRequired": "Message is required",
       "messageMinLength": "Message must be at least 10 characters",
+      "messageTooLong": "Message must be 5000 characters or less",
       "submitFailed": "Failed to send message. Please try again."
     },
     "submit": "Send Message",

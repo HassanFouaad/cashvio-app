@@ -1,11 +1,24 @@
 'use client';
 
-import { PhoneInput } from '@/components/ui/phone-input';
-import { env } from '@/config/env';
+import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
 import { authService, HttpError, RegisterRequest } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
+
+// ============================================================================
+// Constants (matching backend DTO)
+// ============================================================================
+
+const VALIDATION = {
+  BUSINESS_NAME_MAX: 255,
+  CONTACT_PHONE_MAX: 50,
+  FIRST_NAME_MAX: 255,
+  LAST_NAME_MAX: 255,
+  USERNAME_MIN: 3,
+  USERNAME_MAX: 255,
+  EMAIL_MAX: 255,
+} as const;
 
 // ============================================================================
 // Types
@@ -71,37 +84,59 @@ export function RegistrationForm() {
     }
   };
 
-  // Validate form
+  // Validate form - matching backend DTO validations
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
+    // Business name validation (required, max 255)
     if (!formData.businessName.trim()) {
       newErrors.businessName = t('errors.businessNameRequired');
+    } else if (formData.businessName.length > VALIDATION.BUSINESS_NAME_MAX) {
+      newErrors.businessName = t('errors.businessNameTooLong');
     }
 
-    if (!formData.contactPhone || formData.contactPhone.length < 8) {
+    // Phone validation (required, valid format, max 50)
+    if (!formData.contactPhone) {
       newErrors.contactPhone = t('errors.phoneRequired');
+    } else {
+      const phoneValidation = validatePhoneNumber(formData.contactPhone);
+      if (!phoneValidation.isValid) {
+        newErrors.contactPhone = t('errors.phoneInvalid');
+      } else if (formData.contactPhone.length > VALIDATION.CONTACT_PHONE_MAX) {
+        newErrors.contactPhone = t('errors.phoneTooLong');
+      }
     }
 
+    // First name validation (required, max 255)
     if (!formData.firstName.trim()) {
       newErrors.firstName = t('errors.firstNameRequired');
+    } else if (formData.firstName.length > VALIDATION.FIRST_NAME_MAX) {
+      newErrors.firstName = t('errors.firstNameTooLong');
     }
 
+    // Last name validation (required, max 255)
     if (!formData.lastName.trim()) {
       newErrors.lastName = t('errors.lastNameRequired');
+    } else if (formData.lastName.length > VALIDATION.LAST_NAME_MAX) {
+      newErrors.lastName = t('errors.lastNameTooLong');
     }
 
+    // Username validation (required, min 3, max 255)
     if (!formData.username.trim()) {
       newErrors.username = t('errors.usernameRequired');
-    } else if (formData.username.length < 3) {
+    } else if (formData.username.length < VALIDATION.USERNAME_MIN) {
       newErrors.username = t('errors.usernameMinLength');
+    } else if (formData.username.length > VALIDATION.USERNAME_MAX) {
+      newErrors.username = t('errors.usernameTooLong');
     }
 
-    // Email is required since credentials will be sent via email
+    // Email validation (required, valid format, max 255)
     if (!formData.email.trim()) {
       newErrors.email = t('errors.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = t('errors.emailInvalid');
+    } else if (formData.email.length > VALIDATION.EMAIL_MAX) {
+      newErrors.email = t('errors.emailTooLong');
     }
 
     setErrors(newErrors);
@@ -130,17 +165,10 @@ export function RegistrationForm() {
         email: formData.email.trim(),
       };
 
-      const response = await authService.register(registerData);
+      await authService.register(registerData);
 
-      // Success! Redirect to portal
+      // Success! Show success message (no redirect - user will receive email with credentials)
       setIsSuccess(true);
-
-      // Store tokens and redirect
-      if (typeof window !== 'undefined') {
-        // Could store in localStorage or cookie here if needed
-        // For now, redirect to portal with token
-        window.location.href = `${env.portal.dashboardUrl}?token=${response.accessToken}`;
-      }
     } catch (error) {
       if (error instanceof HttpError) {
         if (error.statusCode === 409) {
@@ -158,10 +186,10 @@ export function RegistrationForm() {
 
   if (isSuccess) {
     return (
-      <div className="text-center py-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
+      <div className="text-center py-8" dir={isRtl ? 'rtl' : 'ltr'}>
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 dark:bg-green-950/30 mb-6">
           <svg
-            className="w-8 h-8 text-green-600"
+            className="w-10 h-10 text-green-600 dark:text-green-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -174,15 +202,25 @@ export function RegistrationForm() {
             />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-foreground mb-2">
+        <h3 className="text-2xl font-semibold text-foreground mb-3">
           {t('success.title')}
         </h3>
-        <p className="text-muted-foreground">{t('success.message')}</p>
-        <p className="text-sm text-muted-foreground mt-2">
+        <p className="text-muted-foreground mb-2">{t('success.message')}</p>
+        <p className="text-sm text-muted-foreground bg-muted/50 rounded-lg p-4 mt-4">
+          <svg
+            className="w-5 h-5 inline-block mx-1 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
           {t('success.emailSent')}
-        </p>
-        <p className="text-sm text-muted-foreground mt-2">
-          {t('success.redirecting')}
         </p>
       </div>
     );

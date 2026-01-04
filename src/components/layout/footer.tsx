@@ -100,9 +100,7 @@ export async function Footer({ locale }: FooterProps) {
           <p className="text-sm text-muted-foreground">
             {t('copyright', { year: currentYear })}
           </p>
-          <p className="text-sm text-muted-foreground">
-            {t('madeWith')}
-          </p>
+         
         </div>
       </div>
     </footer>

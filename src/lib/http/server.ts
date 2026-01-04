@@ -6,7 +6,7 @@
  */
 
 import { env } from '@/config/env';
-import type { ApiResponse, PaginatedResponse, PublicPlan } from './types';
+  import type { ApiResponse, PublicPlan } from './types';
 
 const API_BASE_URL = env.api.url;
 
@@ -29,7 +29,7 @@ async function serverFetch<T>(
     },
     // Next.js caching options
     next: {
-      revalidate: options?.revalidate ?? 3600, // Default 1 hour cache
+      revalidate: options?.revalidate ?? undefined, // Default 1 hour cache
     },
   });
 
@@ -46,15 +46,17 @@ async function serverFetch<T>(
  */
 export async function getPublicPlans(): Promise<PublicPlan[]> {
   try {
-    const response = await serverFetch<ApiResponse<PaginatedResponse<PublicPlan>>>(
+    const response = await serverFetch<ApiResponse<PublicPlan[]>>(
       '/public/plans',
-      { revalidate: 300 } // Cache for 5 minutes
+    //  { revalidate: 300 } // Cache for 5 minutes
     );
 
-    return response.data?.items ?? [];
+    console.log(response);
+
+    return response?.data ?? [];
   } catch (error) {
     console.error('[Server] Failed to fetch plans:', error);
-    return [];
+    return []
   }
 }
 
@@ -75,34 +77,5 @@ export async function getPublicPlanById(id: string): Promise<PublicPlan | null> 
   }
 }
 
-/**
- * Feature type for public display
- */
-export interface PublicFeature {
-  id: string;
-  key: string;
-  name: string;
-  description: string | null;
-  category: 'MODULE' | 'FUNCTIONAL' | 'CAPACITY';
-  type: 'BOOLEAN' | 'LIMIT';
-  metadata: Record<string, unknown>;
-  isEnabled: boolean;
-}
 
-/**
- * Fetch all public features (server-side)
- */
-export async function getPublicFeatures(): Promise<PublicFeature[]> {
-  try {
-    const response = await serverFetch<ApiResponse<PaginatedResponse<PublicFeature>>>(
-      '/public/features',
-      { revalidate: 300 } // Cache for 5 minutes
-    );
-
-    return response.data?.items ?? [];
-  } catch (error) {
-    console.error('[Server] Failed to fetch features:', error);
-    return [];
-  }
-}
 

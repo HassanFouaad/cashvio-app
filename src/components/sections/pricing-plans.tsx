@@ -59,6 +59,18 @@ function getLocalizedPlan(plan: PublicPlan, locale: string) {
   };
 }
 
+// Determine which plan should be highlighted as popular
+function getPopularIndex(plans: PublicPlan[]): number {
+  // If exactly 3 plans, middle one is popular
+  if (plans.length === 3) return 1;
+  // If more than 3, find the non-freemium, non-highest priced
+  if (plans.length > 3) {
+    const nonFreemium = plans.filter(p => !p.isFreemium);
+    if (nonFreemium.length >= 2) return plans.indexOf(nonFreemium[1]);
+  }
+  return -1; // No popular plan
+}
+
 export async function PricingPlans({
   plans,
   fallbackPlans,
@@ -190,6 +202,9 @@ export async function PricingPlans({
     return a.price - b.price;
   });
 
+  // Determine the popular plan index
+  const popularIndex = getPopularIndex(sortedPlans);
+
   return (
     <div
       className={cn(
@@ -202,24 +217,24 @@ export async function PricingPlans({
     >
       {sortedPlans.map((plan, index) => {
         const localizedPlan = getLocalizedPlan(plan, locale);
-        // Middle plan is "popular" if 3+ plans
-        const isPro = sortedPlans.length >= 3 && index === 1;
+        const isPro = index === popularIndex && !plan.isFreemium;
         const isEnterprise = plan.price === 0 && !plan.isFreemium;
+        const features = localizedPlan.details.length > 0 ? localizedPlan.details : [];
+        const description = features[0] || '';
+        const featureList = features.slice(1);
 
         return (
           <Card
             key={plan.id}
             className={cn(
-              'relative flex flex-col transition-all duration-300',
-              isPro && 'border-primary shadow-lg md:scale-105 z-10',
-              plan.isFreemium &&
-                'border-green-500/50 bg-green-50/30 dark:bg-green-950/10'
+              'relative flex flex-col',
+              isPro && 'border-primary shadow-lg scale-105 z-10'
             )}
           >
             {/* Popular badge */}
             {isPro && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className="bg-primary text-primary-foreground shadow-lg">
+                <Badge className="bg-primary text-primary-foreground">
                   {translations.popular}
                 </Badge>
               </div>
@@ -228,29 +243,27 @@ export async function PricingPlans({
             {/* Freemium badge */}
             {plan.isFreemium && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className="bg-success text-success-foreground shadow-lg">
-                  {translations.freeTrial || 'Free'}
+                <Badge className="bg-primary text-primary-foreground">
+                  {translations.freeTrial}
                 </Badge>
               </div>
             )}
 
             <CardHeader>
               <CardTitle className="text-xl">{localizedPlan.name}</CardTitle>
-              <CardDescription>
-                {localizedPlan.details[0] || ''}
-              </CardDescription>
+              <CardDescription>{description}</CardDescription>
             </CardHeader>
 
             <CardContent className="flex-1">
               <div className="mb-6">
-                {plan.price === 0 ? (
+                {plan.isFreemium || plan.price === 0 ? (
                   <span className="text-4xl font-bold text-foreground">
-                    {translations.free || 'Free'}
+                    {translations.free}
                   </span>
                 ) : (
                   <>
                     <span className="text-4xl font-bold text-foreground">
-                      ${localizedPlan.price}
+                      EGP{localizedPlan.price}
                     </span>
                     <span className="text-muted-foreground">
                       {getPeriodLabel(localizedPlan.period, translations)}
@@ -264,7 +277,7 @@ export async function PricingPlans({
                   {translations.features}
                 </p>
                 <ul className="space-y-2">
-                  {localizedPlan.details.slice(1).map((feature, i) => (
+                  {featureList.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
                       <svg
                         className="w-5 h-5 text-primary shrink-0 mt-0.5"
@@ -286,11 +299,8 @@ export async function PricingPlans({
 
             <CardFooter>
               <ButtonLink
-                variant={isPro || plan.isFreemium ? 'primary' : 'outline'}
-                className={cn(
-                  'w-full justify-center',
-                  plan.isFreemium && 'bg-green-600 hover:bg-green-700'
-                )}
+                variant={isPro ? 'primary' : 'outline'}
+                className="w-full justify-center"
                 href={
                   isEnterprise ? `/${locale}/contact` : `/${locale}/register`
                 }
@@ -298,7 +308,7 @@ export async function PricingPlans({
                 {isEnterprise
                   ? translations.contactSales
                   : plan.isFreemium
-                    ? translations.startFree || translations.getStarted
+                    ? translations.startFree
                     : translations.getStarted}
               </ButtonLink>
             </CardFooter>
