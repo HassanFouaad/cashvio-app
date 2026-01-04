@@ -3,6 +3,12 @@
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
 import { contactService, ContactRequest, HttpError, InquiryType } from '@/lib/http';
 import { cn } from '@/lib/utils';
+import {
+  trackFormStart,
+  trackFormSubmit,
+  trackFormError,
+  trackContactFormSubmit,
+} from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -62,6 +68,15 @@ export function ContactForm() {
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
+  const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
+
+  // Track form start when user begins typing
+  const handleFormInteraction = React.useCallback(() => {
+    if (!hasTrackedFormStart) {
+      trackFormStart('contact_form', 'contact_page');
+      setHasTrackedFormStart(true);
+    }
+  }, [hasTrackedFormStart]);
 
   // Handle input change
   const handleChange = (
@@ -73,6 +88,8 @@ export function ContactForm() {
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
+    // Track form interaction
+    handleFormInteraction();
   };
 
   // Handle phone change
@@ -82,6 +99,8 @@ export function ContactForm() {
     if (errors.phone) {
       setErrors((prev) => ({ ...prev, phone: undefined }));
     }
+    // Track form interaction
+    handleFormInteraction();
   };
 
   // Validate form - matching backend DTO validations
@@ -156,11 +175,16 @@ export function ContactForm() {
 
       await contactService.submit(contactData);
       setIsSuccess(true);
+      // Track successful submission
+      trackFormSubmit('contact_form', 'contact_page');
+      trackContactFormSubmit(formData.type, 'contact_page');
     } catch (error) {
       if (error instanceof HttpError) {
         setErrors({ general: error.message || t('errors.submitFailed') });
+        trackFormError('contact_form', 'api_error', error.message);
       } else {
         setErrors({ general: t('errors.submitFailed') });
+        trackFormError('contact_form', 'unknown_error');
       }
     } finally {
       setIsSubmitting(false);

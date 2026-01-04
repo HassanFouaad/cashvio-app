@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
+import { trackThemeChange } from '@/lib/analytics';
 
 interface ThemeToggleProps {
   className?: string;
@@ -28,6 +29,9 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
+
+    // Track theme change
+    trackThemeChange(newIsDark ? 'dark' : 'light');
   };
 
   if (!mounted) {

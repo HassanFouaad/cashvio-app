@@ -3,6 +3,13 @@
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
 import { authService, HttpError, RegisterRequest } from '@/lib/http';
 import { cn } from '@/lib/utils';
+import {
+  trackFormStart,
+  trackFormSubmit,
+  trackFormError,
+  trackRegistrationStart,
+  trackRegistrationComplete,
+} from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 
@@ -64,6 +71,16 @@ export function RegistrationForm() {
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
+  const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
+
+  // Track form start when user begins typing
+  const handleFormInteraction = React.useCallback(() => {
+    if (!hasTrackedFormStart) {
+      trackFormStart('registration_form', 'register_page');
+      trackRegistrationStart('direct');
+      setHasTrackedFormStart(true);
+    }
+  }, [hasTrackedFormStart]);
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +90,8 @@ export function RegistrationForm() {
     if (errors[name as keyof FormErrors] || errors.general) {
       setErrors((prev) => ({ ...prev, [name]: undefined, general: undefined }));
     }
+    // Track form interaction
+    handleFormInteraction();
   };
 
   // Handle phone change
@@ -82,6 +101,8 @@ export function RegistrationForm() {
     if (errors.contactPhone || errors.general) {
       setErrors((prev) => ({ ...prev, contactPhone: undefined, general: undefined }));
     }
+    // Track form interaction
+    handleFormInteraction();
   };
 
   // Validate form - matching backend DTO validations
@@ -169,15 +190,21 @@ export function RegistrationForm() {
 
       // Success! Show success message (no redirect - user will receive email with credentials)
       setIsSuccess(true);
+      // Track successful registration
+      trackFormSubmit('registration_form', 'register_page');
+      trackRegistrationComplete();
     } catch (error) {
       if (error instanceof HttpError) {
         if (error.statusCode === 409) {
           setErrors({ general: t('errors.userExists') });
+          trackFormError('registration_form', 'user_exists', 'User already exists');
         } else {
           setErrors({ general: error.message || t('errors.registrationFailed') });
+          trackFormError('registration_form', 'api_error', error.message);
         }
       } else {
         setErrors({ general: t('errors.registrationFailed') });
+        trackFormError('registration_form', 'unknown_error');
       }
     } finally {
       setIsSubmitting(false);

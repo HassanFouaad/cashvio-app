@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { PricingPlanCard } from './pricing-plan-card';
 import { ctaLinks } from '@/config/navigation';
 import type { PlanPeriod, PublicPlan } from '@/lib/http';
 import { cn } from '@/lib/utils';
@@ -224,95 +225,19 @@ export async function PricingPlans({
         const featureList = features.slice(1);
 
         return (
-          <Card
+          <PricingPlanCard
             key={plan.id}
-            className={cn(
-              'relative flex flex-col',
-              isPro && 'border-primary shadow-lg scale-105 z-10'
-            )}
-          >
-            {/* Popular badge */}
-            {isPro && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className="bg-primary text-primary-foreground">
-                  {translations.popular}
-                </Badge>
-              </div>
-            )}
-
-            {/* Freemium badge */}
-            {plan.isFreemium && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <Badge className="bg-primary text-primary-foreground">
-                  {translations.freeTrial}
-                </Badge>
-              </div>
-            )}
-
-            <CardHeader>
-              <CardTitle className="text-xl">{localizedPlan.name}</CardTitle>
-              <CardDescription>{description}</CardDescription>
-            </CardHeader>
-
-            <CardContent className="flex-1">
-              <div className="mb-6">
-                {plan.isFreemium || plan.price === 0 ? (
-                  <span className="text-4xl font-bold text-foreground">
-                    {translations.free}
-                  </span>
-                ) : (
-                  <>
-                    <span className="text-4xl font-bold text-foreground">
-                      EGP{localizedPlan.price}
-                    </span>
-                    <span className="text-muted-foreground">
-                      {getPeriodLabel(localizedPlan.period, translations)}
-                    </span>
-                  </>
-                )}
-              </div>
-
-              <div className="space-y-3">
-                <p className="text-sm font-medium text-foreground">
-                  {translations.features}
-                </p>
-                <ul className="space-y-2">
-                  {featureList.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <svg
-                        className="w-5 h-5 text-primary shrink-0 mt-0.5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </CardContent>
-
-            <CardFooter>
-              <ButtonLink
-                variant={isPro ? 'primary' : 'outline'}
-                className="w-full justify-center"
-                href={
-                  isEnterprise ? `/${locale}/contact` : `/${locale}/register`
-                }
-              >
-                {isEnterprise
-                  ? translations.contactSales
-                  : plan.isFreemium
-                    ? translations.startFree
-                    : translations.getStarted}
-              </ButtonLink>
-            </CardFooter>
-          </Card>
+            name={localizedPlan.name}
+            description={description}
+            price={plan.isFreemium || plan.price === 0 ? null : localizedPlan.price}
+            period={getPeriodLabel(localizedPlan.period, translations)}
+            features={featureList}
+            isPro={isPro}
+            isFreemium={plan.isFreemium}
+            isEnterprise={isEnterprise}
+            href={isEnterprise ? `/${locale}/contact` : `/${locale}/register`}
+            translations={translations}
+          />
         );
       })}
     </div>

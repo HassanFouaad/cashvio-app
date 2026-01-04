@@ -9,6 +9,7 @@ import { routing, localeMetadata, type Locale } from '@/i18n/routing';
 import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { AnalyticsProvider } from '@/lib/analytics';
 
 import '../globals.css';
 
@@ -182,6 +183,7 @@ export default async function LocaleLayout({
           <main className="flex-1">{children}</main>
           <Footer locale={locale as Locale} />
         </NextIntlClientProvider>
+        <AnalyticsProvider />
       </body>
     </html>
   );
