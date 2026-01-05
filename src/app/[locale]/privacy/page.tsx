@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 
-import { siteConfig } from '@/config/site';
+import { type Locale } from '@/i18n/routing';
+import {
+  schemaTemplates,
+  serializeSchema,
+  getCanonicalUrl,
+  getAlternateUrls,
+  keywords,
+  openGraphDefaults,
+  twitterDefaults,
+  brand,
+} from '@/config/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -10,12 +20,31 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.privacy' });
+  const typedLocale = locale as Locale;
 
   return {
-    title: t('title'),
+    title: `${t('title')} | ${brand.name}`,
     description: t('description'),
+    keywords: keywords[typedLocale],
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/privacy`,
+      canonical: getCanonicalUrl('/privacy', typedLocale),
+      languages: getAlternateUrls('/privacy'),
+    },
+    openGraph: {
+      ...openGraphDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+      url: getCanonicalUrl('/privacy', typedLocale),
+      locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -25,11 +54,46 @@ const sectionKeys = ['collection', 'usage', 'sharing', 'security', 'rights', 'co
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'privacy' });
+  const metaT = await getTranslations({ locale, namespace: 'metadata.privacy' });
+
+  // Schema.org structured data
+  const webPageSchema = schemaTemplates.webPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/privacy' : `/ar/privacy`,
+    title: metaT('title'),
+    description: metaT('description'),
+  });
+
+  const articleSchema = schemaTemplates.article({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/privacy' : `/ar/privacy`,
+    title: metaT('title'),
+    description: metaT('description'),
+  });
+
+  const breadcrumbSchema = schemaTemplates.breadcrumb([
+    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: metaT('title'), url: getCanonicalUrl('/privacy', typedLocale) },
+  ]);
 
   return (
-    <article className="py-16 md:py-24">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
+      />
+      <article className="py-16 md:py-24">
       <div className="container-narrow">
         {/* Header */}
         <header className="mb-12">
@@ -63,6 +127,7 @@ export default async function PrivacyPage({ params }: Props) {
         </div>
       </div>
     </article>
+    </>
   );
 }
 

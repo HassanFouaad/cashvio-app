@@ -1,9 +1,19 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 
-import { siteConfig } from '@/config/site';
+import { type Locale } from '@/i18n/routing';
 import { Link } from '@/i18n/navigation';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  schemaTemplates,
+  serializeSchema,
+  getCanonicalUrl,
+  getAlternateUrls,
+  keywords,
+  openGraphDefaults,
+  twitterDefaults,
+  brand,
+} from '@/config/seo';
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -12,12 +22,31 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata.docs' });
+  const typedLocale = locale as Locale;
 
   return {
-    title: t('title'),
+    title: `${t('title')} | ${brand.name}`,
     description: t('description'),
+    keywords: keywords[typedLocale],
     alternates: {
-      canonical: `${siteConfig.url}/${locale}/docs`,
+      canonical: getCanonicalUrl('/docs', typedLocale),
+      languages: getAlternateUrls('/docs'),
+    },
+    openGraph: {
+      ...openGraphDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+      url: getCanonicalUrl('/docs', typedLocale),
+      locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
+    },
+    twitter: {
+      ...twitterDefaults,
+      title: `${t('title')} | ${brand.name}`,
+      description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -79,12 +108,64 @@ const docCategories = [
 export default async function DocsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'metadata.docs' });
   const isArabic = locale === 'ar';
 
+  // Schema.org structured data
+  const webPageSchema = schemaTemplates.webPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/docs' : `/ar/docs`,
+    title: t('title'),
+    description: t('description'),
+  });
+
+  const collectionSchema = schemaTemplates.collectionPage({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '/docs' : `/ar/docs`,
+    title: t('title'),
+    description: t('description'),
+  });
+
+  const breadcrumbSchema = schemaTemplates.breadcrumb([
+    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: t('title'), url: getCanonicalUrl('/docs', typedLocale) },
+  ]);
+
+  const docsListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: t('title'),
+    description: t('description'),
+    itemListElement: docCategories.map((category, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: isArabic ? category.titleAr : category.titleEn,
+      description: isArabic ? category.descAr : category.descEn,
+      url: getCanonicalUrl(`/docs/${category.key}`, typedLocale),
+    })),
+  };
+
   return (
-    <div className="py-16 md:py-24">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(docsListSchema) }}
+      />
+      <div className="py-16 md:py-24">
       <div className="container-wide">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -137,6 +218,7 @@ export default async function DocsPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

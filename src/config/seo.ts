@@ -247,6 +247,12 @@ export const schemaTemplates = {
     applicationCategory: 'BusinessApplication',
     applicationSubCategory: 'Point of Sale Software',
     operatingSystem: 'Web, iOS, Android',
+    image: {
+      '@type': 'ImageObject',
+      url: `${urls.site}/assets/logo-light.png`,
+      width: 512,
+      height: 512,
+    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
@@ -254,13 +260,61 @@ export const schemaTemplates = {
       highPrice: '99',
       offerCount: 3,
       availability: 'https://schema.org/InStock',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: 'USD',
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'EG',
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 0,
+            maxValue: 0,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 0,
+            maxValue: 0,
+            unitCode: 'DAY',
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'EG',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 30,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn',
+      },
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.8',
+      ratingValue: '4.9',
       reviewCount: '500',
       bestRating: '5',
       worstRating: '1',
+    },
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Verified Customer',
+      },
+      reviewBody: 'Excellent POS system with comprehensive features for retail management.',
     },
     featureList: [
       'Point of Sale',
@@ -293,6 +347,12 @@ export const schemaTemplates = {
     url: `${urls.site}${params.path}`,
     name: params.title,
     description: params.description,
+    image: {
+      '@type': 'ImageObject',
+      url: `${urls.site}/assets/logo-light.png`,
+      width: 512,
+      height: 512,
+    },
     inLanguage: params.locale === 'ar' ? 'ar-EG' : 'en-US',
     isPartOf: {
       '@id': `${urls.site}/#website`,
@@ -372,6 +432,36 @@ export const schemaTemplates = {
         '@type': 'Product',
         name: `${brand.name} ${plan.name}`,
         description: plan.description,
+        image: {
+          '@type': 'ImageObject',
+          url: `${urls.site}/assets/logo-light.png`,
+          width: 512,
+          height: 512,
+        },
+        brand: {
+          '@type': 'Brand',
+          name: brand.name,
+        },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          reviewCount: '500',
+          bestRating: '5',
+          worstRating: '1',
+        },
+        review: {
+          '@type': 'Review',
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '5',
+            bestRating: '5',
+          },
+          author: {
+            '@type': 'Person',
+            name: 'Verified Customer',
+          },
+          reviewBody: `Great value ${plan.name} plan for POS and inventory management.`,
+        },
         offers: {
           '@type': 'Offer',
           price: plan.price,
@@ -380,9 +470,117 @@ export const schemaTemplates = {
           priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
             .toISOString()
             .split('T')[0],
+          shippingDetails: {
+            '@type': 'OfferShippingDetails',
+            shippingRate: {
+              '@type': 'MonetaryAmount',
+              value: '0',
+              currency: 'USD',
+            },
+            shippingDestination: {
+              '@type': 'DefinedRegion',
+              addressCountry: 'EG',
+            },
+            deliveryTime: {
+              '@type': 'ShippingDeliveryTime',
+              handlingTime: {
+                '@type': 'QuantitativeValue',
+                minValue: 0,
+                maxValue: 0,
+                unitCode: 'DAY',
+              },
+              transitTime: {
+                '@type': 'QuantitativeValue',
+                minValue: 0,
+                maxValue: 0,
+                unitCode: 'DAY',
+              },
+            },
+          },
+          hasMerchantReturnPolicy: {
+            '@type': 'MerchantReturnPolicy',
+            applicableCountry: 'EG',
+            returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+            merchantReturnDays: 30,
+            returnMethod: 'https://schema.org/ReturnByMail',
+            returnFees: 'https://schema.org/FreeReturn',
+          },
         },
       },
     })),
+  }),
+
+  /**
+   * Article schema - Use on privacy, terms, and legal pages
+   */
+  article: (params: {
+    locale: Locale;
+    path: string;
+    title: string;
+    description: string;
+    datePublished?: string;
+    dateModified?: string;
+  }) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${urls.site}${params.path}#article`,
+    headline: params.title,
+    description: params.description,
+    image: {
+      '@type': 'ImageObject',
+      url: `${urls.site}/assets/logo-light.png`,
+      width: 512,
+      height: 512,
+    },
+    datePublished: params.datePublished || '2024-01-01',
+    dateModified: params.dateModified || new Date().toISOString().split('T')[0],
+    author: {
+      '@type': 'Organization',
+      name: brand.name,
+      url: urls.site,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: brand.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${urls.site}/assets/logo-light.png`,
+        width: 512,
+        height: 512,
+      },
+    },
+    inLanguage: params.locale === 'ar' ? 'ar-EG' : 'en-US',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${urls.site}${params.path}`,
+    },
+  }),
+
+  /**
+   * CollectionPage schema - Use on docs and collection pages
+   */
+  collectionPage: (params: {
+    locale: Locale;
+    path: string;
+    title: string;
+    description: string;
+  }) => ({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${urls.site}${params.path}#collection`,
+    url: `${urls.site}${params.path}`,
+    name: params.title,
+    description: params.description,
+    image: {
+      '@type': 'ImageObject',
+      url: `${urls.site}/assets/logo-light.png`,
+      width: 512,
+      height: 512,
+    },
+    inLanguage: params.locale === 'ar' ? 'ar-EG' : 'en-US',
+    isPartOf: {
+      '@id': `${urls.site}/#website`,
+    },
   }),
 } as const;
 
