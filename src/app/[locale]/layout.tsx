@@ -16,7 +16,7 @@ import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/lib/analytics";
 
 import "../globals.css";
-import Script from "next/script";
+import Chat from "@/components/layout/Chat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -192,23 +192,6 @@ export default async function LocaleLayout({
             `,
           }}
         />
-        <Script
-          id="tawk-to-script"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-          (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/695c4c2ab1e0d21980f0c6af/1je88j1um';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-          })();
-        `,
-          }}
-        />
       </head>
       <body
         className={`min-h-screen flex flex-col bg-background text-foreground antialiased ${
@@ -220,6 +203,7 @@ export default async function LocaleLayout({
           <Header locale={locale as Locale} />
           <main className="flex-1">{children}</main>
           <Footer locale={locale as Locale} />
+          <Chat />
         </NextIntlClientProvider>
         <AnalyticsProvider />
       </body>
