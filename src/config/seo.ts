@@ -71,7 +71,7 @@ export const social = {
     url: env.social.linkedin || 'https://linkedin.com/company/cashvio',
   },
   instagram: {
-    url: env.social.instagram || 'https://instagram.com/cashvio',
+    url: env.social.instagram || 'https://instagram.com/cashvioapp',
   },
   youtube: {
     url: 'https://youtube.com/@cashvio',
