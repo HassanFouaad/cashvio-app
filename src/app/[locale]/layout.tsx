@@ -1,29 +1,34 @@
-import type { Metadata, Viewport } from 'next';
-import type { ReactNode } from 'react';
-import { notFound } from 'next/navigation';
-import { setRequestLocale, getTranslations, getMessages } from 'next-intl/server';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { Inter, IBM_Plex_Sans_Arabic } from 'next/font/google';
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import { notFound } from "next/navigation";
+import {
+  setRequestLocale,
+  getTranslations,
+  getMessages,
+} from "next-intl/server";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 
-import { routing, localeMetadata, type Locale } from '@/i18n/routing';
-import { siteConfig } from '@/config/site';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
-import { AnalyticsProvider } from '@/lib/analytics';
+import { routing, localeMetadata, type Locale } from "@/i18n/routing";
+import { siteConfig } from "@/config/site";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { AnalyticsProvider } from "@/lib/analytics";
 
-import '../globals.css';
+import "../globals.css";
+import Script from "next/script";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
 });
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
-  subsets: ['arabic'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-arabic',
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-arabic",
 });
 
 export function generateStaticParams() {
@@ -36,7 +41,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const t = await getTranslations({ locale, namespace: "metadata" });
 
   const alternateLanguages: Record<string, string> = {};
   for (const loc of routing.locales) {
@@ -46,10 +51,10 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
-      default: t('siteName'),
-      template: `%s | ${t('siteName')}`,
+      default: t("siteName"),
+      template: `%s | ${t("siteName")}`,
     },
-    description: t('siteDescription'),
+    description: t("siteDescription"),
     keywords: siteConfig.keywords,
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
@@ -60,9 +65,9 @@ export async function generateMetadata({
       googleBot: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     alternates: {
@@ -70,41 +75,55 @@ export async function generateMetadata({
       languages: alternateLanguages,
     },
     openGraph: {
-      type: 'website',
-      locale: locale === 'ar' ? 'ar_SA' : 'en_US',
+      type: "website",
+      locale: locale === "ar" ? "ar_SA" : "en_US",
       url: siteConfig.url,
-      siteName: t('siteName'),
-      title: t('siteName'),
-      description: t('siteDescription'),
+      siteName: t("siteName"),
+      title: t("siteName"),
+      description: t("siteDescription"),
       images: [
         {
           url: `${siteConfig.url}/assets/logo-light.png`,
           width: 512,
           height: 512,
-          alt: t('siteName'),
+          alt: t("siteName"),
         },
       ],
     },
     twitter: {
-      card: 'summary_large_image',
-      title: t('siteName'),
-      description: t('siteDescription'),
+      card: "summary_large_image",
+      title: t("siteName"),
+      description: t("siteDescription"),
       images: [`${siteConfig.url}/assets/logo-light.png`],
       creator: siteConfig.social.twitter,
     },
     icons: {
       icon: [
-        { url: '/assets/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-        { url: '/assets/favicon.svg', type: 'image/svg+xml' },
-        { url: '/assets/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+        { url: "/assets/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+        { url: "/assets/favicon.svg", type: "image/svg+xml" },
+        { url: "/assets/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       ],
-      shortcut: '/assets/favicon.ico',
+      shortcut: "/assets/favicon.ico",
       apple: [
-        { url: '/assets/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        {
+          url: "/assets/apple-touch-icon.png",
+          sizes: "180x180",
+          type: "image/png",
+        },
       ],
       other: [
-        { rel: 'icon', url: '/assets/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
-        { rel: 'icon', url: '/assets/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
+        {
+          rel: "icon",
+          url: "/assets/web-app-manifest-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          rel: "icon",
+          url: "/assets/web-app-manifest-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
       ],
     },
   };
@@ -112,11 +131,11 @@ export async function generateMetadata({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#10b981' },
-    { media: '(prefers-color-scheme: dark)', color: '#34d399' },
+    { media: "(prefers-color-scheme: light)", color: "#10b981" },
+    { media: "(prefers-color-scheme: dark)", color: "#34d399" },
   ],
-  colorScheme: 'light dark',
-  width: 'device-width',
+  colorScheme: "light dark",
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
@@ -142,7 +161,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const { direction } = localeMetadata[locale as Locale];
-  const isRTL = direction === 'rtl';
+  const isRTL = direction === "rtl";
 
   return (
     <html
@@ -173,9 +192,28 @@ export default async function LocaleLayout({
             `,
           }}
         />
+        <Script
+          id="tawk-to-script"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/695c4c2ab1e0d21980f0c6af/1je88j1um';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+          })();
+        `,
+          }}
+        />
       </head>
       <body
-        className={`min-h-screen flex flex-col bg-background text-foreground antialiased ${isRTL ? 'font-arabic' : 'font-sans'}`}
+        className={`min-h-screen flex flex-col bg-background text-foreground antialiased ${
+          isRTL ? "font-arabic" : "font-sans"
+        }`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
