@@ -20,10 +20,16 @@ export async function Hero({ locale }: HeroProps) {
 
       <div className="container-wide">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="animate-fade-up">
-            <Badge variant="default" className="mb-6">
+          {/* Badges */}
+          <div className="animate-fade-up flex flex-wrap items-center justify-center gap-2 mb-6">
+            <Badge variant="default">
               {t('badge')}
+            </Badge>
+            <Badge className="bg-success/15 text-success border border-success/30">
+              <svg className="w-3.5 h-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              {t('freeBadge')}
             </Badge>
           </div>
 
@@ -40,7 +46,10 @@ export async function Hero({ locale }: HeroProps) {
 
           {/* CTAs */}
           <div className="animate-fade-up animate-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <ButtonLink size="xl" href={ctaLinks.getStarted}>
+            <ButtonLink size="xl" href={ctaLinks.getStarted} className="group">
+              <svg className="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
               {t('cta')}
             </ButtonLink>
             <ButtonLink variant="outline" size="xl" href={ctaLinks.demo}>
@@ -59,8 +68,16 @@ export async function Hero({ locale }: HeroProps) {
             </ButtonLink>
           </div>
 
+          {/* Free Forever Note */}
+          <div className="animate-fade-up animate-delay-400 mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{t('freeNote')}</span>
+          </div>
+
           {/* Trust Badge */}
-          <p className="animate-fade-up animate-delay-400 mt-8 text-sm text-muted-foreground">
+          <p className="animate-fade-up animate-delay-500 mt-4 text-sm text-muted-foreground">
             {t('trustedBy')}
           </p>
         </div>

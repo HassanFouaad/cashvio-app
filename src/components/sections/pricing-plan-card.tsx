@@ -30,6 +30,7 @@ interface PricingPlanCardProps {
   translations: {
     free: string;
     freeTrial: string;
+    freeForever: string;
     popular: string;
     features: string;
     getStarted: string;
@@ -76,11 +77,11 @@ export function PricingPlanCard({
         </div>
       )}
 
-      {/* Freemium badge */}
+      {/* Free Forever badge for freemium plans */}
       {isFreemium && !isPro && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2">
           <Badge className="bg-primary text-primary-foreground">
-            {translations.freeTrial}
+            {translations.freeForever}
           </Badge>
         </div>
       )}

@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils/cn';
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  showBeta?: boolean;
 }
 
 /**
@@ -16,7 +17,7 @@ interface LogoProps {
  * - Light mode: uses logo-dark.png (dark text for light backgrounds)
  * - Dark mode: uses logo-light.png (light text for dark backgrounds)
  */
-export function Logo({ className, size = 'md' }: LogoProps) {
+export function Logo({ className, size = 'md', showBeta = true }: LogoProps) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -47,15 +48,22 @@ export function Logo({ className, size = 'md' }: LogoProps) {
   const { width, height } = sizes[size];
 
   return (
-    <div className={cn('flex-shrink-0 overflow-hidden', className)}>
-      <Image
-        src={isDark ? '/assets/logo-dark.png' : '/assets/logo-light.png'}
-        alt="Cashvio"
-        width={width}
-        height={height}
-        className="h-auto w-auto max-h-10 object-contain"
-        priority
-      />
+    <div className={cn('flex-shrink-0 flex flex-col items-start gap-0.5', className)}>
+      <div className="flex items-center gap-1.5">
+        <Image
+          src={isDark ? '/assets/logo-dark.png' : '/assets/logo-light.png'}
+          alt="Cashvio"
+          width={width}
+          height={height}
+          className="h-auto w-auto max-h-10 object-contain"
+          priority
+        />
+      {/*   {showBeta && (
+          <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide bg-primary/15 text-primary border border-primary/30">
+            Beta
+          </span>
+        )} */}
+      </div>
     </div>
   );
 }

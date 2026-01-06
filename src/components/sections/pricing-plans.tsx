@@ -87,6 +87,7 @@ export async function PricingPlans({
     perYear: t('perYear'),
     free: t('free'),
     freeTrial: t('freeTrial'),
+    freeForever: t('freeForever'),
     startFree: t('startFree'),
     popular: t('popular'),
     features: t('features'),

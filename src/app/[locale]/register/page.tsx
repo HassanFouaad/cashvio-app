@@ -97,10 +97,40 @@ export default async function RegisterPage({ params }: Props) {
       <section className="py-16 md:py-24 bg-gradient-hero">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
+            {/* Free Forever Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success/15 text-success text-sm font-medium mb-6 border border-success/30">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              {t('freeBadge')}
+            </div>
+            
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               {t('title')}
             </h1>
             <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
+            
+            {/* Free benefits */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {t('benefit1')}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {t('benefit2')}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {t('benefit3')}
+              </span>
+            </div>
           </div>
         </div>
       </section>

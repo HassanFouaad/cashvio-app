@@ -32,8 +32,8 @@
     }
   },
   "common": {
-    "getStarted": "Get Started",
-    "startFreeTrial": "Start Free Trial",
+    "getStarted": "Start Free",
+    "startFreeTrial": "Start Free",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
     "viewPricing": "View Pricing",
@@ -73,11 +73,13 @@
   "home": {
     "hero": {
       "badge": "Modern POS & Inventory Solution",
+      "freeBadge": "Free Forever Plan",
       "title": "Run Your Business",
       "titleHighlight": "Smarter",
       "subtitle": "Cashvio is the all-in-one POS and inventory management platform that helps you sell more, manage better, and grow faster.",
-      "cta": "Start Free Trial",
+      "cta": "Start Free",
       "secondaryCta": "Explore Features",
+      "freeNote": "Free forever • No credit card required • Setup in minutes",
       "trustedBy": ""
     },
     "features": {
@@ -111,7 +113,10 @@
     "benefits": {
       "title": "Why Choose Cashvio",
       "subtitle": "Built for businesses that demand the best",
-     
+      "freeForever": {
+        "title": "Free Forever Plan",
+        "description": "Start with our free plan and only pay when you need advanced features. No hidden fees."
+      },
       "support": {
         "title": "Dedicated Support",
         "description": "Expert assistance when you need it. Phone, email, and live chat support available."
@@ -145,9 +150,12 @@
     },
     "cta": {
       "title": "Ready to Transform Your Business?",
-      "subtitle": "Start your free trial and discover why businesses choose Cashvio.",
-      "button": "Start Your Free Trial",
-      "note": "No credit card required"
+      "subtitle": "Join thousands of businesses using Cashvio for free.",
+      "freeBadge": "Free Forever Plan Available",
+      "button": "Start Free Now",
+      "noCreditCard": "No credit card required",
+      "freeForever": "Free forever plan",
+      "instantSetup": "Instant setup"
     }
   },
   "pricing": {
@@ -162,6 +170,7 @@
     "perYear": "/year",
     "free": "Free",
     "freeTrial": "Free Trial",
+    "freeForever": "Free Forever",
     "startFree": "Start Free",
     "noPlansAvailable": "Plans are currently unavailable. Please try again later.",
     "popular": "Most Popular",
@@ -346,11 +355,15 @@
   },
   "register": {
     "meta": {
-      "title": "Create Your Account",
-      "description": "Sign up for Cashvio and start managing your business today."
+      "title": "Create Your Free Account",
+      "description": "Sign up for Cashvio free forever and start managing your business today."
     },
-    "title": "Create Your Account",
-    "subtitle": "Start your free trial and grow your business",
+    "title": "Create Your Free Account",
+    "subtitle": "Start for free and grow your business with no hidden costs",
+    "freeBadge": "Free Forever • No Credit Card Required",
+    "benefit1": "Free forever plan",
+    "benefit2": "No credit card required",
+    "benefit3": "Setup in 2 minutes",
     "alreadyHaveAccount": "Already have an account?",
     "signIn": "Sign in",
     "backToHome": "Back to Home",
