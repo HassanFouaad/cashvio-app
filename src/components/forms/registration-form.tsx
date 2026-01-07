@@ -12,6 +12,7 @@ import {
 } from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
+import { env } from '@/config/env';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -20,8 +21,6 @@ import * as React from 'react';
 const VALIDATION = {
   BUSINESS_NAME_MAX: 255,
   CONTACT_PHONE_MAX: 50,
-  FIRST_NAME_MAX: 255,
-  LAST_NAME_MAX: 255,
   EMAIL_MAX: 255,
   PASSWORD_MIN: 8,
   PASSWORD_MAX: 255,
@@ -34,21 +33,15 @@ const VALIDATION = {
 interface FormData {
   businessName: string;
   contactPhone: string;
-  firstName: string;
-  lastName: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
 interface FormErrors {
   businessName?: string;
   contactPhone?: string;
-  firstName?: string;
-  lastName?: string;
   email?: string;
   password?: string;
-  confirmPassword?: string;
   general?: string;
 }
 
@@ -64,17 +57,31 @@ export function RegistrationForm() {
   const [formData, setFormData] = React.useState<FormData>({
     businessName: '',
     contactPhone: '',
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
-    confirmPassword: '',
   });
 
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
   const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
+  const [countdown, setCountdown] = React.useState(10);
+
+  // Portal login URL
+  const portalLoginUrl = `${env.portal.url}/login`;
+
+  // Auto-redirect countdown after successful registration
+  React.useEffect(() => {
+    if (isSuccess && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (isSuccess && countdown === 0) {
+      // Redirect to login
+      window.location.href = portalLoginUrl;
+    }
+  }, [isSuccess, countdown, portalLoginUrl]);
 
   // Track form start when user begins typing
   const handleFormInteraction = React.useCallback(() => {
@@ -131,20 +138,6 @@ export function RegistrationForm() {
       }
     }
 
-    // First name validation (required, max 255)
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = t('errors.firstNameRequired');
-    } else if (formData.firstName.length > VALIDATION.FIRST_NAME_MAX) {
-      newErrors.firstName = t('errors.firstNameTooLong');
-    }
-
-    // Last name validation (required, max 255)
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = t('errors.lastNameRequired');
-    } else if (formData.lastName.length > VALIDATION.LAST_NAME_MAX) {
-      newErrors.lastName = t('errors.lastNameTooLong');
-    }
-
     // Email validation (required, valid format, max 255)
     if (!formData.email.trim()) {
       newErrors.email = t('errors.emailRequired');
@@ -184,8 +177,6 @@ export function RegistrationForm() {
       const registerData: RegisterRequest = {
         businessName: formData.businessName.trim(),
         contactPhone: formData.contactPhone,
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
         email: formData.email.trim(),
         password: formData.password,
       };
@@ -253,6 +244,36 @@ export function RegistrationForm() {
           </svg>
           {t('success.emailSent')}
         </p>
+
+        {/* Login Button with Countdown */}
+        <div className="mt-8 space-y-4">
+          <a
+            href={portalLoginUrl}
+            className={cn(
+              'inline-flex items-center justify-center gap-2 h-12 px-8 rounded-lg font-semibold',
+              'bg-primary text-primary-foreground hover:bg-primary/90',
+              'transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2'
+            )}
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+              />
+            </svg>
+            {t('success.loginButton')}
+          </a>
+          <p className="text-sm text-muted-foreground">
+            {t('success.autoRedirect', { seconds: countdown })}
+          </p>
+        </div>
       </div>
     );
   }
@@ -263,190 +284,113 @@ export function RegistrationForm() {
       className="space-y-6"
       dir={isRtl ? 'rtl' : 'ltr'}
     >
-      {/* Business Information */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-foreground">
-          {t('sections.business')}
-        </h3>
-
-        {/* Business Name */}
-        <div className="space-y-2">
-          <label
-            htmlFor="businessName"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.businessName')} <span className="text-destructive">*</span>
-          </label>
-          <input
-            id="businessName"
-            name="businessName"
-            type="text"
-            value={formData.businessName}
-            onChange={handleChange}
-            className={cn(
-              'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-              'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.businessName
-                ? 'border-destructive focus:ring-destructive/30'
-                : 'border-input focus:ring-ring/30'
-            )}
-            placeholder={t('placeholders.businessName')}
-          />
-          {errors.businessName && (
-            <p className="text-sm text-destructive">{errors.businessName}</p>
+      {/* Business Name */}
+      <div className="space-y-2">
+        <label
+          htmlFor="businessName"
+          className="block text-sm font-medium text-foreground"
+        >
+          {t('fields.businessName')} <span className="text-destructive">*</span>
+        </label>
+        <input
+          id="businessName"
+          name="businessName"
+          type="text"
+          value={formData.businessName}
+          onChange={handleChange}
+          className={cn(
+            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
+            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
+            errors.businessName
+              ? 'border-destructive focus:ring-destructive/30'
+              : 'border-input focus:ring-ring/30'
           )}
-        </div>
-
-        {/* Phone */}
-        <div className="space-y-2">
-          <label
-            htmlFor="contactPhone"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.phone')} <span className="text-destructive">*</span>
-          </label>
-          <PhoneInput
-            id="contactPhone"
-            value={formData.contactPhone}
-            onChange={handlePhoneChange}
-            defaultCountry="EG"
-            error={!!errors.contactPhone}
-            placeholder={t('placeholders.phone')}
-            dir="ltr"
-          />
-          {errors.contactPhone && (
-            <p className="text-sm text-destructive">{errors.contactPhone}</p>
-          )}
-        </div>
+          placeholder={t('placeholders.businessName')}
+        />
+        {errors.businessName && (
+          <p className="text-sm text-destructive">{errors.businessName}</p>
+        )}
       </div>
 
-      {/* Personal Information */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-foreground">
-          {t('sections.personal')}
-        </h3>
-
-        {/* Name Fields */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <label
-              htmlFor="firstName"
-              className="block text-sm font-medium text-foreground"
-            >
-              {t('fields.firstName')} <span className="text-destructive">*</span>
-            </label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              value={formData.firstName}
-              onChange={handleChange}
-              className={cn(
-                'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-                'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-                errors.firstName
-                  ? 'border-destructive focus:ring-destructive/30'
-                  : 'border-input focus:ring-ring/30'
-              )}
-              placeholder={t('placeholders.firstName')}
-            />
-            {errors.firstName && (
-              <p className="text-sm text-destructive">{errors.firstName}</p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <label
-              htmlFor="lastName"
-              className="block text-sm font-medium text-foreground"
-            >
-              {t('fields.lastName')} <span className="text-destructive">*</span>
-            </label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              value={formData.lastName}
-              onChange={handleChange}
-              className={cn(
-                'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-                'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-                errors.lastName
-                  ? 'border-destructive focus:ring-destructive/30'
-                  : 'border-input focus:ring-ring/30'
-              )}
-              placeholder={t('placeholders.lastName')}
-            />
-            {errors.lastName && (
-              <p className="text-sm text-destructive">{errors.lastName}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Email */}
-        <div className="space-y-2">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.email')} <span className="text-destructive">*</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            autoComplete="email"
-            className={cn(
-              'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-              'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.email
-                ? 'border-destructive focus:ring-destructive/30'
-                : 'border-input focus:ring-ring/30'
-            )}
-            placeholder={t('placeholders.email')}
-          />
-          {errors.email && (
-            <p className="text-sm text-destructive">{errors.email}</p>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.password')} <span className="text-destructive">*</span>
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            autoComplete="new-password"
-            className={cn(
-              'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-              'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.password
-                ? 'border-destructive focus:ring-destructive/30'
-                : 'border-input focus:ring-ring/30'
-            )}
-            placeholder={t('placeholders.password')}
-          />
-          {errors.password && (
-            <p className="text-sm text-destructive">{errors.password}</p>
-          )}
-        </div>
+      {/* Phone */}
+      <div className="space-y-2">
+        <label
+          htmlFor="contactPhone"
+          className="block text-sm font-medium text-foreground"
+        >
+          {t('fields.phone')} <span className="text-destructive">*</span>
+        </label>
+        <PhoneInput
+          id="contactPhone"
+          value={formData.contactPhone}
+          onChange={handlePhoneChange}
+          defaultCountry="EG"
+          error={!!errors.contactPhone}
+          placeholder={t('placeholders.phone')}
+          dir="ltr"
+        />
+        {errors.contactPhone && (
+          <p className="text-sm text-destructive">{errors.contactPhone}</p>
+        )}
       </div>
 
-      {/* Account Security */}
-      
+      {/* Email */}
+      <div className="space-y-2">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-foreground"
+        >
+          {t('fields.email')} <span className="text-destructive">*</span>
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          autoComplete="email"
+          className={cn(
+            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
+            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
+            errors.email
+              ? 'border-destructive focus:ring-destructive/30'
+              : 'border-input focus:ring-ring/30'
+          )}
+          placeholder={t('placeholders.email')}
+        />
+        {errors.email && (
+          <p className="text-sm text-destructive">{errors.email}</p>
+        )}
+      </div>
 
-        {/* Password */}
-
-      
+      {/* Password */}
+      <div className="space-y-2">
+        <label
+          htmlFor="password"
+          className="block text-sm font-medium text-foreground"
+        >
+          {t('fields.password')} <span className="text-destructive">*</span>
+        </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+          autoComplete="new-password"
+          className={cn(
+            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
+            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
+            errors.password
+              ? 'border-destructive focus:ring-destructive/30'
+              : 'border-input focus:ring-ring/30'
+          )}
+          placeholder={t('placeholders.password')}
+        />
+        {errors.password && (
+          <p className="text-sm text-destructive">{errors.password}</p>
+        )}
+      </div>
 
       {/* General Error - Displayed right before submit button */}
       {errors.general && (

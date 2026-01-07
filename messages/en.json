@@ -79,7 +79,7 @@
       "subtitle": "Cashvio is the all-in-one POS and inventory management platform that helps you sell more, manage better, and grow faster.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
-      "freeNote": "Free forever • No credit card required • Setup in minutes",
+      "freeNote": "Free forever • Start in seconds • No commitment",
       "trustedBy": ""
     },
     "features": {
@@ -139,9 +139,9 @@
         "features": ["256-bit SSL Encryption", "Two-Factor Authentication", "Daily Backups"]
       },
       "integrations": {
-        "title": "Payment Partners",
-        "description": "Accept payments from all major providers",
-        "partners": ["Visa", "Mastercard", "Apple Pay", "Google Pay"]
+        "title": "Seamless Integrations",
+        "description": "Connect with your favorite business tools",
+        "partners": ["QuickBooks", "Xero", "Shopify", "WooCommerce"]
       },
       "platforms": {
         "title": "Works Everywhere",
@@ -153,7 +153,7 @@
       "subtitle": "Join thousands of businesses using Cashvio for free.",
       "freeBadge": "Free Forever Plan Available",
       "button": "Start Free Now",
-      "noCreditCard": "No credit card required",
+      "noCreditCard": "No commitment required",
       "freeForever": "Free forever plan",
       "instantSetup": "Instant setup"
     }
@@ -224,11 +224,11 @@
       },
       "q2": {
         "question": "Is there a free trial?",
-        "answer": "Yes! No credit card required to start."
+        "answer": "Yes! Start instantly with our free forever plan, no commitment required."
       },
       "q3": {
-        "question": "What payment methods do you accept?",
-        "answer": "We accept all major credit cards, PayPal, and bank transfers for annual plans."
+        "question": "How do I get started?",
+        "answer": "Simply create your free account and start using Cashvio immediately. Upgrade anytime as your business grows."
       },
       "q4": {
         "question": "Can I cancel anytime?",
@@ -360,36 +360,25 @@
     },
     "title": "Create Your Free Account",
     "subtitle": "Start for free and grow your business with no hidden costs",
-    "freeBadge": "Free Forever • No Credit Card Required",
+    "freeBadge": "Free Forever • No Commitment Required",
     "benefit1": "Free forever plan",
-    "benefit2": "No credit card required",
+    "benefit2": "No commitment required",
     "benefit3": "Setup in 2 minutes",
     "alreadyHaveAccount": "Already have an account?",
     "signIn": "Sign in",
     "backToHome": "Back to Home",
     "optional": "optional",
-    "sections": {
-      "business": "Business Information",
-      "personal": "Personal Information",
-      "security": "Account Security"
-    },
     "fields": {
       "businessName": "Business Name",
       "phone": "Phone Number",
-      "firstName": "First Name",
-      "lastName": "Last Name",
       "email": "Email Address",
-      "password": "Password",
-      "confirmPassword": "Confirm Password"
+      "password": "Password"
     },
     "placeholders": {
       "businessName": "My Awesome Store",
       "phone": "Enter phone number",
-      "firstName": "John",
-      "lastName": "Doe",
       "email": "john@example.com",
-      "password": "Enter your password",
-      "confirmPassword": "Confirm your password"
+      "password": "Enter your password"
     },
     "errors": {
       "businessNameRequired": "Business name is required",
@@ -397,18 +386,12 @@
       "phoneRequired": "Phone number is required",
       "phoneInvalid": "Please enter a valid phone number for the selected country",
       "phoneTooLong": "Phone number is too long",
-      "firstNameRequired": "First name is required",
-      "firstNameTooLong": "First name is too long (max 255 characters)",
-      "lastNameRequired": "Last name is required",
-      "lastNameTooLong": "Last name is too long (max 255 characters)",
       "emailRequired": "Email is required",
       "emailInvalid": "Please enter a valid email address",
       "emailTooLong": "Email is too long (max 255 characters)",
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 8 characters",
       "passwordTooLong": "Password is too long (max 255 characters)",
-      "confirmPasswordRequired": "Please confirm your password",
-      "passwordsMismatch": "Passwords do not match",
       "userExists": "An account with this email already exists",
       "registrationFailed": "Registration failed. Please try again."
     },
@@ -417,7 +400,9 @@
     "success": {
       "title": "Account Created!",
       "message": "Your account has been created successfully.",
-      "emailSent": "A welcome email has been sent to your email address with your account information."
+      "emailSent": "A welcome email has been sent to your email address with your account information.",
+      "loginButton": "Go to Login",
+      "autoRedirect": "Redirecting to login in {seconds} seconds..."
     },
     "terms": {
       "prefix": "By signing up, you agree to our",

@@ -222,31 +222,31 @@ export default async function FeaturesPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="py-16 md:py-24 bg-gradient-hero">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-hero">
         <div className="container-wide">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+            <Badge className="mb-3 sm:mb-4 bg-primary/10 text-primary border-primary/20 text-xs sm:text-sm">
               {t('badge')}
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">
               {t('title')}
             </h1>
-            <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{t('subtitle')}</p>
           </div>
         </div>
       </section>
 
       {/* Core Modules */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 sm:py-12 md:py-16">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <div className={cn('inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4', featureCategories[0].color)}>
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className={cn('inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl mb-3 sm:mb-4', featureCategories[0].color)}>
               {featureCategories[0].icon}
             </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               {t('categories.modules.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
               {t('categories.modules.description')}
             </p>
           </div>
@@ -272,16 +272,16 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Functional Features */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-10 sm:py-12 md:py-16 bg-muted/30">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <div className={cn('inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4', featureCategories[1].color)}>
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className={cn('inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl mb-3 sm:mb-4', featureCategories[1].color)}>
               {featureCategories[1].icon}
             </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               {t('categories.functional.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
               {t('categories.functional.description')}
             </p>
           </div>
@@ -309,16 +309,16 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Capacity & Limits */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 sm:py-12 md:py-16">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <div className={cn('inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4', featureCategories[2].color)}>
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className={cn('inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl mb-3 sm:mb-4', featureCategories[2].color)}>
               {featureCategories[2].icon}
             </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               {t('categories.capacity.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
               {t('categories.capacity.description')}
             </p>
           </div>
@@ -342,13 +342,13 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary/5">
+      <section className="py-10 sm:py-12 md:py-16 bg-primary/5">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               {t('cta.title')}
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 sm:mb-6 md:mb-8">
               {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

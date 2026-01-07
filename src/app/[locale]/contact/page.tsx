@@ -94,13 +94,13 @@ export default async function ContactPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="py-16 md:py-24 bg-gradient-hero">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-hero">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">
               {t('title')}
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
               {t('subtitle')}
             </p>
           </div>
@@ -108,9 +108,9 @@ export default async function ContactPage({ params }: Props) {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 sm:py-12 md:py-16">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto">
             {/* Contact Form */}
             <Card className="overflow-hidden">
               <CardContent className="p-6 md:p-8">

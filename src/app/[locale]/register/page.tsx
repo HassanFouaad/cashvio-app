@@ -94,38 +94,38 @@ export default async function RegisterPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="py-16 md:py-24 bg-gradient-hero">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-hero">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
             {/* Free Forever Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success/15 text-success text-sm font-medium mb-6 border border-success/30">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-success/15 text-success text-xs sm:text-sm font-medium mb-4 sm:mb-5 border border-success/30">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               {t('freeBadge')}
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">
               {t('title')}
             </h1>
-            <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{t('subtitle')}</p>
             
             {/* Free benefits */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-4 sm:mt-5 text-xs sm:text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 {t('benefit1')}
               </span>
               <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 {t('benefit2')}
               </span>
               <span className="flex items-center gap-1.5">
-                <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 {t('benefit3')}
@@ -136,7 +136,7 @@ export default async function RegisterPage({ params }: Props) {
       </section>
 
       {/* Registration Form */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 sm:py-12 md:py-16">
         <div className="container-wide">
           <div className="max-w-xl mx-auto">
             <Card className="overflow-hidden">

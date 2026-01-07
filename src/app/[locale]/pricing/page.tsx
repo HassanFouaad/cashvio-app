@@ -133,19 +133,19 @@ export default async function PricingPage({ params }: Props) {
       />
 
       {/* Header Section */}
-      <section className="py-16 md:py-24 bg-gradient-hero">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-hero">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">
               {t("title")}
             </h1>
-            <p className="text-lg text-muted-foreground">{t("subtitle")}</p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{t("subtitle")}</p>
           </div>
         </div>
       </section>
 
       {/* Pricing Cards - SSR from API with fallback */}
-      <section className="py-16 -mt-8">
+      <section className="py-8 sm:py-12 md:py-16 -mt-4 sm:-mt-6 md:-mt-8">
         <div className="container-wide">
           <PricingPlans
             plans={plans}
@@ -156,12 +156,12 @@ export default async function PricingPage({ params }: Props) {
       </section>
 
       {/* Money Back Guarantee */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-8 sm:py-10 md:py-12 bg-muted/30">
         <div className="container-wide">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 text-center md:text-left">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <svg
-                className="w-8 h-8 text-primary"
+                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -174,10 +174,10 @@ export default async function PricingPage({ params }: Props) {
               </svg>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-foreground">
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground">
                 {t("guarantee.title")}
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-sm sm:text-base text-muted-foreground">
                 {t("guarantee.description")}
               </p>
             </div>
@@ -186,10 +186,10 @@ export default async function PricingPage({ params }: Props) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 sm:py-12 md:py-16 lg:py-20">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-foreground mb-6 sm:mb-8 md:mb-10">
               {t("faq.title")}
             </h2>
 
