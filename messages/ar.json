@@ -372,30 +372,32 @@
     "signIn": "تسجيل الدخول",
     "backToHome": "العودة للرئيسية",
     "optional": "اختياري",
-    "emailNote": "سيتم إرسال بيانات تسجيل الدخول إلى هذا البريد الإلكتروني.",
     "sections": {
-      "business": "معلومات العمل",
-      "personal": "المعلومات الشخصية"
+      "business": "معلومات النشاط التجاري",
+      "personal": "المعلومات الشخصية",
+      "security": "أمان الحساب"
     },
     "fields": {
-      "businessName": "اسم العمل",
+      "businessName": "اسم النشاط التجاري",
       "phone": "رقم الهاتف",
       "firstName": "الاسم الأول",
       "lastName": "الاسم الأخير",
-      "username": "اسم المستخدم",
-      "email": "البريد الإلكتروني"
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور"
     },
     "placeholders": {
       "businessName": "متجري الرائع",
       "phone": "أدخل رقم الهاتف",
       "firstName": "أحمد",
       "lastName": "محمد",
-      "username": "ahmed123",
-      "email": "ahmed@example.com"
+      "email": "ahmed@example.com",
+      "password": "أدخل كلمة المرور",
+      "confirmPassword": "أعد إدخال كلمة المرور"
     },
     "errors": {
-      "businessNameRequired": "اسم العمل مطلوب",
-      "businessNameTooLong": "اسم العمل طويل جداً (الحد الأقصى 255 حرفاً)",
+      "businessNameRequired": "اسم النشاط التجاري مطلوب",
+      "businessNameTooLong": "اسم النشاط التجاري طويل جداً (الحد الأقصى 255 حرفاً)",
       "phoneRequired": "رقم الهاتف مطلوب",
       "phoneInvalid": "يرجى إدخال رقم هاتف صالح",
       "phoneTooLong": "رقم الهاتف طويل جداً",
@@ -403,13 +405,15 @@
       "firstNameTooLong": "الاسم الأول طويل جداً (الحد الأقصى 255 حرفاً)",
       "lastNameRequired": "الاسم الأخير مطلوب",
       "lastNameTooLong": "الاسم الأخير طويل جداً (الحد الأقصى 255 حرفاً)",
-      "usernameRequired": "اسم المستخدم مطلوب",
-      "usernameMinLength": "يجب أن يكون اسم المستخدم 3 أحرف على الأقل",
-      "usernameTooLong": "اسم المستخدم طويل جداً (الحد الأقصى 255 حرفاً)",
-      "emailRequired": "البريد الإلكتروني مطلوب لاستلام بيانات تسجيل الدخول",
+      "emailRequired": "البريد الإلكتروني مطلوب",
       "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
       "emailTooLong": "البريد الإلكتروني طويل جداً (الحد الأقصى 255 حرفاً)",
-      "userExists": "يوجد حساب بهذا اسم المستخدم أو البريد الإلكتروني بالفعل",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordMinLength": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+      "passwordTooLong": "كلمة المرور طويلة جداً (الحد الأقصى 255 حرفاً)",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+      "passwordsMismatch": "كلمات المرور غير متطابقة",
+      "userExists": "يوجد حساب بهذا البريد الإلكتروني بالفعل",
       "registrationFailed": "فشل التسجيل. يرجى المحاولة مرة أخرى."
     },
     "submit": "إنشاء الحساب",
@@ -417,8 +421,7 @@
     "success": {
       "title": "تم إنشاء الحساب!",
       "message": "تم إنشاء حسابك بنجاح.",
-      "emailSent": "تم إرسال بيانات تسجيل الدخول إلى بريدك الإلكتروني.",
-      "redirecting": "جاري تحويلك إلى لوحة التحكم..."
+      "emailSent": "تم إرسال بريد ترحيبي إلى بريدك الإلكتروني يحتوي على معلومات حسابك."
     },
     "terms": {
       "prefix": "بالتسجيل، فإنك توافق على",

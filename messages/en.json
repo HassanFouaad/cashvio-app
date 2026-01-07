@@ -368,26 +368,28 @@
     "signIn": "Sign in",
     "backToHome": "Back to Home",
     "optional": "optional",
-    "emailNote": "Your login credentials will be sent to this email address.",
     "sections": {
       "business": "Business Information",
-      "personal": "Personal Information"
+      "personal": "Personal Information",
+      "security": "Account Security"
     },
     "fields": {
       "businessName": "Business Name",
       "phone": "Phone Number",
       "firstName": "First Name",
       "lastName": "Last Name",
-      "username": "Username",
-      "email": "Email Address"
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
     },
     "placeholders": {
       "businessName": "My Awesome Store",
       "phone": "Enter phone number",
       "firstName": "John",
       "lastName": "Doe",
-      "username": "johndoe",
-      "email": "john@example.com"
+      "email": "john@example.com",
+      "password": "Enter your password",
+      "confirmPassword": "Confirm your password"
     },
     "errors": {
       "businessNameRequired": "Business name is required",
@@ -399,13 +401,15 @@
       "firstNameTooLong": "First name is too long (max 255 characters)",
       "lastNameRequired": "Last name is required",
       "lastNameTooLong": "Last name is too long (max 255 characters)",
-      "usernameRequired": "Username is required",
-      "usernameMinLength": "Username must be at least 3 characters",
-      "usernameTooLong": "Username is too long (max 255 characters)",
-      "emailRequired": "Email is required to receive your login credentials",
+      "emailRequired": "Email is required",
       "emailInvalid": "Please enter a valid email address",
       "emailTooLong": "Email is too long (max 255 characters)",
-      "userExists": "An account with this username or email already exists",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "passwordTooLong": "Password is too long (max 255 characters)",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsMismatch": "Passwords do not match",
+      "userExists": "An account with this email already exists",
       "registrationFailed": "Registration failed. Please try again."
     },
     "submit": "Create Account",
@@ -413,7 +417,7 @@
     "success": {
       "title": "Account Created!",
       "message": "Your account has been created successfully.",
-      "emailSent": "Your login credentials have been sent to your email address. Please check your inbox."
+      "emailSent": "A welcome email has been sent to your email address with your account information."
     },
     "terms": {
       "prefix": "By signing up, you agree to our",

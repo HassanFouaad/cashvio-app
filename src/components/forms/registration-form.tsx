@@ -22,9 +22,9 @@ const VALIDATION = {
   CONTACT_PHONE_MAX: 50,
   FIRST_NAME_MAX: 255,
   LAST_NAME_MAX: 255,
-  USERNAME_MIN: 3,
-  USERNAME_MAX: 255,
   EMAIL_MAX: 255,
+  PASSWORD_MIN: 8,
+  PASSWORD_MAX: 255,
 } as const;
 
 // ============================================================================
@@ -36,8 +36,9 @@ interface FormData {
   contactPhone: string;
   firstName: string;
   lastName: string;
-  username: string;
   email: string;
+  password: string;
+  confirmPassword: string;
 }
 
 interface FormErrors {
@@ -45,8 +46,9 @@ interface FormErrors {
   contactPhone?: string;
   firstName?: string;
   lastName?: string;
-  username?: string;
   email?: string;
+  password?: string;
+  confirmPassword?: string;
   general?: string;
 }
 
@@ -64,8 +66,9 @@ export function RegistrationForm() {
     contactPhone: '',
     firstName: '',
     lastName: '',
-    username: '',
     email: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const [errors, setErrors] = React.useState<FormErrors>({});
@@ -142,15 +145,6 @@ export function RegistrationForm() {
       newErrors.lastName = t('errors.lastNameTooLong');
     }
 
-    // Username validation (required, min 3, max 255)
-    if (!formData.username.trim()) {
-      newErrors.username = t('errors.usernameRequired');
-    } else if (formData.username.length < VALIDATION.USERNAME_MIN) {
-      newErrors.username = t('errors.usernameMinLength');
-    } else if (formData.username.length > VALIDATION.USERNAME_MAX) {
-      newErrors.username = t('errors.usernameTooLong');
-    }
-
     // Email validation (required, valid format, max 255)
     if (!formData.email.trim()) {
       newErrors.email = t('errors.emailRequired');
@@ -159,6 +153,16 @@ export function RegistrationForm() {
     } else if (formData.email.length > VALIDATION.EMAIL_MAX) {
       newErrors.email = t('errors.emailTooLong');
     }
+
+    // Password validation (required, min 8, max 255)
+    if (!formData.password) {
+      newErrors.password = t('errors.passwordRequired');
+    } else if (formData.password.length < VALIDATION.PASSWORD_MIN) {
+      newErrors.password = t('errors.passwordMinLength');
+    } else if (formData.password.length > VALIDATION.PASSWORD_MAX) {
+      newErrors.password = t('errors.passwordTooLong');
+    }
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -182,13 +186,13 @@ export function RegistrationForm() {
         contactPhone: formData.contactPhone,
         firstName: formData.firstName.trim(),
         lastName: formData.lastName.trim(),
-        username: formData.username.trim(),
         email: formData.email.trim(),
+        password: formData.password,
       };
 
       await authService.register(registerData);
 
-      // Success! Show success message (no redirect - user will receive email with credentials)
+      // Success! Show success message
       setIsSuccess(true);
       // Track successful registration
       trackFormSubmit('registration_form', 'register_page');
@@ -379,36 +383,7 @@ export function RegistrationForm() {
           </div>
         </div>
 
-        {/* Username */}
-        <div className="space-y-2">
-          <label
-            htmlFor="username"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.username')} <span className="text-destructive">*</span>
-          </label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            value={formData.username}
-            onChange={handleChange}
-            autoComplete="username"
-            className={cn(
-              'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-              'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.username
-                ? 'border-destructive focus:ring-destructive/30'
-                : 'border-input focus:ring-ring/30'
-            )}
-            placeholder={t('placeholders.username')}
-          />
-          {errors.username && (
-            <p className="text-sm text-destructive">{errors.username}</p>
-          )}
-        </div>
-
-        {/* Email (Required for credentials) */}
+        {/* Email */}
         <div className="space-y-2">
           <label
             htmlFor="email"
@@ -432,14 +407,46 @@ export function RegistrationForm() {
             )}
             placeholder={t('placeholders.email')}
           />
-          <p className="text-xs text-muted-foreground">
-            {t('emailNote')}
-          </p>
           {errors.email && (
             <p className="text-sm text-destructive">{errors.email}</p>
           )}
         </div>
+
+        <div className="space-y-2">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-foreground"
+          >
+            {t('fields.password')} <span className="text-destructive">*</span>
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            autoComplete="new-password"
+            className={cn(
+              'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
+              'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
+              errors.password
+                ? 'border-destructive focus:ring-destructive/30'
+                : 'border-input focus:ring-ring/30'
+            )}
+            placeholder={t('placeholders.password')}
+          />
+          {errors.password && (
+            <p className="text-sm text-destructive">{errors.password}</p>
+          )}
+        </div>
       </div>
+
+      {/* Account Security */}
+      
+
+        {/* Password */}
+
+      
 
       {/* General Error - Displayed right before submit button */}
       {errors.general && (
@@ -517,4 +524,3 @@ export function RegistrationForm() {
     </form>
   );
 }
-
