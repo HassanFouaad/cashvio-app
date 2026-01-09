@@ -49,11 +49,18 @@ function buildQueryString(
 /**
  * Default headers for all requests
  */
-function getDefaultHeaders(): Record<string, string> {
-  return {
+function getDefaultHeaders(locale?: string): Record<string, string> {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   };
+
+  // Add Accept-Language header if locale is provided
+  if (locale) {
+    headers['Accept-Language'] = locale;
+  }
+
+  return headers;
 }
 
 /**
@@ -78,7 +85,7 @@ class HttpClient {
     const url = `${this.baseUrl}${endpoint}${buildQueryString(config?.params)}`;
 
     const headers: Record<string, string> = {
-      ...getDefaultHeaders(),
+      ...getDefaultHeaders(config?.locale),
       ...config?.headers,
     };
 

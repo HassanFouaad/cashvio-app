@@ -48,6 +48,7 @@ export interface RequestConfig {
   signal?: AbortSignal;
   cache?: RequestCache;
   next?: NextFetchRequestConfig;
+  locale?: string; // Locale for Accept-Language header
 }
 
 /**

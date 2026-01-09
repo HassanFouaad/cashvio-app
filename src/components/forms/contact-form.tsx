@@ -1,7 +1,7 @@
 'use client';
 
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
-import { contactService, ContactRequest, HttpError, InquiryType } from '@/lib/http';
+import { contactService, ContactRequest, HttpError, InquiryType, useLocaleConfig } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import {
   trackFormStart,
@@ -55,6 +55,7 @@ export function ContactForm() {
   const t = useTranslations('contactForm');
   const locale = useLocale();
   const isRtl = locale === 'ar';
+  const localeConfig = useLocaleConfig();
 
   const [formData, setFormData] = React.useState<FormData>({
     name: '',
@@ -173,7 +174,7 @@ export function ContactForm() {
         locale,
       };
 
-      await contactService.submit(contactData);
+      await contactService.submit(contactData, localeConfig);
       setIsSuccess(true);
       // Track successful submission
       trackFormSubmit('contact_form', 'contact_page');

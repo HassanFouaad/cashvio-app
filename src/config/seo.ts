@@ -671,14 +671,30 @@ export function getCanonicalUrl(path: string, locale: Locale): string {
 }
 
 /**
- * Get alternate language URLs for hreflang
+ * Get alternate language URLs for hreflang tags
+ * Includes x-default pointing to English (default language)
+ * 
+ * This helps search engines understand that:
+ * - English is at the root (/)
+ * - Arabic is at /ar/
+ * - Default (for unmatched locales) should use English
  */
 export function getAlternateUrls(path: string): Record<string, string> {
   return {
-    en: `${urls.site}${path}`,
-    ar: `${urls.site}/ar${path}`,
-    'x-default': `${urls.site}${path}`,
+    'en': `${urls.site}${path}`,
+    'ar': `${urls.site}/ar${path}`,
+    'x-default': `${urls.site}${path}`, // Default to English
   };
+}
+
+/**
+ * Get all alternate locales for Open Graph
+ * Returns an array of locale codes for og:locale:alternate
+ */
+export function getAlternateLocales(currentLocale: Locale): string[] {
+  const locales = ['en_US', 'ar_EG'];
+  const currentOgLocale = currentLocale === 'ar' ? 'ar_EG' : 'en_US';
+  return locales.filter(loc => loc !== currentOgLocale);
 }
 
 /**

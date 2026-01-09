@@ -1,7 +1,7 @@
 'use client';
 
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
-import { authService, HttpError, RegisterRequest } from '@/lib/http';
+import { authService, HttpError, RegisterRequest, useLocaleConfig } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import {
   trackFormStart,
@@ -53,6 +53,7 @@ export function RegistrationForm() {
   const t = useTranslations('register');
   const locale = useLocale();
   const isRtl = locale === 'ar';
+  const localeConfig = useLocaleConfig();
 
   const [formData, setFormData] = React.useState<FormData>({
     businessName: '',
@@ -181,7 +182,7 @@ export function RegistrationForm() {
         password: formData.password,
       };
 
-      await authService.register(registerData);
+      await authService.register(registerData, localeConfig);
 
       // Success! Show success message
       setIsSuccess(true);

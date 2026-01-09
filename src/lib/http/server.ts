@@ -10,13 +10,14 @@ import { plansService } from './services';
 import type { PublicPlan, RequestConfig } from './types';
 
 /**
- * Create server-side request config with Next.js caching
+ * Create server-side request config with Next.js caching and locale
  */
-function createServerConfig(revalidate?: number): RequestConfig {
+function createServerConfig(revalidate?: number, locale?: string): RequestConfig {
   return {
     next: {
       revalidate: revalidate ?? undefined,
     },
+    locale,
   };
 }
 
@@ -28,9 +29,9 @@ export const serverPlansService = {
   /**
    * Fetch all public plans (server-side with caching)
    */
-  async getAll(revalidate?: number): Promise<PublicPlan[]> {
+  async getAll(revalidate?: number, locale?: string): Promise<PublicPlan[]> {
     try {
-      const config = createServerConfig(revalidate);
+      const config = createServerConfig(revalidate, locale);
       const response = await plansService.getAll(config);
       return response?.data ?? [];
     } catch (error) {
@@ -42,9 +43,9 @@ export const serverPlansService = {
   /**
    * Fetch a single public plan by ID (server-side with caching)
    */
-  async getById(id: string, revalidate?: number): Promise<PublicPlan | null> {
+  async getById(id: string, revalidate?: number, locale?: string): Promise<PublicPlan | null> {
     try {
-      const config = createServerConfig(revalidate);
+      const config = createServerConfig(revalidate, locale);
       const plan = await plansService.getById(id, config);
       return plan ?? null;
     } catch (error) {
@@ -56,9 +57,9 @@ export const serverPlansService = {
   /**
    * Fetch freemium plan only (server-side with caching)
    */
-  async getFreemium(revalidate?: number): Promise<PublicPlan | null> {
+  async getFreemium(revalidate?: number, locale?: string): Promise<PublicPlan | null> {
     try {
-      const config = createServerConfig(revalidate);
+      const config = createServerConfig(revalidate, locale);
       const plan = await plansService.getFreemium(config);
       return plan;
     } catch (error) {

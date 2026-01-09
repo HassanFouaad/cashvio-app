@@ -12,6 +12,7 @@ import {
   serializeSchema,
   getCanonicalUrl,
   getAlternateUrls,
+  getAlternateLocales,
   urls,
   brand,
   keywords,
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t('description'),
       url: getCanonicalUrl('', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
-      alternateLocale: typedLocale === 'ar' ? 'en_US' : 'ar_EG',
+      alternateLocale: getAlternateLocales(typedLocale),
     },
     twitter: {
       ...twitterDefaults,

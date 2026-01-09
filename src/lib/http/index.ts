@@ -10,6 +10,9 @@ export { httpClient, HttpClient, HttpError } from './client';
 // Types
 export * from './types';
 
+// Hooks
+export * from './use-locale-config';
+
 // Services
 export * from './services';
 

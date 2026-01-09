@@ -9,6 +9,7 @@ import {
   serializeSchema,
   getCanonicalUrl,
   getAlternateUrls,
+  getAlternateLocales,
   keywords,
   openGraphDefaults,
   twitterDefaults,
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("description"),
       url: getCanonicalUrl("/pricing", typedLocale),
       locale: typedLocale === "ar" ? "ar_EG" : "en_US",
+      alternateLocale: getAlternateLocales(typedLocale),
     },
     twitter: {
       ...twitterDefaults,
@@ -65,8 +67,8 @@ export default async function PricingPage({ params }: Props) {
     namespace: "metadata.pricing",
   });
 
-  // Fetch plans from API (SSR)
-  const plans = await getPublicPlans();
+  // Fetch plans from API (SSR) with Accept-Language header
+  const plans = await getPublicPlans(undefined, locale);
 
   // Build fallback plans from translations
   const fallbackPlans = planKeys.map((key) => ({

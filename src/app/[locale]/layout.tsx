@@ -11,6 +11,7 @@ import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { getCanonicalUrl, getAlternateUrls, getAlternateLocales } from "@/config/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/lib/analytics";
@@ -42,11 +43,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-
-  const alternateLanguages: Record<string, string> = {};
-  for (const loc of routing.locales) {
-    alternateLanguages[loc] = `${siteConfig.url}/${loc}`;
-  }
+  const typedLocale = locale as Locale;
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -71,12 +68,13 @@ export async function generateMetadata({
       },
     },
     alternates: {
-      canonical: `${siteConfig.url}/${locale}`,
-      languages: alternateLanguages,
+      canonical: getCanonicalUrl("", typedLocale),
+      languages: getAlternateUrls(""),
     },
     openGraph: {
       type: "website",
-      locale: locale === "ar" ? "ar_SA" : "en_US",
+      locale: typedLocale === "ar" ? "ar_EG" : "en_US",
+      alternateLocale: getAlternateLocales(typedLocale),
       url: siteConfig.url,
       siteName: t("siteName"),
       title: t("siteName"),

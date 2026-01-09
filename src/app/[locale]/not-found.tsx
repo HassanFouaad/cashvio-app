@@ -7,6 +7,7 @@ import {
   schemaTemplates,
   serializeSchema,
   getCanonicalUrl,
+  getAlternateUrls,
   urls,
 } from '@/config/seo';
 
