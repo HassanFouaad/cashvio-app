@@ -4,6 +4,7 @@ import { useRouter, usePathname } from '@/i18n/navigation';
 import { type Locale, localeMetadata } from '@/i18n/routing';
 import { cn } from '@/lib/utils/cn';
 import { trackLocaleChange } from '@/lib/analytics';
+import { saveLanguagePreference } from '@/lib/utils/cross-app-sync';
 
 interface LocaleSwitcherProps {
   locale: Locale;
@@ -18,8 +19,12 @@ export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
   const targetMeta = localeMetadata[targetLocale];
 
   const handleSwitch = () => {
+    // Save language preference to shared cookie
+    saveLanguagePreference(targetLocale);
+    
     // Track locale change
     trackLocaleChange(locale, targetLocale);
+    
     // Use next-intl router to switch locale properly
     router.replace(pathname, { locale: targetLocale });
   };

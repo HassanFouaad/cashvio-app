@@ -13,6 +13,7 @@ import {
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 import { env } from '@/config/env';
+import { redirectToPortalWithState, getThemePreference } from '@/lib/utils/cross-app-sync';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -68,9 +69,6 @@ export function RegistrationForm() {
   const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
   const [countdown, setCountdown] = React.useState(10);
 
-  // Portal login URL
-  const portalLoginUrl = `${env.portal.url}/login`;
-
   // Auto-redirect countdown after successful registration
   React.useEffect(() => {
     if (isSuccess && countdown > 0) {
@@ -79,10 +77,14 @@ export function RegistrationForm() {
       }, 1000);
       return () => clearTimeout(timer);
     } else if (isSuccess && countdown === 0) {
-      // Redirect to login
-      window.location.href = portalLoginUrl;
+      // Redirect to portal with theme and language preferences
+      const theme = getThemePreference() || 'light';
+      redirectToPortalWithState(env.portal.url, '/login', {
+        theme,
+        language: locale,
+      });
     }
-  }, [isSuccess, countdown, portalLoginUrl]);
+  }, [isSuccess, countdown, locale]);
 
   // Track form start when user begins typing
   const handleFormInteraction = React.useCallback(() => {
@@ -248,8 +250,14 @@ export function RegistrationForm() {
 
         {/* Login Button with Countdown */}
         <div className="mt-8 space-y-4">
-          <a
-            href={portalLoginUrl}
+          <button
+            onClick={() => {
+              const theme = getThemePreference() || 'light';
+              redirectToPortalWithState(env.portal.url, '/login', {
+                theme,
+                language: locale,
+              });
+            }}
             className={cn(
               'inline-flex items-center justify-center gap-2 h-12 px-8 rounded-lg font-semibold',
               'bg-primary text-primary-foreground hover:bg-primary/90',
@@ -270,7 +278,7 @@ export function RegistrationForm() {
               />
             </svg>
             {t('success.loginButton')}
-          </a>
+          </button>
           <p className="text-sm text-muted-foreground">
             {t('success.autoRedirect', { seconds: countdown })}
           </p>

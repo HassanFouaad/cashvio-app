@@ -7,6 +7,7 @@ import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
 import { MobileNav } from './mobile-nav';
+import { PortalLink } from '@/components/ui/portal-link';
 
 interface HeaderProps {
   locale: Locale;
@@ -43,9 +44,9 @@ export async function Header({ locale }: HeaderProps) {
             <LocaleSwitcher locale={locale} />
             <ThemeToggle />
             <div className="w-px h-6 bg-border mx-2" />
-            <ButtonLink variant="ghost" size="sm" href={ctaLinks.login}>
+            <PortalLink variant="ghost" size="sm" path="/login">
               {tCommon('login')}
-            </ButtonLink>
+            </PortalLink>
             <ButtonLink variant="primary" size="sm" href={ctaLinks.getStarted}>
               {tCommon('getStarted')}
             </ButtonLink>

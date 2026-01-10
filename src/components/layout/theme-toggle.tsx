@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { trackThemeChange } from '@/lib/analytics';
+import { saveThemePreference } from '@/lib/utils/cross-app-sync';
 
 interface ThemeToggleProps {
   className?: string;
@@ -22,16 +23,19 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     const newIsDark = !isDark;
     setIsDark(newIsDark);
 
+    const theme = newIsDark ? 'dark' : 'light';
+
     if (newIsDark) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
 
+    // Save to both localStorage and shared cookie
+    saveThemePreference(theme);
+
     // Track theme change
-    trackThemeChange(newIsDark ? 'dark' : 'light');
+    trackThemeChange(theme);
   };
 
   if (!mounted) {

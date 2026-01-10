@@ -10,6 +10,7 @@ import { ButtonLink } from '@/components/ui/button';
 import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
+import { PortalLink } from '@/components/ui/portal-link';
 
 interface MobileNavProps {
   locale: Locale;
@@ -125,9 +126,9 @@ export function MobileNav({ locale }: MobileNavProps) {
               <ThemeToggle />
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <ButtonLink variant="outline" size="md" href={ctaLinks.login} className="justify-center">
+              <PortalLink variant="outline" size="md" path="/login" className="justify-center">
                 {tCommon('login')}
-              </ButtonLink>
+              </PortalLink>
               <ButtonLink variant="primary" size="md" href={ctaLinks.getStarted} className="justify-center">
                 {tCommon('getStarted')}
               </ButtonLink>
