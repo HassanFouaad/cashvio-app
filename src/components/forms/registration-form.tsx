@@ -1,7 +1,7 @@
 'use client';
 
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
-import { authService, HttpError, RegisterRequest, useLocaleConfig } from '@/lib/http';
+import { authService, HttpError, RegisterRequest, RegisterResponse, useLocaleConfig } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import {
   trackFormStart,
@@ -13,7 +13,7 @@ import {
 import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
 import { env } from '@/config/env';
-import { redirectToPortalWithState, getThemePreference } from '@/lib/utils/cross-app-sync';
+import { redirectToPortalAfterRegistration, getThemePreference } from '@/lib/utils/cross-app-sync';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -69,7 +69,9 @@ export function RegistrationForm() {
   const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
   const [countdown, setCountdown] = React.useState(10);
 
-  // Auto-redirect countdown after successful registration
+  // Note: Auto-redirect happens immediately after successful registration
+  // via redirectToPortalAfterRegistration() in the submit handler.
+  // The countdown below is a fallback in case the redirect is delayed.
   React.useEffect(() => {
     if (isSuccess && countdown > 0) {
       const timer = setTimeout(() => {
@@ -77,12 +79,19 @@ export function RegistrationForm() {
       }, 1000);
       return () => clearTimeout(timer);
     } else if (isSuccess && countdown === 0) {
-      // Redirect to portal with theme and language preferences
+      // Fallback redirect (should already have redirected)
       const theme = getThemePreference() || 'light';
-      redirectToPortalWithState(env.portal.url, '/login', {
-        theme,
-        language: locale,
-      });
+      redirectToPortalAfterRegistration(
+        {
+          accessToken: '',
+          refreshToken: '',
+          expiresIn: 0,
+        },
+        {
+          theme,
+          language: locale,
+        }
+      );
     }
   }, [isSuccess, countdown, locale]);
 
@@ -184,13 +193,33 @@ export function RegistrationForm() {
         password: formData.password,
       };
 
-      await authService.register(registerData, localeConfig);
+      const response = await authService.register(registerData, localeConfig);
 
-      // Success! Show success message
-      setIsSuccess(true);
-      // Track successful registration
+      // Success! Track registration
       trackFormSubmit('registration_form', 'register_page');
       trackRegistrationComplete();
+
+      // Auto-login: Store tokens and redirect to portal
+      const theme = getThemePreference() || 'light';
+      
+      // Extract data from API response
+      const responseData = response;
+      
+      redirectToPortalAfterRegistration(
+        {
+          accessToken: responseData.accessToken,
+          refreshToken: responseData.refreshToken,
+          expiresIn: responseData.expiresIn,
+        },
+        {
+          theme,
+          language: locale,
+        }
+      );
+
+      // Note: redirectToPortalAfterRegistration will redirect, 
+      // but we set success state in case redirect is delayed
+      setIsSuccess(true);
     } catch (error) {
       if (error instanceof HttpError) {
         if (error.statusCode === 409) {
@@ -201,6 +230,7 @@ export function RegistrationForm() {
           trackFormError('registration_form', 'api_error', error.message);
         }
       } else {
+        console.error(error);
         setErrors({ general: t('errors.registrationFailed') });
         trackFormError('registration_form', 'unknown_error');
       }
@@ -248,37 +278,31 @@ export function RegistrationForm() {
           {t('success.emailSent')}
         </p>
 
-        {/* Login Button with Countdown */}
+        {/* Redirecting Message */}
         <div className="mt-8 space-y-4">
-          <button
-            onClick={() => {
-              const theme = getThemePreference() || 'light';
-              redirectToPortalWithState(env.portal.url, '/login', {
-                theme,
-                language: locale,
-              });
-            }}
-            className={cn(
-              'inline-flex items-center justify-center gap-2 h-12 px-8 rounded-lg font-semibold',
-              'bg-primary text-primary-foreground hover:bg-primary/90',
-              'transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2'
-            )}
-          >
+          <div className="inline-flex items-center justify-center gap-3 text-primary">
             <svg
-              className="w-5 h-5"
+              className="animate-spin h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
             >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            {t('success.loginButton')}
-          </button>
+            <span className="font-medium">{t('success.redirecting') || 'Redirecting to your dashboard...'}</span>
+          </div>
           <p className="text-sm text-muted-foreground">
             {t('success.autoRedirect', { seconds: countdown })}
           </p>

@@ -5,7 +5,7 @@
  */
 
 import { httpClient } from '../client';
-import { ContactRequest, ContactResponse, RequestConfig } from '../types';
+import { ApiResponse, ContactRequest, ContactResponse, RequestConfig } from '../types';
 
 /**
  * Contact Service - handles all contact-related API calls
@@ -17,8 +17,8 @@ export const contactService = {
   async submit(
     data: ContactRequest,
     config?: RequestConfig
-  ): Promise<ContactResponse> {
-    return httpClient.post<ContactResponse>('/public/contact', data, config);
+  ): Promise<ApiResponse<ContactResponse>> {
+    return httpClient.post<ApiResponse<ContactResponse>>('/public/contact', data, config);
   },
 };
 

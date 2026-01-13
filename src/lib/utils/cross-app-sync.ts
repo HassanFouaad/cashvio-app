@@ -5,22 +5,20 @@
  * across different subdomains using cookies and URL parameters.
  */
 
+import { env } from '@/config/env';
+
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
 
-const COOKIE_CONFIG = {
-  // Use your parent domain (e.g., '.cash-vio.com' for both www.cash-vio.com and portal.cash-vio.com)
-  domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || '.cash-vio.com', // e.g., '.cash-vio.com'
-  maxAge: 365 * 24 * 60 * 60, // 1 year in seconds
-  path: '/',
-  sameSite: 'lax' as const,
-  secure: process.env.NODE_ENV === 'production',
-};
+const COOKIE_CONFIG = env.cookies;
 
 const COOKIE_KEYS = {
   theme: 'app_theme',
   language: 'app_language',
+  accessToken: 'app_access_token',
+  refreshToken: 'app_refresh_token',
+  expiresIn: 'app_expires_in',
 } as const;
 
 // ============================================================================
@@ -214,6 +212,77 @@ export function redirectToPortalWithState(
 
   // Redirect
   window.location.href = urlWithState;
+}
+
+// ============================================================================
+// AUTH TOKEN SYNC (FOR REGISTRATION AUTO-LOGIN)
+// ============================================================================
+
+/**
+ * Save authentication tokens to shared cookies for cross-subdomain auto-login
+ * Used after registration to automatically log user into portal
+ */
+export function saveAuthTokens(
+  accessToken: string,
+  refreshToken: string,
+  expiresIn: number
+): void {
+  // Save tokens with short expiry (5 minutes) - just for transfer
+  const shortExpiryConfig = {
+    ...COOKIE_CONFIG,
+    maxAge: 300, // 5 minutes
+  };
+
+  setSharedCookie(COOKIE_KEYS.accessToken, accessToken, shortExpiryConfig);
+  setSharedCookie(COOKIE_KEYS.refreshToken, refreshToken, shortExpiryConfig);
+  setSharedCookie(COOKIE_KEYS.expiresIn, expiresIn.toString(), shortExpiryConfig);
+}
+
+/**
+ * Get portal URL from environment
+ */
+export function getPortalUrl(): string {
+  return env.portal.url;
+}
+
+/**
+ * Redirect to portal after successful registration with auto-login
+ */
+export function redirectToPortalAfterRegistration(
+  tokens: {
+    accessToken: string;
+    refreshToken: string;
+    expiresIn: number;
+  },
+  options?: {
+    theme?: 'light' | 'dark';
+    language?: string;
+  }
+): void {
+  // 1. Save auth tokens to cookies
+  saveAuthTokens(tokens.accessToken, tokens.refreshToken, tokens.expiresIn);
+
+  // 2. Save theme and language preferences
+  if (options?.theme) {
+    saveThemePreference(options.theme);
+  }
+  if (options?.language) {
+    saveLanguagePreference(options.language);
+  }
+
+  // 3. Redirect to portal with registration flag
+  const portalUrl = getPortalUrl();
+  const urlWithParams = addStateToUrl(portalUrl, {
+    theme: options?.theme || getThemePreference() || 'light',
+    language: options?.language || getLanguagePreference() || 'en',
+  });
+
+  // Add registration success flag
+  const url = new URL(urlWithParams);
+  url.searchParams.set('registered', 'true');
+
+  // Redirect
+  window.location.href = url.toString();
 }
 
 // ============================================================================

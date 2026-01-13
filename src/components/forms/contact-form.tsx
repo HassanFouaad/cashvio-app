@@ -175,7 +175,10 @@ export function ContactForm() {
       };
 
       await contactService.submit(contactData, localeConfig);
+      
+      // Success!
       setIsSuccess(true);
+      
       // Track successful submission
       trackFormSubmit('contact_form', 'contact_page');
       trackContactFormSubmit(formData.type, 'contact_page');

@@ -11,6 +11,7 @@ const API_BASE_URL =
 const PORTAL_URL =
   process.env.NEXT_PUBLIC_PORTAL_URL || 'http://localhost:3002';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3005';
+const COOKIE_DOMAIN = process.env.NEXT_PUBLIC_COOKIE_DOMAIN || '.cash-vio.com';
 
 export const env = {
   /**
@@ -85,6 +86,17 @@ export const env = {
   analytics: {
     googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || '',
     facebookPixelId: process.env.NEXT_PUBLIC_FB_PIXEL_ID || '',
+  },
+
+  /**
+   * Cookie Configuration for Cross-Domain Sharing
+   */
+  cookies: {
+    domain: COOKIE_DOMAIN,
+    maxAge: 365 * 24 * 60 * 60, // 1 year in seconds
+    path: '/',
+    sameSite: 'lax' as const,
+    secure: process.env.NODE_ENV === 'production',
   },
 
   /**

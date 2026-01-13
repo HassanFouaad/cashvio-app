@@ -142,13 +142,14 @@ class HttpClient {
 
   /**
    * Type guard for ApiResponse
+   * Supports both {data, statusCode} and {success, data} response formats
    */
   private isApiResponse<T>(data: unknown): data is ApiResponse<T> {
     return (
       typeof data === 'object' &&
       data !== null &&
       'data' in data &&
-      'statusCode' in data
+      ('statusCode' in data || 'success' in data)
     );
   }
 

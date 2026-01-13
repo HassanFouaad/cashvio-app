@@ -5,7 +5,7 @@
  */
 
 import { httpClient } from '../client';
-import { RegisterRequest, RegisterResponse, RequestConfig } from '../types';
+import { ApiResponse, RegisterRequest, RegisterResponse, RequestConfig } from '../types';
 
 /**
  * Auth Service - handles all authentication-related API calls

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cash-vio.com';
+import { env } from '@/config/env';
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
@@ -25,6 +24,7 @@ const locales = ['en', 'ar'] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const SITE_URL = env.site.url;
 
   const entries: MetadataRoute.Sitemap = pages.flatMap((page) =>
     locales.map((locale) => {
