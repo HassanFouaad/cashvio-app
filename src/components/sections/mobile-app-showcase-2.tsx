@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
 
 interface MobileAppShowcase2Props {
@@ -27,9 +28,9 @@ export function MobileAppShowcase2({ locale }: MobileAppShowcase2Props) {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Features List */}
-          <div className="space-y-6 order-2 lg:order-1">
-
-            {['feature1', 'feature2', 'feature3', 'feature4'].map((key, index) => (
+          <div className="order-2 lg:order-1">
+            <div className="space-y-6 mb-8">
+              {['feature1', 'feature2', 'feature3', 'feature4'].map((key, index) => (
               <div
                 key={key}
                 className="flex gap-4 items-start group"
@@ -69,6 +70,15 @@ export function MobileAppShowcase2({ locale }: MobileAppShowcase2Props) {
                 </div>
               </div>
             ))}
+            </div>
+
+            {/* CTA Button */}
+            <Link
+              href="/register"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+            >
+              {t('cta')}
+            </Link>
           </div>
 
           {/* Phone Mockup */}

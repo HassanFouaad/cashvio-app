@@ -142,7 +142,8 @@
       "stat1Label": "Daily Orders",
       "stat1Value": "1,247",
       "stat2Label": "Active Products",
-      "stat2Value": "5,832"
+      "stat2Value": "5,832",
+      "cta": "Start Managing Your Business"
     },
     "mobileApp": {
       "badge": "Mobile First",
@@ -164,7 +165,8 @@
         "title": "Secure & Reliable",
         "description": "Enterprise-grade security with biometric authentication keeps your business data safe."
       },
-      "imageAlt": "Cashvio Mobile App Interface"
+      "imageAlt": "Cashvio Mobile App Interface",
+      "cta": "Start Processing Orders"
     },
     "mobileApp2": {
       "badge": "Complete Control",
@@ -186,7 +188,23 @@
         "title": "Quick Actions",
         "description": "Perform common tasks quickly with intuitive shortcuts and streamlined workflows."
       },
-      "imageAlt": "Cashvio Product Management Interface"
+      "imageAlt": "Cashvio Product Management Interface",
+      "cta": "Build Your Product Catalog"
+    },
+    "customerManagement": {
+      "badge": "Customer Insights",
+      "title": "Build lasting relationships with your customers",
+      "description": "Track customer activity, manage balances, record visits, and build loyalty with comprehensive customer profiles.",
+      "feature1": "Complete customer profiles with purchase history",
+      "feature2": "Track visits, spending, and loyalty points",
+      "feature3": "Manage customer balances and credit limits",
+      "feature4": "Personalized customer service and insights",
+      "imageAlt": "Cashvio Customer Management Dashboard",
+      "stat1Label": "Total Customers",
+      "stat1Value": "3,847",
+      "stat2Label": "Avg. Order Value",
+      "stat2Value": "$127",
+      "cta": "Start Building Customer Loyalty"
     },
     "trust": {
       "title": "Trusted Technology",

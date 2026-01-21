@@ -8,4 +8,5 @@ export * from './pricing-plan-card';
 export * from './platform-preview';
 export * from './mobile-app-showcase';
 export * from './mobile-app-showcase-2';
+export * from './customer-management-showcase';
 

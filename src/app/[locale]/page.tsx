@@ -7,6 +7,7 @@ import { Features } from '@/components/sections/features';
 import { PlatformPreview } from '@/components/sections/platform-preview';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
 import { MobileAppShowcase2 } from '@/components/sections/mobile-app-showcase-2';
+import { CustomerManagementShowcase } from '@/components/sections/customer-management-showcase';
 import { Benefits } from '@/components/sections/benefits';
 import { Trust } from '@/components/sections/trust';
 import { CTA } from '@/components/sections/cta';
@@ -109,6 +110,7 @@ export default async function HomePage({ params }: Props) {
       <PlatformPreview locale={typedLocale} />
       <MobileAppShowcase locale={typedLocale} />
       <MobileAppShowcase2 locale={typedLocale} />
+      <CustomerManagementShowcase locale={typedLocale} />
       <Benefits locale={typedLocale} />
       <CTA locale={typedLocale} />
     </>
