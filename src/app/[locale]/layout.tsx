@@ -23,6 +23,9 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 const ibmPlexArabic = IBM_Plex_Sans_Arabic({
@@ -30,6 +33,9 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-arabic",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 });
 
 export function generateStaticParams() {
@@ -169,25 +175,9 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${ibmPlexArabic.variable}`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  if (theme === 'dark' || (!theme && prefersDark)) {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
+            __html: `(function(){try{var t=localStorage.getItem('theme'),e=window.matchMedia('(prefers-color-scheme: dark)').matches;('dark'===t||!t&&e)&&document.documentElement.classList.add('dark')}catch(t){}})();`,
           }}
         />
       </head>
