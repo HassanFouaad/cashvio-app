@@ -17,7 +17,6 @@ import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/lib/analytics";
 
 import "../globals.css";
-import Chat from "@/components/layout/Chat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -134,11 +133,8 @@ export async function generateMetadata({
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#10b981" },
-    { media: "(prefers-color-scheme: dark)", color: "#34d399" },
-  ],
-  colorScheme: "light dark",
+  themeColor: "#34d399", // Dark mode as default
+  colorScheme: "dark light", // Prefer dark mode first
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -177,7 +173,7 @@ export default async function LocaleLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme'),e=window.matchMedia('(prefers-color-scheme: dark)').matches;('dark'===t||!t&&e)&&document.documentElement.classList.add('dark')}catch(t){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('theme');'light'!==t&&document.documentElement.classList.add('dark')}catch(t){document.documentElement.classList.add('dark')}})();`,
           }}
         />
       </head>
@@ -191,7 +187,6 @@ export default async function LocaleLayout({
           <Header locale={locale as Locale} />
           <main className="flex-1">{children}</main>
           <Footer locale={locale as Locale} />
-          <Chat />
         </NextIntlClientProvider>
         <AnalyticsProvider />
       </body>
