@@ -2,13 +2,15 @@ import { env } from './env';
 
 // Keywords as a mutable array for Next.js metadata compatibility
 const keywords: string[] = [
-  'POS',
-  'point of sale',
+  'business platform',
+  'commerce management',
   'inventory management',
-  'business software',
-  'retail management',
+  'sales management',
+  'order management',
+  'multi-channel selling',
   'cashvio',
-  'نقاط البيع',
+  'منصة الأعمال',
+  'إدارة التجارة',
   'إدارة المخزون',
 ];
 

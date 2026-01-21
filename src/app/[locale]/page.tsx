@@ -4,6 +4,9 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { type Locale } from '@/i18n/routing';
 import { Hero } from '@/components/sections/hero';
 import { Features } from '@/components/sections/features';
+import { PlatformPreview } from '@/components/sections/platform-preview';
+import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
+import { MobileAppShowcase2 } from '@/components/sections/mobile-app-showcase-2';
 import { Benefits } from '@/components/sections/benefits';
 import { Trust } from '@/components/sections/trust';
 import { CTA } from '@/components/sections/cta';
@@ -103,10 +106,10 @@ export default async function HomePage({ params }: Props) {
 
       <Hero locale={typedLocale} />
       <Features locale={typedLocale} />
-      
+      <PlatformPreview locale={typedLocale} />
+      <MobileAppShowcase locale={typedLocale} />
+      <MobileAppShowcase2 locale={typedLocale} />
       <Benefits locale={typedLocale} />
-     
-      
       <CTA locale={typedLocale} />
     </>
   );

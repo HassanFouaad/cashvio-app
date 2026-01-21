@@ -1,10 +1,10 @@
 {
   "metadata": {
     "siteName": "Cashvio",
-    "siteDescription": "Streamline your business operations with Cashvio - The all-in-one POS and inventory management solution",
+    "siteDescription": "Complete business management platform for online and in-store operations - sales, inventory, payments, and analytics",
     "home": {
-      "title": "Cashvio - Modern POS & Inventory Management",
-      "description": "Streamline your business with Cashvio's powerful POS system, inventory management, and analytics. Start free today."
+      "title": "Cashvio - Business Operations & Commerce Platform",
+      "description": "Manage your business operations in one place. Handle sales, inventory, orders, customers, and analytics across all your channels."
     },
     "pricing": {
       "title": "Pricing & Plans",
@@ -28,7 +28,7 @@
     },
     "features": {
       "title": "Features",
-      "description": "Explore all the powerful features that make Cashvio the perfect solution for your business."
+      "description": "Discover the complete suite of tools to manage products, inventory, orders, customers, and grow your business."
     }
   },
   "common": {
@@ -61,22 +61,22 @@
     "changelog": "Changelog"
   },
   "footer": {
-    "description": "Cashvio is the modern POS and inventory management solution that helps businesses grow.",
+    "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",
     "resources": "Resources",
     "social": "Follow Us",
     "copyright": "© {year} Cashvio. All rights reserved.",
-    "madeWith": "Made with ❤️ for businesses worldwide"
+    "madeWith": "Built for businesses worldwide"
   },
   "home": {
     "hero": {
-      "badge": "Modern POS & Inventory Solution",
+      "badge": "Business Management Platform",
       "freeBadge": "Free Forever Plan",
-      "title": "Run Your Business",
-      "titleHighlight": "Smarter",
-      "subtitle": "Cashvio is the all-in-one POS and inventory management platform that helps you sell more, manage better, and grow faster.",
+      "title": "Manage Sales, Inventory & Growth",
+      "titleHighlight": "In One Place",
+      "subtitle": "Complete platform for businesses that sell online, in-store, or both. Track inventory, process orders, manage customers, and analyze performance—all from one dashboard.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
       "freeNote": "Free forever • Start in seconds • No commitment",
@@ -84,51 +84,109 @@
     },
     "features": {
       "title": "Everything You Need to Succeed",
-      "subtitle": "Powerful features designed for modern businesses",
+      "subtitle": "Powerful tools designed for modern commerce",
       "pos": {
-        "title": "Lightning-Fast POS",
-        "description": "Process transactions in seconds with our intuitive point-of-sale system. Works offline too."
+        "title": "Sell Anywhere",
+        "description": "Accept payments in-store with our point-of-sale feature, online through your store front, or manual entry for phone orders."
       },
       "inventory": {
         "title": "Smart Inventory",
-        "description": "Real-time stock tracking, automatic reorder alerts, and multi-location support."
+        "description": "Real-time stock tracking across multiple locations, automatic reorder alerts, and detailed adjustment history."
       },
       "analytics": {
-        "title": "Actionable Analytics",
-        "description": "Make data-driven decisions with comprehensive reports and AI-powered insights."
+        "title": "Actionable Insights",
+        "description": "Make data-driven decisions with comprehensive sales reports, profit tracking, and performance analytics."
       },
       "multistore": {
-        "title": "Multi-Store Ready",
-        "description": "Manage all your locations from one dashboard. Sync inventory and sales instantly."
+        "title": "Multi-Location Ready",
+        "description": "Manage all your locations from one dashboard. Transfer stock between stores and track performance separately."
       },
       "integrations": {
-        "title": "Seamless Integrations",
-        "description": "Connect with your favorite tools - accounting, ecommerce, delivery, and more."
+        "title": "Flexible Payment Methods",
+        "description": "Accept cash, cards, mobile payments, and more. Configure payment options per store location."
       },
       "support": {
-        "title": "24/7 Support",
-        "description": "Our expert team is always ready to help you succeed, day or night."
+        "title": "Always Here to Help",
+        "description": "Get assistance when you need it with our dedicated support team and comprehensive documentation."
       }
     },
     "benefits": {
       "title": "Why Choose Cashvio",
-      "subtitle": "Built for businesses that demand the best",
+      "subtitle": "Built for businesses that want to grow",
       "freeForever": {
         "title": "Free Forever Plan",
-        "description": "Start with our free plan and only pay when you need advanced features. No hidden fees."
+        "description": "Start with our free plan and only pay when you need advanced features. No hidden fees, no surprises."
       },
       "support": {
         "title": "Dedicated Support",
-        "description": "Expert assistance when you need it. Phone, email, and live chat support available."
+        "description": "Get help when you need it with responsive support and detailed documentation to guide you."
       },
       "uptime": {
-        "title": "Reliable Infrastructure",
-        "description": "Cloud-native architecture ensures your business runs smoothly, even during peak hours."
+        "title": "Reliable & Secure",
+        "description": "Cloud-based platform with enterprise-grade security. Your data is protected and always accessible."
       },
       "global": {
         "title": "Multi-Language & Currency",
-        "description": "Operate globally with support for multiple languages, currencies, and tax configurations."
+        "description": "Operate globally with full support for English and Arabic, multiple currencies, and flexible tax configurations."
       }
+    },
+    "platformPreview": {
+      "badge": "Powerful Dashboard",
+      "title": "Own and control your business from one place",
+      "description": "Access real-time insights, manage operations, and make informed decisions with our comprehensive business dashboard designed for modern commerce.",
+      "feature1": "Comprehensive real-time business insights",
+      "feature2": "Flexible data views tailored to your needs",
+      "feature3": "Quick access to all business operations",
+      "feature4": "Fast and informed decision-making tools",
+      "imageAlt": "Cashvio Business Management Dashboard",
+      "stat1Label": "Daily Orders",
+      "stat1Value": "1,247",
+      "stat2Label": "Active Products",
+      "stat2Value": "5,832"
+    },
+    "mobileApp": {
+      "badge": "Mobile First",
+      "title": "Manage your business on the go",
+      "description": "Take your business anywhere with our powerful mobile app. Process orders, check inventory, and track sales from your phone or tablet.",
+      "feature1": {
+        "title": "Native Mobile Experience",
+        "description": "Built specifically for mobile devices with an intuitive interface that's easy to use on the go."
+      },
+      "feature2": {
+        "title": "Lightning Fast",
+        "description": "Optimized performance ensures quick access to your data, even with slow internet connections."
+      },
+      "feature3": {
+        "title": "Real-Time Sync",
+        "description": "Instant synchronization across all your devices. Changes made on mobile appear everywhere immediately."
+      },
+      "feature4": {
+        "title": "Secure & Reliable",
+        "description": "Enterprise-grade security with biometric authentication keeps your business data safe."
+      },
+      "imageAlt": "Cashvio Mobile App Interface"
+    },
+    "mobileApp2": {
+      "badge": "Complete Control",
+      "title": "Product & inventory management at your fingertips",
+      "description": "Manage your entire product catalog, track inventory levels, and set custom pricing—all from your mobile device.",
+      "feature1": {
+        "title": "Product Management",
+        "description": "Add, edit, and organize products with variants, images, and detailed specifications on the go."
+      },
+      "feature2": {
+        "title": "Inventory Tracking",
+        "description": "Monitor stock levels in real-time across all locations and receive low stock alerts instantly."
+      },
+      "feature3": {
+        "title": "Flexible Pricing",
+        "description": "Set custom prices per store location and manage pricing strategies from anywhere."
+      },
+      "feature4": {
+        "title": "Quick Actions",
+        "description": "Perform common tasks quickly with intuitive shortcuts and streamlined workflows."
+      },
+      "imageAlt": "Cashvio Product Management Interface"
     },
     "trust": {
       "title": "Trusted Technology",
@@ -145,12 +203,12 @@
       },
       "platforms": {
         "title": "Works Everywhere",
-        "description": "Web, iOS, Android, and offline support"
+        "description": "Web, iOS, and Android - access your business from any device"
       }
     },
     "cta": {
-      "title": "Ready to Transform Your Business?",
-      "subtitle": "Join thousands of businesses using Cashvio for free.",
+      "title": "Ready to Streamline Your Operations?",
+      "subtitle": "Start managing your business better today.",
       "freeBadge": "Free Forever Plan Available",
       "button": "Start Free Now",
       "noCreditCard": "No commitment required",
@@ -317,7 +375,7 @@
       },
       "services": {
         "title": "Our Services",
-        "content": "Cashvio provides point-of-sale, inventory management, and business analytics software. We reserve the right to modify, suspend, or discontinue any part of our services at any time."
+        "content": "Cashvio provides a business management platform including product management, inventory control, order processing, customer management, and analytics. We reserve the right to modify, suspend, or discontinue any part of our services at any time."
       },
       "accounts": {
         "title": "User Accounts",
@@ -356,10 +414,10 @@
   "register": {
     "meta": {
       "title": "Create Your Free Account",
-      "description": "Sign up for Cashvio free forever and start managing your business today."
+      "description": "Sign up for Cashvio and start managing your sales, inventory, and customers today."
     },
     "title": "Create Your Free Account",
-    "subtitle": "Start for free and grow your business with no hidden costs",
+    "subtitle": "Start managing your business operations in minutes",
     "freeBadge": "Free Forever • No Commitment Required",
     "benefit1": "Free forever plan",
     "benefit2": "No commitment required",
@@ -412,9 +470,9 @@
     }
   },
   "features": {
-    "badge": "All Features",
-    "title": "Everything You Need to Grow Your Business",
-    "subtitle": "Discover the comprehensive suite of features designed to streamline your operations, boost sales, and delight your customers.",
+    "badge": "Platform Features",
+    "title": "Complete Toolkit for Business Operations",
+    "subtitle": "From product catalogs to payment processing, everything you need to run and grow your business across multiple channels.",
     "categories": {
       "modules": {
         "title": "Core Modules",
@@ -431,58 +489,58 @@
     },
     "modules": {
       "products": {
-        "name": "Products Management",
-        "description": "Manage products, variants, pricing, and categories with ease"
+        "name": "Product Catalog",
+        "description": "Manage products, variants, pricing, images, and organize with categories"
       },
       "inventory": {
         "name": "Inventory Control",
-        "description": "Track stock levels, adjustments, and movements in real-time"
+        "description": "Track stock across locations with real-time updates, adjustments, and transfers"
       },
       "orders": {
-        "name": "Orders & Sales",
-        "description": "Process orders, manage sales, and track fulfillment"
+        "name": "Order Management",
+        "description": "Process orders from any channel - online, in-store, or manual entry"
       },
       "customers": {
-        "name": "Customer CRM",
-        "description": "Build relationships with customer profiles and purchase history"
+        "name": "Customer Management",
+        "description": "Build relationships with detailed profiles, purchase history, and addresses"
       },
       "suppliers": {
-        "name": "Supplier Management",
-        "description": "Manage suppliers, purchase orders, and receiving"
+        "name": "Supplier & Purchasing",
+        "description": "Manage suppliers, create purchase orders, and receive inventory"
       },
       "analytics": {
-        "name": "Analytics & Reports",
-        "description": "Gain insights with detailed reports and dashboards"
+        "name": "Analytics & Insights",
+        "description": "Track sales, profits, trends, and performance across stores and products"
       },
       "pos": {
         "name": "Point of Sale",
-        "description": "Fast checkout, multiple POS devices, and offline support"
+        "description": "In-store checkout feature with multiple payment methods and device management"
       },
       "roles": {
-        "name": "Roles & Permissions",
-        "description": "Control access with customizable user roles"
+        "name": "Team & Permissions",
+        "description": "Control access with customizable roles and granular permissions"
       }
     },
     "functional": {
       "advancedAnalytics": {
         "name": "Advanced Analytics",
-        "description": "Custom dashboards and detailed performance reports"
+        "description": "Deep insights with hourly trends, payment breakdowns, and profit tracking"
       },
       "advancedInventory": {
         "name": "Advanced Inventory",
-        "description": "Batch tracking, expiry management, and forecasting"
+        "description": "Low stock alerts, reorder points, and detailed adjustment tracking"
       },
       "customReports": {
         "name": "Custom Reports",
-        "description": "Create and schedule reports tailored to your needs"
+        "description": "Create tailored reports with flexible date ranges and filtering"
       },
       "apiAccess": {
         "name": "API Access",
-        "description": "REST API for integrations and custom applications"
+        "description": "Full REST API for custom integrations and third-party applications"
       },
       "webhooks": {
         "name": "Webhooks",
-        "description": "Real-time event notifications for seamless integrations"
+        "description": "Real-time notifications for orders, payments, and inventory changes"
       }
     },
     "capacity": {
@@ -500,9 +558,9 @@
       }
     },
     "cta": {
-      "title": "Ready to Transform Your Business?",
-      "description": "Start your free trial today and experience the power of Cashvio.",
-      "getStarted": "Start Free Trial",
+      "title": "Ready to Get Started?",
+      "description": "Join businesses managing their operations more efficiently with Cashvio.",
+      "getStarted": "Start Free",
       "viewPricing": "View Pricing"
     }
   },
