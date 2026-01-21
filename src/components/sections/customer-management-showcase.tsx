@@ -28,7 +28,9 @@ export function CustomerManagementShowcase({ locale }: CustomerManagementShowcas
                   width={1200}
                   height={800}
                   className="w-full h-auto"
-                  priority
+                  loading="lazy"
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 />
                 
                 {/* Overlay gradient for depth */}

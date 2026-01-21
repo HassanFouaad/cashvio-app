@@ -76,6 +76,8 @@ export function PlatformPreview({ locale }: PlatformPreviewProps) {
                   height={800}
                   className="w-full h-auto"
                   priority
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 />
                 
                 {/* Overlay gradient for depth */}

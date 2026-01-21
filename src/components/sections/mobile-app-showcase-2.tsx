@@ -98,7 +98,9 @@ export function MobileAppShowcase2({ locale }: MobileAppShowcase2Props) {
                     width={375}
                     height={812}
                     className="w-full h-auto"
-                    priority
+                    loading="lazy"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 360px"
                   />
                 </div>
               </div>
