@@ -33,7 +33,7 @@ export const serverPlansService = {
     try {
       const config = createServerConfig(revalidate, locale);
       const response = await plansService.getAll(config);
-      return response?.data ?? [];
+      return response as any ?? [];
     } catch (error) {
       console.error('[Server] Failed to fetch plans:', error);
       return [];
