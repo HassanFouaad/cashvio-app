@@ -18,6 +18,23 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  async redirects() {
+    return [
+      // Redirect /en/* to /* (English is default, no prefix needed)
+      // This fixes Google Search Console "Page with redirect" errors
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
