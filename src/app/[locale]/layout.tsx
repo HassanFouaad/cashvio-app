@@ -61,6 +61,9 @@ export async function generateMetadata({
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
     robots: {
       index: true,
       follow: true,
@@ -80,7 +83,7 @@ export async function generateMetadata({
       type: "website",
       locale: typedLocale === "ar" ? "ar_EG" : "en_US",
       alternateLocale: getAlternateLocales(typedLocale),
-      url: siteConfig.url,
+      url: getCanonicalUrl("", typedLocale),
       siteName: t("siteName"),
       title: t("siteName"),
       description: t("siteDescription"),
@@ -173,7 +176,7 @@ export default async function LocaleLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');'light'!==t&&document.documentElement.classList.add('dark')}catch(t){document.documentElement.classList.add('dark')}})();`,
+            __html: `(function(){try{var c=document.cookie.match(/(?:^|;\\s*)app_theme=([^;]*)/);var t=c?decodeURIComponent(c[1]):localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();`,
           }}
         />
       </head>

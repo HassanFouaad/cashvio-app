@@ -149,3 +149,5 @@ Consider:
 - QR code for direct download
 - Platform detection (show relevant badge first)
 - Add actual App Store/Play Store links when available
+
+

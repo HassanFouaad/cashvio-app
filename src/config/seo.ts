@@ -694,6 +694,7 @@ export function getAlternateUrls(path: string): Record<string, string> {
 /**
  * Get all alternate locales for Open Graph
  * Returns an array of locale codes for og:locale:alternate
+ * Note: Open Graph uses underscores (en_US), while HTML lang uses dashes (en-US)
  */
 export function getAlternateLocales(currentLocale: Locale): string[] {
   const locales = ['en_US', 'ar_EG'];
