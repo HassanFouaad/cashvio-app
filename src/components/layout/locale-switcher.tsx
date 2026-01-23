@@ -1,10 +1,11 @@
 'use client';
 
-import { usePathname } from '@/i18n/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation';
 import { type Locale, localeMetadata } from '@/i18n/routing';
 import { cn } from '@/lib/utils/cn';
 import { trackLocaleChange } from '@/lib/analytics';
 import { saveLanguagePreference, saveThemePreference } from '@/lib/utils/cross-app-sync';
+import { useTransition } from 'react';
 
 interface LocaleSwitcherProps {
   locale: Locale;
@@ -12,7 +13,9 @@ interface LocaleSwitcherProps {
 }
 
 export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
+  const router = useRouter();
   const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
 
   const targetLocale = locale === 'en' ? 'ar' : 'en';
   const targetMeta = localeMetadata[targetLocale];
@@ -21,23 +24,30 @@ export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
     // IMPORTANT: Preserve current theme before language switch
     const isDark = document.documentElement.classList.contains('dark');
     const currentTheme = isDark ? 'dark' : 'light';
+    
+    // Save to localStorage immediately (synchronous) - highest priority
+    localStorage.setItem('theme', currentTheme);
+    
+    // Save to cookie (for cross-subdomain and SSR)
     saveThemePreference(currentTheme);
     
-    // Save language preference to shared cookie
+    // Save language preference
     saveLanguagePreference(targetLocale);
     
     // Track locale change
     trackLocaleChange(locale, targetLocale);
     
-    // Build new URL with target locale
-    // English (default) has no prefix, Arabic uses /ar
-    const newPath = targetLocale === 'en' 
-      ? pathname // Remove /ar prefix if switching to English
-      : `/ar${pathname}`; // Add /ar prefix if switching to Arabic
+    // Apply theme class immediately to prevent flash during navigation
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     
-    // Force full page reload to ensure theme script runs
-    // This is necessary because client-side navigation doesn't re-run <head> scripts
-    window.location.href = newPath;
+    // Use next-intl router with transition for smooth locale switch
+    startTransition(() => {
+      router.replace(pathname, { locale: targetLocale });
+    });
   };
 
   return (
