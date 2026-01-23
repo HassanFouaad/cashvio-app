@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, usePathname } from '@/i18n/navigation';
+import { usePathname } from '@/i18n/navigation';
 import { type Locale, localeMetadata } from '@/i18n/routing';
 import { cn } from '@/lib/utils/cn';
 import { trackLocaleChange } from '@/lib/analytics';
@@ -12,7 +12,6 @@ interface LocaleSwitcherProps {
 }
 
 export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
-  const router = useRouter();
   const pathname = usePathname();
 
   const targetLocale = locale === 'en' ? 'ar' : 'en';
@@ -30,8 +29,15 @@ export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
     // Track locale change
     trackLocaleChange(locale, targetLocale);
     
-    // Use next-intl router to switch locale properly
-    router.replace(pathname, { locale: targetLocale });
+    // Build new URL with target locale
+    // English (default) has no prefix, Arabic uses /ar
+    const newPath = targetLocale === 'en' 
+      ? pathname // Remove /ar prefix if switching to English
+      : `/ar${pathname}`; // Add /ar prefix if switching to Arabic
+    
+    // Force full page reload to ensure theme script runs
+    // This is necessary because client-side navigation doesn't re-run <head> scripts
+    window.location.href = newPath;
   };
 
   return (
