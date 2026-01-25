@@ -17,7 +17,8 @@ import {
   getCanonicalUrl,
   getAlternateUrls,
   getAlternateLocales,
-  urls,
+  getCompleteGraphSchema,
+  getSiteNavigationSchema,
   brand,
   keywords,
   openGraphDefaults,
@@ -75,10 +76,11 @@ export default async function HomePage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: 'metadata.home' });
 
-  // Schema.org structured data
-  const organizationSchema = schemaTemplates.organization();
-  const websiteSchema = schemaTemplates.website(typedLocale);
-  const softwareSchema = schemaTemplates.softwareApplication();
+  // Schema.org structured data - Using comprehensive graph for SEO 2026
+  // This single @graph links all entities: Organization, Brand, Website, Software, Service
+  const completeGraphSchema = getCompleteGraphSchema(typedLocale);
+  
+  // WebPage schema for this specific page
   const webPageSchema = schemaTemplates.webPage({
     locale: typedLocale,
     path: typedLocale === 'en' ? '' : `/${typedLocale}`,
@@ -86,23 +88,43 @@ export default async function HomePage({ params }: Props) {
     description: t('description'),
   });
 
+  // Breadcrumb schema
+  const breadcrumbSchema = schemaTemplates.breadcrumb([
+    { name: brand.name, url: getCanonicalUrl('', typedLocale) },
+  ]);
+
+  // HowTo schema for featured snippets
+  const howToSchema = schemaTemplates.howTo(typedLocale);
+
+  // Site navigation schema
+  const navigationSchema = getSiteNavigationSchema();
+
   return (
     <>
+      {/* Complete Graph Schema - Links Organization, Brand, Website, Software, Service */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeSchema(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(completeGraphSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeSchema(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeSchema(softwareSchema) }}
-      />
+      {/* WebPage Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeSchema(webPageSchema) }}
+      />
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
+      />
+      {/* HowTo Schema - For featured snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(howToSchema) }}
+      />
+      {/* Site Navigation Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(navigationSchema) }}
       />
 
       <Hero locale={typedLocale} />

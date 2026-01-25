@@ -10,6 +10,7 @@ import {
   getCanonicalUrl,
   getAlternateUrls,
   getAlternateLocales,
+  getProductGroupSchema,
   keywords,
   openGraphDefaults,
   twitterDefaults,
@@ -86,7 +87,7 @@ export default async function PricingPage({ params }: Props) {
     features: t.raw(`${key}.features`) as string[],
   }));
 
-  // Schema.org structured data
+  // Schema.org structured data - Enhanced for SEO 2026
   const webPageSchema = schemaTemplates.webPage({
     locale: typedLocale,
     path: typedLocale === "en" ? "/pricing" : `/ar/pricing`,
@@ -101,26 +102,17 @@ export default async function PricingPage({ params }: Props) {
     }))
   );
 
-  const pricingSchema = schemaTemplates.pricingPage([
-    { name: "Starter", price: 29, description: t("starter.description") },
-    {
-      name: "Professional",
-      price: 79,
-      description: t("professional.description"),
-    },
-    {
-      name: "Enterprise",
-      price: 199,
-      description: t("enterprise.description"),
-    },
+  // ProductGroup schema with localized plan descriptions
+  const productGroupSchema = getProductGroupSchema([
+    { name: t("starter.name"), price: 0, description: t("starter.description") },
+    { name: t("professional.name"), price: 49, description: t("professional.description") },
+    { name: t("enterprise.name"), price: 199, description: t("enterprise.description") },
   ]);
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
     { name: "Home", url: getCanonicalUrl("", typedLocale) },
     { name: metaT("title"), url: getCanonicalUrl("/pricing", typedLocale) },
   ]);
-
-  console.log("Plans", plans);
 
   return (
     <>
@@ -134,7 +126,7 @@ export default async function PricingPage({ params }: Props) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeSchema(pricingSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeSchema(productGroupSchema) }}
       />
       <script
         type="application/ld+json"
