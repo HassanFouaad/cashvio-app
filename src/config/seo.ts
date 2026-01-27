@@ -13,6 +13,7 @@
  * - Proper interlinking between schemas using @id
  */
 
+import { PublicPlan } from '@/lib/http';
 import { env } from './env';
 import type { Locale } from '@/i18n/routing';
 
@@ -1083,7 +1084,7 @@ export function getCompleteGraphSchema(locale: Locale) {
 /**
  * ProductGroup schema - For pricing page
  */
-export function getProductGroupSchema() {
+export function getProductGroupSchema(plans: PublicPlan[] = []) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProductGroup',
@@ -1093,56 +1094,29 @@ export function getProductGroupSchema() {
     brand: {
       '@id': `${urls.site}/#brand`,
     },
-    hasVariant: [
-      {
+    hasVariants: plans.map(plan => {
+      return {
         '@type': 'Product',
-        '@id': `${urls.site}/pricing#starter`,
-        name: `${brand.name} Starter`,
-        description: 'Free forever plan for small businesses',
+        '@id': `${urls.site}/pricing#${plan.enName.toLowerCase().replace(/ /g, '-')}`,
+        name: `${brand.name} ${plan.enName}`,
+        description: plan.detailsEn?.join(',') ?? 'Cashvio Plan',
         brand: { '@id': `${urls.site}/#brand` },
         offers: {
           '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
+          price: plan.price,
+          priceCurrency: 'EGP',
           availability: 'https://schema.org/InStock',
           seller: { '@id': `${urls.site}/#organization` },
         },
-      },
-      {
-        '@type': 'Product',
-        '@id': `${urls.site}/pricing#professional`,
-        name: `${brand.name} Professional`,
-        description: 'For growing businesses with advanced needs',
-        brand: { '@id': `${urls.site}/#brand` },
-        offers: {
-          '@type': 'Offer',
-          price: '49',
-          priceCurrency: 'USD',
-          priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-          availability: 'https://schema.org/InStock',
-          seller: { '@id': `${urls.site}/#organization` },
-        },
-      },
-      {
-        '@type': 'Product',
-        '@id': `${urls.site}/pricing#enterprise`,
-        name: `${brand.name} Enterprise`,
-        description: 'Full-featured solution for large operations',
-        brand: { '@id': `${urls.site}/#brand` },
-        offers: {
-          '@type': 'Offer',
-          price: '199',
-          priceCurrency: 'USD',
-          priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-          availability: 'https://schema.org/InStock',
-          seller: { '@id': `${urls.site}/#organization` },
-        },
-      },
-    ],
+      }
+
+    }),
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '500',
+      reviewCount: '3410',
+      bestRating: '5',
+      worstRating: '2',
     },
   };
 }

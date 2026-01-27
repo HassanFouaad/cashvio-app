@@ -103,11 +103,7 @@ export default async function PricingPage({ params }: Props) {
   );
 
   // ProductGroup schema with localized plan descriptions
-  const productGroupSchema = getProductGroupSchema([
-    { name: t("starter.name"), price: 0, description: t("starter.description") },
-    { name: t("professional.name"), price: 49, description: t("professional.description") },
-    { name: t("enterprise.name"), price: 199, description: t("enterprise.description") },
-  ]);
+  const productGroupSchema = getProductGroupSchema(plans);
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
     { name: "Home", url: getCanonicalUrl("", typedLocale) },
