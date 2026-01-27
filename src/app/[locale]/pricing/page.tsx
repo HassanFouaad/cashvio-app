@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const typedLocale = locale as Locale;
 
   return {
-    title: `${t("title")} | ${brand.name}`,
+    title: `${t("title")}`,
     description: t("description"),
     keywords: keywords[typedLocale],
     alternates: {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       ...openGraphDefaults,
-      title: `${t("title")} | ${brand.name}`,
+      title: `${t("title")}`,
       description: t("description"),
       url: getCanonicalUrl("/pricing", typedLocale),
       locale: typedLocale === "ar" ? "ar_EG" : "en_US",
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       ...twitterDefaults,
-      title: `${t("title")} | ${brand.name}`,
+      title: `${t("title")}`,
       description: t("description"),
     },
     robots: {
