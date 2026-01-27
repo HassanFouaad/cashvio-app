@@ -133,7 +133,7 @@ export default async function ThankYouPage({ params }: Props) {
                 </div>
 
                 {/* What's Next Section */}
-                <div className="mb-10">
+                {/* <div className="mb-10">
                   <h2 className="text-lg font-semibold text-foreground mb-4">
                     {t('whatsNext.title')}
                   </h2>
@@ -166,7 +166,7 @@ export default async function ThankYouPage({ params }: Props) {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
