@@ -23,6 +23,7 @@ export default function robots(): MetadataRoute.Robots {
     '/private/',
     '/admin/',
     '/*.json$',
+    '/cdn-cgi'
   ];
   
   return {
