@@ -24,12 +24,12 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'register' });
+  const t = await getTranslations({ locale, namespace: 'metadata.register' });
   const typedLocale = locale as Locale;
 
   return {
-    title: `${t('meta.title')} | ${brand.name}`,
-    description: t('meta.description'),
+    title: `${t('title')} | ${brand.name}`,
+    description: t('description'),
     keywords: keywords[typedLocale],
     alternates: {
       canonical: getCanonicalUrl('/register', typedLocale),
@@ -68,21 +68,22 @@ export default async function RegisterPage({ params }: Props) {
   const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'register' });
+  const metaT = await getTranslations({ locale, namespace: 'metadata.register' });
 
   // Schema.org structured data
   const webPageSchema = schemaTemplates.webPage({
     locale: typedLocale,
     path: typedLocale === 'en' ? '/register' : `/ar/register`,
-    title: t('meta.title'),
-    description: t('meta.description'),
+    title: metaT('title'),
+    description: metaT('description'),
   });
 
   const softwareSchema = schemaTemplates.softwareApplication();
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
-    { name: t('meta.title'), url: getCanonicalUrl('/register', typedLocale) },
-  ]);
+    { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', typedLocale) },
+    { name: metaT('title'), url: getCanonicalUrl('/register', typedLocale) },
+  ], typedLocale);
 
   // Get portal login URL
   const portalLoginUrl = `${urls.portal}/login`;

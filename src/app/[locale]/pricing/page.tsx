@@ -106,9 +106,9 @@ export default async function PricingPage({ params }: Props) {
   const productGroupSchema = getProductGroupSchema(plans);
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: "Home", url: getCanonicalUrl("", typedLocale) },
+    { name: "Home", nameAr: "الرئيسية", url: getCanonicalUrl("", typedLocale) },
     { name: metaT("title"), url: getCanonicalUrl("/pricing", typedLocale) },
-  ]);
+  ], typedLocale);
 
   return (
     <>

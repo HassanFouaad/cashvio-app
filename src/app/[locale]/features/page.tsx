@@ -263,9 +263,9 @@ export default async function FeaturesPage({ params }: Props) {
   };
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', typedLocale) },
     { name: metaT('title'), url: getCanonicalUrl('/features', typedLocale) },
-  ]);
+  ], typedLocale);
 
   // Build proper links based on locale (no /en prefix)
   const registerLink = typedLocale === 'en' ? '/register' : '/ar/register';

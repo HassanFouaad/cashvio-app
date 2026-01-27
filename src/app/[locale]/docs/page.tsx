@@ -138,9 +138,9 @@ export default async function DocsPage({ params }: Props) {
   });
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', typedLocale) },
     { name: t('title'), url: getCanonicalUrl('/docs', typedLocale) },
-  ]);
+  ], typedLocale);
 
   const docsListSchema = {
     '@context': 'https://schema.org',

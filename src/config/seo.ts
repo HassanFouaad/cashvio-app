@@ -104,43 +104,67 @@ export const social = {
 } as const;
 
 // ============================================================================
-// SEO KEYWORDS (by locale)
+// SEO KEYWORDS (by locale) - Optimized for 2026 search intent
 // ============================================================================
 
 export const keywords: Record<Locale, string[]> = {
   en: [
-    'business management platform',
-    'commerce platform',
-    'sales management software',
-    'inventory management',
-    'order management system',
-    'multi-channel selling',
-    'online seller tools',
-    'e-commerce management',
-    'business operations software',
-    'payment processing',
-    'customer management',
-    'analytics dashboard',
-    'multi-store management',
-    'product catalog',
+    // Primary brand keywords
     'Cashvio',
+    'Cashvio POS',
+    'Cashvio business management',
+    // High-intent transactional keywords
+    'business management platform',
+    'POS system for retail',
+    'free POS software',
+    'inventory management software',
+    'order management system',
+    // Feature-specific keywords
+    'multi-store management software',
+    'sales analytics dashboard',
+    'customer relationship management',
+    'product catalog software',
+    'payment processing solution',
+    // Long-tail keywords
+    'best POS system for small business',
+    'free inventory tracking software',
+    'multi-channel selling platform',
+    'e-commerce management solution',
+    'retail business software Egypt',
+    'Arabic POS system',
+    // Industry keywords
+    'SaaS business platform',
+    'cloud-based POS',
+    'omnichannel retail software',
   ],
   ar: [
-    'منصة إدارة الأعمال',
-    'منصة التجارة الإلكترونية',
-    'برنامج إدارة المبيعات',
-    'إدارة المخزون',
-    'نظام إدارة الطلبات',
-    'البيع متعدد القنوات',
-    'أدوات البائعين الإلكترونيين',
-    'إدارة التجارة الإلكترونية',
-    'برنامج العمليات التجارية',
-    'معالجة المدفوعات',
-    'إدارة العملاء',
-    'لوحة التحليلات',
-    'إدارة متاجر متعددة',
-    'كتالوج المنتجات',
+    // Primary brand keywords
     'كاشفيو',
+    'كاشفيو نقاط البيع',
+    'كاشفيو لإدارة الأعمال',
+    // High-intent transactional keywords
+    'منصة إدارة الأعمال',
+    'نظام نقاط بيع للتجزئة',
+    'برنامج نقاط بيع مجاني',
+    'برنامج إدارة المخزون',
+    'نظام إدارة الطلبات',
+    // Feature-specific keywords
+    'برنامج إدارة متاجر متعددة',
+    'لوحة تحليلات المبيعات',
+    'إدارة علاقات العملاء',
+    'برنامج كتالوج المنتجات',
+    'حلول معالجة المدفوعات',
+    // Long-tail keywords
+    'أفضل نظام نقاط بيع للشركات الصغيرة',
+    'برنامج تتبع المخزون مجاني',
+    'منصة البيع متعدد القنوات',
+    'حل إدارة التجارة الإلكترونية',
+    'برنامج أعمال التجزئة مصر',
+    'نظام نقاط بيع بالعربية',
+    // Industry keywords
+    'منصة SaaS للأعمال',
+    'نقاط بيع سحابية',
+    'برنامج تجزئة متعدد القنوات',
   ],
 };
 
@@ -167,9 +191,18 @@ export const openGraphDefaults = {
   images: [
     {
       url: `${urls.site}/assets/logo-light.png`,
+      width: 1200,
+      height: 630,
+      alt: `${brand.name} - ${brand.tagline}`,
+      type: 'image/png',
+    },
+    // Fallback square image for platforms that prefer it
+    {
+      url: `${urls.site}/assets/logo-light.png`,
       width: 512,
       height: 512,
-      alt: `${brand.name} - ${brand.tagline}`,
+      alt: `${brand.name} Logo`,
+      type: 'image/png',
     },
   ],
 };
@@ -182,7 +215,14 @@ export const twitterDefaults = {
   card: 'summary_large_image' as const,
   site: social.twitter.handle,
   creator: social.twitter.handle,
-  images: [`${urls.site}/assets/logo-light.png`],
+  images: [
+    {
+      url: `${urls.site}/assets/logo-light.png`,
+      width: 1200,
+      height: 600,
+      alt: `${brand.name} - ${brand.tagline}`,
+    },
+  ],
 };
 
 // ============================================================================
@@ -768,15 +808,15 @@ export const schemaTemplates = {
   }),
 
   /**
-   * BreadcrumbList schema
+   * BreadcrumbList schema - with locale support
    */
-  breadcrumb: (items: Array<{ name: string; url: string }>) => ({
+  breadcrumb: (items: Array<{ name: string; nameAr?: string; url: string }>, locale: Locale = 'en') => ({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
+      name: locale === 'ar' && item.nameAr ? item.nameAr : item.name,
       item: item.url,
     })),
   }),
@@ -1061,8 +1101,55 @@ export const compliance = {
 } as const;
 
 // ============================================================================
+// LOCALIZED BREADCRUMB ITEMS
+// ============================================================================
+
+export const breadcrumbNames: Record<string, { en: string; ar: string }> = {
+  home: { en: 'Home', ar: 'الرئيسية' },
+  features: { en: 'Features', ar: 'المميزات' },
+  pricing: { en: 'Pricing', ar: 'الأسعار' },
+  contact: { en: 'Contact', ar: 'تواصل معنا' },
+  register: { en: 'Register', ar: 'التسجيل' },
+  docs: { en: 'Documentation', ar: 'التوثيق' },
+  privacy: { en: 'Privacy Policy', ar: 'سياسة الخصوصية' },
+  terms: { en: 'Terms & Conditions', ar: 'الشروط والأحكام' },
+};
+
+/**
+ * Get localized breadcrumb name
+ */
+export function getBreadcrumbName(key: string, locale: Locale): string {
+  const names = breadcrumbNames[key];
+  return names ? names[locale] : key;
+}
+
+// ============================================================================
 // ADDITIONAL SCHEMA FUNCTIONS (Outside schemaTemplates to avoid circular refs)
 // ============================================================================
+
+/**
+ * Speakable Schema - Optimizes content for voice search and screen readers
+ * Critical for Google Assistant, Alexa, and accessibility
+ */
+export function getSpeakableSchema(params: {
+  locale: Locale;
+  path: string;
+  headline: string;
+  summary: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${urls.site}${params.path}#speakable`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['article', 'h1', 'h2', '.hero-content', '.feature-description'],
+    },
+    headline: params.headline,
+    description: params.summary,
+    inLanguage: params.locale === 'ar' ? 'ar-EG' : 'en-US',
+  };
+}
 
 /**
  * Complete Graph schema - Links all entities together

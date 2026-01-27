@@ -29,6 +29,10 @@
     "features": {
       "title": "Features",
       "description": "Discover tools to manage products, inventory, orders, and customers. Grow your business with powerful analytics and multi-channel selling capabilities."
+    },
+    "register": {
+      "title": "Create Your Free Account",
+      "description": "Sign up for Cashvio and start managing your sales, inventory, and customers today. Free forever plan available with no credit card required."
     }
   },
   "common": {

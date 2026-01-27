@@ -19,6 +19,7 @@ import {
   getAlternateLocales,
   getCompleteGraphSchema,
   getSiteNavigationSchema,
+  getSpeakableSchema,
   brand,
   keywords,
   openGraphDefaults,
@@ -90,14 +91,22 @@ export default async function HomePage({ params }: Props) {
 
   // Breadcrumb schema
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: brand.name, url: getCanonicalUrl('', typedLocale) },
-  ]);
+    { name: brand.name, nameAr: 'كاشفيو', url: getCanonicalUrl('', typedLocale) },
+  ], typedLocale);
 
   // HowTo schema for featured snippets
   const howToSchema = schemaTemplates.howTo(typedLocale);
 
   // Site navigation schema
   const navigationSchema = getSiteNavigationSchema();
+
+  // Speakable schema for voice search optimization
+  const speakableSchema = getSpeakableSchema({
+    locale: typedLocale,
+    path: typedLocale === 'en' ? '' : `/${typedLocale}`,
+    headline: t('title'),
+    summary: t('description'),
+  });
 
   return (
     <>
@@ -125,6 +134,11 @@ export default async function HomePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeSchema(navigationSchema) }}
+      />
+      {/* Speakable Schema - Voice Search Optimization */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(speakableSchema) }}
       />
 
       <Hero locale={typedLocale} />

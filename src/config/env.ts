@@ -45,10 +45,10 @@ export const env = {
    */
   site: {
     url: SITE_URL,
-    name: process.env.NEXT_PUBLIC_SITE_NAME || 'Cash-Vio',
+    name: process.env.NEXT_PUBLIC_SITE_NAME || 'Cashvio',
     description:
       process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-      'Professional Point of Sale Solution',
+      'Complete business management platform for online and in-store operations',
   },
 
   /**

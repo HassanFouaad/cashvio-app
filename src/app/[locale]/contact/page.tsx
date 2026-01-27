@@ -83,9 +83,9 @@ export default async function ContactPage({ params }: Props) {
   const contactSchema = schemaTemplates.contactPage();
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', typedLocale) },
     { name: metaT('title'), url: getCanonicalUrl('/contact', typedLocale) },
-  ]);
+  ], typedLocale);
 
   return (
     <>

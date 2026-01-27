@@ -58,18 +58,28 @@ export async function generateMetadata({
     },
     description: t("siteDescription"),
     keywords: siteConfig.keywords,
-    authors: [{ name: siteConfig.name }],
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
+    category: "Business Software",
+    classification: "Software as a Service",
+    applicationName: siteConfig.name,
+    generator: "Next.js",
+    referrer: "origin-when-cross-origin",
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      // Add other verification IDs as needed
+      // yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+      // other: { 'facebook-domain-verification': process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION },
     },
     robots: {
       index: true,
       follow: true,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
+        noimageindex: false,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet": -1,
@@ -78,6 +88,9 @@ export async function generateMetadata({
     alternates: {
       canonical: getCanonicalUrl("", typedLocale),
       languages: getAlternateUrls(""),
+      types: {
+        'application/rss+xml': `${siteConfig.url}/feed.xml`,
+      },
     },
     openGraph: {
       type: "website",
@@ -90,9 +103,17 @@ export async function generateMetadata({
       images: [
         {
           url: `${siteConfig.url}/assets/logo-light.png`,
+          width: 1200,
+          height: 630,
+          alt: `${t("siteName")} - Business Management Platform`,
+          type: "image/png",
+        },
+        {
+          url: `${siteConfig.url}/assets/logo-light.png`,
           width: 512,
           height: 512,
-          alt: t("siteName"),
+          alt: `${t("siteName")} Logo`,
+          type: "image/png",
         },
       ],
     },
@@ -100,8 +121,16 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("siteName"),
       description: t("siteDescription"),
-      images: [`${siteConfig.url}/assets/logo-light.png`],
+      images: [
+        {
+          url: `${siteConfig.url}/assets/logo-light.png`,
+          width: 1200,
+          height: 600,
+          alt: `${t("siteName")} - Business Management Platform`,
+        },
+      ],
       creator: siteConfig.social.twitter,
+      site: siteConfig.social.twitter,
     },
     icons: {
       icon: [
@@ -130,17 +159,31 @@ export async function generateMetadata({
           sizes: "512x512",
           type: "image/png",
         },
+        {
+          rel: "mask-icon",
+          url: "/assets/favicon.svg",
+          color: "#34d399",
+        },
       ],
+    },
+    other: {
+      "msapplication-TileColor": "#1a1f2e",
+      "msapplication-config": "/browserconfig.xml",
     },
   };
 }
 
 export const viewport: Viewport = {
-  themeColor: "#34d399", // Dark mode as default
-  colorScheme: "dark light", // Prefer dark mode first
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1a1f2e" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
+  colorScheme: "dark light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
 };
 
 interface LocaleLayoutProps {
@@ -174,6 +217,23 @@ export default async function LocaleLayout({
       className={`dark ${inter.variable} ${ibmPlexArabic.variable}`}
     >
       <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch for non-critical resources */}
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Format detection - disable auto-formatting of phone numbers on iOS */}
+        <meta name="format-detection" content="telephone=no" />
+        
+        {/* Mobile app capable */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
+        {/* Theme script - must run before body renders */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var c=document.cookie.match(/(?:^|;\\s*)app_theme=([^;]*)/);var t=c?decodeURIComponent(c[1]):localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){/* Keep default dark */}})();`,

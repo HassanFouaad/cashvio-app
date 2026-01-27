@@ -84,9 +84,9 @@ export default async function TermsPage({ params }: Props) {
   });
 
   const breadcrumbSchema = schemaTemplates.breadcrumb([
-    { name: 'Home', url: getCanonicalUrl('', typedLocale) },
+    { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', typedLocale) },
     { name: metaT('title'), url: getCanonicalUrl('/terms', typedLocale) },
-  ]);
+  ], typedLocale);
 
   return (
     <>
