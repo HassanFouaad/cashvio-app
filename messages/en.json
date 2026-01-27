@@ -33,6 +33,10 @@
     "register": {
       "title": "Create Your Free Account",
       "description": "Sign up for Cashvio and start managing your sales, inventory, and customers today. Free forever plan available with no credit card required."
+    },
+    "thankYou": {
+      "title": "Welcome to Cashvio!",
+      "description": "Your account has been created successfully. Start managing your business today."
     }
   },
   "common": {
@@ -585,6 +589,34 @@
       "description": "Join businesses managing their operations more efficiently with Cashvio.",
       "getStarted": "Start Free",
       "viewPricing": "View Pricing"
+    }
+  },
+  "thankYou": {
+    "title": "Welcome to Cashvio!",
+    "subtitle": "Your account has been created successfully. You're all set to start managing your business.",
+    "emailNotice": "We've sent a welcome email with your account details.",
+    "whatsNext": {
+      "title": "What's Next?",
+      "step1": {
+        "title": "Log in to your dashboard",
+        "description": "Access your business management portal and explore the features."
+      },
+      "step2": {
+        "title": "Set up your first store",
+        "description": "Add your store details, products, and configure your settings."
+      },
+      "step3": {
+        "title": "Start selling",
+        "description": "Process your first order and see your business grow with Cashvio."
+      }
+    },
+    "cta": {
+      "goToDashboard": "Go to Dashboard",
+      "backToHome": "Back to Home"
+    },
+    "support": {
+      "text": "Need help getting started?",
+      "link": "Contact our support team"
     }
   },
   "contactForm": {

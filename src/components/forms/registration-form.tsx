@@ -1,7 +1,7 @@
 'use client';
 
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
-import { authService, HttpError, RegisterRequest, RegisterResponse, useLocaleConfig } from '@/lib/http';
+import { authService, HttpError, RegisterRequest, useLocaleConfig } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import {
   trackFormStart,
@@ -11,9 +11,9 @@ import {
   trackRegistrationComplete,
 } from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from '@/i18n/navigation';
 import * as React from 'react';
-import { env } from '@/config/env';
-import { redirectToPortalAfterRegistration, getThemePreference } from '@/lib/utils/cross-app-sync';
+import { saveAuthTokens, saveThemePreference, saveLanguagePreference, getThemePreference } from '@/lib/utils/cross-app-sync';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -53,6 +53,7 @@ interface FormErrors {
 export function RegistrationForm() {
   const t = useTranslations('register');
   const locale = useLocale();
+  const router = useRouter();
   const isRtl = locale === 'ar';
   const localeConfig = useLocaleConfig();
 
@@ -65,35 +66,7 @@ export function RegistrationForm() {
 
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [isSuccess, setIsSuccess] = React.useState(false);
   const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
-  const [countdown, setCountdown] = React.useState(10);
-
-  // Note: Auto-redirect happens immediately after successful registration
-  // via redirectToPortalAfterRegistration() in the submit handler.
-  // The countdown below is a fallback in case the redirect is delayed.
-  React.useEffect(() => {
-    if (isSuccess && countdown > 0) {
-      const timer = setTimeout(() => {
-        setCountdown((prev) => prev - 1);
-      }, 1000);
-      return () => clearTimeout(timer);
-    } else if (isSuccess && countdown === 0) {
-      // Fallback redirect (should already have redirected)
-      const theme = getThemePreference() || 'light';
-      redirectToPortalAfterRegistration(
-        {
-          accessToken: '',
-          refreshToken: '',
-          expiresIn: 0,
-        },
-        {
-          theme,
-          language: locale,
-        }
-      );
-    }
-  }, [isSuccess, countdown, locale]);
 
   // Track form start when user begins typing
   const handleFormInteraction = React.useCallback(() => {
@@ -199,27 +172,14 @@ export function RegistrationForm() {
       trackFormSubmit('registration_form', 'register_page');
       trackRegistrationComplete();
 
-      // Auto-login: Store tokens and redirect to portal
+      // Save auth tokens to cookies for auto-login when user goes to portal
       const theme = getThemePreference() || 'light';
-      
-      // Extract data from API response
-      const responseData = response;
-      
-      redirectToPortalAfterRegistration(
-        {
-          accessToken: responseData.accessToken,
-          refreshToken: responseData.refreshToken,
-          expiresIn: responseData.expiresIn,
-        },
-        {
-          theme,
-          language: locale,
-        }
-      );
+      saveAuthTokens(response.accessToken, response.refreshToken, response.expiresIn);
+      saveThemePreference(theme);
+      saveLanguagePreference(locale);
 
-      // Note: redirectToPortalAfterRegistration will redirect, 
-      // but we set success state in case redirect is delayed
-      setIsSuccess(true);
+      // Redirect to thank-you page (for Facebook/Meta conversion tracking)
+      router.push('/thank-you');
     } catch (error) {
       if (error instanceof HttpError) {
         if (error.statusCode === 409) {
@@ -238,78 +198,6 @@ export function RegistrationForm() {
       setIsSubmitting(false);
     }
   };
-
-  if (isSuccess) {
-    return (
-      <div className="text-center py-8" dir={isRtl ? 'rtl' : 'ltr'}>
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 dark:bg-green-950/30 mb-6">
-          <svg
-            className="w-10 h-10 text-green-600 dark:text-green-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-semibold text-foreground mb-3">
-          {t('success.title')}
-        </h3>
-        <p className="text-muted-foreground mb-2">{t('success.message')}</p>
-        <p className="text-sm text-muted-foreground bg-muted/50 rounded-lg p-4 mt-4">
-          <svg
-            className="w-5 h-5 inline-block mx-1 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          {t('success.emailSent')}
-        </p>
-
-        {/* Redirecting Message */}
-        <div className="mt-8 space-y-4">
-          <div className="inline-flex items-center justify-center gap-3 text-primary">
-            <svg
-              className="animate-spin h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              />
-            </svg>
-            <span className="font-medium">{t('success.redirecting') || 'Redirecting to your dashboard...'}</span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            {t('success.autoRedirect', { seconds: countdown })}
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <form
