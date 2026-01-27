@@ -37,16 +37,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       ...openGraphDefaults,
-      title: `${t('meta.title')}`,
-      description: t('meta.description'),
+      title: `${t('title')}`,
+      description: t('description'),
       url: getCanonicalUrl('/register', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
       alternateLocale: getAlternateLocales(typedLocale),
     },
     twitter: {
       ...twitterDefaults,
-      title: `${t('meta.title')}`,
-      description: t('meta.description'),
+      title: `${t('title')}`,
+      description: t('description'),
     },
     robots: {
       index: true,
