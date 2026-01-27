@@ -1,6 +1,18 @@
 import type { MetadataRoute } from 'next';
 import { env } from '@/config/env';
 
+/**
+ * Robots.txt Configuration for Marketing Site
+ * 
+ * NOTE: This only affects the main marketing domain (e.g., cash-vio.com)
+ * 
+ * Subdomains have their own robots.txt:
+ * - portal.cash-vio.com - Blocked (private business portal)
+ * - api.cash-vio.com - Blocked (API endpoints)
+ * - console.cash-vio.com - Blocked (admin console)
+ * 
+ * Each subdomain must have its own robots.txt with "Disallow: /"
+ */
 export default function robots(): MetadataRoute.Robots {
   const SITE_URL = env.site.url;
   
