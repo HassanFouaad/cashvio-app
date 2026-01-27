@@ -809,17 +809,24 @@ export const schemaTemplates = {
 
   /**
    * BreadcrumbList schema - with locale support
+   * Note: @id is derived from the last item's URL (current page) for proper linking with WebPage schema
    */
-  breadcrumb: (items: Array<{ name: string; nameAr?: string; url: string }>, locale: Locale = 'en') => ({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: locale === 'ar' && item.nameAr ? item.nameAr : item.name,
-      item: item.url,
-    })),
-  }),
+  breadcrumb: (items: Array<{ name: string; nameAr?: string; url: string }>, locale: Locale = 'en') => {
+    // Get the current page URL from the last breadcrumb item
+    const currentPageUrl = items.length > 0 ? items[items.length - 1].url : urls.site;
+    
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      '@id': `${currentPageUrl}#breadcrumb`,
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: locale === 'ar' && item.nameAr ? item.nameAr : item.name,
+        item: item.url,
+      })),
+    };
+  },
 
   /**
    * FAQPage schema - Use on pricing/features pages
