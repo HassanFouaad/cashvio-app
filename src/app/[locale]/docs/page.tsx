@@ -142,19 +142,6 @@ export default async function DocsPage({ params }: Props) {
     { name: t('title'), url: getCanonicalUrl('/docs', typedLocale) },
   ], typedLocale);
 
-  const docsListSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: t('title'),
-    description: t('description'),
-    itemListElement: docCategories.map((category, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: isArabic ? category.titleAr : category.titleEn,
-      description: isArabic ? category.descAr : category.descEn,
-      url: getCanonicalUrl(`/docs/${category.key}`, typedLocale),
-    })),
-  };
 
   return (
     <>
@@ -169,10 +156,6 @@ export default async function DocsPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeSchema(docsListSchema) }}
       />
       <div className="py-16 md:py-24">
       <div className="container-wide">
@@ -189,7 +172,6 @@ export default async function DocsPage({ params }: Props) {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {docCategories.map((category) => (
-            <Link key={category.key} href={`/docs/${category.key}`}>
               <Card className="h-full hover:border-primary/50 transition-colors cursor-pointer">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
@@ -203,7 +185,6 @@ export default async function DocsPage({ params }: Props) {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
           ))}
         </div>
 
