@@ -17,6 +17,7 @@ export default function robots(): MetadataRoute.Robots {
   const SITE_URL = env.site.url;
   
   // Common disallowed paths
+  // Note: Disallow URLs with query parameters to prevent crawling of parameterized URLs
   const commonDisallow = [
     '/api/',
     '/_next/',
@@ -24,7 +25,9 @@ export default function robots(): MetadataRoute.Robots {
     '/admin/',
     '/*.json$',
     '/cdn-cgi',
-    '/thank-you'
+    '/thank-you',
+    // Block URLs with query parameters to prevent duplicate content and unnecessary crawling
+    '/*?*',
   ];
   
   return {
