@@ -94,6 +94,8 @@ class HttpClient {
       headers,
       signal: config?.signal,
       cache: config?.cache,
+      // Include credentials to send HttpOnly cookies with requests
+      credentials: 'include',
     };
 
     // Add Next.js specific options

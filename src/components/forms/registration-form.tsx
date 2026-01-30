@@ -13,7 +13,7 @@ import {
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import * as React from 'react';
-import { saveAuthTokens, saveThemePreference, saveLanguagePreference, getThemePreference } from '@/lib/utils/cross-app-sync';
+import { saveThemePreference, saveLanguagePreference, getThemePreference } from '@/lib/utils/cross-app-sync';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -166,19 +166,20 @@ export function RegistrationForm() {
         password: formData.password,
       };
 
-      const response = await authService.register(registerData, localeConfig);
+      await authService.register(registerData, localeConfig);
 
       // Success! Track registration
       trackFormSubmit('registration_form', 'register_page');
       trackRegistrationComplete();
 
-      // Save auth tokens to cookies for auto-login when user goes to portal
+      // Save preferences for cross-app sync
+      // Note: Auth tokens are now set as HttpOnly cookies by the backend
       const theme = getThemePreference() || 'light';
-      saveAuthTokens(response.accessToken, response.refreshToken, response.expiresIn);
       saveThemePreference(theme);
       saveLanguagePreference(locale);
 
       // Redirect to thank-you page (for Facebook/Meta conversion tracking)
+      // User's auth cookies are already set by the backend
       router.push('/thank-you');
     } catch (error) {
       if (error instanceof HttpError) {

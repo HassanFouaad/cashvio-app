@@ -1,8 +1,16 @@
 /**
  * Cross-App State Synchronization
- * 
+ *
  * Utilities to share theme and language preferences between Next.js app and Portal
- * across different subdomains using cookies and URL parameters.
+ * across different subdomains using cookies.
+ *
+ * IMPORTANT: Authentication tokens are now handled via HttpOnly cookies
+ * set by the backend. This file only manages PREFERENCE cookies (theme, language)
+ * which need to be accessible via JavaScript for cross-app synchronization.
+ *
+ * Cookie Architecture:
+ * - Auth cookies (HttpOnly): Set by backend, not accessible via JS
+ * - Preference cookies (JS-accessible): Managed here for cross-subdomain sync
  */
 
 import { env } from '@/config/env';
@@ -11,14 +19,45 @@ import { env } from '@/config/env';
 // CONFIGURATION
 // ============================================================================
 
-const COOKIE_CONFIG = env.cookies;
+/**
+ * Get cookie domain based on environment
+ * - Production: '.cash-vio.com' (shared across subdomains)
+ * - Localhost: undefined (browser handles automatically)
+ */
+const getCookieDomain = (): string | undefined => {
+  if (typeof window === 'undefined') return undefined;
+
+  const hostname = window.location.hostname;
+
+  // Localhost development - don't set domain
+  if (hostname === 'localhost' || hostname.endsWith('.localhost')) {
+    return undefined;
+  }
+
+  // Production - use configured domain
+  return env.cookies.domain;
+};
+
+/**
+ * Check if we're in a secure context (HTTPS)
+ */
+const isSecure = (): boolean => {
+  if (typeof window === 'undefined') return env.isProd;
+  return window.location.protocol === 'https:';
+};
+
+const getCookieConfig = () => ({
+  domain: getCookieDomain(),
+  maxAge: env.cookies.maxAge,
+  path: env.cookies.path,
+  sameSite: env.cookies.sameSite,
+  secure: isSecure(),
+});
 
 const COOKIE_KEYS = {
-  theme: 'app_theme',
-  language: 'app_language',
-  accessToken: 'app_access_token',
-  refreshToken: 'app_refresh_token',
-  expiresIn: 'app_expires_in',
+  // Preference cookies - using 'cv_' prefix for Cashvio
+  theme: 'cv_theme',
+  language: 'cv_language',
 } as const;
 
 // ============================================================================
@@ -27,19 +66,23 @@ const COOKIE_KEYS = {
 
 /**
  * Set a cookie that can be shared across subdomains
+ * Uses dynamic configuration that adapts to the environment
  */
 export function setSharedCookie(
   name: string,
   value: string,
-  options: {
+  customOptions?: {
     domain?: string;
     maxAge?: number;
     path?: string;
     sameSite?: 'lax' | 'strict' | 'none';
     secure?: boolean;
-  } = COOKIE_CONFIG
+  }
 ): void {
   if (typeof document === 'undefined') return;
+
+  const defaultConfig = getCookieConfig();
+  const options = { ...defaultConfig, ...customOptions };
 
   const cookieParts = [
     `${encodeURIComponent(name)}=${encodeURIComponent(value)}`,
@@ -69,12 +112,13 @@ export function getSharedCookie(name: string): string | null {
 /**
  * Remove a cookie
  */
-export function removeSharedCookie(name: string, domain?: string): void {
+export function removeSharedCookie(name: string): void {
   if (typeof document === 'undefined') return;
 
-  document.cookie = `${encodeURIComponent(name)}=; path=/; max-age=0${
-    domain ? `; domain=${domain}` : ''
-  }`;
+  const domain = getCookieDomain();
+  const domainPart = domain ? `; domain=${domain}` : '';
+
+  document.cookie = `${encodeURIComponent(name)}=; path=/; max-age=0${domainPart}`;
 }
 
 // ============================================================================
@@ -215,28 +259,19 @@ export function redirectToPortalWithState(
 }
 
 // ============================================================================
-// AUTH TOKEN SYNC (FOR REGISTRATION AUTO-LOGIN)
+// AUTH TOKEN HANDLING
 // ============================================================================
 
 /**
- * Save authentication tokens to shared cookies for cross-subdomain auto-login
- * Used after registration to automatically log user into portal
+ * NOTE: Auth token saving has been removed from this file.
+ *
+ * Authentication tokens are now stored in HttpOnly cookies by the backend.
+ * When the user registers, the backend sets HttpOnly cookies automatically.
+ * The browser sends these cookies with subsequent requests.
+ *
+ * This provides better security against XSS attacks since JavaScript
+ * cannot access HttpOnly cookies.
  */
-export function saveAuthTokens(
-  accessToken: string,
-  refreshToken: string,
-  expiresIn: number
-): void {
-  // Save tokens with short expiry (5 minutes) - just for transfer
-  const shortExpiryConfig = {
-    ...COOKIE_CONFIG,
-    maxAge: 300, // 5 minutes
-  };
-
-  setSharedCookie(COOKIE_KEYS.accessToken, accessToken, shortExpiryConfig);
-  setSharedCookie(COOKIE_KEYS.refreshToken, refreshToken, shortExpiryConfig);
-  setSharedCookie(COOKIE_KEYS.expiresIn, expiresIn.toString(), shortExpiryConfig);
-}
 
 /**
  * Get portal URL from environment
@@ -246,23 +281,18 @@ export function getPortalUrl(): string {
 }
 
 /**
- * Redirect to portal after successful registration with auto-login
+ * Redirect to portal after successful registration
+ *
+ * Note: Auth tokens are now set as HttpOnly cookies by the backend
+ * during the registration API call. We just need to redirect.
  */
 export function redirectToPortalAfterRegistration(
-  tokens: {
-    accessToken: string;
-    refreshToken: string;
-    expiresIn: number;
-  },
   options?: {
     theme?: 'light' | 'dark';
     language?: string;
   }
 ): void {
-  // 1. Save auth tokens to cookies
-  saveAuthTokens(tokens.accessToken, tokens.refreshToken, tokens.expiresIn);
-
-  // 2. Save theme and language preferences
+  // Save theme and language preferences
   if (options?.theme) {
     saveThemePreference(options.theme);
   }
@@ -270,7 +300,7 @@ export function redirectToPortalAfterRegistration(
     saveLanguagePreference(options.language);
   }
 
-  // 3. Redirect to portal with registration flag
+  // Redirect to portal with preferences
   const portalUrl = getPortalUrl();
   const urlWithParams = addStateToUrl(portalUrl, {
     theme: options?.theme || getThemePreference() || 'light',
@@ -281,7 +311,7 @@ export function redirectToPortalAfterRegistration(
   const url = new URL(urlWithParams);
   url.searchParams.set('registered', 'true');
 
-  // Redirect
+  // Redirect - browser will send HttpOnly cookies automatically
   window.location.href = url.toString();
 }
 
