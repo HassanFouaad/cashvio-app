@@ -4,13 +4,12 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
-import { mainNavigation, ctaLinks } from '@/config/navigation';
+import { mainNavigation } from '@/config/navigation';
 import { cn } from '@/lib/utils/cn';
-import { ButtonLink } from '@/components/ui/button';
 import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
-import { PortalLink } from '@/components/ui/portal-link';
+import { AuthAwareActionsMobile } from './auth-aware-actions';
 
 interface MobileNavProps {
   locale: Locale;
@@ -19,7 +18,6 @@ interface MobileNavProps {
 export function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('navigation');
-  const tCommon = useTranslations('common');
 
   return (
     <div className="lg:hidden">
@@ -125,14 +123,7 @@ export function MobileNav({ locale }: MobileNavProps) {
               <LocaleSwitcher locale={locale} className="flex-1 justify-center" />
               <ThemeToggle />
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <PortalLink variant="outline" size="md" path="/login" className="justify-center">
-                {tCommon('login')}
-              </PortalLink>
-              <ButtonLink variant="primary" size="md" href={ctaLinks.getStarted} className="justify-center">
-                {tCommon('getStarted')}
-              </ButtonLink>
-            </div>
+            <AuthAwareActionsMobile />
           </div>
         </div>
       </div>

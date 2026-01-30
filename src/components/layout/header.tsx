@@ -1,13 +1,12 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
-import { mainNavigation, ctaLinks } from '@/config/navigation';
-import { ButtonLink } from '@/components/ui/button';
+import { mainNavigation } from '@/config/navigation';
 import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
 import { MobileNav } from './mobile-nav';
-import { PortalLink } from '@/components/ui/portal-link';
+import { AuthAwareActions } from './auth-aware-actions';
 
 interface HeaderProps {
   locale: Locale;
@@ -15,7 +14,6 @@ interface HeaderProps {
 
 export async function Header({ locale }: HeaderProps) {
   const t = await getTranslations({ locale, namespace: 'navigation' });
-  const tCommon = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 glass">
@@ -43,13 +41,7 @@ export async function Header({ locale }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-2">
             <LocaleSwitcher locale={locale} />
             <ThemeToggle />
-            <div className="w-px h-6 bg-border mx-2" />
-            <PortalLink variant="ghost" size="sm" path="/login">
-              {tCommon('login')}
-            </PortalLink>
-            <ButtonLink variant="primary" size="sm" href={ctaLinks.getStarted}>
-              {tCommon('getStarted')}
-            </ButtonLink>
+            <AuthAwareActions className="flex items-center gap-2" />
           </div>
 
           {/* Mobile Navigation */}

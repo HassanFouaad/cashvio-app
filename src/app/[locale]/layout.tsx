@@ -236,7 +236,7 @@ export default async function LocaleLayout({
         {/* Theme script - must run before body renders */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var c=document.cookie.match(/(?:^|;\\s*)app_theme=([^;]*)/);var t=c?decodeURIComponent(c[1]):localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){/* Keep default dark */}})();`,
+            __html: `(function(){try{var c=document.cookie.match(/(?:^|;\\s*)cv_theme=([^;]*)/);var t=c?decodeURIComponent(c[1]):localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){/* Keep default dark */}})();`,
           }}
         />
       </head>

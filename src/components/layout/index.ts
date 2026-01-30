@@ -4,4 +4,5 @@ export * from './logo';
 export * from './locale-switcher';
 export * from './theme-toggle';
 export * from './mobile-nav';
+export * from './auth-aware-actions';
 

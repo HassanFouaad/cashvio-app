@@ -58,6 +58,10 @@ const COOKIE_KEYS = {
   // Preference cookies - using 'cv_' prefix for Cashvio
   theme: 'cv_theme',
   language: 'cv_language',
+  // next-intl uses this cookie for locale detection
+  nextLocale: 'NEXT_LOCALE',
+  // Auth status cookie - indicates user is logged in on portal
+  authStatus: 'cv_auth_status',
 } as const;
 
 // ============================================================================
@@ -163,10 +167,15 @@ export function getThemePreference(): 'light' | 'dark' | null {
 
 /**
  * Save language preference to shared cookie
+ * Also syncs with NEXT_LOCALE cookie for next-intl SSR support
  */
 export function saveLanguagePreference(language: string): void {
   // Save to shared cookie (for cross-subdomain)
   setSharedCookie(COOKIE_KEYS.language, language);
+  
+  // Also set NEXT_LOCALE cookie for next-intl middleware
+  // This ensures SSR picks up the correct locale on reload
+  setSharedCookie(COOKIE_KEYS.nextLocale, language);
 }
 
 /**
@@ -174,6 +183,20 @@ export function saveLanguagePreference(language: string): void {
  */
 export function getLanguagePreference(): string | null {
   return getSharedCookie(COOKIE_KEYS.language);
+}
+
+// ============================================================================
+// AUTH STATUS (Cross-App Login Detection)
+// ============================================================================
+
+/**
+ * Check if user is authenticated on the portal
+ * This reads the cv_auth_status cookie set by tenant-portal
+ * Used to show "Go to Dashboard" instead of "Login/Register"
+ */
+export function isAuthenticated(): boolean {
+  const status = getSharedCookie(COOKIE_KEYS.authStatus);
+  return status === 'true';
 }
 
 // ============================================================================

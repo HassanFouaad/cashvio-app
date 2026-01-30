@@ -5,7 +5,7 @@ import { routing } from './src/i18n/routing';
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   
   // 1. Redirect /en/* to /* (English is default, no prefix needed)
   // This fixes Google Search Console "Page with redirect" errors
@@ -18,13 +18,24 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, { status: 301 });
   }
   
-  // 2. Handle trailing slashes (optional - normalize URLs)
-  // Uncomment if you want to enforce no trailing slashes
-  // if (pathname !== '/' && pathname.endsWith('/')) {
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = pathname.slice(0, -1);
-  //   return NextResponse.redirect(url, { status: 301 });
-  // }
+  // 2. Sync cv_language cookie with NEXT_LOCALE if present
+  // This ensures cross-subdomain language preference is respected
+  const cvLanguage = request.cookies.get('cv_language')?.value;
+  const nextLocale = request.cookies.get('NEXT_LOCALE')?.value;
+  
+  // If cv_language exists but NEXT_LOCALE doesn't match, sync them
+  if (cvLanguage && cvLanguage !== nextLocale && (cvLanguage === 'en' || cvLanguage === 'ar')) {
+    const response = intlMiddleware(request);
+    
+    // Set NEXT_LOCALE cookie to match cv_language
+    response.cookies.set('NEXT_LOCALE', cvLanguage, {
+      path: '/',
+      maxAge: 365 * 24 * 60 * 60, // 1 year
+      sameSite: 'lax',
+    });
+    
+    return response;
+  }
   
   // 3. Run next-intl middleware for locale detection and routing
   return intlMiddleware(request);
