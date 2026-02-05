@@ -26,6 +26,7 @@ export default function robots(): MetadataRoute.Robots {
     '/*.json$',
     '/cdn-cgi',
     '/thank-you',
+    '/export/',
     // Block URLs with query parameters to prevent duplicate content and unnecessary crawling
     '/*?*',
   ];

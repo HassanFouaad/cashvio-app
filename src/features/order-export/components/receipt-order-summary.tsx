@@ -86,19 +86,27 @@ export function ReceiptOrderSummary({
         </div>
       </div>
 
-      {/* Status Badges */}
-      <div className="flex flex-wrap gap-2">
-        <span
-          className={`px-2.5 py-1 text-xs font-medium rounded-full ${getStatusColor(status)}`}
-        >
-          {tOrderStatus(status)}
-        </span>
-        <span
-          className={`px-2.5 py-1 text-xs font-medium rounded-full ${getPaymentStatusColor(paymentStatus)}`}
-        >
+   
+
+      {/* Payment Status */}
+
+      <div className="flex items-center gap-2 text-sm">
+        <span className="text-muted-foreground">{t("paymentStatus")}:</span>
+        <span className="font-medium text-foreground">
           {tPaymentStatus(paymentStatus)}
         </span>
-        <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+      </div>
+      <div className="flex items-center gap-2 text-sm">
+        <span className="text-muted-foreground">{t("orderStatus")}:</span>
+        <span className="font-medium text-foreground">
+          {tOrderStatus(status)}
+        </span>
+      </div>
+
+      {/* Fulfillment Method */}
+      <div className="flex items-center gap-2 text-sm">
+        <span className="text-muted-foreground">{t("fulfillmentMethod")}:</span>
+        <span className="font-medium text-foreground">
           {tFulfillmentMethod(fulfillmentMethod)}
         </span>
       </div>

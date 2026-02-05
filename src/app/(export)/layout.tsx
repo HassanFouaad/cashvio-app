@@ -20,6 +20,8 @@ import { ThemeToggle } from "@/components/layout";
 import { ExportLocaleSwitcher } from "@/features/order-export";
 
 import "../globals.css";
+import { env } from "@/config/env";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -169,10 +171,10 @@ export default async function ExportLayout({
           </main>
 
           {/* Minimal Footer */}
-          <footer className="border-t border-border/40 py-4">
+          <footer className="py-2">
             <div className="container flex justify-center">
-              <p className="text-xs text-muted-foreground">
-                Powered by Cashvio
+              <p className="text-xs text-muted-foreground cursor-pointer hover:underline">
+                Powered by <Link href={env.site.url} target="_blank">Cashvio</Link>
               </p>
             </div>
           </footer>

@@ -47,6 +47,15 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
 
         {/* Divider */}
         <div className="border-t border-border mx-6" />
+        {/* Delivery Address (if applicable) */}
+        {order.deliveryAddress && order.fulfillmentMethod === "DELIVERY" && (
+          <>
+            <div className="border-t border-border mx-6" />
+            <div className="p-6">
+              <ReceiptDeliveryAddress address={order.deliveryAddress} />
+            </div>
+          </>
+        )}
 
         {/* Items Section */}
         <div className="p-6">
@@ -70,15 +79,7 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
           />
         </div>
 
-        {/* Delivery Address (if applicable) */}
-        {order.deliveryAddress && order.fulfillmentMethod === "DELIVERY" && (
-          <>
-            <div className="border-t border-border mx-6" />
-            <div className="p-6">
-              <ReceiptDeliveryAddress address={order.deliveryAddress} />
-            </div>
-          </>
-        )}
+
 
         {/* Order Notes (if any) */}
         {order.notes && (
@@ -107,11 +108,6 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
         <div className="p-6 bg-muted/30">
           <ReceiptFooter store={order.store} />
         </div>
-      </div>
-
-      {/* Digital Receipt Badge */}
-      <div className="text-center mt-4">
-        <p className="text-xs text-muted-foreground">{t("digitalReceipt")}</p>
       </div>
     </div>
   );
