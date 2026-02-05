@@ -36,14 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: getCanonicalUrl('/contact', typedLocale),
       languages: getAlternateUrls('/contact'),
     },
-    openGraph: {
+/*     openGraph: {
       ...openGraphDefaults,
       title: `${t('title')}`,
       description: t('description'),
       url: getCanonicalUrl('/contact', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
       alternateLocale: getAlternateLocales(typedLocale),
-    },
+    }, */
     twitter: {
       ...twitterDefaults,
       title: `${t('title')}`,
