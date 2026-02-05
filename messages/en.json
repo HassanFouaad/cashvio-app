@@ -620,6 +620,80 @@
       "link": "Contact our support team"
     }
   },
+  "receipt": {
+    "pageTitle": "Digital Receipt",
+    "pageDescription": "View your order receipt details",
+    "digitalReceipt": "Digital Receipt",
+    "orderNumber": "Order Number",
+    "orderDate": "Order Date",
+    "customer": "Customer",
+    "fulfillmentStatus": "Fulfillment Status",
+    "completedAt": "Completed",
+    "items": "Items",
+    "discount": "Discount",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "serviceFees": "Service Fees",
+    "deliveryFees": "Delivery Fees",
+    "total": "Total",
+    "refunded": "Refunded",
+    "netTotal": "Net Total",
+    "deliveryAddress": "Delivery Address",
+    "contactPhone": "Contact Phone",
+    "building": "Building",
+    "floor": "Floor",
+    "apartment": "Apt",
+    "notes": "Notes",
+    "orderNotes": "Order Notes",
+    "refunds": "Refunds",
+    "reason": "Reason",
+    "createdAt": "Created",
+    "processedAt": "Processed",
+    "thankYou": "Thank you for your order!",
+    "phone": "Phone",
+    "email": "Email",
+    "errors": {
+      "title": "Unable to Load Receipt",
+      "orderNotFound": "This order could not be found. It may have been deleted or the link is invalid.",
+      "invalidStore": "Invalid store. Please ensure you have the correct receipt link.",
+      "fetchError": "Failed to load the receipt. Please try again later.",
+      "unknown": "An unexpected error occurred. Please try again.",
+      "goBack": "Go Back"
+    }
+  },
+  "orderStatus": {
+    "PENDING": "Pending",
+    "COMPLETED": "Completed",
+    "CANCELLED": "Cancelled"
+  },
+  "paymentStatus": {
+    "PENDING": "Payment Pending",
+    "PARTIAL": "Partially Paid",
+    "PAID": "Paid",
+    "CANCELLED": "Payment Cancelled",
+    "PARTIALLY_REFUNDED": "Partially Refunded",
+    "REFUNDED": "Refunded"
+  },
+  "fulfillmentMethod": {
+    "IN_STORE": "In Store",
+    "PICKUP": "Pickup",
+    "DELIVERY": "Delivery",
+    "DINE_IN": "Dine In"
+  },
+  "fulfillmentStatus": {
+    "PENDING": "Pending",
+    "PREPARING": "Preparing",
+    "READY": "Ready",
+    "DELIVERING": "Delivering",
+    "COMPLETED": "Completed",
+    "CANCELLED": "Cancelled"
+  },
+  "refundStatus": {
+    "PENDING": "Pending",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "COMPLETED": "Completed"
+  },
   "contactForm": {
     "title": "Send us a Message",
     "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",

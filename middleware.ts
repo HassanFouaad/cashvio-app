@@ -6,6 +6,12 @@ const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Skip i18n middleware for export routes - they handle locale internally
+  // via cookies/headers, not URL segments
+  if (pathname.startsWith('/export')) {
+    return NextResponse.next();
+  }
   
   // 1. Redirect /en/* to /* (English is default, no prefix needed)
   // This fixes Google Search Console "Page with redirect" errors

@@ -624,6 +624,80 @@
       "link": "تواصل مع فريق الدعم"
     }
   },
+  "receipt": {
+    "pageTitle": "الإيصال الرقمي",
+    "pageDescription": "عرض تفاصيل إيصال الطلب",
+    "digitalReceipt": "الإيصال الرقمي",
+    "orderNumber": "رقم الطلب",
+    "orderDate": "تاريخ الطلب",
+    "customer": "العميل",
+    "fulfillmentStatus": "حالة التنفيذ",
+    "completedAt": "اكتمل في",
+    "items": "المنتجات",
+    "discount": "الخصم",
+    "subtotal": "المجموع الفرعي",
+    "tax": "الضريبة",
+    "serviceFees": "رسوم الخدمة",
+    "deliveryFees": "رسوم التوصيل",
+    "total": "الإجمالي",
+    "refunded": "المسترد",
+    "netTotal": "الإجمالي الصافي",
+    "deliveryAddress": "عنوان التوصيل",
+    "contactPhone": "رقم التواصل",
+    "building": "مبنى",
+    "floor": "طابق",
+    "apartment": "شقة",
+    "notes": "ملاحظات",
+    "orderNotes": "ملاحظات الطلب",
+    "refunds": "المرتجعات",
+    "reason": "السبب",
+    "createdAt": "أنشئ في",
+    "processedAt": "معالج في",
+    "thankYou": "شكراً لطلبك!",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "errors": {
+      "title": "تعذر تحميل الإيصال",
+      "orderNotFound": "لم يتم العثور على هذا الطلب. ربما تم حذفه أو الرابط غير صالح.",
+      "invalidStore": "متجر غير صالح. يرجى التأكد من صحة رابط الإيصال.",
+      "fetchError": "فشل في تحميل الإيصال. يرجى المحاولة مرة أخرى لاحقاً.",
+      "unknown": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+      "goBack": "العودة"
+    }
+  },
+  "orderStatus": {
+    "PENDING": "قيد الانتظار",
+    "COMPLETED": "مكتمل",
+    "CANCELLED": "ملغي"
+  },
+  "paymentStatus": {
+    "PENDING": "في انتظار الدفع",
+    "PARTIAL": "مدفوع جزئياً",
+    "PAID": "مدفوع",
+    "CANCELLED": "الدفع ملغي",
+    "PARTIALLY_REFUNDED": "مسترد جزئياً",
+    "REFUNDED": "مسترد"
+  },
+  "fulfillmentMethod": {
+    "IN_STORE": "في المتجر",
+    "PICKUP": "استلام",
+    "DELIVERY": "توصيل",
+    "DINE_IN": "تناول في المكان"
+  },
+  "fulfillmentStatus": {
+    "PENDING": "قيد الانتظار",
+    "PREPARING": "قيد التحضير",
+    "READY": "جاهز",
+    "DELIVERING": "قيد التوصيل",
+    "COMPLETED": "مكتمل",
+    "CANCELLED": "ملغي"
+  },
+  "refundStatus": {
+    "PENDING": "قيد الانتظار",
+    "APPROVED": "موافق عليه",
+    "REJECTED": "مرفوض",
+    "COMPLETED": "مكتمل"
+  },
   "contactForm": {
     "title": "أرسل لنا رسالة",
     "subtitle": "املأ النموذج أدناه وسنرد عليك خلال 24 ساعة.",
