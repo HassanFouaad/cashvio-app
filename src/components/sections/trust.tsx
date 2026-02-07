@@ -107,7 +107,7 @@ export async function Trust({ locale }: TrustProps) {
           <p className="text-base md:text-lg text-muted-foreground">{t('subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Business Integrations */}
           <div className="bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
             <div className="flex items-center gap-3 mb-5">
