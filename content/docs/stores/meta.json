@@ -1,0 +1,4 @@
+{
+  "title": "Store Management",
+  "pages": ["creating-store", "payment-methods", "fulfillment-methods", "service-fees", "delivery-zones", "receipt-settings"]
+}

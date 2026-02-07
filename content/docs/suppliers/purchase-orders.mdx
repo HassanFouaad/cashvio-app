@@ -1,0 +1,73 @@
+---
+title: Purchase Orders
+description: How to create purchase orders to restock your inventory from suppliers, track their status, and receive stock.
+---
+
+## What is a Purchase Order?
+
+A **purchase order** (PO) is a formal request to buy products from a supplier. It specifies what products you need, the quantities, and the expected prices. When the supplier delivers the products, you "receive" the PO in Cashvio, and your inventory is updated automatically.
+
+## Creating a Purchase Order
+
+1. Go to **Purchase Orders** in the sidebar, or click **Create Purchase Order** from the Dashboard.
+2. Click **Create Purchase Order**.
+3. Follow the multi-step wizard:
+
+### Step 1: Store & Items
+- Select the **store** the stock is for.
+- Add products from your catalogue with quantities and agreed prices.
+
+### Step 2: Basic Information
+- Select the **supplier**.
+- Set the **expected delivery date**.
+
+### Step 3: Fees & Details
+- Add any additional **delivery fees** or charges.
+- Add any **notes**.
+
+### Step 4: Review
+- Review all the details before submitting.
+- Click **Submit** to create the purchase order.
+
+## Purchase Order Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Draft** | PO created but not yet sent to the supplier |
+| **Pending** | PO sent to the supplier, waiting for approval |
+| **Approved** | PO approved, waiting for delivery |
+| **Received** | Products received and stock updated |
+| **Cancelled** | PO was cancelled |
+
+## Receiving Stock from a Purchase Order
+
+When products arrive from a supplier:
+
+1. Open the purchase order details.
+2. Click **Receive Stock**.
+3. Confirm the quantities received.
+4. Click **Confirm**.
+
+The inventory for the selected store is automatically updated with the received quantities.
+
+## Managing Purchase Orders
+
+The **Purchase Orders** page shows all POs with filters:
+
+- **PO Number** — Search by PO number
+- **Store** — Filter by store
+- **Supplier** — Filter by supplier
+- **Status** — Filter by PO status
+- **Date Range** — Filter by date
+
+## How Purchase Orders Affect the System
+
+| Action | Effect |
+|--------|--------|
+| **PO Created** | No inventory change — it is just a record of intent |
+| **PO Received** | Inventory increases by the received quantities |
+| **PO Cancelled** | No inventory change — the order is voided |
+
+<Callout title="Tip">
+Use the [Low Stock](/docs/inventory/stock-management) alerts in the Inventory section to identify which products need restocking, then create a Purchase Order to order them from the appropriate [supplier](/docs/suppliers/managing-suppliers).
+</Callout>

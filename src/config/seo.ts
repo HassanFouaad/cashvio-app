@@ -1124,7 +1124,7 @@ export const breadcrumbNames: Record<string, { en: string; ar: string }> = {
   pricing: { en: 'Pricing', ar: 'الأسعار' },
   contact: { en: 'Contact', ar: 'تواصل معنا' },
   register: { en: 'Register', ar: 'التسجيل' },
-  docs: { en: 'Documentation', ar: 'التوثيق' },
+  docs: { en: 'Documentation', ar: 'الشرح' },
   privacy: { en: 'Privacy Policy', ar: 'سياسة الخصوصية' },
   terms: { en: 'Terms & Conditions', ar: 'الشروط والأحكام' },
 };

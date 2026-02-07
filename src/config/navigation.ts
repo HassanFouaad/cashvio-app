@@ -51,6 +51,6 @@ export const ctaLinks = {
   login: env.portal.loginUrl, // External portal login
   portal: env.portal.url, // Portal base URL
   dashboard: env.portal.dashboardUrl, // Portal dashboard
-  demo: '/contact?type=demo',
+  demo: '/docs',
 } as const;
 

@@ -1,0 +1,50 @@
+---
+title: Facebook Pixel
+description: How to set up Facebook Pixel tracking on your online store to track customer actions and run better ads.
+---
+
+## What is Facebook Pixel?
+
+**Facebook Pixel** is a tracking tool from Meta (Facebook) that helps you measure the effectiveness of your advertising. When installed on your online store, it tracks actions customers take — like viewing products, adding items to cart, and completing purchases.
+
+This data helps you:
+- **Measure ad performance** — See how many conversions your ads generate
+- **Build audiences** — Create targeted audiences for Facebook and Instagram ads
+- **Optimize delivery** — Let Facebook show your ads to people most likely to buy
+
+## How to Set Up Facebook Pixel
+
+1. **Get your Pixel ID** from your Facebook Business Manager:
+   - Go to [business.facebook.com](https://business.facebook.com)
+   - Navigate to **Events Manager > Pixels**
+   - Copy your **Pixel ID** (a number like `1234567890123456`)
+
+2. **Enter the Pixel ID in Cashvio:**
+   - Go to your store's settings in the tenant portal
+   - Navigate to the **Online Store** configuration
+   - Find the **Facebook Pixel ID** field
+   - Paste your Pixel ID
+   - Click **Save**
+
+## What Events are Tracked
+
+Once configured, the following events are automatically tracked on your online storefront:
+
+| Event | When it fires |
+|-------|---------------|
+| **PageView** | Customer visits any page |
+| **ViewContent** | Customer views a product detail page |
+| **AddToCart** | Customer adds a product to their cart |
+| **InitiateCheckout** | Customer starts the checkout process |
+| **Purchase** | Customer completes an order |
+
+## Verifying the Setup
+
+To verify your Pixel is working:
+1. Install the **Meta Pixel Helper** Chrome extension.
+2. Visit your online store.
+3. The extension shows which events are firing.
+
+<Callout title="Note">
+Facebook Pixel only works on your **online storefront**. It does not track actions in the tenant portal (admin dashboard). The Pixel is loaded per store — each store can have its own Pixel ID.
+</Callout>

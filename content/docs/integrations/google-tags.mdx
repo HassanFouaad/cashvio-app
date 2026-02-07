@@ -1,0 +1,58 @@
+---
+title: Google Tags (GTM)
+description: How to set up Google Tag Manager on your online store for analytics tracking and conversion measurement.
+---
+
+## What is Google Tag Manager?
+
+**Google Tag Manager (GTM)** is a free tool from Google that lets you manage tracking codes (tags) on your website without editing code. Through GTM, you can set up **Google Analytics 4 (GA4)** tracking, conversion tracking, and other marketing tags.
+
+## How to Set Up GTM
+
+1. **Create a GTM container** at [tagmanager.google.com](https://tagmanager.google.com):
+   - Create an account and container for your website
+   - Copy your **GTM Container ID** (looks like `GTM-XXXXXXX`)
+
+2. **Enter the GTM ID in Cashvio:**
+   - Go to your store's settings in the tenant portal
+   - Navigate to the **Online Store** configuration
+   - Find the **Google Tag Manager ID** field
+   - Paste your GTM Container ID
+   - Click **Save**
+
+## What You Can Track
+
+With GTM connected, you can set up tracking for:
+
+| Tracking | Description |
+|----------|-------------|
+| **Page Views** | Track which pages customers visit |
+| **Product Views** | Track which products customers look at |
+| **Add to Cart** | Track when products are added to cart |
+| **Checkout** | Track checkout initiation |
+| **Purchases** | Track completed orders with revenue data |
+| **Custom Events** | Set up any additional tracking you need |
+
+## Enhanced E-commerce Tracking
+
+Cashvio's storefront supports **enhanced e-commerce** data, providing detailed information about:
+
+- Product impressions (product list views)
+- Product clicks
+- Product detail views
+- Add to cart actions
+- Checkout steps
+- Purchase transactions with item-level data
+
+## Connecting Google Analytics 4
+
+To use GA4 with your GTM:
+
+1. In GTM, create a **GA4 Configuration** tag with your GA4 Measurement ID.
+2. Set it to fire on **All Pages**.
+3. Create additional GA4 Event tags for e-commerce events.
+4. Publish your GTM container.
+
+<Callout title="Tip">
+Use GTM's built-in preview mode to test your tags before publishing. This ensures everything fires correctly on your storefront.
+</Callout>

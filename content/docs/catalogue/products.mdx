@@ -1,0 +1,108 @@
+---
+title: Products
+description: How to create, manage, and organize your products including variants, pricing, images, and inventory tracking.
+---
+
+## What is a Product?
+
+A **product** is an item you sell. Each product has a name, belongs to a [category](/docs/catalogue/categories), and can have multiple **variants** (versions with different sizes, colors, etc.). Products are the core of your catalogue and are used when [creating orders](/docs/orders/creating-orders).
+
+## How to Add a New Product
+
+1. Go to **Catalogue > Products** in the sidebar.
+2. Click **Add New Product**.
+3. Choose your creation method:
+   - **Quick Create** — A simplified form for simple products
+   - **Full Form** — A multi-step wizard for products with variants and detailed configuration
+
+### Step 1: Product Information
+
+Fill in the basic details:
+
+| Field | Description |
+|-------|-------------|
+| **Product Name** | The name of the product |
+| **Description** | An optional description |
+| **Category** | The category this product belongs to |
+| **Tax Category** | The tax classification for this product |
+| **Tax Rate** | The tax percentage applied |
+| **Tax Included** | Whether the selling price already includes tax |
+| **Status** | Active (visible and sellable) or Draft (hidden) |
+| **Track Inventory** | Whether to track stock levels for this product |
+
+### Step 2: Variants and Pricing
+
+Configure the product variants:
+
+- Select which **[options](/docs/catalogue/options)** apply (e.g., Size, Color)
+- For each variant, set:
+
+| Field | Description |
+|-------|-------------|
+| **Variant Name** | Auto-generated from option values (e.g., "S / Red") |
+| **SKU** | A unique stock keeping unit code |
+| **Selling Price** | The price the customer pays |
+| **Cost Price** | Your cost to acquire the product (used for profit calculations) |
+| **Unit of Measure** | How the product is sold (piece, kg, etc.) |
+
+### Step 3: Product Images
+
+Upload images for the product:
+
+- Add multiple images
+- Set a **primary image** (the main image shown in lists)
+- Reorder images by dragging
+
+Click **Save** to create the product.
+
+## Viewing Your Products
+
+The **Products** page shows a filterable list:
+
+- **Search** by product name
+- **Filter** by category or status (Active, Draft, Archived)
+- Each row shows the product name, category, SKU, status, price, and variant count
+
+Click on a product to view its full details.
+
+## Editing a Product
+
+1. Click on a product from the list.
+2. On the **Product Details** page:
+   - Click **Edit** to modify basic information
+   - Click **Edit Images** to manage photos
+   - Click **Add Variant** to add a new variant
+   - Click on a variant to edit its price, SKU, or stock
+
+## Product Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Active** | The product is visible and can be added to orders |
+| **Draft** | The product is saved but not yet visible or sellable |
+| **Archived** | The product is no longer available but its history is preserved |
+
+## Inventory Tracking
+
+If **Track Inventory** is enabled for a product:
+
+- Each variant's stock level is tracked per store
+- Stock decreases when an order is completed
+- Stock increases when inventory is adjusted or purchase orders are received
+- **Low stock alerts** appear when stock falls below the reorder point (see [Stock Management](/docs/inventory/stock-management))
+
+If inventory tracking is **disabled**, the product is treated as always in stock.
+
+<Callout title="Tip">
+Set up your categories and options **before** creating products. This makes the product creation process faster and more organized.
+</Callout>
+
+## Deleting a Product
+
+1. Open the product details.
+2. Click **Delete**.
+3. Confirm the deletion.
+
+<Callout title="Warning">
+Deleting a product removes it permanently. Orders that included this product will still show the product name in their history.
+</Callout>

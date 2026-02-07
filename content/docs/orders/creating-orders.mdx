@@ -1,0 +1,92 @@
+---
+title: Creating Orders
+description: Step-by-step guide to creating a new sales order, selecting products, applying discounts, and processing payments.
+---
+
+## How to Create an Order
+
+1. Go to **Sales > Create Order** in the sidebar, or click **Create Order** from the Dashboard quick actions.
+2. The order creation screen opens in full-screen mode with two panels.
+
+### Left Panel — Order Details
+
+This is where you configure the order:
+
+| Field | Description |
+|-------|-------------|
+| **Store** | Select which store this order belongs to (if you have multiple stores) |
+| **Customer** | Select an existing customer or click **Add Customer** to create a new one |
+| **Fulfillment Method** | Choose: In-Store, Pickup, Delivery, or Dine-In |
+| **Delivery Address** | Required if fulfillment is Delivery (country, city, details) |
+| **Channel** | The sales channel for this order |
+| **Notes** | Optional notes about the order |
+
+### Right Panel — Product Selection
+
+This is where you select products to add to the order:
+
+1. **Browse by category** — Click category tabs to filter products.
+2. **Search** — Use the search bar to find products by name.
+3. **Click a product** to add it to the order. If the product has multiple variants, you will be asked to select one.
+4. **Custom Item** — Click **Add Custom Item** to add a non-inventory item with a custom name and price.
+
+### Cart Section
+
+As you add products, they appear in the cart (order items list):
+
+- **Adjust quantity** — Click + or - to change the quantity.
+- **Remove item** — Click the remove button to delete an item.
+- Each line shows the product name, variant, quantity, and price.
+
+### Order Summary
+
+Below the cart, you will see the order calculation:
+
+| Line | Description |
+|------|-------------|
+| **Subtotal** | Sum of all item prices |
+| **[Service Fee](/docs/stores/service-fees)** | Automatically added if configured (can be edited) |
+| **[Delivery Fee](/docs/stores/delivery-zones)** | Automatically added for delivery orders (can be edited) |
+| **Discount** | Click to apply a manual discount (fixed amount or percentage) |
+| **Tax** | Calculated automatically based on tax settings |
+| **Total** | The final amount the customer owes |
+
+## Applying a Discount
+
+1. Click the **Discount** button in the order summary.
+2. Choose the discount type:
+   - **Fixed Amount** — A specific amount off the total (e.g., 50 EGP off)
+   - **Percentage** — A percentage off the subtotal (e.g., 10% off)
+3. Enter the discount value.
+4. The order total updates automatically.
+
+## Processing Payment (Checkout)
+
+1. Click **Checkout** when the order is ready.
+2. A payment dialog opens.
+3. Select the **payment method** (Cash, Card, InstaPay, Mobile Wallet, Bank Transfer, Store Credit).
+4. Enter the **amount paid**.
+5. Options:
+   - **Full payment** — Pay the entire amount at once.
+   - **Partial payment** — Pay part now and schedule the rest.
+   - **Skip payment** — Create the order with a pending payment status.
+6. Click **Confirm** to complete the order.
+
+### Cash Payment with Change
+
+If the customer pays with cash and gives more than the total:
+
+- The system shows the **change amount** to give back.
+- Example: Order total is 150 EGP, customer pays 200 EGP → Change is 50 EGP.
+
+## After Order Creation
+
+Once the order is created:
+
+- A **success dialog** appears with the option to **print a receipt**.
+- The order appears in the **Sales** list with its order number.
+- Inventory is automatically adjusted (if inventory tracking is enabled).
+
+<Callout title="Tip">
+You can create orders with a pre-selected customer by navigating from the Customer Details page. The customer is automatically filled in.
+</Callout>

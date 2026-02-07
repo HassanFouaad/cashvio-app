@@ -1,0 +1,65 @@
+---
+title: Stock Management
+description: How to view inventory levels, understand stock tracking, manage low stock alerts, and reorder points.
+---
+
+## How Inventory Works
+
+Cashvio tracks inventory **per product variant, per store**. This means if you sell a T-shirt in sizes S, M, and L across two stores, each size in each store has its own stock count.
+
+Inventory tracking is **optional per product**. Products with inventory tracking disabled are treated as always in stock.
+
+## Viewing Inventory
+
+1. Go to **Inventory > All Inventory** in the sidebar.
+2. If you have multiple stores, **select a store** to view its inventory.
+3. You will see a table showing:
+
+| Column | Description |
+|--------|-------------|
+| **Product / Variant** | The product name and variant details |
+| **SKU** | Stock keeping unit code |
+| **Current Stock** | How many units are available |
+| **Reorder Point** | The stock level that triggers a low stock alert |
+| **Status** | In Stock, Low Stock, or Out of Stock |
+
+## Stock Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **In Stock** | Stock is above the reorder point |
+| **Low Stock** | Stock is at or below the reorder point |
+| **Out of Stock** | Stock is zero |
+
+## Low Stock Alerts
+
+Go to **Inventory > Low Stock** in the sidebar to see only items that need restocking.
+
+Items appear here when their current stock falls to or below the **reorder point** you set. This helps you know when to reorder from suppliers.
+
+### Setting a Reorder Point
+
+1. Open the inventory details for a product variant.
+2. Click **Update Reorder Point**.
+3. Enter the minimum stock level that should trigger an alert.
+4. Click **Save**.
+
+**Example:** If you set the reorder point for "T-shirt / M / Blue" to 10, it appears in the Low Stock list when stock drops to 10 or below.
+
+## How Stock Changes
+
+Stock levels change automatically based on business operations:
+
+| Action | Effect on Stock |
+|--------|----------------|
+| **Order completed** | Stock decreases by the ordered quantity |
+| **Order cancelled** | Stock is restored to pre-order levels |
+| **Return approved** | Stock increases by the returned quantity |
+| **[Purchase order](/docs/suppliers/purchase-orders) received** | Stock increases by the received quantity |
+| **[Manual adjustment](/docs/inventory/adjustments-transfers)** | Stock increases or decreases based on the adjustment |
+| **[Stock transfer](/docs/inventory/adjustments-transfers)** | Stock decreases in source store, increases in destination store |
+| **Damaged/consumed** | Stock decreases |
+
+<Callout title="Important">
+Only products with **Track Inventory** enabled are affected by these stock changes. If a product has inventory tracking disabled, stock is not tracked.
+</Callout>

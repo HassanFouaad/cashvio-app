@@ -1,0 +1,72 @@
+---
+title: Refunds
+description: How to issue refunds to customers through different payment methods and manage the refund process.
+---
+
+## What is a Refund?
+
+A **refund** returns money to a customer for a completed order. Refunds can be full (the entire order amount) or partial (only part of the order).
+
+## Creating a Refund
+
+Refunds are created from the order details:
+
+1. Open the **Order Details** page.
+2. Click **Create Refund**.
+3. Fill in the refund details:
+
+| Field | Description |
+|-------|-------------|
+| **Refund Method** | How the money will be returned to the customer |
+| **Amount** | The refund amount |
+| **Notes** | Optional notes about the refund |
+
+4. Review and click **Submit**.
+
+### Refund Methods
+
+| Method | Description |
+|--------|-------------|
+| **Cash** | Refund given as physical cash |
+| **Card Reversal** | Refund back to the original card |
+| **Store Credit** | Refund added to customer's store credit balance |
+| **InstaPay** | Refund via InstaPay |
+| **Mobile Wallet** | Refund to customer's mobile wallet |
+| **Bank Transfer** | Refund via bank transfer |
+
+## Managing Refunds
+
+The refunds are visible from the order details page under the **Refunds** section. Each refund shows:
+
+| Field | Description |
+|-------|-------------|
+| **Refund Number** | Unique refund identifier |
+| **Order Number** | The related order |
+| **Status** | Pending, Processed, or Cancelled |
+| **Method** | The refund method |
+| **Amount** | Refund amount |
+| **Date** | When the refund was created |
+
+## Refund Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Pending** | Refund created, waiting to be processed |
+| **Processed** | Refund has been completed |
+| **Cancelled** | Refund was cancelled |
+
+## Processing a Pending Refund
+
+1. Open the refund details.
+2. Click **Process** to confirm the refund has been sent.
+3. The status changes to **Processed**.
+
+## How Refunds Affect Financials
+
+- The refund amount is recorded in the order's payment history.
+- Refunds using **Store Credit** increase the customer's store credit balance.
+- Reports and analytics reflect refunded amounts in the relevant metrics.
+
+<Callout title="Important">
+Refunds do not automatically restore inventory. If a customer returned products, create a **[Return](/docs/returns-refunds/returns)** first to handle inventory restoration, then create a refund for the money.
+</Callout>

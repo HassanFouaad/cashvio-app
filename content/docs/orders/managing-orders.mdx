@@ -1,0 +1,95 @@
+---
+title: Managing Orders
+description: How to view, filter, update, and manage your sales orders including fulfillment status and payments.
+---
+
+## Viewing All Orders
+
+1. Go to **Sales > All Sales** in the sidebar.
+2. You will see a table of all orders with columns:
+
+| Column | Description |
+|--------|-------------|
+| **Order Number** | Unique identifier for each order |
+| **Customer** | The customer who placed the order |
+| **Store** | Which store the order belongs to |
+| **Status** | Current fulfillment status |
+| **Payment Status** | Whether the order is paid, partially paid, or unpaid |
+| **Total** | The order total amount |
+| **Date** | When the order was created |
+
+## Filtering Orders
+
+Use the filter bar to narrow down your orders:
+
+- **Order Number** — Search by order number
+- **Store** — Filter by store
+- **Customer** — Filter by customer name
+- **Status** — Filter by fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled)
+- **Payment Status** — Filter by payment status
+- **Channel** — Filter by sales channel
+
+Click **Show Filters** to expand the filter options and **Hide Filters** to collapse them.
+
+## Order Details
+
+Click on any order to open its **Order Details** page. Here you will find:
+
+### Order Information
+- Order number, date, and time
+- Customer name and contact
+- Fulfillment method and delivery address (if applicable)
+- Order notes
+
+### Financial Details
+- Payment status and method
+- Amount paid vs. total
+- Amount due (if partially paid)
+- Payment history showing all transactions
+
+### Order Items
+- List of all products in the order
+- Quantity and price per item
+- Variant information
+
+### Order History
+- Timeline showing all status changes and actions
+
+## Updating Fulfillment Status
+
+To update an order's fulfillment status:
+
+1. Open the order details.
+2. Click **Update Fulfillment** (or the status update button).
+3. Select the new status from the available options.
+4. Confirm the update.
+
+The available statuses depend on the current status and fulfillment method. See [Fulfillment Methods](/docs/stores/fulfillment-methods) for the full status flow.
+
+## Adding a Payment
+
+If an order has an outstanding balance:
+
+1. Open the order details.
+2. Click **Add Payment**.
+3. Select the payment method.
+4. Enter the amount.
+5. Confirm the payment.
+
+The payment status updates automatically based on the remaining balance.
+
+## Cancelling an Order
+
+1. Open the order details.
+2. Click **Cancel** from the actions menu.
+3. Confirm the cancellation.
+
+<Callout title="Note">
+Cancelling an order reverses inventory changes if inventory tracking was enabled. The stock levels return to what they were before the order.
+</Callout>
+
+## Printing a Receipt
+
+1. Open the order details.
+2. Click **Print Receipt**.
+3. The receipt opens in a print dialog formatted according to your [Receipt Settings](/docs/stores/receipt-settings).

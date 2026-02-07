@@ -1,0 +1,71 @@
+---
+title: Roles & Permissions
+description: How to create roles with specific permissions to control what each team member can access and do in Cashvio.
+---
+
+## What are Roles?
+
+A **role** defines what a team member can see and do in Cashvio. Each role has a set of **permissions** that control access to different features. For example, a "Cashier" role might only have permission to create orders, while a "Manager" role might have full access.
+
+## How Permissions Work
+
+Permissions are grouped by module. For each module, you can grant or deny access to specific actions:
+
+| Module | Available Permissions |
+|--------|-----------------------|
+| **Orders** | View, Create, Edit, Cancel |
+| **Products** | View, Create, Edit, Delete |
+| **Categories** | View, Create, Edit, Delete |
+| **Customers** | View, Create, Edit, Delete |
+| **Inventory** | View, Adjust, Transfer |
+| **Suppliers** | View, Create, Edit, Delete |
+| **Purchase Orders** | View, Create, Approve, Receive, Cancel |
+| **Returns** | View, Create, Approve, Reject |
+| **Refunds** | View, Create, Process |
+| **Users** | View, Invite, Edit, Delete |
+| **Roles** | View, Create, Edit, Delete |
+| **Reports** | View |
+| **Settings** | View, Edit |
+| **Stores** | View, Create, Edit |
+
+## Creating a Role
+
+1. Go to **Roles & Permissions** (or **الأدوار والصلاحيات** in Arabic) in the sidebar.
+2. Click **Create Role**.
+3. Fill in:
+
+| Field | Description |
+|-------|-------------|
+| **Role Name** | A name for this role (e.g., "Cashier", "Warehouse Staff") |
+| **Description** | An optional description of what this role is for |
+
+4. Select the **permissions** for this role. Permissions are organized by module — expand each section and check the actions you want to allow.
+5. Click **Save**.
+
+## Editing a Role
+
+1. Go to **Roles & Permissions** in the sidebar.
+2. Click on the role you want to edit.
+3. Update the name, description, or permissions.
+4. Click **Save Changes**.
+
+## How Roles Affect the Interface
+
+When a user logs in, their role determines:
+
+- **Which sidebar menu items they see** — Only modules they have "View" permission for appear.
+- **Which actions they can perform** — Buttons like "Create Order" or "Delete Product" only appear if the user has the corresponding permission.
+- **Which Dashboard quick actions appear** — Only actions the user is allowed to perform are shown.
+
+<Callout title="Important">
+The account owner (tenant) always has full access to everything, regardless of role settings. Roles only restrict invited team members.
+</Callout>
+
+## Default Roles vs Custom Roles
+
+Cashvio may provide some default roles. You can create as many custom roles as you need for your team structure. Common examples:
+
+- **Store Manager** — Full access to one store
+- **Cashier** — Can only create orders and view products
+- **Inventory Staff** — Can manage inventory and purchase orders
+- **Accountant** — Can view reports and financial data

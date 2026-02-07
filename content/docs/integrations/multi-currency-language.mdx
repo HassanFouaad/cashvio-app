@@ -1,0 +1,83 @@
+---
+title: Multi-Currency & Multi-Language
+description: How Cashvio handles multiple currencies and languages for your stores and online storefronts.
+---
+
+## Multi-Currency Support
+
+### How Currency Works in Cashvio
+
+Each **store** in Cashvio has its own **currency** setting. This means:
+
+- All product prices in that store are displayed in the store's currency
+- All order totals, payments, and reports use the store's currency
+- The currency symbol and formatting follow the locale (e.g., "200 EGP" for Egyptian Pounds, "$200" for US Dollars)
+
+### Setting a Store's Currency
+
+When creating a store, you select its currency. This is set during store creation and **cannot be changed** afterwards.
+
+### Multiple Currencies Across Stores
+
+If you operate stores in different countries, each store can have a different currency:
+
+| Store | Currency |
+|-------|----------|
+| Cairo Branch | EGP (Egyptian Pound) |
+| Dubai Branch | AED (UAE Dirham) |
+| Online Store US | USD (US Dollar) |
+
+Reports can show data per store (in its own currency) or aggregated across stores.
+
+### Currency Display on the Online Store
+
+Your online storefront displays prices in the **store's currency** with proper locale-aware formatting:
+
+- **English (EGP):** EGP 200.00
+- **Arabic (EGP):** ٢٠٠٫٠٠ ج.م
+
+The formatting adapts to the customer's selected language.
+
+## Multi-Language Support
+
+### Tenant Portal Languages
+
+The Cashvio admin portal supports:
+
+- **English** — Full interface in English
+- **Arabic (العربية)** — Full interface in Arabic with RTL layout
+
+Each team member can choose their preferred language independently.
+
+### Online Storefront Languages
+
+Your online store also supports both languages:
+
+- **English** — All store content, navigation, and checkout in English
+- **Arabic** — Full RTL support with Arabic translations
+
+Customers can switch languages using the **language selector** in the store header.
+
+### What Gets Translated
+
+| Content | Translated? |
+|---------|-------------|
+| **UI labels** (buttons, menus, headings) | Yes — automatically via the translation system |
+| **Product names and descriptions** | No — displayed as you enter them in the portal |
+| **Category names** | No — displayed as entered |
+| **Policy pages** | No — you provide the content in the language you choose |
+
+<Callout title="Tip">
+If you want your products to appear in both English and Arabic on the storefront, enter the product names and descriptions in both languages in the portal, or choose one primary language for your product content.
+</Callout>
+
+### RTL (Right-to-Left) Support
+
+When Arabic is selected:
+
+- The entire layout flips to **right-to-left**
+- Text alignment changes
+- Navigation moves to the right side
+- Numbers and currency remain in their standard format
+
+Both the tenant portal and the storefront fully support RTL.
