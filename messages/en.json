@@ -163,11 +163,11 @@
       },
       "multistore": {
         "title": "Multi-Store Operations",
-        "description": "Manage all your locations from one dashboard with per-store configurations.",
+        "description": "Manage all your locations from one dashboard with per-store configurations, multi-currency support, and online storefronts.",
         "sub1": "Store-specific payment & fulfillment methods",
-        "sub2": "Delivery zones with zone-based pricing",
-        "sub3": "Configurable service & delivery fees",
-        "sub4": "Online storefront builder with SEO settings"
+        "sub2": "Multi-currency support per store",
+        "sub3": "Facebook Pixel & Google Tags integration",
+        "sub4": "Online storefront with multi-language support"
       },
       "team": {
         "title": "Team & Permissions",
@@ -338,8 +338,8 @@
       },
       "integrations": {
         "title": "Seamless Integrations",
-        "description": "Connect with your favorite business tools",
-        "partners": ["QuickBooks", "Xero", "Shopify", "WooCommerce"]
+        "description": "Facebook Pixel, Google Tags, multi-currency & multi-language support for your online stores",
+        "partners": ["Facebook Pixel", "Google Tags", "Multi-Currency", "Multi-Language"]
       },
       "platforms": {
         "title": "Works Everywhere",
@@ -702,8 +702,8 @@
       },
       "storefront": {
         "name": "Online Storefront",
-        "description": "Build your online presence with a customizable storefront featuring hero images, SEO settings, social links, and product catalog.",
-        "subs": "Hero Images • SEO Settings • Social Links • Product Catalog • Store Branding"
+        "description": "Build your online presence with a customizable storefront featuring Facebook Pixel, Google Tags, multi-currency, multi-language support, hero images, and SEO settings.",
+        "subs": "Facebook Pixel • Google Tags • Multi-Currency • Multi-Language • Hero Images • SEO Settings"
       },
       "deliveryZones": {
         "name": "Delivery Management",
