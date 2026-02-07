@@ -11,7 +11,7 @@ import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import { getCanonicalUrl, getAlternateUrls, getAlternateLocales, openGraphDefaults } from "@/config/seo";
+import { getCanonicalUrl, getAlternateUrls, getAlternateLocales, openGraphDefaults, social } from "@/config/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { AnalyticsProvider } from "@/lib/analytics";
@@ -112,6 +112,9 @@ export async function generateMetadata({
           type: "image/png",
         },
       ],
+    },
+    facebook: {
+      appId: social.facebook.appId,
     },
     twitter: {
       card: "summary_large_image",

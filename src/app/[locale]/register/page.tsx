@@ -16,6 +16,7 @@ import {
   twitterDefaults,
   brand,
   urls,
+  social,
 } from '@/config/seo';
 
 type Props = {
@@ -42,6 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: getCanonicalUrl('/register', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
       alternateLocale: getAlternateLocales(typedLocale),
+    },
+    facebook: {
+      appId: social.facebook.appId,
     },
     twitter: {
       ...twitterDefaults,

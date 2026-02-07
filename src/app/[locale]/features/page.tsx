@@ -16,6 +16,7 @@ import {
   openGraphDefaults,
   twitterDefaults,
   brand,
+  social,
 } from '@/config/seo';
 
 interface Props {
@@ -42,6 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: getCanonicalUrl('/features', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
       alternateLocale: getAlternateLocales(typedLocale),
+    },
+    facebook: {
+      appId: social.facebook.appId,
     },
     twitter: {
       ...twitterDefaults,
