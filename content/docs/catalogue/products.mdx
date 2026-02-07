@@ -24,11 +24,12 @@ Fill in the basic details:
 | **Product Name** | The name of the product |
 | **Description** | An optional description |
 | **Category** | The category this product belongs to |
-| **Tax Category** | The tax classification for this product |
-| **Tax Rate** | The tax percentage applied |
-| **Tax Included** | Whether the selling price already includes tax |
-| **Status** | Active (visible and sellable) or Draft (hidden) |
+| **Status** | Active (visible and sellable), Draft (hidden), or Archived (no longer available) |
+| **Tax Category** | The tax classification for this product (overrides store-level tax settings) |
+| **Tax Rate** | The tax percentage applied to this product (can be different from store default) |
+| **Tax Included** | Toggle to indicate if the selling price already includes tax |
 | **Track Inventory** | Whether to track stock levels for this product |
+| **Product Tags** | Optional tags for organizing and filtering products (e.g., "sale", "new", "featured") |
 
 ### Step 2: Variants and Pricing
 
@@ -42,16 +43,36 @@ Configure the product variants:
 | **Variant Name** | Auto-generated from option values (e.g., "S / Red") |
 | **SKU** | A unique stock keeping unit code |
 | **Selling Price** | The price the customer pays |
-| **Cost Price** | Your cost to acquire the product (used for profit calculations) |
-| **Unit of Measure** | How the product is sold (piece, kg, etc.) |
+| **Cost Price** | Your cost to acquire the product (required for accurate profit calculations) |
+| **Unit of Measure** | How the product is sold: kg, g, L, m, pcs, unit, m², m³, or other custom unit |
+
+<Callout title="Important">
+**Cost Price** is essential for profit reporting. Without accurate cost prices, profit calculations in the [Reports](/docs/reports/analytics-reports) section will be incorrect.
+</Callout>
 
 ### Step 3: Product Images
 
 Upload images for the product:
 
-- Add multiple images
-- Set a **primary image** (the main image shown in lists)
-- Reorder images by dragging
+- **Multiple Images** — Add up to multiple images per product
+- **Primary Image** — Set the main image shown in product lists and as the default
+- **Image Order** — Reorder images by dragging (the first image is the primary)
+- **Alt Text** — Add descriptive alt text for each image for accessibility and SEO
+
+<Callout title="Tip">
+Use high-quality images and descriptive alt text to improve your product's visibility in search results and provide better accessibility.
+</Callout>
+
+### Step 4: Store-Specific Pricing (Multi-Store)
+
+If you have multiple stores, you can set different prices for each store:
+
+1. After creating the product, go to the **Pricing** section.
+2. Click **Add Store Price**.
+3. Select the store and enter the selling price for that store.
+4. Repeat for each store that should have a different price.
+
+If no store-specific price is set, the product uses the default selling price for all stores.
 
 Click **Save** to create the product.
 
@@ -69,18 +90,45 @@ Click on a product to view its full details.
 
 1. Click on a product from the list.
 2. On the **Product Details** page:
-   - Click **Edit** to modify basic information
-   - Click **Edit Images** to manage photos
+   - Click **Edit** to modify basic information (name, description, category, status, tax settings, tags)
+   - Click **Edit Images** to manage photos (add, remove, reorder, set primary, add alt text)
+   - Click **Edit Pricing** to modify store-specific prices
    - Click **Add Variant** to add a new variant
-   - Click on a variant to edit its price, SKU, or stock
+   - Click on a variant to edit its price, cost price, SKU, unit of measure, or stock
+
+### Managing Product Tags
+
+Tags help you organize and filter products:
+
+- **Add Tags** — Enter tags separated by commas (e.g., "sale, featured, new")
+- **Filter by Tags** — Use tags to quickly find products in the product list
+- **Tag Management** — Edit or remove tags from the product edit page
+
+Tags are useful for creating product collections or running promotions on specific product groups.
 
 ## Product Statuses
 
+Each product has a status that controls its visibility and availability:
+
 | Status | Meaning |
 |--------|---------|
-| **Active** | The product is visible and can be added to orders |
-| **Draft** | The product is saved but not yet visible or sellable |
-| **Archived** | The product is no longer available but its history is preserved |
+| **Active** | The product is visible in the catalogue, can be added to orders, and appears on the [online storefront](/docs/online-store/storefront-overview) |
+| **Draft** | The product is saved but not visible to customers or in order creation. Use this for products you're still working on |
+| **Archived** | The product is no longer available for sale, but its history is preserved. Archived products don't appear in product lists but remain in order history |
+
+You can change a product's status at any time from the product details page.
+
+## Tax Settings per Product
+
+Each product can have its own tax configuration, which overrides store-level tax settings:
+
+- **Tax Category** — Classify the product for tax purposes (e.g., Standard, Reduced Rate, Zero Rate, Exempt)
+- **Tax Rate** — Set a specific tax percentage for this product
+- **Tax Included** — Toggle this if your selling price already includes tax (the system will calculate the tax-inclusive amount correctly)
+
+<Callout title="Note">
+If you don't set product-specific tax settings, the product will use the store's default tax configuration. See [Pricing & Tax Calculations](/docs/calculations/pricing-tax-calculations) for more details.
+</Callout>
 
 ## Inventory Tracking
 

@@ -21,13 +21,16 @@ You can create orders with or without attaching a customer — customers are opt
 | **Last Name** | Customer's last name |
 | **Email** | Customer's email address (optional) |
 | **Phone Number** | Customer's phone number |
-| **Address** | Customer's address (optional) |
-| **Date of Birth** | Optional, for loyalty or marketing |
-| **Notes** | Optional notes about the customer |
+| **Date of Birth** | Optional, for birthday rewards and marketing |
+| **Notes** | Private notes about customer preferences, allergies, or special instructions |
 
 4. Click **Save**.
 
 You can also add a customer directly from the **Create Order** screen by clicking **Add Customer**.
+
+<Callout title="Note">
+Customer addresses are managed separately after creating the customer. See the [Customer Addresses](#customer-addresses) section below.
+</Callout>
 
 ## Viewing Your Customers
 
@@ -49,11 +52,15 @@ Search by name or phone to find a specific customer.
 Click on a customer to see their full profile:
 
 ### Contact Information
-- Name, email, phone, and addresses
+- Name, email, phone, date of birth, and addresses
 
 ### Order History
 - A list of all orders placed by this customer
 - Click an order to view its details
+
+### Customer Visits
+- Track the number of times the customer has visited your store
+- View visit history with dates and order details
 
 ### Store Credit Balance
 - Current store credit balance
@@ -61,6 +68,41 @@ Click on a customer to see their full profile:
 
 ### Returns History
 - List of returns made by this customer
+
+### Customer Notes
+- Private notes about customer preferences, allergies, or special instructions
+- Only visible to staff members, not customers
+
+## Customer Addresses
+
+Each customer can have multiple addresses saved for easy order fulfillment:
+
+### Adding an Address
+
+1. Open the customer's details page.
+2. Go to the **Addresses** section.
+3. Click **Add Address**.
+4. Fill in the address details:
+
+| Field | Description |
+|-------|-------------|
+| **Address Type** | Apartment, House, or Office |
+| **Country** | Country name |
+| **City** | City name |
+| **Address Details** | Street, building, floor, apartment number, etc. |
+| **Default Address** | Check to set as the default shipping address |
+
+5. Click **Save**.
+
+### Managing Addresses
+
+- **Set Default** — Click on any address to set it as the default
+- **Edit Address** — Click **Edit** to modify address details
+- **Delete Address** — Remove addresses that are no longer needed
+
+<Callout title="Tip">
+When creating a delivery order, the customer's default address is automatically filled in, but you can select a different address from their saved addresses.
+</Callout>
 
 ## Managing Store Credit
 
@@ -74,6 +116,19 @@ Store credit is a balance on a customer's account that can be used for future pu
 4. Enter the amount and a reason.
 5. Click **Save**.
 
+### Balance Adjustments
+
+You can manually adjust a customer's store credit balance:
+
+1. Open the customer's details page.
+2. Go to the **Store Credit** section.
+3. Click **Adjust Balance**.
+4. Enter the adjustment amount (positive to add, negative to subtract).
+5. Add a reason for the adjustment (e.g., "Correction for order #123").
+6. Click **Save**.
+
+All balance adjustments are recorded in the credit history, showing the previous balance, adjustment amount, new balance, reason, and timestamp.
+
 ### How Store Credit is Used
 
 - When creating an order for this customer, you can select **Store Credit** as a payment method.
@@ -84,12 +139,34 @@ Store credit is a balance on a customer's account that can be used for future pu
 
 When you issue a refund with the method **Store Credit**, the refund amount is added to the customer's balance automatically.
 
+### Credit History
+
+View the complete history of all store credit transactions:
+- Credit additions (manual or from refunds)
+- Credit usage (when used for orders)
+- Balance adjustments
+- Each entry shows the date, amount, reason, and resulting balance
+
 ## Editing a Customer
 
 1. Open the customer's details page.
 2. Click **Edit**.
-3. Update the information.
+3. Update the information (name, email, phone, date of birth, notes).
 4. Click **Save Changes**.
+
+### Managing Customer Notes
+
+Customer notes are private notes visible only to staff members. Use them to record:
+- Customer preferences (e.g., "Prefers contactless delivery")
+- Allergies or dietary restrictions
+- Special instructions (e.g., "Ring doorbell twice")
+- Important reminders about the customer
+
+To add or edit notes:
+1. Open the customer's details page.
+2. Go to the **Notes** section.
+3. Click **Add Note** or **Edit**.
+4. Enter your note and click **Save**.
 
 ## Deleting a Customer
 

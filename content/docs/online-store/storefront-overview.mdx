@@ -5,14 +5,18 @@ description: How your online store works, what customers see, and how to configu
 
 ## What is the Online Store?
 
-The **Online Store** (or storefront) is a customer-facing website where people can browse your products, add items to cart, and place orders online. Each store in Cashvio can have its own storefront with a unique subdomain.
+The **Online Store** (or storefront) is a customer-facing website where people can browse your products, add items to cart, and place orders online. Each store in Cashvio can have its own storefront accessible via a unique subdomain (e.g., `mystore.cash-vio.com`).
+
+<Callout title="Important">
+Cashvio supports **subdomain-based storefronts only** (format: `yourstorename.cash-vio.com`). Custom domains are not currently available.
+</Callout>
 
 ## How Customers Experience Your Store
 
 When customers visit your storefront, they see:
 
 ### Home Page
-- **Hero images** — Large banner images you configure
+- **Hero images** — Up to 5 large banner images you configure with display order control
 - **Featured categories** — Your product categories for easy browsing
 - **Featured products** — A selection of your active products
 
@@ -20,6 +24,7 @@ When customers visit your storefront, they see:
 - **All Products** page with search, sorting, and filtering
 - **Category pages** showing products in each category
 - **Product detail** pages with images, descriptions, variant selection, and pricing
+- **Hide Out of Stock** — Option to hide products that are out of stock (configurable in store settings)
 
 ### Shopping Cart
 - Customers add products to their cart
@@ -33,21 +38,50 @@ When customers visit your storefront, they see:
 ### Theme
 - Customers can toggle between **light** and **dark** mode
 
+<Callout title="Note">
+The storefront supports **light and dark mode only**. Custom themes, colors, fonts, or layout customization beyond the mode toggle are not available.
+</Callout>
+
 ## Configuring Your Online Store
 
 From the **tenant portal**, go to your store's settings and navigate to **Online Store** (or **المتجر الإلكتروني**).
+
+### Store Subdomain Configuration
+
+Each store can have its own unique subdomain:
+
+- **Subdomain Format** — `yourstorename.cash-vio.com`
+- **Subdomain Setup** — Configure your store's subdomain in the Online Store settings
+- **Access** — Once configured, your storefront is accessible at the subdomain URL
+
+<Callout title="Important">
+Cashvio supports **subdomain-based storefronts only**. Custom domains are not currently available. Choose your subdomain carefully as it becomes part of your store's web address.
+</Callout>
 
 ### What You Can Configure
 
 | Setting | Description |
 |---------|-------------|
-| **Hero Images** | Banner images on the home page |
-| **Store Logo** | Your logo displayed in the header |
-| **SEO Settings** | Title and description for search engines |
-| **Social Media Links** | Facebook, Instagram, TikTok, YouTube links |
-| **Contact Phone** | Phone number displayed in the store |
-| **Analytics** | Google Tag Manager ID and Facebook Pixel ID |
-| **Static Pages** | Custom policy pages (Terms, Privacy, etc.) |
+| **Hero Images** | Upload up to 5 banner images for the home page. Set display order by dragging images. The first image is shown by default. |
+| **Store Logo** | Your logo displayed in the header of the storefront |
+| **SEO Settings** | Configure search engine optimization: |
+| | - **Meta Title** — Page title shown in search results and browser tabs |
+| | - **Meta Description** — Description shown in search engine results |
+| | - **Favicon** — Small icon displayed in browser tabs and bookmarks |
+| **Social Media Links** | Add links to your social media profiles: |
+| | - Facebook |
+| | - Instagram |
+| | - TikTok |
+| | - YouTube |
+| | - Website (your main website URL) |
+| **Contact Phone** | Phone number displayed in the store for customer contact |
+| **Hide Out of Stock Items** | Toggle to hide products with zero inventory from the storefront (customers won't see out-of-stock products) |
+| **Analytics** | Google Tag Manager ID and Facebook Pixel ID for tracking |
+| **Static Pages** | Create custom policy and information pages with rich text editor: |
+| | - **Refund Policy** — Your refund and return policy |
+| | - **Shipping Policy** — Information about shipping methods, costs, and delivery times |
+| | - **About Us** — Information about your business |
+| | Each page supports rich text formatting (bold, italic, lists, links, etc.) |
 
 ## What Affects Your Online Store
 
@@ -63,5 +97,49 @@ Your storefront is connected to the tenant portal. Changes you make in the porta
 | **Payment Methods** | How customers pay (online stores may support specific methods) |
 
 <Callout title="Important">
-Only **active** products and categories appear on the storefront. Draft or archived items are hidden from customers.
+Only **active** products and categories appear on the storefront. Draft or archived items are hidden from customers. If "Hide Out of Stock Items" is enabled, products with zero inventory are also hidden.
 </Callout>
+
+## Managing Hero Images
+
+Hero images are the large banner images displayed at the top of your storefront home page:
+
+1. Go to **Online Store** settings.
+2. Navigate to **Hero Images**.
+3. **Upload Images** — Add up to 5 images (recommended size: 1920x600px for best display)
+4. **Set Display Order** — Drag images to reorder them. The first image is shown by default.
+5. **Remove Images** — Click the remove button to delete unwanted images.
+
+<Callout title="Tip">
+Use high-quality, visually appealing images that represent your brand. Keep file sizes reasonable for fast loading times.
+</Callout>
+
+## SEO Settings
+
+Improve your store's visibility in search engines:
+
+- **Meta Title** — The title that appears in search engine results and browser tabs (recommended: 50-60 characters)
+- **Meta Description** — A brief description of your store (recommended: 150-160 characters)
+- **Favicon** — Upload a small icon (16x16 or 32x32px) that appears in browser tabs and bookmarks
+
+<Callout title="Tip">
+Write compelling meta titles and descriptions that include relevant keywords. This helps customers find your store in search results.
+</Callout>
+
+## Static Pages
+
+Create informative pages for your customers:
+
+### Creating a Static Page
+
+1. Go to **Online Store** settings.
+2. Navigate to **Static Pages**.
+3. Select the page type (Refund Policy, Shipping Policy, or About Us).
+4. Use the **rich text editor** to format your content:
+   - Bold and italic text
+   - Bulleted and numbered lists
+   - Links to other pages or websites
+   - Headings and paragraphs
+5. Click **Save**.
+
+These pages are automatically linked in your storefront footer and can be accessed by customers at any time.

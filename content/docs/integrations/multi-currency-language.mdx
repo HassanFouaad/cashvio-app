@@ -13,6 +13,13 @@ Each **store** in Cashvio has its own **currency** setting. This means:
 - All order totals, payments, and reports use the store's currency
 - The currency symbol and formatting follow the locale (e.g., "200 EGP" for Egyptian Pounds, "$200" for US Dollars)
 
+<Callout title="Important">
+Multi-currency in Cashvio means **selecting a currency for each store** during setup. The system does **not** support:
+- Real-time currency conversion
+- Multi-currency orders (orders can only be processed in the store's currency)
+- Automatic currency switching based on customer location
+</Callout>
+
 ### Setting a Store's Currency
 
 When creating a store, you select its currency. This is set during store creation and **cannot be changed** afterwards.
@@ -57,6 +64,17 @@ Your online store also supports both languages:
 - **Arabic** — Full RTL support with Arabic translations
 
 Customers can switch languages using the **language selector** in the store header.
+
+### Store Subdomain
+
+Each store's online storefront is accessible via a **subdomain** on the cash-vio.com domain:
+
+- Format: `yourstorename.cash-vio.com`
+- Example: `mystore.cash-vio.com`
+
+<Callout title="Note">
+Cashvio currently supports **subdomain-based storefronts only**. Custom domains (e.g., `yourstore.com`) are not available. You can customize your store's subdomain name when setting up the online storefront.
+</Callout>
 
 ### What Gets Translated
 

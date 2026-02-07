@@ -36,7 +36,34 @@ Refunds are created from the order details:
 
 ## Managing Refunds
 
-The refunds are visible from the order details page under the **Refunds** section. Each refund shows:
+### Refunds List Page
+
+Cashvio provides a dedicated **Refunds** list page where you can view and manage all refunds across your store. Access it from **Sales > Refunds** (or **المبالغ المستردة**) in the sidebar.
+
+The refunds list displays:
+
+| Column | Description |
+|--------|-------------|
+| **Refund Number** | Unique refund identifier |
+| **Order Number** | The related order |
+| **Customer** | Customer name |
+| **Status** | Pending, Processed, or Cancelled |
+| **Method** | The refund method |
+| **Amount** | Refund amount |
+| **Date** | When the refund was created |
+
+### Filtering Refunds
+
+You can filter the refunds list by:
+
+- **Order ID** — Find refunds for a specific order
+- **Status** — Filter by Pending, Processed, or Cancelled
+- **Refund Method** — Filter by payment method (Cash, Card Reversal, Store Credit, etc.)
+- **Date Range** — Filter refunds created within a specific time period
+
+### Viewing Refunds from Order Details
+
+Refunds are also visible from the order details page under the **Refunds** section. Each refund shows:
 
 | Field | Description |
 |-------|-------------|
@@ -57,9 +84,26 @@ The refunds are visible from the order details page under the **Refunds** sectio
 
 ## Processing a Pending Refund
 
+You can process pending refunds from either:
+- The **Refunds list page** — Click on a refund to open its details
+- The **Order details page** — Navigate to the Refunds section
+
 1. Open the refund details.
-2. Click **Process** to confirm the refund has been sent.
-3. The status changes to **Processed**.
+2. Review the refund information (amount, method, customer).
+3. Click **Process** to confirm the refund has been sent.
+4. The status changes to **Processed**.
+
+## Cancelling a Pending Refund
+
+If you need to cancel a pending refund:
+
+1. Open the refund details from the Refunds list or Order details page.
+2. Click **Cancel**.
+3. The refund status changes to **Cancelled** and the refund will not be processed.
+
+<Callout title="Note">
+Only **Pending** refunds can be cancelled. Processed or already cancelled refunds cannot be cancelled.
+</Callout>
 
 ## How Refunds Affect Financials
 
