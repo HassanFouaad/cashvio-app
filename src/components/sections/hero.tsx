@@ -12,7 +12,7 @@ export async function Hero({ locale }: HeroProps) {
   const t = await getTranslations({ locale, namespace: 'home.hero' });
 
   return (
-    <section className="relative overflow-hidden bg-gradient-hero py-12 sm:py-16 md:py-20 lg:py-28">
+    <section aria-label="Hero" className="relative overflow-hidden bg-gradient-hero py-12 sm:py-16 md:py-20 lg:py-28">
       {/* Elegant Background Pattern */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] md:bg-[size:32px_32px]" />

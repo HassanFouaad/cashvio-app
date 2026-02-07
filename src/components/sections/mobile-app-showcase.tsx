@@ -11,7 +11,7 @@ export function MobileAppShowcase({ locale }: MobileAppShowcaseProps) {
   const t = useTranslations('home.mobileApp');
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-muted/30">
+    <section aria-label="Mobile app" className="py-16 sm:py-20 md:py-24 bg-muted/30">
       <div className="container-wide">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

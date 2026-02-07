@@ -11,7 +11,7 @@ export function PlatformPreview({ locale }: PlatformPreviewProps) {
   const t = useTranslations('home.platformPreview');
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background to-muted/30">
+    <section aria-label="Platform preview" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}

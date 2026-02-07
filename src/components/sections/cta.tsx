@@ -11,7 +11,7 @@ export async function CTA({ locale }: CTAProps) {
   const t = await getTranslations({ locale, namespace: 'home.cta' });
 
   return (
-    <section className="py-16 md:py-20 bg-muted/50">
+    <section aria-label="Call to action" className="py-16 md:py-20 bg-muted/50">
       <div className="container-wide">
         <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-primary p-6 sm:p-8 md:p-12 lg:p-16 text-center">
           {/* Elegant Background Pattern */}

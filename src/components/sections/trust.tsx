@@ -97,7 +97,7 @@ export async function Trust({ locale }: TrustProps) {
   const t = await getTranslations({ locale, namespace: 'home.trust' });
 
   return (
-    <section className="py-16 md:py-20 bg-muted/30">
+    <section aria-label="Trust and security" className="py-16 md:py-20 bg-muted/30">
       <div className="container-wide">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">

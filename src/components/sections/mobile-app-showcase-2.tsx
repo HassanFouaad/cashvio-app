@@ -11,7 +11,7 @@ export function MobileAppShowcase2({ locale }: MobileAppShowcase2Props) {
   const t = useTranslations('home.mobileApp2');
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background to-muted/30">
+    <section aria-label="Product management" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container-wide">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

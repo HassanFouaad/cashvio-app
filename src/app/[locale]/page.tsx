@@ -3,10 +3,12 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 
 import { type Locale } from '@/i18n/routing';
 import { Hero } from '@/components/sections/hero';
+import { HowItWorks } from '@/components/sections/how-it-works';
 import { Features } from '@/components/sections/features';
 import { PlatformPreview } from '@/components/sections/platform-preview';
+import { OrdersShowcase } from '@/components/sections/orders-showcase';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
-import { MobileAppShowcase2 } from '@/components/sections/mobile-app-showcase-2';
+import { AnalyticsShowcase } from '@/components/sections/analytics-showcase';
 import { CustomerManagementShowcase } from '@/components/sections/customer-management-showcase';
 import { Benefits } from '@/components/sections/benefits';
 import { Trust } from '@/components/sections/trust';
@@ -43,14 +45,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: getCanonicalUrl('', typedLocale),
       languages: getAlternateUrls(''),
     },
-/*     openGraph: {
+    openGraph: {
       ...openGraphDefaults,
       title: t('title'),
       description: t('description'),
       url: getCanonicalUrl('', typedLocale),
       locale: typedLocale === 'ar' ? 'ar_EG' : 'en_US',
       alternateLocale: getAlternateLocales(typedLocale),
-    }, */
+    },
     twitter: {
       ...twitterDefaults,
       title: t('title'),
@@ -142,12 +144,15 @@ export default async function HomePage({ params }: Props) {
       />
 
       <Hero locale={typedLocale} />
+      <HowItWorks locale={typedLocale} />
       <Features locale={typedLocale} />
       <PlatformPreview locale={typedLocale} />
+      <OrdersShowcase locale={typedLocale} />
       <MobileAppShowcase locale={typedLocale} />
-      <MobileAppShowcase2 locale={typedLocale} />
+      <AnalyticsShowcase locale={typedLocale} />
       <CustomerManagementShowcase locale={typedLocale} />
       <Benefits locale={typedLocale} />
+      <Trust locale={typedLocale} />
       <CTA locale={typedLocale} />
     </>
   );

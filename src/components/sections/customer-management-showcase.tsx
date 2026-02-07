@@ -11,7 +11,7 @@ export function CustomerManagementShowcase({ locale }: CustomerManagementShowcas
   const t = useTranslations('home.customerManagement');
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-muted/30">
+    <section aria-label="Customer management" className="py-16 sm:py-20 md:py-24 bg-muted/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Dashboard Preview */}
