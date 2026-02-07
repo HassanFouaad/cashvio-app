@@ -351,6 +351,13 @@
    FUMADOCS OVERRIDES
    ============================================ */
 
+/* Account for the external site header (h-16 = 4rem) so fumadocs
+   subnav sticks below it instead of sliding behind it on scroll */
+#nd-docs-layout {
+  --fd-banner-height: 4rem !important;
+  --fd-docs-height: calc(100dvh - 4rem) !important;
+}
+
 /* Ensure sidebar drawer renders above BOTH mobile footer nav (z-40) AND site header (z-50) */
 #nd-sidebar-mobile {
   z-index: 60 !important;

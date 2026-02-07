@@ -55,22 +55,36 @@ export function DocsEnhancements({ locale }: { locale: string }) {
     function patchSidebarZIndex() {
       const sidebar = document.getElementById('nd-sidebar-mobile');
       if (sidebar) {
-        sidebar.style.zIndex = '60';
+        sidebar.style.setProperty('z-index', '60', 'important');
         // Also fix the overlay (previous sibling)
         const overlay = sidebar.previousElementSibling as HTMLElement | null;
         if (overlay && getComputedStyle(overlay).position === 'fixed') {
-          overlay.style.zIndex = '60';
+          overlay.style.setProperty('z-index', '60', 'important');
         }
+      }
+    }
+
+    // --- 4. Offset docs layout for external site header (4rem / 64px) ---
+    function patchDocsLayoutOffset() {
+      const layout = document.getElementById('nd-docs-layout');
+      if (layout) {
+        layout.style.setProperty('--fd-banner-height', '4rem');
+        layout.style.setProperty(
+          '--fd-docs-height',
+          'calc(100dvh - 4rem)',
+        );
       }
     }
 
     patchSidebarTrigger();
     patchSidebarZIndex();
+    patchDocsLayoutOffset();
 
     // Observe in case elements are mounted later
     const observer = new MutationObserver(() => {
       patchSidebarTrigger();
       patchSidebarZIndex();
+      patchDocsLayoutOffset();
     });
     observer.observe(document.body, { childList: true, subtree: true });
 
