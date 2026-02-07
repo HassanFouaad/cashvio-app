@@ -108,69 +108,6 @@ export async function Trust({ locale }: TrustProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {/* Security & Compliance */}
-          <div className="bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-base md:text-lg font-semibold text-foreground">
-                {t('security.title')}
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-2 mb-5">
-              {securityBadges.map((badge) => (
-                <Badge
-                  key={badge}
-                  variant="secondary"
-                  className="px-2.5 py-1 text-xs font-medium bg-muted/80"
-                >
-                  {badge}
-                </Badge>
-              ))}
-            </div>
-            <ul className="space-y-2.5">
-              <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                <svg
-                  className="w-4 h-4 text-success shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                256-bit SSL Encryption
-              </li>
-              <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                <svg
-                  className="w-4 h-4 text-success shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Two-Factor Authentication
-              </li>
-              <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                <svg
-                  className="w-4 h-4 text-success shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Daily Automated Backups
-              </li>
-            </ul>
-          </div>
-
           {/* Business Integrations */}
           <div className="bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
             <div className="flex items-center gap-3 mb-5">
