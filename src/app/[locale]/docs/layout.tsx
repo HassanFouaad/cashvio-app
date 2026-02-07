@@ -3,6 +3,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { source, i18n } from '@/lib/docs-source';
 import { defineI18nUI } from 'fumadocs-ui/i18n';
+import { DocsEnhancements } from '@/components/layout/docs-enhancements';
 
 const { provider } = defineI18nUI(i18n, {
   translations: {
@@ -46,6 +47,7 @@ export default async function DocsLayoutWrapper({
         enabled: true,
       }}
     >
+      <DocsEnhancements locale={locale} />
       <DocsLayout
         tree={source.pageTree[locale]}
         nav={{

@@ -55,7 +55,8 @@
     "backToHome": "Back to Home",
     "loading": "Loading...",
     "error": "Something went wrong",
-    "tryAgain": "Try Again"
+    "tryAgain": "Try Again",
+    "docs": "Docs"
   },
   "navigation": {
     "home": "Home",

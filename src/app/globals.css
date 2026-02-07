@@ -348,6 +348,48 @@
 }
 
 /* ============================================
+   FUMADOCS OVERRIDES
+   ============================================ */
+
+/* Ensure sidebar drawer renders above BOTH mobile footer nav (z-40) AND site header (z-50) */
+#nd-sidebar-mobile {
+  z-index: 60 !important;
+}
+
+/* Sidebar drawer overlay - appears right before #nd-sidebar-mobile */
+div:has(+ #nd-sidebar-mobile) {
+  z-index: 60 !important;
+}
+
+/* Mobile subnav: style the sidebar trigger as a visible "Docs" button instead of icon-only */
+#nd-subnav [aria-label="Open Sidebar"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-inline: 0.625rem !important;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(var(--color-border));
+  min-height: 2rem;
+}
+
+#nd-subnav [aria-label="Open Sidebar"] svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+#nd-subnav [aria-label="Open Sidebar"]::after {
+  content: attr(data-label);
+}
+
+/* Close TOC popover when clicking on a link inside it */
+[data-toc-popover-content] a {
+  cursor: pointer;
+}
+
+/* ============================================
    REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {

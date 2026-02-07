@@ -44,12 +44,15 @@ export async function Benefits({ locale }: BenefitsProps) {
   const t = await getTranslations({ locale, namespace: 'home.benefits' });
 
   return (
-    <section aria-label="Benefits" className="py-12 sm:py-16 md:py-20 bg-primary text-primary-foreground">
+    <section aria-label="Benefits" className="py-12 sm:py-16 md:py-20 bg-muted/40">
       <div className="container-wide">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 md:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">{t('title')}</h2>
-          <p className="text-sm sm:text-base md:text-lg text-primary-foreground/80">{t('subtitle')}</p>
+          <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            {t('title')}
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-3">{t('title')}</h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{t('subtitle')}</p>
         </div>
 
         {/* Benefits Grid - 6 items in 3 columns */}
@@ -57,13 +60,13 @@ export async function Benefits({ locale }: BenefitsProps) {
           {benefitKeys.map((key) => (
             <div
               key={key}
-              className="text-center p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-primary-foreground/5 hover:bg-primary-foreground/10 transition-colors duration-300"
+              className="text-center p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-primary-foreground/10 text-primary-foreground mb-3 sm:mb-4">
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-xl bg-primary/10 text-primary mb-3 sm:mb-4">
                 {benefitIcons[key]}
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">{t(`${key}.title`)}</h3>
-              <p className="text-xs sm:text-sm text-primary-foreground/70 leading-relaxed">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1.5 sm:mb-2">{t(`${key}.title`)}</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {t(`${key}.description`)}
               </p>
             </div>

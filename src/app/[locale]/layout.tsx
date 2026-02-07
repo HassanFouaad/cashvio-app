@@ -14,6 +14,7 @@ import { siteConfig } from "@/config/site";
 import { getCanonicalUrl, getAlternateUrls, getAlternateLocales, openGraphDefaults, social } from "@/config/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { MobileFooterNav } from "@/components/layout/mobile-footer-nav";
 import { AnalyticsProvider } from "@/lib/analytics";
 
 import "../globals.css";
@@ -250,6 +251,7 @@ export default async function LocaleLayout({
           <Header locale={locale as Locale} />
           <main className="flex-1">{children}</main>
           <Footer locale={locale as Locale} />
+          <MobileFooterNav />
         </NextIntlClientProvider>
         <AnalyticsProvider />
       </body>
