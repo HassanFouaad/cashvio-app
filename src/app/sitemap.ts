@@ -12,14 +12,14 @@ interface PageConfig {
 }
 
 const pages: PageConfig[] = [
-  { path: '', priority: 1.0, changeFrequency: 'weekly' },
-  { path: '/features', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/pricing', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/contact', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/register', priority: 0.8, changeFrequency: 'weekly' },
-  { path: '/docs', priority: 0.7, changeFrequency: 'weekly' },
-  { path: '/privacy', priority: 0.3, changeFrequency: 'yearly', lastModified: '2026-01-01' },
-  { path: '/terms', priority: 0.3, changeFrequency: 'yearly', lastModified: '2026-01-01' },
+  { path: '', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/features', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/pricing', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/contact', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/register', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/docs', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/privacy', priority: 1.0, changeFrequency: 'daily' },
+  { path: '/terms', priority: 1.0, changeFrequency: 'daily' },
 ];
 
 const locales = ['en', 'ar'] as const;
