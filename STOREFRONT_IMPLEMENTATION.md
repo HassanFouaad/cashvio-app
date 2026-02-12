@@ -276,7 +276,6 @@ Each store can customize:
 - [ ] Wishlist functionality
 - [ ] Social sharing
 - [ ] Analytics integration
-- [ ] Progressive Web App (PWA) support
 
 ## Maintenance
 

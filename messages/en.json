@@ -199,8 +199,8 @@
         "description": "Push notifications for new orders, low stock alerts, and important updates delivered instantly to all your devices."
       },
       "mobile": {
-        "title": "Mobile PWA App",
-        "description": "Install as a native app on any device. Manage your business on the go with full mobile support and responsive design."
+        "title": "Mobile Friendly",
+        "description": "Manage your business on the go with full mobile support and a fully responsive design optimized for every screen size."
       },
       "support": {
         "title": "Dedicated Support",
@@ -741,10 +741,6 @@
       "multiLanguage": {
         "name": "Multi-Language & RTL",
         "description": "Full English and Arabic support with right-to-left interface throughout the entire platform and customer-facing pages."
-      },
-      "pwa": {
-        "name": "Mobile PWA App",
-        "description": "Install as a native app on any device with offline support, push notifications, and a fully responsive mobile-first interface."
       }
     },
     "capacity": {

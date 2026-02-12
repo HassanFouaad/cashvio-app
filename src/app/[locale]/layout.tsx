@@ -149,18 +149,6 @@ export async function generateMetadata({
       ],
       other: [
         {
-          rel: "icon",
-          url: "/assets/web-app-manifest-192x192.png",
-          sizes: "192x192",
-          type: "image/png",
-        },
-        {
-          rel: "icon",
-          url: "/assets/web-app-manifest-512x512.png",
-          sizes: "512x512",
-          type: "image/png",
-        },
-        {
           rel: "mask-icon",
           url: "/assets/favicon.svg",
           color: "#34d399",
@@ -228,11 +216,6 @@ export default async function LocaleLayout({
         
         {/* Format detection - disable auto-formatting of phone numbers on iOS */}
         <meta name="format-detection" content="telephone=no" />
-        
-        {/* Mobile app capable */}
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         
         {/* Theme script - must run before body renders */}
         <script

@@ -31,11 +31,6 @@
   - Bingbot rules
   - Sitemap reference
 
-- [x] **PWA Manifest enhanced**
-  - Maskable icons
-  - Dark mode colors
-  - Categories set
-
 ---
 
 ## 📋 Pages Checklist
