@@ -17,8 +17,7 @@ interface PageConfig {
    ============================================ */
 const staticPages: PageConfig[] = [
   { path: '', priority: 1.0, changeFrequency: 'daily' },
-{ path: 'https://ulker.cash-vio.com', priority: 1.0, changeFrequency: 'daily' },
-{ path: 'https://aila-store.cash-vio.com', priority: 1.0, changeFrequency: 'daily' },
+
   { path: '/features', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/pricing', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
