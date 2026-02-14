@@ -5,16 +5,16 @@ description: How to set up delivery, pickup, dine-in, and in-store fulfillment o
 
 ## What are Fulfillment Methods?
 
-Fulfillment methods define **how orders are delivered to customers**. When creating an order, you or the customer selects a fulfillment method. Each store can enable different methods.
+Fulfillment methods define **how orders are delivered to customers**. When creating an order in the tenant portal or when a customer checks out on your online store, a fulfillment method is selected. Each store can enable different methods.
 
 ## Available Fulfillment Methods
 
-| Method | Description |
-|--------|-------------|
-| **In-Store** | The customer purchases and receives the product at the store. |
-| **Pickup** | The customer places the order and picks it up at the store later. |
-| **Delivery** | The order is delivered to the customer's address. |
-| **Dine-In** | The customer orders and eats at the store (for restaurants/cafés). |
+| Method | Description | Available On |
+|--------|-------------|-------------|
+| **In-Store** | The customer purchases and receives the product at the store. | Portal only |
+| **Pickup** | The customer places the order and picks it up at the store later. | Portal + Storefront |
+| **Delivery** | The order is delivered to the customer's address. | Portal + Storefront |
+| **Dine-In** | The customer orders and eats at the store (for restaurants/cafes). | Portal only |
 
 ## How to Configure Fulfillment Methods
 
@@ -36,9 +36,13 @@ When **Delivery** is enabled, creating an order with delivery requires:
 
 See [Delivery Zones](/docs/stores/delivery-zones) for setting up delivery areas and fees.
 
+## Storefront Fulfillment
+
+On your online storefront, customers see only **Delivery** and **Pickup** as fulfillment options (In-Store and Dine-In are portal-only methods). Make sure you have at least one of these enabled if you want customers to place orders through the storefront.
+
 ## Order Status Tracking
 
-Each fulfillment method follows a status flow:
+Each fulfillment method follows a status flow. You can update the fulfillment status from the **Order Details** page.
 
 **In-Store / Pickup / Dine-In:**
 1. **Pending** — Order created, waiting to be prepared
@@ -53,8 +57,8 @@ Each fulfillment method follows a status flow:
 4. **Delivering** — Out for delivery
 5. **Completed** — Delivered to customer
 
-You can update the fulfillment status from the **Order Details** page.
+At any stage, an order's fulfillment can also be **Cancelled**.
 
 <Callout title="Tip">
-Fulfillment methods also affect the online storefront. Customers shopping on your online store will only see the fulfillment options you have enabled.
+Stay on top of fulfillment status updates. Promptly moving orders through the status flow helps keep your operations organized, especially when managing many orders from both the portal and the storefront simultaneously.
 </Callout>

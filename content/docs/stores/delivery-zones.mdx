@@ -5,7 +5,7 @@ description: How to set up delivery areas and fees so customers know where you d
 
 ## What are Delivery Zones?
 
-Delivery zones define **where your store delivers** and **how much delivery costs** for each area. When a customer places a delivery order, the system checks their address against your delivery zones to determine the delivery fee.
+Delivery zones define **where your store delivers** and **how much delivery costs** for each area. When a customer places a delivery order (in the portal or on the storefront), the system checks their address against your delivery zones to determine the delivery fee.
 
 ## How to Set Up Delivery Zones
 
@@ -17,7 +17,8 @@ Delivery zones define **where your store delivers** and **how much delivery cost
 | Field | Description |
 |-------|-------------|
 | **Zone Name** | A name for this area (e.g., "Downtown", "Suburbs") |
-| **Area Coverage** | The geographic area this zone covers |
+| **Country** | The country this zone covers |
+| **Cities** | The cities within that country included in this zone |
 | **Delivery Fee** | The fee charged for delivering to this zone |
 
 5. Click **Save**.
@@ -28,13 +29,13 @@ You can also reach delivery zones from **Settings > Store Details**, then click 
 
 ## Managing Delivery Zones
 
-- **Edit a zone** — Click on an existing zone to update its fee or coverage area.
+- **Edit a zone** — Click on an existing zone to update its fee, cities, or coverage area.
 - **Delete a zone** — Remove a zone if you no longer deliver there.
 - **Multiple zones** — Create as many zones as needed to cover your delivery area.
 
-## How Delivery Fees Affect Orders
+## How Delivery Zones Affect the Portal
 
-When [creating a delivery order](/docs/orders/creating-orders):
+When [creating a delivery order](/docs/orders/creating-orders) in the tenant portal:
 
 1. The delivery address is matched to a delivery zone.
 2. The corresponding **delivery fee** is automatically added to the order.
@@ -42,6 +43,15 @@ When [creating a delivery order](/docs/orders/creating-orders):
 
 You can **manually override** the delivery fee on any individual order during order creation.
 
+## How Delivery Zones Affect the Storefront
+
+When a customer places a delivery order on your [online store](/docs/online-store/checkout-flow):
+
+1. The **Country** dropdown shows only countries from your configured delivery zones.
+2. The **City** dropdown shows only cities from the matching zone.
+3. The delivery fee is automatically applied based on the selected zone.
+4. If no delivery zones are configured, the storefront shows the full list of countries and cities without a delivery fee.
+
 <Callout title="Important">
-Delivery zones also apply to your **[online store](/docs/online-store/storefront-overview)**. Customers placing delivery orders on your storefront will see the delivery fee based on their selected area.
+Setting up delivery zones is recommended if you offer delivery through the storefront. It ensures customers only select areas you actually deliver to, and the correct delivery fee is applied automatically.
 </Callout>

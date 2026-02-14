@@ -1,6 +1,6 @@
 ---
 title: Online Checkout Flow
-description: How the online checkout process works for customers shopping on your storefront.
+description: How the online checkout process works for customers shopping on your storefront, including payment methods and receipt uploads.
 ---
 
 ## How Checkout Works
@@ -21,28 +21,59 @@ The customer chooses how they want to receive their order:
 
 | Option | Description |
 |--------|-------------|
-| **Delivery** | Order shipped to their address |
+| **Delivery** | Order delivered to their address |
 | **Pickup** | Customer picks up from the store |
-| **Dine-In** | Customer eats at the store (if applicable) |
 
-Only the fulfillment methods you have **enabled** in the store settings are shown.
+Only the fulfillment methods you have **enabled** in the store settings are shown. Delivery and Pickup are the available options for the online storefront.
 
-### Step 3: Customer Information
+### Step 3: Delivery Address (If Delivery)
+
+If the customer selects **Delivery**:
+
+- **Country** — Select from your configured [delivery zones](/docs/stores/delivery-zones), or from the general countries list
+- **City** — Select from the available cities
+- **Detailed Address** — Enter the full delivery address
+
+<Callout title="Note">
+If you have configured delivery zones, only the countries and cities in your zones appear. Delivery fees are applied automatically based on the selected zone.
+</Callout>
+
+### Step 4: Payment Method
+
+The customer selects how they want to pay:
+
+| Method | How It Works |
+|--------|-------------|
+| **Cash** | Pay on delivery or pickup. A pending payment record is created — you mark it as received from the tenant portal. |
+| **Receipt** | The customer uploads a photo of their payment receipt (bank transfer, InstaPay, etc.) as proof of payment. A pending payment is created with the receipt attached. You review and accept it from the tenant portal. |
+
+Only the storefront payment methods you have enabled for the store are shown.
+
+#### Receipt Upload
+
+When the customer selects **Receipt**:
+
+1. A modern upload area appears.
+2. The customer clicks to select a receipt image (JPEG, PNG, or WebP).
+3. The image uploads automatically.
+4. A success confirmation appears once the upload is complete.
+5. The receipt is attached to the order payment and visible to you in the tenant portal.
+
+<Callout title="Important">
+If your store has **no active storefront payment methods**, the checkout page displays a warning message: "Payments are currently unavailable. This store is not accepting payments at the moment." The customer cannot place the order until payment methods are configured. Make sure you have at least one storefront payment method enabled.
+</Callout>
+
+### Step 5: Customer Information
 
 The customer fills in their details:
 - **Name** — First and last name
 - **Phone Number** — Contact number
 
-If **Delivery** is selected:
-- **Country**
-- **City**
-- **Detailed Address**
-
-### Step 4: Order Notes (Optional)
+### Step 6: Order Notes (Optional)
 
 The customer can add special instructions or notes for the order.
 
-### Step 5: Order Review
+### Step 7: Order Review
 
 A final summary showing:
 - All items with prices
@@ -51,17 +82,32 @@ A final summary showing:
 - Service fee (if applicable)
 - Tax
 - **Total amount**
+- Selected payment method
 
-### Step 6: Place Order
+The customer must also meet the **minimum order value** if one is configured. If the cart total is below the minimum, a warning is displayed and the order cannot be placed.
+
+### Step 8: Place Order
 
 The customer clicks **Place Order**. The order is created in your Cashvio portal.
 
 ## After the Order is Placed
 
-- The customer sees an **Order Success** page with their order number.
-- The order appears in your **Sales** list in the tenant portal.
-- You can then process payments, update fulfillment status, and manage the order as usual.
+- The customer sees an **Order Success** page with their order number and a countdown redirect back to the store.
+- The order appears in your **Sales** list in the tenant portal with the order source marked as **Storefront**.
+- Payment records are created based on the payment method:
+  - **Cash** — A **pending** payment record. Mark it as completed when the customer pays.
+  - **Receipt** — A **pending** payment record with the uploaded receipt image. Review the receipt and accept it from the order details.
+
+## Managing Storefront Orders
+
+Storefront orders appear alongside your portal orders in the Sales list. You can identify them by the **Order Source** column showing "Storefront".
+
+To process storefront orders:
+
+1. **Review the order** — Check items, customer info, and delivery address.
+2. **Process the payment** — For Cash orders, mark the payment as received. For Receipt orders, review the uploaded receipt and click **Accept Payment Receipt**.
+3. **Update fulfillment** — Move the order through the fulfillment stages (Pending → Preparing → Ready → Delivering → Completed).
 
 <Callout title="Note">
-Online orders from the storefront appear in your Orders list just like orders created manually in the portal. They can be managed the same way.
+Storefront orders behave exactly like portal orders once created. You manage them the same way — update fulfillment status, add payments, create returns, and issue refunds as needed.
 </Callout>

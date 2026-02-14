@@ -1,6 +1,6 @@
 ---
 title: Managing Orders
-description: How to view, filter, update, and manage your sales orders including fulfillment status and payments.
+description: How to view, filter, update, and manage your sales orders including fulfillment status, payments, and receipt approvals.
 ---
 
 ## Viewing All Orders
@@ -13,10 +13,26 @@ description: How to view, filter, update, and manage your sales orders including
 | **Order Number** | Unique identifier for each order |
 | **Customer** | The customer who placed the order |
 | **Store** | Which store the order belongs to |
-| **Status** | Current fulfillment status |
+| **Order Source** | Where the order was created — **Web** (tenant portal) or **Storefront** (online store) |
+| **Payment Method** | The primary payment method used (Cash, Online, Receipt, or Store Credit) |
+| **Fulfillment Method** | How the order will be fulfilled (In-Store, Pickup, Delivery, or Dine-In) |
+| **Fulfillment Status** | Current fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled) |
 | **Payment Status** | Whether the order is paid, partially paid, or unpaid |
 | **Total** | The order total amount |
 | **Date** | When the order was created |
+
+### Mobile View
+
+On mobile devices, orders are displayed as cards instead of a table. Each card shows:
+
+- Order number
+- Customer name
+- Order source badge
+- Payment method
+- Fulfillment method and status
+- Payment status
+- Total amount
+- Date
 
 ## Filtering Orders
 
@@ -25,11 +41,9 @@ Use the filter bar to narrow down your orders:
 - **Order Number** — Search by order number
 - **Store** — Filter by store
 - **Customer** — Filter by customer name
-- **Status** — Filter by fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled)
+- **Fulfillment Status** — Filter by fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled)
 - **Payment Status** — Filter by payment status
 - **Channel** — Filter by sales channel
-
-Click **Show Filters** to expand the filter options and **Hide Filters** to collapse them.
 
 ## Order Details
 
@@ -38,14 +52,27 @@ Click on any order to open its **Order Details** page. Here you will find:
 ### Order Information
 - Order number, date, and time
 - Customer name and contact
+- **Order source** — Whether the order was created from the tenant portal (Web) or the online storefront
 - Fulfillment method and delivery address (if applicable)
 - Order notes
 
 ### Financial Details
-- Payment status and method
+- Payment status and primary payment method
 - Amount paid vs. total
 - Amount due (if partially paid)
-- Payment history showing all transactions
+
+### Order Payments Section
+
+The order details page includes an **Order Payments** section that lists every individual payment transaction for the order. Each payment record shows:
+
+| Column | Description |
+|--------|-------------|
+| **Payment Method** | The method used (Cash, Online, Receipt, Store Credit) |
+| **Amount** | The payment amount |
+| **Status** | Completed, Pending, Failed, or Cancelled |
+| **Date** | When the payment was made |
+
+This section is useful for orders with split payments or multiple payment transactions.
 
 ### Order Items
 - List of all products in the order
@@ -72,11 +99,36 @@ If an order has an outstanding balance:
 
 1. Open the order details.
 2. Click **Add Payment**.
-3. Select the payment method.
-4. Enter the amount.
-5. Confirm the payment.
+3. Select the payment method (Cash, Online, or Receipt).
+4. If **Receipt** is selected, you can optionally upload a receipt image.
+5. Enter the amount.
+6. Confirm the payment.
 
 The payment status updates automatically based on the remaining balance.
+
+## Accepting Storefront Receipt Payments
+
+When a customer places an order through your online storefront and selects **Receipt** as the payment method, the order is created with a **pending** payment record. The customer uploads a receipt image as proof of payment during checkout.
+
+To accept the payment:
+
+1. Open the order details. You will see the **Accept Payment Receipt** button in the header (instead of the usual "Add Payment" button).
+2. Click **Accept Payment Receipt**.
+3. A confirmation dialog opens showing the **receipt image** uploaded by the customer.
+4. Review the receipt to verify the payment.
+5. Click **Confirm** to mark the payment as **Completed**.
+
+<Callout title="Note">
+The "Accept Payment Receipt" button only appears for storefront orders with Receipt payment method that have a pending payment. For other orders, the regular "Add Payment" button is shown.
+</Callout>
+
+## Accepting Storefront Cash Payments
+
+When a customer places a storefront order with **Cash** payment, a pending payment record is created. After the customer pays on delivery or pickup:
+
+1. Open the order details.
+2. Click **Add Payment** (or use the order actions to mark the payment as complete).
+3. The payment is recorded and the order payment status updates.
 
 ## Cancelling an Order
 

@@ -16,7 +16,6 @@ This is where you configure the order:
 |-------|-------------|
 | **Store** | Select which store this order belongs to (if you have multiple stores) |
 | **Customer** | Select an existing customer or click **Add Customer** to create a new one |
-| **Order Source** | Automatically tracked: POS, Portal, Mobile, or API (shows where the order originated) |
 | **Fulfillment Method** | Choose: In-Store, Pickup, Delivery, or Dine-In |
 | **Delivery Address** | Required if fulfillment is Delivery (country, city, details) |
 | **Channel** | The sales channel for this order |
@@ -29,11 +28,11 @@ This is where you select products to add to the order:
 1. **Browse by category** — Click category tabs to filter products.
 2. **Search** — Use the search bar to find products by name.
 3. **Click a product** to add it to the order. If the product has multiple variants, you will be asked to select one.
-4. **Custom Item** — Click **Add Custom Item** to add an item that's not in your inventory:
+4. **Custom Item** — Click **Add Custom Item** to add an item that is not in your inventory:
    - Enter a custom name and description
    - Set the price and quantity
-   - Custom items are useful for services, special requests, or items you don't regularly stock
-   - Custom items don't affect inventory levels
+   - Custom items are useful for services, special requests, or items you do not regularly stock
+   - Custom items do not affect inventory levels
 
 ### Cart Section
 
@@ -69,47 +68,54 @@ Below the cart, you will see the order calculation:
 
 1. Click **Checkout** when the order is ready.
 2. A payment dialog opens.
-3. Select the **payment method**:
-   - **Cash** — Physical cash payment
-   - **Card** — Credit or debit card payment
-   - **InstaPay** — InstaPay payment
-   - **Mobile Wallet** — Mobile wallet payment (e.g., Vodafone Cash, Orange Money)
-   - **Bank Transfer** — Bank transfer payment
-   - **Store Credit** — Use the customer's store credit balance (only available if a customer is selected and has credit)
 
-4. Enter the **amount paid**.
-5. Payment options:
-   - **Full payment** — Pay the entire amount at once.
-   - **Partial payment** — Pay part now and schedule the rest (see [Scheduled Payments](#scheduled-payments) below).
-   - **Skip payment** — Create the order with a pending payment status.
-6. Click **Confirm** to complete the order.
+### Store Credit
 
-### Store Credit Payment
+If the selected customer has a store credit balance:
 
-When a customer is selected and has a store credit balance:
+- A **Use Store Credit** toggle appears at the top of the payment section.
+- Enable it to apply the customer's credit toward the order.
+- The system shows how much credit will be used and the remaining amount to pay.
+- If the credit fully covers the order, no additional payment method is needed.
 
-- **Store Credit** appears as a payment method option
-- The available credit amount is shown
-- You can use all or part of the credit
-- If the credit doesn't cover the full order, you can combine it with another payment method
-- The credit is automatically deducted from the customer's balance
+### Payment Method Selection
+
+Select the payment method for the remaining amount:
+
+| Method | Description |
+|--------|-------------|
+| **Cash** | Physical cash payment. Enter the amount received and the system calculates change. |
+| **Online** | Digital payment (card, InstaPay, mobile wallet, bank transfer, etc.). |
+| **Receipt** | Transfer payment with optional receipt image upload. |
+
+<Callout title="Note">
+Only payment methods **enabled** for your store appear in this list. See [Payment Methods](/docs/stores/payment-methods) to configure them.
+</Callout>
+
+### Receipt Upload
+
+When you select **Receipt** as the payment method:
+
+1. An upload section appears below the payment method selector.
+2. Click **Choose File** to upload a photo of the payment receipt (JPEG, PNG, or WebP).
+3. The file uploads automatically and attaches to the payment record.
+4. Uploading is optional — you can create the order without uploading a receipt image.
 
 ### Cash Payment with Change
 
 If the customer pays with cash and gives more than the total:
 
 - The system shows the **change amount** to give back.
-- Example: Order total is 150 EGP, customer pays 200 EGP → Change is 50 EGP.
+- Example: Order total is 150 EGP, customer pays 200 EGP, change is 50 EGP.
 
-### Scheduled Payments
+### Scheduling Remaining Payment
 
 For orders with partial payments, you can schedule the remaining balance:
 
-1. Select **Partial payment** during checkout.
-2. Enter the amount being paid now.
-3. Set the **due date** for the remaining balance.
-4. The order is created with a payment status showing the paid amount and outstanding balance.
-5. You can track scheduled payments in the [Overdue Payments](/docs/orders/overdue-payments) section.
+1. Enable the **Schedule Remaining Payment** checkbox.
+2. Set the **due date** for the remaining balance.
+3. The remaining amount becomes a scheduled pending payment.
+4. Track scheduled payments in the [Overdue Payments](/docs/orders/overdue-payments) section.
 
 <Callout title="Note">
 Scheduled payments help you manage customer credit and track outstanding balances. Make sure to follow up on due payments to maintain healthy cash flow.
@@ -121,7 +127,7 @@ Once the order is created:
 
 - A **success dialog** appears with receipt options (see [Receipt Options](#receipt-options) below).
 - The order appears in the **Sales** list with its order number.
-- **Order source** is automatically recorded (POS, Portal, Mobile, or API) for tracking and analytics.
+- **Order source** is automatically recorded as **Web** (portal) for tracking and analytics.
 - Inventory is automatically adjusted (if inventory tracking is enabled).
 
 ### Receipt Options

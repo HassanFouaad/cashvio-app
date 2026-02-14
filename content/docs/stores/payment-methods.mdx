@@ -1,63 +1,97 @@
 ---
 title: Payment Methods
-description: How to configure which payment methods your store accepts and how they work during checkout.
+description: How to configure which payment methods your store accepts for portal orders and storefront orders.
 ---
 
 ## What are Payment Methods?
 
-Payment methods define how customers can pay for their orders. Each store can have its own set of accepted payment methods. When creating an order, the cashier or customer selects from the available methods.
+Payment methods define how customers can pay for their orders. Each store has two sets of payment methods:
+
+- **Portal Payment Methods** — Used when you or your team create orders in the tenant portal (like a POS system).
+- **Storefront Payment Methods** — Used when customers place orders through your online store.
 
 ## Available Payment Methods
 
-Cashvio supports the following payment methods:
+Cashvio uses a unified set of payment methods:
 
 | Method | Description |
 |--------|-------------|
-| **Cash** | Physical cash payment. The system calculates change automatically. |
-| **Card** | Credit or debit card payment. |
-| **InstaPay** | Payment via InstaPay transfer. |
-| **Mobile Wallet** | Payment via mobile wallets (e.g., Vodafone Cash). |
-| **Bank Transfer** | Direct bank transfer payment. |
-| **Store Credit** | Using the customer's store credit balance. |
+| **Cash** | Physical cash payment. The system calculates change automatically when creating portal orders. For storefront orders, the customer pays on delivery or pickup. |
+| **Online** | Digital payment (credit/debit card, InstaPay, mobile wallet, bank transfer, etc.). |
+| **Receipt** | The payer uploads a photo of the payment receipt as proof of transfer. |
+| **Store Credit** | Using the customer's store credit balance. Only available in the portal when a customer is selected and has credit. |
 
-## How to Configure Payment Methods
+## Configuring Portal Payment Methods
 
-1. Click **Payment Methods** in the sidebar. If you have multiple stores, you will be asked to select a store first.
-2. You will see a list of all available payment methods.
-3. **Enable** or **disable** each method using the toggle switch.
-4. Click **Save Changes**.
+Portal payment methods control what options your team sees when creating orders in the tenant portal.
 
-<Callout title="Alternative Access">
-You can also reach payment methods from **Settings > Store Details**, then click on your store, and choose the **Payment Methods** action card.
-</Callout>
+1. Navigate to **Store Details > Payment Methods** in the sidebar.
+2. If you have multiple stores, select the store first.
+3. You will see the **Portal** tab with a list of all payment methods.
+4. **Enable** or **disable** each method using the toggle switch.
+5. Changes save automatically after confirmation.
 
 <Callout title="Note">
-Only enabled payment methods will appear as options when [creating orders](/docs/orders/creating-orders) for this store.
+Only enabled portal payment methods appear as options when [creating orders](/docs/orders/creating-orders) in the tenant portal.
 </Callout>
 
-## Mixed Payments
+## Storefront Payment Methods
 
-Cashvio supports **mixed payment methods** on a single order. This means a customer can pay part of an order with cash and the remaining amount with a card, for example.
+Storefront payment methods control what options customers see during online checkout. By default, **Cash** and **Receipt** are enabled for all stores.
 
-When processing a mixed payment:
+<Callout title="Note">
+Online payments are not yet available. Cash and Receipt are the currently supported storefront payment methods. When online payments become available, you will be able to enable them from the portal.
+</Callout>
 
-1. During checkout, select the first payment method and enter the amount.
-2. Add additional payment methods for the remaining balance.
-3. The system tracks each payment separately.
+### How Each Method Works on the Storefront
+
+| Method | Customer Experience |
+|--------|---------------------|
+| **Cash** | Customer selects "Cash" at checkout. A pending payment record is created. You mark it as paid from the tenant portal when the customer pays on delivery or pickup. |
+| **Receipt** | Customer selects "Upload Receipt" and uploads a photo of their payment transfer. A pending payment is created with the receipt attached. You review and accept the receipt from the tenant portal. |
 
 ## Store Credit Payments
 
-If a customer has **store credit** (balance on their account), they can use it to pay for orders:
+If a customer has **store credit** (balance on their account), it can be used to pay for portal orders:
 
-- Store credit is applied first, then the remaining amount can be paid with another method.
-- You can add store credit to a customer's account from the [Customer Details](/docs/customers/managing-customers) page.
+- Store credit appears as an option when a customer is selected and has a balance.
+- You can use all or part of the credit.
+- If the credit does not cover the full order, the remaining amount can be paid with another method (split payment).
+- The credit is automatically deducted from the customer's balance.
+
+You can add store credit to a customer's account from the [Customer Details](/docs/customers/managing-customers) page.
+
+## Split Payments
+
+Cashvio supports **split payments** on a single order. A customer can pay part of an order with store credit and the remainder with cash or another method.
+
+When processing a split payment in the portal:
+
+1. During checkout, enable the **Use Store Credit** toggle.
+2. The system shows how much store credit will be applied.
+3. The remaining amount is paid with the selected payment method.
+4. Both payment records are tracked separately.
 
 ## Scheduling Payments
 
 For orders that are not paid in full immediately, you can **schedule the remaining payment**:
 
-1. During checkout, complete the partial payment.
-2. The remaining amount becomes a **pending payment**.
-3. The order appears in the **Overdue Payments** section if not paid by the due date.
+1. During checkout, enable **Schedule Remaining Payment**.
+2. Set the **due date** for the remaining balance.
+3. The order is created with a pending scheduled payment.
+4. The order appears in the **Overdue Payments** section if not paid by the due date.
 
 See [Overdue Payments](/docs/orders/overdue-payments) for more details.
+
+## Receipt Upload (Portal)
+
+When the **Receipt** payment method is selected in the portal during order creation or when adding a payment:
+
+1. An upload section appears below the payment method selector.
+2. Click **Choose File** to upload a photo of the receipt (JPEG, PNG, or WebP).
+3. The receipt is uploaded and attached to the payment record.
+4. This is optional — you can create a receipt payment without uploading the image.
+
+<Callout title="Tip">
+Receipt uploads are useful for tracking transfer payments. The receipt image can be viewed later from the order details page.
+</Callout>

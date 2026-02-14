@@ -24,16 +24,29 @@ When customers visit your storefront, they see:
 - **All Products** page with search, sorting, and filtering
 - **Category pages** showing products in each category
 - **Product detail** pages with images, descriptions, variant selection, and pricing
+- **Sorting options** — Sort by newest, name, price low to high, or price high to low
+- **Filters** — Filter by category, in-stock only
 - **Hide Out of Stock** — Option to hide products that are out of stock (configurable in store settings)
 
 ### Shopping Cart
 - Customers add products to their cart
 - They can adjust quantities, remove items, and see the order summary
 - The cart shows subtotal, shipping, tax, and total
+- **Stock validation** — The cart checks product availability and maximum order quantities
+
+### Checkout
+- **Fulfillment selection** — Delivery or Pickup
+- **Payment method selection** — Cash or Receipt (with receipt image upload)
+- **Delivery zones** — If configured, only your delivery area countries and cities are available
+- **Order preview** — Full breakdown of costs before placing the order
+- **Minimum order validation** — Enforces minimum order value if configured
+
+See [Online Checkout Flow](/docs/online-store/checkout-flow) for the full checkout process.
 
 ### Language Support
 - Customers can switch between **English** and **Arabic**
 - The entire storefront supports RTL (right-to-left) for Arabic
+- Product names, categories, and checkout forms display in the selected language
 
 ### Theme
 - Customers can toggle between **light** and **dark** mode
@@ -41,6 +54,13 @@ When customers visit your storefront, they see:
 <Callout title="Note">
 The storefront supports **light and dark mode only**. Custom themes, colors, fonts, or layout customization beyond the mode toggle are not available.
 </Callout>
+
+### Footer
+- **Copyright notice** with your store name
+- **"Powered by Cashvio"** attribution with link to the Cashvio website
+- Links to your **static pages** (terms, privacy, refund policy, etc.)
+- **Social media links** if configured
+- On mobile, a **bottom navigation bar** replaces the footer with quick access to Home, Categories, Products, Cart, and Contact
 
 ## Configuring Your Online Store
 
@@ -75,7 +95,7 @@ Cashvio supports **subdomain-based storefronts only**. Custom domains are not cu
 | | - YouTube |
 | | - Website (your main website URL) |
 | **Contact Phone** | Phone number displayed in the store for customer contact |
-| **Hide Out of Stock Items** | Toggle to hide products with zero inventory from the storefront (customers won't see out-of-stock products) |
+| **Hide Out of Stock Items** | Toggle to hide products with zero inventory from the storefront (customers will not see out-of-stock products) |
 | **Analytics** | Google Tag Manager ID and Facebook Pixel ID for tracking |
 | **Static Pages** | Create custom policy and information pages with rich text editor: |
 | | - **Refund Policy** — Your refund and return policy |
@@ -90,11 +110,12 @@ Your storefront is connected to the tenant portal. Changes you make in the porta
 | Portal Setting | Storefront Effect |
 |----------------|-------------------|
 | **Products** | Products with "Active" status appear on the store |
-| **Categories** | Active categories appear in navigation |
+| **Categories** | Active categories appear in navigation and browsing |
 | **Prices** | Selling prices from product variants are displayed |
-| **Fulfillment Methods** | Enabled methods appear during checkout |
+| **Fulfillment Methods** | Enabled methods (Delivery, Pickup) appear during checkout |
 | **Delivery Zones** | Available delivery areas and fees during checkout |
-| **Payment Methods** | How customers pay (online stores may support specific methods) |
+| **Storefront Payment Methods** | Cash and Receipt appear during checkout based on your configuration |
+| **Service Fees** | Delivery and service fees are applied during checkout |
 
 <Callout title="Important">
 Only **active** products and categories appear on the storefront. Draft or archived items are hidden from customers. If "Hide Out of Stock Items" is enabled, products with zero inventory are also hidden.
@@ -143,3 +164,12 @@ Create informative pages for your customers:
 5. Click **Save**.
 
 These pages are automatically linked in your storefront footer and can be accessed by customers at any time.
+
+## Analytics Integration
+
+Track customer behavior on your storefront with:
+
+- **Google Tag Manager** — Add your GTM container ID to track page views, add-to-cart events, checkouts, and purchases
+- **Facebook Pixel** — Add your Pixel ID to track conversions and build retargeting audiences
+
+See [Google Tags](/docs/integrations/google-tags) and [Facebook Pixel](/docs/integrations/facebook-pixel) for detailed setup instructions.
