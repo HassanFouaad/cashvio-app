@@ -13,7 +13,7 @@ import type { ReactNode } from "react";
 import { cookies, headers } from "next/headers";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Inter, Tajawal } from "next/font/google";
 
 import { localeMetadata, type Locale, routing } from "@/i18n/routing";
 import { ThemeToggle } from "@/components/layout";
@@ -32,9 +32,9 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
-const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
   display: "swap",
   variable: "--font-arabic",
   preload: true,
@@ -123,7 +123,7 @@ export default async function ExportLayout({
       lang={locale}
       dir={direction}
       suppressHydrationWarning
-      className={`dark ${inter.variable} ${ibmPlexArabic.variable}`}
+      className={`dark ${inter.variable} ${tajawal.variable}`}
     >
       <head>
         {/* Preconnect to critical third-party origins */}

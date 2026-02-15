@@ -7,7 +7,7 @@ import {
   getMessages,
 } from "next-intl/server";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { Inter, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Inter, Tajawal } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
@@ -28,9 +28,9 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
-const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
   display: "swap",
   variable: "--font-arabic",
   preload: true,
@@ -203,7 +203,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={direction}
       suppressHydrationWarning
-      className={`dark ${inter.variable} ${ibmPlexArabic.variable}`}
+      className={`dark ${inter.variable} ${tajawal.variable}`}
     >
       <head>
         {/* Preconnect to critical third-party origins */}

@@ -147,9 +147,7 @@ export default async function TwitterImage({
               {feature}
             </div>
           ))}
-        </div>
-
-        {/* Bottom */}
+        </div>        {/* Bottom */}
         <div
           style={{
             position: 'absolute',
