@@ -1,0 +1,67 @@
+---
+title: TikTok Pixel
+description: How to set up TikTok Pixel tracking on your online store to track customer actions and optimize your TikTok ad campaigns.
+---
+
+## What is TikTok Pixel?
+
+**TikTok Pixel** is a tracking tool from TikTok that helps you measure the effectiveness of your TikTok advertising. When installed on your online store, it tracks actions customers take — like viewing products, adding items to cart, and completing purchases.
+
+This data helps you:
+- **Measure ad performance** — See how many conversions your TikTok ads generate
+- **Build audiences** — Create custom and lookalike audiences for TikTok ads
+- **Optimize delivery** — Let TikTok show your ads to people most likely to convert
+- **Retarget visitors** — Show ads to people who visited your store but didn't purchase
+
+## How to Set Up TikTok Pixel
+
+1. **Get your Pixel ID** from TikTok Ads Manager:
+   - Go to [ads.tiktok.com](https://ads.tiktok.com)
+   - Navigate to **Assets > Events** and click **Manage** under Web Events
+   - Click **Set Up Web Events** and select **TikTok Pixel**
+   - Name your Pixel and select **Manually Install Pixel Code**
+   - Copy your **Pixel ID** (an alphanumeric code, typically starting with `C`)
+
+2. **Enter the Pixel ID in Cashvio:**
+   - Go to your store's settings in the tenant portal
+   - Navigate to the **Online Store** configuration
+   - Find the **TikTok Pixel** tab
+   - Paste your Pixel ID
+   - Click **Save**
+
+## What Events are Tracked
+
+Once configured, the following events are automatically tracked on your online storefront:
+
+| Event | When it fires |
+|-------|---------------|
+| **Page View** | Customer visits any page |
+| **ViewContent** | Customer views a product detail page |
+| **AddToCart** | Customer adds a product to their cart |
+| **InitiateCheckout** | Customer starts the checkout process |
+| **CompletePayment** | Customer completes an order |
+| **Search** | Customer searches for products |
+
+## Verifying the Setup
+
+To verify your Pixel is working:
+1. Install the **TikTok Pixel Helper** Chrome extension.
+2. Visit your online store.
+3. The extension shows which events are firing and whether data is being sent correctly.
+
+## Using TikTok Pixel with Media Buying
+
+TikTok Pixel is essential for media buyers running TikTok ad campaigns. With the pixel installed:
+
+- **Create Custom Audiences** based on store visitors, cart abandoners, or past purchasers
+- **Build Lookalike Audiences** to find new customers similar to your best buyers
+- **Optimize for Conversions** by letting TikTok's algorithm target users most likely to purchase
+- **Track ROAS** (Return on Ad Spend) accurately across your campaigns
+
+<Callout title="Note">
+TikTok Pixel only works on your **online storefront**. It does not track actions in the tenant portal (admin dashboard). The Pixel is loaded per store — each store can have its own TikTok Pixel ID.
+</Callout>
+
+<Callout title="Tip">
+For best results, use TikTok Pixel alongside **Facebook Pixel** and **Google Tag Manager**. Each platform serves different audiences, and having all three installed gives you maximum reach and tracking coverage for your ad campaigns.
+</Callout>
