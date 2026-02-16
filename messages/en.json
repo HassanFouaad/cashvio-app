@@ -637,7 +637,7 @@
       "products": {
         "name": "Product Catalog",
         "description": "Manage products with variants, custom options (size, color), multi-image support, categories, tags, and per-store pricing strategies.",
-        "subs": "Variants & Options • Store-Specific Pricing • Multi-Image • Categories & Tags • Tax Config"
+        "subs": "Variants & Options • Store-Specific Pricing • Multi-Image • Categories & Tags • Tax Config • Product Reviews"
       },
       "inventory": {
         "name": "Inventory Control",
