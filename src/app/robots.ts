@@ -38,8 +38,23 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: commonDisallow,
-      }
-     
+      },
+      // Explicitly allow AI crawlers to index docs and llms.txt
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'ClaudeBot',
+          'anthropic-ai',
+          'Google-Extended',
+          'PerplexityBot',
+          'Bytespider',
+          'CCBot',
+          'cohere-ai',
+        ],
+        allow: ['/', '/docs/', '/llms.txt', '/llms-full.txt'],
+        disallow: commonDisallow,
+      },
     ],
     sitemap: [
       `${SITE_URL}/sitemap.xml`,
