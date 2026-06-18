@@ -26,7 +26,6 @@ export const footerNavigation: FooterSection[] = [
       { key: 'features', href: '/features' },
       { key: 'pricing', href: '/pricing' },
       { key: 'docs', href: '/docs' },
-      { key: 'changelog', href: '/docs' },
     ],
   },
   {
@@ -34,7 +33,6 @@ export const footerNavigation: FooterSection[] = [
     items: [
       { key: 'about', href: '/contact' },
       { key: 'contact', href: '/contact' },
-      { key: 'careers', href: '/contact' },
     ],
   },
   {

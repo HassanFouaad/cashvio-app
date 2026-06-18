@@ -5,11 +5,8 @@ import { type Locale } from '@/i18n/routing';
 import { Hero } from '@/components/sections/hero';
 import { HowItWorks } from '@/components/sections/how-it-works';
 import { Features } from '@/components/sections/features';
-import { PlatformPreview } from '@/components/sections/platform-preview';
-import { OrdersShowcase } from '@/components/sections/orders-showcase';
+import { ProductShowcase } from '@/components/sections/product-showcase';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
-import { AnalyticsShowcase } from '@/components/sections/analytics-showcase';
-import { CustomerManagementShowcase } from '@/components/sections/customer-management-showcase';
 import { Benefits } from '@/components/sections/benefits';
 import { Trust } from '@/components/sections/trust';
 import { CTA } from '@/components/sections/cta';
@@ -150,11 +147,8 @@ export default async function HomePage({ params }: Props) {
       <Hero locale={typedLocale} />
       <HowItWorks locale={typedLocale} />
       <Features locale={typedLocale} />
-      <PlatformPreview locale={typedLocale} />
-      <OrdersShowcase locale={typedLocale} />
+      <ProductShowcase locale={typedLocale} />
       <MobileAppShowcase locale={typedLocale} />
-      <AnalyticsShowcase locale={typedLocale} />
-      <CustomerManagementShowcase locale={typedLocale} />
       <Benefits locale={typedLocale} />
       <Trust locale={typedLocale} />
       <CTA locale={typedLocale} />

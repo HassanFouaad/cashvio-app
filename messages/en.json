@@ -355,6 +355,16 @@
       "noCreditCard": "No commitment required",
       "freeForever": "Free forever plan",
       "instantSetup": "Instant setup"
+    },
+    "productShowcase": {
+      "title": "See Cashvio in Action",
+      "subtitle": "Explore the tools that power thousands of businesses",
+      "tabs": {
+        "dashboard": "Dashboard",
+        "orders": "Orders",
+        "analytics": "Analytics",
+        "customers": "Customers"
+      }
     }
   },
   "pricing": {

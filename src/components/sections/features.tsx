@@ -56,16 +56,26 @@ const featureIcons = {
   ),
 };
 
+const featureAccents: Record<string, string> = {
+  orders: 'border-l-emerald-500 hover:shadow-emerald-500/10',
+  inventory: 'border-l-teal-500 hover:shadow-teal-500/10',
+  analytics: 'border-l-cyan-500 hover:shadow-cyan-500/10',
+  pos: 'border-l-sky-500 hover:shadow-sky-500/10',
+  products: 'border-l-emerald-400 hover:shadow-emerald-400/10',
+  customers: 'border-l-teal-400 hover:shadow-teal-400/10',
+  multistore: 'border-l-cyan-400 hover:shadow-cyan-400/10',
+  team: 'border-l-sky-400 hover:shadow-sky-400/10',
+};
+
 const featureKeys = ['orders', 'inventory', 'analytics', 'pos', 'products', 'customers', 'multistore', 'team'] as const;
 
 export async function Features({ locale }: FeaturesProps) {
   const t = await getTranslations({ locale, namespace: 'home.features' });
 
   return (
-    <section aria-label="Features" className="py-12 sm:py-16 md:py-20 bg-muted/30">
+    <section aria-label="Features" className="section-padding bg-muted/20">
       <div className="container-wide">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-3">
             {t('title')}
           </h2>
@@ -74,40 +84,40 @@ export async function Features({ locale }: FeaturesProps) {
           </p>
         </div>
 
-        {/* Features Grid - 8 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-          {featureKeys.map((key, index) => (
-            <div
-              key={key}
-              className="group relative p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              {/* Icon */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                {featureIcons[key]}
+        {/* Bento grid: first 2 large, remaining 6 smaller */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {featureKeys.map((key, index) => {
+            const isLarge = index < 2;
+
+            return (
+              <div
+                key={key}
+                className={`
+                  group relative rounded-2xl bg-card border border-border/60
+                  border-l-4 ${featureAccents[key]}
+                  hover:shadow-xl hover:-translate-y-0.5
+                  transition-all duration-300
+                  ${isLarge ? 'sm:col-span-2 lg:col-span-1 lg:row-span-2' : ''}
+                `}
+              >
+                <div className={`p-5 sm:p-6 ${isLarge ? 'lg:p-8' : ''}`}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                      {featureIcons[key]}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1.5">
+                        {t(`${key}.title`)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {t(`${key}.description`)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              {/* Content */}
-              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1.5 sm:mb-2">
-                {t(`${key}.title`)}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                {t(`${key}.description`)}
-              </p>
-
-              {/* Sub-features */}
-              <ul className="space-y-1.5">
-                {['sub1', 'sub2', 'sub3', 'sub4'].map((sub) => (
-                  <li key={sub} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground/80">
-                    <svg className="w-3.5 h-3.5 text-primary/60 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{t(`${key}.${sub}`)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

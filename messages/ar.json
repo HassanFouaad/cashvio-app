@@ -355,6 +355,16 @@
       "noCreditCard": "بدون التزامات",
       "freeForever": "باقة مجانية للأبد",
       "instantSetup": "إعداد فوري"
+    },
+    "productShowcase": {
+      "title": "شاهد كاشفيو في العمل",
+      "subtitle": "استكشف الأدوات التي تدير آلاف الأعمال",
+      "tabs": {
+        "dashboard": "لوحة التحكم",
+        "orders": "الطلبات",
+        "analytics": "التحليلات",
+        "customers": "العملاء"
+      }
     }
   },
   "pricing": {

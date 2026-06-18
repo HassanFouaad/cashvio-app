@@ -16,35 +16,31 @@ export async function Header({ locale }: HeaderProps) {
   const t = await getTranslations({ locale, namespace: 'navigation' });
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 glass">
+    <header className="sticky top-0 z-50 w-full border-b border-border/30 bg-background/80 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Logo size="md" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-muted/40 border border-border/30">
             {mainNavigation.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted"
+                className="px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 rounded-full hover:bg-background/80"
               >
                 {t(item.key)}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
             <LocaleSwitcher locale={locale} />
             <ThemeToggle />
             <AuthAwareActions className="flex items-center gap-2" />
           </div>
 
-          {/* Mobile Navigation */}
           <MobileNav locale={locale} />
         </div>
       </div>

@@ -1,222 +1,77 @@
 'use client';
 
-import { useState, useSyncExternalStore } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
-import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
-import { env } from '@/config/env';
-import { isAuthenticated, redirectToPortalWithState, getThemePreference, saveThemePreference } from '@/lib/utils/cross-app-sync';
-import { trackThemeChange } from '@/lib/analytics';
 
-// Subscribe-to-nothing — used only to distinguish server vs client render
-const subscribe = () => () => {};
+const navItems = [
+  {
+    key: 'home',
+    href: '/' as const,
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
+  },
+  {
+    key: 'features',
+    href: '/features' as const,
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+      </svg>
+    ),
+  },
+  {
+    key: 'pricing',
+    href: '/pricing' as const,
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    key: 'docs',
+    href: '/docs' as const,
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    ),
+  },
+] as const;
 
-/**
- * Mobile bottom navigation bar with glassy design.
- * Shows on mobile only (hidden on lg+ screens).
- *
- * Items:
- * 1. Dashboard (if logged in) or Sign Up (if not)
- * 2. Docs
- * 3. Dark mode toggle
- */
 export function MobileFooterNav() {
-  // useSyncExternalStore avoids the "setState in effect" lint rule
-  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
-  const isLoggedIn = useSyncExternalStore(subscribe, () => isAuthenticated(), () => false);
-
-  // isDark needs local state so the toggle can re-render immediately
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof document === 'undefined') return false;
-    return document.documentElement.classList.contains('dark');
-  });
-
-  const t = useTranslations('common');
-  const locale = useLocale();
+  const t = useTranslations('navigation');
   const pathname = usePathname();
 
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    const theme = newIsDark ? 'dark' : 'light';
-    if (newIsDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    saveThemePreference(theme);
-    trackThemeChange(theme);
-  };
-
-  const handleDashboardClick = () => {
-    const theme = getThemePreference() || 'light';
-    redirectToPortalWithState(env.portal.url, '/', { theme, language: locale });
-  };
-
-  // Check active state
-  const isDocsActive = pathname.startsWith('/docs') || pathname.startsWith(`/${locale}/docs`);
-
-  if (!mounted) {
-    return (
-      <div className="fixed bottom-0 inset-x-0 z-40 lg:hidden h-16" />
-    );
-  }
-
   return (
-    <>
-      {/* Spacer to prevent content being hidden behind the fixed nav */}
-      <div className="h-16 lg:hidden" />
-
-      <nav
-        className="fixed bottom-0 inset-x-0 z-40 lg:hidden border-t border-white/[0.08] dark:border-white/[0.06] bg-white/70 dark:bg-[#1a1f2e]/75 backdrop-blur-xl backdrop-saturate-150 pb-[env(safe-area-inset-bottom)]"
-        style={{ WebkitBackdropFilter: 'blur(20px) saturate(1.5)' }}
-        aria-label="Mobile navigation"
-      >
-        <div className="flex items-center justify-around h-16 px-2 max-w-md mx-auto">
-          {/* 1. Dashboard or Sign Up */}
-          {isLoggedIn ? (
-            <button
-              onClick={handleDashboardClick}
-              className={cn(
-                'flex flex-col items-center justify-center gap-1 flex-1 py-1.5 rounded-xl transition-all duration-200',
-                'text-muted-foreground hover:text-primary',
-                'active:scale-95',
-              )}
-              aria-label={t('goToDashboard')}
-            >
-              {/* Dashboard icon */}
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="4" rx="1" />
-                <rect x="14" y="10" width="7" height="11" rx="1" />
-                <rect x="3" y="13" width="7" height="8" rx="1" />
-              </svg>
-              <span className="text-[10px] font-medium leading-none">
-                {t('goToDashboard')}
-              </span>
-            </button>
-          ) : (
+    <nav className="fixed bottom-4 left-4 right-4 z-50 lg:hidden">
+      <div className="flex items-center justify-around p-2 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/30 shadow-lg">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+          return (
             <Link
-              href="/register"
+              key={item.key}
+              href={item.href}
               className={cn(
-                'flex flex-col items-center justify-center gap-1 flex-1 py-1.5 rounded-xl transition-all duration-200',
-                pathname === '/register' || pathname === `/${locale}/register`
+                'flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px]',
+                isActive
                   ? 'text-primary'
-                  : 'text-muted-foreground hover:text-primary',
-                'active:scale-95',
+                  : 'text-muted-foreground hover:text-foreground'
               )}
-              aria-label={t('getStarted')}
             >
-              {/* User plus icon */}
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <line x1="19" y1="8" x2="19" y2="14" />
-                <line x1="22" y1="11" x2="16" y2="11" />
-              </svg>
-              <span className="text-[10px] font-medium leading-none">
-                {t('getStarted')}
-              </span>
+              {item.icon}
+              <span className="text-[10px] font-medium">{t(item.key)}</span>
+              {isActive && (
+                <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />
+              )}
             </Link>
-          )}
-
-          {/* 2. Docs */}
-          <Link
-            href="/docs"
-            className={cn(
-              'flex flex-col items-center justify-center gap-1 flex-1 py-1.5 rounded-xl transition-all duration-200',
-              isDocsActive
-                ? 'text-primary'
-                : 'text-muted-foreground hover:text-primary',
-              'active:scale-95',
-            )}
-            aria-label={t('docs') || 'Docs'}
-          >
-            {/* Book/docs icon */}
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
-            </svg>
-            <span className="text-[10px] font-medium leading-none">
-              {t('docs') || 'Docs'}
-            </span>
-          </Link>
-
-          {/* 3. Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className={cn(
-              'flex flex-col items-center justify-center gap-1 flex-1 py-1.5 rounded-xl transition-all duration-200',
-              'text-muted-foreground hover:text-primary',
-              'active:scale-95',
-            )}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDark ? (
-              // Sun icon (currently dark, click to go light)
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2" />
-                <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.41 1.41" />
-                <path d="m17.66 17.66 1.41 1.41" />
-                <path d="M2 12h2" />
-                <path d="M20 12h2" />
-                <path d="m6.34 17.66-1.41 1.41" />
-                <path d="m19.07 4.93-1.41 1.41" />
-              </svg>
-            ) : (
-              // Moon icon (currently light, click to go dark)
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.75"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
-            )}
-            <span className="text-[10px] font-medium leading-none">
-              {isDark ? t('lightMode') : t('darkMode')}
-            </span>
-          </button>
-        </div>
-      </nav>
-    </>
+          );
+        })}
+      </div>
+    </nav>
   );
 }

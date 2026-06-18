@@ -11,36 +11,25 @@ export async function CTA({ locale }: CTAProps) {
   const t = await getTranslations({ locale, namespace: 'home.cta' });
 
   return (
-    <section aria-label="Call to action" className="py-16 md:py-20 bg-muted/50">
+    <section aria-label="Call to action" className="section-padding-sm">
       <div className="container-wide">
-        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-card border border-border/50 p-6 sm:p-8 md:p-12 lg:p-16 text-center">
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgb(var(--color-primary)/0.06)_0%,transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgb(var(--color-secondary)/0.04)_0%,transparent_50%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]" />
-          </div>
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 p-8 sm:p-10 md:p-14 lg:p-20 text-center">
+          {/* Decorative orbs */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
 
-          {/* Content */}
           <div className="relative z-10 max-w-2xl mx-auto">
-            {/* Free Forever Badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6 border border-primary/20">
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              {t('freeBadge')}
-            </div>
-            
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               {t('title')}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto">
               {t('subtitle')}
             </p>
-            
+
             <ButtonLink
               size="xl"
-              className="shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+              className="bg-white text-emerald-700 hover:bg-white/90 shadow-glow-lg rounded-2xl text-sm sm:text-base font-semibold"
               href={ctaLinks.getStarted}
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -48,29 +37,6 @@ export async function CTA({ locale }: CTAProps) {
               </svg>
               {t('button')}
             </ButtonLink>
-            
-            <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                {t('noCreditCard')}
-              </span>
-              <span className="hidden sm:block text-border">•</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                {t('freeForever')}
-              </span>
-              <span className="hidden sm:block text-border">•</span>
-              <span className="flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                {t('instantSetup')}
-              </span>
-            </div>
           </div>
         </div>
       </div>

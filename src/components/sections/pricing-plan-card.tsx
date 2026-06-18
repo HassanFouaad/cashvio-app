@@ -1,9 +1,5 @@
 'use client';
 
-/**
- * Client-side wrapper for pricing plan card with analytics tracking
- */
-
 import { trackPlanSelect, trackCTAClick } from '@/lib/analytics';
 import { ButtonLink } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -52,7 +48,6 @@ export function PricingPlanCard({
   translations,
 }: PricingPlanCardProps) {
   const handleClick = () => {
-    // Track plan selection
     trackPlanSelect(name, price ?? 0, period);
     trackCTAClick(
       isEnterprise ? 'contact_sales' : isFreemium ? 'start_free' : 'get_started',
@@ -64,62 +59,62 @@ export function PricingPlanCard({
   return (
     <Card
       className={cn(
-        'relative flex flex-col',
-        isPro && 'border-primary shadow-lg scale-105 z-10'
+        'relative flex flex-col rounded-2xl transition-all duration-300',
+        isPro
+          ? 'border-primary/50 shadow-lg shadow-primary/10 scale-[1.02] z-10 ring-1 ring-primary/20'
+          : 'hover:border-border hover:shadow-md'
       )}
     >
-      {/* Popular badge */}
       {isPro && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground">
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold rounded-full shadow-sm">
             {translations.popular}
           </Badge>
         </div>
       )}
 
-      {/* Free Forever badge for freemium plans */}
       {isFreemium && !isPro && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground">
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <Badge className="bg-emerald-600 text-white px-4 py-1 text-xs font-semibold rounded-full shadow-sm">
             {translations.freeForever}
           </Badge>
         </div>
       )}
 
-      <CardHeader>
-        <CardTitle className="text-xl">{name}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg sm:text-xl">{name}</CardTitle>
+        <CardDescription className="text-sm">{description}</CardDescription>
       </CardHeader>
 
       <CardContent className="flex-1">
-        <div className="mb-6">
+        <div className="mb-6 pt-2">
           {isFreemium || price === 0 || price === null ? (
-            <span className="text-4xl font-bold text-foreground">
+            <span className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
               {translations.free}
             </span>
           ) : (
-            <>
-              <span className="text-4xl font-bold text-foreground">
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
                 EGP{price}
               </span>
-              <span className="text-muted-foreground">{period}</span>
-            </>
+              <span className="text-sm text-muted-foreground">{period}</span>
+            </div>
           )}
         </div>
 
         <div className="space-y-3">
-          <p className="text-sm font-medium text-foreground">
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
             {translations.features}
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-2.5">
             {features.map((feature, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm">
+              <li key={i} className="flex items-start gap-2.5 text-sm">
                 <svg
-                  className="w-5 h-5 text-primary shrink-0 mt-0.5"
+                  className="w-4 h-4 text-primary shrink-0 mt-0.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
@@ -132,10 +127,13 @@ export function PricingPlanCard({
         </div>
       </CardContent>
 
-      <CardFooter>
+      <CardFooter className="pt-4">
         <ButtonLink
           variant={isPro ? 'primary' : 'outline'}
-          className="w-full justify-center"
+          className={cn(
+            'w-full justify-center rounded-xl',
+            isPro && 'shadow-glow'
+          )}
           href={href}
           onClick={handleClick}
         >
@@ -149,4 +147,3 @@ export function PricingPlanCard({
     </Card>
   );
 }
-
