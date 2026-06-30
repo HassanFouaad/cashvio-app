@@ -11,7 +11,13 @@ import { Inter, Tajawal } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import { getCanonicalUrl, getAlternateUrls, getAlternateLocales, openGraphDefaults, social } from "@/config/seo";
+import {
+  getCanonicalUrl,
+  getAlternateUrls,
+  getAlternateLocales,
+  openGraphDefaults,
+  social,
+} from "@/config/seo";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileFooterNav } from "@/components/layout/mobile-footer-nav";
@@ -24,7 +30,7 @@ const inter = Inter({
   display: "swap",
   variable: "--font-sans",
   preload: true,
-  fallback: ['system-ui', 'arial'],
+  fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
 });
 
@@ -34,7 +40,7 @@ const tajawal = Tajawal({
   display: "swap",
   variable: "--font-arabic",
   preload: true,
-  fallback: ['system-ui', 'arial'],
+  fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
 });
 
@@ -90,7 +96,7 @@ export async function generateMetadata({
       canonical: getCanonicalUrl("", typedLocale),
       languages: getAlternateUrls(""),
       types: {
-        'application/rss+xml': `${siteConfig.url}/feed.xml`,
+        "application/rss+xml": `${siteConfig.url}/feed.xml`,
       },
     },
     openGraph: {
@@ -208,21 +214,27 @@ export default async function LocaleLayout({
       <head>
         {/* Preconnect to critical third-party origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         {/* DNS prefetch for non-critical resources */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
+
         {/* Format detection - disable auto-formatting of phone numbers on iOS */}
         <meta name="format-detection" content="telephone=no" />
-        
+
         {/* Theme script - must run before body renders */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var c=document.cookie.match(/(?:^|;\\s*)cv_theme=([^;]*)/);var t=c?decodeURIComponent(c[1]):localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}}catch(e){/* Keep default dark */}})();`,
           }}
         />
+
+       
       </head>
       <body
         className={`min-h-screen flex flex-col bg-background text-foreground antialiased ${
@@ -237,6 +249,30 @@ export default async function LocaleLayout({
           <MobileFooterNav />
         </NextIntlClientProvider>
         <AnalyticsProvider />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+
+  window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Help"};
+  (function(d,t) {
+    var BASE_URL="https://helpdesk.cash-vio.com";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'EGzDPux3QhPYK5eoCuZ6fpqd',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+
+
+  `,
+          }}
+        />
       </body>
     </html>
   );

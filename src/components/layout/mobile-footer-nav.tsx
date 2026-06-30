@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
@@ -24,15 +25,6 @@ const navItems = [
     ),
   },
   {
-    key: 'pricing',
-    href: '/pricing' as const,
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
     key: 'docs',
     href: '/docs' as const,
     icon: (
@@ -43,12 +35,47 @@ const navItems = [
   },
 ] as const;
 
+interface ChatwootSDK {
+  toggle: (state?: 'open' | 'close') => void;
+}
+
 export function MobileFooterNav() {
   const t = useTranslations('navigation');
   const pathname = usePathname();
+  const [isChatReady, setIsChatReady] = useState(false);
+
+  useEffect(() => {
+    const getChatwoot = (): ChatwootSDK | undefined =>
+      (window as { $chatwoot?: ChatwootSDK }).$chatwoot;
+
+    if (getChatwoot()) {
+      setIsChatReady(true);
+      return;
+    }
+
+    const handleReady = () => setIsChatReady(true);
+    window.addEventListener('chatwoot:ready', handleReady);
+
+    const intervalId = window.setInterval(() => {
+      if (getChatwoot()) {
+        setIsChatReady(true);
+        window.clearInterval(intervalId);
+      }
+    }, 400);
+
+    return () => {
+      window.removeEventListener('chatwoot:ready', handleReady);
+      window.clearInterval(intervalId);
+    };
+  }, []);
+
+  const openChat = () => {
+    const chatwoot = (window as { $chatwoot?: ChatwootSDK }).$chatwoot;
+    chatwoot?.toggle('open');
+  };
 
   return (
-    <nav className="fixed bottom-4 left-4 right-4 z-50 lg:hidden">
+    <nav className="fixed bottom-4 left-4 right-4 z-50 lg:hidden" dir="ltr">
       <div className="flex items-center justify-around p-2 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/30 shadow-lg">
         {navItems.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -71,6 +98,20 @@ export function MobileFooterNav() {
             </Link>
           );
         })}
+
+        <button
+          type="button"
+          onClick={openChat}
+          disabled={!isChatReady}
+          className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px] text-muted-foreground hover:text-foreground disabled:opacity-50"
+          aria-label={t('openChat')}
+          title={t('support')}
+        >
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z" />
+          </svg>
+          <span className="text-[10px] font-medium">{t('support')}</span>
+        </button>
       </div>
     </nav>
   );

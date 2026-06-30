@@ -41,7 +41,9 @@ export async function Header({ locale }: HeaderProps) {
             <AuthAwareActions className="flex items-center gap-2" />
           </div>
 
-          <MobileNav locale={locale} />
+          <div className="flex items-center gap-1 lg:hidden">
+            <MobileNav locale={locale} />
+          </div>
         </div>
       </div>
     </header>

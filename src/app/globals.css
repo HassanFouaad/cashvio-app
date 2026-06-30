@@ -115,12 +115,16 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
     background-color: rgb(var(--color-background));
     color: rgb(var(--color-foreground));
     line-height: 1.6;
+    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   /* RTL Support */
@@ -192,6 +196,8 @@
   .hover\:bg-primary:hover { background-color: rgb(var(--color-primary)); }
   .hover\:bg-primary-dark:hover { background-color: rgb(var(--color-primary-dark)); }
   .hover\:bg-muted:hover { background-color: rgb(var(--color-muted)); }
+  .hover\:bg-muted\/60:hover { background-color: rgb(var(--color-muted) / 0.6); }
+  .hover\:bg-background\/80:hover { background-color: rgb(var(--color-background) / 0.8); }
   .hover\:text-foreground:hover { color: rgb(var(--color-foreground)); }
   .hover\:text-primary:hover { color: rgb(var(--color-primary)); }
   .hover\:text-primary-foreground:hover { color: rgb(var(--color-primary-foreground)); }
@@ -206,11 +212,28 @@
   .bg-accent\/10 { background-color: rgb(var(--color-accent) / 0.1); }
   .bg-success\/15 { background-color: rgb(var(--color-success) / 0.15); }
   .bg-muted\/30 { background-color: rgb(var(--color-muted) / 0.3); }
+  .bg-muted\/40 { background-color: rgb(var(--color-muted) / 0.4); }
   .bg-muted\/50 { background-color: rgb(var(--color-muted) / 0.5); }
+  .bg-muted\/60 { background-color: rgb(var(--color-muted) / 0.6); }
   .bg-muted\/80 { background-color: rgb(var(--color-muted) / 0.8); }
   .bg-muted-foreground\/20 { background-color: rgb(var(--color-muted-foreground) / 0.2); }
   .bg-primary-foreground\/5 { background-color: rgb(var(--color-primary-foreground) / 0.05); }
   .bg-primary-foreground\/10 { background-color: rgb(var(--color-primary-foreground) / 0.1); }
+
+  /* Background (surface) with Opacity - used by header, drawer, overlays, mobile nav */
+  .bg-background\/60 { background-color: rgb(var(--color-background) / 0.6); }
+  .bg-background\/70 { background-color: rgb(var(--color-background) / 0.7); }
+  .bg-background\/80 { background-color: rgb(var(--color-background) / 0.8); }
+  .bg-background\/90 { background-color: rgb(var(--color-background) / 0.9); }
+  .bg-background\/95 { background-color: rgb(var(--color-background) / 0.95); }
+  .bg-card\/60 { background-color: rgb(var(--color-card) / 0.6); }
+  .bg-card\/80 { background-color: rgb(var(--color-card) / 0.8); }
+  .bg-card\/95 { background-color: rgb(var(--color-card) / 0.95); }
+
+  /* supports-[backdrop-filter] variant used in the sticky header */
+  @supports (backdrop-filter: blur(0)) {
+    .supports-\[backdrop-filter\]\:bg-background\/60 { background-color: rgb(var(--color-background) / 0.6); }
+  }
 
   /* Text with Opacity */
   .text-primary-foreground\/40 { color: rgb(var(--color-primary-foreground) / 0.4); }
@@ -220,6 +243,8 @@
   .text-primary\/30 { color: rgb(var(--color-primary) / 0.3); }
 
   /* Border with Opacity */
+  .border-border\/30 { border-color: rgb(var(--color-border) / 0.3); }
+  .border-border\/40 { border-color: rgb(var(--color-border) / 0.4); }
   .border-border\/50 { border-color: rgb(var(--color-border) / 0.5); }
   .border-primary\/20 { border-color: rgb(var(--color-primary) / 0.2); }
   .border-primary\/30 { border-color: rgb(var(--color-primary) / 0.3); }
@@ -477,6 +502,21 @@ div:has(+ #nd-sidebar-mobile) {
 /* Close TOC popover when clicking on a link inside it */
 [data-toc-popover-content] a {
   cursor: pointer;
+}
+
+/* ============================================
+   CHATWOOT WIDGET
+   On mobile (<lg) we hide the floating launcher bubble and instead expose
+   a chat icon in the navbar (see ChatButton). The chat window itself stays
+   functional so the navbar icon can toggle it open. On desktop the default
+   floating bubble is kept.
+   ============================================ */
+@media (max-width: 1023px) {
+  .woot-widget-bubble,
+  .woot--bubble-holder .woot-widget-bubble,
+  .woot-widget-bubble.woot-widget--expanded {
+    display: none !important;
+  }
 }
 
 /* ============================================

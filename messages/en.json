@@ -68,7 +68,9 @@
     "terms": "Terms",
     "about": "About",
     "careers": "Careers",
-    "changelog": "Changelog"
+    "changelog": "Changelog",
+    "support": "Support",
+    "openChat": "Open support chat"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
