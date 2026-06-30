@@ -204,6 +204,17 @@ export default async function LocaleLayout({
   const { direction } = localeMetadata[locale as Locale];
   const isRTL = direction === "rtl";
 
+  // Localized, direction-aware Chatwoot launcher config. In RTL the bubble
+  // mirrors to the bottom-left and the widget UI + launcher title follow the
+  // active locale.
+  const tNav = await getTranslations({ locale, namespace: "navigation" });
+  const chatwootSettings = JSON.stringify({
+    position: isRTL ? "left" : "right",
+    type: "expanded_bubble",
+    launcherTitle: tNav("support"),
+    locale,
+  });
+
   return (
     <html
       lang={locale}
@@ -254,7 +265,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{
             __html: `
 
-  window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Help"};
+  window.chatwootSettings = ${chatwootSettings};
   (function(d,t) {
     var BASE_URL="https://helpdesk.cash-vio.com";
     var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -264,7 +275,8 @@ export default async function LocaleLayout({
     g.onload=function(){
       window.chatwootSDK.run({
         websiteToken: 'EGzDPux3QhPYK5eoCuZ6fpqd',
-        baseUrl: BASE_URL
+        baseUrl: BASE_URL,
+        locale: ${JSON.stringify(locale)}
       })
     }
   })(document,"script");
