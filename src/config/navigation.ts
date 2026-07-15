@@ -33,6 +33,7 @@ export const footerNavigation: FooterSection[] = [
     items: [
       { key: 'arabicPos', href: '/features/arabic-pos' },
       { key: 'omnichannelRetail', href: '/features/omnichannel-retail' },
+      { key: 'inventoryManagement', href: '/features/inventory-management' },
       { key: 'couponsAndDiscounts', href: '/features/coupons-and-discounts' },
     ],
   },

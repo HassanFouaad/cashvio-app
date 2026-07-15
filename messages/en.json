@@ -49,6 +49,10 @@
     "omnichannelRetail": {
       "title": "Omnichannel Retail Platform — One Dashboard for Physical & Online Stores | Cashvio",
       "description": "Manage your physical stores and online storefront from one dashboard. Unified inventory, orders, customers, and analytics across every sales channel. Sell in-store, online, and via social media — all synced in real time."
+    },
+    "inventoryManagement": {
+      "title": "Free Inventory Management Software - Track Stock Across All Stores | Cashvio",
+      "description": "Free inventory management software that tracks stock per product variant, per store in real time. Low stock alerts, purchase orders, supplier management, stock transfers, adjustments with full audit trail, and profit reporting — all included free."
     }
   },
   "common": {
@@ -85,6 +89,7 @@
     "openChat": "Open support chat",
     "arabicPos": "Arabic POS & Storefront",
     "omnichannelRetail": "Omnichannel Retail",
+    "inventoryManagement": "Inventory Management",
     "couponsAndDiscounts": "Coupons & Discounts"
   },
   "footer": {
@@ -792,6 +797,11 @@
       "omnichannelRetail": {
         "title": "Omnichannel Retail",
         "description": "One dashboard for your physical stores and online storefront. Unified inventory, orders, and customers across every sales channel.",
+        "cta": "Learn More"
+      },
+      "inventoryManagement": {
+        "title": "Free Inventory Management",
+        "description": "Track every product variant in every store in real time. Low stock alerts, purchase orders, supplier management, and a full audit trail — free forever.",
         "cta": "Learn More"
       },
       "couponsAndDiscounts": {
@@ -1701,6 +1711,300 @@
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • One dashboard for all channels • Setup in minutes"
+    }
+  },
+  "inventoryManagement": {
+    "hero": {
+      "badge": "Free Forever",
+      "title": "Free Inventory Management",
+      "titleHighlight": "Software",
+      "subtitle": "Track every product, every variant, across every store — in real time. Cashvio gives you per-variant, per-store inventory tracking, low stock alerts, purchase orders, supplier management, and a full audit trail. No spreadsheets, no guesswork, no monthly fee.",
+      "cta": "Start Free — No Credit Card",
+      "secondaryCta": "View All Features",
+      "trust": "Trusted by retail, F&B, and service businesses to manage their inventory"
+    },
+    "problem": {
+      "badge": "The Inventory Problem",
+      "title": "Spreadsheets and Guesswork Are Costing You Money",
+      "subtitle": "Most small businesses still track inventory by hand or in spreadsheets. Every mistake means lost sales, wasted stock, or angry customers.",
+      "painPoints": {
+        "manualCounting": {
+          "title": "Manual Counting Errors",
+          "description": "Counting stock by hand leads to mistakes. One miscount and your records are wrong for weeks — you only discover the error when a customer orders something you do not actually have."
+        },
+        "noVariantTracking": {
+          "title": "No Variant-Level Visibility",
+          "description": "Your spreadsheet says you have 50 T-shirts, but which sizes? Which colors? Without tracking each variant separately, you reorder the wrong sizes and miss out on the ones actually selling."
+        },
+        "multiStoreBlind": {
+          "title": "Blind Across Locations",
+          "description": "If you have more than one store, you are calling between branches to check stock. There is no way to see what each location has without physically walking in."
+        },
+        "noAlerts": {
+          "title": "No Warning Before Stockouts",
+          "description": "You only discover a product is out of stock when a customer asks for it. By then you have already lost the sale and possibly the customer."
+        },
+        "noAuditTrail": {
+          "title": "No Idea Where Stock Went",
+          "description": "Items go missing and you cannot explain why. There is no record of who adjusted stock, when, or for what reason. Shrinkage becomes invisible."
+        },
+        "disconnectedPurchasing": {
+          "title": "Disconnected Purchasing",
+          "description": "You reorder from suppliers by memory or when something runs out. There is no link between your stock levels and your purchase orders, so you either over-order or run out."
+        }
+      }
+    },
+    "solution": {
+      "badge": "The Cashvio Way",
+      "title": "Inventory That Manages Itself",
+      "subtitle": "Cashvio tracks stock automatically with every sale, return, transfer, and purchase order. You set it up once and your inventory stays accurate without manual work.",
+      "points": {
+        "perVariantTracking": {
+          "title": "Per-Variant, Per-Store Tracking",
+          "description": "Every product variant — size, color, material — has its own stock count in each store. You know exactly how many \"Medium / Blue\" T-shirts are in your Downtown branch right now."
+        },
+        "automaticUpdates": {
+          "title": "Stock Updates Automatically",
+          "description": "When a customer buys, stock goes down. When a return is approved, stock goes up. When a purchase order is received, stock increases. When you transfer between stores, both counts update. No manual entry."
+        },
+        "smartAlerts": {
+          "title": "Alerts Before You Run Out",
+          "description": "Set a custom reorder point for every product in every store. When stock hits that level, it appears in your Low Stock dashboard. You restock proactively instead of reactively."
+        },
+        "fullAuditTrail": {
+          "title": "Complete Audit Trail",
+          "description": "Every stock change is logged — who made the adjustment, what quantity, when it happened, and the reason. You can trace any discrepancy back to its source."
+        }
+      }
+    },
+    "coreFeatures": {
+      "badge": "Core Inventory Features",
+      "title": "Everything You Need to Track Stock Accurately",
+      "subtitle": "From barcode scanning to bulk adjustments, Cashvio covers every inventory operation your business needs — all included in the free plan.",
+      "features": {
+        "stockTracking": {
+          "title": "Real-Time Stock Levels",
+          "description": "View current stock for every product variant in every store. Filter by store, search by product name or SKU, and see stock status at a glance — In Stock, Low Stock, or Out of Stock."
+        },
+        "adjustments": {
+          "title": "Stock Adjustments",
+          "description": "Increase, decrease, or record damaged stock with a reason and audit trail. After a physical count, adjust your digital records to match reality in seconds."
+        },
+        "transfers": {
+          "title": "Store-to-Store Transfers",
+          "description": "Move stock between locations with tracked transfer requests. The sending store's count drops and the receiving store's count rises — automatically and instantly."
+        },
+        "lowStockAlerts": {
+          "title": "Low Stock & Reorder Alerts",
+          "description": "Set custom reorder points per product per location. View all low-stock items in one dedicated page. Never miss a sale because an item went out of stock unnoticed."
+        },
+        "bulkOperations": {
+          "title": "Bulk Stock Operations",
+          "description": "Adjust hundreds of stock levels at once. Record shrinkage, damage, or receiving in bulk — with full audit trails showing who changed what and when."
+        },
+        "optionalTracking": {
+          "title": "Optional Per-Product Tracking",
+          "description": "Not every product needs inventory tracking. Toggle tracking on or off per product. Items with tracking disabled are treated as always in stock — perfect for services or made-to-order items."
+        }
+      }
+    },
+    "purchaseOrders": {
+      "badge": "Purchase Orders & Suppliers",
+      "title": "Restock Smarter — From Low Stock Alert to Shelf",
+      "subtitle": "See which products are running low, create a purchase order to your supplier, and receive the stock — all in one system. Your inventory updates the moment products arrive.",
+      "features": {
+        "createPO": {
+          "title": "Create Purchase Orders",
+          "description": "Select the store, add products with quantities and agreed prices, choose a supplier, set an expected delivery date, and add any delivery fees. A step-by-step wizard guides you through every field."
+        },
+        "trackStatus": {
+          "title": "Track PO Status",
+          "description": "Every purchase order moves through clear stages — Draft, Pending, Approved, Received, or Cancelled. Filter by store, supplier, status, or date to find any PO instantly."
+        },
+        "receiveStock": {
+          "title": "Receive Stock in One Click",
+          "description": "When products arrive, open the purchase order and click Receive Stock. Confirm the quantities and your store inventory updates immediately — no manual stock adjustment needed."
+        },
+        "supplierManagement": {
+          "title": "Supplier Database",
+          "description": "Keep all your supplier records in one place — company name, contact person, email, phone, address, tax ID, and payment terms. See every purchase order per supplier with full payment history."
+        }
+      }
+    },
+    "multiStore": {
+      "badge": "Multi-Store Inventory",
+      "title": "Multiple Stores. One Inventory View.",
+      "subtitle": "Each store tracks stock independently while you see the big picture from one dashboard. Transfer stock between locations, compare levels, and manage everything centrally.",
+      "features": {
+        "independentStock": {
+          "title": "Independent Stock Per Store",
+          "description": "Each store maintains its own stock count for every product variant. Your Downtown branch can have 20 units of a product while your Mall location has 5 — each managed separately."
+        },
+        "storeTransfers": {
+          "title": "Inter-Store Transfers",
+          "description": "Spotted excess stock at one location and a shortage at another? Transfer it directly between stores. Both counts update instantly with full tracking."
+        },
+        "storePricing": {
+          "title": "Per-Store Pricing",
+          "description": "Set different selling prices for different stores. Your airport location can charge differently from your warehouse outlet — all from the same product catalog."
+        },
+        "centralVisibility": {
+          "title": "Central Visibility",
+          "description": "Switch between stores or view aggregate stock levels from one dashboard. Filter reports by location to understand which store sells what."
+        }
+      }
+    },
+    "automaticStock": {
+      "badge": "Automatic Stock Changes",
+      "title": "Stock That Updates with Every Business Action",
+      "subtitle": "You never manually update stock for routine operations. Cashvio adjusts inventory automatically based on what happens in your business.",
+      "actions": {
+        "orderCompleted": {
+          "action": "Order completed",
+          "effect": "Stock decreases by the ordered quantity"
+        },
+        "orderCancelled": {
+          "action": "Order cancelled",
+          "effect": "Stock is restored to pre-order levels"
+        },
+        "returnApproved": {
+          "action": "Return approved",
+          "effect": "Stock increases (unless marked non-restockable)"
+        },
+        "purchaseReceived": {
+          "action": "Purchase order received",
+          "effect": "Stock increases by the received quantity"
+        },
+        "manualAdjustment": {
+          "action": "Manual adjustment",
+          "effect": "Stock increases or decreases with a reason logged"
+        },
+        "stockTransfer": {
+          "action": "Stock transfer",
+          "effect": "Source store decreases, destination store increases"
+        },
+        "damagedConsumed": {
+          "action": "Damaged or consumed",
+          "effect": "Stock decreases with a reason recorded"
+        }
+      }
+    },
+    "reporting": {
+      "badge": "Inventory Analytics",
+      "title": "Reports That Show What Is Really Happening",
+      "subtitle": "Go beyond stock counts. Understand profitability, identify slow movers, and make data-driven purchasing decisions.",
+      "features": {
+        "profitMargins": {
+          "title": "Product Profitability",
+          "description": "Track cost prices versus selling prices to see real margins per product and per category. Identify your most and least profitable items instantly."
+        },
+        "salesTrends": {
+          "title": "Sales Trends by Product",
+          "description": "See which products are selling fastest, which are slowing down, and which are not moving at all. Use daily, weekly, or monthly views to spot seasonal patterns."
+        },
+        "supplierCosts": {
+          "title": "Cost Analysis by Supplier",
+          "description": "Track how much you spend with each supplier over time. Compare costs across suppliers to negotiate better deals or switch to more cost-effective vendors."
+        },
+        "returnsAnalytics": {
+          "title": "Return Patterns",
+          "description": "See which products get returned most, and why. Identify quality issues, sizing problems, or description mismatches before they become expensive trends."
+        }
+      }
+    },
+    "comparison": {
+      "title": "Cashvio vs. Tracking Inventory in Spreadsheets",
+      "subtitle": "See what you gain by switching from manual tracking to a real inventory management system — at no cost.",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio (Free)",
+        "others": "Spreadsheets / Manual"
+      },
+      "rows": {
+        "variantTracking": {
+          "feature": "Per-variant stock tracking",
+          "cashvio": "Automatic — each size, color, variant tracked separately",
+          "others": "Manual columns per variant, error-prone"
+        },
+        "multiStore": {
+          "feature": "Multi-store visibility",
+          "cashvio": "Real-time stock per store from one dashboard",
+          "others": "Separate files per store, no unified view"
+        },
+        "autoUpdates": {
+          "feature": "Automatic stock updates",
+          "cashvio": "Every sale, return, and PO updates stock instantly",
+          "others": "Manual entry after every transaction"
+        },
+        "alerts": {
+          "feature": "Low stock alerts",
+          "cashvio": "Custom reorder points with dedicated low-stock page",
+          "others": "None — you discover stockouts at checkout"
+        },
+        "auditTrail": {
+          "feature": "Audit trail",
+          "cashvio": "Every change logged — who, what, when, why",
+          "others": "No history — cell was overwritten"
+        },
+        "purchaseOrders": {
+          "feature": "Purchase orders",
+          "cashvio": "Built-in PO workflow with auto stock receiving",
+          "others": "Separate email/document, no inventory link"
+        },
+        "reporting": {
+          "feature": "Profit & cost reporting",
+          "cashvio": "Real-time margins, supplier costs, return rates",
+          "others": "Manual calculations prone to errors"
+        },
+        "cost": {
+          "feature": "Cost",
+          "cashvio": "Free forever — no per-user or per-store fees",
+          "others": "Free tool, but hours of manual work daily"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about Cashvio's free inventory management",
+      "q1": {
+        "question": "Is Cashvio's inventory management really free?",
+        "answer": "Yes. The free forever plan includes full inventory tracking, low stock alerts, stock adjustments, purchase orders, supplier management, and single-store operations. There is no trial period, no credit card required, and no feature lockout on core inventory capabilities."
+      },
+      "q2": {
+        "question": "How does per-variant, per-store tracking work?",
+        "answer": "Every product can have variants based on options like size, color, or material. Each variant gets its own stock count in each store. For example, if you sell a T-shirt in sizes S, M, L across two stores, that is 6 separate stock counts — each tracked independently and updated automatically."
+      },
+      "q3": {
+        "question": "What happens to stock when I process a sale?",
+        "answer": "Stock decreases automatically when an order is completed. If the order is cancelled, stock is restored. If a customer returns an item and the return is approved, stock increases — unless the item is marked as damaged or non-restockable. No manual adjustment is needed for routine transactions."
+      },
+      "q4": {
+        "question": "Can I manage inventory for multiple stores?",
+        "answer": "Yes. Each store tracks inventory independently. You can view stock per store, transfer inventory between stores, set per-store reorder points, and filter analytics by location. Multi-store features are available on paid plans."
+      },
+      "q5": {
+        "question": "How do purchase orders work?",
+        "answer": "You create a purchase order by selecting a store, adding products with quantities and agreed prices, choosing a supplier, and setting an expected delivery date. When the products arrive, you click Receive Stock on the PO, confirm the quantities, and your inventory updates instantly."
+      },
+      "q6": {
+        "question": "Do I have to track inventory for every product?",
+        "answer": "No. Inventory tracking is optional per product. Products with tracking disabled are treated as always in stock — perfect for services, made-to-order items, or digital products. You choose which products need stock tracking."
+      },
+      "q7": {
+        "question": "Can I see who made inventory changes?",
+        "answer": "Yes. Every stock adjustment is logged with the user who made it, the date, the quantity changed, and the reason. You can view the full adjustment history in the Inventory section and trace any discrepancy back to its source."
+      },
+      "q8": {
+        "question": "Does inventory sync with the online storefront?",
+        "answer": "Yes. If you use Cashvio's built-in online storefront, inventory is the same system. When stock changes — whether from a POS sale, an online order, or a manual adjustment — the available quantity updates everywhere instantly. There is no separate sync process."
+      }
+    },
+    "cta": {
+      "title": "Start Managing Inventory for Free — Today",
+      "subtitle": "No spreadsheets. No monthly fees. No stock surprises. Sign up in 2 minutes and start tracking every product across every store.",
+      "button": "Start Free Now",
+      "secondaryButton": "View Pricing",
+      "note": "Free forever plan • No credit card required • Unlimited products"
     }
   }
 }

@@ -286,10 +286,11 @@ export default async function FeaturesPage({ params }: Props) {
               {t('solutions.subtitle')}
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-4xl mx-auto">
             {([
               { key: 'arabicPos', href: '/features/arabic-pos', accent: 'border-l-emerald-500 hover:shadow-emerald-500/10', iconColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
               { key: 'omnichannelRetail', href: '/features/omnichannel-retail', accent: 'border-l-sky-500 hover:shadow-sky-500/10', iconColor: 'bg-sky-500/10 text-sky-600 dark:text-sky-400' },
+              { key: 'inventoryManagement', href: '/features/inventory-management', accent: 'border-l-teal-500 hover:shadow-teal-500/10', iconColor: 'bg-teal-500/10 text-teal-600 dark:text-teal-400' },
               { key: 'couponsAndDiscounts', href: '/features/coupons-and-discounts', accent: 'border-l-purple-500 hover:shadow-purple-500/10', iconColor: 'bg-purple-500/10 text-purple-600 dark:text-purple-400' },
             ] as const).map((solution) => (
               <a

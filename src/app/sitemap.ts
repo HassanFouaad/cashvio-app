@@ -18,6 +18,7 @@ const staticPages: PageConfig[] = [
   { path: '/features/arabic-pos'},
   { path: '/features/coupons-and-discounts'},
   { path: '/features/omnichannel-retail'},
+  { path: '/features/inventory-management'},
   { path: '/pricing'},
     { path: '/contact'},
   { path: '/register'},
