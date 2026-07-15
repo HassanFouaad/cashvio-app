@@ -145,7 +145,7 @@ export default async function HomePage({ params }: Props) {
       />
 
       <Hero locale={typedLocale} />
-      <HowItWorks locale={typedLocale} />
+
       <Features locale={typedLocale} />
       <ProductShowcase locale={typedLocale} />
       <MobileAppShowcase locale={typedLocale} />

@@ -275,7 +275,49 @@ export default async function FeaturesPage({ params }: Props) {
           </div>
         </div>
       </section>
-
+  {/* Solutions */}
+  <section aria-label="Solutions" className="section-padding-sm">
+        <div className="container-wide">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2">
+              {t('solutions.title')}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground">
+              {t('solutions.subtitle')}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
+            {([
+              { key: 'arabicPos', href: '/features/arabic-pos', accent: 'border-l-emerald-500 hover:shadow-emerald-500/10', iconColor: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+              { key: 'omnichannelRetail', href: '/features/omnichannel-retail', accent: 'border-l-sky-500 hover:shadow-sky-500/10', iconColor: 'bg-sky-500/10 text-sky-600 dark:text-sky-400' },
+              { key: 'couponsAndDiscounts', href: '/features/coupons-and-discounts', accent: 'border-l-purple-500 hover:shadow-purple-500/10', iconColor: 'bg-purple-500/10 text-purple-600 dark:text-purple-400' },
+            ] as const).map((solution) => (
+              <a
+                key={solution.key}
+                href={typedLocale === 'en' ? solution.href : `/ar${solution.href}`}
+                className={cn(
+                  'group rounded-2xl bg-card border border-border/60 border-l-4 p-5 sm:p-6',
+                  'hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300',
+                  solution.accent,
+                )}
+              >
+                <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">
+                  {t(`solutions.${solution.key}.title`)}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {t(`solutions.${solution.key}.description`)}
+                </p>
+                <span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all duration-200">
+                  {t(`solutions.${solution.key}.cta`)}
+                  <svg className="w-4 h-4 ms-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Operations & Workflow */}
       <section className="section-padding-sm bg-muted/20">
         <div className="container-wide">
@@ -402,6 +444,8 @@ export default async function FeaturesPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+    
 
       {/* CTA */}
       <section className="section-padding-sm">

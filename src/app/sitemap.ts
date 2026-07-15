@@ -2,12 +2,8 @@ import type { MetadataRoute } from 'next';
 import { env } from '@/config/env';
 import { source } from '@/lib/docs-source';
 
-type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
-
 interface PageConfig {
   path: string;
-  priority: number;
-  changeFrequency: ChangeFrequency;
   /** Override lastModified for specific pages (ISO date string) */
   lastModified?: string;
 }
@@ -16,15 +12,18 @@ interface PageConfig {
    STATIC PAGES
    ============================================ */
 const staticPages: PageConfig[] = [
-  { path: '', priority: 1.0, changeFrequency: 'daily' },
+  { path: '' },
 
-  { path: '/features', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/pricing', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/register', priority: 0.8, changeFrequency: 'monthly' },
-  { path: '/docs', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
-  { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
+  { path: '/features'},
+  { path: '/features/arabic-pos'},
+  { path: '/features/coupons-and-discounts'},
+  { path: '/features/omnichannel-retail'},
+  { path: '/pricing'},
+    { path: '/contact'},
+  { path: '/register'},
+  { path: '/docs'},
+  { path: '/privacy'},
+  { path: '/terms'},
 ];
 
 const locales = ['en', 'ar'] as const;
@@ -45,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return {
         url,
         lastModified: page.lastModified ? new Date(page.lastModified) : new Date(defaultLastModified),
-        changeFrequency: page.changeFrequency,
-        priority: page.priority,
         alternates: {
           languages: {
             'x-default': `${SITE_URL}${page.path}`,
@@ -92,8 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       docsEntries.push({
         url,
         lastModified: new Date(defaultLastModified),
-        changeFrequency: 'weekly' as ChangeFrequency,
-        priority,
+   
         alternates: {
           languages: {
             'x-default': `${SITE_URL}${docsPath}`,

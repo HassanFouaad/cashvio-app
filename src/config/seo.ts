@@ -137,6 +137,13 @@ export const keywords: Record<Locale, string[]> = {
     'SaaS business platform',
     'cloud-based POS',
     'omnichannel retail software',
+    // Coupon & discount keywords
+    'coupon management software',
+    'discount code system for retailers',
+    'promotional coupon engine',
+    'POS coupon validation',
+    'retail discount management',
+    'e-commerce coupon codes',
   ],
   ar: [
     // Primary brand keywords
@@ -166,6 +173,13 @@ export const keywords: Record<Locale, string[]> = {
     'منصة SaaS للأعمال',
     'نقاط بيع سحابية',
     'برنامج تجزئة متعدد القنوات',
+    // Coupon & discount keywords
+    'برنامج إدارة الكوبونات',
+    'نظام أكواد الخصم للتجار',
+    'محرك كوبونات ترويجية',
+    'التحقق من الكوبونات في نقاط البيع',
+    'إدارة خصومات التجزئة',
+    'أكواد خصم التجارة الإلكترونية',
   ],
 };
 
@@ -1077,6 +1091,10 @@ export const pageSEO = {
   terms: {
     priority: 0.3,
     changeFrequency: 'yearly' as const,
+  },
+  couponsAndDiscounts: {
+    priority: 0.85,
+    changeFrequency: 'monthly' as const,
   },
 } as const;
 

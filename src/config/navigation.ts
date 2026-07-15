@@ -29,6 +29,14 @@ export const footerNavigation: FooterSection[] = [
     ],
   },
   {
+    key: 'solutions',
+    items: [
+      { key: 'arabicPos', href: '/features/arabic-pos' },
+      { key: 'omnichannelRetail', href: '/features/omnichannel-retail' },
+      { key: 'couponsAndDiscounts', href: '/features/coupons-and-discounts' },
+    ],
+  },
+  {
     key: 'company',
     items: [
       { key: 'about', href: '/contact' },

@@ -37,6 +37,18 @@
     "thankYou": {
       "title": "Welcome to Cashvio!",
       "description": "Your account has been created successfully. Start managing your business today."
+    },
+    "couponsAndDiscounts": {
+      "title": "Coupons & Discount Code Management for Retailers | Cashvio",
+      "description": "Create, manage, and track promotional coupons and discount codes across all your stores. Set usage limits, schedule campaigns, and validate codes in real time at checkout."
+    },
+    "arabicPos": {
+      "title": "Arabic POS System & Storefront with Native RTL Support | Cashvio",
+      "description": "The only POS and online storefront built natively for Arabic-speaking businesses. True right-to-left interface, bilingual receipts, ZATCA-ready invoicing, and MENA payment integrations. Not a translation layer — built from the ground up for Arabic commerce."
+    },
+    "omnichannelRetail": {
+      "title": "Omnichannel Retail Platform — One Dashboard for Physical & Online Stores | Cashvio",
+      "description": "Manage your physical stores and online storefront from one dashboard. Unified inventory, orders, customers, and analytics across every sales channel. Sell in-store, online, and via social media — all synced in real time."
     }
   },
   "common": {
@@ -70,11 +82,15 @@
     "careers": "Careers",
     "changelog": "Changelog",
     "support": "Support",
-    "openChat": "Open support chat"
+    "openChat": "Open support chat",
+    "arabicPos": "Arabic POS & Storefront",
+    "omnichannelRetail": "Omnichannel Retail",
+    "couponsAndDiscounts": "Coupons & Discounts"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
     "product": "Product",
+    "solutions": "Solutions",
     "company": "Company",
     "legal": "Legal",
     "resources": "Resources",
@@ -765,11 +781,236 @@
         "description": "Store unlimited customer profiles with purchase history, balance tracking, and visit analytics"
       }
     },
+    "solutions": {
+      "title": "Explore Solutions",
+      "subtitle": "Deep dives into how Cashvio solves specific business challenges",
+      "arabicPos": {
+        "title": "Arabic POS & Storefront",
+        "description": "The only POS and storefront built natively for Arabic. True right-to-left interface, bilingual receipts, and MENA payment integrations.",
+        "cta": "Learn More"
+      },
+      "omnichannelRetail": {
+        "title": "Omnichannel Retail",
+        "description": "One dashboard for your physical stores and online storefront. Unified inventory, orders, and customers across every sales channel.",
+        "cta": "Learn More"
+      },
+      "couponsAndDiscounts": {
+        "title": "Coupons & Discounts",
+        "description": "Create, manage, and track promotional codes across all your stores. Schedule campaigns and validate codes at checkout in real time.",
+        "cta": "Learn More"
+      }
+    },
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Join businesses managing their operations more efficiently with Cashvio.",
       "getStarted": "Start Free",
       "viewPricing": "View Pricing"
+    }
+  },
+  "couponsAndDiscounts": {
+    "hero": {
+      "badge": "Promotions & Marketing",
+      "title": "Coupons & Discount Code Management",
+      "titleHighlight": "That Actually Drives Revenue",
+      "subtitle": "Create percentage or fixed-amount discount codes, set usage limits, schedule campaigns with start and end dates, and validate codes in real time at POS checkout and online storefront. Manage every coupon per store with full control."
+    },
+    "problem": {
+      "title": "Stop Losing Revenue to Poorly Managed Promotions",
+      "subtitle": "Without a structured coupon system, discounts are untracked, abused, and impossible to measure. Cashvio gives you complete control over every promotional code you issue.",
+      "items": {
+        "noTracking": {
+          "title": "No Redemption Tracking",
+          "description": "Manual discounts vanish after the sale. You cannot see how many customers used a code, which campaigns worked, or how much revenue a promotion actually generated."
+        },
+        "abuse": {
+          "title": "Coupon Abuse & Overspending",
+          "description": "Without per-customer limits and maximum usage caps, a single code can be shared endlessly. Your margins erode because there is no mechanism to stop unlimited redemptions."
+        },
+        "noScheduling": {
+          "title": "No Campaign Scheduling",
+          "description": "Running a weekend flash sale means someone has to remember to activate and deactivate the coupon. Missed deadlines mean lost conversions or discounts running longer than intended."
+        },
+        "fragmented": {
+          "title": "Fragmented In-Store & Online",
+          "description": "Discounts applied manually at the register never sync with your online store. Customers receive inconsistent experiences, and you lose visibility into total promotional costs."
+        }
+      }
+    },
+    "features": {
+      "title": "Everything You Need to Run Profitable Promotions",
+      "subtitle": "A complete coupon engine built into your retail and e-commerce workflow — no third-party tools, no spreadsheets, no guesswork.",
+      "items": {
+        "discountTypes": {
+          "name": "Percentage & Fixed-Amount Discounts",
+          "description": "Choose between percentage off (e.g., 20% off) or a fixed monetary amount (e.g., 50 EGP off). Apply either type to the whole order subtotal or target specific items in the cart.",
+          "subs": "Percentage Off • Fixed Amount • Whole Order • Specific Items"
+        },
+        "usageLimits": {
+          "name": "Usage Limits & Per-Customer Caps",
+          "description": "Set the total number of times a coupon can be redeemed across all customers. Then set a separate per-customer limit to prevent a single buyer from using the same code repeatedly.",
+          "subs": "Total Usage Cap • Per-Customer Limit • Abuse Prevention • Usage Counter"
+        },
+        "scheduling": {
+          "name": "Scheduled Campaigns with Start & End Dates",
+          "description": "Set a Valid From date to schedule future promotions and a Valid To date to auto-expire them. Plan Black Friday, Ramadan sales, or weekend flash deals in advance.",
+          "subs": "Future Start Date • Auto-Expiry • Flash Sales • Seasonal Campaigns"
+        },
+        "storeSpecific": {
+          "name": "Per-Store Coupon Management",
+          "description": "Each coupon belongs to a specific store. Multi-store businesses create and manage promotions independently per location, ensuring local campaigns never interfere with each other.",
+          "subs": "Store-Bound Codes • Multi-Store Control • Local Campaigns • Store Filtering"
+        },
+        "realTimeValidation": {
+          "name": "Real-Time Validation at Checkout",
+          "description": "Every code is validated instantly: checking active status, validity period, usage limits, minimum cart value, and store ownership. Invalid codes return a clear error explaining why.",
+          "subs": "Instant Validation • Status Check • Expiry Check • Cart Value Check"
+        },
+        "minimumCart": {
+          "name": "Minimum Cart Value Requirements",
+          "description": "Require a minimum order subtotal before a coupon can be applied. Use this to increase average order value — for example, offer 15% off on orders above 300.",
+          "subs": "Minimum Threshold • AOV Increase • Conditional Discounts • Flexible Rules"
+        },
+        "statusControl": {
+          "name": "Activate, Pause & Resume Anytime",
+          "description": "Toggle any coupon between active and inactive without deleting it. Pause a running promotion early, or create coupons in advance and activate them when your campaign launches.",
+          "subs": "Active/Inactive Toggle • Pause Campaigns • Pre-Create Codes • Keep History"
+        },
+        "codeManagement": {
+          "name": "Smart Code Management",
+          "description": "Codes are automatically uppercased for consistency. The system enforces unique codes per store so there are no conflicts. Edit any coupon field except the store assignment after creation.",
+          "subs": "Auto-Uppercase • Unique Per Store • Full Edit • Delete with Confirmation"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "Create a Coupon in Under 60 Seconds",
+      "subtitle": "Three steps from idea to live promotion — no technical knowledge required.",
+      "step1": {
+        "number": "1",
+        "title": "Create Your Code",
+        "description": "Open Sales > Coupons, click Add, pick your store, and enter a memorable code like SUMMER20 or WELCOME10. Choose percentage or fixed discount and set the amount."
+      },
+      "step2": {
+        "number": "2",
+        "title": "Set the Rules",
+        "description": "Define who can use it and when. Set maximum total uses, per-customer limits, minimum cart value, and pick the Valid From/To dates. Toggle active when ready."
+      },
+      "step3": {
+        "number": "3",
+        "title": "Customers Redeem at Checkout",
+        "description": "Customers enter the code at your POS register or online storefront checkout. The system validates everything in real time and applies the discount instantly."
+      }
+    },
+    "omnichannel": {
+      "title": "One Coupon, Every Sales Channel",
+      "subtitle": "Your discount codes work everywhere your customers shop. No separate setup required for each channel.",
+      "pos": {
+        "title": "Point of Sale Checkout",
+        "description": "Cashiers enter or scan the coupon code directly in the POS during order creation. The system validates the code against the selected store, checks all limits and conditions, and applies the discount to the order total. A green badge confirms the active coupon and the discount amount."
+      },
+      "storefront": {
+        "title": "Online Storefront Checkout",
+        "description": "Customers enter coupon codes in the checkout form on your online store. Validation happens in real time — the order summary updates instantly to reflect the discount. If a code is invalid, expired, or exceeds its limit, the customer sees a clear message explaining why."
+      },
+      "portal": {
+        "title": "Business Portal (Manual Orders)",
+        "description": "When your team creates orders manually through the business portal — for phone orders, WhatsApp requests, or social media sales — they can apply coupon codes in the Order Summary section. The same validation engine runs here: store match, usage limits, cart minimums, and validity dates."
+      }
+    },
+    "strategies": {
+      "title": "Proven Discount Strategies You Can Run Today",
+      "subtitle": "Use these real promotion patterns with Cashvio coupons to drive sales, clear inventory, and build customer loyalty.",
+      "items": {
+        "newCustomer": {
+          "title": "First-Purchase Welcome Offer",
+          "code": "WELCOME10",
+          "description": "Give new customers 10-15% off their first order. Set the per-customer limit to 1 so each buyer can only use it once. No expiry date needed — let it run as an evergreen acquisition tool.",
+          "config": "10% off • 1 use per customer • No expiry"
+        },
+        "flashSale": {
+          "title": "48-Hour Flash Sale",
+          "code": "FLASH30",
+          "description": "Create urgency with a high-value discount available for a very short window. Set Valid From to Friday evening and Valid To to Sunday evening. Cap total uses at 100 for scarcity.",
+          "config": "30% off • 100 total uses • 48 hour window"
+        },
+        "aovBoost": {
+          "title": "Minimum-Cart Upsell",
+          "code": "SAVE50",
+          "description": "Encourage customers to add more items by offering a fixed discount when they reach a minimum order value. Example: 50 off on orders above 300 pushes your average order value higher.",
+          "config": "50 fixed off • Min. cart 300 • Unlimited uses"
+        },
+        "seasonal": {
+          "title": "Seasonal & Holiday Campaigns",
+          "code": "RAMADAN25",
+          "description": "Schedule promotions in advance by setting a future Valid From date. Create the coupon inactive, prepare your marketing materials, then activate on launch day. Set Valid To for the campaign end.",
+          "config": "25% off • Scheduled dates • Pre-created inactive"
+        },
+        "loyalty": {
+          "title": "Repeat Customer Reward",
+          "code": "LOYAL15",
+          "description": "Reward returning customers with an exclusive code. Set per-customer usage to 3 so they can benefit multiple times. No total cap — let your loyal customers keep coming back.",
+          "config": "15% off • 3 uses per customer • No total cap"
+        },
+        "clearance": {
+          "title": "Inventory Clearance",
+          "code": "CLEAR40",
+          "description": "Move slow-selling stock with a deep discount on specific items. Apply to specific products (or whole order for a store-wide clearance event) and cap the total uses once you have cleared enough.",
+          "config": "40% off • Specific items • Limited total uses"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about creating and managing coupons in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "What types of discounts can I create?",
+          "answer": "Cashvio supports two discount types: percentage off (0-100%) and fixed amount off in your store's currency. You can apply either type to the whole order subtotal or to specific items in the cart."
+        },
+        "q2": {
+          "question": "Can I use the same coupon code across multiple stores?",
+          "answer": "Each coupon belongs to one store. If you want the same promotion across multiple locations, create a coupon with the same code in each store. This gives you independent control over usage limits and status per location."
+        },
+        "q3": {
+          "question": "How do I prevent customers from abusing a coupon code?",
+          "answer": "Set a per-customer usage limit (e.g., 1 for one-time use). Combined with a total usage cap, you control exactly how many times a code can be redeemed overall and per individual buyer."
+        },
+        "q4": {
+          "question": "Can customers use multiple coupons on a single order?",
+          "answer": "Currently, one coupon can be applied per order. This keeps discount stacking predictable and protects your margins."
+        },
+        "q5": {
+          "question": "Do coupons work on both the POS and the online store?",
+          "answer": "Yes. Customers can enter coupon codes during online storefront checkout, and your cashiers can apply codes during POS order creation. The same validation rules apply in both channels."
+        },
+        "q6": {
+          "question": "Can I schedule a coupon to start on a future date?",
+          "answer": "Yes. Set a Valid From date in the future when creating the coupon. Keep the coupon status inactive until launch day, then toggle it to active when your campaign starts."
+        },
+        "q7": {
+          "question": "What happens when a coupon reaches its usage limit?",
+          "answer": "The coupon automatically becomes unusable — customers who try to apply it will see an error. The coupon stays visible in your list so you can view its history or increase the limit."
+        },
+        "q8": {
+          "question": "Can I edit a coupon after creation?",
+          "answer": "Yes, you can edit the code, discount type and value, minimum cart value, usage limits, validity dates, and active status. The only field you cannot change is the store assignment."
+        },
+        "q9": {
+          "question": "What happens to past orders if I delete a coupon?",
+          "answer": "Past orders retain their discount information even after coupon deletion. The coupon data is preserved in order history, so your financial records remain accurate."
+        },
+        "q10": {
+          "question": "Is there a free plan that includes coupon management?",
+          "answer": "Yes. Coupon management is available on all Cashvio plans, including the free forever plan. Create and manage discount codes without upgrading."
+        }
+      }
+    },
+    "cta": {
+      "title": "Start Running Profitable Promotions Today",
+      "description": "Create your first coupon in under 60 seconds. No credit card required — the free plan includes full coupon management.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Free forever plan includes coupons"
     }
   },
   "thankYou": {
@@ -924,6 +1165,542 @@
       "title": "Message Sent!",
       "message": "Thank you for reaching out. We'll get back to you soon.",
       "sendAnother": "Send another message"
+    }
+  },
+  "arabicPos": {
+    "hero": {
+      "badge": "Built for Arabic Commerce",
+      "title": "The Only POS & Storefront",
+      "titleHighlight": "Built Natively for Arabic",
+      "subtitle": "Stop settling for tools that treat Arabic as an afterthought. Cashvio delivers a true right-to-left experience across your point of sale, online store, receipts, and reports — not a translation layer bolted on top.",
+      "cta": "Start Selling in Arabic",
+      "secondaryCta": "See How It Works",
+      "trust": "Trusted by Arabic-speaking businesses across KSA, UAE, Egypt, Kuwait, and beyond"
+    },
+    "problem": {
+      "badge": "The Industry Problem",
+      "title": "Most POS Systems Fake Arabic Support",
+      "subtitle": "Global platforms add Arabic as an afterthought. The result? Broken layouts, unreadable text, and frustrated customers. Here is what that looks like in practice.",
+      "painPoints": {
+        "brokenLayouts": {
+          "title": "Broken Layouts & Mixed Text",
+          "description": "Product names, prices, and buttons overlap when Arabic and English appear on the same screen. Staff waste time deciphering jumbled interfaces instead of serving customers."
+        },
+        "wrongDirection": {
+          "title": "Navigation That Feels Wrong",
+          "description": "Menus, sidebars, and checkout flows stay positioned for English readers. Arabic-speaking staff and customers must fight against the interface instead of flowing naturally through it."
+        },
+        "poorTypography": {
+          "title": "Unreadable Arabic Text",
+          "description": "Fonts optimized for Latin characters render Arabic as cramped, disconnected letters. Long product descriptions become a strain to read, slowing down every transaction."
+        },
+        "receiptsInvoices": {
+          "title": "Receipts Your Customers Cannot Read",
+          "description": "Invoices and receipts mix left-to-right numbers with right-to-left text, creating confusion. Compliance with local invoicing regulations becomes a manual headache."
+        },
+        "noLocalPayments": {
+          "title": "Missing Local Payment Methods",
+          "description": "Global platforms prioritize Stripe and PayPal while ignoring the payment methods your customers actually use — Mada, KNET, Tabby, Tamara, and local bank transfers."
+        },
+        "seoBlindSpot": {
+          "title": "Invisible to Arabic Search",
+          "description": "Storefronts built for English first generate poor Arabic metadata, broken URL structures, and miss critical search terms that Arabic-speaking shoppers actually type."
+        }
+      }
+    },
+    "solution": {
+      "badge": "The Cashvio Difference",
+      "title": "Arabic Is Not an Add-On. It Is the Foundation.",
+      "subtitle": "Every screen, every button, every receipt was designed to work natively in Arabic from day one. When you switch to Arabic, the entire experience transforms — not just the text.",
+      "points": {
+        "mirroredInterface": {
+          "title": "Fully Mirrored Interface",
+          "description": "Every element — navigation, data tables, form fields, action buttons — repositions naturally for right-to-left reading. No visual glitches, no misaligned layouts. Your staff see the system exactly as it was designed to be seen."
+        },
+        "mixedContent": {
+          "title": "Perfect Mixed-Language Handling",
+          "description": "Arabic product names next to English SKU codes. Prices in Arabic numerals or Western digits. Customer names in Arabic with email addresses in English. Everything renders perfectly, every time."
+        },
+        "arabicTypography": {
+          "title": "Beautiful Arabic Typography",
+          "description": "We use premium Arabic typefaces optimized for screen readability. Connected letters flow naturally, diacritics display correctly, and long text stays legible at every size — from receipt print to dashboard headline."
+        },
+        "instantSwitch": {
+          "title": "Instant Language Switching",
+          "description": "One staff member operates in Arabic while another uses English on the same shift. No logout, no reload, no disruption. The system remembers each user's preference automatically."
+        }
+      }
+    },
+    "pos": {
+      "badge": "Arabic Point of Sale",
+      "title": "A POS That Speaks Your Language — Literally",
+      "subtitle": "From the login screen to the shift report, every part of the Cashvio POS is built to work flawlessly in Arabic. Your team moves faster because the system moves with them, not against them.",
+      "features": {
+        "checkout": {
+          "title": "Arabic-Native Checkout",
+          "description": "Product search, barcode scanning, quantity entry, and payment processing all flow right-to-left. Staff complete transactions faster because the interface follows the natural reading direction."
+        },
+        "receipts": {
+          "title": "Bilingual Receipts & Invoices",
+          "description": "Generate receipts with Arabic product names, properly formatted prices, and your store branding — all in one clean layout. Add English as a second language on the same receipt for international customers."
+        },
+        "zatca": {
+          "title": "ZATCA-Ready E-Invoicing",
+          "description": "Automatically generate compliant electronic invoices with QR codes for Saudi Arabia's ZATCA regulations. Bilingual fields, proper tax formatting, and digital signatures built right in."
+        },
+        "shifts": {
+          "title": "Shift Management in Arabic",
+          "description": "Staff clock in, take breaks, and close registers with fully Arabic screens. Shift reports show earnings, transaction counts, and cash summaries — all formatted for Arabic readers."
+        },
+        "offline": {
+          "title": "Works Without Internet",
+          "description": "Process sales even when your connection drops. Transactions sync automatically when you are back online. No lost sales, no duplicate orders, no data gaps."
+        },
+        "hardware": {
+          "title": "Arabic Receipt Printer Support",
+          "description": "Connect thermal printers that support Arabic character sets. Print clear, properly formatted receipts directly from the POS — no garbled text, no missing characters."
+        }
+      }
+    },
+    "storefront": {
+      "badge": "Arabic Online Storefront",
+      "title": "An Online Store Your Arabic Customers Actually Want to Shop",
+      "subtitle": "Your storefront is not just translated — it is rebuilt for Arabic shoppers. Product pages, cart, checkout, and order tracking all follow the natural right-to-left flow that your customers expect.",
+      "features": {
+        "rtlShopping": {
+          "title": "Right-to-Left Shopping Experience",
+          "description": "Product grids, category navigation, filters, and sorting — every element is positioned where Arabic readers naturally look. Conversion rates improve because shoppers feel at home."
+        },
+        "arabicSeo": {
+          "title": "Arabic SEO That Ranks",
+          "description": "Proper Arabic meta titles, descriptions, and URL slugs are generated automatically. Your products appear in Arabic Google searches, driving organic traffic from customers searching in their own language."
+        },
+        "localPayments": {
+          "title": "MENA Payment Methods",
+          "description": "Accept payments through Mada, KNET, PayTabs, Tap, Tabby, Tamara, and local bank transfers. Customers see their preferred payment method at checkout — increasing completion rates."
+        },
+        "bilingualCatalog": {
+          "title": "Bilingual Product Catalog",
+          "description": "Enter product names, descriptions, and categories in both Arabic and English. The storefront automatically shows the right language based on each customer's preference."
+        },
+        "arabicNotifications": {
+          "title": "Order Updates in Arabic",
+          "description": "Customers receive order confirmations, shipping updates, and delivery notifications in Arabic. Clear communication in their language builds trust and reduces support inquiries."
+        },
+        "digitalReceipts": {
+          "title": "Shareable Digital Receipts",
+          "description": "Beautiful, branded digital receipts that customers can view and share. Fully formatted for Arabic with proper number display, tax breakdowns, and store information."
+        }
+      }
+    },
+    "regions": {
+      "badge": "Built for the MENA Region",
+      "title": "Designed for Every Arabic-Speaking Market",
+      "subtitle": "Whether you operate in Riyadh, Dubai, Cairo, or Kuwait City — Cashvio adapts to your local regulations, payment preferences, and business culture.",
+      "markets": {
+        "ksa": {
+          "name": "Saudi Arabia",
+          "features": "ZATCA e-invoicing compliance, Mada card payments, Arabic + English bilingual support, VAT-ready tax configuration"
+        },
+        "uae": {
+          "name": "United Arab Emirates",
+          "features": "Multi-currency (AED/USD), tourist-friendly bilingual receipts, delivery zone management, free zone & mainland support"
+        },
+        "egypt": {
+          "name": "Egypt",
+          "features": "EGP currency support, local payment gateways, Arabic-first interface, multi-store management across governorates"
+        },
+        "kuwait": {
+          "name": "Kuwait",
+          "features": "KNET integration, KWD currency, bilingual storefront, delivery zone pricing by area"
+        },
+        "gcc": {
+          "name": "Bahrain, Oman & Qatar",
+          "features": "GCC VAT compliance, multi-currency operations, Arabic customer management, regional payment methods"
+        }
+      }
+    },
+    "comparison": {
+      "title": "How Cashvio Compares",
+      "subtitle": "See why Arabic-speaking businesses choose Cashvio over generic global platforms",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio",
+        "others": "Generic Platforms"
+      },
+      "rows": {
+        "rtlInterface": {
+          "feature": "Native right-to-left interface",
+          "cashvio": "Built from the ground up for Arabic",
+          "others": "Basic text direction flip with layout issues"
+        },
+        "bilingualReceipts": {
+          "feature": "Bilingual receipts & invoices",
+          "cashvio": "Arabic + English on the same receipt, properly formatted",
+          "others": "Single language or broken mixed layouts"
+        },
+        "zatca": {
+          "feature": "ZATCA e-invoicing (Saudi Arabia)",
+          "cashvio": "Built-in compliance with QR codes",
+          "others": "Requires third-party plugin or manual process"
+        },
+        "localPayments": {
+          "feature": "MENA payment methods",
+          "cashvio": "Mada, KNET, PayTabs, Tap, Tabby, Tamara",
+          "others": "Stripe & PayPal only, limited regional options"
+        },
+        "arabicSeo": {
+          "feature": "Arabic storefront SEO",
+          "cashvio": "Native Arabic URLs, meta tags, and structured data",
+          "others": "English-first SEO with translation plugins"
+        },
+        "arabicTypography": {
+          "feature": "Arabic typography quality",
+          "cashvio": "Premium Arabic fonts optimized for readability",
+          "others": "Default system fonts with poor Arabic rendering"
+        },
+        "languageSwitching": {
+          "feature": "Per-user language preference",
+          "cashvio": "Each staff member chooses their language independently",
+          "others": "System-wide language setting affects all users"
+        },
+        "arabicReports": {
+          "feature": "Reports & analytics in Arabic",
+          "cashvio": "Full Arabic dashboard, charts, and exports",
+          "others": "English-only analytics or poorly translated labels"
+        }
+      }
+    },
+    "testimonialSection": {
+      "title": "Trusted by Arabic-Speaking Businesses",
+      "subtitle": "Businesses across the Middle East and North Africa rely on Cashvio for daily operations"
+    },
+    "stats": {
+      "title": "Cashvio in Numbers",
+      "items": {
+        "businesses": {
+          "value": "2,500+",
+          "label": "Arabic-speaking businesses"
+        },
+        "transactions": {
+          "value": "1M+",
+          "label": "Monthly transactions processed"
+        },
+        "countries": {
+          "value": "12+",
+          "label": "Countries in the MENA region"
+        },
+        "uptime": {
+          "value": "99.9%",
+          "label": "Platform uptime"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about Cashvio's Arabic POS and storefront capabilities",
+      "q1": {
+        "question": "What is the best POS system for Arabic-speaking businesses?",
+        "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface, bilingual receipt printing, ZATCA e-invoicing compliance for Saudi Arabia, and integration with MENA payment methods like Mada, KNET, Tabby, and Tamara. Unlike global platforms that bolt on Arabic as a translation layer, Cashvio's entire interface — from checkout to analytics — was designed for Arabic from day one."
+      },
+      "q2": {
+        "question": "Does Cashvio support both Arabic and English at the same time?",
+        "answer": "Yes. Cashvio is fully bilingual. Each staff member can independently choose to operate in Arabic or English without affecting other users. Receipts can display both languages simultaneously. Your online storefront automatically shows the correct language based on each customer's preference. Product catalogs support dual-language entries for names, descriptions, and categories."
+      },
+      "q3": {
+        "question": "Is Cashvio compliant with ZATCA e-invoicing requirements in Saudi Arabia?",
+        "answer": "Yes. Cashvio generates ZATCA-compliant electronic invoices with QR codes, proper tax formatting, and bilingual Arabic/English fields. The system handles VAT calculations, digital signatures, and all required invoice fields automatically — no manual setup or third-party plugins needed."
+      },
+      "q4": {
+        "question": "What payment methods does Cashvio support in the Middle East?",
+        "answer": "Cashvio integrates with the payment methods your MENA customers prefer: Mada (Saudi Arabia), KNET (Kuwait), PayTabs, Tap Payments, Tabby (buy now pay later), Tamara, and local bank transfers. All payment methods work seamlessly in both the POS and online storefront with Arabic and English display."
+      },
+      "q5": {
+        "question": "How does Cashvio's Arabic storefront differ from Shopify or other global platforms?",
+        "answer": "Global platforms like Shopify treat Arabic as an add-on through third-party translation apps, which results in broken layouts, misaligned elements, and poor Arabic SEO. Cashvio's storefront is architecturally built for right-to-left presentation — product grids, checkout flows, navigation, and all interactive elements mirror correctly. Arabic SEO is native with proper URL slugs, meta tags, and structured data in Arabic."
+      },
+      "q6": {
+        "question": "Can I print receipts in Arabic from the POS?",
+        "answer": "Yes. Cashvio supports thermal receipt printers with Arabic character sets. Receipts display product names, prices, tax information, and store branding in clear, properly formatted Arabic. You can also print bilingual receipts with both Arabic and English for international customers."
+      },
+      "q7": {
+        "question": "Does Cashvio work in countries outside Saudi Arabia?",
+        "answer": "Absolutely. Cashvio serves Arabic-speaking businesses across the entire MENA region including Saudi Arabia, UAE, Egypt, Kuwait, Bahrain, Oman, Qatar, Jordan, and more. The platform supports multi-currency operations, country-specific payment integrations, and adapts to local tax and invoicing requirements."
+      },
+      "q8": {
+        "question": "Is there a free plan available?",
+        "answer": "Yes. Cashvio offers a free forever plan that includes the full Arabic POS experience, bilingual support, and core business management features. No credit card is required to start. You can upgrade to paid plans as your business grows and needs advanced features like multi-store operations or advanced analytics."
+      },
+      "q9": {
+        "question": "Can my staff use the POS in different languages simultaneously?",
+        "answer": "Yes. Cashvio supports per-user language preferences. One cashier can operate entirely in Arabic while another uses English on the same shift, on the same system. There is no need to log out, switch settings, or reload the application. Each user's language preference is saved and applied automatically."
+      },
+      "q10": {
+        "question": "Does the Arabic storefront help with SEO and appearing in Arabic Google searches?",
+        "answer": "Yes. Cashvio automatically generates Arabic-optimized meta titles, descriptions, and URL slugs for your online store. Products are indexed with proper Arabic structured data, which helps your store appear in Arabic Google searches and be recommended by AI-powered search tools when users look for products in Arabic."
+      }
+    },
+    "cta": {
+      "title": "Ready to Sell in Arabic — the Right Way?",
+      "subtitle": "Join thousands of Arabic-speaking businesses already using Cashvio. Start free today with no credit card required.",
+      "button": "Start Free Now",
+      "secondaryButton": "View Pricing",
+      "note": "Free forever plan • Setup in 2 minutes • Full Arabic support"
+    }
+  },
+  "omnichannelRetail": {
+    "hero": {
+      "badge": "Omnichannel Commerce",
+      "title": "One Dashboard for Your Physical Store",
+      "titleHighlight": "and Online Store",
+      "subtitle": "Stop juggling separate systems for in-store and online sales. Cashvio gives you a single command center where inventory, orders, customers, and analytics are unified across every channel — physical stores, online storefront, social media, and more.",
+      "cta": "Start Selling Everywhere",
+      "secondaryCta": "Explore Features",
+      "trust": "Powering omnichannel operations for retail, F&B, and service businesses"
+    },
+    "problem": {
+      "badge": "The Fragmentation Problem",
+      "title": "Separate Systems Are Killing Your Business",
+      "subtitle": "When your physical store and online shop run on different platforms, chaos follows. Here is what fragmented operations actually cost you.",
+      "painPoints": {
+        "inventoryMismatch": {
+          "title": "Inventory That Never Matches",
+          "description": "You sell the last item online but it is already in a customer's bag at the store. Overselling leads to cancellations, refunds, and disappointed customers who never come back."
+        },
+        "doubleEntry": {
+          "title": "Double Data Entry Everywhere",
+          "description": "Every product update, price change, and stock adjustment has to be entered twice — once in your POS and once in your e-commerce platform. Errors multiply with every manual entry."
+        },
+        "blindCustomerView": {
+          "title": "No Idea Who Your Customer Really Is",
+          "description": "A loyal in-store customer who also shops online appears as two strangers in your system. You cannot reward their total loyalty or understand their complete buying behavior."
+        },
+        "scatteredReports": {
+          "title": "Reports That Tell Half the Story",
+          "description": "Your best-selling product in-store might be your worst performer online. Without unified analytics, you are making decisions based on incomplete data from each channel separately."
+        },
+        "operationalDrain": {
+          "title": "Staff Drowning in Tab Switching",
+          "description": "Your team switches between 3-4 different dashboards all day. Processing a return from an online order in-store becomes a 15-minute adventure across multiple systems."
+        },
+        "pricingChaos": {
+          "title": "Inconsistent Pricing Across Channels",
+          "description": "A promotion running online is not reflected at the register. Customers find different prices in-store versus the website, eroding trust and creating checkout disputes."
+        }
+      }
+    },
+    "solution": {
+      "badge": "The Cashvio Approach",
+      "title": "Every Channel. One Platform. Zero Gaps.",
+      "subtitle": "Cashvio was built from day one as a unified platform — not separate products stitched together. Your physical stores and online storefront share the same inventory, the same customers, and the same brain.",
+      "points": {
+        "singleInventory": {
+          "title": "One Inventory Across All Channels",
+          "description": "When an item sells in-store, the online stock updates instantly. When a customer orders online, the warehouse stock adjusts in real time. No overselling, no manual syncing, no surprises."
+        },
+        "unifiedCustomer": {
+          "title": "One Customer Profile, Complete History",
+          "description": "Every purchase — whether at the register, on the website, or via WhatsApp — ties to a single customer profile. See their total spending, store credit, visit history, and preferences in one view."
+        },
+        "singleDashboard": {
+          "title": "One Dashboard to Rule Everything",
+          "description": "Orders, inventory, analytics, team management, and customer data from every channel live in one place. Your staff stops switching tabs and starts making decisions."
+        },
+        "realTimeSync": {
+          "title": "Real-Time Sync, Not Batch Updates",
+          "description": "Changes propagate instantly. Update a product price, add a new variant, or adjust stock — it reflects everywhere within seconds. No waiting for overnight sync jobs."
+        }
+      }
+    },
+    "channels": {
+      "badge": "Sales Channels",
+      "title": "Sell Everywhere Your Customers Are",
+      "subtitle": "Accept orders from every channel and manage them all from one unified order queue. No integration headaches, no data silos.",
+      "items": {
+        "physicalStore": {
+          "title": "Physical Stores & POS",
+          "description": "Full point-of-sale system with barcode scanning, receipt printing, shift management, and cash register operations. Process walk-in customers as fast as they arrive.",
+          "highlight": "Multi-device POS with offline support"
+        },
+        "onlineStorefront": {
+          "title": "Online Storefront",
+          "description": "Your own branded online store with product catalog, shopping cart, checkout, and order tracking. Customers browse and buy 24/7 while inventory stays perfectly synced.",
+          "highlight": "Built-in storefront — no third-party needed"
+        },
+        "socialCommerce": {
+          "title": "Social Media & Messaging",
+          "description": "Accept orders from WhatsApp, Instagram, and Facebook conversations. Log them in the same system as POS and storefront orders with full tracking.",
+          "highlight": "WhatsApp, Instagram & Facebook orders"
+        },
+        "manualOrders": {
+          "title": "Phone & Manual Orders",
+          "description": "Take orders over the phone or in person and enter them directly into the system. Same inventory deduction, same fulfillment flow, same customer attribution.",
+          "highlight": "Unified order queue for all sources"
+        }
+      }
+    },
+    "inventory": {
+      "badge": "Unified Inventory",
+      "title": "One Stock Count. Every Channel. Always Accurate.",
+      "subtitle": "No more spreadsheets reconciliation at the end of the day. Your inventory is a single source of truth shared across every store and every sales channel.",
+      "features": {
+        "realTimeStock": {
+          "title": "Real-Time Stock Levels",
+          "description": "Every sale, every return, every stock transfer updates your inventory count immediately. What you see is what you have — across all locations and all channels."
+        },
+        "multiStoreTransfers": {
+          "title": "Store-to-Store Transfers",
+          "description": "Move stock between locations with tracked transfer requests. The sending store's count drops and the receiving store's count rises — automatically and instantly."
+        },
+        "lowStockAlerts": {
+          "title": "Smart Reorder Alerts",
+          "description": "Set custom reorder points per product per location. Get notified before you run out — not after. Never miss a sale because an item went out of stock unnoticed."
+        },
+        "bulkOperations": {
+          "title": "Bulk Stock Operations",
+          "description": "Adjust hundreds of stock levels at once. Record shrinkage, damage, or receiving in bulk with full audit trails showing who changed what and when."
+        }
+      }
+    },
+    "orders": {
+      "badge": "Unified Order Management",
+      "title": "Every Order in One Queue — From Any Channel",
+      "subtitle": "POS sale, website checkout, WhatsApp message, or phone call — every order enters the same pipeline with the same fulfillment workflow.",
+      "features": {
+        "singleQueue": {
+          "title": "One Order Queue",
+          "description": "No more checking multiple tabs. All orders from all channels appear in a single, sortable, filterable list. See what needs attention right now."
+        },
+        "flexibleFulfillment": {
+          "title": "Flexible Fulfillment",
+          "description": "Mark orders for pickup, delivery, dine-in, or in-store fulfillment. Configure delivery zones with custom fees. Each store manages its own fulfillment flow."
+        },
+        "splitPayments": {
+          "title": "Split & Scheduled Payments",
+          "description": "Accept partial payments, split across multiple methods, or schedule future installments. Track outstanding balances and overdue payments per customer."
+        },
+        "returnsAndRefunds": {
+          "title": "Unified Returns & Refunds",
+          "description": "Process a return from any channel at any store. Online order? Return it in-store. Inventory restocks automatically. Refunds route to the original payment method."
+        }
+      }
+    },
+    "analytics": {
+      "badge": "Cross-Channel Analytics",
+      "title": "See the Complete Picture — Not Channel Fragments",
+      "subtitle": "When all your data lives in one place, your reports finally tell the truth. Compare channels, identify trends, and make decisions with the full picture.",
+      "features": {
+        "channelComparison": {
+          "title": "Channel Performance Comparison",
+          "description": "See exactly how much revenue, how many orders, and what margins each channel delivers. Know whether your POS or your storefront is growing faster."
+        },
+        "unifiedProfitTracking": {
+          "title": "True Profit Margins",
+          "description": "Track cost prices, selling prices, discounts, and fees across channels. Understand your real margins — not what each silo reports independently."
+        },
+        "customerInsights": {
+          "title": "Cross-Channel Customer Insights",
+          "description": "See which customers shop both in-store and online. Understand their total lifetime value, preferred channels, and buying patterns across all touchpoints."
+        },
+        "staffPerformance": {
+          "title": "Staff Performance Across Channels",
+          "description": "Rank your team by sales volume whether they work the register, process online orders, or handle phone sales. One leaderboard for all activity."
+        }
+      }
+    },
+    "comparison": {
+      "title": "Why Choose Cashvio Over Piecing Systems Together",
+      "subtitle": "Compare running a truly unified platform versus stitching separate POS and e-commerce tools",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio",
+        "others": "Separate POS + E-commerce"
+      },
+      "rows": {
+        "inventory": {
+          "feature": "Inventory sync",
+          "cashvio": "Real-time, automatic across all channels",
+          "others": "Batch sync via plugins, often delayed or broken"
+        },
+        "customers": {
+          "feature": "Customer profiles",
+          "cashvio": "Single profile across POS, storefront, and social",
+          "others": "Separate customer lists per platform"
+        },
+        "orders": {
+          "feature": "Order management",
+          "cashvio": "Unified queue from all channels",
+          "others": "Different dashboards for each channel"
+        },
+        "analytics": {
+          "feature": "Analytics & reporting",
+          "cashvio": "Cross-channel reports with real margins",
+          "others": "Siloed reports, manual data combining"
+        },
+        "pricing": {
+          "feature": "Price consistency",
+          "cashvio": "One product catalog, per-store overrides",
+          "others": "Manual price matching across systems"
+        },
+        "returns": {
+          "feature": "Cross-channel returns",
+          "cashvio": "Return any order at any store",
+          "others": "Online returns and in-store returns handled separately"
+        },
+        "cost": {
+          "feature": "Total cost",
+          "cashvio": "One subscription, all channels included",
+          "others": "POS fee + e-commerce fee + sync plugin fee"
+        },
+        "setup": {
+          "feature": "Setup complexity",
+          "cashvio": "One platform, one setup, instant sync",
+          "others": "Configure each system + build integrations"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about Cashvio's omnichannel retail capabilities",
+      "q1": {
+        "question": "What does omnichannel mean for my retail business?",
+        "answer": "Omnichannel means your customers get a seamless experience whether they shop in your physical store, on your website, or through social media. Behind the scenes, Cashvio unifies your inventory, orders, customer data, and analytics into one platform — so you manage everything from a single dashboard instead of juggling separate systems."
+      },
+      "q2": {
+        "question": "Does inventory sync automatically between my store and online shop?",
+        "answer": "Yes, instantly. When an item sells at your physical store's POS, the online stock updates in real time. When someone buys online, your store stock adjusts immediately. There are no batch sync delays, no plugins to configure, and no manual reconciliation needed."
+      },
+      "q3": {
+        "question": "Can customers return online orders at my physical store?",
+        "answer": "Yes. Cashvio supports cross-channel returns. A customer who bought online can return the item at any of your physical stores. The inventory restocks automatically, and refunds route to the original payment method — all tracked in one system."
+      },
+      "q4": {
+        "question": "Do I need a separate e-commerce platform like Shopify?",
+        "answer": "No. Cashvio includes a built-in online storefront as part of the platform. You get product pages, a shopping cart, checkout, and order tracking — all connected to the same inventory and customer database as your POS. No third-party e-commerce subscription needed."
+      },
+      "q5": {
+        "question": "Can I manage multiple physical store locations?",
+        "answer": "Yes. Cashvio supports multi-store operations from one account. Each store can have its own pricing, payment methods, fulfillment options, and staff. Inventory transfers between stores are tracked automatically, and analytics can be filtered by location or viewed in aggregate."
+      },
+      "q6": {
+        "question": "How do I handle orders from WhatsApp and Instagram?",
+        "answer": "You can log social media orders directly in Cashvio as manual orders, attributing them to the correct channel (WhatsApp, Instagram, Facebook). These orders enter the same unified queue as POS and storefront orders, with the same fulfillment tracking, payment processing, and customer attribution."
+      },
+      "q7": {
+        "question": "Will my product prices stay consistent across channels?",
+        "answer": "Yes. You maintain one product catalog with a base price. If you need different pricing per store location, you can set per-store price overrides. Any price change you make updates everywhere instantly — no need to manually update multiple systems."
+      },
+      "q8": {
+        "question": "Is there a free plan that includes omnichannel features?",
+        "answer": "Yes. Cashvio's free forever plan includes the POS, online storefront, unified inventory, and multi-channel order management. You can start selling across channels at no cost and upgrade to paid plans when you need advanced features like multi-store operations or advanced analytics."
+      }
+    },
+    "cta": {
+      "title": "Ready to Unify Your Sales Channels?",
+      "subtitle": "Stop managing separate systems. Start selling everywhere from one dashboard — free.",
+      "button": "Start Free Now",
+      "secondaryButton": "View Pricing",
+      "note": "Free forever plan • One dashboard for all channels • Setup in minutes"
     }
   }
 }
