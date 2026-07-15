@@ -742,14 +742,6 @@
         "name": "Custom Reports",
         "description": "Create tailored reports with flexible date ranges, store filtering, channel attribution, and exportable data."
       },
-      "apiAccess": {
-        "name": "API Access",
-        "description": "Full REST API for custom integrations, third-party applications, and building your own tools on top of Cashvio."
-      },
-      "webhooks": {
-        "name": "Webhooks",
-        "description": "Real-time event notifications for orders, payments, inventory changes, and customer activity to your external systems."
-      },
       "multiLanguage": {
         "name": "Multi-Language & RTL",
         "description": "Full English and Arabic support with right-to-left interface throughout the entire platform and customer-facing pages."
@@ -784,6 +776,7 @@
     "title": "Welcome to Cashvio!",
     "subtitle": "Your account has been created successfully. You're all set to start managing your business.",
     "emailNotice": "We've sent a welcome email with your account details.",
+    "redirecting": "Taking you to your dashboard in {seconds}s…",
     "whatsNext": {
       "title": "What's Next?",
       "step1": {

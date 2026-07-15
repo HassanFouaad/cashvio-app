@@ -24,6 +24,14 @@
 // Provider component
 export { AnalyticsProvider, GoogleAnalytics } from './provider';
 
+// Meta (Facebook) Pixel
+export {
+  META_PIXEL_EVENTS,
+  MetaPixelProvider,
+  trackMetaEvent,
+  type MetaPixelEvent,
+} from './meta-pixel';
+
 // Configuration
 export {
   GA_CONFIG,

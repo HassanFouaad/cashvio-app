@@ -263,7 +263,7 @@ export function redirectToPortalWithState(
     language?: string;
   }
 ): void {
-  const currentTheme = options?.theme || getThemePreference() || 'light';
+  const currentTheme = options?.theme || getThemePreference() || 'dark';
   const currentLanguage = options?.language || 'en';
 
   // Save to cookies before redirect
@@ -326,7 +326,7 @@ export function redirectToPortalAfterRegistration(
   // Redirect to portal with preferences
   const portalUrl = getPortalUrl();
   const urlWithParams = addStateToUrl(portalUrl, {
-    theme: options?.theme || getThemePreference() || 'light',
+    theme: options?.theme || getThemePreference() || 'dark',
     language: options?.language || getLanguagePreference() || 'en',
   });
 
@@ -358,7 +358,7 @@ export function initializeFromSharedState(): {
   const cookieLanguage = getLanguagePreference();
 
   // 3. Determine final values
-  const theme = urlState.theme || cookieTheme || 'light';
+  const theme = urlState.theme || cookieTheme || 'dark';
   const language = urlState.language || cookieLanguage || 'en';
 
   // 4. Save preferences (sync URL params to cookies)

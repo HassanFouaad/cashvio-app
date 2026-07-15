@@ -15,6 +15,7 @@ import {
   urls,
   social,
 } from '@/config/seo';
+import { ThankYouRedirect } from './thank-you-redirect';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -73,8 +74,9 @@ export default async function ThankYouPage({ params }: Props) {
     description: metaT('description'),
   });
 
-  // Get portal URL
-  const portalUrl = urls.portal;
+  // Get portal URL - carry the signup locale so the portal opens in the
+  // same language the user signed up with (Arabic-first for /ar signups)
+  const portalUrl = `${urls.portal}?lang=${typedLocale}`;
 
   return (
     <>
@@ -171,6 +173,9 @@ export default async function ThankYouPage({ params }: Props) {
                     </div>
                   </div>
                 </div> */}
+
+                {/* Conversion event + auto-redirect to the console */}
+                <ThankYouRedirect portalUrl={portalUrl} />
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

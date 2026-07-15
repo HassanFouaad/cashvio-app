@@ -21,7 +21,7 @@ import {
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { MobileFooterNav } from "@/components/layout/mobile-footer-nav";
-import { AnalyticsProvider } from "@/lib/analytics";
+import { AnalyticsProvider, MetaPixelProvider } from "@/lib/analytics";
 
 import "../globals.css";
 
@@ -260,6 +260,7 @@ export default async function LocaleLayout({
           <MobileFooterNav />
         </NextIntlClientProvider>
         <AnalyticsProvider />
+        <MetaPixelProvider />
 
         <script
           dangerouslySetInnerHTML={{
