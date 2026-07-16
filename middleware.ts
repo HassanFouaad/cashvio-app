@@ -17,10 +17,10 @@ export default function middleware(request: NextRequest) {
   const acceptHeader = request.headers.get('accept') || '';
   if (acceptHeader.includes('text/markdown')) {
     const originalPath = pathname + request.nextUrl.search;
-    const rewriteUrl = request.nextUrl.clone();
-    rewriteUrl.pathname = '/api/markdown';
-    rewriteUrl.search = '';
-    rewriteUrl.searchParams.set('path', originalPath);
+    const rewriteUrl = new URL(
+      `/api/markdown?path=${encodeURIComponent(originalPath)}`,
+      request.url,
+    );
     return NextResponse.rewrite(rewriteUrl);
   }
   

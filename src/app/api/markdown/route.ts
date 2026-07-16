@@ -4,11 +4,19 @@ import { convertHtmlToMarkdown } from '@/lib/html-to-markdown';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest): Promise<Response> {
-  const url = new URL(request.url);
-  const path = url.searchParams.get('path');
+  const path =
+    request.nextUrl.searchParams.get('path') ||
+    new URL(request.url).searchParams.get('path');
 
   if (!path) {
-    return new Response('Missing path parameter', { status: 400 });
+    return new Response(
+      JSON.stringify({
+        error: 'Missing path parameter',
+        url: request.url,
+        nextUrl: request.nextUrl.toString(),
+      }),
+      { status: 400, headers: { 'Content-Type': 'application/json' } },
+    );
   }
 
   try {
