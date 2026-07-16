@@ -12,6 +12,16 @@ export default function middleware(request: NextRequest) {
   if (pathname.startsWith('/export')) {
     return NextResponse.next();
   }
+
+  // Markdown content negotiation for AI agents
+  const acceptHeader = request.headers.get('accept') || '';
+  if (acceptHeader.includes('text/markdown')) {
+    const url = request.nextUrl.clone();
+    const originalPath = url.pathname + url.search;
+    url.pathname = '/api/markdown';
+    url.search = `?path=${encodeURIComponent(originalPath)}`;
+    return NextResponse.rewrite(url);
+  }
   
   // 1. Redirect /en/* to /* (English is default, no prefix needed)
   // This fixes Google Search Console "Page with redirect" errors
