@@ -4,26 +4,12 @@ import { convertHtmlToMarkdown } from '@/lib/html-to-markdown';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest): Promise<Response> {
-  const path =
-    request.nextUrl.searchParams.get('path') ||
-    new URL(request.url).searchParams.get('path');
-
-  if (!path) {
-    return new Response(
-      JSON.stringify({
-        error: 'Missing path parameter',
-        url: request.url,
-        nextUrl: request.nextUrl.toString(),
-      }),
-      { status: 400, headers: { 'Content-Type': 'application/json' } },
-    );
-  }
+  const originalPath = request.nextUrl.pathname + request.nextUrl.search;
 
   try {
     const protocol = request.headers.get('x-forwarded-proto') || 'http';
     const host = request.headers.get('host') || 'localhost:3005';
-    const origin = `${protocol}://${host}`;
-    const targetUrl = `${origin}${path}`;
+    const targetUrl = `${protocol}://${host}${originalPath}`;
 
     const htmlResponse = await fetch(targetUrl, {
       headers: {
@@ -50,17 +36,11 @@ export async function GET(request: NextRequest): Promise<Response> {
         'public, max-age=3600, s-maxage=3600',
     );
 
-    if (!htmlResponse.headers.has('content-signal')) {
-      responseHeaders.set(
-        'content-signal',
-        'ai-train=yes, search=yes, ai-input=yes',
-      );
-    } else {
-      responseHeaders.set(
-        'content-signal',
-        htmlResponse.headers.get('content-signal')!,
-      );
-    }
+    const contentSignal = htmlResponse.headers.get('content-signal');
+    responseHeaders.set(
+      'content-signal',
+      contentSignal || 'ai-train=yes, search=yes, ai-input=yes',
+    );
 
     return new Response(markdown, { headers: responseHeaders });
   } catch {

@@ -16,12 +16,7 @@ export default function middleware(request: NextRequest) {
   // Markdown content negotiation for AI agents
   const acceptHeader = request.headers.get('accept') || '';
   if (acceptHeader.includes('text/markdown')) {
-    const originalPath = pathname + request.nextUrl.search;
-    const rewriteUrl = new URL(
-      `/api/markdown?path=${encodeURIComponent(originalPath)}`,
-      request.url,
-    );
-    return NextResponse.rewrite(rewriteUrl);
+    return NextResponse.rewrite(new URL('/api/markdown', request.url));
   }
   
   // 1. Redirect /en/* to /* (English is default, no prefix needed)
