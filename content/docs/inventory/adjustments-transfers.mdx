@@ -22,18 +22,17 @@ Sometimes you need to change stock levels manually — for example, after a phys
 
 ## Viewing Adjustment History
 
-Go to **Inventory > Adjustments** in the sidebar to see a history of all stock changes:
+Go to **Inventory > Adjustments** to see a history of every stock change:
 
 | Column | Description |
 |--------|-------------|
 | **Product / Variant** | Which item was adjusted |
-| **Type** | The type of adjustment |
-| **Quantity** | How much the stock changed (+ or -) |
-| **Reason** | Why the adjustment was made |
-| **Date** | When the adjustment was made |
-| **User** | Who made the adjustment |
+| **Type** | Why the stock changed — Sale, Return, Purchase, Transfer In/Out, Manual Count, Shrinkage, Damaged, or Other |
+| **Quantity** | The change and the stock before → after |
+| **Reason** | The note recorded with the change |
+| **Date / User** | When it happened and who did it |
 
-This history provides a complete audit trail of all inventory changes.
+You can filter by store, adjustment type, and date range. Automatic operations (sales, returns, purchase orders, transfers) are logged here alongside your manual adjustments — a complete audit trail.
 
 ## Stock Transfers
 
@@ -41,21 +40,19 @@ If you operate multiple stores, you can transfer inventory from one store to ano
 
 ### How to Transfer Stock
 
-1. Go to **Inventory** in the sidebar.
-2. Find the product variant you want to transfer.
-3. Click the **actions menu** and select **Transfer**.
-4. Fill in:
+1. Go to **Inventory** and open the store that currently **has** the stock (the source is the store you're viewing).
+2. Find the product variant, open its **actions menu**, and select **Transfer Stock**.
+3. Fill in:
 
 | Field | Description |
 |-------|-------------|
-| **Source Store** | The store sending the stock |
 | **Destination Store** | The store receiving the stock |
-| **Quantity** | How many units to transfer |
-| **Notes** | Optional reason for the transfer |
+| **Quantity** | How many units to transfer (capped at the source's on-hand stock) |
+| **Reason** | Optional note for the transfer |
 
-5. Click **Confirm**.
+4. Click **Confirm**.
 
-The stock is deducted from the source store and added to the destination store instantly.
+The stock is deducted from the source store and added to the destination store instantly. Both movements appear in the [adjustments history](#viewing-adjustment-history) as **Transfer Out** and **Transfer In**.
 
 <Callout title="Tip">
 Use the Low Stock page to identify which stores need stock, then transfer from stores that have excess inventory.
