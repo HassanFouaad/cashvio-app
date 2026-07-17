@@ -39,19 +39,19 @@
       "description": "Your account has been created successfully. Start managing your business today."
     },
     "couponsAndDiscounts": {
-      "title": "Coupons & Discount Code Management for Retailers | Cashvio",
+      "title": "Coupons & Discount Code Management for Retailers",
       "description": "Create, manage, and track promotional coupons and discount codes across all your stores. Set usage limits, schedule campaigns, and validate codes in real time at checkout."
     },
     "arabicPos": {
-      "title": "Arabic POS System & Storefront with Native RTL Support | Cashvio",
+      "title": "Arabic POS System & Storefront with Native RTL Support",
       "description": "The only POS and online storefront built natively for Arabic-speaking businesses. True right-to-left interface, bilingual receipts, ZATCA-ready invoicing, and MENA payment integrations. Not a translation layer — built from the ground up for Arabic commerce."
     },
     "omnichannelRetail": {
-      "title": "Omnichannel Retail Platform — One Dashboard for Physical & Online Stores | Cashvio",
+      "title": "Omnichannel Retail Platform — One Dashboard for Physical & Online Stores",
       "description": "Manage your physical stores and online storefront from one dashboard. Unified inventory, orders, customers, and analytics across every sales channel. Sell in-store, online, and via social media — all synced in real time."
     },
     "inventoryManagement": {
-      "title": "Free Inventory Management Software - Track Stock Across All Stores | Cashvio",
+      "title": "Free Inventory Management Software - Track Stock Across All Stores",
       "description": "Free inventory management software that tracks stock per product variant, per store in real time. Low stock alerts, purchase orders, supplier management, stock transfers, adjustments with full audit trail, and profit reporting — all included free."
     }
   },
