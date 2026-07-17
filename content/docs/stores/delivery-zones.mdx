@@ -5,53 +5,48 @@ description: How to set up delivery areas and fees so customers know where you d
 
 ## What are Delivery Zones?
 
-Delivery zones define **where your store delivers** and **how much delivery costs** for each area. When a customer places a delivery order (in the portal or on the storefront), the system checks their address against your delivery zones to determine the delivery fee.
+Delivery zones define **where your store delivers** and **how much delivery costs** per area. When a delivery order is placed (in the portal or on the storefront), the customer's country and city are matched against your zones to determine the delivery fee.
+
+## Default Delivery Fee
+
+At the top of the Delivery Zones tab you can set the store's **default delivery fee** — used when a delivery address doesn't match any zone. You can edit it inline or clear it entirely.
 
 ## How to Set Up Delivery Zones
 
-1. Click **Delivery Zones** in the sidebar. If you have multiple stores, you will be asked to select a store first.
-2. You will see the list of existing delivery zones for that store.
-3. Click **Add Delivery Zone**.
-4. Fill in the zone details:
+1. Go to **Settings > Stores**, open your store, and select the **Delivery Zones** tab.
+2. Click **Add Delivery Zone** and fill in:
 
 | Field | Description |
 |-------|-------------|
-| **Zone Name** | A name for this area (e.g., "Downtown", "Suburbs") |
-| **Country** | The country this zone covers |
-| **Cities** | The cities within that country included in this zone |
-| **Delivery Fee** | The fee charged for delivering to this zone |
+| **Country** | The country this zone covers (pre-selected from your store's country) |
+| **City** | The city within that country |
+| **Fee Type** | **Fixed** amount or **Percentage** of the order |
+| **Fee Value** | The delivery fee amount or percentage |
+| **Active** | Whether the zone is currently enabled |
 
-5. Click **Save**.
-
-<Callout title="Alternative Access">
-You can also reach delivery zones from **Settings > Store Details**, then click on your store, and choose the **Delivery Zones** action card.
-</Callout>
+3. Click **Save**. Each zone covers **one country + city pair** — add a zone per city you deliver to.
 
 ## Managing Delivery Zones
 
-- **Edit a zone** — Click on an existing zone to update its fee, cities, or coverage area.
-- **Delete a zone** — Remove a zone if you no longer deliver there.
-- **Multiple zones** — Create as many zones as needed to cover your delivery area.
+- **Edit a zone** — update its fee or active status.
+- **Delete a zone** — remove areas you no longer deliver to.
+- **Multiple zones** — add as many zones as you need to cover your delivery area.
 
 ## How Delivery Zones Affect the Portal
 
-When [creating a delivery order](/docs/orders/creating-orders) in the business portal:
+When [creating a delivery order](/docs/orders/creating-orders):
 
-1. The delivery address is matched to a delivery zone.
-2. The corresponding **delivery fee** is automatically added to the order.
-3. The fee appears in the order summary as a separate line item.
-
-You can **manually override** the delivery fee on any individual order during order creation.
+1. The delivery address is matched to a zone.
+2. The corresponding **delivery fee** is added to the order automatically.
+3. You can **manually override** the fee on any individual order.
 
 ## How Delivery Zones Affect the Storefront
 
 When a customer places a delivery order on your [online store](/docs/online-store/checkout-flow):
 
-1. The **Country** dropdown shows only countries from your configured delivery zones.
-2. The **City** dropdown shows only cities from the matching zone.
-3. The delivery fee is automatically applied based on the selected zone.
-4. If no delivery zones are configured, the storefront shows the full list of countries and cities without a delivery fee.
+1. The **Country** and **City** dropdowns are driven by your configured zones.
+2. The delivery fee applies automatically based on the selected zone.
 
 <Callout title="Important">
-Setting up delivery zones is recommended if you offer delivery through the storefront. It ensures customers only select areas you actually deliver to, and the correct delivery fee is applied automatically.
+Setting up delivery zones is recommended if you offer delivery through the storefront. It ensures customers only select areas you actually deliver to, with the correct fee applied automatically.
 </Callout>

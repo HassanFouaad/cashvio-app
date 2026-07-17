@@ -1,38 +1,33 @@
 ---
 title: Service Fees
-description: How to set up and manage service fees (dine-in fees) for your store orders.
+description: How to set up and manage service fees added to your store's orders.
 ---
 
 ## What are Service Fees?
 
-Service fees are additional charges added to orders, typically used for **dine-in** or **table service** scenarios. For example, a restaurant might add a 10% service charge to all dine-in orders.
-
-Service fees appear as a separate line item in the order summary, making it transparent for the customer.
+Service fees are additional charges added to orders — for example, a restaurant's 10% table-service charge. Fees appear as a separate line item in the order summary, keeping pricing transparent for the customer.
 
 ## How to Configure Service Fees
 
-1. Click **Service Fees** in the sidebar. If you have multiple stores, you will be asked to select a store first.
-2. Configure the fee:
+1. Go to **Settings > Stores**, open your store, and select the **Service Fees** tab.
+2. Click **Add Fee** and configure it:
 
 | Setting | Description |
 |---------|-------------|
-| **Fee Type** | Choose between a fixed amount or a percentage |
-| **Fee Value** | Enter the amount or percentage |
-| **Applicable Fulfillment Methods** | Select which [fulfillment methods](/docs/stores/fulfillment-methods) the fee applies to (usually Dine-In) |
+| **Fee Type** | **Fixed** (a set amount) or **Percentage** (a share of the subtotal, up to 100%) |
+| **Fee Value** | The amount or the percentage |
 
-3. Click **Save Changes**.
+3. Click **Save**.
 
-<Callout title="Alternative Access">
-You can also reach service fees from **Settings > Store Details**, then click on your store, and choose the **Service Fees** action card.
-</Callout>
+A store can have **multiple service fees** — each appears in the fees table where you can **edit** or **delete** it.
 
 ## How Service Fees Appear on Orders
 
-When an order uses a fulfillment method that has a service fee:
+When an order is created for a store with service fees:
 
-- The fee is automatically added to the order total
+- The fee is added to the order automatically
 - It appears as **Service Fee** in the order summary
-- The fee is calculated based on the subtotal (before tax)
+- Percentage fees are calculated from the subtotal
 
 **Example:**
 
@@ -47,13 +42,12 @@ See [Pricing & Tax Calculations](/docs/calculations/pricing-tax-calculations) fo
 
 ## Overriding Service Fees on an Order
 
-When [creating an order](/docs/orders/creating-orders), you can **manually adjust** the service fee:
+When [making a sale](/docs/orders/creating-orders), you can **manually adjust** the fee for that order:
 
-1. In the order summary section, find the **Service Fee** line.
-2. Click on the fee amount to edit it.
-3. Enter the new amount.
-4. The order total updates automatically.
+1. In the cart summary, open the **Fees** option.
+2. Enter the new amount.
+3. The order total updates automatically.
 
 <Callout title="Note">
-Overriding the service fee only affects the current order. The default fee setting remains unchanged for future orders.
+Overriding the fee only affects the current order. The default fee configuration stays unchanged for future orders.
 </Callout>
