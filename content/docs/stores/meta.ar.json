@@ -1,4 +1,4 @@
 {
   "title": "إدارة المتجر",
-  "pages": ["creating-store", "payment-methods", "fulfillment-methods", "service-fees", "delivery-zones", "receipt-settings"]
+  "pages": ["creating-store", "payment-methods", "fulfillment-methods", "service-fees", "delivery-zones", "receipt-settings", "pos-devices"]
 }
