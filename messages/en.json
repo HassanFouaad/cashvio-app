@@ -132,7 +132,7 @@
       "step3": {
         "number": "3",
         "title": "Start Selling & Growing",
-        "description": "Process orders from any channel, track performance with real-time analytics, and grow your business with AI-powered insights."
+        "description": "Process orders from any channel, track performance with real-time analytics, and grow your business with smart, data-driven insights."
       }
     },
     "features": {
@@ -156,11 +156,11 @@
       },
       "analytics": {
         "title": "Analytics & Reports",
-        "description": "Make data-driven decisions with 6 report types, profit tracking, and AI-powered insights.",
+        "description": "Make data-driven decisions with 6 report types, profit tracking, and smart recommendations.",
         "sub1": "Profit margins & low-margin alerts",
         "sub2": "Staff performance rankings",
         "sub3": "Customer acquisition & retention trends",
-        "sub4": "AI-generated business recommendations"
+        "sub4": "Smart business recommendations"
       },
       "pos": {
         "title": "Point of Sale",
@@ -318,7 +318,7 @@
     "analyticsShowcase": {
       "badge": "Business Intelligence",
       "title": "Turn data into decisions with powerful analytics",
-      "description": "Go beyond basic reports. Understand your profit margins, identify top-performing staff, track which marketing channels drive sales, and get AI-powered recommendations to grow your business.",
+      "description": "Go beyond basic reports. Understand your profit margins, identify top-performing staff, track which marketing channels drive sales, and get smart, data-driven recommendations to grow your business.",
       "feature1": {
         "title": "Profit & Margin Tracking",
         "description": "Track cost prices, profit margins per product, and get alerts for low-margin items eating into your bottom line."
@@ -332,7 +332,7 @@
         "description": "Know exactly which channels — Facebook, Instagram, WhatsApp, walk-in — drive the most revenue and orders."
       },
       "feature4": {
-        "title": "AI Business Insights",
+        "title": "Smart Business Insights",
         "description": "Get automated KPI health scores and actionable recommendations tailored to your business performance."
       },
       "imageAlt": "Cashvio Analytics Dashboard",
@@ -696,8 +696,8 @@
       },
       "analytics": {
         "name": "Analytics & Insights",
-        "description": "Six report types including sales overview, profit tracking, customer analytics, returns analysis, staff performance, and AI-powered business recommendations.",
-        "subs": "Sales Overview • Profit Tracking • Customer Analytics • Returns Analysis • Staff Performance • AI Insights"
+        "description": "Six report types including sales overview, profit tracking, customer analytics, returns analysis, staff performance, and smart business recommendations.",
+        "subs": "Sales Overview • Profit Tracking • Customer Analytics • Returns Analysis • Staff Performance • Smart Insights"
       },
       "pos": {
         "name": "Point of Sale",
@@ -755,7 +755,7 @@
     "functional": {
       "advancedAnalytics": {
         "name": "Advanced Analytics",
-        "description": "Deep insights with hourly trends, payment breakdowns, profit tracking, and AI-powered business health scores with actionable recommendations."
+        "description": "Deep insights with hourly trends, payment breakdowns, profit tracking, and business health scores with actionable recommendations."
       },
       "advancedInventory": {
         "name": "Advanced Inventory",
@@ -854,8 +854,8 @@
       "items": {
         "discountTypes": {
           "name": "Percentage & Fixed-Amount Discounts",
-          "description": "Choose between percentage off (e.g., 20% off) or a fixed monetary amount (e.g., 50 EGP off). Apply either type to the whole order subtotal or target specific items in the cart.",
-          "subs": "Percentage Off • Fixed Amount • Whole Order • Specific Items"
+          "description": "Choose between percentage off (e.g., 20% off) or a fixed monetary amount (e.g., 50 EGP off). Either type applies to the whole order subtotal.",
+          "subs": "Percentage Off • Fixed Amount • Whole Order"
         },
         "usageLimits": {
           "name": "Usage Limits & Per-Customer Caps",
@@ -966,8 +966,8 @@
         "clearance": {
           "title": "Inventory Clearance",
           "code": "CLEAR40",
-          "description": "Move slow-selling stock with a deep discount on specific items. Apply to specific products (or whole order for a store-wide clearance event) and cap the total uses once you have cleared enough.",
-          "config": "40% off • Specific items • Limited total uses"
+          "description": "Move slow-selling stock with a deep store-wide clearance discount, and cap the total uses once you have cleared enough inventory.",
+          "config": "40% off • Limited total uses"
         }
       }
     },
@@ -977,7 +977,7 @@
       "items": {
         "q1": {
           "question": "What types of discounts can I create?",
-          "answer": "Cashvio supports two discount types: percentage off (0-100%) and fixed amount off in your store's currency. You can apply either type to the whole order subtotal or to specific items in the cart."
+          "answer": "Cashvio supports two discount types: percentage off (0-100%) and fixed amount off in your store's currency. Both apply to the whole order subtotal."
         },
         "q2": {
           "question": "Can I use the same coupon code across multiple stores?",
