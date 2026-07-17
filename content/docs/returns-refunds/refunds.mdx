@@ -9,28 +9,24 @@ A **refund** returns money to a customer for a completed order. Refunds can be f
 
 ## Creating a Refund
 
-Refunds are created from the order details:
+Refunds are created from the order details (the button is enabled only when the order is eligible — for example, there must be paid amounts left to refund):
 
 1. Open the **Order Details** page.
 2. Click **Create Refund**.
-3. Fill in the refund details:
-
-| Field | Description |
-|-------|-------------|
-| **Refund Method** | How the money will be returned to the customer |
-| **Amount** | The refund amount |
-| **Notes** | Optional notes about the refund |
-
-4. Review and click **Submit**.
+3. Choose what to refund:
+   - **A specific payment** — pick one of the order's refundable payments, or
+   - **A custom amount** — any amount up to what is still refundable on the order
+4. Set the **refund method** and an optional **reason**.
+5. Review and click **Submit**. The refund is created as **Pending**.
 
 ### Refund Methods
 
 | Method | Description |
 |--------|-------------|
 | **Cash** | Refund given as physical cash |
-| **Online** | Refund via digital channels (card reversal, InstaPay, mobile wallet, bank transfer) |
+| **Online** | Refund via digital channels — only available when the original payment being refunded was an Online payment |
 | **Receipt** | Refund documented with a receipt (proof of refund transfer) |
-| **Store Credit** | Refund added to customer's store credit balance |
+| **Store Credit** | Refund added to the customer's store credit balance — requires the order to have a customer attached |
 
 ## Managing Refunds
 
@@ -42,12 +38,11 @@ The refunds list displays:
 
 | Column | Description |
 |--------|-------------|
-| **Refund Number** | Unique refund identifier |
-| **Order Number** | The related order |
-| **Customer** | Customer name |
-| **Status** | Pending, Processed, or Cancelled |
+| **Refund ID** | Unique refund identifier |
+| **Order Number** | The related order (linked) |
+| **Amount** | Refunded amount |
 | **Method** | The refund method |
-| **Amount** | Refund amount |
+| **Status** | The current refund status |
 | **Date** | When the refund was created |
 
 ### Filtering Refunds
@@ -55,7 +50,7 @@ The refunds list displays:
 You can filter the refunds list by:
 
 - **Order ID** — Find refunds for a specific order
-- **Status** — Filter by Pending, Processed, or Cancelled
+- **Status** — Filter by refund status
 - **Refund Method** — Filter by method (Cash, Online, Receipt, Store Credit)
 - **Date Range** — Filter refunds created within a specific time period
 
@@ -68,30 +63,27 @@ Refunds are also visible from the order details page under the **Refunds** secti
 | Status | Meaning |
 |--------|---------|
 | **Pending** | Refund created, waiting to be processed |
-| **Processed** | Refund has been completed |
-| **Cancelled** | Refund was cancelled |
+| **Completed** | Refund has been processed and the money returned |
+| **Failed** | The refund could not be completed |
+| **Cancelled** | Refund was cancelled before processing |
 
 ## Processing a Pending Refund
 
-You can process pending refunds from either:
-- The **Refunds list page** — Click on a refund to open its details
-- The **Order details page** — Navigate to the Refunds section
+Creating a refund does not move the money by itself — a pending refund must be explicitly **processed**:
 
-1. Open the refund details.
-2. Review the refund information (amount, method, customer).
-3. Click **Process** to confirm the refund has been sent.
-4. The status changes to **Processed**.
+1. Open the refund details from the Refunds list or the order's Refunds section.
+2. Click **Process**.
+3. Add optional processing notes and confirm.
+4. The status changes to **Completed**. For Store Credit refunds, the customer's balance increases at this point.
 
 ## Cancelling a Pending Refund
 
-If you need to cancel a pending refund:
-
-1. Open the refund details from the Refunds list or Order details page.
+1. Open the refund details.
 2. Click **Cancel**.
-3. The refund status changes to **Cancelled** and the refund will not be processed.
+3. Enter a **cancellation reason** (at least 10 characters) and confirm.
 
 <Callout title="Note">
-Only **Pending** refunds can be cancelled. Processed or already cancelled refunds cannot be cancelled.
+Only **Pending** refunds can be processed or cancelled. Completed refunds are final.
 </Callout>
 
 ## How Refunds Affect Financials

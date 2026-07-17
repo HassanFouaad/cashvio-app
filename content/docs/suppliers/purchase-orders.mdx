@@ -9,46 +9,48 @@ A **purchase order** (PO) is a formal request to buy products from a supplier. I
 
 ## Creating a Purchase Order
 
-1. Go to **Purchase Orders** in the sidebar, or click **Create Purchase Order** from the Dashboard.
+1. Go to **Inventory > Purchase Orders** (a tab in the Inventory section).
 2. Click **Create Purchase Order**.
-3. Follow the multi-step wizard:
+3. Follow the two-step wizard:
 
 ### Step 1: Store & Items
-- Select the **store** the stock is for.
-- Add products from your catalogue with quantities and agreed prices.
+- Select the **store** the stock is for and the **supplier**.
+- Add products from your catalogue — for each item set the **quantity** and the agreed **unit cost** (plus optional notes).
 
-### Step 2: Basic Information
-- Select the **supplier**.
-- Set the **expected delivery date**.
-
-### Step 3: Fees & Details
-- Add any additional **delivery fees** or charges.
-- Add any **notes**.
-
-### Step 4: Review
-- Review all the details before submitting.
-- Click **Submit** to create the purchase order.
+### Step 2: Date & Fees
+- Set the **expected delivery date** (optional).
+- Add **delivery fees** and any **notes**.
+- Click **Submit** to create the purchase order as a **Draft**.
 
 ## Purchase Order Statuses
 
 | Status | Meaning |
 |--------|---------|
-| **Draft** | PO created but not yet sent to the supplier |
-| **Pending** | PO sent to the supplier, waiting for approval |
-| **Approved** | PO approved, waiting for delivery |
-| **Received** | Products received and stock updated |
+| **Draft** | PO created — review it, then approve |
+| **Approved** | PO approved and waiting for delivery |
+| **Partially Received** | Some items have arrived and been received; the rest are still expected |
+| **Completed** | All items received and stock updated |
 | **Cancelled** | PO was cancelled |
+
+## Approving and Cancelling
+
+- **Approve** — available for Draft POs. To prevent mistakes, you confirm by **typing "APPROVE"** in the dialog.
+- **Cancel** — available for Draft and Approved POs, confirmed by **typing "CANCEL"**. Cancelling changes nothing in inventory.
 
 ## Receiving Stock from a Purchase Order
 
-When products arrive from a supplier:
+When products arrive (fully or partially):
 
-1. Open the purchase order details.
-2. Click **Receive Stock**.
-3. Confirm the quantities received.
-4. Click **Confirm**.
+1. Open the purchase order and click **Receive Stock**.
+2. The dialog lists each remaining item with **ordered / received / remaining** counts.
+3. Enter the **quantity received per item** (you don't have to receive everything at once) and any notes.
+4. Confirm.
 
-The inventory for the selected store is automatically updated with the received quantities.
+Inventory for the store increases by the received quantities immediately. If items remain, the PO becomes **Partially Received**; once everything is in, it becomes **Completed**. The PO details page also shows the **inventory adjustments** it created.
+
+<Callout title="Note">
+Receiving stock requires the Inventory module to be enabled in your plan.
+</Callout>
 
 ## Managing Purchase Orders
 
@@ -64,8 +66,8 @@ The **Purchase Orders** page shows all POs with filters:
 
 | Action | Effect |
 |--------|--------|
-| **PO Created** | No inventory change — it is just a record of intent |
-| **PO Received** | Inventory increases by the received quantities |
+| **PO Created / Approved** | No inventory change — it is a record of intent |
+| **Stock Received** | Inventory increases by the received quantities (each receipt is logged as an adjustment) |
 | **PO Cancelled** | No inventory change — the order is voided |
 
 <Callout title="Tip">

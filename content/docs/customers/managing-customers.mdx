@@ -1,6 +1,6 @@
 ---
 title: Managing Customers
-description: How to add, view, and manage customer profiles, store credit, addresses, and order history.
+description: How to add, view, and manage customer profiles, addresses, store credit, visits, and order history.
 ---
 
 ## What is a Customer?
@@ -17,20 +17,15 @@ You can create orders with or without attaching a customer — customers are opt
 
 | Field | Description |
 |-------|-------------|
-| **First Name** | Customer's first name |
-| **Last Name** | Customer's last name |
-| **Email** | Customer's email address (optional) |
-| **Phone Number** | Customer's phone number |
-| **Date of Birth** | Optional, for birthday rewards and marketing |
-| **Notes** | Private notes about customer preferences, allergies, or special instructions |
+| **Phone Number** | The customer's phone number — this is the required, identifying field |
+| **Name** | Optional display name |
+| **Date of Birth** | Optional, useful for birthday offers |
+| **Notes** | Private staff-only notes (preferences, allergies, special instructions) |
+| **Address** | Optional — you can add an address right away in the collapsible address section |
 
 4. Click **Save**.
 
 You can also add a customer directly from the **New Sale** screen or from the **Add Customer** quick action on the Dashboard.
-
-<Callout title="Note">
-Customer addresses are managed separately after creating the customer. See the [Customer Addresses](#customer-addresses) section below.
-</Callout>
 
 ## Viewing Your Customers
 
@@ -38,142 +33,95 @@ The **Customers** page shows a searchable list with:
 
 | Column | Description |
 |--------|-------------|
-| **Customer Name** | Full name |
+| **Name** | Customer name (or "unnamed") |
 | **Phone** | Phone number |
-| **Email** | Email address |
-| **Total Orders** | Number of orders placed |
+| **Total Visits** | Number of recorded visits |
 | **Total Spent** | Total amount spent |
-| **Balance** | Store credit balance |
+| **Balance** | Store credit balance (green when positive, red when negative) |
+| **Last Visit** | Date of the most recent visit |
 
-Search by name or phone to find a specific customer.
+Search by **name** or **phone** to find a specific customer. Each row also has actions to **Edit**, **Delete**, or **Record Visit**.
 
 ## Customer Details Page
 
-Click on a customer to see their full profile:
+Click on a customer to open their profile. The header includes a **New Order** button that opens the sale screen with this customer pre-selected. The page shows:
+
+### Stats
+Four cards at the top: **Balance**, **Total Spent**, **Total Visits**, and **Last Visit**.
 
 ### Contact Information
-- Name, email, phone, date of birth, and addresses
+Name, phone, date of birth, member-since date, and staff notes.
+
+### Addresses
+All saved addresses with add, edit, and delete actions (see below).
 
 ### Order History
-- A list of all orders placed by this customer
-- Click an order to view its details
+The customer's full order list with the same filters as the main Orders page (status, dates, payment status, and more). Click any order to open its details.
 
-### Customer Visits
-- Track the number of times the customer has visited your store
-- View visit history with dates and order details
+## Recording a Visit
 
-### Store Credit Balance
-- Current store credit balance
-- History of credit additions and usage
+Use **Record Visit** to log a purchase that happened outside the system (for example, before you started using Cashvio, or an offline sale):
 
-### Returns History
-- List of returns made by this customer
+1. Click **Record Visit** from the customer's page or the list row menu.
+2. Enter the **purchase amount** for the visit.
+3. Click **Save**.
 
-### Customer Notes
-- Private notes about customer preferences, allergies, or special instructions
-- Only visible to staff members, not customers
+The customer's total visits, total spent, and last-visit date update accordingly. Orders created in Cashvio update these stats automatically — you do not need to record visits for them.
 
 ## Customer Addresses
 
-Each customer can have multiple addresses saved for easy order fulfillment:
+Each customer can have multiple addresses for delivery orders:
 
 ### Adding an Address
 
 1. Open the customer's details page.
-2. Go to the **Addresses** section.
-3. Click **Add Address**.
-4. Fill in the address details:
+2. In the **Addresses** section, click **Add New Address**.
+3. Fill in the address details:
 
 | Field | Description |
 |-------|-------------|
 | **Address Type** | Apartment, House, or Office |
-| **Country** | Country name |
-| **City** | City name |
-| **Address Details** | Street, building, floor, apartment number, etc. |
-| **Default Address** | Check to set as the default shipping address |
+| **Country / City** | Selected from lists (city depends on the country) |
+| **Region** | Required — the area or district |
+| **Contact Phone** | Required — defaults to the customer's phone |
+| **Street / Building / Floor / Apartment / ZIP** | Detailed address fields |
+| **Additional Details** | Any extra delivery instructions |
+| **Default Address** | Check to make this the default delivery address |
 
-5. Click **Save**.
+4. Click **Save**.
 
-### Managing Addresses
-
-- **Set Default** — Click on any address to set it as the default
-- **Edit Address** — Click **Edit** to modify address details
-- **Delete Address** — Remove addresses that are no longer needed
+You can **edit** or **delete** any address from its card.
 
 <Callout title="Tip">
-When creating a delivery order, the customer's default address is automatically filled in, but you can select a different address from their saved addresses.
+When creating a delivery order, the customer's default address is filled in automatically, but you can pick any of their saved addresses.
 </Callout>
 
-## Managing Store Credit
+## Store Credit (Balance)
 
-Store credit is a balance on a customer's account that can be used for future purchases.
+Store credit is a balance on the customer's account that can be used to pay for orders.
 
-### Adding Store Credit
+### How balance changes
 
-1. Open the customer's details page.
-2. Find the **Store Credit** section.
-3. Click **Add Credit**.
-4. Enter the amount and a reason.
-5. Click **Save**.
+- **Refund to store credit** — When you issue a [refund](/docs/returns-refunds/refunds) with the method **Store Credit**, the amount is added to the customer's balance.
+- **Paying with store credit** — When taking payment on an order for this customer, enable **Use Store Credit** to apply the balance. If the credit doesn't cover the whole amount, the rest is paid with another method.
 
-### Balance Adjustments
-
-You can manually adjust a customer's store credit balance:
-
-1. Open the customer's details page.
-2. Go to the **Store Credit** section.
-3. Click **Adjust Balance**.
-4. Enter the adjustment amount (positive to add, negative to subtract).
-5. Add a reason for the adjustment (e.g., "Correction for order #123").
-6. Click **Save**.
-
-All balance adjustments are recorded in the credit history, showing the previous balance, adjustment amount, new balance, reason, and timestamp.
-
-### How Store Credit is Used
-
-- When creating an order for this customer, you can select **Store Credit** as a payment method.
-- The credit is deducted from their balance.
-- If the credit does not cover the full order, the remaining amount can be paid with another method.
-
-### Store Credit from Refunds
-
-When you issue a refund with the method **Store Credit**, the refund amount is added to the customer's balance automatically.
-
-### Credit History
-
-View the complete history of all store credit transactions:
-- Credit additions (manual or from refunds)
-- Credit usage (when used for orders)
-- Balance adjustments
-- Each entry shows the date, amount, reason, and resulting balance
+<Callout title="Note">
+The balance shown on the customer page is managed automatically by orders and refunds. There is no manual "add credit" button — to give a customer credit, issue a refund with the Store Credit method.
+</Callout>
 
 ## Editing a Customer
 
-1. Open the customer's details page.
-2. Click **Edit**.
-3. Update the information (name, email, phone, date of birth, notes).
-4. Click **Save Changes**.
-
-### Managing Customer Notes
-
-Customer notes are private notes visible only to staff members. Use them to record:
-- Customer preferences (e.g., "Prefers contactless delivery")
-- Allergies or dietary restrictions
-- Special instructions (e.g., "Ring doorbell twice")
-- Important reminders about the customer
-
-To add or edit notes:
-1. Open the customer's details page.
-2. Go to the **Notes** section.
-3. Click **Add Note** or **Edit**.
-4. Enter your note and click **Save**.
+1. Open the customer's details page (or use **Edit** from the list row menu).
+2. Click **Edit Customer**.
+3. Update the name, phone, date of birth, or notes.
+4. Click **Save**.
 
 ## Deleting a Customer
 
 1. Open the customer's details page.
-2. Click **Delete** from the actions menu.
+2. Click **Delete**.
 3. Confirm the deletion.
 
 <Callout title="Note">
-Deleting a customer does not delete their order history. Past orders still reference the customer name.
+Deleting a customer does not delete their order history. Past orders still reference the customer.
 </Callout>
