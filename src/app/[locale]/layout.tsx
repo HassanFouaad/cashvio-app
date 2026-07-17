@@ -161,10 +161,6 @@ export async function generateMetadata({
         },
       ],
     },
-    other: {
-      "msapplication-TileColor": "#1a1f2e",
-      "msapplication-config": "/browserconfig.xml",
-    },
   };
 }
 
