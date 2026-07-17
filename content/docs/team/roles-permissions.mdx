@@ -9,24 +9,30 @@ A **role** defines what a team member can see and do in Cashvio. Each role has a
 
 ## How Permissions Work
 
-Permissions are grouped by module. For each module, you can grant or deny access to specific actions:
+Cashvio has fine-grained permissions in the format *action : resource*, grouped by resource. The main groups are:
 
-| Module | Available Permissions |
-|--------|-----------------------|
+| Resource | Available Permissions |
+|----------|-----------------------|
 | **Orders** | View, Create, Edit, Cancel |
 | **Products** | View, Create, Edit, Delete |
 | **Categories** | View, Create, Edit, Delete |
 | **Customers** | View, Create, Edit, Delete |
-| **Inventory** | View, Adjust, Transfer |
+| **Inventory** | View, Adjust, Transfer, Edit reorder point |
+| **Payments** | View, Create, Edit |
 | **Suppliers** | View, Create, Edit, Delete |
-| **Purchase Orders** | View, Create, Approve, Receive, Cancel |
-| **Returns** | View, Create, Approve, Reject |
-| **Refunds** | View, Create, Process |
-| **Users** | View, Invite, Edit, Delete |
+| **Purchase Orders** | View, Create, Edit, Delete, Approve, Receive, Cancel |
+| **Returns** | View, Create, Edit, Approve, Reject, Cancel |
+| **Refunds** | View, Create, Process, Cancel |
+| **Coupons** | View, Create, Edit, Delete |
+| **POS Devices** | View, Create, Edit, Delete |
+| **Users** | View, Invite, Edit, Deactivate, Assign role |
 | **Roles** | View, Create, Edit, Delete |
-| **Reports** | View |
-| **Settings** | View, Edit |
-| **Stores** | View, Create, Edit |
+| **Stores** | View, Create, Edit, Delete |
+| **Business** | Branding and business-level permissions |
+
+<Callout title="Note">
+When you grant any action on a resource, its **View** permission is added automatically — you can't edit what you can't see.
+</Callout>
 
 ## Creating a Role
 
@@ -39,8 +45,12 @@ Permissions are grouped by module. For each module, you can grant or deny access
 | **Role Name** | A name for this role (e.g., "Cashier", "Warehouse Staff") |
 | **Description** | An optional description of what this role is for |
 
-4. Select the **permissions** for this role. Permissions are organized by module — expand each section and check the actions you want to allow.
+4. Select the **permissions** for this role. Permissions are organized by resource — each group has a select-all option.
 5. Click **Save**.
+
+<Callout title="Business-wide or per store">
+The role itself defines *what* someone can do. *Where* they can do it is decided when you [assign the role to a user](/docs/team/users) — business-wide, or scoped to a single store.
+</Callout>
 
 ## Editing a Role
 
@@ -63,9 +73,10 @@ The account owner (business owner) always has full access to everything, regardl
 
 ## Default Roles vs Custom Roles
 
-Cashvio may provide some default roles. You can create as many custom roles as you need for your team structure. Common examples:
+Cashvio provides three ready-made **system roles** that cannot be edited (marked "System role" in the list):
 
-- **Store Manager** — Full access to one store
-- **Cashier** — Can only create orders and view products
-- **Inventory Staff** — Can manage inventory and purchase orders
-- **Accountant** — Can view reports and financial data
+- **Tenant Admin** — full access to everything
+- **Cashier** — day-to-day selling
+- **Accountant** — financial visibility
+
+You can create as many **custom roles** as you need on top of them — for example a "Warehouse Staff" role limited to inventory and purchase orders.
