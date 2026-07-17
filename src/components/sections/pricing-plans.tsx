@@ -109,7 +109,7 @@ export async function PricingPlans({
                 key={plan.key}
                 className={cn(
                   'relative flex flex-col',
-                  isPro && 'border-primary shadow-lg scale-105 z-10'
+                  isPro && 'border-primary'
                 )}
               >
                 {isPro && (

@@ -15,10 +15,7 @@ export async function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/40 bg-muted/10">
-      {/* Warm gradient divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-
+    <footer className="border-t border-border bg-muted/40">
       <div className="container-wide py-12 md:py-16">
         {/* Top row: brand + nav columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -75,8 +72,8 @@ export async function Footer({ locale }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground/70">
+        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
             {t('copyright', { year: currentYear })}
           </p>
         </div>

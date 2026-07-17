@@ -59,23 +59,21 @@ export function PricingPlanCard({
   return (
     <Card
       className={cn(
-        'relative flex flex-col rounded-2xl transition-all duration-300',
-        isPro
-          ? 'border-primary/50 shadow-lg shadow-primary/10 scale-[1.02] z-10 ring-1 ring-primary/20'
-          : 'hover:border-border hover:shadow-md'
+        'relative flex flex-col',
+        isPro && 'border-primary'
       )}
     >
       {isPro && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold rounded-full shadow-sm">
+        <div className="absolute -top-3.5 start-1/2 -translate-x-1/2 rtl:translate-x-1/2">
+          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold">
             {translations.popular}
           </Badge>
         </div>
       )}
 
       {isFreemium && !isPro && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <Badge className="bg-emerald-600 text-white px-4 py-1 text-xs font-semibold rounded-full shadow-sm">
+        <div className="absolute -top-3.5 start-1/2 -translate-x-1/2 rtl:translate-x-1/2">
+          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold">
             {translations.freeForever}
           </Badge>
         </div>
@@ -130,10 +128,7 @@ export function PricingPlanCard({
       <CardFooter className="pt-4">
         <ButtonLink
           variant={isPro ? 'primary' : 'outline'}
-          className={cn(
-            'w-full justify-center rounded-xl',
-            isPro && 'shadow-glow'
-          )}
+          className="w-full justify-center"
           href={href}
           onClick={handleClick}
         >

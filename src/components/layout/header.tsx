@@ -16,19 +16,19 @@ export async function Header({ locale }: HeaderProps) {
   const t = await getTranslations({ locale, namespace: 'navigation' });
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/30 bg-background/80 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-lg">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
             <Logo size="md" />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5 p-1 rounded-full bg-muted/40 border border-border/30">
+          <nav className="hidden lg:flex items-center gap-1">
             {mainNavigation.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
-                className="px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 rounded-full hover:bg-background/80"
+                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-muted"
               >
                 {t(item.key)}
               </Link>

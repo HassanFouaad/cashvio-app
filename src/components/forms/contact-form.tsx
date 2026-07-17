@@ -212,7 +212,7 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <div
-        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-2xl"
+        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-xl"
         dir={isRtl ? 'rtl' : 'ltr'}
       >
       

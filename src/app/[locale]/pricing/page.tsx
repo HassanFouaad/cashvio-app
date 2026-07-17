@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n/routing";
 import { PricingPlans } from "@/components/sections/pricing-plans";
+import { IconTile, FaqSection } from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
 import {
   schemaTemplates,
@@ -14,7 +15,6 @@ import {
   keywords,
   openGraphDefaults,
   twitterDefaults,
-  brand,
   social,
 } from "@/config/seo";
 
@@ -134,19 +134,19 @@ export default async function PricingPage({ params }: Props) {
       />
 
       {/* Header Section */}
-      <section className="py-10 sm:py-12 md:py-16 bg-gradient-hero">
+      <section className="hero-wash border-b border-border py-12 sm:py-16">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
               {t("title")}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{t("subtitle")}</p>
+            <p className="text-base sm:text-lg text-muted-foreground">{t("subtitle")}</p>
           </div>
         </div>
       </section>
 
       {/* Pricing Cards - SSR from API with fallback */}
-      <section className="py-8 sm:py-12 md:py-16 -mt-4 sm:-mt-6 md:-mt-8">
+      <section className="py-12 sm:py-16">
         <div className="container-wide">
           <PricingPlans
             plans={plans}
@@ -157,27 +157,26 @@ export default async function PricingPage({ params }: Props) {
       </section>
 
       {/* Money Back Guarantee */}
-      <section className="py-8 sm:py-10 md:py-12 bg-muted/30">
+      <section className="py-10 sm:py-12 bg-muted/40 border-y border-border">
         <div className="container-wide">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 text-center md:text-left">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-start">
+            <IconTile size="lg">
               <svg
-                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                 <path d="m9 12 2 2 4-4" />
               </svg>
-            </div>
+            </IconTile>
             <div>
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-foreground">
+              <h2 className="text-base sm:text-lg font-semibold text-foreground">
                 {t("guarantee.title")}
-              </h3>
+              </h2>
               <p className="text-sm sm:text-base text-muted-foreground">
                 {t("guarantee.description")}
               </p>
@@ -186,43 +185,13 @@ export default async function PricingPage({ params }: Props) {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-10 sm:py-12 md:py-16 lg:py-20">
-        <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-foreground mb-6 sm:mb-8 md:mb-10">
-              {t("faq.title")}
-            </h2>
-
-            <div className="space-y-4">
-              {faqKeys.map((key) => (
-                <details
-                  key={key}
-                  className="group rounded-lg border border-border bg-card p-4"
-                >
-                  <summary className="flex cursor-pointer items-center justify-between font-medium text-foreground">
-                    {t(`faq.${key}.question`)}
-                    <svg
-                      className="w-5 h-5 text-muted-foreground transition-transform group-open:rotate-180"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-muted-foreground">
-                    {t(`faq.${key}.answer`)}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title={t("faq.title")}
+        items={faqKeys.map((key) => ({
+          question: t(`faq.${key}.question`),
+          answer: t(`faq.${key}.answer`),
+        }))}
+      />
     </>
   );
 }

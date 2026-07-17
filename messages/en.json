@@ -113,6 +113,7 @@
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
       "freeNote": "Free forever • Start in seconds • No commitment",
+      "imageAlt": "Cashvio dashboard showing orders, inventory, and sales analytics",
       "trustedBy": ""
     },
     "howItWorks": {
@@ -375,6 +376,7 @@
       "subtitle": "Start managing your business better today.",
       "freeBadge": "Free Forever Plan Available",
       "button": "Start Free Now",
+      "viewPricing": "View Pricing",
       "noCreditCard": "No commitment required",
       "freeForever": "Free forever plan",
       "instantSetup": "Instant setup"

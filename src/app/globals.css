@@ -2,27 +2,94 @@
 @import 'fumadocs-ui/css/preset.css';
 
 /* ============================================
-   FUMADOCS THEME - Cashvio Emerald Brand
-   Overrides default Fumadocs colors to match our design system
+   CASHVIO DESIGN SYSTEM
+   One brand hue (emerald), flat surfaces, 1px borders.
+   Radii: 8px controls (rounded-lg), 12px cards (rounded-xl),
+   16px hero media / CTA bands (rounded-2xl). Nothing else.
+   ============================================ */
+
+/* ---- Semantic color variables (light) ---- */
+:root {
+  --background: #faf9f7;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --muted: #f1efec;
+  --muted-foreground: #5d6b7e;
+  --border: #e4e2dd;
+
+  --primary: #059669;
+  --primary-dark: #047857;
+  --primary-foreground: #ffffff;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+}
+
+/* ---- Semantic color variables (dark — emerald-tinted surfaces) ---- */
+.dark {
+  --background: #0a1410;
+  --foreground: #eaf1ec;
+  --card: #111d17;
+  --card-foreground: #eaf1ec;
+  --muted: #16241d;
+  --muted-foreground: #93a89b;
+  --border: #24352c;
+
+  --primary: #10b981;
+  --primary-dark: #34d399;
+  --primary-foreground: #06231a;
+
+  --destructive: #f87171;
+  --destructive-foreground: #200a0a;
+  --success: #4ade80;
+  --success-foreground: #0a2413;
+}
+
+/* ---- Tailwind theme mapping ---- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============================================
+   FUMADOCS THEME — matches the site tokens
    ============================================ */
 @theme {
   /* Light Mode */
-  --color-fd-background: hsl(0, 0%, 100%);
-  --color-fd-foreground: hsl(222.2, 47.4%, 11.2%);
-  --color-fd-primary: hsl(160, 84%, 39.4%);
+  --color-fd-background: hsl(40, 20%, 98%);
+  --color-fd-foreground: hsl(218, 43%, 11%);
+  --color-fd-primary: hsl(160, 94%, 30%);
   --color-fd-primary-foreground: hsl(0, 0%, 100%);
-  --color-fd-border: hsla(214.3, 31.8%, 80%, 0.5);
-  --color-fd-ring: hsl(160, 84%, 39.4%);
-  --color-fd-accent: hsl(210, 40%, 96.1%);
-  --color-fd-accent-foreground: hsl(222.2, 47.4%, 11.2%);
-  --color-fd-muted: hsl(220, 14.3%, 95.9%);
-  --color-fd-muted-foreground: hsl(215.4, 16.3%, 46.9%);
-  --color-fd-secondary: hsl(210, 40%, 96.1%);
-  --color-fd-secondary-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-fd-border: hsla(40, 8%, 82%, 0.6);
+  --color-fd-ring: hsl(160, 94%, 30%);
+  --color-fd-accent: hsl(40, 12%, 93%);
+  --color-fd-accent-foreground: hsl(218, 43%, 11%);
+  --color-fd-muted: hsl(40, 12%, 94%);
+  --color-fd-muted-foreground: hsl(215, 15%, 43%);
+  --color-fd-secondary: hsl(40, 12%, 93%);
+  --color-fd-secondary-foreground: hsl(218, 43%, 11%);
   --color-fd-card: hsl(0, 0%, 100%);
-  --color-fd-card-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-fd-card-foreground: hsl(218, 43%, 11%);
   --color-fd-popover: hsl(0, 0%, 100%);
-  --color-fd-popover-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-fd-popover-foreground: hsl(218, 43%, 11%);
   --color-fd-overlay: hsla(0, 0%, 0%, 0.2);
 }
 
@@ -40,77 +107,29 @@
 }
 
 .dark {
-  --color-fd-background: hsl(222.2, 47.4%, 11.2%);
-  --color-fd-foreground: hsl(210, 40%, 98%);
-  --color-fd-primary: hsl(160, 62%, 51.2%);
-  --color-fd-primary-foreground: hsl(222.2, 47.4%, 11.2%);
-  --color-fd-border: hsla(215.3, 25%, 40%, 0.35);
-  --color-fd-ring: hsl(160, 62%, 51.2%);
-  --color-fd-accent: hsl(215.3, 25%, 20%);
-  --color-fd-accent-foreground: hsl(210, 40%, 96.1%);
-  --color-fd-muted: hsl(217.2, 32.6%, 17.5%);
-  --color-fd-muted-foreground: hsl(215, 20.2%, 65.1%);
-  --color-fd-secondary: hsl(217.2, 32.6%, 17.5%);
-  --color-fd-secondary-foreground: hsl(210, 40%, 96.1%);
-  --color-fd-card: hsl(217.2, 32.6%, 17.5%);
-  --color-fd-card-foreground: hsl(210, 40%, 98%);
-  --color-fd-popover: hsl(217.2, 32.6%, 17.5%);
-  --color-fd-popover-foreground: hsl(210, 40%, 98%);
-  --color-fd-overlay: hsla(222.2, 47.4%, 5%, 0.5);
+  --color-fd-background: hsl(160, 33%, 6%);
+  --color-fd-foreground: hsl(140, 15%, 93%);
+  --color-fd-primary: hsl(160, 84%, 39%);
+  --color-fd-primary-foreground: hsl(165, 71%, 8%);
+  --color-fd-border: hsla(150, 16%, 30%, 0.5);
+  --color-fd-ring: hsl(160, 84%, 39%);
+  --color-fd-accent: hsl(155, 20%, 13%);
+  --color-fd-accent-foreground: hsl(140, 15%, 93%);
+  --color-fd-muted: hsl(155, 20%, 12%);
+  --color-fd-muted-foreground: hsl(145, 10%, 62%);
+  --color-fd-secondary: hsl(155, 20%, 13%);
+  --color-fd-secondary-foreground: hsl(140, 15%, 93%);
+  --color-fd-card: hsl(158, 26%, 9%);
+  --color-fd-card-foreground: hsl(140, 15%, 93%);
+  --color-fd-popover: hsl(158, 26%, 9%);
+  --color-fd-popover-foreground: hsl(140, 15%, 93%);
+  --color-fd-overlay: hsla(160, 33%, 3%, 0.5);
 }
 
 /* ============================================
-   CUSTOM THEME COLORS - Using CSS Layers
+   BASE
    ============================================ */
 @layer base {
-  :root {
-    /* Primary Brand Colors - Cashvio Emerald */
-    --color-primary: 16 185 129;
-    --color-primary-light: 52 211 153;
-    --color-primary-dark: 5 150 105;
-    --color-primary-foreground: 255 255 255;
-
-    /* Secondary - Blue */
-    --color-secondary: 59 130 246;
-    --color-secondary-foreground: 255 255 255;
-
-    /* Accent - Amber */
-    --color-accent: 245 158 11;
-    --color-accent-foreground: 15 23 42;
-
-    /* Neutral Colors - Warm off-white palette */
-    --color-background: 252 251 249;
-    --color-foreground: 15 23 42;
-    --color-muted: 245 243 240;
-    --color-muted-foreground: 100 116 139;
-    --color-card: 255 255 255;
-    --color-card-foreground: 15 23 42;
-    --color-border: 226 232 240;
-
-    /* Status Colors */
-    --color-destructive: 239 68 68;
-    --color-destructive-foreground: 255 255 255;
-    --color-success: 34 197 94;
-    --color-success-foreground: 255 255 255;
-  }
-
-  .dark {
-    --color-primary: 52 211 153;
-    --color-primary-light: 110 231 183;
-    --color-primary-dark: 16 185 129;
-    --color-background: 13 17 28;
-    --color-foreground: 241 245 249;
-    --color-muted: 26 33 50;
-    --color-muted-foreground: 148 163 184;
-    --color-card: 22 29 44;
-    --color-card-foreground: 241 245 249;
-    --color-border: 51 65 85;
-    --color-secondary: 96 165 250;
-    --color-accent: 251 191 36;
-    --color-destructive: 248 113 113;
-    --color-success: 74 222 128;
-  }
-
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -120,8 +139,8 @@
   }
 
   body {
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
+    background-color: var(--background);
+    color: var(--foreground);
     line-height: 1.6;
     overflow-x: hidden;
     overflow-x: clip;
@@ -129,246 +148,22 @@
 
   /* RTL Support */
   [dir='rtl'] body {
-    font-family: 'Tajawal', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    line-height: 1.7;
   }
 }
 
 /* ============================================
-   CUSTOM UTILITY CLASSES
-   ============================================ */
-@layer utilities {
-  /* Background Colors */
-  .bg-background { background-color: rgb(var(--color-background)); }
-  .bg-foreground { background-color: rgb(var(--color-foreground)); }
-  .bg-primary { background-color: rgb(var(--color-primary)); }
-  .bg-primary-light { background-color: rgb(var(--color-primary-light)); }
-  .bg-primary-dark { background-color: rgb(var(--color-primary-dark)); }
-  .bg-primary-foreground { background-color: rgb(var(--color-primary-foreground)); }
-  .bg-secondary { background-color: rgb(var(--color-secondary)); }
-  .bg-secondary-foreground { background-color: rgb(var(--color-secondary-foreground)); }
-  .bg-accent { background-color: rgb(var(--color-accent)); }
-  .bg-accent-foreground { background-color: rgb(var(--color-accent-foreground)); }
-  .bg-muted { background-color: rgb(var(--color-muted)); }
-  .bg-muted-foreground { background-color: rgb(var(--color-muted-foreground)); }
-  .bg-card { background-color: rgb(var(--color-card)); }
-  .bg-card-foreground { background-color: rgb(var(--color-card-foreground)); }
-  .bg-destructive { background-color: rgb(var(--color-destructive)); }
-  .bg-destructive-foreground { background-color: rgb(var(--color-destructive-foreground)); }
-  .bg-success { background-color: rgb(var(--color-success)); }
-  .bg-success-foreground { background-color: rgb(var(--color-success-foreground)); }
-
-  /* Text Colors */
-  .text-background { color: rgb(var(--color-background)); }
-  .text-foreground { color: rgb(var(--color-foreground)); }
-  .text-primary { color: rgb(var(--color-primary)); }
-  .text-primary-light { color: rgb(var(--color-primary-light)); }
-  .text-primary-dark { color: rgb(var(--color-primary-dark)); }
-  .text-primary-foreground { color: rgb(var(--color-primary-foreground)); }
-  .text-secondary { color: rgb(var(--color-secondary)); }
-  .text-secondary-foreground { color: rgb(var(--color-secondary-foreground)); }
-  .text-accent { color: rgb(var(--color-accent)); }
-  .text-accent-foreground { color: rgb(var(--color-accent-foreground)); }
-  .text-muted { color: rgb(var(--color-muted)); }
-  .text-muted-foreground { color: rgb(var(--color-muted-foreground)); }
-  .text-card { color: rgb(var(--color-card)); }
-  .text-card-foreground { color: rgb(var(--color-card-foreground)); }
-  .text-destructive { color: rgb(var(--color-destructive)); }
-  .text-destructive-foreground { color: rgb(var(--color-destructive-foreground)); }
-  .text-success { color: rgb(var(--color-success)); }
-  .text-success-foreground { color: rgb(var(--color-success-foreground)); }
-
-  /* Border Colors */
-  .border-border { border-color: rgb(var(--color-border)); }
-  .border-primary { border-color: rgb(var(--color-primary)); }
-  .border-secondary { border-color: rgb(var(--color-secondary)); }
-  .border-muted { border-color: rgb(var(--color-muted)); }
-  .border-destructive { border-color: rgb(var(--color-destructive)); }
-
-  /* Ring Colors */
-  .ring-primary { --tw-ring-color: rgb(var(--color-primary)); }
-  .ring-secondary { --tw-ring-color: rgb(var(--color-secondary)); }
-  .ring-destructive { --tw-ring-color: rgb(var(--color-destructive)); }
-  .focus-visible\:ring-primary:focus-visible { --tw-ring-color: rgb(var(--color-primary)); }
-  .focus-visible\:ring-secondary:focus-visible { --tw-ring-color: rgb(var(--color-secondary)); }
-  .focus-visible\:ring-destructive:focus-visible { --tw-ring-color: rgb(var(--color-destructive)); }
-
-  /* Hover States */
-  .hover\:bg-primary:hover { background-color: rgb(var(--color-primary)); }
-  .hover\:bg-primary-dark:hover { background-color: rgb(var(--color-primary-dark)); }
-  .hover\:bg-muted:hover { background-color: rgb(var(--color-muted)); }
-  .hover\:bg-muted\/60:hover { background-color: rgb(var(--color-muted) / 0.6); }
-  .hover\:bg-background\/80:hover { background-color: rgb(var(--color-background) / 0.8); }
-  .hover\:text-foreground:hover { color: rgb(var(--color-foreground)); }
-  .hover\:text-primary:hover { color: rgb(var(--color-primary)); }
-  .hover\:text-primary-foreground:hover { color: rgb(var(--color-primary-foreground)); }
-  .hover\:border-primary:hover { border-color: rgb(var(--color-primary)); }
-
-  /* Background with Opacity */
-  .bg-primary\/5 { background-color: rgb(var(--color-primary) / 0.05); }
-  .bg-primary\/10 { background-color: rgb(var(--color-primary) / 0.1); }
-  .bg-primary\/15 { background-color: rgb(var(--color-primary) / 0.15); }
-  .bg-primary\/20 { background-color: rgb(var(--color-primary) / 0.2); }
-  .bg-secondary\/10 { background-color: rgb(var(--color-secondary) / 0.1); }
-  .bg-accent\/10 { background-color: rgb(var(--color-accent) / 0.1); }
-  .bg-success\/15 { background-color: rgb(var(--color-success) / 0.15); }
-  .bg-muted\/30 { background-color: rgb(var(--color-muted) / 0.3); }
-  .bg-muted\/40 { background-color: rgb(var(--color-muted) / 0.4); }
-  .bg-muted\/50 { background-color: rgb(var(--color-muted) / 0.5); }
-  .bg-muted\/60 { background-color: rgb(var(--color-muted) / 0.6); }
-  .bg-muted\/80 { background-color: rgb(var(--color-muted) / 0.8); }
-  .bg-muted-foreground\/20 { background-color: rgb(var(--color-muted-foreground) / 0.2); }
-  .bg-primary-foreground\/5 { background-color: rgb(var(--color-primary-foreground) / 0.05); }
-  .bg-primary-foreground\/10 { background-color: rgb(var(--color-primary-foreground) / 0.1); }
-
-  /* Background (surface) with Opacity - used by header, drawer, overlays, mobile nav */
-  .bg-background\/60 { background-color: rgb(var(--color-background) / 0.6); }
-  .bg-background\/70 { background-color: rgb(var(--color-background) / 0.7); }
-  .bg-background\/80 { background-color: rgb(var(--color-background) / 0.8); }
-  .bg-background\/90 { background-color: rgb(var(--color-background) / 0.9); }
-  .bg-background\/95 { background-color: rgb(var(--color-background) / 0.95); }
-  .bg-card\/60 { background-color: rgb(var(--color-card) / 0.6); }
-  .bg-card\/80 { background-color: rgb(var(--color-card) / 0.8); }
-  .bg-card\/95 { background-color: rgb(var(--color-card) / 0.95); }
-
-  /* supports-[backdrop-filter] variant used in the sticky header */
-  @supports (backdrop-filter: blur(0)) {
-    .supports-\[backdrop-filter\]\:bg-background\/60 { background-color: rgb(var(--color-background) / 0.6); }
-  }
-
-  /* Text with Opacity */
-  .text-primary-foreground\/40 { color: rgb(var(--color-primary-foreground) / 0.4); }
-  .text-primary-foreground\/70 { color: rgb(var(--color-primary-foreground) / 0.7); }
-  .text-primary-foreground\/80 { color: rgb(var(--color-primary-foreground) / 0.8); }
-  .text-primary-foreground\/90 { color: rgb(var(--color-primary-foreground) / 0.9); }
-  .text-primary\/30 { color: rgb(var(--color-primary) / 0.3); }
-
-  /* Border with Opacity */
-  .border-border\/30 { border-color: rgb(var(--color-border) / 0.3); }
-  .border-border\/40 { border-color: rgb(var(--color-border) / 0.4); }
-  .border-border\/50 { border-color: rgb(var(--color-border) / 0.5); }
-  .border-primary\/20 { border-color: rgb(var(--color-primary) / 0.2); }
-  .border-primary\/30 { border-color: rgb(var(--color-primary) / 0.3); }
-  .border-primary\/40 { border-color: rgb(var(--color-primary) / 0.4); }
-  .border-primary\/50 { border-color: rgb(var(--color-primary) / 0.5); }
-  .border-success\/30 { border-color: rgb(var(--color-success) / 0.3); }
-  .hover\:border-primary\/30:hover { border-color: rgb(var(--color-primary) / 0.3); }
-  .hover\:border-primary\/40:hover { border-color: rgb(var(--color-primary) / 0.4); }
-  .hover\:border-primary\/50:hover { border-color: rgb(var(--color-primary) / 0.5); }
-
-  /* Group Hover */
-  .group:hover .group-hover\:bg-primary { background-color: rgb(var(--color-primary)); }
-  .group:hover .group-hover\:text-primary-foreground { color: rgb(var(--color-primary-foreground)); }
-  .group:hover .group-hover\:scale-110 { transform: scale(1.1); }
-
-  /* Animation Delays */
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
-
-  /* Animations */
-  .animate-fade-up {
-    animation: fade-up 0.5s ease-out forwards;
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-
-  .animate-slide-in-left {
-    animation: slide-in-left 0.5s ease-out forwards;
-  }
-
-  .animate-slide-in-right {
-    animation: slide-in-right 0.5s ease-out forwards;
-  }
-
-  .animate-scale-in {
-    animation: scale-in 0.4s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  /* Glow Shadows */
-  .shadow-glow {
-    box-shadow: 0 0 20px rgb(var(--color-primary) / 0.15), 0 0 40px rgb(var(--color-primary) / 0.05);
-  }
-
-  .shadow-glow-lg {
-    box-shadow: 0 0 30px rgb(var(--color-primary) / 0.2), 0 0 60px rgb(var(--color-primary) / 0.08), 0 0 90px rgb(var(--color-primary) / 0.03);
-  }
-
-  .shadow-warm {
-    box-shadow: 0 4px 20px rgb(var(--color-primary) / 0.08), 0 2px 8px rgb(0 0 0 / 0.04);
-  }
-}
-
-/* ============================================
-   KEYFRAME ANIMATIONS
-   ============================================ */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fade-up {
-  from { 
-    opacity: 0; 
-    transform: translateY(16px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-/* ============================================
-   CUSTOM COMPONENT CLASSES
+   LAYOUT COMPONENT CLASSES
    ============================================ */
 @layer components {
   .container-narrow {
@@ -380,79 +175,74 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 md:py-24 lg:py-28;
+    @apply py-16 sm:py-20 md:py-24;
   }
 
   .section-padding-sm {
     @apply py-12 sm:py-16 md:py-20;
   }
 
-  .bg-gradient-primary {
-    background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-primary-dark)) 100%);
-  }
-
-  .bg-gradient-hero {
-    background: 
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgb(var(--color-primary) / 0.1), transparent 60%),
-      radial-gradient(ellipse 50% 50% at 85% 80%, rgb(var(--color-secondary) / 0.06), transparent 50%),
-      radial-gradient(ellipse 40% 40% at 15% 70%, rgb(var(--color-accent) / 0.04), transparent 50%),
-      rgb(var(--color-background));
-  }
-
-  .dark .bg-gradient-hero {
-    background: 
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgb(var(--color-primary) / 0.15), transparent 60%),
-      radial-gradient(ellipse 50% 50% at 85% 80%, rgb(var(--color-secondary) / 0.1), transparent 50%),
-      radial-gradient(ellipse 40% 40% at 15% 70%, rgb(var(--color-accent) / 0.05), transparent 50%),
-      rgb(var(--color-background));
-  }
-
-  .glass {
-    background: rgb(var(--color-background) / 0.82);
-    backdrop-filter: blur(12px) saturate(1.2);
-    -webkit-backdrop-filter: blur(12px) saturate(1.2);
-    border: 1px solid rgb(var(--color-border) / 0.4);
-  }
-
-  .dark .glass {
-    background: rgb(var(--color-background) / 0.72);
-    border-color: rgb(var(--color-border) / 0.2);
+  /* Single restrained brand moment: a faint emerald wash at the top of heroes */
+  .hero-wash {
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -15%, color-mix(in oklab, var(--primary) 7%, transparent), transparent 65%),
+      var(--background);
   }
 }
 
 /* ============================================
-   FOCUS STYLES
+   ENTRANCE ANIMATION (hero only)
+   ============================================ */
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   FOCUS / SELECTION / SCROLLBAR
    ============================================ */
 *:focus-visible {
-  outline: 2px solid rgb(var(--color-primary));
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
-/* Selection Colors */
 ::selection {
-  background-color: rgb(var(--color-primary) / 0.2);
-  color: rgb(var(--color-foreground));
+  background-color: color-mix(in oklab, var(--primary) 20%, transparent);
+  color: var(--foreground);
 }
 
-/* ============================================
-   SCROLLBAR - Refined
-   ============================================ */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(var(--color-muted) / 0.5);
+  background-color: color-mix(in oklab, var(--muted) 50%, transparent);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--color-muted-foreground) / 0.4);
+  background-color: color-mix(in oklab, var(--muted-foreground) 40%, transparent);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(var(--color-muted-foreground) / 0.6);
+  background-color: color-mix(in oklab, var(--muted-foreground) 60%, transparent);
 }
 
 /* ============================================
@@ -485,7 +275,7 @@ div:has(+ #nd-sidebar-mobile) {
   font-size: 0.8125rem;
   font-weight: 500;
   border-radius: 0.5rem;
-  border: 1px solid rgb(var(--color-border));
+  border: 1px solid var(--border);
   min-height: 2rem;
 }
 
@@ -530,20 +320,6 @@ div:has(+ #nd-sidebar-mobile) {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* ============================================
-   MOBILE-FIRST TYPOGRAPHY
-   ============================================ */
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  p {
-    line-height: 1.7;
   }
 }
 

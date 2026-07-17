@@ -76,7 +76,7 @@ export function MobileFooterNav() {
 
   return (
     <nav className="fixed bottom-4 left-4 right-4 z-50 lg:hidden" dir="ltr">
-      <div className="flex items-center justify-around p-2 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/30 shadow-lg">
+      <div className="flex items-center justify-around p-2 rounded-xl bg-background/90 backdrop-blur-lg border border-border">
         {navItems.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
           return (

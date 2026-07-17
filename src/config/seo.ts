@@ -431,27 +431,6 @@ export const schemaTemplates = {
       social.linkedin.url,
       social.instagram.url,
     ].filter(Boolean),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: {
-      '@type': 'Review',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '5',
-        bestRating: '5',
-      },
-      author: {
-        '@type': 'Person',
-        name: 'Ahmed Sabry Abd El-Fatah',
-      },
-      reviewBody: 'Excellent business management platform that has transformed our retail operations.',
-      datePublished: '2024-08-15',
-    },
   }),
 
   /**
@@ -571,44 +550,6 @@ export const schemaTemplates = {
         '@id': `${urls.site}/#organization`,
       },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '500',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        author: {
-          '@type': 'Person',
-          name: 'Ahmed Mohamed',
-        },
-        reviewBody: 'Excellent platform for managing our retail business across multiple locations.',
-        datePublished: '2024-06-15',
-      },
-      {
-        '@type': 'Review',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        author: {
-          '@type': 'Person',
-          name: 'Sarah Johnson',
-        },
-        reviewBody: 'The inventory management and analytics features have transformed how we operate.',
-        datePublished: '2024-08-20',
-      },
-    ],
     featureList: [
       'Real-time Point of Sale (POS)',
       'Multi-location Inventory Management',
@@ -739,11 +680,6 @@ export const schemaTemplates = {
           ],
         },
       ],
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '500',
     },
   }),
 
@@ -912,26 +848,6 @@ export const schemaTemplates = {
         brand: {
           '@type': 'Brand',
           name: brand.name,
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '500',
-          bestRating: '5',
-          worstRating: '1',
-        },
-        review: {
-          '@type': 'Review',
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '5',
-            bestRating: '5',
-          },
-          author: {
-            '@type': 'Person',
-            name: 'Verified Customer',
-          },
-          reviewBody: `${plan.name} plan provides excellent value for managing business operations.`,
         },
         offers: {
           '@type': 'Offer',
@@ -1245,27 +1161,6 @@ export function getProductGroupSchema(plans: PublicPlan[] = []) {
           name: brand.name,
           logo: `${urls.site}/assets/logo-light.png`,
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '500',
-          bestRating: '5',
-          worstRating: '1',
-        },
-        review: {
-          '@type': 'Review',
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '5',
-            bestRating: '5',
-          },
-          author: {
-            '@type': 'Person',
-            name: 'Verified Customer',
-          },
-          reviewBody: `${plan.enName} plan provides excellent value for business management.`,
-          datePublished: '2024-06-15',
-        },
         offers: {
           '@type': 'Offer',
           url: `${urls.site}/pricing`,
@@ -1316,13 +1211,6 @@ export function getProductGroupSchema(plans: PublicPlan[] = []) {
         },
       };
     }),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
 

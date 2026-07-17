@@ -86,15 +86,15 @@ export default async function ThankYouPage({ params }: Props) {
       />
 
       {/* Main Content */}
-      <section className="min-h-[70vh] flex items-center justify-center py-16 sm:py-20 md:py-24 bg-gradient-hero">
+      <section className="min-h-[70vh] flex items-center justify-center py-16 sm:py-20 md:py-24 hero-wash">
         <div className="container-wide">
           <div className="max-w-2xl mx-auto">
-            <Card className="overflow-hidden border-0 shadow-xl">
+            <Card className="overflow-hidden">
               <CardContent className="p-8 md:p-12 text-center" dir={isRtl ? 'rtl' : 'ltr'}>
                 {/* Success Icon */}
-                <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-success/15 mb-8">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-8">
                   <svg
-                    className="w-14 h-14 text-success"
+                    className="w-10 h-10 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -119,7 +119,7 @@ export default async function ThankYouPage({ params }: Props) {
                 </p>
 
                 {/* Email Notice */}
-                <div className="bg-muted/50 rounded-xl p-5 mb-8">
+                <div className="bg-muted rounded-xl p-5 mb-8">
                   <div className="flex items-center justify-center gap-3 text-muted-foreground">
                     <svg
                       className="w-6 h-6 text-primary flex-shrink-0"
@@ -181,7 +181,7 @@ export default async function ThankYouPage({ params }: Props) {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href={portalUrl}
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-lg font-medium text-primary-foreground bg-primary hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
                   >
                     {t('cta.goToDashboard')}
                     <svg
