@@ -64,7 +64,9 @@ The storefront supports **light and dark mode only**. Custom themes, colors, fon
 
 ## Configuring Your Online Store
 
-From the **business portal**, go to your store's settings and navigate to **Online Store** (or **المتجر الإلكتروني**).
+In the portal, open **Online Store** from the sidebar (or **Settings > Stores > your store > Online Store tab**). If the storefront hasn't been created yet, a **Create** button sets it up.
+
+Settings are organized in four sections: **General**, **Appearance**, **Content & SEO**, and **Tracking**. In **General** you can also switch the storefront **Active / Inactive** and toggle **Hide Out of Stock**.
 
 ### Store Subdomain Configuration
 
@@ -82,26 +84,14 @@ Cashvio supports **subdomain-based storefronts only**. Custom domains are not cu
 
 | Setting | Description |
 |---------|-------------|
-| **Hero Images** | Upload up to 5 banner images for the home page. Set display order by dragging images. The first image is shown by default. |
-| **Store Logo** | Your logo displayed in the header of the storefront |
-| **SEO Settings** | Configure search engine optimization: |
-| | - **Meta Title** — Page title shown in search results and browser tabs |
-| | - **Meta Description** — Description shown in search engine results |
-| | - **Favicon** — Small icon displayed in browser tabs and bookmarks |
-| **Social Media Links** | Add links to your social media profiles: |
-| | - Facebook |
-| | - Instagram |
-| | - TikTok |
-| | - YouTube |
-| | - Website (your main website URL) |
-| **Contact Phone** | Phone number displayed in the store for customer contact |
-| **Hide Out of Stock Items** | Toggle to hide products with zero inventory from the storefront (customers will not see out-of-stock products) |
-| **Analytics** | Google Tag Manager ID and Facebook Pixel ID for tracking |
-| **Static Pages** | Create custom policy and information pages with rich text editor: |
-| | - **Refund Policy** — Your refund and return policy |
-| | - **Shipping Policy** — Information about shipping methods, costs, and delivery times |
-| | - **About Us** — Information about your business |
-| | Each page supports rich text formatting (bold, italic, lists, links, etc.) |
+| **Store Logo** | Your storefront logo (JPEG/PNG/WEBP, up to 2 MB) |
+| **Hero Images** | Up to 5 home-page banners, each with an optional **click-through link** (great for promotions) |
+| **Special Products** | Up to 10 featured products pinned on the home page, reorderable by drag and drop |
+| **SEO Settings** | Meta title (60 chars), meta description (160 chars), and favicon |
+| **Social Media Links** | Facebook, Instagram, TikTok, YouTube, and your website URL |
+| **Hide Out of Stock Items** | Hide products with zero inventory from the storefront |
+| **Tracking** | Google Tag Manager, Facebook Pixel, and TikTok Pixel IDs |
+| **Static Pages** | Refund Policy, Shipping Policy, and About Us — each in English and Arabic with a rich text editor |
 
 ## What Affects Your Online Store
 
@@ -123,16 +113,28 @@ Only **active** products and categories appear on the storefront. Draft or archi
 
 ## Managing Hero Images
 
-Hero images are the large banner images displayed at the top of your storefront home page:
+Hero images are the large banners at the top of your storefront home page:
 
-1. Go to **Online Store** settings.
-2. Navigate to **Hero Images**.
-3. **Upload Images** — Add up to 5 images (recommended size: 1920x600px for best display)
-4. **Set Display Order** — Drag images to reorder them. The first image is shown by default.
-5. **Remove Images** — Click the remove button to delete unwanted images.
+1. Open **Online Store > Appearance**.
+2. **Upload images** — up to 5 (JPEG/PNG/WEBP, 5 MB each; ~1920×600px looks best). Images display in the order you upload them.
+3. **Add a link** (optional) — give any banner a click-through URL, e.g., to a category or promotion page.
+4. **Remove images** you no longer want.
 
 <Callout title="Tip">
 Use high-quality, visually appealing images that represent your brand. Keep file sizes reasonable for fast loading times.
+</Callout>
+
+## Featured (Special) Products
+
+Pin up to **10 products** on your storefront home page:
+
+1. Open **Online Store > Appearance > Special Products**.
+2. Click **Add** and pick a product (each product can be added once).
+3. **Drag and drop** to set the display order.
+4. Remove products from the list any time.
+
+<Callout title="Note">
+Only **Active** products display properly — the list warns you if a pinned product is inactive or in draft.
 </Callout>
 
 ## SEO Settings
@@ -171,5 +173,6 @@ Track customer behavior on your storefront with:
 
 - **Google Tag Manager** — Add your GTM container ID to track page views, add-to-cart events, checkouts, and purchases
 - **Facebook Pixel** — Add your Pixel ID to track conversions and build retargeting audiences
+- **TikTok Pixel** — Add your TikTok Pixel ID to measure TikTok ad performance
 
-See [Google Tags](/docs/integrations/google-tags) and [Facebook Pixel](/docs/integrations/facebook-pixel) for detailed setup instructions.
+See [Google Tags](/docs/integrations/google-tags), [Facebook Pixel](/docs/integrations/facebook-pixel), and [TikTok Pixel](/docs/integrations/tiktok-pixel) for detailed setup instructions.

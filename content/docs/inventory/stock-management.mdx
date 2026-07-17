@@ -11,25 +11,31 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 
 ## Viewing Inventory
 
-1. Go to **Inventory > All Inventory** in the sidebar.
+1. Go to **Inventory** in the sidebar.
 2. If you have multiple stores, **select a store** to view its inventory.
 3. You will see a table showing:
 
 | Column | Description |
 |--------|-------------|
-| **Product / Variant** | The product name and variant details |
-| **SKU** | Stock keeping unit code |
-| **Current Stock** | How many units are available |
-| **Reorder Point** | The stock level that triggers a low stock alert |
+| **Product / Variant** | The product name and variant (with its SKU) |
 | **Status** | In Stock, Low Stock, or Out of Stock |
+| **Available** | Units that can still be sold |
+| **Committed** | Units reserved by pending orders |
+| **On Hand** | Physical units in the store (available + committed) |
+
+You can search, filter to low-stock only, and **export the current view to CSV**.
 
 ## Stock Statuses
 
 | Status | Meaning |
 |--------|---------|
-| **In Stock** | Stock is above the reorder point |
-| **Low Stock** | Stock is at or below the reorder point |
-| **Out of Stock** | Stock is zero |
+| **In Stock** | On-hand stock is above the reorder point |
+| **Low Stock** | On-hand stock is at or below the reorder point |
+| **Out of Stock** | No available stock |
+
+### Available vs. Committed vs. On Hand
+
+When a customer places an order that isn't completed yet, those units become **committed** — still physically in the store, but reserved. **Available = On Hand − Committed**, and it's the number that matters for what you can still sell.
 
 ## Low Stock Alerts
 
@@ -39,10 +45,11 @@ Items appear here when their current stock falls to or below the **reorder point
 
 ### Setting a Reorder Point
 
-1. Open the inventory details for a product variant.
-2. Click **Update Reorder Point**.
-3. Enter the minimum stock level that should trigger an alert.
-4. Click **Save**.
+Reorder points are set **per variant, per store**:
+
+1. Open the row's actions menu (on the Inventory list, Low Stock page, or inventory details) and choose **Update Reorder Point**.
+2. Enter the minimum stock level that should trigger an alert — the dialog shows the current stock and warns if the new value would immediately flag the item as low.
+3. Click **Save**.
 
 **Example:** If you set the reorder point for "T-shirt / M / Blue" to 10, it appears in the Low Stock list when stock drops to 10 or below.
 
