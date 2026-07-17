@@ -127,7 +127,7 @@
       "step2": {
         "number": "2",
         "title": "Set Up Your Store",
-        "description": "Add products, configure inventory and pricing, set up payment methods, and customize your store with our guided 9-step onboarding."
+        "description": "Add your products, prices, and payment methods. Your first store is created automatically when you sign up."
       },
       "step3": {
         "number": "3",
@@ -215,8 +215,8 @@
         "description": "Full English and Arabic support with right-to-left interface. Serve your team and customers in their preferred language."
       },
       "onboarding": {
-        "title": "Guided Onboarding",
-        "description": "9-step guided setup walks you through everything — from adding your first product to processing your first order."
+        "title": "Easy Setup",
+        "description": "Your first store is created automatically, and clear first steps take you from adding a product to your first sale in minutes."
       },
       "notifications": {
         "title": "Real-Time Notifications",
