@@ -17,7 +17,7 @@ description: How to view, filter, update, and manage your sales orders including
 | **Payment Method** | The primary payment method used (Cash, Online, Receipt, or Store Credit) |
 | **Fulfillment Method** | How the order will be fulfilled (In-Store, Pickup, Delivery, or Dine-In) |
 | **Fulfillment Status** | Current fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled) |
-| **Payment Status** | Whether the order is paid, partially paid, or unpaid |
+| **Payment Status** | Pending, Partial, Paid, Cancelled, Partially Refunded, or Refunded |
 | **Total** | The order total amount |
 | **Date** | When the order was created |
 
@@ -39,11 +39,19 @@ On mobile devices, orders are displayed as cards instead of a table. Each card s
 Use the filter bar to narrow down your orders:
 
 - **Order Number** — Search by order number
+- **Order Status** — Pending, Completed, or Cancelled
+- **Date Range** — Quick presets or a custom range
 - **Store** — Filter by store
-- **Customer** — Filter by customer name
-- **Fulfillment Status** — Filter by fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled)
 - **Payment Status** — Filter by payment status
+- **Payment Method** — Cash, Online, Receipt, or Store Credit
+- **Source** — Web (portal) or Storefront
 - **Channel** — Filter by sales channel
+
+You can also **export the current filtered view to CSV** using the export button in the toolbar.
+
+<Callout title="Tip">
+To see one customer's orders, open the customer's page — their full order history appears there with the same filters.
+</Callout>
 
 ## Order Details
 
@@ -69,8 +77,10 @@ The order details page includes an **Order Payments** section that lists every i
 |--------|-------------|
 | **Payment Method** | The method used (Cash, Online, Receipt, Store Credit) |
 | **Amount** | The payment amount |
-| **Status** | Completed, Pending, Failed, or Cancelled |
+| **Status** | Pending, Completed, Failed, or Cancelled |
 | **Date** | When the payment was made |
+
+Pending Cash or Receipt payments can be **approved** right from this table (with the uploaded receipt image shown for review).
 
 This section is useful for orders with split payments or multiple payment transactions.
 
@@ -87,11 +97,15 @@ This section is useful for orders with split payments or multiple payment transa
 To update an order's fulfillment status:
 
 1. Open the order details.
-2. Click **Update Fulfillment** (or the status update button).
-3. Select the new status from the available options.
+2. Click **Update Fulfillment Status**.
+3. Select the new status from the available options (you can skip ahead — e.g., straight from Pending to Completed) and add optional notes.
 4. Confirm the update.
 
 The available statuses depend on the current status and fulfillment method. See [Fulfillment Methods](/docs/stores/fulfillment-methods) for the full status flow.
+
+<Callout title="Note">
+**In-Store** orders don't have fulfillment tracking — the customer receives the items immediately. Fulfillment updates are also unavailable once an order is completed or cancelled.
+</Callout>
 
 ## Adding a Payment
 
@@ -133,15 +147,20 @@ When a customer places a storefront order with **Cash** payment, a pending payme
 ## Cancelling an Order
 
 1. Open the order details.
-2. Click **Cancel** from the actions menu.
+2. Click **Cancel Order**.
 3. Confirm the cancellation.
 
 <Callout title="Note">
-Cancelling an order reverses inventory changes if inventory tracking was enabled. The stock levels return to what they were before the order.
+Only **Pending** orders can be cancelled. Cancelling reverses inventory changes if inventory tracking was enabled — stock levels return to what they were before the order.
 </Callout>
 
-## Printing a Receipt
+## Receipts: Print, PDF, Link, and QR
 
-1. Open the order details.
-2. Click **Print Receipt**.
-3. The receipt opens in a print dialog formatted according to your [Receipt Settings](/docs/stores/receipt-settings).
+Open the order details and click **Print / Share Receipt**:
+
+- **Print** — via a paired thermal printer or the browser print dialog (your choice is remembered per store)
+- **Download PDF** — save the receipt as a PDF
+- **Share Link** — copy a public digital-receipt link the customer can open
+- **QR Code** — show a QR code the customer can scan to view their receipt
+
+The receipt follows your [Receipt Settings](/docs/stores/receipt-settings), including the auto-print option.

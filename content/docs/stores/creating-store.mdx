@@ -1,70 +1,72 @@
 ---
 title: Understanding Your Store
-description: What a store is in Cashvio, how to manage your store settings, and how multi-store operations work.
+description: What a store is in Cashvio, how to manage its settings, and how multi-store operations work.
 ---
 
 ## What is a Store?
 
 A **store** in Cashvio represents a business location where you sell products. This can be a physical shop, a warehouse, an online store, or any point of sale. Each store has its own:
 
-- **Currency** — The currency used for pricing and transactions
-- **Tax settings** — How taxes are calculated
-- **Payment methods** — Which payment methods are accepted
-- **Fulfillment methods** — How orders are delivered or picked up
-- **Inventory** — Stock levels tracked separately per store
+- **Currency** — the currency used for pricing and transactions
+- **Payment methods** — which payment methods are accepted
+- **Fulfillment methods** — how orders are delivered or picked up
+- **Inventory** — stock levels tracked separately per store
 
 When you sign up for Cashvio, your first store is **automatically created** using your business details. If your plan supports multiple stores, you can add more later.
 
-## Viewing Your Store
+## Opening Your Store
 
-To see your store details:
+1. Go to **Settings** in the sidebar — your stores appear as cards at the top (or open **Settings > Stores** for the full list).
+2. Click a store to open its page. Everything about the store is organized as **tabs**:
 
-1. Go to **Settings** in the sidebar.
-2. Under **Store Details**, click to open your store's detail page.
-3. You will see a page with **action cards** linking to each store configuration area:
-
-| Action Card | What it configures |
-|-------------|-------------------|
-| **Store Settings** | Basic store information (name, address, currency, tax) |
-| **[Payment Methods](/docs/stores/payment-methods)** | Which payment methods customers can use |
-| **[Fulfillment Methods](/docs/stores/fulfillment-methods)** | Delivery, pickup, dine-in options |
-| **[Service Fees](/docs/stores/service-fees)** | Additional service or dine-in charges |
+| Tab | What it configures |
+|-----|-------------------|
+| **Overview** | Read-only summary: name, code, currency, contact info, and address |
+| **Settings** | Edit the store's basic information |
+| **[Payments](/docs/stores/payment-methods)** | Payment methods for the portal and the storefront |
+| **[Fulfillment](/docs/stores/fulfillment-methods)** | In-Store, Pickup, Delivery, Dine-In |
 | **[Delivery Zones](/docs/stores/delivery-zones)** | Delivery areas and fees |
-| **[Online Store](/docs/online-store/storefront-overview)** | Your online storefront settings |
-| **[Receipt Settings](/docs/stores/receipt-settings)** | How receipts are formatted |
+| **[Service Fees](/docs/stores/service-fees)** | Additional fees added to orders |
+| **[Receipt](/docs/stores/receipt-settings)** | Receipt content and auto-print |
+| **Channels** | Which sales channels are active for this store |
+| **[POS](/docs/stores/pos-devices)** | POS devices and pairing |
+| **[Online Store](/docs/online-store/storefront-overview)** | Your storefront settings |
 
 <Callout title="Shortcut">
-Many store settings are also available as **direct sidebar items**. For example, you can access **Delivery Zones**, **Payment Methods**, **Fulfillment Methods**, and **Service Fees** directly from the sidebar without navigating through store details.
+The Settings hub also has quick-access links for each of these areas. If you have one store they open it directly; with multiple stores you pick the store first.
 </Callout>
 
-## Editing Store Settings
+## Adding a Store
 
-1. Go to **Settings > Store Details** in the sidebar.
-2. Click the **Store Settings** action card.
-3. Update your store details:
+1. Go to **Settings > Stores** and click **Add Store**.
+2. Fill in the details:
 
 | Field | Description |
 |-------|-------------|
-| **Store Name** | A name to identify this store (e.g., "Main Branch") |
-| **Address** | The physical address of the store |
-| **Currency** | The currency for all transactions in this store |
-| **Tax Settings** | Default tax rate and whether prices include tax |
+| **Store Name** | A name to identify this store (e.g., "Main Branch") — required |
+| **Currency** | The currency for this store's transactions — required |
+| **Active** | Whether the store starts active |
+| **Contact Email / Phone** | The store's contact details |
+| **Country / City / Address / Postal Code** | The store's location |
 
-4. Click **Save Changes**.
+3. Click **Save**. The number of stores you can create depends on your plan.
 
-<Callout title="Important">
-The **currency** you choose for a store cannot be changed after creation. Make sure it is correct.
-</Callout>
+## Editing Store Settings
+
+Open the store's **Settings** tab to update the name, currency, contact details, and address. The store **code** is generated automatically and cannot be changed.
+
+You can also **Activate** or **Deactivate** the store from this tab — deactivated stores stop accepting new activity without losing any data.
 
 ## Multi-Store Operations
 
 If your plan supports multiple stores:
 
 - **Each store tracks inventory independently.** A product can have different stock levels in each store.
-- **Orders are associated with a specific store.** When creating an order, you select which store it belongs to.
-- **Reports can be filtered by store.** View sales, profit, and other analytics per store or across all stores.
-- **Users can be assigned to specific stores.** Control which team members can access which stores.
+- **Orders belong to a specific store.** When making a sale, you pick the store first.
+- **Prices can differ per store.** Set store-specific prices per product variant.
+- **Reports break down by store.** See sales and profit per store inside the reports.
+- **Users can be limited to specific stores** via store-scoped roles.
 
 <Callout title="Tip">
-You can transfer inventory between stores. See [Adjustments & Transfers](/docs/inventory/adjustments-transfers) for details on stock transfers.
+You can transfer inventory between stores. See [Adjustments & Transfers](/docs/inventory/adjustments-transfers) for details.
 </Callout>
