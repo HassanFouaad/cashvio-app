@@ -10,6 +10,7 @@ import {
   ComparisonTable,
   FaqSection,
   AlsoFreeStrip,
+  FeatureScreenshot,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -171,6 +172,14 @@ export default async function OmnichannelRetailPage({ params }: Props) {
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
         note={t('hero.trust')}
       />
+
+      <FeatureScreenshot
+        base="/assets/orders"
+        locale={typedLocale}
+        alt={t('screenshot.alt')}
+        caption={t('screenshot.caption')}
+      />
+
 
       {/* The Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">

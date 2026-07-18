@@ -10,6 +10,7 @@ import {
   ComparisonTable,
   FaqSection,
   AlsoFreeStrip,
+  FeatureScreenshot,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -209,6 +210,15 @@ export default async function ArabicPosPage({ params }: Props) {
         primaryAction={{ label: t('hero.cta'), href: registerLink }}
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
       />
+
+      <FeatureScreenshot
+        base="/assets/pos"
+        locale={typedLocale}
+        alt={t('screenshot.alt')}
+        caption={t('screenshot.caption')}
+        variant="mobile"
+      />
+
 
       {/* The Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">

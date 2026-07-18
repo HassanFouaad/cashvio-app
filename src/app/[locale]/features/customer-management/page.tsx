@@ -9,6 +9,7 @@ import {
   ReceiptCard,
   FaqSection,
   AlsoFreeStrip,
+  FeatureScreenshot,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -192,6 +193,14 @@ export default async function CustomerManagementPage({ params }: Props) {
         primaryAction={{ label: t('cta.getStarted'), href: registerLink }}
         secondaryAction={{ label: commonT('readDocs'), href: docsLink }}
       />
+
+      <FeatureScreenshot
+        base="/assets/customers"
+        locale={typedLocale}
+        alt={t('screenshot.alt')}
+        caption={t('screenshot.caption')}
+      />
+
 
       {/* Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">

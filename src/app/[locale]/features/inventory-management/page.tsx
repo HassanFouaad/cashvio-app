@@ -10,6 +10,7 @@ import {
   ComparisonTable,
   FaqSection,
   AlsoFreeStrip,
+  FeatureScreenshot,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -175,6 +176,14 @@ export default async function InventoryManagementPage({ params }: Props) {
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
         note={t('hero.trust')}
       />
+
+      <FeatureScreenshot
+        base="/assets/inventory"
+        locale={typedLocale}
+        alt={t('screenshot.alt')}
+        caption={t('screenshot.caption')}
+      />
+
 
       {/* The Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">

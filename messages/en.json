@@ -1222,6 +1222,10 @@
       "description": "Join businesses managing their operations more efficiently with Cashvio.",
       "getStarted": "Start Free",
       "viewPricing": "View Pricing"
+    },
+    "screenshot": {
+      "caption": "Live view — dashboard",
+      "alt": "Cashvio business dashboard with sales overview and quick actions"
     }
   },
   "couponsAndDiscounts": {
@@ -1428,6 +1432,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Free forever plan includes coupons"
+    },
+    "screenshot": {
+      "caption": "Live view — coupons",
+      "alt": "Cashvio coupons and discounts management screen"
     }
   },
   "thankYou": {
@@ -1840,6 +1848,10 @@
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • Setup in 2 minutes • Full Arabic support"
+    },
+    "screenshot": {
+      "caption": "Live view — Arabic POS",
+      "alt": "Cashvio Arabic POS screen for in-store sales"
     }
   },
   "omnichannelRetail": {
@@ -2095,6 +2107,10 @@
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • One dashboard for all channels • Setup in minutes"
+    },
+    "screenshot": {
+      "caption": "Live view — omnichannel orders",
+      "alt": "Cashvio orders from POS, online store, and social channels"
     }
   },
   "inventoryManagement": {
@@ -2389,6 +2405,10 @@
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • No credit card required • Unlimited products"
+    },
+    "screenshot": {
+      "caption": "Live view — inventory",
+      "alt": "Cashvio inventory screen with stock levels and low-stock alerts"
     }
   },
   "ledger": {
@@ -2585,6 +2605,10 @@
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever • No credit card • Arabic & English"
+    },
+    "screenshot": {
+      "caption": "Live view — POS",
+      "alt": "Cashvio free POS product catalog and checkout on mobile"
     }
   },
   "freeOnlineStore": {
@@ -2789,6 +2813,10 @@
       "button": "Create My Free Store",
       "secondaryButton": "View Pricing",
       "note": "Free forever • 0% commission • Arabic & English"
+    },
+    "screenshot": {
+      "caption": "Live view — products",
+      "alt": "Cashvio product catalog used by the free online store"
     }
   },
   "orderManagement": {
@@ -2977,6 +3005,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Order management is included in the free plan"
+    },
+    "screenshot": {
+      "caption": "Live view — orders",
+      "alt": "Cashvio order management list with payments and fulfillment status"
     }
   },
   "customerManagement": {
@@ -3130,6 +3162,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Customer management is included in the free plan"
+    },
+    "screenshot": {
+      "caption": "Live view — customers",
+      "alt": "Cashvio customers list with visits, spend, and store credit"
     }
   },
   "salesAnalytics": {
@@ -3319,6 +3355,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Reporting is built into every plan"
+    },
+    "screenshot": {
+      "caption": "Live view — analytics",
+      "alt": "Cashvio sales analytics dashboard with revenue and trends"
     }
   },
   "purchaseOrders": {
@@ -3478,6 +3518,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Suppliers and purchase orders are part of the inventory module"
+    },
+    "screenshot": {
+      "caption": "Live view — purchase orders",
+      "alt": "Cashvio purchase orders screen for restocking inventory"
     }
   },
   "returnsAndRefunds": {
@@ -3659,6 +3703,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Returns and refunds are included in every plan"
+    },
+    "screenshot": {
+      "caption": "Live view — returns",
+      "alt": "Cashvio returns list with eligibility and refund status"
     }
   },
   "multiStoreManagement": {
@@ -3838,6 +3886,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Multi-store support depends on your plan"
+    },
+    "screenshot": {
+      "caption": "Live view — stores",
+      "alt": "Cashvio multi-store management screen"
     }
   },
   "teamManagement": {
@@ -4017,6 +4069,10 @@
       "getStarted": "Create Your Free Account",
       "viewPricing": "View Pricing",
       "freeNote": "Team members and roles depend on your plan limits"
+    },
+    "screenshot": {
+      "caption": "Live view — team",
+      "alt": "Cashvio team and roles management screen"
     }
   }
 }

@@ -7,6 +7,7 @@ import {
   LedgerHeading,
   LedgerCta,
   ReceiptCard,
+  FeatureScreenshot,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -164,6 +165,14 @@ export default async function FeaturesPage({ params }: Props) {
         title={t('title')}
         subtitle={t('subtitle')}
       />
+
+      <FeatureScreenshot
+        base="/assets/dashboard"
+        locale={typedLocale}
+        alt={t('screenshot.alt')}
+        caption={t('screenshot.caption')}
+      />
+
 
       {/* Core Modules — ledger chapter no. 01 */}
       <section aria-label={t('categories.modules.title')} className="section-padding-sm">
