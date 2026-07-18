@@ -41,7 +41,7 @@ export function MobileAppShowcase() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-5xl mx-auto">
           {/* Handheld terminal with view toggle */}
           <div className="flex flex-col items-center gap-5 order-2 lg:order-1">
-            <div className="rounded-[2rem] bg-foreground p-2.5 w-full max-w-[270px] sm:max-w-[300px]">
+            <div className="rounded-[2rem] bg-chassis p-2.5 w-full max-w-[270px] sm:max-w-[300px]">
               <div className="rounded-[1.4rem] overflow-hidden bg-card">
                 <Image
                   src={currentView.image}

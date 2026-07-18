@@ -75,7 +75,7 @@ export async function Hero({ locale }: HeroProps) {
               className="relative mx-auto w-full max-w-[340px]"
               aria-hidden="true"
             >
-              <div className="relative z-10 h-7 rounded-lg bg-foreground flex items-center justify-center">
+              <div className="relative z-10 h-7 rounded-lg bg-chassis flex items-center justify-center">
                 <div className="w-3/4 h-1 rounded-full bg-background/50" />
               </div>
               <div className="overflow-hidden px-4">

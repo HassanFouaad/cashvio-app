@@ -11,6 +11,9 @@
 
 /* ---- Semantic color variables (light) ---- */
 :root {
+  /* Tell the browser which mode we're in so native UI (select popups,
+     scrollbars, autofill, date pickers) renders in matching colors */
+  color-scheme: light;
   --background: #faf9f7;
   --foreground: #101828;
   --card: #ffffff;
@@ -21,6 +24,9 @@
   /* Ledger lines (tear lines, ruled paper, dashed rules) need more
      contrast than regular borders — dashes read fainter than solids */
   --ledger-line: #c3bfb5;
+  /* Device chassis (receipt printer, POS terminal frame) — always dark,
+     never flips to white in dark mode */
+  --chassis: #101828;
 
   --primary: #059669;
   --primary-dark: #047857;
@@ -34,6 +40,7 @@
 
 /* ---- Semantic color variables (dark — emerald-tinted surfaces) ---- */
 .dark {
+  color-scheme: dark;
   --background: #0a1410;
   --foreground: #eaf1ec;
   --card: #111d17;
@@ -42,6 +49,7 @@
   --muted-foreground: #93a89b;
   --border: #24352c;
   --ledger-line: #3a5044;
+  --chassis: #2b3f34;
 
   --primary: #10b981;
   --primary-dark: #34d399;
@@ -63,6 +71,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-ledger-line: var(--ledger-line);
+  --color-chassis: var(--chassis);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-foreground: var(--primary-foreground);
@@ -162,6 +171,24 @@
     line-height: 1.2;
     font-weight: 600;
     letter-spacing: -0.01em;
+  }
+
+  /* Native select popups must follow the theme, never the OS default */
+  select,
+  select option {
+    background-color: var(--card);
+    color: var(--foreground);
+  }
+
+  /* Chrome autofill paints a light background — keep theme colors */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: var(--foreground);
+    caret-color: var(--foreground);
+    transition: background-color 9999999s ease-in-out 0s;
   }
 
   p {
