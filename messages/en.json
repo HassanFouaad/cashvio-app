@@ -511,67 +511,229 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: January 1, 2026",
-    "intro": "At Cashvio, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.",
+    "lastUpdated": "Last updated: July 18, 2026",
+    "tableOfContents": "Table of Contents",
+    "intro": "At Cashvio, your trust is the foundation of everything we build. This Privacy Policy explains what information we collect, why we collect it, how we use and protect it, and the rights and choices you have over it.\n\nIt applies to the Cashvio website, the merchant dashboard, the point-of-sale applications, online storefronts we host for merchants, and all related services (together, the \"Services\"). By using the Services, you acknowledge that you have read and understood this policy.",
     "sections": {
+      "scope": {
+        "title": "Who We Are and Scope of This Policy",
+        "content": "The Services are operated by Cashvio Technologies (\"Cashvio\", \"we\", \"us\", or \"our\"), headquartered in Cairo, Egypt.\n\nWe act in two distinct roles. For the personal information of merchants, their staff, and visitors to our own websites, we are the data controller — we decide how and why that information is processed. For the information that merchants store about their own customers (such as customer profiles and purchase history), we act as a data processor — we process it only on the merchant's behalf and instructions, as described in the section \"Your Customers' Data\" below."
+      },
       "collection": {
         "title": "Information We Collect",
-        "content": "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support. This may include your name, email address, phone number, billing information, and business details."
+        "content": "We collect information in three ways: information you provide to us directly, information generated automatically when you use the Services, and information we receive from third parties (such as payment providers confirming a transaction). This includes:",
+        "items": [
+          "Account information — your name, email address, phone number, password (stored only in hashed form), preferred language, and profile settings.",
+          "Business information — your business name, store names and addresses, business type, tax and registration details, logo and branding assets.",
+          "Transaction and operations data — orders, invoices, receipts, refunds, payment methods used, product catalogs, inventory movements, shift records, and reports generated from them.",
+          "Billing information — the subscription plan you choose and billing history. Card payments are processed by licensed payment providers; we never store full card numbers on our servers.",
+          "Customer records you create — information about your own customers that you enter into the platform, such as their names, contact details, purchase history, balances, and store credit.",
+          "Device and usage data — IP address, browser and device type, operating system, pages visited, features used, referral URLs, timestamps, and crash or error diagnostics.",
+          "Cookies and similar technologies — as described in the \"Cookies and Analytics\" section below.",
+          "Communications — messages, support requests, feedback, and recordings of support conversations where permitted by law."
+        ]
       },
       "usage": {
         "title": "How We Use Your Information",
-        "content": "We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, and respond to your comments and questions."
+        "content": "We use the information we collect only for purposes that are compatible with running, protecting, and improving the Services:",
+        "items": [
+          "Provide and operate the Services — creating your account, running your point of sale and storefront, processing orders, and syncing your data across devices.",
+          "Secure the platform — authenticating logins, enforcing permissions, detecting and preventing fraud, abuse, and unauthorized access.",
+          "Support you — responding to your questions, troubleshooting problems, and notifying you about incidents that affect your account.",
+          "Improve and develop — analyzing aggregated usage patterns to fix issues, improve performance, and build new features.",
+          "Communicate — sending service announcements, security alerts, billing notices, and (with your consent or where permitted) product news and offers you can opt out of at any time.",
+          "Comply with the law — meeting our accounting, tax, and other legal obligations, and responding to lawful requests from authorities."
+        ],
+        "footer": "We do not use your business data — such as your sales figures, margins, or customer lists — to compete with you, and we never sell it to third parties."
+      },
+      "legalBases": {
+        "title": "Legal Bases for Processing",
+        "content": "Where data protection law requires a legal basis for processing (such as the EU GDPR or similar laws), we rely on: performance of our contract with you (to deliver the Services you signed up for); our legitimate interests (to secure, improve, and market the Services in ways that do not override your rights); your consent (for optional marketing and non-essential cookies, which you can withdraw at any time); and compliance with legal obligations (such as retaining tax records)."
+      },
+      "customerData": {
+        "title": "Your Customers' Data",
+        "content": "When you record information about your own customers in Cashvio — for example a customer profile, order history, or store credit balance — you are the data controller of that information and we process it strictly on your behalf.\n\nWe process such data only to provide the Services to you, never for our own marketing, and we do not contact your customers except as needed to deliver features you actively use (such as sending a digital receipt at your request). You are responsible for collecting your customers' data lawfully, informing them about how it is used, and honoring their privacy requests. If a customer contacts us directly about data you control, we will refer them to you and provide reasonable assistance."
       },
       "sharing": {
-        "title": "Information Sharing",
-        "content": "We do not sell, trade, or rent your personal information to third parties. We may share your information with service providers who assist us in operating our platform, conducting our business, or servicing you."
+        "title": "How We Share Information",
+        "content": "We do not sell, rent, or trade your personal information. We share it only in these limited circumstances:",
+        "items": [
+          "Service providers — companies that help us run the platform, such as cloud hosting, payment processing, email and SMS delivery, push notifications, and analytics. They may only use the data to provide their service to us and are bound by contractual confidentiality and data-protection obligations.",
+          "Payment providers — when you or your customers make a payment, the transaction details are shared with the licensed payment provider handling it.",
+          "Legal requirements — when required by applicable law, regulation, legal process, or an enforceable governmental request, and only to the extent required.",
+          "Protecting rights and safety — to enforce our terms, investigate fraud or security issues, or protect the rights, property, or safety of Cashvio, our merchants, or the public.",
+          "Business transfers — if Cashvio is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you before your data becomes subject to a different privacy policy.",
+          "Aggregated or anonymized data — we may share statistics that cannot reasonably be used to identify you or your customers."
+        ]
+      },
+      "cookies": {
+        "title": "Cookies and Analytics",
+        "content": "We use cookies and similar technologies to keep you signed in, remember your preferences (such as language and theme), protect against fraud, and understand how the Services are used so we can improve them.\n\nEssential cookies are required for the Services to function and cannot be switched off. Analytics cookies help us measure feature usage and performance in aggregate. You can control non-essential cookies through your browser settings; blocking essential cookies may prevent parts of the Services from working correctly."
+      },
+      "transfers": {
+        "title": "International Data Transfers",
+        "content": "We may store and process your information on servers located outside the country where you live, including through cloud infrastructure providers operating in multiple regions. Whenever we transfer personal information across borders, we take steps to ensure it receives an adequate and consistent level of protection, including contractual safeguards with our service providers, and we comply with applicable data-transfer requirements."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "content": "We keep your information for as long as your account is active and as needed to provide the Services. Transaction and billing records are retained for the period required by applicable tax, accounting, and commercial laws even after account closure.\n\nWhen retention is no longer necessary, we delete or irreversibly anonymize the data. Residual copies may persist in encrypted backups for a limited period until those backups expire on their regular cycle."
       },
       "security": {
-        "title": "Data Security",
-        "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+        "title": "How We Protect Your Data",
+        "content": "We apply layered technical and organizational safeguards designed to protect your information against unauthorized access, alteration, disclosure, or destruction:",
+        "items": [
+          "Encryption in transit (TLS) for all connections and encryption at rest for stored data.",
+          "Passwords stored using strong one-way hashing — we can never read your password.",
+          "Strict tenant isolation, so one business's data is never visible to another.",
+          "Role-based access controls and the principle of least privilege for both our systems and your staff accounts.",
+          "Continuous monitoring, logging, and automated alerting for suspicious activity.",
+          "Regular backups and a tested incident-response process."
+        ],
+        "footer": "No system can be guaranteed 100% secure, but if we become aware of a breach affecting your personal information, we will notify you and the relevant authorities without undue delay, as required by law."
       },
       "rights": {
-        "title": "Your Rights",
-        "content": "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. Contact us to exercise these rights."
+        "title": "Your Rights and Choices",
+        "content": "Depending on where you live, you may have some or all of the following rights regarding your personal information:",
+        "items": [
+          "Access — request a copy of the personal information we hold about you.",
+          "Correction — ask us to fix inaccurate or incomplete information.",
+          "Deletion — ask us to delete your personal information, subject to legal retention requirements.",
+          "Portability — receive your data in a structured, commonly used, machine-readable format.",
+          "Objection and restriction — object to or ask us to limit certain processing.",
+          "Withdraw consent — where processing is based on consent, withdraw it at any time without affecting prior processing.",
+          "Complain — lodge a complaint with your local data-protection authority."
+        ],
+        "footer": "To exercise any of these rights, contact us using the details below. We may need to verify your identity before acting on a request, and we will respond within the timeframe required by applicable law (and in any case within 30 days wherever feasible)."
+      },
+      "marketing": {
+        "title": "Marketing Communications",
+        "content": "We may send you news about features, tips, and offers related to Cashvio. You can opt out at any time using the unsubscribe link in any marketing email or through your notification settings. Opting out does not affect essential service communications, such as security alerts, billing notices, and legal or policy updates."
+      },
+      "children": {
+        "title": "Children's Privacy",
+        "content": "The Services are business tools and are not directed at children. We do not knowingly collect personal information from anyone under 16 years of age. If you believe a child has provided us with personal information, please contact us and we will delete it promptly."
+      },
+      "changes": {
+        "title": "Changes to This Policy",
+        "content": "We may update this Privacy Policy from time to time to reflect changes in the Services, technology, or the law. If we make material changes, we will notify you by email or through a prominent notice in the Services before the changes take effect, and we will update the \"Last updated\" date above. We encourage you to review this page periodically."
       },
       "contact": {
         "title": "Contact Us",
-        "content": "If you have any questions about this Privacy Policy, please contact us at support@cashvio.com."
+        "content": "If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, contact our privacy team at support@cashvio.com or write to Cashvio Technologies, Cairo, Egypt. We aim to respond to every privacy inquiry promptly."
       }
     }
   },
   "terms": {
     "title": "Terms and Conditions",
-    "lastUpdated": "Last updated: January 1, 2026",
-    "intro": "Welcome to Cashvio. By accessing or using our services, you agree to be bound by these Terms and Conditions.",
+    "lastUpdated": "Last updated: July 18, 2026",
+    "tableOfContents": "Table of Contents",
+    "intro": "Welcome to Cashvio. These Terms and Conditions (the \"Terms\") are a binding agreement between you and Cashvio Technologies (\"Cashvio\", \"we\", \"us\", or \"our\") governing your access to and use of the Cashvio website, merchant dashboard, point-of-sale applications, hosted online storefronts, and all related services (together, the \"Services\").\n\nPlease read these Terms carefully. By creating an account or using the Services, you agree to be bound by them and by our Privacy Policy. If you are accepting on behalf of a business, you represent that you have the authority to bind that business.",
     "sections": {
       "acceptance": {
-        "title": "Acceptance of Terms",
-        "content": "By accessing and using Cashvio's services, you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services."
+        "title": "Acceptance of These Terms",
+        "content": "By accessing or using the Services, you accept and agree to be bound by these Terms and all policies referenced in them, including our Privacy Policy. If you do not agree with any part of these Terms, you must not use the Services.\n\nThese Terms apply to all users of the Services, including business owners, staff members invited to an account, and any person acting on a merchant's behalf."
+      },
+      "eligibility": {
+        "title": "Eligibility and Registration",
+        "content": "To use the Services you must be at least 18 years old, capable of entering into a binding contract, and using the Services for business purposes. When you register, you agree to provide accurate, current, and complete information and to keep it up to date. We may refuse registration, or reclaim usernames or subdomains, where reasonably necessary — for example, where information is false, infringes the rights of others, or is reserved for platform use."
       },
       "services": {
         "title": "Our Services",
-        "content": "Cashvio provides a business management platform including product management, inventory control, order processing, customer management, and analytics. We reserve the right to modify, suspend, or discontinue any part of our services at any time."
+        "content": "Cashvio provides a commerce management platform including product and catalog management, inventory control, point of sale, order processing, online storefronts, customer management, coupons, reporting, and analytics.\n\nWe are continuously improving the Services, and we may add, change, or remove features over time. If we discontinue a material feature you actively use on a paid plan, we will give you reasonable advance notice where practicable. Some features may be offered in beta or early access; these are provided as-is, may change or be withdrawn at any time, and should not be relied upon for critical operations."
       },
       "accounts": {
-        "title": "User Accounts",
-        "content": "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use."
+        "title": "Accounts and Security",
+        "content": "You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account, including activity by staff members you invite. You agree to:",
+        "items": [
+          "Use strong passwords and keep credentials confidential — never share accounts between individuals.",
+          "Configure staff roles and permissions appropriately for your business.",
+          "Notify us immediately at support@cashvio.com of any unauthorized access or suspected security breach.",
+          "Remove access promptly for staff members who leave your business."
+        ],
+        "footer": "We are not liable for losses arising from unauthorized use of your account caused by your failure to protect your credentials."
       },
-      "payment": {
-        "title": "Payment Terms",
-        "content": "Subscription fees are billed in advance on a monthly or annual basis. All fees are non-refundable except as expressly stated in our refund policy."
+      "plans": {
+        "title": "Plans, Billing, and Taxes",
+        "content": "Cashvio offers a free plan and paid subscription plans with additional features and capacity. For paid plans:",
+        "items": [
+          "Fees are billed in advance on a monthly or annual basis and are stated exclusive of taxes unless indicated otherwise.",
+          "Subscriptions renew automatically at the end of each billing period unless cancelled before renewal. You can cancel at any time from your account; cancellation takes effect at the end of the current billing period.",
+          "If we change the price of your plan, we will notify you at least 30 days before the new price takes effect. Continued use after that date constitutes acceptance of the new price.",
+          "Except where required by law or expressly stated otherwise, fees already paid are non-refundable, including for partially used billing periods.",
+          "You are responsible for any taxes, duties, or government charges associated with your use of the Services, other than taxes on our income.",
+          "If payment fails, we may downgrade or suspend paid features after reasonable notice and a chance to update your payment method."
+        ]
+      },
+      "responsibilities": {
+        "title": "Your Responsibilities as a Merchant",
+        "content": "You are solely responsible for your business and how you use the Services. In particular, you agree that you are responsible for:",
+        "items": [
+          "Complying with all laws applicable to your business, including consumer protection, taxation, invoicing, licensing, and e-commerce regulations in the jurisdictions where you sell.",
+          "The products and services you sell, their quality, safety, legality, and delivery, and for handling your customers' complaints, returns, and refunds.",
+          "The accuracy of the prices, taxes, product information, and receipts you configure in the platform.",
+          "Collecting and handling your customers' personal data lawfully, as described in our Privacy Policy.",
+          "Any content you upload, including having the rights to use product images, logos, and descriptions."
+        ],
+        "footer": "Cashvio is a software provider. We are not a party to transactions between you and your customers, and we do not guarantee any level of sales or business outcome."
+      },
+      "acceptableUse": {
+        "title": "Acceptable Use",
+        "content": "You agree to use the Services only for lawful business purposes. You must not, and must not permit anyone to:",
+        "items": [
+          "Use the Services to sell illegal, counterfeit, or fraudulent goods or services, or to launder money.",
+          "Upload or distribute content that is unlawful, infringing, defamatory, or harmful.",
+          "Attempt to gain unauthorized access to the Services, other merchants' data, or our infrastructure.",
+          "Probe, scan, or test the vulnerability of the Services without our prior written consent.",
+          "Interfere with or disrupt the Services, including by imposing an unreasonable load, or by introducing malware.",
+          "Reverse engineer, decompile, copy, resell, or sublicense the Services except as permitted by law.",
+          "Use automated means to scrape or harvest data from the Services beyond the interfaces we provide.",
+          "Misrepresent your identity or affiliation, or use the Services to send spam."
+        ],
+        "footer": "We may investigate suspected violations and may suspend or terminate accounts that breach this section, in addition to any other remedies available to us."
+      },
+      "yourData": {
+        "title": "Your Data and Ownership",
+        "content": "You own your business data — your products, orders, customer records, reports, and other content you create in or upload to the Services (\"Merchant Data\"). You grant us a limited, non-exclusive license to host, process, transmit, back up, and display Merchant Data solely as necessary to provide and protect the Services.\n\nWe maintain regular backups and take the security measures described in our Privacy Policy. You can export your data through the tools we provide. Following termination of your account, we will make your Merchant Data available for export for at least 30 days, after which we may delete it, except where retention is required by law."
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "The Services — including all software, design, trademarks, logos, and documentation — are owned by Cashvio or its licensors and are protected by intellectual property laws. These Terms do not grant you any rights in the Services other than the limited right to use them in accordance with these Terms.\n\nIf you send us feedback, ideas, or suggestions, you grant us a perpetual, irrevocable, royalty-free license to use them without restriction or compensation — we may use your feedback to improve the Services for everyone."
+      },
+      "thirdParty": {
+        "title": "Third-Party Services",
+        "content": "The Services may integrate with or link to third-party services, such as payment providers, delivery services, or messaging platforms. Your use of any third-party service is governed by that provider's own terms and privacy policy, and you are responsible for reviewing and accepting them. We are not responsible for the acts, omissions, availability, or policies of third-party providers, even where we facilitate the integration."
+      },
+      "availability": {
+        "title": "Service Availability and Support",
+        "content": "We work hard to keep the Services available around the clock and design our infrastructure for high availability. However, the Services may occasionally be interrupted — for scheduled maintenance (which we will endeavor to announce in advance), emergency fixes, or causes beyond our reasonable control such as failures of hosting, telecommunications, or power providers.\n\nWe provide support through the channels published on our website. We do not guarantee uninterrupted or error-free operation, and you should maintain appropriate business practices (such as reviewing your reports and reconciling transactions) independent of the platform."
       },
       "termination": {
-        "title": "Termination",
-        "content": "We may terminate or suspend your account at any time for any reason, including violation of these Terms. Upon termination, your right to use our services will immediately cease."
+        "title": "Suspension and Termination",
+        "content": "You may stop using the Services and close your account at any time.\n\nWe may suspend or terminate your access to the Services if you materially breach these Terms, if your use creates a security risk or legal exposure for us or others, if required by law, or if your account remains unpaid after reasonable notice. Where practicable, we will notify you and give you an opportunity to remedy the issue before termination.\n\nUpon termination: your right to use the Services ceases; fees owed remain payable; and the data export window described in \"Your Data and Ownership\" applies. Sections of these Terms that by their nature should survive termination — including ownership, disclaimers, limitation of liability, and governing law — will survive."
+      },
+      "disclaimer": {
+        "title": "Disclaimer of Warranties",
+        "content": "The Services are provided on an \"as is\" and \"as available\" basis. To the maximum extent permitted by law, we disclaim all warranties, whether express, implied, statutory, or otherwise, including implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement. We do not warrant that the Services will meet your requirements, be uninterrupted, timely, secure, or error-free, or that any data or reports will be perfectly accurate or complete. Nothing in this section limits warranties or rights that cannot be excluded under applicable law."
       },
       "liability": {
         "title": "Limitation of Liability",
-        "content": "To the maximum extent permitted by law, Cashvio shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services."
+        "content": "To the maximum extent permitted by law: (a) neither Cashvio nor its officers, employees, or suppliers will be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost revenue, lost data, or business interruption, arising out of or relating to the Services, even if advised of the possibility of such damages; and (b) our total aggregate liability for all claims arising out of or relating to the Services or these Terms will not exceed the greater of the amounts you paid to Cashvio in the twelve (12) months preceding the event giving rise to the claim or one hundred (100) US dollars.\n\nNothing in these Terms excludes or limits liability that cannot be excluded or limited under applicable law, including liability for fraud or for death or personal injury caused by negligence."
+      },
+      "indemnification": {
+        "title": "Indemnification",
+        "content": "You agree to indemnify and hold harmless Cashvio and its officers, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or related to: your breach of these Terms; your violation of applicable law; your products, services, or content; your dealings with your customers; or your infringement of any third party's rights."
+      },
+      "law": {
+        "title": "Governing Law and Dispute Resolution",
+        "content": "These Terms are governed by the laws of the Arab Republic of Egypt, without regard to its conflict-of-law rules, and subject to any mandatory consumer or local-law protections that apply to you in your country of residence.\n\nBefore initiating any formal proceedings, you agree to first contact us at support@cashvio.com and give us 30 days to work with you in good faith to resolve the dispute informally. If we cannot resolve it, disputes will be submitted to the competent courts of Cairo, Egypt, unless mandatory law grants you the right to bring proceedings in your own jurisdiction."
+      },
+      "changes": {
+        "title": "Changes to These Terms",
+        "content": "We may update these Terms from time to time. If we make material changes, we will notify you by email or through a prominent notice in the Services at least 30 days before the changes take effect, unless the change is required sooner by law or is needed to address a security or legal risk. Your continued use of the Services after the effective date constitutes acceptance of the updated Terms. If you do not agree, you must stop using the Services and may close your account before the changes take effect."
       },
       "contact": {
         "title": "Contact Us",
-        "content": "If you have any questions about these Terms, please contact us at support@cashvio.com."
+        "content": "If you have any questions about these Terms, contact us at support@cashvio.com or write to Cashvio Technologies, Cairo, Egypt."
       }
     }
   },
