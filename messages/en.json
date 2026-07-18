@@ -639,7 +639,12 @@
       },
       "services": {
         "title": "Our Services",
-        "content": "Cashvio provides a commerce management platform including product and catalog management, inventory control, point of sale, order processing, online storefronts, customer management, coupons, reporting, and analytics.\n\nWe are continuously improving the Services, and we may add, change, or remove features over time. If we discontinue a material feature you actively use on a paid plan, we will give you reasonable advance notice where practicable. Some features may be offered in beta or early access; these are provided as-is, may change or be withdrawn at any time, and should not be relied upon for critical operations."
+        "content": "Cashvio provides a commerce management platform including product and catalog management, inventory control, point of sale, order processing, online storefronts, customer management, coupons, reporting, and analytics.\n\nWe are continuously improving the Services, and we may add, change, or remove features over time. If we discontinue a material feature you actively use on a paid plan, we will give you reasonable advance notice where practicable. Some features may be offered in beta or early access; these are provided as-is, may change or be withdrawn at any time, and should not be relied upon for critical operations.\n\nIn particular, you acknowledge and agree that we have the right to:",
+        "items": [
+          "Change the free plan — add, change, limit, or remove any feature or capacity included in the free plan at any time, at our sole discretion and without compensation.",
+          "Temporarily suspend features on any plan — suspend, hold, limit, or disable any feature on any plan, free or paid, where reasonably necessary — for example to resolve technical issues, perform maintenance, roll out enhancements or upgrades, or protect the security and stability of the platform. We will work to restore availability promptly and, where practicable, announce planned work in advance.",
+          "Add free features — add new features or capacity to existing free or paid plans at no extra charge. Such additions do not change your fees, do not entitle you to a refund, and may later be modified, moved to a different plan tier, or withdrawn."
+        ]
       },
       "accounts": {
         "title": "Accounts and Security",
