@@ -1029,26 +1029,6 @@ export const benefits = {
 } as const;
 
 // ============================================================================
-// INTEGRATIONS & PARTNERS (Replaces fake testimonials)
-// ============================================================================
-
-export const integrations = {
-  payment: ['Visa', 'Mastercard', 'Apple Pay', 'Google Pay', 'Stripe', 'PayPal'],
-  pos: ['Square', 'Clover', 'Shopify POS'],
-  accounting: ['QuickBooks', 'Xero', 'FreshBooks'],
-  ecommerce: ['Shopify', 'WooCommerce', 'Magento'],
-} as const;
-
-// ============================================================================
-// CERTIFICATIONS & COMPLIANCE
-// ============================================================================
-
-export const compliance = {
-  badges: ['PCI DSS', 'GDPR', 'SOC 2', 'ISO 27001'],
-  security: ['256-bit SSL', 'Two-Factor Auth', 'Data Encryption'],
-} as const;
-
-// ============================================================================
 // LOCALIZED BREADCRUMB ITEMS
 // ============================================================================
 

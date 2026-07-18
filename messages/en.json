@@ -358,7 +358,7 @@
       "subtitle": "Integrated with the tools you already use",
       "security": {
         "title": "Security & Compliance",
-        "badges": ["PCI DSS", "GDPR", "SOC 2", "ISO 27001"],
+        "badges": [],
         "features": ["256-bit SSL Encryption", "Two-Factor Authentication", "Daily Backups"]
       },
       "integrations": {
@@ -1187,7 +1187,7 @@
       "subtitle": "Stop settling for tools that treat Arabic as an afterthought. Cashvio delivers a true right-to-left experience across your point of sale, online store, receipts, and reports — not a translation layer bolted on top.",
       "cta": "Start Selling in Arabic",
       "secondaryCta": "See How It Works",
-      "trust": "Trusted by Arabic-speaking businesses across KSA, UAE, Egypt, Kuwait, and beyond"
+      "trust": "Designed for merchants in Egypt, Saudi Arabia, UAE, Kuwait, and across the Arab world"
     },
     "problem": {
       "badge": "The Industry Problem",
@@ -1383,31 +1383,6 @@
         }
       }
     },
-    "testimonialSection": {
-      "title": "Trusted by Arabic-Speaking Businesses",
-      "subtitle": "Businesses across the Middle East and North Africa rely on Cashvio for daily operations"
-    },
-    "stats": {
-      "title": "Cashvio in Numbers",
-      "items": {
-        "businesses": {
-          "value": "2,500+",
-          "label": "Arabic-speaking businesses"
-        },
-        "transactions": {
-          "value": "1M+",
-          "label": "Monthly transactions processed"
-        },
-        "countries": {
-          "value": "12+",
-          "label": "Countries in the MENA region"
-        },
-        "uptime": {
-          "value": "99.9%",
-          "label": "Platform uptime"
-        }
-      }
-    },
     "faq": {
       "title": "Frequently Asked Questions",
       "subtitle": "Common questions about Cashvio's Arabic POS and storefront capabilities",
@@ -1468,7 +1443,7 @@
       "subtitle": "Stop juggling separate systems for in-store and online sales. Cashvio gives you a single command center where inventory, orders, customers, and analytics are unified across every channel — physical stores, online storefront, social media, and more.",
       "cta": "Start Selling Everywhere",
       "secondaryCta": "Explore Features",
-      "trust": "Powering omnichannel operations for retail, F&B, and service businesses"
+      "trust": "Built for omnichannel operations across retail, F&B, and service businesses"
     },
     "problem": {
       "badge": "The Fragmentation Problem",
@@ -1723,7 +1698,7 @@
       "subtitle": "Track every product, every variant, across every store — in real time. Cashvio gives you per-variant, per-store inventory tracking, low stock alerts, purchase orders, supplier management, and a full audit trail. No spreadsheets, no guesswork, no monthly fee.",
       "cta": "Start Free — No Credit Card",
       "secondaryCta": "View All Features",
-      "trust": "Trusted by retail, F&B, and service businesses to manage their inventory"
+      "trust": "Built for retail, F&B, and service businesses to manage their inventory"
     },
     "problem": {
       "badge": "The Inventory Problem",
