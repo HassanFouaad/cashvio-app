@@ -194,7 +194,7 @@ export default async function TeamManagementPage({ params }: Props) {
       />
 
       <FeatureScreenshot
-        base="/assets/users"
+        base="/assets/stores"
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}

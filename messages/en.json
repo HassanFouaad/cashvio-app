@@ -1434,8 +1434,8 @@
       "freeNote": "Free forever plan includes coupons"
     },
     "screenshot": {
-      "caption": "Live view — coupons",
-      "alt": "Cashvio coupons and discounts management screen"
+      "caption": "Live view — discount impact in analytics",
+      "alt": "Cashvio profit analytics showing discount rate and margin impact"
     }
   },
   "thankYou": {
@@ -4071,8 +4071,8 @@
       "freeNote": "Team members and roles depend on your plan limits"
     },
     "screenshot": {
-      "caption": "Live view — team",
-      "alt": "Cashvio team and roles management screen"
+      "caption": "Live view — store team workspace",
+      "alt": "Cashvio store management screen used by your retail team"
     }
   }
 }

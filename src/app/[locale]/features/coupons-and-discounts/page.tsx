@@ -165,7 +165,7 @@ export default async function CouponsAndDiscountsPage({ params }: Props) {
       />
 
       <FeatureScreenshot
-        base="/assets/coupons"
+        base="/assets/reports-profit"
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
