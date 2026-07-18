@@ -16,7 +16,7 @@ export async function Header({ locale }: HeaderProps) {
   const t = await getTranslations({ locale, namespace: 'navigation' });
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-lg">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
@@ -28,7 +28,7 @@ export async function Header({ locale }: HeaderProps) {
               <Link
                 key={item.key}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-muted"
+                className="px-3 py-2 mono-label text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-muted"
               >
                 {t(item.key)}
               </Link>
@@ -46,6 +46,7 @@ export async function Header({ locale }: HeaderProps) {
           </div>
         </div>
       </div>
+      <div className="tear-line" aria-hidden="true" />
     </header>
   );
 }

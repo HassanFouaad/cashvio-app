@@ -86,7 +86,7 @@ export default async function ThankYouPage({ params }: Props) {
       />
 
       {/* Main Content */}
-      <section className="min-h-[70vh] flex items-center justify-center py-16 sm:py-20 md:py-24 hero-wash">
+      <section className="min-h-[70vh] flex items-center justify-center py-16 sm:py-20 md:py-24 ledger-rules">
         <div className="container-wide">
           <div className="max-w-2xl mx-auto">
             <Card className="overflow-hidden">

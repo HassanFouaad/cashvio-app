@@ -15,7 +15,8 @@ export async function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-muted/40">
+    <footer className="bg-muted/40">
+      <div className="tear-line" aria-hidden="true" />
       <div className="container-wide py-12 md:py-16">
         {/* Top row: brand + nav columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -51,8 +52,8 @@ export async function Footer({ locale }: FooterProps) {
           </div>
 
           {footerNavigation.map((section) => (
-            <div key={section.key}>
-              <h3 className="text-sm font-semibold text-foreground mb-4">
+            <div key={section.key} className="lg:border-s lg:border-dashed lg:border-border lg:ps-8">
+              <h3 className="mono-label text-foreground mb-4">
                 {t(section.key)}
               </h3>
               <ul className="space-y-2.5">
@@ -71,11 +72,18 @@ export async function Footer({ locale }: FooterProps) {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            {t('copyright', { year: currentYear })}
-          </p>
+        {/* Bottom bar: end of receipt */}
+        <div className="mt-12 pt-8">
+          <div className="tear-line" aria-hidden="true" />
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <div className="barcode w-32 text-foreground/50" aria-hidden="true" />
+            <p className="mono-label text-muted-foreground">
+              — {t('endOfReceipt')} —
+            </p>
+            <p className="font-receipt text-xs text-muted-foreground">
+              {t('copyright', { year: currentYear })}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

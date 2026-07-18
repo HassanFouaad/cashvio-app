@@ -14,22 +14,23 @@ interface ComparisonTableProps {
 }
 
 /**
- * Uniform comparison table: flat bordered container, muted header row,
- * primary check for Cashvio, neutral dash for alternatives.
+ * Comparison as a ledger spread: two receipt columns tallied side by
+ * side. Mono checks for Cashvio, mono dashes for the alternatives,
+ * dashed rules between entries.
  */
 export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
   return (
-    <div className="max-w-4xl mx-auto overflow-x-auto rounded-xl border border-border bg-card">
+    <div className="max-w-4xl mx-auto overflow-x-auto receipt-edge bg-card px-2 sm:px-4 py-4">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b border-border bg-muted/50">
-            <th className="text-start p-4 font-semibold text-foreground w-[34%]">
+          <tr className="border-b border-dashed border-ledger-line">
+            <th className="text-start p-4 mono-label text-muted-foreground w-[34%]">
               {headers.feature}
             </th>
-            <th className="text-start p-4 font-semibold text-primary w-[33%]">
+            <th className="text-start p-4 mono-label text-primary w-[33%]">
               {headers.cashvio}
             </th>
-            <th className="text-start p-4 font-semibold text-muted-foreground w-[33%]">
+            <th className="text-start p-4 mono-label text-muted-foreground w-[33%]">
               {headers.others}
             </th>
           </tr>
@@ -38,34 +39,22 @@ export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
           {rows.map((row, index) => (
             <tr
               key={row.feature}
-              className={index < rows.length - 1 ? 'border-b border-border' : undefined}
+              className={index < rows.length - 1 ? 'border-b border-dashed border-ledger-line' : undefined}
             >
               <td className="p-4 font-medium text-foreground align-top">{row.feature}</td>
               <td className="p-4 text-foreground align-top">
-                <div className="flex items-start gap-2">
-                  <svg
-                    className="w-4 h-4 text-primary flex-shrink-0 mt-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+                <div className="flex items-start gap-2.5">
+                  <span className="font-receipt text-primary shrink-0" aria-hidden="true">
+                    [✓]
+                  </span>
                   <span>{row.cashvio}</span>
                 </div>
               </td>
               <td className="p-4 text-muted-foreground align-top">
-                <div className="flex items-start gap-2">
-                  <svg
-                    className="w-4 h-4 text-muted-foreground/60 flex-shrink-0 mt-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                  </svg>
+                <div className="flex items-start gap-2.5">
+                  <span className="font-receipt text-muted-foreground/60 shrink-0" aria-hidden="true">
+                    [—]
+                  </span>
                   <span>{row.others}</span>
                 </div>
               </td>

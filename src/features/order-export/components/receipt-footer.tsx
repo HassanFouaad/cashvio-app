@@ -13,7 +13,7 @@ export function ReceiptFooter({ store }: ReceiptFooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="text-center space-y-2 pt-4 border-t border-dashed border-border">
+    <div className="text-center space-y-2 pt-4 border-t border-dashed border-ledger-line">
       {/* Footer Text from Receipt Config */}
       {store.footerText && (
         <p className="text-sm text-muted-foreground">{store.footerText}</p>

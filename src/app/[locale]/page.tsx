@@ -7,8 +7,7 @@ import { HowItWorks } from '@/components/sections/how-it-works';
 import { Features } from '@/components/sections/features';
 import { ProductShowcase } from '@/components/sections/product-showcase';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
-import { Benefits } from '@/components/sections/benefits';
-import { Trust } from '@/components/sections/trust';
+import { EndOfDay } from '@/components/sections/end-of-day';
 import { CTA } from '@/components/sections/cta';
 import {
   schemaTemplates,
@@ -149,8 +148,7 @@ export default async function HomePage({ params }: Props) {
       <HowItWorks locale={typedLocale} />
       <ProductShowcase />
       <MobileAppShowcase />
-      <Benefits locale={typedLocale} />
-      <Trust locale={typedLocale} />
+      <EndOfDay locale={typedLocale} />
       <CTA locale={typedLocale} />
     </>
   );

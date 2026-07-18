@@ -107,7 +107,7 @@ export default async function RegisterPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="hero-wash border-b border-border py-12 sm:py-16">
+      <section className="ledger-rules border-b border-border py-12 sm:py-16">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary mb-4">

@@ -14,7 +14,7 @@ export function ReceiptLoading() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-dashed border-border" />
+        <div className="border-t border-dashed border-ledger-line" />
 
         {/* Order Summary Skeleton */}
         <div className="p-6 space-y-4">

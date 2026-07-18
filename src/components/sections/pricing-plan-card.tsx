@@ -2,15 +2,7 @@
 
 import { trackPlanSelect, trackCTAClick } from '@/lib/analytics';
 import { ButtonLink } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { ReceiptStamp } from '@/components/marketing';
 import { cn } from '@/lib/utils';
 
 interface PricingPlanCardProps {
@@ -32,9 +24,14 @@ interface PricingPlanCardProps {
     getStarted: string;
     startFree: string;
     contactSales: string;
+    total: string;
   };
 }
 
+/**
+ * A plan printed as a literal receipt: perforated paper, mono feature
+ * lines, a TOTAL row for the price and a stamp for the highlighted plan.
+ */
 export function PricingPlanCard({
   name,
   description,
@@ -57,88 +54,75 @@ export function PricingPlanCard({
   };
 
   return (
-    <Card
+    <article
       className={cn(
-        'relative flex flex-col',
-        isPro && 'border-primary'
+        'receipt-edge relative flex flex-col px-6 sm:px-7 py-8',
+        isPro ? 'bg-card' : 'bg-card/80'
       )}
     >
       {isPro && (
-        <div className="absolute -top-3.5 start-1/2 -translate-x-1/2 rtl:translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold">
-            {translations.popular}
-          </Badge>
-        </div>
+        <ReceiptStamp className="absolute top-6 end-4 rotate-6">
+          {translations.popular}
+        </ReceiptStamp>
       )}
-
       {isFreemium && !isPro && (
-        <div className="absolute -top-3.5 start-1/2 -translate-x-1/2 rtl:translate-x-1/2">
-          <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs font-semibold">
-            {translations.freeForever}
-          </Badge>
-        </div>
+        <ReceiptStamp className="absolute top-6 end-4 rotate-6">
+          {translations.freeForever}
+        </ReceiptStamp>
       )}
 
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg sm:text-xl">{name}</CardTitle>
-        <CardDescription className="text-sm">{description}</CardDescription>
-      </CardHeader>
+      <p className="font-receipt text-xs text-muted-foreground tracking-[0.2em] uppercase select-none" aria-hidden="true">
+        * * * * * *
+      </p>
+      <h3 className="mt-3 text-lg sm:text-xl font-semibold text-foreground">{name}</h3>
+      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{description}</p>
 
-      <CardContent className="flex-1">
-        <div className="mb-6 pt-2">
-          {isFreemium || price === 0 || price === null ? (
-            <span className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
-              {translations.free}
-            </span>
-          ) : (
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
-                EGP{price}
+      <div className="tear-line my-5" aria-hidden="true" />
+
+      <div className="flex-1">
+        <p className="mono-label text-muted-foreground mb-3">{translations.features}</p>
+        <ul className="space-y-2.5">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-baseline gap-2.5 text-sm">
+              <span className="font-receipt text-primary shrink-0" aria-hidden="true">
+                +
               </span>
-              <span className="text-sm text-muted-foreground">{period}</span>
-            </div>
-          )}
-        </div>
+              <span className="text-muted-foreground leading-relaxed">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        <div className="space-y-3">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-            {translations.features}
-          </p>
-          <ul className="space-y-2.5">
-            {features.map((feature, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm">
-                <svg
-                  className="w-4 h-4 text-primary shrink-0 mt-0.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="text-muted-foreground">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </CardContent>
+      <div className="border-t border-dashed border-ledger-line mt-6 pt-4 flex items-baseline justify-between gap-3">
+        <span className="mono-label text-foreground">{translations.total}</span>
+        {isFreemium || price === 0 || price === null ? (
+          <span className="font-receipt text-3xl font-semibold text-foreground tracking-tight">
+            {translations.free}
+          </span>
+        ) : (
+          <span className="flex items-baseline gap-1.5">
+            <span className="font-receipt text-3xl font-semibold text-foreground tracking-tight">
+              EGP{price}
+            </span>
+            <span className="font-receipt text-xs text-muted-foreground">{period}</span>
+          </span>
+        )}
+      </div>
 
-      <CardFooter className="pt-4">
-        <ButtonLink
-          variant={isPro ? 'primary' : 'outline'}
-          className="w-full justify-center"
-          href={href}
-          onClick={handleClick}
-        >
-          {isEnterprise
-            ? translations.contactSales
-            : isFreemium
-              ? translations.startFree
-              : translations.getStarted}
-        </ButtonLink>
-      </CardFooter>
-    </Card>
+      <ButtonLink
+        variant={isPro ? 'primary' : 'outline'}
+        className="w-full justify-center mt-6"
+        href={href}
+        onClick={handleClick}
+      >
+        {isEnterprise
+          ? translations.contactSales
+          : isFreemium
+            ? translations.startFree
+            : translations.getStarted}
+      </ButtonLink>
+
+      <div className="barcode w-24 mx-auto mt-6 text-foreground/50" aria-hidden="true" />
+    </article>
   );
 }

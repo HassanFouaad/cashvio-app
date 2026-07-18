@@ -1,4 +1,4 @@
-import { SectionHeader } from './section-header';
+import { LedgerHeading } from './ledger-heading';
 
 interface FaqItem {
   question: string;
@@ -8,39 +8,48 @@ interface FaqItem {
 interface FaqSectionProps {
   title: string;
   subtitle?: string;
+  /** Already-localized mono annotation, e.g. "NO. 05 — QUESTIONS" */
+  eyebrow?: string;
   items: FaqItem[];
 }
 
 /**
- * Uniform FAQ block: flat bordered disclosure rows.
+ * FAQ as numbered ledger entries: mono index, dashed separators,
+ * disclosure rows that unfold like receipt stubs.
  * Pairs with an FAQPage schema emitted by the page.
  */
-export function FaqSection({ title, subtitle, items }: FaqSectionProps) {
+export function FaqSection({ title, subtitle, eyebrow, items }: FaqSectionProps) {
   return (
     <section aria-label={title} className="section-padding-sm">
       <div className="container-wide">
-        <SectionHeader title={title} subtitle={subtitle} />
-        <div className="max-w-3xl mx-auto space-y-3">
-          {items.map((item) => (
+        <LedgerHeading title={title} subtitle={subtitle} eyebrow={eyebrow} />
+        <div className="max-w-3xl border-t border-dashed border-ledger-line">
+          {items.map((item, index) => (
             <details
               key={item.question}
-              className="group rounded-xl border border-border bg-card"
+              className="group border-b border-dashed border-ledger-line"
             >
-              <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden p-5 flex items-center justify-between gap-4">
-                <h3 className="text-sm sm:text-base font-medium text-foreground">
+              <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden py-5 flex items-baseline gap-4">
+                <span className="font-receipt text-sm text-primary shrink-0" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="flex-1 text-sm sm:text-base font-medium text-foreground">
                   {item.question}
                 </h3>
-                <svg
-                  className="w-4 h-4 text-muted-foreground flex-shrink-0 group-open:rotate-180 transition-transform duration-200"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                <span
+                  className="font-receipt text-muted-foreground text-base leading-none select-none group-open:hidden"
+                  aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
+                  +
+                </span>
+                <span
+                  className="font-receipt text-muted-foreground text-base leading-none select-none hidden group-open:inline"
+                  aria-hidden="true"
+                >
+                  −
+                </span>
               </summary>
-              <div className="px-5 pb-5 border-t border-border pt-4">
+              <div className="pb-5 ps-9">
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.answer}</p>
               </div>
             </details>

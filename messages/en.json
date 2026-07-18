@@ -101,7 +101,8 @@
     "resources": "Resources",
     "social": "Follow Us",
     "copyright": "© {year} Cashvio. All rights reserved.",
-    "madeWith": "Built for businesses worldwide"
+    "madeWith": "Built for businesses worldwide",
+    "endOfReceipt": "End of receipt"
   },
   "home": {
     "hero": {
@@ -114,7 +115,44 @@
       "secondaryCta": "Explore Features",
       "freeNote": "Free forever • Start in seconds • No commitment",
       "imageAlt": "Cashvio dashboard showing orders, inventory, and sales analytics",
-      "trustedBy": ""
+      "trustedBy": "",
+      "eyebrow": "Cashvio — The Shopkeeper's Ledger",
+      "live": "LIVE",
+      "screenCaption": "Counter view — your portal",
+      "receipt": {
+        "title": "Cashvio * Welcome Receipt",
+        "number": "NO. 000001 — YOUR SHOP",
+        "items": [
+          {
+            "name": "Point of sale",
+            "value": "0.00"
+          },
+          {
+            "name": "Inventory tracking",
+            "value": "0.00"
+          },
+          {
+            "name": "Orders & payments",
+            "value": "0.00"
+          },
+          {
+            "name": "Customer profiles",
+            "value": "0.00"
+          },
+          {
+            "name": "Analytics & reports",
+            "value": "0.00"
+          },
+          {
+            "name": "Online storefront",
+            "value": "0.00"
+          }
+        ],
+        "totalLabel": "Total due",
+        "totalValue": "EGP 0.00",
+        "stamp": "Free forever",
+        "thanks": "Thank you for opening your shop with us"
+      }
     },
     "howItWorks": {
       "title": "Get Started in Minutes",
@@ -122,18 +160,22 @@
       "step1": {
         "number": "1",
         "title": "Create Your Free Account",
-        "description": "Sign up in under 2 minutes with just your email and phone number. No credit card required — your free forever plan is ready instantly."
+        "description": "Sign up in under 2 minutes with just your email and phone number. No credit card required — your free forever plan is ready instantly.",
+        "time": "08:00 AM"
       },
       "step2": {
         "number": "2",
         "title": "Set Up Your Store",
-        "description": "Add your products, prices, and payment methods. Your first store is created automatically when you sign up."
+        "description": "Add your products, prices, and payment methods. Your first store is created automatically when you sign up.",
+        "time": "08:15 AM"
       },
       "step3": {
         "number": "3",
         "title": "Start Selling & Growing",
-        "description": "Process orders from any channel, track performance with real-time analytics, and grow your business with smart, data-driven insights."
-      }
+        "description": "Process orders from any channel, track performance with real-time analytics, and grow your business with smart, data-driven insights.",
+        "time": "08:30 AM"
+      },
+      "eyebrow": "NO. 02 — OPENING DAY"
     },
     "features": {
       "title": "Everything You Need to Run Your Business",
@@ -201,7 +243,9 @@
         "sub2": "Custom roles with Business & store scope",
         "sub3": "Email-based team invitations",
         "sub4": "Activity audit trails & user management"
-      }
+      },
+      "eyebrow": "NO. 01 — THE DAY BOOK",
+      "lineValue": "INCLUDED — 0.00"
     },
     "benefits": {
       "title": "Why Businesses Choose Cashvio",
@@ -267,7 +311,8 @@
         "description": "Enterprise-grade security with biometric authentication keeps your business data safe."
       },
       "imageAlt": "Cashvio Mobile App Interface",
-      "cta": "Start Processing Orders"
+      "cta": "Start Processing Orders",
+      "eyebrow": "NO. 04 — IN YOUR POCKET"
     },
     "mobileApp2": {
       "badge": "Complete Control",
@@ -359,12 +404,21 @@
       "security": {
         "title": "Security & Compliance",
         "badges": [],
-        "features": ["256-bit SSL Encryption", "Two-Factor Authentication", "Daily Backups"]
+        "features": [
+          "256-bit SSL Encryption",
+          "Two-Factor Authentication",
+          "Daily Backups"
+        ]
       },
       "integrations": {
         "title": "Seamless Integrations",
         "description": "Facebook Pixel, Google Tags, multi-currency & multi-language support for your online stores",
-        "partners": ["Facebook Pixel", "Google Tags", "Multi-Currency", "Multi-Language"]
+        "partners": [
+          "Facebook Pixel",
+          "Google Tags",
+          "Multi-Currency",
+          "Multi-Language"
+        ]
       },
       "platforms": {
         "title": "Works Everywhere",
@@ -379,7 +433,25 @@
       "viewPricing": "View Pricing",
       "noCreditCard": "No commitment required",
       "freeForever": "Free forever plan",
-      "instantSetup": "Instant setup"
+      "instantSetup": "Instant setup",
+      "receipt": {
+        "lines": [
+          {
+            "label": "Setup fee",
+            "value": "0.00"
+          },
+          {
+            "label": "Free plan, monthly",
+            "value": "0.00"
+          },
+          {
+            "label": "Time to start selling",
+            "value": "2 min"
+          }
+        ],
+        "totalLabel": "Total",
+        "totalValue": "EGP 0.00"
+      }
     },
     "productShowcase": {
       "title": "See Cashvio in Action",
@@ -389,7 +461,31 @@
         "orders": "Orders",
         "analytics": "Analytics",
         "customers": "Customers"
-      }
+      },
+      "eyebrow": "NO. 03 — ON THE COUNTER"
+    },
+    "ticker": {
+      "lines": [
+        "09:14 — 2× Espresso — EGP 90 — PAID",
+        "09:31 — Order #1042 shipped — Cairo",
+        "09:48 — Stock alert — Blue T-shirt (M) — 3 left",
+        "10:15 — New customer — Sara A.",
+        "10:40 — 1× Leather wallet — EGP 450 — PAID",
+        "11:05 — Shift opened — Register 2",
+        "11:22 — Refund approved — Order #0997",
+        "11:48 — 3× Notebook — EGP 120 — PAID",
+        "12:03 — Stock transfer — Downtown to Mall branch",
+        "12:30 — Daily target reached — EGP 5,000"
+      ]
+    },
+    "endOfDay": {
+      "eyebrow": "NO. 05 — END OF DAY",
+      "slipTitle": "Closing count",
+      "slipNumber": "Z-REPORT 001",
+      "includedLabel": "Included",
+      "totalLabel": "Total hidden fees",
+      "totalValue": "EGP 0.00",
+      "stampsLabel": "Works with"
     }
   },
   "pricing": {
@@ -507,7 +603,9 @@
       "description": "Check out our documentation or knowledge base for instant answers.",
       "docsLink": "Browse Documentation",
       "supportLink": "Visit Help Center"
-    }
+    },
+    "slipTitle": "Message slip",
+    "slipNumber": "FORM 001"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -2152,6 +2250,10 @@
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • No credit card required • Unlimited products"
     }
+  },
+  "ledger": {
+    "no": "NO.",
+    "item": "ITEM",
+    "total": "TOTAL"
   }
 }
-

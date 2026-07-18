@@ -1,13 +1,5 @@
-import { Badge } from '@/components/ui/badge';
 import { ButtonLink } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { ReceiptStamp } from '@/components/marketing';
 import { PricingPlanCard } from './pricing-plan-card';
 import { ctaLinks } from '@/config/navigation';
 import type { PlanPeriod, PublicPlan } from '@/lib/http';
@@ -78,6 +70,7 @@ export async function PricingPlans({
   locale,
 }: PricingPlansProps) {
   const t = await getTranslations({ locale, namespace: 'pricing' });
+  const tLedger = await getTranslations({ locale, namespace: 'ledger' });
   const isRtl = locale === 'ar';
 
   const translations = {
@@ -94,6 +87,7 @@ export async function PricingPlans({
     getStarted: t('getStarted'),
     contactSales: t('contactSales'),
     noPlansAvailable: t('noPlansAvailable'),
+    total: tLedger('total'),
   };
 
   // If no plans from API, use fallback plans
@@ -105,85 +99,81 @@ export async function PricingPlans({
             const isPro = index === 1;
 
             return (
-              <Card
+              <article
                 key={plan.key}
                 className={cn(
-                  'relative flex flex-col',
-                  isPro && 'border-primary'
+                  'receipt-edge relative flex flex-col px-6 sm:px-7 py-8',
+                  isPro ? 'bg-card' : 'bg-card/80'
                 )}
               >
                 {isPro && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-primary text-primary-foreground">
-                      {translations.popular}
-                    </Badge>
-                  </div>
+                  <ReceiptStamp className="absolute top-6 end-4 rotate-6">
+                    {translations.popular}
+                  </ReceiptStamp>
                 )}
 
-                <CardHeader>
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <CardDescription>{plan.description}</CardDescription>
-                </CardHeader>
+                <p className="font-receipt text-xs text-muted-foreground tracking-[0.2em] uppercase select-none" aria-hidden="true">
+                  * * * * * *
+                </p>
+                <h3 className="mt-3 text-lg sm:text-xl font-semibold text-foreground">
+                  {plan.name}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                  {plan.description}
+                </p>
 
-                <CardContent className="flex-1">
-                  <div className="mb-6">
-                    {plan.price === 'Custom' ? (
-                      <span className="text-4xl font-bold text-foreground">
-                        {plan.price}
+                <div className="tear-line my-5" aria-hidden="true" />
+
+                <div className="flex-1">
+                  <p className="mono-label text-muted-foreground mb-3">
+                    {translations.features}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-baseline gap-2.5 text-sm">
+                        <span className="font-receipt text-primary shrink-0" aria-hidden="true">
+                          +
+                        </span>
+                        <span className="text-muted-foreground leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="border-t border-dashed border-ledger-line mt-6 pt-4 flex items-baseline justify-between gap-3">
+                  <span className="mono-label text-foreground">{translations.total}</span>
+                  {plan.price === 'Custom' ? (
+                    <span className="font-receipt text-3xl font-semibold text-foreground tracking-tight">
+                      {plan.price}
+                    </span>
+                  ) : (
+                    <span className="flex items-baseline gap-1.5">
+                      <span className="font-receipt text-3xl font-semibold text-foreground tracking-tight">
+                        EGP{plan.price}
                       </span>
-                    ) : (
-                      <>
-                        <span className="text-4xl font-bold text-foreground">
-                          EGP{plan.price}
-                        </span>
-                        <span className="text-muted-foreground">
-                          {translations.perMonth}
-                        </span>
-                      </>
-                    )}
-                  </div>
+                      <span className="font-receipt text-xs text-muted-foreground">
+                        {translations.perMonth}
+                      </span>
+                    </span>
+                  )}
+                </div>
 
-                  <div className="space-y-3">
-                    <p className="text-sm font-medium text-foreground">
-                      {translations.features}
-                    </p>
-                    <ul className="space-y-2">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <svg
-                            className="w-5 h-5 text-primary shrink-0 mt-0.5"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
+                <ButtonLink
+                  variant={isPro ? 'primary' : 'outline'}
+                  className="w-full justify-center mt-6"
+                  href={
+                    plan.key === 'enterprise'
+                      ? `/${locale}/contact`
+                      : ctaLinks.getStarted
+                  }
+                >
+                  {plan.key === 'enterprise'
+                    ? translations.contactSales
+                    : translations.getStarted}
+                </ButtonLink>
 
-                <CardFooter>
-                  <ButtonLink
-                    variant={isPro ? 'primary' : 'outline'}
-                    className="w-full justify-center"
-                    href={
-                      plan.key === 'enterprise'
-                        ? `/${locale}/contact`
-                        : ctaLinks.getStarted
-                    }
-                  >
-                    {plan.key === 'enterprise'
-                      ? translations.contactSales
-                      : translations.getStarted}
-                  </ButtonLink>
-                </CardFooter>
-              </Card>
+                <div className="barcode w-24 mx-auto mt-6 text-foreground/50" aria-hidden="true" />
+              </article>
             );
           })}
         </div>

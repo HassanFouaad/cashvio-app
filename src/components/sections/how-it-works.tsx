@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { type Locale } from '@/i18n/routing';
-import { SectionHeader } from '@/components/marketing';
+import { LedgerHeading } from '@/components/marketing';
 
 interface HowItWorksProps {
   locale: Locale;
@@ -12,25 +12,28 @@ export async function HowItWorks({ locale }: HowItWorksProps) {
   const t = await getTranslations({ locale, namespace: 'home.howItWorks' });
 
   return (
-    <section aria-label="How it works" className="section-padding-sm bg-muted/40 border-y border-border">
+    <section aria-label="How it works" className="section-padding-sm ledger-rules border-y border-border">
       <div className="container-wide">
-        <SectionHeader title={t('title')} subtitle={t('subtitle')} />
+        <LedgerHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {steps.map((step, index) => (
-            <div key={step} className="rounded-xl border border-border bg-card p-6">
-              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary text-base font-semibold mb-4">
-                {index + 1}
-              </span>
-              <h3 className="text-base font-semibold text-foreground mb-1.5">
+        {/* Journal timeline: timestamped entries down a dashed spine */}
+        <ol className="relative max-w-2xl border-s border-dashed border-ledger-line ms-1.5">
+          {steps.map((step) => (
+            <li key={step} className="relative ps-8 sm:ps-10 pb-10 last:pb-0">
+              <span
+                className="absolute -start-[5.5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary"
+                aria-hidden="true"
+              />
+              <p className="mono-label text-primary mb-2">{t(`${step}.time`)}</p>
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-1.5">
                 {t(`${step}.title`)}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
                 {t(`${step}.description`)}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

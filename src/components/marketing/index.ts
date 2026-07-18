@@ -1,7 +1,10 @@
-export { IconTile } from './icon-tile';
-export { SectionHeader } from './section-header';
-export { FeatureCard } from './feature-card';
+export { LedgerHeading } from './ledger-heading';
+export { LedgerHero } from './ledger-hero';
+export { LedgerCta } from './ledger-cta';
+export { ReceiptCard } from './receipt-card';
+export { ReceiptStamp } from './receipt-stamp';
+export { PriceTag } from './price-tag';
+export { TearDivider } from './tear-divider';
+export { SalesTicker } from './sales-ticker';
 export { FaqSection } from './faq-section';
 export { ComparisonTable } from './comparison-table';
-export { CtaSection } from './cta-section';
-export { PageHero } from './page-hero';

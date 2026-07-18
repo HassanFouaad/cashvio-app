@@ -2,10 +2,11 @@
 @import 'fumadocs-ui/css/preset.css';
 
 /* ============================================
-   CASHVIO DESIGN SYSTEM
-   One brand hue (emerald), flat surfaces, 1px borders.
-   Radii: 8px controls (rounded-lg), 12px cards (rounded-xl),
-   16px hero media / CTA bands (rounded-2xl). Nothing else.
+   CASHVIO DESIGN SYSTEM — "THE SHOPKEEPER'S LEDGER"
+   One brand hue (emerald) on warm paper. The site borrows
+   the artifacts of a shop: receipt paper (scalloped edges),
+   tear lines, rubber stamps, ledger rules, mono numerals.
+   Radii: 8px controls (rounded-lg), 12px cards (rounded-xl).
    ============================================ */
 
 /* ---- Semantic color variables (light) ---- */
@@ -17,6 +18,9 @@
   --muted: #f1efec;
   --muted-foreground: #5d6b7e;
   --border: #e4e2dd;
+  /* Ledger lines (tear lines, ruled paper, dashed rules) need more
+     contrast than regular borders — dashes read fainter than solids */
+  --ledger-line: #c3bfb5;
 
   --primary: #059669;
   --primary-dark: #047857;
@@ -37,6 +41,7 @@
   --muted: #16241d;
   --muted-foreground: #93a89b;
   --border: #24352c;
+  --ledger-line: #3a5044;
 
   --primary: #10b981;
   --primary-dark: #34d399;
@@ -57,6 +62,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-ledger-line: var(--ledger-line);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-foreground: var(--primary-foreground);
@@ -67,6 +73,7 @@
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-arabic: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 /* ============================================
@@ -188,10 +195,169 @@
       radial-gradient(ellipse 80% 55% at 50% -15%, color-mix(in oklab, var(--primary) 7%, transparent), transparent 65%),
       var(--background);
   }
+
+  /* ==========================================
+     LEDGER VOCABULARY
+     ========================================== */
+
+  /* Mono micro-label: the eyebrow/annotation voice of the ledger */
+  .mono-label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .font-receipt {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  /* Receipt paper: scalloped (perforated) top + bottom edges via mask.
+     Two mask layers union: top tile cuts circles along the top edge,
+     bottom tile along the bottom edge. */
+  .receipt-edge {
+    --scallop: 5px;
+    -webkit-mask-image:
+      radial-gradient(circle at 50% 0, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      radial-gradient(circle at 50% 100%, transparent calc(var(--scallop) - 0.5px), black var(--scallop));
+    -webkit-mask-size: calc(var(--scallop) * 4) 51%;
+    -webkit-mask-position: 0 0, 0 100%;
+    -webkit-mask-repeat: repeat-x;
+    mask-image:
+      radial-gradient(circle at 50% 0, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      radial-gradient(circle at 50% 100%, transparent calc(var(--scallop) - 0.5px), black var(--scallop));
+    mask-size: calc(var(--scallop) * 4) 51%;
+    mask-position: 0 0, 0 100%;
+    mask-repeat: repeat-x;
+  }
+
+  /* Scalloped top edge only (receipt stubs, tabs) */
+  .receipt-edge-top {
+    --scallop: 5px;
+    -webkit-mask-image:
+      radial-gradient(circle at 50% 0, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      linear-gradient(black, black);
+    -webkit-mask-size:
+      calc(var(--scallop) * 4) calc(var(--scallop) * 2),
+      100% calc(100% - var(--scallop));
+    -webkit-mask-position: 0 0, 0 100%;
+    -webkit-mask-repeat: repeat-x, no-repeat;
+    mask-image:
+      radial-gradient(circle at 50% 0, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      linear-gradient(black, black);
+    mask-size:
+      calc(var(--scallop) * 4) calc(var(--scallop) * 2),
+      100% calc(100% - var(--scallop));
+    mask-position: 0 0, 0 100%;
+    mask-repeat: repeat-x, no-repeat;
+  }
+
+  /* Scalloped bottom edge only (printing receipts) */
+  .receipt-edge-bottom {
+    --scallop: 5px;
+    -webkit-mask-image:
+      radial-gradient(circle at 50% 100%, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      linear-gradient(black, black);
+    -webkit-mask-size:
+      calc(var(--scallop) * 4) calc(var(--scallop) * 2),
+      100% calc(100% - var(--scallop));
+    -webkit-mask-position: 0 100%, 0 0;
+    -webkit-mask-repeat: repeat-x, no-repeat;
+    mask-image:
+      radial-gradient(circle at 50% 100%, transparent calc(var(--scallop) - 0.5px), black var(--scallop)),
+      linear-gradient(black, black);
+    mask-size:
+      calc(var(--scallop) * 4) calc(var(--scallop) * 2),
+      100% calc(100% - var(--scallop));
+    mask-position: 0 100%, 0 0;
+    mask-repeat: repeat-x, no-repeat;
+  }
+
+  /* Receipt tear-off line: 1px dashed rule (also used as dotted leader) */
+  .tear-line {
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--ledger-line) 0 6px,
+      transparent 6px 12px
+    );
+  }
+
+  /* Ruled ledger-paper background for section bands */
+  .ledger-rules {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 31px,
+      color-mix(in oklab, var(--ledger-line) 70%, transparent) 31px 32px
+    );
+  }
+
+  /* Rubber stamp: tilted mono seal, colored via currentColor */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.3125rem 0.75rem;
+    border: 2px solid currentColor;
+    border-radius: 0.375rem;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transform: rotate(-4deg);
+    white-space: nowrap;
+  }
+
+  /* Decorative barcode strip, colored via currentColor */
+  .barcode {
+    height: 1.75rem;
+    background-image: repeating-linear-gradient(
+      to right,
+      currentColor 0 2px,
+      transparent 2px 4px,
+      currentColor 4px 5px,
+      transparent 5px 8px,
+      currentColor 8px 11px,
+      transparent 11px 13px,
+      currentColor 13px 14px,
+      transparent 14px 18px
+    );
+  }
+
+  /* Price tag: pointed tag shape with a punched hole (::before) */
+  .price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding-block: 0.1875rem;
+    padding-inline: 0.875rem 0.625rem;
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    clip-path: polygon(0 50%, 9px 0, 100% 0, 100% 100%, 9px 100%);
+  }
+
+  [dir='rtl'] .price-tag {
+    clip-path: polygon(100% 50%, calc(100% - 9px) 0, 0 0, 0 100%, calc(100% - 9px) 100%);
+  }
+
+  .price-tag::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background-color: var(--background);
+    flex-shrink: 0;
+  }
 }
 
 /* ============================================
-   ENTRANCE ANIMATION (hero only)
+   ENTRANCE ANIMATIONS (hero + ticker)
    ============================================ */
 @layer utilities {
   .animate-fade-up {
@@ -201,6 +367,16 @@
   .animate-delay-100 { animation-delay: 100ms; }
   .animate-delay-200 { animation-delay: 200ms; }
   .animate-delay-300 { animation-delay: 300ms; }
+
+  /* Receipt sliding out of the printer slot */
+  .animate-print-out {
+    animation: print-out 1.8s cubic-bezier(0.22, 1, 0.36, 1) 400ms both;
+  }
+
+  /* Endless sales feed marquee (content must be duplicated once) */
+  .animate-ticker {
+    animation: ticker-scroll var(--ticker-duration, 45s) linear infinite;
+  }
 }
 
 @keyframes fade-up {
@@ -211,6 +387,24 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes print-out {
+  from {
+    transform: translateY(-88%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 

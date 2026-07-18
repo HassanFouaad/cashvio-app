@@ -7,7 +7,7 @@ import {
   getMessages,
 } from "next-intl/server";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { Inter, Tajawal } from "next/font/google";
+import { Inter, Tajawal, IBM_Plex_Mono } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
@@ -42,6 +42,16 @@ const tajawal = Tajawal({
   preload: true,
   fallback: ["system-ui", "arial"],
   adjustFontFallback: true,
+});
+
+// Ledger/receipt numerals and micro-labels — core of the visual identity
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-mono",
+  preload: true,
+  fallback: ["ui-monospace", "monospace"],
 });
 
 export function generateStaticParams() {
@@ -216,7 +226,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={direction}
       suppressHydrationWarning
-      className={`dark ${inter.variable} ${tajawal.variable}`}
+      className={`dark ${inter.variable} ${tajawal.variable} ${plexMono.variable}`}
     >
       <head>
         {/* Preconnect to critical third-party origins */}

@@ -3,7 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n/routing";
 import { PricingPlans } from "@/components/sections/pricing-plans";
-import { IconTile, FaqSection } from "@/components/marketing";
+import { FaqSection, LedgerHero, ReceiptStamp } from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
 import {
   schemaTemplates,
@@ -134,16 +134,7 @@ export default async function PricingPage({ params }: Props) {
       />
 
       {/* Header Section */}
-      <section className="hero-wash border-b border-border py-12 sm:py-16">
-        <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
-              {t("title")}
-            </h1>
-            <p className="text-base sm:text-lg text-muted-foreground">{t("subtitle")}</p>
-          </div>
-        </div>
-      </section>
+      <LedgerHero title={t("title")} subtitle={t("subtitle")} />
 
       {/* Pricing Cards - SSR from API with fallback */}
       <section className="py-12 sm:py-16">
@@ -156,31 +147,14 @@ export default async function PricingPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Money Back Guarantee */}
-      <section className="py-10 sm:py-12 bg-muted/40 border-y border-border">
+      {/* Money Back Guarantee — a stamped ledger note */}
+      <section className="py-10 sm:py-12 ledger-rules border-y border-border">
         <div className="container-wide">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-start">
-            <IconTile size="lg">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            </IconTile>
-            <div>
-              <h2 className="text-base sm:text-lg font-semibold text-foreground">
-                {t("guarantee.title")}
-              </h2>
-              <p className="text-sm sm:text-base text-muted-foreground">
-                {t("guarantee.description")}
-              </p>
-            </div>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 text-center md:text-start">
+            <ReceiptStamp>{t("guarantee.title")}</ReceiptStamp>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
+              {t("guarantee.description")}
+            </p>
           </div>
         </div>
       </section>

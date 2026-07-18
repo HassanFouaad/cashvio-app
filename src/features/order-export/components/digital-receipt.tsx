@@ -34,7 +34,7 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-dashed border-border" />
+        <div className="border-t border-dashed border-ledger-line" />
 
         {/* Order Summary Section */}
         <div className="p-6">
