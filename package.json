@@ -7,7 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "shots:seed": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/seed.mjs",
+    "shots:restock": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/restock.mjs",
+    "shots:customer-stats": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/customer-stats.mjs",
+    "shots:status": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/status.mjs",
+    "shots:totals": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/totals.mjs",
+    "shots:upload-images": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/upload-images.mjs",
+    "shots:capture": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/capture.mjs",
+    "shots:process": "node scripts/marketing-shots/process.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.1",
@@ -33,6 +41,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "playwright": "^1.61.1",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
   },

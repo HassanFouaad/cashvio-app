@@ -32,6 +32,15 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+!scripts/marketing-shots/.env.example
+
+# marketing screenshot raw captures (processed assets live in public/assets)
+scripts/marketing-shots/raw/*
+!scripts/marketing-shots/raw/.gitkeep
+scripts/marketing-shots/.env.local
+scripts/marketing-shots/product-images/*
+!scripts/marketing-shots/product-images/.gitkeep
 
 # vercel
 .vercel

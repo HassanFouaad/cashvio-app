@@ -8,7 +8,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { ThemedShot } from '@/components/ui/themed-shot';
 
 const views = [
-  { id: 'pos', base: '/assets/pos' },
+  { id: 'pos', base: '/assets/mobile-pos' },
   { id: 'management', base: '/assets/management' },
 ] as const;
 

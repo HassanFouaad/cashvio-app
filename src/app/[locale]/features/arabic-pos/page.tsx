@@ -216,10 +216,9 @@ export default async function ArabicPosPage({ params }: Props) {
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
-        variant="mobile"
         companion={{
-          base: '/assets/products',
-          variant: 'desktop',
+          base: '/assets/mobile-pos',
+          variant: 'mobile',
           alt: t('screenshot.companionAlt'),
           caption: t('screenshot.companionCaption'),
         }}

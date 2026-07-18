@@ -1233,10 +1233,10 @@
         "alt": "Cashvio products module with a populated apparel catalog"
       },
       "solutions": {
-        "caption": "Live view — POS on mobile",
-        "alt": "Cashvio free POS running on a phone",
-        "companionCaption": "Live view — omnichannel orders on web",
-        "companionAlt": "Cashvio orders list across retail channels on desktop"
+        "caption": "Live view — POS on web",
+        "alt": "Cashvio free POS catalog and checkout on desktop",
+        "companionCaption": "Live view — POS on mobile",
+        "companionAlt": "Cashvio free POS running on a phone"
       },
       "operations": {
         "caption": "Live view — inventory on web",
@@ -1876,10 +1876,10 @@
       "note": "Free forever plan • Setup in 2 minutes • Full Arabic support"
     },
     "screenshot": {
-      "caption": "Live view — Arabic POS",
-      "alt": "Cashvio Arabic POS screen for in-store sales",
-      "companionCaption": "Live view — catalog on web",
-      "companionAlt": "Cashvio product catalog managed from the desktop console"
+      "caption": "Live view — Arabic POS on web",
+      "alt": "Cashvio Arabic POS catalog and checkout on desktop",
+      "companionCaption": "Live view — Arabic POS on mobile",
+      "companionAlt": "Cashvio Arabic POS screen on a phone"
     }
   },
   "omnichannelRetail": {
@@ -2639,10 +2639,10 @@
       "note": "Free forever • No credit card • Arabic & English"
     },
     "screenshot": {
-      "caption": "Live view — POS",
-      "alt": "Cashvio free POS product catalog and checkout on mobile",
-      "companionCaption": "Live view — catalog on web",
-      "companionAlt": "Cashvio product catalog managed from the desktop console"
+      "caption": "Live view — POS on web",
+      "alt": "Cashvio free POS catalog and checkout on desktop",
+      "companionCaption": "Live view — POS on mobile",
+      "companionAlt": "Cashvio free POS product catalog and checkout on a phone"
     }
   },
   "freeOnlineStore": {
@@ -2849,10 +2849,10 @@
       "note": "Free forever • 0% commission • Arabic & English"
     },
     "screenshot": {
-      "caption": "Live view — products",
-      "alt": "Cashvio product catalog used by the free online store",
-      "companionCaption": "Live view — catalog on mobile",
-      "companionAlt": "Cashvio product management on a phone"
+      "caption": "Live view — product catalog on web",
+      "alt": "Cashvio product catalog that powers the free online store",
+      "companionCaption": "Live view — product catalog on mobile",
+      "companionAlt": "Cashvio product catalog on a phone"
     }
   },
   "orderManagement": {

@@ -109,10 +109,10 @@ const sectionShots = [
   {
     key: 'solutions' as const,
     base: '/assets/pos',
-    variant: 'mobile' as const,
+    variant: 'desktop' as const,
     companion: {
-      base: '/assets/orders',
-      variant: 'desktop' as const,
+      base: '/assets/mobile-pos',
+      variant: 'mobile' as const,
     },
   },
   {
