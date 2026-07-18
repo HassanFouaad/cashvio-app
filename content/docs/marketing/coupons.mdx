@@ -11,7 +11,7 @@ Coupons allow you to create discount codes that customers can apply to their ord
 - Percentage or fixed-amount discounts
 - Store-specific coupon management
 - Minimum cart value requirements
-- Whole-order discounts (specific-item targeting is coming soon)
+- Whole-order discounts or targeting of specific products and categories
 - Usage limits per coupon and per customer
 - Date-based validity periods
 - Real-time coupon validation
@@ -75,9 +75,10 @@ Choose where the coupon discount applies:
 - Simplest option for most campaigns
 
 **Specific Items:**
-- Discount applies only to specific products or categories
-- Requires additional configuration (coming soon)
-- Use for targeted product promotions
+- Discount applies only to the products or categories you choose
+- After selecting this option, pick at least one product or category in the fields that appear
+- The discount is calculated only from matching items in the cart — other items stay full price
+- Use for targeted product promotions (e.g., 20% off all beverages)
 
 ### Step 5: Set Usage Limits
 
@@ -263,7 +264,7 @@ Coupons are validated against these rules:
 - **Minimum Cart Value**: Order subtotal must meet or exceed minimum
 
 ### Applicability
-- If **Specific Items**: At least one applicable item must be in cart (when implemented)
+- If **Specific Items**: At least one item from the selected products or categories must be in the cart, otherwise the coupon is rejected
 
 ## Coupon Best Practices
 
