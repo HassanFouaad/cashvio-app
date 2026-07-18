@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { getTranslations } from 'next-intl/server';
 
+import { loadArabicOgFonts } from '@/lib/og-fonts';
+
 export const runtime = 'edge';
 
 export const alt = 'Cashvio - Business Operations & Commerce Platform';
@@ -19,6 +21,7 @@ export default async function TwitterImage({
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   const isArabic = locale === 'ar';
+  const fonts = isArabic ? await loadArabicOgFonts() : undefined;
   const title = t('siteName');
   const description = t('siteDescription');
 
@@ -37,6 +40,7 @@ export default async function TwitterImage({
             'radial-gradient(circle at 25% 25%, #1a2332 0%, transparent 50%), radial-gradient(circle at 75% 75%, #0d2818 0%, transparent 50%)',
           padding: '50px 80px',
           position: 'relative',
+          ...(isArabic ? { fontFamily: 'Tajawal' } : {}),
         }}
         dir={isArabic ? 'rtl' : 'ltr'}
       >
@@ -165,6 +169,7 @@ export default async function TwitterImage({
     ),
     {
       ...size,
+      ...(fonts ? { fonts } : {}),
     }
   );
 }

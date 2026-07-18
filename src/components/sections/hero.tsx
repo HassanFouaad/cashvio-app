@@ -146,10 +146,11 @@ export async function Hero({ locale }: HeroProps) {
               base="/assets/dashboard"
               locale={locale}
               alt={t("imageAlt")}
-              width={1920}
-              height={1200}
+              width={2880}
+              height={1800}
               priority
-              sizes="(max-width: 1024px) 100vw, 1024px"
+              quality={92}
+              sizes="(max-width: 1024px) 100vw, 1280px"
             />
           </div>
         </div>

@@ -11,6 +11,8 @@ interface ThemedShotProps {
   height: number;
   className?: string;
   sizes?: string;
+  /** next/image quality (1-100). Defaults to 90. */
+  quality?: number;
   /** Eager-load the theme-default (dark) variant — use for above-the-fold shots. */
   priority?: boolean;
 }
@@ -29,6 +31,7 @@ export function ThemedShot({
   height,
   className,
   sizes,
+  quality = 90,
   priority,
 }: ThemedShotProps) {
   return (
@@ -39,7 +42,7 @@ export function ThemedShot({
         width={width}
         height={height}
         sizes={sizes}
-        quality={90}
+        quality={quality}
         loading={priority ? 'eager' : undefined}
         className={cn('block dark:hidden w-full h-auto', className)}
       />
@@ -49,7 +52,7 @@ export function ThemedShot({
         width={width}
         height={height}
         sizes={sizes}
-        quality={90}
+        quality={quality}
         priority={priority}
         className={cn('hidden dark:block w-full h-auto', className)}
       />

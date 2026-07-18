@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { getTranslations } from 'next-intl/server';
 
+import { loadArabicOgFonts } from '@/lib/og-fonts';
+
 export const runtime = 'edge';
 
 export const alt = 'Cashvio - Business Operations & Commerce Platform';
@@ -19,6 +21,7 @@ export default async function OGImage({
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   const isArabic = locale === 'ar';
+  const fonts = isArabic ? await loadArabicOgFonts() : undefined;
   const title = t('siteName');
   const description = t('siteDescription');
 
@@ -35,7 +38,7 @@ export default async function OGImage({
           backgroundColor: '#0f1219',
           backgroundImage:
             'radial-gradient(circle at 25% 25%, #1a2332 0%, transparent 50%), radial-gradient(circle at 75% 75%, #0d2818 0%, transparent 50%)',
-          fontFamily: isArabic ? 'Arial, sans-serif' : 'Inter, sans-serif',
+          fontFamily: isArabic ? 'Tajawal' : 'Inter, sans-serif',
           padding: '60px 80px',
           position: 'relative',
         }}
@@ -174,6 +177,7 @@ export default async function OGImage({
     ),
     {
       ...size,
+      ...(fonts ? { fonts } : {}),
     }
   );
 }

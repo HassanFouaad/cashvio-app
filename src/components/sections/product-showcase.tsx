@@ -138,10 +138,11 @@ export function ProductShowcase() {
                       base={tab.base}
                       locale={locale}
                       alt={t(`tabs.${tab.id}`)}
-                      width={1920}
-                      height={1200}
+                      width={2880}
+                      height={1800}
                       priority={index === 0}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      quality={95}
+                      sizes="(max-width: 1024px) 100vw, 1200px"
                     />
                   </div>
                 </div>
