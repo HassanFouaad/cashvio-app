@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 import type { OrderExportData } from "../types";
 import { ReceiptDeliveryAddress } from "./receipt-delivery-address";
 import { ReceiptFooter } from "./receipt-footer";
@@ -17,6 +18,11 @@ interface DigitalReceiptProps {
 
 export function DigitalReceipt({ order }: DigitalReceiptProps) {
   const t = useTranslations("receipt");
+  const locale = useLocale();
+
+  // Customers land here from receipt QR codes — the platform's most visited
+  // public surface. Route them to the marketing home with attribution.
+  const poweredByHref = `${locale === "ar" ? "/ar" : "/"}?utm_source=digital_receipt&utm_medium=referral&utm_campaign=powered_by`;
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -108,6 +114,21 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
         <div className="p-6 bg-muted/30">
           <ReceiptFooter store={order.store} />
         </div>
+      </div>
+
+      {/* Powered by Cashvio — platform attribution + acquisition CTA */}
+      <div className="mt-6 text-center">
+        <Link
+          href={poweredByHref}
+          className="inline-flex flex-col items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span>
+            {t("poweredBy")} <span className="font-semibold">Cashvio</span>
+          </span>
+          <span className="underline underline-offset-2">
+            {t("poweredByCta")}
+          </span>
+        </Link>
       </div>
     </div>
   );

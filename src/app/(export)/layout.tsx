@@ -20,7 +20,6 @@ import { ThemeToggle } from "@/components/layout";
 import { ExportLocaleSwitcher } from "@/features/order-export";
 
 import "../globals.css";
-import { env } from "@/config/env";
 import Link from "next/link";
 
 const inter = Inter({
@@ -114,9 +113,13 @@ export default async function ExportLayout({
 
   // Get messages for client components - will use the locale from request config
   const messages = await getMessages();
+  const t = await getTranslations({ locale, namespace: "receipt" });
 
   const { direction } = localeMetadata[locale];
   const isRTL = direction === "rtl";
+
+  // Receipt visitors are end customers — attribute any click-through
+  const poweredByHref = `${locale === "ar" ? "/ar" : "/"}?utm_source=digital_receipt&utm_medium=referral&utm_campaign=powered_by`;
 
   return (
     <html
@@ -173,8 +176,9 @@ export default async function ExportLayout({
           {/* Minimal Footer */}
           <footer className="py-2">
             <div className="container flex justify-center">
-              <p className="text-xs text-muted-foreground cursor-pointer hover:underline">
-                Powered by <Link href={env.site.url} target="_blank">Cashvio</Link>
+              <p className="text-xs text-muted-foreground hover:underline">
+                {t("poweredBy")}{" "}
+                <Link href={poweredByHref}>Cashvio</Link>
               </p>
             </div>
           </footer>

@@ -1256,6 +1256,8 @@
     "thankYou": "Thank you for your order!",
     "phone": "Phone",
     "email": "Email",
+    "poweredBy": "Powered by",
+    "poweredByCta": "Create your free online store",
     "errors": {
       "title": "Unable to Load Receipt",
       "orderNotFound": "This order could not be found. It may have been deleted or the link is invalid.",

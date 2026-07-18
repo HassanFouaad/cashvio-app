@@ -1,0 +1,93 @@
+---
+title: WhatsApp Sharing & Customer Updates
+description: Send digital receipts and order status updates to customers on WhatsApp in one tap — no setup or integration required.
+---
+
+## Overview
+
+Cashvio lets you reach customers on WhatsApp directly from the portal:
+
+- **Send receipts** right after a sale (from the success screen) or later from order details
+- **Send order status updates** — "your order is ready", "out for delivery", and more — from order details
+
+There is nothing to configure. Cashvio opens WhatsApp with a ready-to-send message; you review it and press send from your own WhatsApp account.
+
+<Callout title="How it works">
+The buttons use WhatsApp "click to chat" links. If the order has a customer phone number, the chat opens directly with that customer. If not, WhatsApp asks you to pick the recipient from your contacts.
+</Callout>
+
+## Sending a Receipt via WhatsApp
+
+### From the New Sale success screen
+
+After completing a sale:
+
+1. On the success screen, click **Send via WhatsApp**.
+2. WhatsApp opens with a thank-you message that includes the order number and the **digital receipt link**.
+3. Press send.
+
+If the sale has a customer attached (with a phone number), the message opens in their chat directly.
+
+### From Order Details
+
+For any existing order:
+
+1. Open the order from **Sales > All Sales**.
+2. Click **Print / Share Receipt**.
+3. Click **Send via WhatsApp**.
+
+### What the customer receives
+
+A short thank-you message with the order number and a link to the **digital receipt** — a mobile-friendly page showing your store details, the items, totals, and payment status. It is the same page customers reach by scanning the QR code on a printed receipt.
+
+## Sending Order Status Updates
+
+Keep customers informed on pickup and delivery orders without any messaging infrastructure:
+
+1. Open the order details page.
+2. Click **WhatsApp customer** in the header. The button appears whenever the order has a customer phone number.
+3. WhatsApp opens with a message matching the order's **current fulfillment status**, plus a link the customer can open to see the order.
+4. Review and send.
+
+The message is chosen automatically based on the fulfillment status:
+
+| Fulfillment status | Message the customer gets |
+|--------------------|---------------------------|
+| **Pending** | "We've received your order and will start on it shortly." |
+| **Preparing** | "Good news! Your order is now being prepared." |
+| **Ready** | "Your order is ready for pickup!" |
+| **Delivering** | "Your order is out for delivery." |
+| **Completed** | "Your order is complete. Thank you for shopping with us!" |
+| **Cancelled** | "Your order has been cancelled. Please contact us if you have any questions." |
+
+<Callout title="Tip">
+Update the fulfillment status first, then click **WhatsApp customer** — the message always matches the status at the moment you click. A natural flow is: mark the order **Ready**, then immediately notify the customer.
+</Callout>
+
+## Requirements & Tips
+
+- **Phone numbers need a country code** (e.g., `+20 100 123 4567`). Numbers saved in local format may not open the right chat — Cashvio strips formatting, but the country code must be present.
+- On desktop, links open **WhatsApp Web or the WhatsApp desktop app**; on mobile, the WhatsApp app opens directly.
+- The message language follows your **portal language** — switch the portal to Arabic to send Arabic messages.
+- You can **edit the message freely** in WhatsApp before sending — the prefilled text is a starting point.
+- Messages are sent from **your own WhatsApp account**, exactly as if you typed them yourself.
+
+## Related Features
+
+- [Creating Orders](/docs/orders/creating-orders) — The New Sale screen and success view
+- [Managing Orders](/docs/orders/managing-orders) — Order details, receipts, and fulfillment updates
+- [Receipt Settings](/docs/stores/receipt-settings) — Customize what appears on your receipts
+
+## FAQs
+
+**Q: Do I need a WhatsApp Business API account?**
+A: No. The feature uses standard WhatsApp links and works with any WhatsApp account — personal or business.
+
+**Q: Are messages sent automatically?**
+A: No. Cashvio prepares the message and opens WhatsApp; you always review and press send yourself.
+
+**Q: The button opened WhatsApp but not the customer's chat. Why?**
+A: The order has no customer phone number, or the number is missing its country code. Pick the contact manually, or fix the customer's phone number and try again.
+
+**Q: Can the customer reply?**
+A: Yes — replies arrive in your WhatsApp like any normal conversation.
