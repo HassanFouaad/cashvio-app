@@ -231,7 +231,8 @@
         "sub1": "Split payments & scheduled payments",
         "sub2": "Returns & refunds with approval workflow",
         "sub3": "Digital receipts & order history audit trail",
-        "sub4": "Multi-channel attribution tracking"
+        "sub4": "Multi-channel attribution tracking",
+        "link": "Explore order management"
       },
       "inventory": {
         "title": "Inventory Management",
@@ -239,7 +240,8 @@
         "sub1": "Stock transfers between stores",
         "sub2": "Shrinkage & damage recording",
         "sub3": "Configurable reorder points & low stock alerts",
-        "sub4": "Bulk adjustments & full adjustment history"
+        "sub4": "Bulk adjustments & full adjustment history",
+        "link": "Explore free inventory management"
       },
       "analytics": {
         "title": "Analytics & Reports",
@@ -247,7 +249,8 @@
         "sub1": "Profit margins & low-margin alerts",
         "sub2": "Staff performance rankings",
         "sub3": "Customer acquisition & retention trends",
-        "sub4": "Smart business recommendations"
+        "sub4": "Smart business recommendations",
+        "link": "Explore sales reports & analytics"
       },
       "pos": {
         "title": "Point of Sale",
@@ -272,7 +275,8 @@
         "sub1": "Store credit & balance management",
         "sub2": "Visit tracking & spending analytics",
         "sub3": "Multiple addresses per customer",
-        "sub4": "Complete purchase history & loyalty insights"
+        "sub4": "Complete purchase history & loyalty insights",
+        "link": "Explore customer management"
       },
       "multistore": {
         "title": "Multi-Store Operations",
@@ -289,7 +293,8 @@
         "sub1": "50+ granular permissions by resource & action",
         "sub2": "Custom roles with Business & store scope",
         "sub3": "Email-based team invitations",
-        "sub4": "Activity audit trails & user management"
+        "sub4": "Activity audit trails & user management",
+        "link": "Explore roles & permissions"
       },
       "eyebrow": "NO. 01 — WHAT YOU GET",
       "lineValue": "INCLUDED — 0.00"

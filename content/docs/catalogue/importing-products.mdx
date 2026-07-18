@@ -33,6 +33,7 @@ One row = one product. The columns are:
 | **description** | Optional | A short description shown on your online store |
 | **status** | Optional | `active` (customers can buy it) or `inactive` (hidden). Empty means active |
 | **trackInventory** | Optional | `yes` to track stock levels, `no` to skip stock tracking. Empty means yes |
+| **initialQuantity** | Optional | How many units you have in stock right now — a whole number like `25`. Leave empty to start at zero. Only works when trackInventory is `yes` (or empty) |
 
 <Callout title="File formats">
 You can upload the file as **Excel (.xlsx)** — just save normally — or as **CSV** if you prefer. Both work, and Arabic product names are kept intact.
@@ -44,10 +45,15 @@ You can upload the file as **Excel (.xlsx)** — just save normally — or as **
 2. Cashvio checks the file **instantly** and shows you:
    - How many rows are **ready to add**
    - Which rows have **problems**, with the row number and a plain explanation (e.g. "Row 7 — sellingPrice must be a number")
-3. Nothing is added yet — you decide:
+3. If your file has quantities in the **initialQuantity** column, a **Store receiving the stock** picker appears — choose which store's shelves these units are on. You can't continue until a store is chosen.
+4. Nothing is added yet — you decide:
    - Fix the problems in your file and upload it again, or
    - Continue anyway: rows with problems are **skipped**, valid rows are added.
-4. Click **Add X products** to start.
+5. Click **Add X products** to start.
+
+<Callout title="One store per file">
+All quantities in a file go to the single store you pick. If your stock is spread across several stores, upload one file per store — or import without quantities and use stock transfers later.
+</Callout>
 
 ## While It Runs
 
@@ -64,7 +70,7 @@ If anything interrupts the process (for example a connection problem), it automa
 ## Afterwards
 
 - New products appear in **Catalog > Products** immediately.
-- Products start with **zero stock** — add quantities from **Inventory > Stock** (bulk adjust works well after a big upload).
+- Rows with an **initialQuantity** start with that stock in the store you picked; the quantities also appear in the inventory history, linked to the upload. Rows without a quantity start at **zero stock** — add quantities from **Inventory > Stock** whenever you like.
 - Product **photos** can't be added from the file — add them from each product's page.
 - New categories mentioned in your file were created automatically under **Catalog > Categories**.
 
@@ -76,6 +82,7 @@ If anything interrupts the process (for example a connection problem), it automa
 | Maximum file size | 5 MB |
 | File format | Excel (.xlsx) or CSV |
 | SKU uniqueness | Every SKU must be unique — in the file and in your existing catalog |
+| Initial quantity | A whole number from 0 to 1,000,000 per row |
 | One file at a time | Wait for the current upload to finish before starting another |
 
 ## Common Questions
@@ -88,6 +95,9 @@ A: No — fix those rows in your file, delete the rows that were added successfu
 
 **Q: Can I add product variants (sizes, colors) this way?**
 A: Each row creates one product with one price and SKU. For products with multiple variants, create the product from **Catalog > Products > Add New Product** where you can define options and variants.
+
+**Q: I have several stores — where does the stock go?**
+A: All quantities in one file go to the store you pick during the upload. Upload a separate file per store, or leave initialQuantity empty and distribute stock later with transfers.
 
 **Q: Can I update existing products with the file?**
 A: Not yet — the upload creates new products only. Rows whose SKU already exists are skipped and listed with the reason.

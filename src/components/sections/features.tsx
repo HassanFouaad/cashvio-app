@@ -17,10 +17,15 @@ const featureKeys = [
   'team',
 ] as const;
 
-// Keyword-anchored internal links to the free-POS / free-store landing pages
+// Keyword-anchored internal links to the feature landing pages
 const featureLinks: Partial<Record<(typeof featureKeys)[number], string>> = {
+  orders: '/features/order-management',
+  inventory: '/features/inventory-management',
+  analytics: '/features/sales-analytics',
   pos: '/features/free-pos',
+  customers: '/features/customer-management',
   multistore: '/features/free-online-store',
+  team: '/features/team-management',
 };
 
 export async function Features({ locale }: FeaturesProps) {
