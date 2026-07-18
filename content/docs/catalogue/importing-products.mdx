@@ -1,0 +1,98 @@
+---
+title: Importing Products from a File
+description: Add hundreds of products at once by filling a simple CSV template and uploading it — with instant checks before anything is imported.
+---
+
+## What is Product Import?
+
+Instead of adding products one by one, you can fill a spreadsheet with all your products and upload it once. Cashvio checks every row first, tells you about any problems, and then creates the products in the background while you keep working.
+
+This is the fastest way to move an existing catalog into Cashvio — for example when you're switching from another system or from a paper list.
+
+## Before You Start
+
+1. Go to **Catalog > Products** and click **Import products**.
+2. Click **Download template** — you get a small CSV file with the correct columns and two example rows.
+3. Open the template in **Excel** or **Google Sheets**.
+
+<Callout title="Important">
+Keep the first row (the column headers) exactly as it is, and replace the example rows with your own products. The example rows are recognized automatically and will never be imported.
+</Callout>
+
+## Filling the Template
+
+One row = one product. The columns are:
+
+| Column | Required? | What to enter |
+|--------|-----------|---------------|
+| **name** | Required | The product name your customers see (up to 64 characters) |
+| **sku** | Required | A unique code for the product — a barcode number or your own code. No two products can share a code |
+| **sellingPrice** | Required | The price you sell at. Numbers only, e.g. `250` or `99.99` |
+| **purchasePrice** | Optional | What the product costs you — used for profit reports |
+| **category** | Optional | The category name. If it doesn't exist yet, it is created for you |
+| **description** | Optional | A short description shown on your online store |
+| **status** | Optional | `active` (customers can buy it) or `inactive` (hidden). Empty means active |
+| **trackInventory** | Optional | `yes` to track stock levels, `no` to skip stock tracking. Empty means yes |
+
+<Callout title="Saving from Excel">
+When saving, choose **File > Save As > "CSV UTF-8 (Comma delimited)"**. This keeps Arabic product names displaying correctly.
+</Callout>
+
+## Uploading and Reviewing
+
+1. Drag your file into the upload box (or click to choose it).
+2. Cashvio checks the file **instantly** and shows you:
+   - How many rows are **ready to import**
+   - Which rows have **problems**, with the row number and a plain explanation (e.g. "Row 7 — sellingPrice must be a number")
+3. Nothing is imported yet — you decide:
+   - Fix the problems in your file and upload it again, or
+   - Continue anyway: rows with problems are **skipped**, valid rows are imported.
+4. Click **Import X products** to start.
+
+## While the Import Runs
+
+The import runs in the background — you can leave the page and come back; the progress is saved. The progress screen shows:
+
+- A progress bar (e.g. "250 of 800 processed")
+- How many products were **created**
+- How many rows were **skipped**, each with the reason (e.g. "SKU already exists in your catalog")
+
+<Callout title="Resilient by design">
+If anything interrupts the import (for example a connection problem), it automatically continues from where it stopped — products imported so far are safe, and no product is ever created twice.
+</Callout>
+
+## After the Import
+
+- Imported products appear in **Catalog > Products** immediately.
+- Products start with **zero stock** — add quantities from **Inventory > Stock** (bulk adjust works well after a big import).
+- Product **photos** can't be imported from the file — add them from each product's page.
+- New categories mentioned in your file were created automatically under **Catalog > Categories**.
+
+## Limits and Rules
+
+| Rule | Value |
+|------|-------|
+| Maximum rows per file | 2,000 (split bigger catalogs into several files) |
+| Maximum file size | 5 MB |
+| File format | CSV only (save/export from Excel or Google Sheets) |
+| SKU uniqueness | Every SKU must be unique — in the file and in your existing catalog |
+
+## Common Questions
+
+**Q: I uploaded the wrong file — did it import anything?**
+A: No. Nothing is imported until you press the **Import X products** button.
+
+**Q: Some rows were skipped. Do I have to retype them?**
+A: No — fix those rows in your file, delete the rows that imported successfully (or leave them; duplicates are skipped automatically), and upload again.
+
+**Q: Can I import product variants (sizes, colors)?**
+A: Each row creates one product with one price and SKU. For products with multiple variants, create the product from **Catalog > Products > Add New Product** where you can define options and variants.
+
+**Q: Can I update existing products with the file?**
+A: Not yet — the import creates new products only. Rows whose SKU already exists are skipped and listed with the reason.
+
+## Related Features
+
+- [Products](/docs/catalogue/products) — Managing products after the import
+- [Categories](/docs/catalogue/categories) — The categories created during import
+- [Inventory](/docs/inventory/stock-management) — Adding stock quantities after importing

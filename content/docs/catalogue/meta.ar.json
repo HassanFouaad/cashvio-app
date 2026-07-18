@@ -1,4 +1,10 @@
 {
   "title": "الكتالوج",
-  "pages": ["categories", "options", "products", "product-reviews"]
+  "pages": [
+    "categories",
+    "options",
+    "products",
+    "importing-products",
+    "product-reviews"
+  ]
 }
