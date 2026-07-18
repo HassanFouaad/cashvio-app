@@ -1,21 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
 import { buttonVariants } from '@/components/ui/button';
+import { ThemedShot } from '@/components/ui/themed-shot';
 
 const views = [
-  { id: 'pos', image: '/assets/mobile1.png' },
-  { id: 'management', image: '/assets/mobile2.png' },
+  { id: 'pos', base: '/assets/pos' },
+  { id: 'management', base: '/assets/management' },
 ] as const;
 
 const featureKeys = ['feature1', 'feature2', 'feature3', 'feature4'] as const;
 
 export function MobileAppShowcase() {
   const [activeView, setActiveView] = useState(0);
+  const locale = useLocale();
   const tApp = useTranslations('home.mobileApp');
   const tApp2 = useTranslations('home.mobileApp2');
 
@@ -43,14 +44,12 @@ export function MobileAppShowcase() {
           <div className="flex flex-col items-center gap-5 order-2 lg:order-1">
             <div className="rounded-[2rem] bg-chassis p-2.5 w-full max-w-[270px] sm:max-w-[300px]">
               <div className="rounded-[1.4rem] overflow-hidden bg-card">
-                <Image
-                  src={currentView.image}
+                <ThemedShot
+                  base={currentView.base}
+                  locale={locale}
                   alt={activeT('imageAlt')}
-                  width={375}
-                  height={812}
-                  className="w-full h-auto"
-                  loading="lazy"
-                  quality={85}
+                  width={402}
+                  height={874}
                   sizes="(max-width: 768px) 260px, 300px"
                 />
               </div>

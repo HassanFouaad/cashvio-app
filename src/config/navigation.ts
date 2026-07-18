@@ -38,6 +38,13 @@ export const footerNavigation: FooterSection[] = [
       { key: 'omnichannelRetail', href: '/features/omnichannel-retail' },
       { key: 'inventoryManagement', href: '/features/inventory-management' },
       { key: 'couponsAndDiscounts', href: '/features/coupons-and-discounts' },
+      { key: 'orderManagement', href: '/features/order-management' },
+      { key: 'customerManagement', href: '/features/customer-management' },
+      { key: 'salesAnalytics', href: '/features/sales-analytics' },
+      { key: 'purchaseOrders', href: '/features/purchase-orders' },
+      { key: 'returnsAndRefunds', href: '/features/returns-and-refunds' },
+      { key: 'multiStoreManagement', href: '/features/multi-store-management' },
+      { key: 'teamManagement', href: '/features/team-management' },
     ],
   },
   {

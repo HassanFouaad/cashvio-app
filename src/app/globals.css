@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/preset.css';
 
+/* Drive Tailwind's `dark:` variant off the `.dark` class on <html> (the site
+   toggles theme by class via cookie/localStorage, not OS preference). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ============================================
    CASHVIO DESIGN SYSTEM — "THE SHOPKEEPER'S LEDGER"
    One brand hue (emerald) on warm paper. The site borrows

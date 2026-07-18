@@ -1,24 +1,24 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { ThemedShot } from '@/components/ui/themed-shot';
 import { cn } from '@/lib/utils/cn';
 
 type FeatureStyle = 'simple' | 'detailed';
 
 interface TabConfig {
   id: string;
-  image: string;
+  base: string;
   namespace: string;
   featureStyle: FeatureStyle;
 }
 
 const tabs: TabConfig[] = [
-  { id: 'dashboard', image: '/assets/portal.png', namespace: 'home.platformPreview', featureStyle: 'simple' },
-  { id: 'orders', image: '/assets/portal.png', namespace: 'home.ordersShowcase', featureStyle: 'detailed' },
-  { id: 'analytics', image: '/assets/portal2.png', namespace: 'home.analyticsShowcase', featureStyle: 'detailed' },
-  { id: 'customers', image: '/assets/portal2.png', namespace: 'home.customerManagement', featureStyle: 'simple' },
+  { id: 'dashboard', base: '/assets/dashboard', namespace: 'home.platformPreview', featureStyle: 'simple' },
+  { id: 'orders', base: '/assets/orders', namespace: 'home.ordersShowcase', featureStyle: 'detailed' },
+  { id: 'analytics', base: '/assets/analytics', namespace: 'home.analyticsShowcase', featureStyle: 'detailed' },
+  { id: 'customers', base: '/assets/customers', namespace: 'home.customerManagement', featureStyle: 'simple' },
 ];
 
 const featureKeys = ['feature1', 'feature2', 'feature3', 'feature4'] as const;
@@ -68,6 +68,7 @@ function DetailedFeatureList({ namespace }: { namespace: string }) {
 
 export function ProductShowcase() {
   const t = useTranslations('home.productShowcase');
+  const locale = useLocale();
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -133,14 +134,13 @@ export function ProductShowcase() {
                         {String(index + 1).padStart(2, '0')}/{String(tabs.length).padStart(2, '0')}
                       </span>
                     </div>
-                    <Image
-                      src={tab.image}
+                    <ThemedShot
+                      base={tab.base}
+                      locale={locale}
                       alt={t(`tabs.${tab.id}`)}
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      quality={85}
+                      width={1920}
+                      height={1200}
+                      priority={index === 0}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     />
                   </div>

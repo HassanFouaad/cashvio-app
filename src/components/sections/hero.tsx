@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { type Locale } from "@/i18n/routing";
 import { ButtonLink } from "@/components/ui/button";
+import { ThemedShot } from "@/components/ui/themed-shot";
 import { ReceiptStamp, SalesTicker } from "@/components/marketing";
 
 interface HeroProps {
@@ -142,14 +142,13 @@ export async function Hero({ locale }: HeroProps) {
                 <span className="mono-label text-primary">{t("live")}</span>
               </span>
             </div>
-            <Image
-              src="/assets/portal.png"
+            <ThemedShot
+              base="/assets/dashboard"
+              locale={locale}
               alt={t("imageAlt")}
-              width={1200}
-              height={800}
-              className="w-full h-auto"
+              width={1920}
+              height={1200}
               priority
-              quality={90}
               sizes="(max-width: 1024px) 100vw, 1024px"
             />
           </div>

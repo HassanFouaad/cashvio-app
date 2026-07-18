@@ -533,16 +533,16 @@ export const schemaTemplates = {
       },
       {
         '@type': 'ImageObject',
-        url: `${urls.site}/assets/portal2.png`,
-        width: 1200,
-        height: 800,
+        url: `${urls.site}/assets/dashboard-en-dark.png`,
+        width: 1920,
+        height: 1200,
         caption: `${brand.name} Dashboard Screenshot`,
       },
     ],
     screenshot: [
       {
         '@type': 'ImageObject',
-        url: `${urls.site}/assets/portal2.png`,
+        url: `${urls.site}/assets/analytics-en-dark.png`,
         caption: 'Cashvio Dashboard - Analytics View',
       },
     ],

@@ -61,6 +61,34 @@
     "freeOnlineStore": {
       "title": "Free Online Store — Create Your Store in Minutes",
       "description": "Create a free online store synced with a free POS. No commission, no monthly fee, Arabic & English storefront, delivery zones, and coupons — free forever."
+    },
+    "orderManagement": {
+      "title": "Order Management System — Every Sale in One Place",
+      "description": "Track orders from your POS, online store, and manual sales in one screen. Fulfillment statuses, partial payments, digital receipts, and WhatsApp updates — free."
+    },
+    "customerManagement": {
+      "title": "Free Customer Management (CRM) for Retail Stores",
+      "description": "Customer profiles that start with just a phone number. Track visits, spending, store credit, addresses, and full order history — built into your free POS."
+    },
+    "salesAnalytics": {
+      "title": "Sales Reports & Analytics — Revenue, Profit & Insights",
+      "description": "Six ready reports: overview, profit, customers, returns, staff, and plain-language insights. Compare periods, spot best sellers and peak hours, export CSV."
+    },
+    "purchaseOrders": {
+      "title": "Purchase Order Software with Supplier Management",
+      "description": "Create purchase orders in two steps, approve them deliberately, receive stock in parts, and let inventory update itself. Supplier contacts and full PO history included."
+    },
+    "returnsAndRefunds": {
+      "title": "Returns & Refunds Management for POS & Online Stores",
+      "description": "Item-level returns with restock control and recorded reasons, an approval flow, and four refund methods including store credit. Stock and money stay accurate."
+    },
+    "multiStoreManagement": {
+      "title": "Multi-Store Management — All Your Branches, One Account",
+      "description": "Separate stock, prices, payments, and receipts per branch — one dashboard over all of them. Transfer stock between stores, limit staff per branch, compare reports."
+    },
+    "teamManagement": {
+      "title": "Team Roles & Permissions for POS and Retail Staff",
+      "description": "Give every employee their own login with exactly the permissions their job needs. Ready-made and custom roles, store-scoped access, and sales per staff member."
     }
   },
   "common": {
@@ -100,7 +128,14 @@
     "inventoryManagement": "Inventory Management",
     "couponsAndDiscounts": "Coupons & Discounts",
     "freePos": "Free POS & Cashier",
-    "freeOnlineStore": "Free Online Store"
+    "freeOnlineStore": "Free Online Store",
+    "orderManagement": "Order Management",
+    "customerManagement": "Customer Management",
+    "salesAnalytics": "Sales Analytics",
+    "purchaseOrders": "Purchase Orders",
+    "returnsAndRefunds": "Returns & Refunds",
+    "multiStoreManagement": "Multi-Store Management",
+    "teamManagement": "Team & Permissions"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -119,7 +154,7 @@
       "badge": "Business Management Platform",
       "freeBadge": "Free Forever Plan",
       "title": "Free POS & Free Online Store",
-      "titleHighlight": "For Your Shop",
+      "titleHighlight": "For Your Business",
       "subtitle": "A free POS (cashier), a free online store, and everything in between — inventory, orders, customers, and reports in one place. Sell in-store, online, or both.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
@@ -1140,6 +1175,41 @@
         "title": "Free Online Store",
         "description": "Create a free online store synced with your shop — no commission, no monthly fee.",
         "cta": "Create your free store"
+      },
+      "orderManagement": {
+        "title": "Order Management",
+        "description": "Every order from the counter, the website, and the phone in one list — with statuses, payments, and WhatsApp updates.",
+        "cta": "Learn More"
+      },
+      "customerManagement": {
+        "title": "Customer Management",
+        "description": "Profiles with visits, spending, store credit, addresses, and full order history — starting from just a phone number.",
+        "cta": "Learn More"
+      },
+      "salesAnalytics": {
+        "title": "Sales Reports & Analytics",
+        "description": "Revenue, profit, best sellers, peak hours, and staff performance — with recommendations in plain words.",
+        "cta": "Learn More"
+      },
+      "purchaseOrders": {
+        "title": "Purchase Orders & Suppliers",
+        "description": "Restock with a paper trail: order from suppliers, receive in parts, and let inventory update itself.",
+        "cta": "Learn More"
+      },
+      "returnsAndRefunds": {
+        "title": "Returns & Refunds",
+        "description": "Item-level returns with restock control, an approval flow, and four refund methods including store credit.",
+        "cta": "Learn More"
+      },
+      "multiStoreManagement": {
+        "title": "Multi-Store Management",
+        "description": "Separate stock, prices, and settings per branch — one dashboard, stock transfers, and per-store reports.",
+        "cta": "Learn More"
+      },
+      "teamManagement": {
+        "title": "Team & Permissions",
+        "description": "A login for every employee with exactly the access their job needs — and a record of who did what.",
+        "cta": "Learn More"
       }
     },
     "cta": {
@@ -2714,6 +2784,1234 @@
       "button": "Create My Free Store",
       "secondaryButton": "View Pricing",
       "note": "Free forever • 0% commission • Arabic & English"
+    }
+  },
+  "orderManagement": {
+    "hero": {
+      "badge": "Sales & Orders",
+      "title": "Order Management",
+      "titleHighlight": "That Keeps Every Sale in Sight",
+      "subtitle": "Orders from your counter, your online store, and your phone all land in one list. See what needs preparing, what is out for delivery, and who still owes you money — then send the customer a WhatsApp update in one tap."
+    },
+    "problem": {
+      "title": "Orders Scattered Everywhere Get Lost",
+      "subtitle": "A notebook at the register, a WhatsApp chat, and a stack of delivery slips — that works until one busy Friday. Then orders slip through, and nobody knows what happened.",
+      "items": {
+        "scattered": {
+          "title": "Every Channel Has Its Own Pile",
+          "description": "Counter sales in the drawer, Instagram orders in chat, phone orders on sticky notes. There is no single place that answers a simple question: what did we sell today?"
+        },
+        "unpaidForgotten": {
+          "title": "Unpaid Balances Get Forgotten",
+          "description": "A customer pays half and promises the rest next week. Without a system that tracks due dates, that promise lives in someone's memory — and memories forget."
+        },
+        "noHistory": {
+          "title": "No Record of Who Did What",
+          "description": "An order was cancelled, a discount was given, a payment was edited — by whom? When? Without an order history, every dispute turns into guesswork."
+        },
+        "manualReceipts": {
+          "title": "Receipts Are Manual Work",
+          "description": "Writing receipts by hand or re-typing order details into WhatsApp wastes time at the busiest moment of the day — and looks unprofessional to customers."
+        }
+      }
+    },
+    "features": {
+      "title": "Everything About an Order, in One Place",
+      "subtitle": "From the moment an order is created to the moment it is paid, delivered, and receipted — Cashvio records every step.",
+      "items": {
+        "oneList": {
+          "name": "All Orders in One List",
+          "description": "POS sales, online storefront orders, and manual orders your team enters — all in the same table with order number, customer, store, source, totals, and status.",
+          "subs": "POS • Online Store • Manual Orders • Order Source"
+        },
+        "orderDetails": {
+          "name": "Full Order Details & Timeline",
+          "description": "Open any order to see its items, payments, refunds, notes, and delivery address — plus a timeline of every status change and action taken on the order.",
+          "subs": "Items & Variants • Payments • Notes • Full History"
+        },
+        "fulfillment": {
+          "name": "Fulfillment Status Tracking",
+          "description": "Move orders through Pending, Preparing, Ready, Delivering, and Completed. You can skip ahead when things move fast, and add notes with every update.",
+          "subs": "Pickup • Delivery • Dine-In • Status Notes"
+        },
+        "partialPayments": {
+          "name": "Partial & Scheduled Payments",
+          "description": "Take part of the total now and schedule the rest with a due date. The order shows exactly how much was paid and how much is still owed.",
+          "subs": "Pay Part Now • Due Dates • Amount Paid vs. Owed"
+        },
+        "overdue": {
+          "name": "Overdue Payments Page",
+          "description": "One page lists every scheduled payment — on time, due soon, or overdue. Follow up before debts age, and update due dates when customers need more time.",
+          "subs": "Due Soon Filter • Overdue Filter • Update Due Date"
+        },
+        "receipts": {
+          "name": "Receipts: Print, PDF, Link & QR",
+          "description": "Print to a thermal printer or the browser, download a PDF, copy a shareable receipt link, or show a QR code the customer scans to see their digital receipt.",
+          "subs": "Thermal Print • PDF • Share Link • QR Code"
+        },
+        "whatsapp": {
+          "name": "WhatsApp Receipts & Status Updates",
+          "description": "Send the digital receipt or an order status update on WhatsApp in one tap. The message matches the order's current status — no setup, no API account, sent from your own WhatsApp.",
+          "subs": "One-Tap Send • Status Messages • No Setup"
+        },
+        "filters": {
+          "name": "Filters & CSV Export",
+          "description": "Filter by order number, status, date range, store, payment status, payment method, source, or sales channel — then export the filtered view to CSV for your accountant.",
+          "subs": "8 Filters • Date Presets • CSV Export"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "From New Sale to Paid and Delivered",
+      "subtitle": "The same simple flow whether the order starts at the counter or on your website.",
+      "step1": {
+        "title": "The Order Comes In",
+        "description": "A cashier rings it up on the POS, a customer checks out on your online store, or your team enters a phone or WhatsApp order manually. Either way it gets an order number and joins the list."
+      },
+      "step2": {
+        "title": "You Prepare and Update",
+        "description": "Update the fulfillment status as the order moves — preparing, ready, delivering. Tap the WhatsApp button to tell the customer, with a message that matches the status."
+      },
+      "step3": {
+        "title": "You Get Paid and Close It",
+        "description": "Record payments as they arrive — full, partial, or scheduled with a due date. Approve receipt-image payments after reviewing them. Print or send the receipt, and the order is done."
+      }
+    },
+    "channels": {
+      "title": "Three Ways Orders Arrive, One Way to Manage Them",
+      "subtitle": "The order source is recorded automatically, so your reports show where your business really comes from.",
+      "pos": {
+        "title": "At the Counter (POS)",
+        "description": "The full-screen sale view: browse the catalogue, pick variants, attach a customer, apply coupons or discounts, and take payment — cash with automatic change, online, or receipt."
+      },
+      "storefront": {
+        "title": "On Your Online Store",
+        "description": "Storefront orders arrive with the customer's details, address, and chosen payment method. Cash and receipt payments arrive as pending — you approve them after checking."
+      },
+      "portal": {
+        "title": "Entered by Your Team",
+        "description": "Phone calls, WhatsApp messages, Instagram DMs — your team enters them as manual orders and tags the sales channel, so nothing lives only in a chat thread."
+      }
+    },
+    "statuses": {
+      "title": "Order Statuses That Match How You Actually Work",
+      "subtitle": "Every fulfillment method has a clear path. In-store sales complete immediately; pickup and delivery orders move step by step.",
+      "headers": {
+        "status": "Status",
+        "meaning": "What it means"
+      },
+      "items": {
+        "pending": {
+          "status": "Pending",
+          "meaning": "The order is in — nobody has started on it yet"
+        },
+        "preparing": {
+          "status": "Preparing",
+          "meaning": "Your team is getting the items ready"
+        },
+        "ready": {
+          "status": "Ready",
+          "meaning": "Ready for pickup, or waiting for the courier"
+        },
+        "delivering": {
+          "status": "Delivering",
+          "meaning": "Out for delivery to the customer's address"
+        },
+        "completed": {
+          "status": "Completed",
+          "meaning": "The customer has the order — done"
+        },
+        "cancelled": {
+          "status": "Cancelled",
+          "meaning": "Order cancelled — reserved stock goes back on the shelf"
+        }
+      },
+      "note": "Payment status is tracked separately: Pending, Partial, Paid, Refunded — so you always know the money side too."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about managing orders in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "Can I see orders from my online store and my shop in one list?",
+          "answer": "Yes. Every order — from the POS, the online storefront, or entered manually by your team — appears in the same Sales list. Each order is tagged with its source, and you can filter by it."
+        },
+        "q2": {
+          "question": "What happens to inventory when I cancel an order?",
+          "answer": "Cancelling a pending order returns the stock automatically — quantities go back to what they were before the order, as long as inventory tracking is enabled for those products."
+        },
+        "q3": {
+          "question": "Can a customer pay part of the order now and the rest later?",
+          "answer": "Yes. Take any amount now and schedule the remaining balance with a due date. The order shows the amount paid and the amount still owed, and the scheduled payment appears on the Overdue Payments page."
+        },
+        "q4": {
+          "question": "How do I follow up on customers who owe money?",
+          "answer": "Open the Overdue Payments page. It lists every scheduled payment with its due date and status — on time, due soon, or overdue. From there, open the order to record the payment or push the due date."
+        },
+        "q5": {
+          "question": "Do WhatsApp updates need a WhatsApp Business API account?",
+          "answer": "No. Cashvio opens WhatsApp with a ready message — the receipt link or a status update — and you press send from your own account. It works with any WhatsApp, personal or business, with nothing to configure."
+        },
+        "q6": {
+          "question": "How do customers get their receipts?",
+          "answer": "Four ways: print on a thermal printer or the browser, download a PDF, copy a shareable receipt link, or show a QR code they scan. The digital receipt is a mobile-friendly page with the items, totals, and payment status."
+        },
+        "q7": {
+          "question": "What is a receipt payment and how do I approve it?",
+          "answer": "A receipt payment is a bank or wallet transfer proven with an uploaded image. When a storefront customer pays this way, the payment arrives pending — you open the order, view the uploaded image, and confirm it to mark the payment complete."
+        },
+        "q8": {
+          "question": "Can I export my orders?",
+          "answer": "Yes. Apply any filters you want — dates, store, payment status, channel — and export the filtered view to CSV from the toolbar."
+        }
+      }
+    },
+    "cta": {
+      "title": "Put Every Order in One Place",
+      "description": "Start free and see today's orders — from every channel — in a single list within minutes. No credit card required.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Order management is included in the free plan"
+    }
+  },
+  "customerManagement": {
+    "hero": {
+      "badge": "Customers & Loyalty",
+      "title": "Know Your Customers",
+      "titleHighlight": "Better Than a Notebook Ever Could",
+      "subtitle": "A customer profile starts with just a phone number. From there, Cashvio tracks every visit, every order, every address, and every pound of store credit — so when a regular walks in, you already know their story."
+    },
+    "problem": {
+      "title": "Customers Deserve Better Than Scattered Notes",
+      "subtitle": "Most shops know their customers by face and keep the rest in their head, a notebook, or a phone contact list. That knowledge disappears the moment it is needed most.",
+      "items": {
+        "scatteredNotes": {
+          "title": "Names in a Notebook, Numbers in a Phone",
+          "description": "Customer details live in three places and belong to whoever wrote them down. When that employee is off, the knowledge is off with them."
+        },
+        "noHistory": {
+          "title": "No Purchase History",
+          "description": "A customer asks about something they bought two months ago — the color, the size, the price. Without order history under their name, you simply cannot answer."
+        },
+        "creditChaos": {
+          "title": "Store Credit on Paper Slips",
+          "description": "Refund a customer with a handwritten IOU and one of two things happens: they lose it, or you both argue about it later. Neither builds trust."
+        },
+        "addressHassle": {
+          "title": "Asking for the Address Every Time",
+          "description": "Delivery customers repeat their full address on every order. It gets typed wrong, the courier calls angry, and a ten-minute delivery becomes an hour."
+        }
+      }
+    },
+    "features": {
+      "title": "A Complete Customer Record, Built From Sales",
+      "subtitle": "You do not fill in forms all day. Profiles build themselves from real orders — you just attach the customer at checkout.",
+      "items": {
+        "quickProfiles": {
+          "name": "Profiles From Just a Phone Number",
+          "description": "The phone number is the only required field. Name, birth date, and notes are optional — add them when you learn them. Create customers from the customer page, the POS, or the dashboard.",
+          "subs": "Phone Required Only • Add From POS • Optional Details"
+        },
+        "stats": {
+          "name": "Visits, Spending & Last Visit",
+          "description": "Every customer shows total visits, total spent, store credit balance, and their last visit date — updated automatically with every order they place.",
+          "subs": "Total Visits • Total Spent • Last Visit • Auto-Updated"
+        },
+        "storeCredit": {
+          "name": "Store Credit That Manages Itself",
+          "description": "Refund to store credit and the balance goes up. The customer pays with credit at checkout and it goes down. No paper IOUs, no manual math, no arguments.",
+          "subs": "Refund to Credit • Pay With Credit • Automatic Balance"
+        },
+        "addresses": {
+          "name": "Saved Delivery Addresses",
+          "description": "Save multiple addresses per customer — apartment, house, or office — with region, street, floor, and delivery instructions. The default address fills in automatically on delivery orders.",
+          "subs": "Multiple Addresses • Default Address • Delivery Notes"
+        },
+        "orderHistory": {
+          "name": "Full Order History Per Customer",
+          "description": "Open a customer and see every order they ever placed, with the same filters as the main orders page. Answer \"what did I buy last time?\" in seconds.",
+          "subs": "All Orders • Filterable • Linked Details"
+        },
+        "notes": {
+          "name": "Private Staff Notes",
+          "description": "Keep notes only your team can see — preferences, allergies, special instructions, or how they like their order packed. Small details that make customers feel known.",
+          "subs": "Staff-Only • Preferences • Special Instructions"
+        },
+        "recordVisit": {
+          "name": "Record Past & Offline Visits",
+          "description": "Log purchases that happened outside the system — sales from before Cashvio, or offline sales — so a customer's totals reflect their real history with your shop.",
+          "subs": "Offline Sales • Historical Totals • One-Tap Log"
+        },
+        "newOrder": {
+          "name": "New Order From the Profile",
+          "description": "A New Order button on every customer's page opens the sale screen with that customer already attached — their credit balance visible and their address ready.",
+          "subs": "Pre-Selected Customer • Credit Visible • Faster Checkout"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "From Stranger to Regular in Three Steps",
+      "subtitle": "No setup project, no data entry marathon. Start attaching customers to sales and the records build themselves.",
+      "step1": {
+        "title": "Save the Phone Number",
+        "description": "At checkout, attach an existing customer or create one on the spot with just their phone number. It takes five seconds and never slows the line."
+      },
+      "step2": {
+        "title": "Sell Like You Always Do",
+        "description": "Every order under their name updates their visits, spending, and last-visit date automatically. Delivery orders save their address for next time."
+      },
+      "step3": {
+        "title": "Use What You Know",
+        "description": "See who your best customers are, check balances before promising refunds, greet regulars with their usual order, and send their receipt straight to WhatsApp."
+      }
+    },
+    "storeCredit": {
+      "title": "Store Credit: Refunds Customers Actually Like",
+      "subtitle": "Instead of handing cash back out of the drawer, offer credit that keeps the money in your business — tracked to the pound.",
+      "refund": {
+        "title": "Refund to Credit",
+        "description": "When you process a refund, choose Store Credit as the method — the amount is added to the customer's balance the moment the refund is processed."
+      },
+      "pay": {
+        "title": "Pay With Credit",
+        "description": "At checkout, a Use Store Credit toggle appears for customers with a balance. Credit covers the order first; any remainder is paid with cash or another method."
+      },
+      "automatic": {
+        "title": "Always Accurate",
+        "description": "The balance is managed entirely by orders and refunds — nobody can fat-finger it. It shows green on the customer list, so the whole team sees it at a glance."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about managing customers in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "What information do I need to create a customer?",
+          "answer": "Just a phone number. Name, date of birth, notes, and address are all optional — you can add them later as you get to know the customer."
+        },
+        "q2": {
+          "question": "Can I sell without attaching a customer?",
+          "answer": "Yes. Customers are optional on every sale. Attach one when you want the order on their record — for history, store credit, or delivery."
+        },
+        "q3": {
+          "question": "How do I give a customer store credit?",
+          "answer": "Issue a refund and choose Store Credit as the refund method. The amount is added to their balance automatically when the refund is processed. There is no manual \"add credit\" button — every credit comes from a real, recorded refund."
+        },
+        "q4": {
+          "question": "How does a customer spend their store credit?",
+          "answer": "When taking payment on their order, enable the Use Store Credit toggle. The balance is applied first, and if it does not cover the whole amount, the customer pays the rest with any other method."
+        },
+        "q5": {
+          "question": "Can a customer have more than one delivery address?",
+          "answer": "Yes — save as many as needed (apartment, house, office) and mark one as the default. On delivery orders, the default fills in automatically, and you can switch to any saved address."
+        },
+        "q6": {
+          "question": "Can I record sales that happened before I used Cashvio?",
+          "answer": "Yes. Use Record Visit on the customer's page to log a purchase amount from outside the system. Their total visits, total spent, and last-visit date update accordingly."
+        },
+        "q7": {
+          "question": "If I delete a customer, do I lose their orders?",
+          "answer": "No. Past orders keep their data. Deleting a customer removes the profile but never rewrites your sales history."
+        },
+        "q8": {
+          "question": "Is customer management free?",
+          "answer": "Yes. Customer profiles, store credit, addresses, and order history are all included in the free forever plan."
+        }
+      }
+    },
+    "cta": {
+      "title": "Start Remembering Every Customer",
+      "description": "Create your free account and attach a customer to your next sale — that is all it takes to start building real customer records.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Customer management is included in the free plan"
+    }
+  },
+  "salesAnalytics": {
+    "hero": {
+      "badge": "Reports & Insights",
+      "title": "Sales Reports & Analytics",
+      "titleHighlight": "In Language You Actually Speak",
+      "subtitle": "Revenue, profit, best sellers, peak hours, staff performance — six ready reports built from your real sales. Every number compares itself to the previous period, and the Insights tab tells you in plain words what to do about it."
+    },
+    "problem": {
+      "title": "Running on Gut Feeling Gets Expensive",
+      "subtitle": "The drawer had money in it, so the day felt good. But feelings do not tell you which product quietly loses money or which hours you are overstaffed.",
+      "items": {
+        "gutFeeling": {
+          "title": "Decisions by Gut, Not Numbers",
+          "description": "Which products to reorder, when to schedule staff, what to put on sale — most shops guess. Guessing works until a competitor stops guessing."
+        },
+        "unknownProfit": {
+          "title": "Revenue Is Not Profit",
+          "description": "Sales look great, yet there is nothing left at the end of the month. Without cost tracking per product, you cannot see which items earn and which just move."
+        },
+        "hiddenPatterns": {
+          "title": "Best Sellers & Peak Hours Are Invisible",
+          "description": "Which product actually carries the shop? Which hours are dead? What sells on weekends? The data exists in your sales — but not in a form you can read."
+        },
+        "staffBlind": {
+          "title": "No View of Staff Performance",
+          "description": "Who sells the most? Who processes the most orders? Fair scheduling and fair rewards both need numbers you do not have."
+        }
+      }
+    },
+    "tabs": {
+      "title": "Six Reports, Zero Setup",
+      "subtitle": "Reports build themselves from your sales — open the Reports page and they are simply there.",
+      "items": {
+        "overview": {
+          "title": "Overview",
+          "description": "Revenue, gross profit, orders, average order value, items sold, discounts, tax, and new customers — each with its change versus the previous period."
+        },
+        "profit": {
+          "title": "Profit",
+          "description": "Revenue versus cost, margins by product and category, costs by supplier, and your most and least profitable products."
+        },
+        "customers": {
+          "title": "Customers",
+          "description": "New customers over time, repeat rate, lifetime value, and spending-based segments."
+        },
+        "returns": {
+          "title": "Returns",
+          "description": "Return rate, return reasons, the most-returned products, and the money value of returns."
+        },
+        "staff": {
+          "title": "Staff",
+          "description": "Revenue per team member, orders processed per person, and performance trends over time."
+        },
+        "insights": {
+          "title": "Insights",
+          "description": "Health scores per area, issues that need attention now, opportunities, recent wins — each with concrete recommended actions."
+        }
+      }
+    },
+    "features": {
+      "title": "The Charts That Answer Real Questions",
+      "subtitle": "Every chart exists to answer a question a shop owner actually asks.",
+      "items": {
+        "trends": {
+          "name": "Sales Trends",
+          "description": "Sales over time with peak and lowest points marked. See instantly whether the month is ahead or behind the last one.",
+          "subs": "Day • Week • Month • Custom Range"
+        },
+        "byHour": {
+          "name": "Sales by Hour & Day",
+          "description": "Hourly breakdown in day view, daily in week and month views. Schedule staff for the rush, not the lull.",
+          "subs": "Peak Hours • Slow Hours • Staffing Decisions"
+        },
+        "byStore": {
+          "name": "Sales by Store",
+          "description": "Each branch's share of revenue side by side. Click a slice to jump straight into that store's orders.",
+          "subs": "Branch Comparison • Revenue Share • Drill Down"
+        },
+        "byChannel": {
+          "name": "Sales by Channel",
+          "description": "Storefront, portal, Instagram, WhatsApp, phone orders — see which channels actually bring revenue before you spend another marketing pound.",
+          "subs": "Channel Revenue • Marketing Focus • Order Counts"
+        },
+        "byPayment": {
+          "name": "Sales by Payment Method",
+          "description": "How customers actually pay — cash, online, receipt transfers, store credit — so drawer counts and settlement reports stop being surprises.",
+          "subs": "Cash vs. Online • Payment Mix"
+        },
+        "topProducts": {
+          "name": "Top Products",
+          "description": "Best sellers by quantity and by revenue. Reorder winners before they run out; rethink the shelf space losers occupy.",
+          "subs": "By Quantity • By Revenue • Reorder Signals"
+        },
+        "storeVisits": {
+          "name": "Storefront Visits",
+          "description": "Unique, new, and returning visitors to your online store — see whether your store is getting discovered and who comes back.",
+          "subs": "Unique Visitors • New vs. Returning"
+        },
+        "csvExport": {
+          "name": "CSV Export",
+          "description": "Export the sales data behind the Overview tab to CSV — for your accountant, your spreadsheet, or your own deeper analysis.",
+          "subs": "Spreadsheet-Ready • Accountant-Friendly"
+        }
+      }
+    },
+    "insights": {
+      "title": "Insights: The Report That Reads Itself",
+      "subtitle": "The Insights tab analyzes your sales, products, customers, and returns — then talks to you like a sharp business partner, not a dashboard.",
+      "items": {
+        "health": {
+          "title": "Health Scores",
+          "description": "One overall business health score, plus per-area scores for revenue, products, customers, profit, stores, and returns — know at a glance where it hurts."
+        },
+        "attention": {
+          "title": "Requires Attention",
+          "description": "Critical issues surfaced automatically — a high discount rate, a product bleeding margin, a spike in returns — before they show up in your bank balance."
+        },
+        "opportunities": {
+          "title": "Warnings & Opportunities",
+          "description": "Emerging risks and openings: peak-hour opportunities, best-seller momentum worth doubling down on, and trends drifting the wrong way."
+        },
+        "actions": {
+          "title": "Recommended Actions",
+          "description": "Every insight comes with concrete recommendations, the expected impact, and a priority — so the next step is decided, not debated."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "From Raw Sales to Clear Decisions",
+      "subtitle": "There is nothing to configure and nothing to import. Your reports are a by-product of selling.",
+      "step1": {
+        "title": "Sell Like Normal",
+        "description": "Every POS sale, storefront order, return, and payment feeds the reports automatically. Set cost prices on your products so profit math is real."
+      },
+      "step2": {
+        "title": "Pick a Period",
+        "description": "Open Reports, choose day, week, month, or a custom range. Every metric shows its change versus the previous period — up, down, and by how much."
+      },
+      "step3": {
+        "title": "Act on the Insights",
+        "description": "Read the Insights tab like a briefing: what needs attention, what to double down on, and what to fix — each with a recommended action."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about reports and analytics in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "Do I need to set anything up to get reports?",
+          "answer": "No. Reports build themselves from your sales, orders, customers, and returns. The one thing worth doing: set cost prices on your product variants so profit reports are accurate."
+        },
+        "q2": {
+          "question": "How is profit calculated?",
+          "answer": "Profit uses the cost price you set on each product variant: selling price minus cost. Keep cost prices up to date — especially when supplier prices change — and your margins stay honest."
+        },
+        "q3": {
+          "question": "Can I compare this month to last month?",
+          "answer": "Yes, automatically. Every metric shows its change versus the previous period — pick month view and each number compares against the month before."
+        },
+        "q4": {
+          "question": "Can I see numbers per branch?",
+          "answer": "Yes. The Sales by Store chart splits revenue per branch, and clicking a branch opens its orders. Store comparisons run through the reports."
+        },
+        "q5": {
+          "question": "Can I see sales per employee?",
+          "answer": "Yes. The Staff tab shows revenue per team member, orders processed per person, and how each person's performance trends over time."
+        },
+        "q6": {
+          "question": "What exactly does the Insights tab tell me?",
+          "answer": "It converts your numbers into plain-language guidance: health scores per area, critical issues, warnings, opportunities, and recent wins — each with recommended actions, expected impact, and priority."
+        },
+        "q7": {
+          "question": "Can I export the data?",
+          "answer": "Yes. The Overview tab exports its sales data to CSV so you can work with it in any spreadsheet or hand it to your accountant."
+        },
+        "q8": {
+          "question": "Do returns and refunds show up in the numbers?",
+          "answer": "Yes. Refunded amounts are reflected in the relevant metrics, and the Returns tab breaks down return rate, reasons, most-returned products, and the total value of returns."
+        }
+      }
+    },
+    "cta": {
+      "title": "See What Your Sales Have Been Trying to Tell You",
+      "description": "Create a free account, make a few sales, and open Reports — your first real numbers are minutes away.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Reporting is built into every plan"
+    }
+  },
+  "purchaseOrders": {
+    "hero": {
+      "badge": "Suppliers & Restocking",
+      "title": "Purchase Orders",
+      "titleHighlight": "That Keep Restocking Under Control",
+      "subtitle": "Order from suppliers with a real paper trail: what you ordered, at what cost, when it should arrive, and what actually showed up. Receive stock in parts, and inventory updates itself with every delivery."
+    },
+    "problem": {
+      "title": "Restocking by Phone Call Leaves No Trace",
+      "subtitle": "A voice note to the supplier, a price agreed on the phone, a delivery checked by memory — until quantities do not match and nobody can prove anything.",
+      "items": {
+        "noRecord": {
+          "title": "Orders With No Record",
+          "description": "You ordered twenty, the supplier remembers fifteen, the invoice says eighteen. Without a written purchase order, every disagreement is your word against theirs."
+        },
+        "costsUntracked": {
+          "title": "Costs Nobody Tracks",
+          "description": "Supplier prices creep up delivery by delivery. If cost per item is not recorded at order time, your margins shrink quietly and your profit reports lie."
+        },
+        "uncheckedDeliveries": {
+          "title": "Deliveries Checked by Memory",
+          "description": "Boxes arrive, someone shelves them, and the count in your head becomes the count in your stock. Missing items are discovered weeks later — too late to claim."
+        },
+        "partialLost": {
+          "title": "Partial Deliveries Fall Through",
+          "description": "The supplier sends half now, half next week. Which half arrived? Who is still owed what? Without tracking remaining quantities, partial deliveries become losses."
+        }
+      }
+    },
+    "features": {
+      "title": "The Full Restocking Cycle, Recorded",
+      "subtitle": "From \"we are running low\" to \"it is on the shelf\" — every step has a record, a status, and a number.",
+      "items": {
+        "wizard": {
+          "name": "Two-Step PO Creation",
+          "description": "Pick the store and supplier, add products with quantities and agreed unit costs, then set the expected delivery date, delivery fees, and notes. Done — the PO is created as a draft.",
+          "subs": "Store & Supplier • Quantities & Costs • Delivery Date"
+        },
+        "statuses": {
+          "name": "Clear Status Flow",
+          "description": "Draft, Approved, Partially Received, Completed, Cancelled — every purchase order tells you exactly where it stands at a glance.",
+          "subs": "Draft • Approved • Partially Received • Completed"
+        },
+        "approval": {
+          "name": "Deliberate Approval",
+          "description": "Approving a PO requires typing APPROVE — a small speed bump that prevents expensive accidental orders. Cancelling works the same way.",
+          "subs": "Type to Confirm • No Accidental Orders"
+        },
+        "receiving": {
+          "name": "Receive Stock in Parts",
+          "description": "When a delivery arrives, enter what actually came — item by item. The PO tracks ordered, received, and remaining counts until everything is in.",
+          "subs": "Partial Deliveries • Ordered vs. Received • Remaining Counts"
+        },
+        "autoInventory": {
+          "name": "Inventory Updates Itself",
+          "description": "Received quantities are added to the store's stock immediately, and every receipt is logged as an inventory adjustment you can audit later.",
+          "subs": "Instant Stock Update • Logged Adjustments • Audit Trail"
+        },
+        "suppliers": {
+          "name": "Supplier Database",
+          "description": "Keep every supplier's name, phone, email, and address in one place — and pick them in one tap when creating a purchase order.",
+          "subs": "Contacts • Search • Quick Pick"
+        },
+        "history": {
+          "name": "History Per Supplier",
+          "description": "Open a supplier to see every purchase order you ever placed with them — quantities, costs, and statuses. Negotiate the next price knowing the last five.",
+          "subs": "Full PO History • Cost Memory • One-Tap Reorder"
+        },
+        "filters": {
+          "name": "Search & Filters",
+          "description": "Find any PO by number, store, supplier, status, or date range — no more digging through paper files or chat threads.",
+          "subs": "By Number • By Supplier • By Status • By Date"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "From Low Stock to Full Shelves",
+      "subtitle": "Three steps, and every one of them leaves a record.",
+      "step1": {
+        "title": "Create the Purchase Order",
+        "description": "Low stock alerts tell you what needs reordering. Create a PO: pick the store and supplier, add products with quantities and agreed costs, set the expected delivery date."
+      },
+      "step2": {
+        "title": "Approve It",
+        "description": "Review the draft and approve it by typing APPROVE. The order is now official — waiting for delivery, visible to your team, and impossible to lose."
+      },
+      "step3": {
+        "title": "Receive the Stock",
+        "description": "When boxes arrive, enter the received quantity per item — all of it or just what came. Stock goes up instantly, and the PO closes itself when everything is in."
+      }
+    },
+    "effects": {
+      "title": "What Each Step Does to Your Inventory",
+      "subtitle": "No surprises: purchase orders only touch stock when goods actually arrive.",
+      "headers": {
+        "action": "Action",
+        "effect": "Effect on stock"
+      },
+      "items": {
+        "created": {
+          "action": "PO created or approved",
+          "effect": "Nothing changes — it is a record of intent, not stock"
+        },
+        "received": {
+          "action": "Stock received",
+          "effect": "Inventory increases by the received quantities, each receipt logged as an adjustment"
+        },
+        "cancelled": {
+          "action": "PO cancelled",
+          "effect": "Nothing changes — the order is voided with no stock movement"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about purchase orders and suppliers in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "Can I receive a delivery in parts?",
+          "answer": "Yes. Enter the quantity that actually arrived per item — the PO becomes Partially Received and keeps tracking the remaining quantities until everything is in, then completes itself."
+        },
+        "q2": {
+          "question": "Does creating a purchase order change my stock?",
+          "answer": "No. Creating and approving a PO changes nothing in inventory — it is a record of what you ordered. Stock only increases when you receive it, by the quantities you actually received."
+        },
+        "q3": {
+          "question": "What do I need to add a supplier?",
+          "answer": "Just the supplier's name. Email, phone, and address are optional. You can also add a supplier on the fly from the supplier picker while creating a purchase order."
+        },
+        "q4": {
+          "question": "Can I see everything I ordered from one supplier?",
+          "answer": "Yes. The supplier's page shows their full purchase order history — with the same view, approve, cancel, and receive actions as the main PO list — plus a button to start a new PO with them pre-selected."
+        },
+        "q5": {
+          "question": "How do I avoid approving an order by mistake?",
+          "answer": "Approval requires typing APPROVE in a confirmation dialog, and cancelling requires typing CANCEL. Accidental clicks cannot approve or kill an order."
+        },
+        "q6": {
+          "question": "Can I add delivery fees to a purchase order?",
+          "answer": "Yes. Delivery fees and notes are set in the second step of PO creation, alongside the expected delivery date."
+        },
+        "q7": {
+          "question": "How do purchase orders help my profit reports?",
+          "answer": "POs record the unit cost you agreed with the supplier. Combined with the cost prices on your product variants, the Profit report can show real margins and cost breakdowns by supplier."
+        },
+        "q8": {
+          "question": "Can I limit who is allowed to approve purchase orders?",
+          "answer": "Yes. Purchase order permissions are fine-grained — view, create, edit, approve, receive, and cancel are separate permissions you assign per role."
+        }
+      }
+    },
+    "cta": {
+      "title": "Give Restocking a Paper Trail",
+      "description": "Create your free account, add your suppliers, and place your first purchase order — the days of restocking by memory are over.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Suppliers and purchase orders are part of the inventory module"
+    }
+  },
+  "returnsAndRefunds": {
+    "hero": {
+      "badge": "Returns & Refunds",
+      "title": "Returns & Refunds",
+      "titleHighlight": "Without the Counter Arguments",
+      "subtitle": "A clear process for the least fun part of retail: item-level returns with recorded reasons, control over what goes back on the shelf, an approval step, and four refund methods — including store credit that keeps the money in your business."
+    },
+    "problem": {
+      "title": "Messy Returns Cost More Than the Refund",
+      "subtitle": "Every shop gets returns. The damage is not the return itself — it is the missing record, the wrong stock count, and the cash that left the drawer with no trace.",
+      "items": {
+        "noProcess": {
+          "title": "Every Return Is a Negotiation",
+          "description": "No process means whoever is at the counter decides. One employee refunds everything, another refuses everything — and customers learn to argue."
+        },
+        "stockWrong": {
+          "title": "Returned Items Vanish",
+          "description": "The item came back, but did it go back into stock? Was it damaged? Without restock tracking, returns quietly corrupt your inventory counts."
+        },
+        "cashLeaks": {
+          "title": "Refunds With No Record",
+          "description": "Cash handed back from the drawer with no paper trail. At the end of the month, the numbers do not add up and nobody remembers why."
+        },
+        "noReasons": {
+          "title": "No Idea Why Things Come Back",
+          "description": "Wrong size? Damaged in delivery? Quality problems? If reasons are not recorded, you keep buying and selling the same mistakes."
+        }
+      }
+    },
+    "returnTypes": {
+      "title": "Three Return Types, Because Reality Has Three",
+      "subtitle": "Not every return needs a refund, and not every refund involves goods coming back. Pick the type that matches the situation.",
+      "items": {
+        "returnRefund": {
+          "title": "Return & Refund",
+          "description": "The classic case: the customer brings the items back and gets their money. Items are checked back in, and the refund is created with the return."
+        },
+        "returnOnly": {
+          "title": "Return Only",
+          "description": "Goods come back with no money out — an exchange, a warranty case, or store policy. Inventory is corrected without touching the cash."
+        },
+        "refundOnly": {
+          "title": "Refund Only",
+          "description": "Money goes back with no goods returned — a compensation, a goodwill gesture, or an item the customer keeps. The refund is recorded against the order."
+        }
+      }
+    },
+    "features": {
+      "title": "Every Detail of the Return, Handled",
+      "subtitle": "Item by item, reason by reason — the return flow asks the right questions so your stock and your money stay correct.",
+      "items": {
+        "itemLevel": {
+          "name": "Item-Level Returns",
+          "description": "Pick exactly which items and quantities come back. The system knows what was already returned and only offers what is still returnable.",
+          "subs": "Per-Item Quantities • Returnable Check • Partial Returns"
+        },
+        "restockControl": {
+          "name": "Restock Control",
+          "description": "Decide per item whether it goes back into sellable stock. Damaged, expired, or contaminated items are marked with a non-restock reason instead — never resold by accident.",
+          "subs": "Restock Toggle • Non-Restock Reasons • Condition Notes"
+        },
+        "restockingFee": {
+          "name": "Restocking Fees",
+          "description": "Charge a restocking fee on returned items when your policy calls for it — recorded on the return, deducted from the refund.",
+          "subs": "Per-Item Fee • Policy Support"
+        },
+        "reasons": {
+          "name": "Recorded Return Reasons",
+          "description": "Every return carries a reason — changed mind, wrong item, defective, damaged, size issue, and more. Reasons feed the Returns report so patterns become visible.",
+          "subs": "11 Reasons • Notes • Feeds Analytics"
+        },
+        "approval": {
+          "name": "Approval Flow",
+          "description": "Returns are created as pending, then approved, rejected, or cancelled — rejections and cancellations require a written reason. Stock only moves on approval.",
+          "subs": "Pending → Approved • Reject With Reason • Audit Trail"
+        },
+        "refundMethods": {
+          "name": "Four Refund Methods",
+          "description": "Cash from the drawer, online for digital payments, receipt-documented transfers, or store credit added to the customer's balance.",
+          "subs": "Cash • Online • Receipt • Store Credit"
+        },
+        "pendingProcess": {
+          "name": "Refunds Processed Deliberately",
+          "description": "Creating a refund does not move money by itself. A pending refund is processed explicitly — or cancelled with a reason — so the books match the drawer.",
+          "subs": "Pending → Completed • Explicit Processing • Cancel With Reason"
+        },
+        "partialRefunds": {
+          "name": "Full or Partial Refunds",
+          "description": "Refund a specific payment or any custom amount up to what is still refundable on the order. The order's payment history shows every refund.",
+          "subs": "Specific Payment • Custom Amount • Refund History"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "A Return in Three Clean Steps",
+      "subtitle": "From the moment the customer walks back in to the moment the money and stock are settled.",
+      "step1": {
+        "title": "Create the Return From the Order",
+        "description": "Open the original order and click Create Return. Choose the type, select the items and quantities, decide restocking per item, and record the reason."
+      },
+      "step2": {
+        "title": "Approve It",
+        "description": "A pending return is reviewed and approved — or rejected with a written reason. On approval, restockable items go back into inventory automatically."
+      },
+      "step3": {
+        "title": "Refund the Money",
+        "description": "Create the refund — full or partial — pick the method, and process it. Store credit refunds land on the customer's balance the moment they are processed."
+      }
+    },
+    "refundMethods": {
+      "title": "Refund Methods for How Money Actually Moves",
+      "subtitle": "Each method is recorded against the order, so the payment history always tells the full story.",
+      "headers": {
+        "method": "Method",
+        "when": "When to use it"
+      },
+      "items": {
+        "cash": {
+          "method": "Cash",
+          "when": "The customer paid cash and wants cash back — straight from the drawer, recorded"
+        },
+        "online": {
+          "method": "Online",
+          "when": "Refunding a digital payment — available when the original payment was online"
+        },
+        "receipt": {
+          "method": "Receipt",
+          "when": "A bank or wallet transfer documented with proof of the refund"
+        },
+        "storeCredit": {
+          "method": "Store Credit",
+          "when": "The refund becomes balance on the customer's account — money stays in your business"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about returns and refunds in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "Can I refund without taking items back?",
+          "answer": "Yes — that is the Refund Only type. Money is returned against the order with no return record and no inventory movement. Useful for compensations and goodwill gestures."
+        },
+        "q2": {
+          "question": "Can I take items back without refunding?",
+          "answer": "Yes — Return Only. The items are returned and restocked (or marked non-restockable) with no money out. Useful for exchanges and warranty flows."
+        },
+        "q3": {
+          "question": "When does returned stock go back into inventory?",
+          "answer": "When the return is approved. Items you marked as restockable are added back to the store's stock; items with a non-restock reason (damaged, expired, etc.) are not."
+        },
+        "q4": {
+          "question": "Does approving a return automatically refund the money?",
+          "answer": "No — returns and refunds are separate deliberate steps. Approving a return settles the goods; you then create and process a refund to settle the money. Nothing moves by accident."
+        },
+        "q5": {
+          "question": "How does a store credit refund work?",
+          "answer": "Choose Store Credit as the refund method (the order must have a customer attached). When the refund is processed, the amount is added to the customer's balance — which they can spend on any future order."
+        },
+        "q6": {
+          "question": "Can I refund part of an order?",
+          "answer": "Yes. Refund a specific payment or enter a custom amount up to what is still refundable on the order. Every refund appears in the order's refund history."
+        },
+        "q7": {
+          "question": "Can I charge a restocking fee?",
+          "answer": "Yes. When restocking a returned item you can add a restocking fee — it is recorded on the return and reflected in the refund amount."
+        },
+        "q8": {
+          "question": "Do returns show up in my reports?",
+          "answer": "Yes. The Returns report shows your return rate, the reasons breakdown, the most-returned products, and the total value of returns — so recurring problems surface instead of repeating."
+        }
+      }
+    },
+    "cta": {
+      "title": "Make Returns Boring Again",
+      "description": "A clear process, correct stock, and refunds with a paper trail — set it up free in minutes.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Returns and refunds are included in every plan"
+    }
+  },
+  "multiStoreManagement": {
+    "hero": {
+      "badge": "Branches & Growth",
+      "title": "Multi-Store Management",
+      "titleHighlight": "One Account, All Your Branches",
+      "subtitle": "Each branch keeps its own stock, prices, payment methods, and receipts — and you see all of them from one dashboard. Transfer stock between stores, limit staff to their branch, and compare branches side by side."
+    },
+    "problem": {
+      "title": "The Second Branch Doubles the Chaos",
+      "subtitle": "One shop fits in your head. Two do not. The moment you open a second branch, every question — stock, prices, staff, numbers — has two answers that do not talk to each other.",
+      "items": {
+        "islands": {
+          "title": "Every Branch Is an Island",
+          "description": "Separate spreadsheets, separate registers, separate WhatsApp groups. Getting one picture of the business means calling every branch and doing the math yourself."
+        },
+        "stockBlindness": {
+          "title": "Nobody Knows What the Other Branch Has",
+          "description": "A customer wants a size that is out here — is it available downtown? Without shared visibility, the answer is a phone call, a wait, and often a lost sale."
+        },
+        "priceDrift": {
+          "title": "Prices Drift Apart",
+          "description": "A price update reaches one branch and not the other. Customers notice before you do — and it never feels good to explain."
+        },
+        "noComparison": {
+          "title": "No Way to Compare Branches",
+          "description": "Which branch actually earns? Which one has a returns problem? Gut answers only, unless the numbers live in one system."
+        }
+      }
+    },
+    "features": {
+      "title": "Independent Branches, One Command Center",
+      "subtitle": "The balance that makes multi-store work: each branch runs itself, and you run all of them.",
+      "items": {
+        "oneAccount": {
+          "name": "All Stores Under One Account",
+          "description": "Add branches as your plan allows — a shop, a warehouse, a kiosk. Your first store is created automatically when you sign up; the rest take a minute each.",
+          "subs": "Physical Shops • Warehouses • One Login"
+        },
+        "perStoreStock": {
+          "name": "Stock Tracked Per Branch",
+          "description": "Every product variant has its own stock number in every store. See what each branch holds without calling anyone.",
+          "subs": "Per-Variant • Per-Store • Live Counts"
+        },
+        "perStorePricing": {
+          "name": "Prices Per Branch",
+          "description": "Set store-specific prices per product variant when branches serve different areas or customer segments — deliberately, not by accident.",
+          "subs": "Variant-Level • Per-Store Prices"
+        },
+        "transfers": {
+          "name": "Stock Transfers Between Stores",
+          "description": "Move inventory from one branch to another with a recorded transfer — quantities leave one store, arrive at the other, and the trail is kept.",
+          "subs": "Store to Store • Recorded • Audit Trail"
+        },
+        "perStoreConfig": {
+          "name": "Each Branch, Its Own Setup",
+          "description": "Currency, payment methods, fulfillment options, delivery zones, service fees, receipt content, and sales channels — all configured per store.",
+          "subs": "Payments • Delivery Zones • Fees • Receipts"
+        },
+        "scopedRoles": {
+          "name": "Staff Limited to Their Branch",
+          "description": "Assign roles business-wide or scoped to a single store. A cashier in the downtown branch sees downtown — nothing else.",
+          "subs": "Store-Scoped Roles • Business-Wide Roles"
+        },
+        "reportsByStore": {
+          "name": "Reports Split by Branch",
+          "description": "The Sales by Store chart shows each branch's share of revenue. Click a branch to open its orders; compare profit and sales per location.",
+          "subs": "Revenue Share • Branch Comparison • Drill Down"
+        },
+        "posDevices": {
+          "name": "POS Devices Per Store",
+          "description": "Pair the cashier devices each branch uses to that store. Sales ring up against the right branch, the right stock, and the right drawer.",
+          "subs": "Device Pairing • Per-Store Registers"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "Opening Your Next Branch in Cashvio",
+      "subtitle": "The setup is minutes, not weeks — because everything you built for the first store carries over.",
+      "step1": {
+        "title": "Add the Store",
+        "description": "Name, currency, contact details, address — save, and the branch exists with its own automatically generated store code."
+      },
+      "step2": {
+        "title": "Configure How It Sells",
+        "description": "Enable its payment methods, set fulfillment options and delivery zones, adjust receipt details, and stock it — fresh, or by transferring from another branch."
+      },
+      "step3": {
+        "title": "Run Them Side by Side",
+        "description": "Staff sell in their own branch; you watch all branches from one dashboard — stock, orders, and revenue per store, compared automatically."
+      }
+    },
+    "perStore": {
+      "title": "What Is Separate Per Store — and What Is Shared",
+      "subtitle": "The product catalogue is shared so you define things once. Everything operational belongs to the branch.",
+      "headers": {
+        "item": "Setting",
+        "scope": "How it works"
+      },
+      "items": {
+        "catalogue": {
+          "item": "Product catalogue",
+          "scope": "Shared — define products once, sell them in any store"
+        },
+        "inventory": {
+          "item": "Inventory",
+          "scope": "Per store — every variant has its own stock count in each branch"
+        },
+        "prices": {
+          "item": "Prices",
+          "scope": "Shared by default, with per-store overrides per variant"
+        },
+        "payments": {
+          "item": "Payment methods",
+          "scope": "Per store — each branch enables what it accepts"
+        },
+        "fulfillment": {
+          "item": "Fulfillment & delivery zones",
+          "scope": "Per store — pickup, delivery areas, and fees per branch"
+        },
+        "receipts": {
+          "item": "Receipt settings",
+          "scope": "Per store — each branch prints its own details"
+        },
+        "channels": {
+          "item": "Sales channels",
+          "scope": "Per store — enable channels per branch"
+        },
+        "staff": {
+          "item": "Staff access",
+          "scope": "Your choice — business-wide or scoped to one store"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about running multiple stores in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "How many stores can I create?",
+          "answer": "It depends on your plan — each plan includes a number of stores. Your first store is created automatically when you sign up, and you can add more from Settings as your plan allows."
+        },
+        "q2": {
+          "question": "Can I move stock from one branch to another?",
+          "answer": "Yes. Stock transfers move quantities between stores with a full record — what moved, from where, to where, and when. No spreadsheet reconciliation."
+        },
+        "q3": {
+          "question": "Can branches have different prices?",
+          "answer": "Yes. Prices are shared by default, and you can set store-specific prices per product variant where branches need to differ."
+        },
+        "q4": {
+          "question": "Can each store use a different currency?",
+          "answer": "Yes. Currency is set per store — useful when branches operate in different markets."
+        },
+        "q5": {
+          "question": "Can I restrict an employee to a single branch?",
+          "answer": "Yes. When assigning a role to a user, choose store-specific and pick the branch. They see and do only what their role allows, only in that store."
+        },
+        "q6": {
+          "question": "Can I see one branch's numbers separately?",
+          "answer": "Yes. Reports break down by store — revenue share per branch, plus filters across orders and inventory. Click a branch in the Sales by Store chart to open its orders."
+        },
+        "q7": {
+          "question": "What happens when I deactivate a store?",
+          "answer": "The branch stops accepting new activity but loses nothing — its history, stock records, and settings stay intact. You can reactivate it any time."
+        },
+        "q8": {
+          "question": "Do my products need to be recreated per store?",
+          "answer": "No. The product catalogue is shared across your whole business. Each store only maintains its own stock levels and, if you choose, its own prices."
+        }
+      }
+    },
+    "cta": {
+      "title": "Run All Your Branches From One Screen",
+      "description": "Start free with your first store — and when the second branch opens, it takes minutes to bring it in.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Multi-store support depends on your plan"
+    }
+  },
+  "teamManagement": {
+    "hero": {
+      "badge": "Team & Permissions",
+      "title": "A Login for Every Employee,",
+      "titleHighlight": "Access for None Too Many",
+      "subtitle": "Stop sharing the owner's password. Give each team member their own account with exactly the permissions their job needs — a cashier sells, an accountant sees money, a warehouse worker touches stock — and every action is recorded under their name."
+    },
+    "problem": {
+      "title": "One Shared Password Is a Business Risk",
+      "subtitle": "When everyone logs in as the owner, everyone is the owner. No limits, no accountability, and no way to take access back when someone leaves.",
+      "items": {
+        "sharedLogin": {
+          "title": "Everyone Uses the Owner's Account",
+          "description": "The whole team on one login means every employee can see profits, change prices, delete products, and cancel orders — whether they should or not."
+        },
+        "noAccountability": {
+          "title": "Nobody Owns Any Action",
+          "description": "An order was cancelled and a discount appeared. Who did it? With one shared account, the honest answer is: no idea."
+        },
+        "allOrNothing": {
+          "title": "Access Is All or Nothing",
+          "description": "You want the new hire to ring up sales — not to see revenue reports or edit the catalogue. Without roles, you cannot give one without the other."
+        },
+        "exStaffRisk": {
+          "title": "Ex-Employees Keep the Keys",
+          "description": "Someone leaves, and the password they know still works. Changing it means telling everyone the new one — and the cycle repeats."
+        }
+      }
+    },
+    "features": {
+      "title": "Roles, Permissions & Accountability",
+      "subtitle": "Fine-grained control that stays simple: build a role once, assign it in seconds.",
+      "items": {
+        "invite": {
+          "name": "Add Team Members in a Minute",
+          "description": "Enter their name, email, username, and role. Cashvio generates a temporary password you hand over yourself — no invitation emails to get lost, and you can reset it any time.",
+          "subs": "Username or Email Login • Temporary Password • Reset Anytime"
+        },
+        "permissions": {
+          "name": "Fine-Grained Permissions",
+          "description": "Permissions follow an action-on-resource model: view orders, create products, approve purchase orders, process refunds — grant exactly what each role needs, nothing more.",
+          "subs": "Per Action • Per Resource • Select-All Groups"
+        },
+        "systemRoles": {
+          "name": "Three Ready-Made Roles",
+          "description": "Tenant Admin for full access, Cashier for day-to-day selling, Accountant for financial visibility — usable from day one, no configuration needed.",
+          "subs": "Tenant Admin • Cashier • Accountant"
+        },
+        "customRoles": {
+          "name": "Custom Roles for Your Reality",
+          "description": "Create as many roles as your team needs — a Warehouse Staff role limited to inventory and purchase orders, a Supervisor role that can cancel orders. Name it, tick the permissions, save.",
+          "subs": "Unlimited Roles • Your Job Titles • Editable Anytime"
+        },
+        "storeScoped": {
+          "name": "Business-Wide or Per-Store Access",
+          "description": "The role defines what someone can do; the assignment defines where. Give a manager the whole business, or scope a cashier to a single branch.",
+          "subs": "Whole Business • Single Store • Your Choice"
+        },
+        "adaptiveUI": {
+          "name": "The Interface Follows the Role",
+          "description": "Team members only see the menus, buttons, and quick actions their permissions allow. No forbidden buttons, no confusion — a cashier's screen is a cashier's screen.",
+          "subs": "Menu Filtering • Hidden Actions • Less Training"
+        },
+        "deactivate": {
+          "name": "Deactivate Without Deleting",
+          "description": "Someone leaving? Deactivate their account — login blocked instantly, history intact. If they come back, reactivate in one click.",
+          "subs": "Instant Block • History Kept • Reversible"
+        },
+        "staffReports": {
+          "name": "Performance Per Person",
+          "description": "The Staff report shows revenue and orders per team member, with trends over time. Add an hourly rate per user for staff cost visibility.",
+          "subs": "Sales Per Staff • Orders Per Staff • Hourly Rate"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "From Shared Password to Proper Accounts",
+      "subtitle": "Three steps, and each person on your team has exactly the access they should.",
+      "step1": {
+        "title": "Pick or Build the Role",
+        "description": "Start with a ready-made role — Cashier, Accountant — or create a custom one and tick exactly the permissions the job needs."
+      },
+      "step2": {
+        "title": "Add the Team Member",
+        "description": "Enter their details, assign the role — business-wide or scoped to one store — and hand them the temporary password Cashvio generates."
+      },
+      "step3": {
+        "title": "They Work, You See Clearly",
+        "description": "They log in and see only their job. Orders, adjustments, and returns they create carry their name — and the Staff report shows how everyone performs."
+      }
+    },
+    "permissionGroups": {
+      "title": "Permissions Cover Every Corner of the System",
+      "subtitle": "Each resource has its own set of actions — grant them per role, and View is included automatically whenever you grant an action.",
+      "headers": {
+        "resource": "Area",
+        "actions": "Controllable actions"
+      },
+      "items": {
+        "orders": {
+          "resource": "Orders",
+          "actions": "View, create, edit, cancel"
+        },
+        "products": {
+          "resource": "Products & categories",
+          "actions": "View, create, edit, delete"
+        },
+        "inventory": {
+          "resource": "Inventory",
+          "actions": "View, adjust, transfer, edit reorder points"
+        },
+        "purchasing": {
+          "resource": "Suppliers & purchase orders",
+          "actions": "View, create, edit, approve, receive, cancel"
+        },
+        "returnsRefunds": {
+          "resource": "Returns & refunds",
+          "actions": "View, create, approve, reject, process, cancel"
+        },
+        "customers": {
+          "resource": "Customers",
+          "actions": "View, create, edit, delete"
+        },
+        "payments": {
+          "resource": "Payments & coupons",
+          "actions": "View, create, edit, delete"
+        },
+        "administration": {
+          "resource": "Users, roles & stores",
+          "actions": "View, invite, edit, deactivate, assign roles"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about team members, roles, and permissions in Cashvio.",
+      "items": {
+        "q1": {
+          "question": "Does the new team member get an invitation email?",
+          "answer": "No. Cashvio generates a temporary password and shows it once with a copy button — you share it with the team member yourself, in person or through a channel you trust. If it is lost, set a new password from their profile."
+        },
+        "q2": {
+          "question": "What do team members log in with?",
+          "answer": "Their username or email plus their password. Each person has their own credentials — the owner's password stays with the owner."
+        },
+        "q3": {
+          "question": "Can I limit an employee to one branch?",
+          "answer": "Yes. When assigning their role, check store-specific and pick the store. Their permissions then apply only inside that branch."
+        },
+        "q4": {
+          "question": "What are the ready-made roles?",
+          "answer": "Three system roles ship with Cashvio: Tenant Admin (full access), Cashier (day-to-day selling), and Accountant (financial visibility). They cannot be edited — but you can create unlimited custom roles alongside them."
+        },
+        "q5": {
+          "question": "Can a role see a page but not change anything?",
+          "answer": "Yes — grant only the View permission for that resource. Granting any action (create, edit, delete) automatically includes View, because nobody can edit what they cannot see."
+        },
+        "q6": {
+          "question": "What happens when an employee leaves?",
+          "answer": "Deactivate their account — their login stops working immediately, and everything they ever created keeps their name for your records. Reactivate any time if they return."
+        },
+        "q7": {
+          "question": "Do role restrictions apply to the business owner?",
+          "answer": "No. The account owner always has full access to everything. Roles restrict invited team members only."
+        },
+        "q8": {
+          "question": "Can I see each employee's sales?",
+          "answer": "Yes. The Staff report shows revenue per team member, orders processed per person, and performance trends — useful for scheduling, targets, and rewards."
+        }
+      }
+    },
+    "cta": {
+      "title": "Give Everyone Their Own Key",
+      "description": "Create your free account, add your team, and retire the shared password today.",
+      "getStarted": "Create Your Free Account",
+      "viewPricing": "View Pricing",
+      "freeNote": "Team members and roles depend on your plan limits"
     }
   }
 }
