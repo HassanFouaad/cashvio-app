@@ -309,6 +309,19 @@ div:has(+ #nd-sidebar-mobile) {
   }
 }
 
+/* RTL fix for the expanded launcher pill. Chatwoot's own CSS is hardcoded
+   LTR (label padding-right + icon margin-left), so in RTL the flipped flex
+   order leaves the label overflowing the pill's rounded edge. The launcher
+   is injected into the host DOM, so we can mirror the physical values. */
+[dir='rtl'] .woot-widget-bubble.woot-widget--expanded div {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
+[dir='rtl'] .woot-widget-bubble.woot-widget--expanded svg {
+  margin: 14px 16px 14px 8px;
+}
+
 /* ============================================
    REDUCED MOTION
    ============================================ */
