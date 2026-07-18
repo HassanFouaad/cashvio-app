@@ -217,6 +217,12 @@ export default async function ArabicPosPage({ params }: Props) {
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
         variant="mobile"
+        companion={{
+          base: '/assets/products',
+          variant: 'desktop',
+          alt: t('screenshot.companionAlt'),
+          caption: t('screenshot.companionCaption'),
+        }}
       />
 
 

@@ -99,6 +99,43 @@ const functionalKeys = [
 
 const capacityKeys = ['maxStores', 'maxUsers', 'maxPosDevices', 'maxCustomers'] as const;
 
+/** Varied marketing shots shown before each features-hub section (deterministic, not Math.random). */
+const sectionShots = [
+  {
+    key: 'modules' as const,
+    base: '/assets/products',
+    variant: 'desktop' as const,
+  },
+  {
+    key: 'solutions' as const,
+    base: '/assets/pos',
+    variant: 'mobile' as const,
+    companion: {
+      base: '/assets/orders',
+      variant: 'desktop' as const,
+    },
+  },
+  {
+    key: 'operations' as const,
+    base: '/assets/inventory',
+    variant: 'desktop' as const,
+    companion: {
+      base: '/assets/mobile-inventory',
+      variant: 'mobile' as const,
+    },
+  },
+  {
+    key: 'functional' as const,
+    base: '/assets/analytics',
+    variant: 'desktop' as const,
+  },
+  {
+    key: 'capacity' as const,
+    base: '/assets/stores',
+    variant: 'desktop' as const,
+  },
+] as const;
+
 const solutionLinks = [
   { key: 'freePos', href: '/features/free-pos' },
   { key: 'freeOnlineStore', href: '/features/free-online-store' },
@@ -173,8 +210,14 @@ export default async function FeaturesPage({ params }: Props) {
         caption={t('screenshot.caption')}
       />
 
-
       {/* Core Modules — ledger chapter no. 01 */}
+      <FeatureScreenshot
+        base={sectionShots[0].base}
+        locale={typedLocale}
+        variant={sectionShots[0].variant}
+        alt={t(`sectionShots.${sectionShots[0].key}.alt`)}
+        caption={t(`sectionShots.${sectionShots[0].key}.caption`)}
+      />
       <section aria-label={t('categories.modules.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
@@ -197,6 +240,19 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Solutions */}
+      <FeatureScreenshot
+        base={sectionShots[1].base}
+        locale={typedLocale}
+        variant={sectionShots[1].variant}
+        alt={t(`sectionShots.${sectionShots[1].key}.alt`)}
+        caption={t(`sectionShots.${sectionShots[1].key}.caption`)}
+        companion={{
+          base: sectionShots[1].companion.base,
+          variant: sectionShots[1].companion.variant,
+          alt: t(`sectionShots.${sectionShots[1].key}.companionAlt`),
+          caption: t(`sectionShots.${sectionShots[1].key}.companionCaption`),
+        }}
+      />
       <section aria-label={t('solutions.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
@@ -237,6 +293,19 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Operations & Workflow */}
+      <FeatureScreenshot
+        base={sectionShots[2].base}
+        locale={typedLocale}
+        variant={sectionShots[2].variant}
+        alt={t(`sectionShots.${sectionShots[2].key}.alt`)}
+        caption={t(`sectionShots.${sectionShots[2].key}.caption`)}
+        companion={{
+          base: sectionShots[2].companion.base,
+          variant: sectionShots[2].companion.variant,
+          alt: t(`sectionShots.${sectionShots[2].key}.companionAlt`),
+          caption: t(`sectionShots.${sectionShots[2].key}.companionCaption`),
+        }}
+      />
       <section aria-label={t('categories.operations.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
@@ -259,6 +328,13 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Advanced Capabilities */}
+      <FeatureScreenshot
+        base={sectionShots[3].base}
+        locale={typedLocale}
+        variant={sectionShots[3].variant}
+        alt={t(`sectionShots.${sectionShots[3].key}.alt`)}
+        caption={t(`sectionShots.${sectionShots[3].key}.caption`)}
+      />
       <section aria-label={t('categories.functional.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
@@ -280,6 +356,13 @@ export default async function FeaturesPage({ params }: Props) {
       </section>
 
       {/* Scalable Limits */}
+      <FeatureScreenshot
+        base={sectionShots[4].base}
+        locale={typedLocale}
+        variant={sectionShots[4].variant}
+        alt={t(`sectionShots.${sectionShots[4].key}.alt`)}
+        caption={t(`sectionShots.${sectionShots[4].key}.caption`)}
+      />
       <section aria-label={t('categories.capacity.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading

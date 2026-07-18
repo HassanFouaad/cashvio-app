@@ -178,6 +178,12 @@ export default async function OmnichannelRetailPage({ params }: Props) {
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
+        companion={{
+          base: '/assets/mobile-orders',
+          variant: 'mobile',
+          alt: t('screenshot.companionAlt'),
+          caption: t('screenshot.companionCaption'),
+        }}
       />
 
 

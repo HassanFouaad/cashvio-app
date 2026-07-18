@@ -186,6 +186,12 @@ export default async function FreeOnlineStorePage({ params }: Props) {
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
+        companion={{
+          base: '/assets/management',
+          variant: 'mobile',
+          alt: t('screenshot.companionAlt'),
+          caption: t('screenshot.companionCaption'),
+        }}
       />
 
 

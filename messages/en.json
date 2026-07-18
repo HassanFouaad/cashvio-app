@@ -1226,6 +1226,32 @@
     "screenshot": {
       "caption": "Live view — dashboard",
       "alt": "Cashvio business dashboard with sales overview and quick actions"
+    },
+    "sectionShots": {
+      "modules": {
+        "caption": "Live view — product catalog",
+        "alt": "Cashvio products module with a populated apparel catalog"
+      },
+      "solutions": {
+        "caption": "Live view — POS on mobile",
+        "alt": "Cashvio free POS running on a phone",
+        "companionCaption": "Live view — omnichannel orders on web",
+        "companionAlt": "Cashvio orders list across retail channels on desktop"
+      },
+      "operations": {
+        "caption": "Live view — inventory on web",
+        "alt": "Cashvio inventory management with stock levels",
+        "companionCaption": "Live view — inventory on mobile",
+        "companionAlt": "Cashvio inventory screen on a phone"
+      },
+      "functional": {
+        "caption": "Live view — analytics",
+        "alt": "Cashvio analytics dashboard with revenue trends"
+      },
+      "capacity": {
+        "caption": "Live view — stores",
+        "alt": "Cashvio multi-store management screen"
+      }
     }
   },
   "couponsAndDiscounts": {
@@ -1851,7 +1877,9 @@
     },
     "screenshot": {
       "caption": "Live view — Arabic POS",
-      "alt": "Cashvio Arabic POS screen for in-store sales"
+      "alt": "Cashvio Arabic POS screen for in-store sales",
+      "companionCaption": "Live view — catalog on web",
+      "companionAlt": "Cashvio product catalog managed from the desktop console"
     }
   },
   "omnichannelRetail": {
@@ -2110,7 +2138,9 @@
     },
     "screenshot": {
       "caption": "Live view — omnichannel orders",
-      "alt": "Cashvio orders from POS, online store, and social channels"
+      "alt": "Cashvio orders from POS, online store, and social channels",
+      "companionCaption": "Live view — orders on mobile",
+      "companionAlt": "Cashvio orders list on a phone"
     }
   },
   "inventoryManagement": {
@@ -2408,7 +2438,9 @@
     },
     "screenshot": {
       "caption": "Live view — inventory",
-      "alt": "Cashvio inventory screen with stock levels and low-stock alerts"
+      "alt": "Cashvio inventory screen with stock levels and low-stock alerts",
+      "companionCaption": "Live view — inventory on mobile",
+      "companionAlt": "Cashvio inventory with low-stock alerts on a phone"
     }
   },
   "ledger": {
@@ -2608,7 +2640,9 @@
     },
     "screenshot": {
       "caption": "Live view — POS",
-      "alt": "Cashvio free POS product catalog and checkout on mobile"
+      "alt": "Cashvio free POS product catalog and checkout on mobile",
+      "companionCaption": "Live view — catalog on web",
+      "companionAlt": "Cashvio product catalog managed from the desktop console"
     }
   },
   "freeOnlineStore": {
@@ -2816,7 +2850,9 @@
     },
     "screenshot": {
       "caption": "Live view — products",
-      "alt": "Cashvio product catalog used by the free online store"
+      "alt": "Cashvio product catalog used by the free online store",
+      "companionCaption": "Live view — catalog on mobile",
+      "companionAlt": "Cashvio product management on a phone"
     }
   },
   "orderManagement": {
@@ -3008,7 +3044,9 @@
     },
     "screenshot": {
       "caption": "Live view — orders",
-      "alt": "Cashvio order management list with payments and fulfillment status"
+      "alt": "Cashvio order management list with payments and fulfillment status",
+      "companionCaption": "Live view — orders on mobile",
+      "companionAlt": "Cashvio orders list on a phone"
     }
   },
   "customerManagement": {

@@ -182,6 +182,12 @@ export default async function InventoryManagementPage({ params }: Props) {
         locale={typedLocale}
         alt={t('screenshot.alt')}
         caption={t('screenshot.caption')}
+        companion={{
+          base: '/assets/mobile-inventory',
+          variant: 'mobile',
+          alt: t('screenshot.companionAlt'),
+          caption: t('screenshot.companionCaption'),
+        }}
       />
 
 
