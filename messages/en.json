@@ -7,8 +7,8 @@
       "description": "Run your shop with a 100% free POS (cashier) and a free online store — inventory, orders, customers, and reports in one place. Arabic & English. Free forever, no credit card."
     },
     "pricing": {
-      "title": "Pricing & Plans",
-      "description": "Choose the perfect Cashvio plan for your business with transparent pricing. Start with our free forever plan and upgrade as you grow—no hidden fees or commitments."
+      "title": "Pricing — Free POS, Free Online Store & Paid Plans",
+      "description": "Start with a free POS (cashier) and free online store forever. Compare Cashvio plans — transparent pricing, no hidden fees, upgrade when you grow."
     },
     "contact": {
       "title": "Contact Us",
@@ -31,8 +31,8 @@
       "description": "Discover Cashvio: free POS (cashier), inventory management, orders, customers, analytics, and a free online store — everything you need to run and grow your business."
     },
     "register": {
-      "title": "Create Your Free Account",
-      "description": "Sign up for Cashvio and start managing your sales, inventory, and customers today. Free forever plan available with no credit card required."
+      "title": "Create Your Free POS & Online Store Account",
+      "description": "Sign up for a free POS (cashier) and free online store. Manage sales, inventory, and customers today — free forever, no credit card required."
     },
     "thankYou": {
       "title": "Welcome to Cashvio!",
@@ -118,8 +118,8 @@
     "hero": {
       "badge": "Business Management Platform",
       "freeBadge": "Free Forever Plan",
-      "title": "Manage Sales, Inventory & Growth",
-      "titleHighlight": "In One Place",
+      "title": "Free POS & Free Online Store",
+      "titleHighlight": "For Your Shop",
       "subtitle": "A free POS (cashier), a free online store, and everything in between — inventory, orders, customers, and reports in one place. Sell in-store, online, or both.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
@@ -604,12 +604,26 @@
       "q4": {
         "question": "Can I cancel anytime?",
         "answer": "Absolutely. You can cancel your subscription at any time with no cancellation fees."
+      },
+      "q5": {
+        "question": "Is the POS free?",
+        "answer": "Yes. Cashvio includes a free POS (cashier) on the free forever plan — sales screen, cash register, shifts, and receipts. No credit card required. See our Free POS page for details."
+      },
+      "q6": {
+        "question": "Can I get a free online store?",
+        "answer": "Yes. You can create a free online store synced with your free POS — no commission and no monthly fee on the free plan. See our Free Online Store page for details."
       }
     },
     "guarantee": {
       "title": "30-Day Money-Back Guarantee",
       "description": "Not satisfied? Get a full refund within 30 days, no questions asked."
     }
+  },
+  "alsoFree": {
+    "title": "Also free on Cashvio",
+    "subtitle": "Start with a free POS and a free online store — no credit card required.",
+    "freePos": "Free POS & cashier",
+    "freeOnlineStore": "Free online store"
   },
   "contact": {
     "title": "Get in Touch",

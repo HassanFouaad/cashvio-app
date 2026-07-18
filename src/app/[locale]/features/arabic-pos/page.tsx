@@ -9,6 +9,7 @@ import {
   ReceiptCard,
   ComparisonTable,
   FaqSection,
+  AlsoFreeStrip,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -73,9 +74,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'نظام كاشير عربي',
       'برنامج نقاط بيع عربي',
       'نظام بيع من اليمين لليسار',
+      'واجهة عربية RTL',
       'إيصالات عربية',
       'نظام بيع ثنائي اللغة',
       'نظام بيع الشرق الأوسط',
+      'كاشير للتجار العرب',
       'دفع مدى',
       'نظام بيع كي نت',
       'متجر الكتروني RTL',
@@ -315,6 +318,8 @@ export default async function ArabicPosPage({ params }: Props) {
       </section>
 
       <FaqSection title={t('faq.title')} subtitle={t('faq.subtitle')} items={faqItems} />
+
+      <AlsoFreeStrip locale={locale} />
 
       <LedgerCta
         title={t('cta.title')}

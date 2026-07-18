@@ -14,6 +14,7 @@ export interface FooterSection {
 export const mainNavigation: NavItem[] = [
   { key: 'home', href: '/' },
   { key: 'features', href: '/features' },
+  { key: 'freePos', href: '/features/free-pos' },
   { key: 'pricing', href: '/pricing' },
   { key: 'docs', href: '/docs' },
   { key: 'contact', href: '/contact' },

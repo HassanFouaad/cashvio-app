@@ -2,6 +2,11 @@ import { env } from './env';
 
 // Keywords as a mutable array for Next.js metadata compatibility
 const keywords: string[] = [
+  'free POS',
+  'free cashier',
+  'free online store',
+  'كاشير مجاني',
+  'متجر إلكتروني مجاني',
   'business platform',
   'commerce management',
   'inventory management',

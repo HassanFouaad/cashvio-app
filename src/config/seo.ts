@@ -7,7 +7,7 @@
  * SEO Best Practices for 2026:
  * - Complete Organization schema with brand signals
  * - SoftwareApplication with proper categorization
- * - WebSite schema with SearchAction
+ * - WebSite schema with RegisterAction (no SearchAction — site has no search UI)
  * - Brand schema for entity recognition
  * - Service schema for SaaS description
  * - Proper interlinking between schemas using @id
@@ -34,8 +34,8 @@ export const brand = {
   alternateName: ['كاشفيو', 'Cash-vio', 'Cashvio POS', 'Cashvio Commerce'],
   tagline: 'Business Operations & Commerce Platform',
   slogan: 'Sell Smarter, Grow Faster',
-  shortDescription: 'Complete business management platform for selling online and in-store',
-  longDescription: 'Cashvio is a comprehensive SaaS platform that helps businesses manage their entire operations including point-of-sale, inventory, orders, customers, and analytics across multiple stores and sales channels.',
+  shortDescription: 'Free POS and free online store — complete business management for selling in-store and online',
+  longDescription: 'Cashvio is a comprehensive SaaS platform with a free POS (cashier) and free online store. Manage point-of-sale, inventory, orders, customers, and analytics across multiple stores and sales channels.',
   founded: '2024',
   type: 'SaaS' as const,
   industry: 'Business Software',
@@ -118,6 +118,12 @@ export const social = {
 
 export const keywords: Record<Locale, string[]> = {
   en: [
+    // Money keywords (exact-match intent)
+    'free POS',
+    'free cashier',
+    'free online store',
+    'free POS system',
+    'free cashier software',
     // Primary brand keywords
     'Cashvio',
     'Cashvio POS',
@@ -154,6 +160,12 @@ export const keywords: Record<Locale, string[]> = {
     'e-commerce coupon codes',
   ],
   ar: [
+    // Money keywords (exact-match intent)
+    'كاشير مجاني',
+    'متجر إلكتروني مجاني',
+    'برنامج كاشير مجاني',
+    'نظام نقاط بيع مجاني',
+    'متجر الكتروني مجاني',
     // Primary brand keywords
     'كاشفيو',
     'كاشفيو نقاط البيع',
@@ -385,30 +397,23 @@ export const schemaTemplates = {
         availableLanguage: ['English', 'Arabic'],
       },
     ],
+    // Matches Service catalog: only the free plan is asserted here.
+    // Paid plan prices come from the API on the pricing page (ProductGroup).
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: `${brand.name} Plans`,
+      name: `${brand.name} Pricing Plans`,
+      url: `${urls.site}/pricing`,
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: `${brand.name} Starter`,
+            name: `${brand.name} Free Plan`,
+            description: 'Free forever plan — POS, online store, inventory, and reports',
           },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: `${brand.name} Professional`,
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: `${brand.name} Enterprise`,
-          },
+          price: '0',
+          priceCurrency: 'EGP',
+          url: `${urls.site}/pricing`,
         },
       ],
     },
@@ -442,8 +447,8 @@ export const schemaTemplates = {
   }),
 
   /**
-   * Website schema - Enhanced with search action for sitelinks searchbox
-   * Critical for Google to show the search box in search results
+   * Website schema — RegisterAction only.
+   * Do not add SearchAction without a real on-site search UI.
    */
   website: (locale: Locale) => ({
     '@context': 'https://schema.org',
@@ -542,8 +547,9 @@ export const schemaTemplates = {
       },
     ],
     offers: {
-      // Consistent with the pricing-page ProductGroup: real plans in EGP,
-      // starting free. No hardcoded high price — plans change via the API.
+      // AggregateOffer for freemium: lowPrice 0 EGP only.
+      // No highPrice / offerCount — paid plan prices and counts come from
+      // the API on the pricing page (ProductGroup) and must not be hardcoded.
       '@type': 'AggregateOffer',
       priceCurrency: 'EGP',
       lowPrice: '0',

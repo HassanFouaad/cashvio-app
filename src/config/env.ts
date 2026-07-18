@@ -48,7 +48,7 @@ export const env = {
     name: process.env.NEXT_PUBLIC_SITE_NAME || 'Cashvio',
     description:
       process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-      'Complete business management platform for online and in-store operations',
+      'Free POS and free online store — complete business management for online and in-store operations',
   },
 
   /**

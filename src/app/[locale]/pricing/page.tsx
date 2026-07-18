@@ -3,7 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n/routing";
 import { PricingPlans } from "@/components/sections/pricing-plans";
-import { FaqSection, LedgerHero, ReceiptStamp } from "@/components/marketing";
+import { AlsoFreeStrip, FaqSection, LedgerHero, ReceiptStamp } from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
 import {
   schemaTemplates,
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const planKeys = ["starter", "professional", "enterprise"] as const;
-const faqKeys = ["q1", "q2", "q3", "q4"] as const;
+const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
@@ -158,6 +158,8 @@ export default async function PricingPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <AlsoFreeStrip locale={locale} />
 
       <FaqSection
         title={t("faq.title")}

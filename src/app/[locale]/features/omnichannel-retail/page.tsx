@@ -9,6 +9,7 @@ import {
   ReceiptCard,
   ComparisonTable,
   FaqSection,
+  AlsoFreeStrip,
 } from '@/components/marketing';
 import {
   schemaTemplates,
@@ -322,6 +323,8 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       </section>
 
       <FaqSection title={t('faq.title')} subtitle={t('faq.subtitle')} items={faqItems} />
+
+      <AlsoFreeStrip locale={locale} />
 
       <LedgerCta
         title={t('cta.title')}
