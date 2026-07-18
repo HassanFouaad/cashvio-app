@@ -17,6 +17,12 @@ const featureKeys = [
   'team',
 ] as const;
 
+// Keyword-anchored internal links to the free-POS / free-store landing pages
+const featureLinks: Partial<Record<(typeof featureKeys)[number], string>> = {
+  pos: '/features/free-pos',
+  multistore: '/features/free-online-store',
+};
+
 export async function Features({ locale }: FeaturesProps) {
   const t = await getTranslations({ locale, namespace: 'home.features' });
 
@@ -55,6 +61,15 @@ export async function Features({ locale }: FeaturesProps) {
                   <PriceTag>{t(`${key}.sub1`)}</PriceTag>
                   <PriceTag>{t(`${key}.sub2`)}</PriceTag>
                 </div>
+                {featureLinks[key] && (
+                  <a
+                    href={locale === 'en' ? featureLinks[key] : `/ar${featureLinks[key]}`}
+                    className="inline-flex items-center gap-1.5 mt-3 font-receipt text-xs text-primary hover:underline"
+                  >
+                    {t(`${key}.link`)}
+                    <span aria-hidden="true" className="rtl:-scale-x-100">-&gt;</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}

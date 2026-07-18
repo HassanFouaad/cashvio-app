@@ -21,6 +21,13 @@ import type { Locale } from '@/i18n/routing';
 // BRAND & IDENTITY (Enhanced for SEO 2026)
 // ============================================================================
 
+/**
+ * Bump this date only when marketing content meaningfully changes.
+ * Used for schema dateModified — must NOT be "new Date()" (a lastmod
+ * that changes every build teaches Google to ignore our freshness signals).
+ */
+export const contentLastUpdated = '2026-07-19';
+
 export const brand = {
   name: 'Cashvio',
   legalName: 'Cashvio Technologies',
@@ -66,7 +73,8 @@ export const contact = {
   email: env.contact.email,
   phone: env.contact.phone,
   address: {
-    street: env.contact.address || '123 Business District',
+    // Street only published when a real address is configured — never a fake one
+    street: env.contact.address || '',
     city: 'Cairo',
     region: 'Cairo Governorate',
     postalCode: '11511',
@@ -286,7 +294,7 @@ export const schemaTemplates = {
     telephone: contact.phone,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: contact.address.street,
+      ...(contact.address.street ? { streetAddress: contact.address.street } : {}),
       addressLocality: contact.address.city,
       addressRegion: contact.address.region,
       postalCode: contact.address.postalCode,
@@ -534,11 +542,11 @@ export const schemaTemplates = {
       },
     ],
     offers: {
+      // Consistent with the pricing-page ProductGroup: real plans in EGP,
+      // starting free. No hardcoded high price — plans change via the API.
       '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
+      priceCurrency: 'EGP',
       lowPrice: '0',
-      highPrice: '199',
-      offerCount: 3,
       availability: 'https://schema.org/InStock',
       priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
       eligibleRegion: [
@@ -568,7 +576,7 @@ export const schemaTemplates = {
     ],
     softwareVersion: '2.0',
     datePublished: '2024-01-01',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: contentLastUpdated,
     inLanguage: ['en', 'ar'],
     isAccessibleForFree: true,
     isFamilyFriendly: true,
@@ -627,57 +635,23 @@ export const schemaTemplates = {
     },
     termsOfService: `${urls.site}/terms`,
     category: 'Business Software',
+    // Only the free plan is asserted here — real paid plan prices live on the
+    // pricing page (ProductGroup schema, fetched from the API in EGP).
+    // Hardcoding stale USD prices contradicted that data.
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Cashvio Pricing Plans',
+      url: `${urls.site}/pricing`,
       itemListElement: [
         {
-          '@type': 'OfferCatalog',
-          name: 'Starter Plan',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Cashvio Starter',
-                description: 'Perfect for small businesses getting started',
-              },
-              price: '0',
-              priceCurrency: 'USD',
-            },
-          ],
-        },
-        {
-          '@type': 'OfferCatalog',
-          name: 'Professional Plan',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Cashvio Professional',
-                description: 'For growing businesses with multiple needs',
-              },
-              price: '49',
-              priceCurrency: 'USD',
-            },
-          ],
-        },
-        {
-          '@type': 'OfferCatalog',
-          name: 'Enterprise Plan',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Cashvio Enterprise',
-                description: 'Full-featured solution for large operations',
-              },
-              price: '199',
-              priceCurrency: 'USD',
-            },
-          ],
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Cashvio Free Plan',
+            description: 'Free forever plan — POS, online store, inventory, and reports',
+          },
+          price: '0',
+          priceCurrency: 'EGP',
         },
       ],
     },
@@ -761,7 +735,7 @@ export const schemaTemplates = {
       '@id': `${urls.site}${params.path}#breadcrumb`,
     },
     datePublished: '2024-01-01',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: contentLastUpdated,
   }),
 
   /**
@@ -817,7 +791,7 @@ export const schemaTemplates = {
       telephone: contact.phone,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: contact.address.street,
+        ...(contact.address.street ? { streetAddress: contact.address.street } : {}),
         addressLocality: contact.address.city,
         addressCountry: contact.address.countryCode,
       },
@@ -920,7 +894,7 @@ export const schemaTemplates = {
       height: 512,
     },
     datePublished: params.datePublished || '2024-01-01',
-    dateModified: params.dateModified || new Date().toISOString().split('T')[0],
+    dateModified: params.dateModified || contentLastUpdated,
     author: {
       '@type': 'Organization',
       name: brand.name,

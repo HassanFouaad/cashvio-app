@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { env } from '@/config/env';
+import { contentLastUpdated } from '@/config/seo';
 import { source } from '@/lib/docs-source';
 
 interface PageConfig {
@@ -14,17 +15,19 @@ interface PageConfig {
 const staticPages: PageConfig[] = [
   { path: '' },
 
-  { path: '/features'},
-  { path: '/features/arabic-pos'},
-  { path: '/features/coupons-and-discounts'},
-  { path: '/features/omnichannel-retail'},
-  { path: '/features/inventory-management'},
-  { path: '/pricing'},
-    { path: '/contact'},
-  { path: '/register'},
-  { path: '/docs'},
-  { path: '/privacy'},
-  { path: '/terms'},
+  { path: '/features' },
+  { path: '/features/free-pos' },
+  { path: '/features/free-online-store' },
+  { path: '/features/arabic-pos' },
+  { path: '/features/coupons-and-discounts' },
+  { path: '/features/omnichannel-retail' },
+  { path: '/features/inventory-management' },
+  { path: '/pricing' },
+  { path: '/contact' },
+  { path: '/register' },
+  { path: '/docs' },
+  { path: '/privacy' },
+  { path: '/terms' },
 ];
 
 const locales = ['en', 'ar'] as const;
@@ -32,7 +35,9 @@ const defaultLocale = 'en';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const SITE_URL = env.site.url;
-  const defaultLastModified = new Date().toISOString().split('T')[0];
+  // A stable date bumped on real content changes — never "today at build time",
+  // which would falsely mark every URL as freshly modified on every deploy.
+  const defaultLastModified = contentLastUpdated;
 
   /* ============================================
      STATIC PAGE ENTRIES
@@ -78,14 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       const localePath = locale === defaultLocale ? '' : `/${locale}`;
       const url = `${SITE_URL}${localePath}${docsPath}`;
-
-      // Determine priority based on page hierarchy
-      let priority = 0.7;
-      if (docsPath === '/docs') {
-        priority = 0.9; // Docs index
-      } else if (docsPath.split('/').length <= 3) {
-        priority = 0.8; // Section-level pages
-      }
 
       docsEntries.push({
         url,

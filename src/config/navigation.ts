@@ -31,6 +31,8 @@ export const footerNavigation: FooterSection[] = [
   {
     key: 'solutions',
     items: [
+      { key: 'freePos', href: '/features/free-pos' },
+      { key: 'freeOnlineStore', href: '/features/free-online-store' },
       { key: 'arabicPos', href: '/features/arabic-pos' },
       { key: 'omnichannelRetail', href: '/features/omnichannel-retail' },
       { key: 'inventoryManagement', href: '/features/inventory-management' },

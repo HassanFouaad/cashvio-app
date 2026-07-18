@@ -9,6 +9,7 @@ import { ProductShowcase } from '@/components/sections/product-showcase';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
 import { EndOfDay } from '@/components/sections/end-of-day';
 import { CTA } from '@/components/sections/cta';
+import { FaqSection } from '@/components/marketing';
 import {
   schemaTemplates,
   serializeSchema,
@@ -78,6 +79,15 @@ export default async function HomePage({ params }: Props) {
   const typedLocale = locale as Locale;
 
   const t = await getTranslations({ locale, namespace: 'metadata.home' });
+  const tFaq = await getTranslations({ locale, namespace: 'home.faq' });
+
+  // FAQ items targeting "free POS / free cashier / free online store" queries
+  const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'] as const;
+  const faqItems = faqKeys.map((key) => ({
+    question: tFaq(`${key}.question`),
+    answer: tFaq(`${key}.answer`),
+  }));
+  const faqSchema = schemaTemplates.faqPage(faqItems);
 
   // Schema.org structured data - Using comprehensive graph for SEO 2026
   // This single @graph links all entities: Organization, Brand, Website, Software, Service
@@ -142,6 +152,11 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeSchema(speakableSchema) }}
       />
+      {/* FAQ Schema - "free POS / free online store" featured snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(faqSchema) }}
+      />
 
       <Hero locale={typedLocale} />
       <Features locale={typedLocale} />
@@ -149,6 +164,12 @@ export default async function HomePage({ params }: Props) {
       <ProductShowcase />
       <MobileAppShowcase />
       <EndOfDay locale={typedLocale} />
+      <FaqSection
+        eyebrow={tFaq('eyebrow')}
+        title={tFaq('title')}
+        subtitle={tFaq('subtitle')}
+        items={faqItems}
+      />
       <CTA locale={typedLocale} />
     </>
   );

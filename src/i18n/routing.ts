@@ -8,6 +8,10 @@ export const routing = defineRouting({
   defaultLocale: 'en',
   // English uses / (no prefix), Arabic uses /ar
   localePrefix: 'as-needed',
+  // No Accept-Language/cookie redirects: every URL always serves the same
+  // content (Google discourages locale auto-redirects). Users switch
+  // language explicitly via the header switcher.
+  localeDetection: false,
 });
 
 export const localeMetadata: Record<

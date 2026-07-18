@@ -3,8 +3,8 @@
     "siteName": "Cashvio",
     "siteDescription": "Complete business management platform for online and in-store operations - sales, inventory, payments, and analytics",
     "home": {
-      "title": "Cashvio - Business Operations & Commerce Platform",
-      "description": "Manage your business operations in one place. Handle sales, inventory, orders, customers, and analytics across all your channels."
+      "title": "Cashvio — Free POS System & Free Online Store",
+      "description": "Run your shop with a 100% free POS (cashier) and a free online store — inventory, orders, customers, and reports in one place. Arabic & English. Free forever, no credit card."
     },
     "pricing": {
       "title": "Pricing & Plans",
@@ -27,8 +27,8 @@
       "description": "Explore comprehensive documentation, step-by-step guides, and API references for Cashvio. Learn how to manage sales, inventory, and operations effectively."
     },
     "features": {
-      "title": "Features",
-      "description": "Discover tools to manage products, inventory, orders, and customers. Grow your business with powerful analytics and multi-channel selling capabilities."
+      "title": "Features — Free POS, Inventory & Online Store",
+      "description": "Discover Cashvio: free POS (cashier), inventory management, orders, customers, analytics, and a free online store — everything you need to run and grow your business."
     },
     "register": {
       "title": "Create Your Free Account",
@@ -53,6 +53,14 @@
     "inventoryManagement": {
       "title": "Free Inventory Management Software - Track Stock Across All Stores",
       "description": "Free inventory management software that tracks stock per product variant, per store in real time. Low stock alerts, purchase orders, supplier management, stock transfers, adjustments with full audit trail, and profit reporting — all included free."
+    },
+    "freePos": {
+      "title": "Free POS System — 100% Free Cashier Software",
+      "description": "Cashvio's free POS gives you a cashier screen, cash register, shifts, thermal receipts, and live inventory — free forever. Arabic & English, works offline, no credit card needed."
+    },
+    "freeOnlineStore": {
+      "title": "Free Online Store — Create Your Store in Minutes",
+      "description": "Create a free online store synced with a free POS. No commission, no monthly fee, Arabic & English storefront, delivery zones, and coupons — free forever."
     }
   },
   "common": {
@@ -90,7 +98,9 @@
     "arabicPos": "Arabic POS & Storefront",
     "omnichannelRetail": "Omnichannel Retail",
     "inventoryManagement": "Inventory Management",
-    "couponsAndDiscounts": "Coupons & Discounts"
+    "couponsAndDiscounts": "Coupons & Discounts",
+    "freePos": "Free POS & Cashier",
+    "freeOnlineStore": "Free Online Store"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -110,7 +120,7 @@
       "freeBadge": "Free Forever Plan",
       "title": "Manage Sales, Inventory & Growth",
       "titleHighlight": "In One Place",
-      "subtitle": "Complete platform for businesses that sell online, in-store, or both. Track inventory, process orders, manage customers, and analyze performance—all from one dashboard.",
+      "subtitle": "A free POS (cashier), a free online store, and everything in between — inventory, orders, customers, and reports in one place. Sell in-store, online, or both.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
       "freeNote": "Free forever • Start in seconds • No commitment",
@@ -210,7 +220,8 @@
         "sub1": "Secure OTP-based device pairing",
         "sub2": "Employee shift clock-in & clock-out",
         "sub3": "Cash register open/close management",
-        "sub4": "Offline sync & multi-device support"
+        "sub4": "Offline sync & multi-device support",
+        "link": "Explore the free POS system"
       },
       "products": {
         "title": "Product Catalog",
@@ -234,7 +245,8 @@
         "sub1": "Store-specific payment & fulfillment methods",
         "sub2": "Multi-currency support per store",
         "sub3": "Facebook Pixel & Google Tags integration",
-        "sub4": "Online storefront with multi-language support"
+        "sub4": "Online storefront with multi-language support",
+        "link": "Create a free online store"
       },
       "team": {
         "title": "Team & Permissions",
@@ -486,6 +498,35 @@
       "totalLabel": "Total hidden fees",
       "totalValue": "EGP 0.00",
       "stampsLabel": "Works with"
+    },
+    "faq": {
+      "eyebrow": "NO. 06 — QUESTIONS",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers about Cashvio's free plan",
+      "q1": {
+        "question": "Is Cashvio really free?",
+        "answer": "Yes. The free forever plan includes the POS (cashier), online store, inventory, and reports. You only pay for advanced features as you grow."
+      },
+      "q2": {
+        "question": "Does the free plan include a POS (cashier)?",
+        "answer": "Yes — a full free POS: sales screen, cash register, shifts, and receipts in Arabic and English."
+      },
+      "q3": {
+        "question": "Can I create a free online store?",
+        "answer": "Yes. Your free online store syncs with your shop's inventory, with 0% commission on sales."
+      },
+      "q4": {
+        "question": "Do I need a credit card to start?",
+        "answer": "No — sign up with your email and phone number only."
+      },
+      "q5": {
+        "question": "Does Cashvio work in Arabic?",
+        "answer": "Yes, fully: Arabic interface, Arabic receipts, and a right-to-left storefront."
+      },
+      "q6": {
+        "question": "Does the POS work without internet?",
+        "answer": "Yes — keep selling offline and everything syncs when you're back online."
+      }
     }
   },
   "pricing": {
@@ -1075,6 +1116,16 @@
         "title": "Coupons & Discounts",
         "description": "Create, manage, and track promotional codes across all your stores. Schedule campaigns and validate codes at checkout in real time.",
         "cta": "Learn More"
+      },
+      "freePos": {
+        "title": "Free POS & Cashier",
+        "description": "A complete free cashier program: sales screen, register, shifts, receipts, and live inventory.",
+        "cta": "Explore the free POS"
+      },
+      "freeOnlineStore": {
+        "title": "Free Online Store",
+        "description": "Create a free online store synced with your shop — no commission, no monthly fee.",
+        "cta": "Create your free store"
       }
     },
     "cta": {
@@ -2255,5 +2306,400 @@
     "no": "NO.",
     "item": "ITEM",
     "total": "TOTAL"
+  },
+  "freePos": {
+    "hero": {
+      "badge": "Free Forever",
+      "title": "Free POS System",
+      "titleHighlight": "and Cashier Software",
+      "subtitle": "Get a complete cashier program for your shop — sales screen, cash register, shifts, receipts, and live inventory. 100% free plan, no trial period, no credit card.",
+      "cta": "Start Free — No Credit Card",
+      "secondaryCta": "View All Features",
+      "trust": "A real free plan — not a 14-day trial"
+    },
+    "problem": {
+      "badge": "The Problem",
+      "title": "Paid POS Systems Eat Your Profit",
+      "subtitle": "Most cashier programs charge a monthly fee, charge again for every device, and hide basic features behind bigger plans.",
+      "painPoints": {
+        "monthlyFees": {
+          "title": "Monthly Fees Forever",
+          "description": "You pay every month even in slow seasons. Over a year, a 'cheap' POS costs more than a new phone."
+        },
+        "payPerDevice": {
+          "title": "Pay Per Device",
+          "description": "Want a second cashier screen? Most systems charge extra for every device you add."
+        },
+        "hiddenLimits": {
+          "title": "Locked Features",
+          "description": "Receipts, reports, and inventory are often 'premium'. The free version is too limited to actually run a shop."
+        },
+        "hardSetup": {
+          "title": "Complicated Setup",
+          "description": "Some systems need special hardware or a technician. You lose days before your first sale."
+        },
+        "noArabic": {
+          "title": "Weak Arabic Support",
+          "description": "Many POS programs have no Arabic interface or Arabic receipts, so your team struggles every day."
+        },
+        "internetOnly": {
+          "title": "Stops Without Internet",
+          "description": "If the internet drops, the register stops — and you lose sales while customers wait."
+        }
+      }
+    },
+    "solution": {
+      "badge": "The Cashvio Way",
+      "title": "A Cashier Program That Is Actually Free",
+      "subtitle": "Everything you need to sell in your shop is in the free plan — and it stays free.",
+      "points": {
+        "reallyFree": {
+          "title": "Free Forever",
+          "description": "The free plan is not a trial. Sell every day, print receipts, and track inventory without paying."
+        },
+        "fastSetup": {
+          "title": "Ready in Minutes",
+          "description": "Sign up, add products, and sell. Works on any computer, tablet, or phone — no special hardware."
+        },
+        "worksOffline": {
+          "title": "Works Offline",
+          "description": "Keep selling when the internet drops. Sales sync automatically when you are back online."
+        },
+        "arabicEnglish": {
+          "title": "Arabic and English",
+          "description": "Full Arabic interface and bilingual receipts. Every employee picks their own language."
+        }
+      }
+    },
+    "features": {
+      "badge": "What You Get Free",
+      "title": "A Complete Point of Sale, Free",
+      "subtitle": "The free plan includes the tools shops pay for elsewhere.",
+      "storeLink": "Also free: create your free online store",
+      "items": {
+        "checkout": {
+          "title": "Fast Cashier Screen",
+          "description": "Big touch-friendly buttons, product search, and barcode scanning for quick checkout."
+        },
+        "payments": {
+          "title": "All Payment Types",
+          "description": "Cash, card, wallet, or split the bill across more than one method."
+        },
+        "register": {
+          "title": "Cash Register & Shifts",
+          "description": "Open and close the register, count cash, and track every employee shift."
+        },
+        "receipts": {
+          "title": "Printed & Digital Receipts",
+          "description": "Print thermal receipts or send a digital receipt link — in Arabic or English."
+        },
+        "inventory": {
+          "title": "Live Inventory",
+          "description": "Every sale updates your stock automatically. Get alerts before products run out."
+        },
+        "reports": {
+          "title": "Daily Sales Reports",
+          "description": "See today's sales, best products, and profit — from your phone."
+        }
+      }
+    },
+    "comparison": {
+      "title": "Cashvio vs Paid POS Systems",
+      "subtitle": "What you get free with Cashvio compared to typical paid cashier programs",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio (Free)",
+        "others": "Typical Paid POS"
+      },
+      "rows": {
+        "price": {
+          "feature": "Monthly price",
+          "cashvio": "0 — free forever",
+          "others": "Monthly fee that grows with your business"
+        },
+        "devices": {
+          "feature": "Extra devices",
+          "cashvio": "Included",
+          "others": "Paid per device"
+        },
+        "offline": {
+          "feature": "Works offline",
+          "cashvio": "Yes",
+          "others": "Often online-only"
+        },
+        "arabic": {
+          "feature": "Arabic interface & receipts",
+          "cashvio": "Built-in",
+          "others": "Missing or poor translation"
+        },
+        "inventory": {
+          "feature": "Inventory included",
+          "cashvio": "Yes, per variant and per store",
+          "others": "Extra paid module"
+        },
+        "storefront": {
+          "feature": "Free online store",
+          "cashvio": "Included",
+          "others": "Separate subscription"
+        },
+        "setup": {
+          "feature": "Setup",
+          "cashvio": "Minutes, no special hardware",
+          "others": "Days, technician needed"
+        },
+        "support": {
+          "feature": "Support",
+          "cashvio": "Arabic & English support",
+          "others": "English only"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about Cashvio's free POS and cashier software",
+      "q1": {
+        "question": "Is Cashvio's POS really free?",
+        "answer": "Yes. The free plan is free forever — cashier screen, receipts, inventory, and reports included. You only pay if you need advanced features or higher limits."
+      },
+      "q2": {
+        "question": "Do I need to enter a credit card?",
+        "answer": "No. Sign up with your email and phone number only."
+      },
+      "q3": {
+        "question": "Is it a free trial that expires?",
+        "answer": "No. It is not a trial. The free plan does not expire."
+      },
+      "q4": {
+        "question": "What devices does the free cashier work on?",
+        "answer": "Any device with a browser: computer, laptop, tablet, or phone. There is also a mobile app."
+      },
+      "q5": {
+        "question": "Does it support Arabic?",
+        "answer": "Yes — full Arabic interface, Arabic receipts, and right-to-left design. Each employee chooses their own language."
+      },
+      "q6": {
+        "question": "Can I print receipts on a thermal printer?",
+        "answer": "Yes, thermal printing is supported, plus digital receipt links you can send to customers."
+      },
+      "q7": {
+        "question": "Does the free plan include inventory?",
+        "answer": "Yes. Stock updates automatically with every sale, with low-stock alerts."
+      },
+      "q8": {
+        "question": "What happens when my business grows?",
+        "answer": "Upgrade only when you need more stores, users, or advanced features. Your data stays as it is."
+      }
+    },
+    "cta": {
+      "title": "Open Your Free Cashier Today",
+      "subtitle": "Sign up in 2 minutes, add your products, and make your first sale — free.",
+      "button": "Start Free Now",
+      "secondaryButton": "View Pricing",
+      "note": "Free forever • No credit card • Arabic & English"
+    }
+  },
+  "freeOnlineStore": {
+    "hero": {
+      "badge": "Free Forever",
+      "title": "Free Online Store",
+      "titleHighlight": "Connected to Your Shop",
+      "subtitle": "Create a free online store in minutes — your products, prices, and stock sync automatically with your shop's cashier. No commissions, no monthly fee, no coding.",
+      "cta": "Create Your Free Store",
+      "secondaryCta": "View All Features",
+      "trust": "Free forever plan — no commission on your sales"
+    },
+    "problem": {
+      "badge": "The Problem",
+      "title": "Store Builders Are Expensive and Disconnected",
+      "subtitle": "Website builders charge monthly, take commissions, and know nothing about your shop's inventory.",
+      "painPoints": {
+        "monthlyCost": {
+          "title": "Expensive Subscriptions",
+          "description": "Store builders start cheap then push you to plans that cost more than your rent."
+        },
+        "commissions": {
+          "title": "Commission on Every Sale",
+          "description": "Some platforms take a cut of every order — the more you sell, the more you lose."
+        },
+        "separateStock": {
+          "title": "Separate Inventory",
+          "description": "Your store and your shop don't talk. You sell online what ran out in-store, and customers get angry."
+        },
+        "techSkills": {
+          "title": "Needs Technical Skills",
+          "description": "Themes, plugins, hosting... you wanted to sell products, not build websites."
+        },
+        "weakArabic": {
+          "title": "Weak Arabic Stores",
+          "description": "Most builders can't do a proper right-to-left Arabic storefront."
+        },
+        "deliveryChaos": {
+          "title": "Delivery Chaos",
+          "description": "Orders arrive by phone and chat with no system — addresses get lost and orders are missed."
+        }
+      }
+    },
+    "solution": {
+      "badge": "The Cashvio Way",
+      "title": "A Free Store That Knows Your Inventory",
+      "subtitle": "Your online store and your cashier share one inventory, one customer list, and one dashboard.",
+      "points": {
+        "reallyFree": {
+          "title": "Free, No Commission",
+          "description": "Create your store on the free plan and keep 100% of every sale."
+        },
+        "oneInventory": {
+          "title": "One Inventory",
+          "description": "Stock updates the moment you sell — in-store or online. No overselling."
+        },
+        "readyFast": {
+          "title": "Ready in Minutes",
+          "description": "Pick your store name, add products, share your link. No hosting, no code."
+        },
+        "arabicFirst": {
+          "title": "Arabic and English",
+          "description": "A real Arabic right-to-left storefront, or English, or both."
+        }
+      }
+    },
+    "features": {
+      "badge": "What You Get Free",
+      "title": "Everything a Real Online Store Needs",
+      "subtitle": "Your free store comes complete — not a stripped-down demo.",
+      "items": {
+        "catalog": {
+          "title": "Product Catalog",
+          "description": "Photos, variants (size, color), prices, and categories — organized and searchable."
+        },
+        "payments": {
+          "title": "Payment Options",
+          "description": "Cash on delivery and the payment methods you choose per store."
+        },
+        "delivery": {
+          "title": "Delivery Zones",
+          "description": "Set delivery areas and fees, and collect clear addresses on every order."
+        },
+        "coupons": {
+          "title": "Coupons & Discounts",
+          "description": "Create discount codes that work in your store and at your cashier."
+        },
+        "seo": {
+          "title": "Google-Ready",
+          "description": "Fast pages with proper titles so customers find your store on Google."
+        },
+        "notifications": {
+          "title": "Order Alerts",
+          "description": "Get notified on your phone the second a new order arrives."
+        }
+      }
+    },
+    "posLink": {
+      "badge": "Better Together",
+      "title": "Your Online Store and Free Cashier, One System",
+      "subtitle": "Cashvio connects your online store with a free POS so everything stays in sync.",
+      "cta": "Explore the free POS system",
+      "items": {
+        "inventory": {
+          "title": "One Stock Count",
+          "description": "Sell in-store and online from the same inventory, updated in real time."
+        },
+        "customers": {
+          "title": "One Customer List",
+          "description": "A customer who buys online and in-store has one profile and one history."
+        },
+        "orders": {
+          "title": "One Order Queue",
+          "description": "Online orders and shop sales in one screen — nothing gets missed."
+        },
+        "reports": {
+          "title": "One Report",
+          "description": "See your whole business — shop plus online — in one daily report."
+        }
+      }
+    },
+    "comparison": {
+      "title": "Cashvio vs Store Builders",
+      "subtitle": "What you get free with Cashvio compared to typical online store platforms",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio (Free)",
+        "others": "Typical Store Builders"
+      },
+      "rows": {
+        "price": {
+          "feature": "Monthly price",
+          "cashvio": "0 — free forever",
+          "others": "Paid plans for basic features"
+        },
+        "commission": {
+          "feature": "Commission on sales",
+          "cashvio": "0%",
+          "others": "Percentage of every order"
+        },
+        "pos": {
+          "feature": "Cashier (POS) included",
+          "cashvio": "Yes, free",
+          "others": "Not included"
+        },
+        "inventory": {
+          "feature": "Synced with shop inventory",
+          "cashvio": "Automatic",
+          "others": "Manual or extra apps"
+        },
+        "arabic": {
+          "feature": "Arabic storefront",
+          "cashvio": "Built-in RTL",
+          "others": "Poor or missing"
+        },
+        "setup": {
+          "feature": "Setup",
+          "cashvio": "Minutes, no code",
+          "others": "Themes, plugins, hosting"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about Cashvio's free online store",
+      "q1": {
+        "question": "Is the online store really free?",
+        "answer": "Yes. The free plan includes your online storefront, with no commission on sales."
+      },
+      "q2": {
+        "question": "Do you take a percentage of my sales?",
+        "answer": "No. Cashvio takes 0% commission. You keep every pound."
+      },
+      "q3": {
+        "question": "Do I need a domain or hosting?",
+        "answer": "No. Your store gets a link that works immediately. Hosting is included."
+      },
+      "q4": {
+        "question": "Can my store be in Arabic?",
+        "answer": "Yes — a real right-to-left Arabic storefront, English, or both together."
+      },
+      "q5": {
+        "question": "Does it sync with my shop's cashier?",
+        "answer": "Yes. One inventory, one customer list, and one order queue for in-store and online."
+      },
+      "q6": {
+        "question": "How do customers pay?",
+        "answer": "Cash on delivery plus any payment methods you enable for your store."
+      },
+      "q7": {
+        "question": "Can I set delivery areas and fees?",
+        "answer": "Yes. Define delivery zones with a fee for each area."
+      },
+      "q8": {
+        "question": "Do I need technical skills?",
+        "answer": "No. Add products with photos and prices and share your store link — that's it."
+      }
+    },
+    "cta": {
+      "title": "Create Your Free Online Store Today",
+      "subtitle": "Your products online in minutes — synced with a free cashier for your shop.",
+      "button": "Create My Free Store",
+      "secondaryButton": "View Pricing",
+      "note": "Free forever • 0% commission • Arabic & English"
+    }
   }
 }

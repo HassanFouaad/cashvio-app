@@ -34,9 +34,11 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
+// Only the weights actually used — every extra weight is a render-blocking
+// font file on Arabic pages and hurts LCP (Core Web Vitals)
 const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["200", "300", "400", "500", "700", "800", "900"],
+  weight: ["400", "500", "700"],
   display: "swap",
   variable: "--font-arabic",
   preload: true,
