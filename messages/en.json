@@ -116,9 +116,9 @@
       "freeNote": "Free forever • Start in seconds • No commitment",
       "imageAlt": "Cashvio dashboard showing orders, inventory, and sales analytics",
       "trustedBy": "",
-      "eyebrow": "Cashvio — The Shopkeeper's Ledger",
+      "eyebrow": "Cashvio — everything your shop needs",
       "live": "LIVE",
-      "screenCaption": "Counter view — your portal",
+      "screenCaption": "Live view — your dashboard",
       "receipt": {
         "title": "Cashvio * Welcome Receipt",
         "number": "NO. 000001 — YOUR SHOP",
@@ -148,7 +148,7 @@
             "value": "0.00"
           }
         ],
-        "totalLabel": "Total due",
+        "totalLabel": "Total",
         "totalValue": "EGP 0.00",
         "stamp": "Free forever",
         "thanks": "Thank you for opening your shop with us"
@@ -175,7 +175,7 @@
         "description": "Process orders from any channel, track performance with real-time analytics, and grow your business with smart, data-driven insights.",
         "time": "08:30 AM"
       },
-      "eyebrow": "NO. 02 — OPENING DAY"
+      "eyebrow": "NO. 02 — YOUR FIRST DAY"
     },
     "features": {
       "title": "Everything You Need to Run Your Business",
@@ -244,7 +244,7 @@
         "sub3": "Email-based team invitations",
         "sub4": "Activity audit trails & user management"
       },
-      "eyebrow": "NO. 01 — THE DAY BOOK",
+      "eyebrow": "NO. 01 — WHAT YOU GET",
       "lineValue": "INCLUDED — 0.00"
     },
     "benefits": {
@@ -462,7 +462,7 @@
         "analytics": "Analytics",
         "customers": "Customers"
       },
-      "eyebrow": "NO. 03 — ON THE COUNTER"
+      "eyebrow": "NO. 03 — SEE IT IN ACTION"
     },
     "ticker": {
       "lines": [
@@ -480,8 +480,8 @@
     },
     "endOfDay": {
       "eyebrow": "NO. 05 — END OF DAY",
-      "slipTitle": "Closing count",
-      "slipNumber": "Z-REPORT 001",
+      "slipTitle": "Daily summary",
+      "slipNumber": "REPORT 001",
       "includedLabel": "Included",
       "totalLabel": "Total hidden fees",
       "totalValue": "EGP 0.00",
@@ -604,7 +604,7 @@
       "docsLink": "Browse Documentation",
       "supportLink": "Visit Help Center"
     },
-    "slipTitle": "Message slip",
+    "slipTitle": "Your message",
     "slipNumber": "FORM 001"
   },
   "privacy": {

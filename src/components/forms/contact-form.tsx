@@ -211,21 +211,15 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div
-        className="text-center py-12 px-6 bg-primary/5 dark:bg-primary/10 rounded-xl"
-        dir={isRtl ? 'rtl' : 'ltr'}
-      >
-      
-        <h3 className="text-2xl font-bold text-foreground mb-3">
-          {t('success.title')}
-        </h3>
-        <p className="text-muted-foreground mb-6 max-w-sm mx-auto">
+      <div className="text-center py-12 px-6" dir={isRtl ? 'rtl' : 'ltr'}>
+        <span className="stamp text-primary">{t('success.title')}</span>
+        <p className="text-muted-foreground mb-6 mt-8 max-w-sm mx-auto">
           {t('success.message')}
         </p>
         <button
           onClick={handleReset}
           className={cn(
-            'inline-flex items-center gap-2 px-6 py-3 rounded-full',
+            'inline-flex items-center gap-2 h-11 px-6 rounded-lg',
             'bg-primary hover:bg-primary-dark text-primary-foreground font-medium',
             'transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50'
           )}
@@ -240,6 +234,7 @@ export function ContactForm() {
           </svg>
           {t('success.sendAnother')}
         </button>
+        <div className="barcode w-28 mx-auto mt-8 text-foreground/50" aria-hidden="true" />
       </div>
     );
   }
@@ -251,8 +246,8 @@ export function ContactForm() {
       dir={isRtl ? 'rtl' : 'ltr'}
     >
       {/* Header */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-foreground mb-2">
           {t('title')}
         </h2>
         <p className="text-muted-foreground">{t('subtitle')}</p>
@@ -260,7 +255,7 @@ export function ContactForm() {
 
       {/* General Error */}
       {errors.general && (
-        <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm flex items-start gap-3">
+        <div className="p-4 border border-dashed border-destructive/50 text-destructive text-sm flex items-start gap-3">
           <svg
             className="w-5 h-5 flex-shrink-0 mt-0.5"
             fill="none"
@@ -280,10 +275,7 @@ export function ContactForm() {
 
       {/* Inquiry Type */}
       <div className="space-y-2">
-        <label
-          htmlFor="type"
-          className="block text-sm font-medium text-foreground"
-        >
+        <label htmlFor="type" className="block mono-label text-muted-foreground">
           {t('fields.type')}
         </label>
         <div className="relative">
@@ -292,12 +284,7 @@ export function ContactForm() {
             name="type"
             value={formData.type}
             onChange={handleChange}
-            className={cn(
-              'w-full h-12 px-4 rounded-xl border bg-background text-foreground',
-              'appearance-none cursor-pointer',
-              'transition-all focus:outline-none focus:ring-2 focus:ring-offset-0',
-              'border-input focus:ring-primary/30 focus:border-primary'
-            )}
+            className="paper-input appearance-none cursor-pointer pe-8"
           >
             {Object.values(InquiryType).map((type) => (
               <option key={type} value={type}>
@@ -306,7 +293,7 @@ export function ContactForm() {
             ))}
           </select>
           <svg
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none"
+            className="absolute end-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -321,15 +308,12 @@ export function ContactForm() {
         </div>
       </div>
 
-      {/* Name & Email Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Name & Email — each writes on its own full line */}
+      <div className="space-y-6">
         {/* Name */}
         <div className="space-y-2">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.name')} <span className="text-red-500">*</span>
+          <label htmlFor="name" className="block mono-label text-muted-foreground">
+            {t('fields.name')} <span className="text-destructive">*</span>
           </label>
           <input
             id="name"
@@ -337,42 +321,18 @@ export function ContactForm() {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            className={cn(
-              'w-full h-12 px-4 rounded-xl border bg-background text-foreground',
-              'transition-all focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.name
-                ? 'border-red-300 focus:ring-red-500/30 focus:border-red-500'
-                : 'border-input focus:ring-primary/30 focus:border-primary'
-            )}
+            className={cn('paper-input', errors.name && 'paper-input-error')}
             placeholder={t('placeholders.name')}
           />
           {errors.name && (
-            <p className="text-sm text-red-500 flex items-center gap-1">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4m0 4h.01"
-                />
-              </svg>
-              {errors.name}
-            </p>
+            <p className="font-receipt text-xs text-destructive">{errors.name}</p>
           )}
         </div>
 
         {/* Email */}
         <div className="space-y-2">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-foreground"
-          >
-            {t('fields.email')} <span className="text-red-500">*</span>
+          <label htmlFor="email" className="block mono-label text-muted-foreground">
+            {t('fields.email')} <span className="text-destructive">*</span>
           </label>
           <input
             id="email"
@@ -380,44 +340,19 @@ export function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className={cn(
-              'w-full h-12 px-4 rounded-xl border bg-background text-foreground',
-              'transition-all focus:outline-none focus:ring-2 focus:ring-offset-0',
-              errors.email
-                ? 'border-red-300 focus:ring-red-500/30 focus:border-red-500'
-                : 'border-input focus:ring-primary/30 focus:border-primary'
-            )}
+            className={cn('paper-input', errors.email && 'paper-input-error')}
             placeholder={t('placeholders.email')}
           />
           {errors.email && (
-            <p className="text-sm text-red-500 flex items-center gap-1">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4m0 4h.01"
-                />
-              </svg>
-              {errors.email}
-            </p>
+            <p className="font-receipt text-xs text-destructive">{errors.email}</p>
           )}
         </div>
       </div>
 
       {/* Phone (Optional) */}
       <div className="space-y-2">
-        <label
-          htmlFor="phone"
-          className="block text-sm font-medium text-foreground"
-        >
-          {t('fields.phone')}{' '}
-          <span className="text-muted-foreground text-xs">(optional)</span>
+        <label htmlFor="phone" className="block mono-label text-muted-foreground">
+          {t('fields.phone')}
         </label>
         <PhoneInput
           id="phone"
@@ -427,35 +362,16 @@ export function ContactForm() {
           error={!!errors.phone}
           placeholder={t('placeholders.phone')}
           dir="ltr"
-          className="[&_input]:h-12 [&_input]:rounded-xl [&>div]:rounded-xl"
         />
         {errors.phone && (
-          <p className="text-sm text-red-500 flex items-center gap-1">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01"
-              />
-            </svg>
-            {errors.phone}
-          </p>
+          <p className="font-receipt text-xs text-destructive">{errors.phone}</p>
         )}
       </div>
 
       {/* Subject */}
       <div className="space-y-2">
-        <label
-          htmlFor="subject"
-          className="block text-sm font-medium text-foreground"
-        >
-          {t('fields.subject')} <span className="text-red-500">*</span>
+        <label htmlFor="subject" className="block mono-label text-muted-foreground">
+          {t('fields.subject')} <span className="text-destructive">*</span>
         </label>
         <input
           id="subject"
@@ -463,42 +379,18 @@ export function ContactForm() {
           type="text"
           value={formData.subject}
           onChange={handleChange}
-          className={cn(
-            'w-full h-12 px-4 rounded-xl border bg-background text-foreground',
-            'transition-all focus:outline-none focus:ring-2 focus:ring-offset-0',
-            errors.subject
-              ? 'border-red-300 focus:ring-red-500/30 focus:border-red-500'
-              : 'border-input focus:ring-primary/30 focus:border-primary'
-          )}
+          className={cn('paper-input', errors.subject && 'paper-input-error')}
           placeholder={t('placeholders.subject')}
         />
         {errors.subject && (
-          <p className="text-sm text-red-500 flex items-center gap-1">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01"
-              />
-            </svg>
-            {errors.subject}
-          </p>
+          <p className="font-receipt text-xs text-destructive">{errors.subject}</p>
         )}
       </div>
 
       {/* Message */}
       <div className="space-y-2">
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-foreground"
-        >
-          {t('fields.message')} <span className="text-red-500">*</span>
+        <label htmlFor="message" className="block mono-label text-muted-foreground">
+          {t('fields.message')} <span className="text-destructive">*</span>
         </label>
         <textarea
           id="message"
@@ -506,32 +398,11 @@ export function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          className={cn(
-            'w-full px-4 py-3 rounded-xl border bg-background text-foreground resize-none',
-            'transition-all focus:outline-none focus:ring-2 focus:ring-offset-0',
-            errors.message
-              ? 'border-red-300 focus:ring-red-500/30 focus:border-red-500'
-              : 'border-input focus:ring-primary/30 focus:border-primary'
-          )}
+          className={cn('paper-input', errors.message && 'paper-input-error')}
           placeholder={t('placeholders.message')}
         />
         {errors.message && (
-          <p className="text-sm text-red-500 flex items-center gap-1">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01"
-              />
-            </svg>
-            {errors.message}
-          </p>
+          <p className="font-receipt text-xs text-destructive">{errors.message}</p>
         )}
       </div>
 
@@ -540,14 +411,11 @@ export function ContactForm() {
         type="submit"
         disabled={isSubmitting}
         className={cn(
-          'w-full h-14 px-8 rounded-xl font-semibold',
-          'bg-primary text-primary-foreground',
-          'hover:bg-primary/90',
-          'shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30',
-          'transform hover:-translate-y-0.5 active:translate-y-0',
-          'transition-all duration-200 ease-out',
+          'w-full h-12 px-8 rounded-lg font-semibold',
+          'bg-primary text-primary-foreground hover:bg-primary-dark',
+          'transition-colors duration-200',
           'focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2',
-          'disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none'
+          'disabled:opacity-50 disabled:cursor-not-allowed'
         )}
       >
         {isSubmitting ? (

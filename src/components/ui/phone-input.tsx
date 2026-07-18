@@ -188,11 +188,9 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       <div className={cn('relative', className)} dir={dir} ref={dropdownRef}>
         <div
           className={cn(
-            'flex h-11 w-full rounded-lg border bg-background text-sm transition-colors',
-            error
-              ? 'border-destructive focus-within:ring-destructive/30'
-              : 'border-input focus-within:ring-ring/30',
-            'focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-0',
+            'flex h-11 w-full border-0 border-b border-dashed bg-transparent text-sm transition-colors',
+            error ? 'border-destructive' : 'border-ledger-line',
+            'focus-within:border-primary',
             disabled && 'cursor-not-allowed opacity-50'
           )}
         >
@@ -201,10 +199,10 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             type="button"
             onClick={() => !disabled && setIsOpen(!isOpen)}
             className={cn(
-              'flex items-center gap-1.5 px-3 border-r border-input bg-muted/50 rounded-l-lg',
-              'hover:bg-muted transition-colors',
+              'flex items-center gap-1.5 px-2 pe-3 border-e border-dashed border-ledger-line',
+              'hover:text-foreground transition-colors',
               disabled && 'pointer-events-none',
-              dir === 'rtl' && 'order-last rounded-l-none rounded-r-lg border-r-0 border-l border-input'
+              dir === 'rtl' && 'order-last'
             )}
             disabled={disabled}
           >
@@ -246,8 +244,8 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             value={phoneNumber}
             onChange={handlePhoneChange}
             className={cn(
-              'flex-1 px-3 py-2 bg-transparent outline-none',
-              'placeholder:text-muted-foreground',
+              'paper-input-bare flex-1 px-2 py-2 bg-transparent outline-none',
+              'placeholder:text-muted-foreground/70',
               dir === 'rtl' && 'text-right'
             )}
             disabled={disabled}
@@ -259,20 +257,20 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         {isOpen && (
           <div
             className={cn(
-              'absolute z-50 mt-1 w-full rounded-lg border border-input bg-background shadow-lg',
+              'absolute z-50 mt-1 w-full rounded-lg border border-border bg-card',
               'max-h-64 overflow-hidden'
             )}
           >
             {/* Search Input */}
-            <div className="p-2 border-b border-input">
+            <div className="p-2 border-b border-dashed border-ledger-line">
               <input
                 type="text"
                 placeholder="Search country..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={cn(
-                  'w-full px-3 py-2 text-sm rounded-md border border-input bg-background',
-                  'outline-none focus:ring-2 focus:ring-ring/30'
+                  'w-full px-3 py-2 text-sm rounded-md border border-border bg-background',
+                  'outline-none focus:border-primary'
                 )}
                 autoFocus
               />

@@ -208,10 +208,7 @@ export function RegistrationForm() {
     >
       {/* Business Name */}
       <div className="space-y-2">
-        <label
-          htmlFor="businessName"
-          className="block text-sm font-medium text-foreground"
-        >
+        <label htmlFor="businessName" className="block mono-label text-muted-foreground">
           {t('fields.businessName')} <span className="text-destructive">*</span>
         </label>
         <input
@@ -220,26 +217,17 @@ export function RegistrationForm() {
           type="text"
           value={formData.businessName}
           onChange={handleChange}
-          className={cn(
-            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-            errors.businessName
-              ? 'border-destructive focus:ring-destructive/30'
-              : 'border-input focus:ring-ring/30'
-          )}
+          className={cn('paper-input', errors.businessName && 'paper-input-error')}
           placeholder={t('placeholders.businessName')}
         />
         {errors.businessName && (
-          <p className="text-sm text-destructive">{errors.businessName}</p>
+          <p className="font-receipt text-xs text-destructive">{errors.businessName}</p>
         )}
       </div>
 
       {/* Phone */}
       <div className="space-y-2">
-        <label
-          htmlFor="contactPhone"
-          className="block text-sm font-medium text-foreground"
-        >
+        <label htmlFor="contactPhone" className="block mono-label text-muted-foreground">
           {t('fields.phone')} <span className="text-destructive">*</span>
         </label>
         <PhoneInput
@@ -252,16 +240,13 @@ export function RegistrationForm() {
           dir="ltr"
         />
         {errors.contactPhone && (
-          <p className="text-sm text-destructive">{errors.contactPhone}</p>
+          <p className="font-receipt text-xs text-destructive">{errors.contactPhone}</p>
         )}
       </div>
 
       {/* Email */}
       <div className="space-y-2">
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-foreground"
-        >
+        <label htmlFor="email" className="block mono-label text-muted-foreground">
           {t('fields.email')} <span className="text-destructive">*</span>
         </label>
         <input
@@ -271,26 +256,17 @@ export function RegistrationForm() {
           value={formData.email}
           onChange={handleChange}
           autoComplete="email"
-          className={cn(
-            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-            errors.email
-              ? 'border-destructive focus:ring-destructive/30'
-              : 'border-input focus:ring-ring/30'
-          )}
+          className={cn('paper-input', errors.email && 'paper-input-error')}
           placeholder={t('placeholders.email')}
         />
         {errors.email && (
-          <p className="text-sm text-destructive">{errors.email}</p>
+          <p className="font-receipt text-xs text-destructive">{errors.email}</p>
         )}
       </div>
 
       {/* Password */}
       <div className="space-y-2">
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-foreground"
-        >
+        <label htmlFor="password" className="block mono-label text-muted-foreground">
           {t('fields.password')} <span className="text-destructive">*</span>
         </label>
         <input
@@ -300,23 +276,17 @@ export function RegistrationForm() {
           value={formData.password}
           onChange={handleChange}
           autoComplete="new-password"
-          className={cn(
-            'w-full h-11 px-4 rounded-lg border bg-background text-foreground',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0',
-            errors.password
-              ? 'border-destructive focus:ring-destructive/30'
-              : 'border-input focus:ring-ring/30'
-          )}
+          className={cn('paper-input', errors.password && 'paper-input-error')}
           placeholder={t('placeholders.password')}
         />
         {errors.password && (
-          <p className="text-sm text-destructive">{errors.password}</p>
+          <p className="font-receipt text-xs text-destructive">{errors.password}</p>
         )}
       </div>
 
       {/* General Error - Displayed right before submit button */}
       {errors.general && (
-        <div className="p-4 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm flex items-start gap-3">
+        <div className="p-4 border border-dashed border-destructive/50 text-destructive text-sm flex items-start gap-3">
           <svg
             className="w-5 h-5 flex-shrink-0 mt-0.5"
             fill="none"

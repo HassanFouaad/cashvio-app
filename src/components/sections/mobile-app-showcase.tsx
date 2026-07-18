@@ -67,7 +67,7 @@ export function MobileAppShowcase() {
                     'mono-label px-4 py-2 border border-dashed transition-colors duration-200',
                     activeView === index
                       ? 'border-primary text-primary bg-primary/5'
-                      : 'border-border text-muted-foreground hover:text-foreground'
+                      : 'border-ledger-line text-muted-foreground hover:text-foreground'
                   )}
                 >
                   {index === 0 ? tApp('badge') : tApp2('badge')}
