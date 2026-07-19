@@ -1,0 +1,71 @@
+---
+title: Customer Order Tracking
+description: Your online store includes a self-serve tracking page where customers follow their order status using the order number and phone — no account needed.
+---
+
+## Overview
+
+Every Cashvio storefront ships with a **Track Order** page at `/track` (for example `yourstore.cash-vio.com/track`). Customers look up their order with two things:
+
+- The **order number** they received on the order-success page
+- The **phone number** they entered at checkout
+
+No customer account or login is required.
+
+<Callout title="Where customers find it">
+The order-success page shows the order number with a copy button and a **Track order** link. The tracking page is also linked from the storefront footer.
+</Callout>
+
+## What Customers See
+
+The tracking page shows a live view of the order:
+
+- **Status timeline** — the order's progress through fulfillment
+- **Order items** — products and quantities
+- **Totals** — subtotal, discounts, fees, and the final amount
+
+The timeline follows the order's **fulfillment status**:
+
+| Status | What it means for the customer |
+|--------|-------------------------------|
+| **Pending** | Order received, not started yet |
+| **Preparing** | The store is working on the order |
+| **Ready** | Ready for pickup (pickup orders) |
+| **Delivering** | Out for delivery (delivery orders) |
+| **Completed** | Order fulfilled |
+| **Cancelled** | Order was cancelled |
+
+## Keeping the Page Accurate
+
+The tracking page reflects whatever fulfillment status the order has **right now**. To keep customers informed:
+
+1. Open the order from **Sales > All Sales**.
+2. Update the **fulfillment status** as the order progresses (Preparing → Ready → Delivering → Completed).
+3. Optionally click **WhatsApp customer** to send a status message — the tracking link gives customers a place to check anytime without messaging you.
+
+<Callout title="Fewer 'where is my order?' calls">
+Merchants who update statuses promptly get fewer WhatsApp check-ins — the customer's answer is always one page away.
+</Callout>
+
+## Requirements & Tips
+
+- The phone number must **match the one entered at checkout** — customers who typo their phone at checkout won't be able to look the order up; you can always share the status manually from order details.
+- Tracking is available for **online store orders**. POS sales are shared via the digital receipt instead.
+- The page follows your storefront language — customers can switch between Arabic and English.
+
+## Related Features
+
+- [Checkout Flow](/docs/online-store/checkout-flow) — What customers do before the tracking page matters
+- [Managing Orders](/docs/orders/managing-orders) — Updating fulfillment statuses
+- [WhatsApp Sharing](/docs/orders/whatsapp-sharing) — Proactive status updates on WhatsApp
+
+## FAQs
+
+**Q: Do customers need an account to track orders?**
+A: No. The order number plus the checkout phone number is all they need.
+
+**Q: Can a customer see someone else's order?**
+A: No. Both the order number and the matching phone number are required, and lookups are rate-limited.
+
+**Q: What shows for pickup orders vs delivery orders?**
+A: The timeline adapts — pickup orders show **Ready** for collection, delivery orders show **Delivering** on the way.

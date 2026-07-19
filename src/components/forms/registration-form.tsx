@@ -9,9 +9,10 @@ import {
   trackFormError,
   trackRegistrationStart,
   trackRegistrationComplete,
+  getRegistrationSource,
 } from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import * as React from 'react';
 import { saveThemePreference, saveLanguagePreference, getThemePreference } from '@/lib/utils/cross-app-sync';
 
@@ -24,8 +25,19 @@ const VALIDATION = {
   CONTACT_PHONE_MAX: 50,
   EMAIL_MAX: 255,
   PASSWORD_MIN: 8,
-  PASSWORD_MAX: 255,
+  // Backend RegisterDto caps passwords at 128 — a higher client limit lets
+  // 129+ char passwords pass locally and fail server-side with a raw error
+  PASSWORD_MAX: 128,
 } as const;
+
+/**
+ * Plan intent passed from the pricing page as ?plan=<slug>.
+ * Read lazily (not via useSearchParams) so the page can stay static.
+ */
+function getSelectedPlan(): string | undefined {
+  if (typeof window === 'undefined') return undefined;
+  return new URLSearchParams(window.location.search).get('plan') || undefined;
+}
 
 // ============================================================================
 // Types
@@ -72,7 +84,7 @@ export function RegistrationForm() {
   const handleFormInteraction = React.useCallback(() => {
     if (!hasTrackedFormStart) {
       trackFormStart('registration_form', 'register_page');
-      trackRegistrationStart('direct');
+      trackRegistrationStart(getRegistrationSource());
       setHasTrackedFormStart(true);
     }
   }, [hasTrackedFormStart]);
@@ -168,9 +180,9 @@ export function RegistrationForm() {
 
       await authService.register(registerData, localeConfig);
 
-      // Success! Track registration
+      // Success! Track registration with the plan chosen on the pricing page
       trackFormSubmit('registration_form', 'register_page');
-      trackRegistrationComplete();
+      trackRegistrationComplete(getSelectedPlan());
 
       // Save preferences for cross-app sync
       // Note: Auth tokens are now set as HttpOnly cookies by the backend
@@ -349,13 +361,13 @@ export function RegistrationForm() {
       {/* Terms */}
       <p className="text-xs text-center text-muted-foreground">
         {t('terms.prefix')}{' '}
-        <a href="/terms" className="text-primary hover:underline">
+        <Link href="/terms" className="text-primary hover:underline">
           {t('terms.termsOfService')}
-        </a>{' '}
+        </Link>{' '}
         {t('terms.and')}{' '}
-        <a href="/privacy" className="text-primary hover:underline">
+        <Link href="/privacy" className="text-primary hover:underline">
           {t('terms.privacyPolicy')}
-        </a>
+        </Link>
       </p>
     </form>
   );

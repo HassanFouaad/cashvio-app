@@ -16,6 +16,7 @@ export const mainNavigation: NavItem[] = [
   { key: 'features', href: '/features' },
   { key: 'freePos', href: '/features/free-pos' },
   { key: 'pricing', href: '/pricing' },
+  { key: 'tools', href: '/tools' },
   { key: 'docs', href: '/docs' },
   { key: 'contact', href: '/contact' },
 ];
@@ -48,6 +49,19 @@ export const footerNavigation: FooterSection[] = [
     ],
   },
   {
+    key: 'resources',
+    items: [
+      { key: 'tools', href: '/tools' },
+      { key: 'barcodeGenerator', href: '/tools/barcode-generator' },
+      { key: 'qrCodeGenerator', href: '/tools/qr-code-generator' },
+      { key: 'marginCalculator', href: '/tools/profit-margin-calculator' },
+      { key: 'industryCafe', href: '/industries/cafe' },
+      { key: 'industryClothing', href: '/industries/clothing' },
+      { key: 'industryMinimarket', href: '/industries/minimarket' },
+      { key: 'changelog', href: '/docs/changelog' },
+    ],
+  },
+  {
     key: 'company',
     items: [
       { key: 'about', href: '/contact' },
@@ -68,6 +82,8 @@ export const ctaLinks = {
   login: env.portal.loginUrl, // External portal login
   portal: env.portal.url, // Portal base URL
   dashboard: env.portal.dashboardUrl, // Portal dashboard
-  demo: '/docs',
+  // Demo requests go through the contact form (DEMO inquiry type) —
+  // keep in sync with urls.demo in config/seo.ts
+  demo: '/contact',
 } as const;
 

@@ -77,6 +77,12 @@ export const env = {
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'support@cash-vio.com',
     phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '',
+    // WhatsApp number in international format (digits only or with +).
+    // Falls back to the contact phone; WhatsApp surfaces hide when both are empty.
+    whatsapp:
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
+      process.env.NEXT_PUBLIC_CONTACT_PHONE ||
+      '',
     address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS || '',
   },
 

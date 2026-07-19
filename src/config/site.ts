@@ -28,6 +28,7 @@ export const siteConfig = {
   contact: {
     email: env.contact.email,
     phone: env.contact.phone,
+    whatsapp: env.contact.whatsapp,
     address: {
       street: env.contact.address || '123 Business Avenue',
       city: 'Cairo',
@@ -36,10 +37,12 @@ export const siteConfig = {
   },
 
   social: {
-    twitter: env.social.twitter || '@cashvio',
+    twitter: env.social.twitter,
+    twitterUrl: env.social.twitter,
     facebook: env.social.facebook || 'https://facebook.com/cashvio',
     linkedin: env.social.linkedin || 'https://linkedin.com/company/cashvio',
     instagram: env.social.instagram || 'https://instagram.com/cashvioapp',
+    youtube: env.social.youtube,
   },
 
   links: {

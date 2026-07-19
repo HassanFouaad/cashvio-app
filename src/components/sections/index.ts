@@ -4,6 +4,7 @@ export * from './features';
 export * from './product-showcase';
 export * from './mobile-app-showcase';
 export * from './end-of-day';
+export * from './testimonials';
 export * from './cta';
 export * from './pricing-plans';
 export * from './pricing-plan-card';

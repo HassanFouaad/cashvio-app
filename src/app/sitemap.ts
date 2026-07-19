@@ -35,6 +35,19 @@ const staticPages: PageConfig[] = [
   { path: '/docs' },
   { path: '/privacy' },
   { path: '/terms' },
+
+  { path: '/tools' },
+  { path: '/tools/barcode-generator' },
+  { path: '/tools/qr-code-generator' },
+  { path: '/tools/profit-margin-calculator' },
+
+  { path: '/compare/loyverse' },
+  { path: '/compare/foodics' },
+  { path: '/compare/odoo-pos' },
+
+  { path: '/industries/cafe' },
+  { path: '/industries/clothing' },
+  { path: '/industries/minimarket' },
 ];
 
 const locales = ['en', 'ar'] as const;

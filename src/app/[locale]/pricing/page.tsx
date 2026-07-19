@@ -3,8 +3,16 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n/routing";
 import { PricingPlans } from "@/components/sections/pricing-plans";
-import { AlsoFreeStrip, FaqSection, LedgerHero, ReceiptStamp } from "@/components/marketing";
+import {
+  AlsoFreeStrip,
+  FaqSection,
+  LedgerHeading,
+  LedgerHero,
+  PlanMatrix,
+  ReceiptStamp,
+} from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
+import { getWhatsAppLink } from "@/lib/utils/whatsapp";
 import {
   schemaTemplates,
   serializeSchema,
@@ -67,6 +75,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const planKeys = ["starter", "professional", "enterprise"] as const;
 const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
+const matrixRowKeys = [
+  "pos",
+  "onlineStore",
+  "products",
+  "orders",
+  "inventory",
+  "reports",
+  "whatsapp",
+  "stores",
+  "team",
+  "devices",
+] as const;
 
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
@@ -78,6 +98,19 @@ export default async function PricingPage({ params }: Props) {
     locale,
     namespace: "metadata.pricing",
   });
+  const whatsAppLink = getWhatsAppLink(t("whatsapp.prefill"));
+
+  // Boolean rows render as ✓ in both columns; limit rows print text per column
+  const textualMatrixRows: ReadonlyArray<(typeof matrixRowKeys)[number]> = [
+    "stores",
+    "team",
+    "devices",
+  ];
+  const matrixRows = matrixRowKeys.map((key) => ({
+    feature: t(`matrix.rows.${key}.feature`),
+    free: textualMatrixRows.includes(key) ? t(`matrix.rows.${key}.free`) : true,
+    paid: textualMatrixRows.includes(key) ? t(`matrix.rows.${key}.paid`) : true,
+  }));
 
   // Fetch plans from API (SSR) with Accept-Language header
   const plans = await getPublicPlans(undefined, locale);
@@ -147,6 +180,25 @@ export default async function PricingPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Plan comparison matrix — what's in free vs paid */}
+      <section aria-label={t("matrix.title")} className="section-padding-sm ledger-rules border-t border-border">
+        <div className="container-wide">
+          <LedgerHeading
+            title={t("matrix.title")}
+            subtitle={t("matrix.subtitle")}
+            align="center"
+          />
+          <PlanMatrix
+            headers={{
+              feature: t("matrix.headers.feature"),
+              free: t("matrix.headers.free"),
+              paid: t("matrix.headers.paid"),
+            }}
+            rows={matrixRows}
+          />
+        </div>
+      </section>
+
       {/* Money Back Guarantee — a stamped ledger note */}
       <section className="py-10 sm:py-12 ledger-rules border-y border-border">
         <div className="container-wide">
@@ -158,6 +210,31 @@ export default async function PricingPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* WhatsApp lane — the channel Egyptian merchants actually prefer */}
+      {whatsAppLink && (
+        <section aria-label={t("whatsapp.title")} className="py-10 sm:py-12">
+          <div className="container-wide">
+            <div className="receipt-edge bg-card max-w-2xl mx-auto px-6 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
+              <div className="text-center sm:text-start">
+                <h2 className="text-lg font-semibold text-foreground">{t("whatsapp.title")}</h2>
+                <p className="mt-1 text-sm text-muted-foreground">{t("whatsapp.subtitle")}</p>
+              </div>
+              <a
+                href={whatsAppLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary-dark transition-colors duration-200 shrink-0"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                </svg>
+                {t("whatsapp.cta")}
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       <AlsoFreeStrip locale={locale} />
 

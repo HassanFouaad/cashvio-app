@@ -24,6 +24,15 @@
 // Provider component
 export { AnalyticsProvider, GoogleAnalytics } from './provider';
 
+// First-touch acquisition attribution
+export {
+  captureAttribution,
+  getAttribution,
+  getRegistrationSource,
+  type Attribution,
+} from './attribution';
+export { AttributionTracker } from './attribution-tracker';
+
 // Meta (Facebook) Pixel
 export {
   META_PIXEL_EVENTS,

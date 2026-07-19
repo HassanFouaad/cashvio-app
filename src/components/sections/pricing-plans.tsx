@@ -40,6 +40,11 @@ function getPeriodLabel(period: PlanPeriod, translations: Record<string, string>
   return periodLabels[period] || translations.perMonth;
 }
 
+// Compact plan slug carried to the register page as ?plan= (GA plan_type)
+function getPlanSlug(plan: PublicPlan): string {
+  return plan.enName.toLowerCase().trim().replace(/\s+/g, '-');
+}
+
 // Get localized plan data
 function getLocalizedPlan(plan: PublicPlan, locale: string) {
   return {
@@ -164,7 +169,7 @@ export async function PricingPlans({
                   href={
                     plan.key === 'enterprise'
                       ? `/${locale}/contact`
-                      : ctaLinks.getStarted
+                      : `${ctaLinks.getStarted}?plan=${plan.key}`
                   }
                 >
                   {plan.key === 'enterprise'
@@ -226,7 +231,11 @@ export async function PricingPlans({
             isPro={isPro}
             isFreemium={plan.isFreemium}
             isEnterprise={isEnterprise}
-            href={isEnterprise ? `/${locale}/contact` : `/${locale}/register`}
+            href={
+              isEnterprise
+                ? `/${locale}/contact`
+                : `/${locale}/register?plan=${getPlanSlug(plan)}`
+            }
             translations={translations}
           />
         );

@@ -342,11 +342,11 @@ export const schemaTemplates = {
       },
     ],
     sameAs: [
-      social.twitter.url,
-      social.facebook.url,
-      social.linkedin.url,
-      social.instagram.url,
-      social.youtube.url,
+      ...(social.twitter.url ? [social.twitter.url] : []),
+      ...(social.facebook.url ? [social.facebook.url] : []),
+      ...(social.linkedin.url ? [social.linkedin.url] : []),
+      ...(social.instagram.url ? [social.instagram.url] : []),
+      ...(social.youtube.url ? [social.youtube.url] : []),
     ],
     foundingDate: brand.founded,
     foundingLocation: {
@@ -439,10 +439,10 @@ export const schemaTemplates = {
     image: `${urls.site}/assets/logo-light.png`,
     url: urls.site,
     sameAs: [
-      social.twitter.url,
-      social.facebook.url,
-      social.linkedin.url,
-      social.instagram.url,
+      ...(social.twitter.url ? [social.twitter.url] : []),
+      ...(social.facebook.url ? [social.facebook.url] : []),
+      ...(social.linkedin.url ? [social.linkedin.url] : []),
+      ...(social.instagram.url ? [social.instagram.url] : []),
     ].filter(Boolean),
   }),
 
@@ -517,11 +517,11 @@ export const schemaTemplates = {
     downloadUrl: `${urls.site}/register`,
     url: urls.site,
     sameAs: [
-      social.twitter.url,
-      social.facebook.url,
-      social.linkedin.url,
-      social.instagram.url,
-      social.youtube.url,
+      ...(social.twitter.url ? [social.twitter.url] : []),
+      ...(social.facebook.url ? [social.facebook.url] : []),
+      ...(social.linkedin.url ? [social.linkedin.url] : []),
+      ...(social.instagram.url ? [social.instagram.url] : []),
+      ...(social.youtube.url ? [social.youtube.url] : []),
     ].filter(Boolean),
     image: [
       {

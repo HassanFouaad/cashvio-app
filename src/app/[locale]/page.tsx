@@ -8,6 +8,7 @@ import { Features } from '@/components/sections/features';
 import { ProductShowcase } from '@/components/sections/product-showcase';
 import { MobileAppShowcase } from '@/components/sections/mobile-app-showcase';
 import { EndOfDay } from '@/components/sections/end-of-day';
+import { Testimonials } from '@/components/sections/testimonials';
 import { CTA } from '@/components/sections/cta';
 import { FaqSection } from '@/components/marketing';
 import {
@@ -164,6 +165,7 @@ export default async function HomePage({ params }: Props) {
       <ProductShowcase />
       <MobileAppShowcase />
       <EndOfDay locale={typedLocale} />
+      <Testimonials locale={typedLocale} />
       <FaqSection
         eyebrow={tFaq('eyebrow')}
         title={tFaq('title')}

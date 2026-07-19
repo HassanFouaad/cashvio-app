@@ -89,6 +89,46 @@
     "teamManagement": {
       "title": "Team Roles & Permissions for POS and Retail Staff",
       "description": "Give every employee their own login with exactly the permissions their job needs. Ready-made and custom roles, store-scoped access, and sales per staff member."
+    },
+    "tools": {
+      "title": "Free Tools for Merchants — Barcode, QR & Profit Calculator",
+      "description": "Free browser tools from Cashvio: a barcode generator (Code 128 & EAN-13), a QR code generator, and a profit-margin calculator. No signup, no watermark."
+    },
+    "barcodeGenerator": {
+      "title": "Free Barcode Generator — Code 128 & EAN-13 PNG",
+      "description": "Generate scannable Code 128 or EAN-13 barcodes and download them as high-resolution PNGs — free, no watermark, no signup. Built by Cashvio."
+    },
+    "qrCodeGenerator": {
+      "title": "Free QR Code Generator — High-Resolution PNG",
+      "description": "Create a QR code for your store link, WhatsApp, or menu and download a print-ready PNG — free, no watermark, no signup."
+    },
+    "marginCalculator": {
+      "title": "Profit Margin Calculator — Margin, Markup & Selling Price",
+      "description": "Free calculator for merchants: enter cost and price to see profit, margin, and markup — or set a target margin and get the right selling price."
+    },
+    "compareLoyverse": {
+      "title": "Cashvio vs Loyverse — Free POS With an Online Store",
+      "description": "Compare Cashvio and Loyverse for small shops: what each free plan includes, online store, purchase orders, staff roles, credit sales, and Arabic support."
+    },
+    "compareFoodics": {
+      "title": "Cashvio vs Foodics — Start Free Instead of Enterprise",
+      "description": "Compare Cashvio and Foodics: free start vs enterprise F&B pricing, browser-based POS vs dedicated hardware, and which fits small shops and cafes."
+    },
+    "compareOdooPos": {
+      "title": "Cashvio vs Odoo POS — Ready in Minutes vs Full ERP",
+      "description": "Compare Cashvio and Odoo POS: instant self-signup vs ERP implementation, cloud hosting vs self-hosting, and which fits owner-run shops."
+    },
+    "industryCafe": {
+      "title": "Cafe POS System — Free for Coffee Shops & Juice Bars",
+      "description": "A free POS for cafes: fast checkout, order notes, dine-in/pickup/delivery, live order statuses with WhatsApp updates, stock alerts, and daily profit."
+    },
+    "industryClothing": {
+      "title": "Clothing Store POS — Sizes, Colors, Barcodes & Returns",
+      "description": "A free POS for clothing shops and boutiques: size/color variants, printable barcode labels, returns with store credit, coupons, and a free online boutique."
+    },
+    "industryMinimarket": {
+      "title": "Minimarket & Grocery POS — Barcode Speed + Credit Book",
+      "description": "A free POS for minimarkets: USB barcode scanning, a digital credit book (who owes what), low-stock alerts, purchase orders, and end-of-day profit."
     }
   },
   "common": {
@@ -135,7 +175,17 @@
     "purchaseOrders": "Purchase Orders",
     "returnsAndRefunds": "Returns & Refunds",
     "multiStoreManagement": "Multi-Store Management",
-    "teamManagement": "Team & Permissions"
+    "teamManagement": "Team & Permissions",
+    "tools": "Free Tools",
+    "barcodeGenerator": "Barcode Generator",
+    "qrCodeGenerator": "QR Code Generator",
+    "marginCalculator": "Margin Calculator",
+    "compareLoyverse": "Cashvio vs Loyverse",
+    "compareFoodics": "Cashvio vs Foodics",
+    "compareOdooPos": "Cashvio vs Odoo POS",
+    "industryCafe": "Cafe POS",
+    "industryClothing": "Clothing Store POS",
+    "industryMinimarket": "Minimarket POS"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -147,7 +197,16 @@
     "social": "Follow Us",
     "copyright": "© {year} Cashvio. All rights reserved.",
     "madeWith": "Built for businesses worldwide",
-    "endOfReceipt": "End of receipt"
+    "endOfReceipt": "End of receipt",
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Product updates and practical tips for growing your shop — no spam.",
+      "placeholder": "Your email",
+      "submit": "Subscribe",
+      "submitting": "Subscribing…",
+      "success": "You're in — we'll keep you posted.",
+      "error": "Please enter a valid email and try again."
+    }
   },
   "home": {
     "hero": {
@@ -540,7 +599,7 @@
       "stampsLabel": "Works with"
     },
     "faq": {
-      "eyebrow": "NO. 06 — QUESTIONS",
+      "eyebrow": "NO. 07 — QUESTIONS",
       "title": "Frequently Asked Questions",
       "subtitle": "Quick answers about Cashvio's free plan",
       "q1": {
@@ -566,6 +625,25 @@
       "q6": {
         "question": "Does the POS work without internet?",
         "answer": "Yes — keep selling offline and everything syncs when you're back online."
+      }
+    },
+    "testimonials": {
+      "eyebrow": "NO. 06 — FROM THE COUNTER",
+      "title": "Merchants run their whole day on Cashvio",
+      "subtitle": "From the register to the online store — the parts of the day it takes over.",
+      "items": {
+        "t1": {
+          "quote": "I stopped writing orders in a notebook. The register, the stock, and who owes me what — all in one screen.",
+          "author": "Minimarket owner — Cairo"
+        },
+        "t2": {
+          "quote": "My store link was live the same day I signed up. Customers browse it and order without calling me first.",
+          "author": "Clothing boutique owner — Alexandria"
+        },
+        "t3": {
+          "quote": "The Arabic isn't a bolted-on translation. Receipts, dashboard, storefront — everything reads right.",
+          "author": "Cafe owner — Giza"
+        }
       }
     }
   },
@@ -657,6 +735,59 @@
     "guarantee": {
       "title": "30-Day Money-Back Guarantee",
       "description": "Not satisfied? Get a full refund within 30 days, no questions asked."
+    },
+    "matrix": {
+      "title": "What's in free vs paid",
+      "subtitle": "The free plan is a complete system. Paid plans raise the limits as you grow — exact numbers are on each plan card above.",
+      "headers": {
+        "feature": "Included",
+        "free": "Free plan",
+        "paid": "Paid plans"
+      },
+      "rows": {
+        "pos": {
+          "feature": "POS (cashier screen)"
+        },
+        "onlineStore": {
+          "feature": "Online store on your own link"
+        },
+        "products": {
+          "feature": "Unlimited products"
+        },
+        "orders": {
+          "feature": "Unlimited orders & customers"
+        },
+        "inventory": {
+          "feature": "Inventory, suppliers & purchase orders"
+        },
+        "reports": {
+          "feature": "Sales & profit reports"
+        },
+        "whatsapp": {
+          "feature": "WhatsApp receipts & order updates"
+        },
+        "stores": {
+          "feature": "Stores (branches)",
+          "free": "Starter limit",
+          "paid": "More branches"
+        },
+        "team": {
+          "feature": "Team members",
+          "free": "Starter limit",
+          "paid": "Bigger teams"
+        },
+        "devices": {
+          "feature": "POS devices",
+          "free": "Starter limit",
+          "paid": "More devices"
+        }
+      }
+    },
+    "whatsapp": {
+      "title": "Prefer to talk it through?",
+      "subtitle": "Message us on WhatsApp — we'll help you pick the right plan in minutes.",
+      "cta": "Chat on WhatsApp",
+      "prefill": "Hello Cashvio! I have a question about pricing."
     }
   },
   "alsoFree": {
@@ -691,7 +822,11 @@
       "phone": "Phone",
       "address": "Address",
       "hours": "Business Hours",
-      "hoursValue": "Monday - Friday: 9AM - 6PM EST"
+      "hoursValue": "Monday - Friday: 9AM - 6PM EST",
+      "whatsapp": "WhatsApp",
+      "whatsappDescription": "The fastest way to reach us — questions, demos, or help getting set up.",
+      "whatsappCta": "Chat on WhatsApp",
+      "whatsappPrefill": "Hello Cashvio! I have a question."
     },
     "support": {
       "title": "Need Quick Help?",
@@ -1697,10 +1832,6 @@
           "title": "Bilingual Receipts & Invoices",
           "description": "Generate receipts with Arabic product names, properly formatted prices, and your store branding — all in one clean layout. Add English as a second language on the same receipt for international customers."
         },
-        "zatca": {
-          "title": "ZATCA-Ready E-Invoicing",
-          "description": "Automatically generate compliant electronic invoices with QR codes for Saudi Arabia's ZATCA regulations. Bilingual fields, proper tax formatting, and digital signatures built right in."
-        },
         "shifts": {
           "title": "Shift Management in Arabic",
           "description": "Staff clock in, take breaks, and close registers with fully Arabic screens. Shift reports show earnings, transaction counts, and cash summaries — all formatted for Arabic readers."
@@ -1727,10 +1858,6 @@
         "arabicSeo": {
           "title": "Arabic SEO That Ranks",
           "description": "Proper Arabic meta titles, descriptions, and URL slugs are generated automatically. Your products appear in Arabic Google searches, driving organic traffic from customers searching in their own language."
-        },
-        "localPayments": {
-          "title": "MENA Payment Methods",
-          "description": "Accept payments through Mada, KNET, PayTabs, Tap, Tabby, Tamara, and local bank transfers. Customers see their preferred payment method at checkout — increasing completion rates."
         },
         "bilingualCatalog": {
           "title": "Bilingual Product Catalog",
@@ -1834,10 +1961,6 @@
       "q2": {
         "question": "Does Cashvio support both Arabic and English at the same time?",
         "answer": "Yes. Cashvio is fully bilingual. Each staff member can independently choose to operate in Arabic or English without affecting other users. Receipts can display both languages simultaneously. Your online storefront automatically shows the correct language based on each customer's preference. Product catalogs support dual-language entries for names, descriptions, and categories."
-      },
-      "q3": {
-        "question": "Is Cashvio compliant with ZATCA e-invoicing requirements in Saudi Arabia?",
-        "answer": "Yes. Cashvio generates ZATCA-compliant electronic invoices with QR codes, proper tax formatting, and bilingual Arabic/English fields. The system handles VAT calculations, digital signatures, and all required invoice fields automatically — no manual setup or third-party plugins needed."
       },
       "q4": {
         "question": "What payment methods does Cashvio support in the Middle East?",
@@ -4111,6 +4234,793 @@
     "screenshot": {
       "caption": "Live view — store team workspace",
       "alt": "Cashvio store management screen used by your retail team"
+    }
+  },
+  "tools": {
+    "badge": "FREE TOOLS",
+    "freeStamp": "FREE",
+    "moreTools": "See all free tools",
+    "hero": {
+      "title": "Free tools for",
+      "titleHighlight": "your shop",
+      "subtitle": "A barcode generator, a QR code generator, and a profit-margin calculator — free, in your browser, no signup needed."
+    },
+    "items": {
+      "barcode": {
+        "title": "Barcode generator",
+        "description": "Create Code 128 or EAN-13 barcodes for your products and download them as print-ready PNGs.",
+        "cta": "Open the barcode generator"
+      },
+      "qr": {
+        "title": "QR code generator",
+        "description": "Turn your store link, WhatsApp number, or menu into a scannable QR code in seconds.",
+        "cta": "Open the QR generator"
+      },
+      "margin": {
+        "title": "Profit margin calculator",
+        "description": "See profit, margin, and markup from your numbers — or work backwards from a target margin to a price.",
+        "cta": "Open the calculator"
+      }
+    },
+    "cta": {
+      "title": "Want the whole toolbox?",
+      "subtitle": "Cashvio gives you a free POS, a free online store, inventory, and profit reports — these tools are just the warm-up.",
+      "button": "Create your free account",
+      "note": "Free forever plan — no credit card needed"
+    }
+  },
+  "barcodeGenerator": {
+    "hero": {
+      "title": "Free barcode",
+      "titleHighlight": "generator",
+      "subtitle": "Create Code 128 or EAN-13 barcodes and download them as sharp, print-ready PNGs. Free, no watermark, no signup."
+    },
+    "tool": {
+      "valueLabel": "Barcode content",
+      "valuePlaceholder": "e.g. SKU-1001",
+      "formatLabel": "Barcode type",
+      "formats": {
+        "CODE128": "Code 128 — any text, best for SKUs",
+        "EAN13": "EAN-13 — retail standard, 12–13 digits"
+      },
+      "ean13Hint": "Enter 12 digits and the check digit is computed for you — or 13 digits with a valid check digit.",
+      "invalidValue": "This value doesn't fit the selected barcode type.",
+      "previewAlt": "Barcode preview",
+      "download": "Download PNG"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "From code to printable barcode in seconds",
+      "s1": {
+        "title": "Type your code",
+        "description": "Enter the SKU, product number, or any text you want the barcode to carry."
+      },
+      "s2": {
+        "title": "Pick the type",
+        "description": "Code 128 fits any text and is what most POS systems scan; EAN-13 is the 13-digit retail standard."
+      },
+      "s3": {
+        "title": "Download & print",
+        "description": "Save the PNG and drop it into your label template, price tag, or packaging."
+      }
+    },
+    "pitch": {
+      "badge": "DO IT AUTOMATICALLY",
+      "title": "Making barcodes one by one gets old fast",
+      "subtitle": "Cashvio turns your product catalog into printable A4 label sheets — and every scan at the register updates your stock.",
+      "p1": {
+        "title": "Label sheets from your catalog",
+        "description": "Print full A4 sheets of barcode labels for any product variant, straight from the portal."
+      },
+      "p2": {
+        "title": "Scan to sell",
+        "description": "Plug in a USB barcode scanner and ring items up instantly at the POS."
+      },
+      "p3": {
+        "title": "Stock that updates itself",
+        "description": "Every scanned sale adjusts inventory automatically — no counting notebooks."
+      }
+    },
+    "faq": {
+      "title": "Barcode generator FAQ",
+      "q1": {
+        "question": "Is this barcode generator really free?",
+        "answer": "Yes — generate and download as many barcodes as you like. No watermark, no account, no limits."
+      },
+      "q2": {
+        "question": "Should I use Code 128 or EAN-13?",
+        "answer": "Use Code 128 for internal SKUs — it accepts letters and numbers and scans reliably on any modern scanner. Use EAN-13 only when you need the 13-digit retail standard."
+      },
+      "q3": {
+        "question": "Will these barcodes work with Cashvio's POS?",
+        "answer": "Yes. The POS matches scans against your product SKUs, so a Code 128 barcode of the SKU scans straight into a sale."
+      }
+    },
+    "cta": {
+      "title": "Stop making labels by hand",
+      "subtitle": "Import your products into Cashvio and print whole barcode label sheets in one click — on the free plan.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan — no credit card needed"
+    }
+  },
+  "qrCodeGenerator": {
+    "hero": {
+      "title": "Free QR code",
+      "titleHighlight": "generator",
+      "subtitle": "Make a QR code for your store link, WhatsApp number, or menu — and download a high-resolution PNG that stays scannable in print."
+    },
+    "tool": {
+      "contentLabel": "Link or text",
+      "contentPlaceholder": "https://yourstore.cash-vio.com",
+      "contentHint": "Works with links, wa.me WhatsApp links, phone numbers, or any text.",
+      "sizeLabel": "Download size",
+      "previewAlt": "QR code preview",
+      "emptyState": "Type something to generate a QR code",
+      "download": "Download PNG"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "Three steps to a scannable QR",
+      "s1": {
+        "title": "Paste your link or text",
+        "description": "A store link, a wa.me WhatsApp link, a phone number, or any text works."
+      },
+      "s2": {
+        "title": "Test the preview",
+        "description": "Point your phone camera at the preview and make sure it opens what you expect."
+      },
+      "s3": {
+        "title": "Download & print",
+        "description": "Pick a size — bigger prints need bigger sizes — and save the PNG."
+      }
+    },
+    "pitch": {
+      "badge": "GIVE IT SOMEWHERE TO POINT",
+      "title": "A QR code is only as good as what it opens",
+      "subtitle": "Cashvio gives your shop a free online store — and prints the QR materials for you.",
+      "p1": {
+        "title": "A free online store",
+        "description": "Your products on your own store link, ready to take orders — live in minutes."
+      },
+      "p2": {
+        "title": "Scan-to-order poster",
+        "description": "Cashvio generates a print-ready store poster with your QR code, logo, and link."
+      },
+      "p3": {
+        "title": "QR on every receipt",
+        "description": "Printed receipts carry a QR to the digital receipt — customers keep the link, you look professional."
+      }
+    },
+    "faq": {
+      "title": "QR generator FAQ",
+      "q1": {
+        "question": "Is it free? Do the QR codes expire?",
+        "answer": "Free and unlimited — and the codes never expire, because the image itself encodes your text permanently."
+      },
+      "q2": {
+        "question": "What should my store's QR point to?",
+        "answer": "Your online store link is the highest-value target: customers browse products and order without typing anything."
+      },
+      "q3": {
+        "question": "Can I make a WhatsApp QR?",
+        "answer": "Yes — paste a wa.me link with your number and the code opens a chat with you when scanned."
+      }
+    },
+    "cta": {
+      "title": "Get a store worth scanning",
+      "subtitle": "Create your free Cashvio store, then print the ready-made QR poster for your counter or window.",
+      "button": "Create your free store",
+      "note": "Free forever plan — no credit card needed"
+    }
+  },
+  "marginCalculator": {
+    "hero": {
+      "title": "Free profit margin",
+      "titleHighlight": "calculator",
+      "subtitle": "See profit, margin, and markup from your cost and price — or set a target margin and get the selling price to charge."
+    },
+    "tool": {
+      "modeLabel": "Calculator mode",
+      "modes": {
+        "analyze": "I know my prices",
+        "price": "Help me price"
+      },
+      "costLabel": "Cost price",
+      "priceLabel": "Selling price",
+      "targetMarginLabel": "Target margin %",
+      "results": {
+        "profit": "Profit per unit",
+        "margin": "Profit margin",
+        "markup": "Markup",
+        "requiredPrice": "Selling price to charge"
+      },
+      "sellingBelowCost": "You're selling below cost — this price loses money.",
+      "marginTooHigh": "Margin must be below 100% — no selling price can reach it.",
+      "emptyState": "Enter your numbers to see the results"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "Price with your eyes open",
+      "s1": {
+        "title": "Enter your real cost",
+        "description": "Include what the unit truly costs you — purchase price, packaging, delivery to your shop."
+      },
+      "s2": {
+        "title": "Add a price or a target",
+        "description": "Know the price? See the margin. Know the margin you want? Get the price."
+      },
+      "s3": {
+        "title": "Read the numbers",
+        "description": "Profit per unit, margin (share of price), and markup (share of cost) — updated live."
+      }
+    },
+    "pitch": {
+      "badge": "BEYOND THE CALCULATOR",
+      "title": "Margins drift with every restock",
+      "subtitle": "Cashvio tracks the real numbers automatically — per product and per sale.",
+      "p1": {
+        "title": "Costs update themselves",
+        "description": "Receive stock through purchase orders and each product's average cost recalculates automatically."
+      },
+      "p2": {
+        "title": "Profit on every sale",
+        "description": "Each order records its real cost and profit at the moment of sale."
+      },
+      "p3": {
+        "title": "Spot your winners",
+        "description": "Profit reports show which products actually earn — not just which ones sell."
+      }
+    },
+    "faq": {
+      "title": "Margin calculator FAQ",
+      "q1": {
+        "question": "What's the difference between margin and markup?",
+        "answer": "Margin is profit as a share of the selling price; markup is profit as a share of cost. A product costing 100 sold at 150 has a 33.3% margin and a 50% markup."
+      },
+      "q2": {
+        "question": "What's a good profit margin?",
+        "answer": "It depends on the category — groceries often run 10–25%, clothing and accessories 40–60%. Watch your own numbers per product rather than a universal rule."
+      },
+      "q3": {
+        "question": "Can Cashvio track this automatically?",
+        "answer": "Yes — it records cost and profit on every sale and shows margin per product in the profit report, on the free plan."
+      }
+    },
+    "cta": {
+      "title": "Know your real profit — automatically",
+      "subtitle": "Cashvio records cost and profit on every sale you make, free.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan — no credit card needed"
+    }
+  },
+  "compare": {
+    "badge": "COMPARISON",
+    "freeStamp": "FREE FOREVER",
+    "heroCta": "Start free with Cashvio",
+    "heroSecondaryCta": "See pricing",
+    "heroNote": "Free forever plan — no credit card needed",
+    "glanceBadge": "AT A GLANCE",
+    "chooseBadge": "HONEST FIT",
+    "headers": {
+      "feature": "What matters",
+      "cashvio": "Cashvio"
+    },
+    "disclaimer": "This comparison is based on publicly available information as of July 2026 and may change — always verify details with each vendor. All product names and trademarks belong to their respective owners.",
+    "ctaButton": "Create your free account",
+    "ctaSecondaryButton": "See pricing",
+    "ctaNote": "Set up in minutes — Arabic & English"
+  },
+  "compareLoyverse": {
+    "competitorName": "Loyverse",
+    "hero": {
+      "title": "Cashvio vs",
+      "titleHighlight": "Loyverse",
+      "subtitle": "Both offer a free POS. The difference: Cashvio's free plan also includes an online store, purchase orders, staff roles, and credit-sales tracking — built Arabic-first."
+    },
+    "glance": {
+      "title": "The free plans, side by side",
+      "subtitle": "What you get without paying anything — and what becomes a paid add-on."
+    },
+    "rows": {
+      "r1": {
+        "feature": "Free plan scope",
+        "cashvio": "POS + online store + inventory + reports, with unlimited products and orders",
+        "competitor": "Free POS app; employee management, advanced inventory, and integrations are paid add-ons"
+      },
+      "r2": {
+        "feature": "Online store",
+        "cashvio": "Included free — your own store link, synced with POS stock",
+        "competitor": "No built-in online store; needs third-party services"
+      },
+      "r3": {
+        "feature": "Purchase orders & suppliers",
+        "cashvio": "Included free",
+        "competitor": "Part of the paid advanced-inventory add-on"
+      },
+      "r4": {
+        "feature": "Staff accounts & roles",
+        "cashvio": "Included free with per-role permissions",
+        "competitor": "Paid employee-management add-on"
+      },
+      "r5": {
+        "feature": "Credit sales (customer debts)",
+        "cashvio": "Pay-later and partial payments with due dates and an overdue list",
+        "competitor": "No built-in customer debt book"
+      },
+      "r6": {
+        "feature": "Arabic experience",
+        "cashvio": "Arabic-first: RTL portal, bilingual receipts, Arabic storefront",
+        "competitor": "App offers Arabic translation; there is no storefront to localize"
+      },
+      "r7": {
+        "feature": "Local fit",
+        "cashvio": "EGP pricing, transfer-receipt checkout flow, WhatsApp sharing built in",
+        "competitor": "Global product; local payment habits need workarounds"
+      },
+      "r8": {
+        "feature": "Coupons online + in-store",
+        "cashvio": "One coupon code works at the register and at online checkout",
+        "competitor": "POS discounts; no native online checkout to apply codes"
+      }
+    },
+    "choose": {
+      "title": "Which one fits you?",
+      "cashvio": {
+        "title": "Choose Cashvio if…",
+        "points": [
+          "You want one free system for the register AND an online store",
+          "You sell on credit and need who-owes-what tracked",
+          "You want purchase orders, suppliers, and staff roles without add-on fees",
+          "Your customers live on WhatsApp",
+          "You work in Arabic and want real RTL, not a translation"
+        ]
+      },
+      "competitor": {
+        "title": "Loyverse may fit better if…",
+        "points": [
+          "You only need a standalone POS app and nothing online",
+          "You already invested in Loyverse-specific add-ons and workflows",
+          "You operate in a region where its local integrations matter more"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Cashvio vs Loyverse FAQ",
+      "q1": {
+        "question": "Is Cashvio really free like Loyverse?",
+        "answer": "Yes — the free plan is free forever and includes the POS, the online store, inventory, and reports with unlimited products and orders. Paid plans mainly raise limits like branches, users, and devices."
+      },
+      "q2": {
+        "question": "Can I move my products from Loyverse to Cashvio?",
+        "answer": "Yes. Export your item list to CSV from Loyverse, adapt it to Cashvio's import template, and upload it — the import wizard validates everything before saving."
+      },
+      "q3": {
+        "question": "Does Cashvio charge per employee or per device?",
+        "answer": "No add-on fees — each plan is a flat price with set limits for branches, team members, and devices, and higher plans raise those limits."
+      },
+      "q4": {
+        "question": "Does Cashvio work in Arabic?",
+        "answer": "Yes — Arabic-first with full RTL across the dashboard, POS, receipts, and your online store. You can switch to English anytime."
+      }
+    },
+    "cta": {
+      "title": "Get the free plan that includes the store",
+      "subtitle": "Register, add products, and share your store link — all in one sitting."
+    }
+  },
+  "compareFoodics": {
+    "competitorName": "Foodics",
+    "hero": {
+      "title": "Cashvio vs",
+      "titleHighlight": "Foodics",
+      "subtitle": "Foodics is built for restaurant chains with enterprise budgets. Cashvio starts free, runs in the browser, and covers shops, cafes, and boutiques."
+    },
+    "glance": {
+      "title": "Different weight classes, honestly compared",
+      "subtitle": "Where a free, self-serve platform ends and enterprise F&B software begins."
+    },
+    "rows": {
+      "r1": {
+        "feature": "Starting price",
+        "cashvio": "Free forever plan — upgrade only when you grow",
+        "competitor": "Paid subscriptions; enterprise F&B pricing with custom quotes"
+      },
+      "r2": {
+        "feature": "Built for",
+        "cashvio": "Small shops, cafes, boutiques, and minimarkets",
+        "competitor": "Restaurant chains and enterprise food-service operations"
+      },
+      "r3": {
+        "feature": "Hardware",
+        "cashvio": "Runs in the browser on devices you already own",
+        "competitor": "Typically deployed with dedicated POS hardware"
+      },
+      "r4": {
+        "feature": "Getting started",
+        "cashvio": "Self-signup — selling within minutes",
+        "competitor": "Sales-led onboarding, contracts, and training"
+      },
+      "r5": {
+        "feature": "Online store",
+        "cashvio": "Included free on your own store link",
+        "competitor": "Online ordering through separate paid products"
+      },
+      "r6": {
+        "feature": "Retail depth",
+        "cashvio": "Variants, purchase orders, suppliers, returns, and store credit",
+        "competitor": "Menu-and-kitchen-centric feature set"
+      },
+      "r7": {
+        "feature": "Credit sales",
+        "cashvio": "Pay-later and partial payments with overdue tracking",
+        "competitor": "Not the product's focus"
+      },
+      "r8": {
+        "feature": "Arabic",
+        "cashvio": "Arabic-first with bilingual receipts and an Arabic storefront",
+        "competitor": "Also strong Arabic support — a KSA-born product"
+      }
+    },
+    "choose": {
+      "title": "Which one fits you?",
+      "cashvio": {
+        "title": "Choose Cashvio if…",
+        "points": [
+          "You run a small shop or cafe and the budget matters",
+          "You want to start today without a sales call",
+          "You need retail features — variants, purchase orders, returns",
+          "You want a free online store included",
+          "You prefer using the devices you already own"
+        ]
+      },
+      "competitor": {
+        "title": "Foodics may fit better if…",
+        "points": [
+          "You run a multi-branch restaurant chain with enterprise needs",
+          "You need deep kitchen operations like kitchen display systems",
+          "You have the budget for enterprise onboarding and hardware"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Cashvio vs Foodics FAQ",
+      "q1": {
+        "question": "Is Cashvio suitable for cafes like Foodics is?",
+        "answer": "For small cafes, yes: fast checkout, per-item notes, dine-in/pickup/delivery, live order statuses, and WhatsApp updates. Large chains needing kitchen display systems and aggregator integrations are Foodics' territory."
+      },
+      "q2": {
+        "question": "How much cheaper is Cashvio?",
+        "answer": "The free plan costs nothing, forever. Paid plans are simple flat prices in EGP — the pricing page always shows the current numbers."
+      },
+      "q3": {
+        "question": "Do I need to buy hardware?",
+        "answer": "No — Cashvio runs in the browser on a laptop, tablet, or phone. USB barcode scanners and thermal receipt printers work whenever you want them."
+      },
+      "q4": {
+        "question": "Can I try Cashvio before committing?",
+        "answer": "There's nothing to commit to — the free plan is the trial, and it never expires."
+      }
+    },
+    "cta": {
+      "title": "Start free — grow when you're ready",
+      "subtitle": "The register, the store, and the stock — running today, at zero cost."
+    }
+  },
+  "compareOdooPos": {
+    "competitorName": "Odoo POS",
+    "hero": {
+      "title": "Cashvio vs",
+      "titleHighlight": "Odoo POS",
+      "subtitle": "Odoo is a powerful ERP that can do almost anything — after setup. Cashvio does one thing out of the box: run your shop, in minutes."
+    },
+    "glance": {
+      "title": "Ready-made vs build-your-own",
+      "subtitle": "The honest trade-off between a focused shop system and a full ERP."
+    },
+    "rows": {
+      "r1": {
+        "feature": "Time to first sale",
+        "cashvio": "Minutes — sign up and the POS and store are ready",
+        "competitor": "Days to weeks — ERP setup, apps, and configuration"
+      },
+      "r2": {
+        "feature": "Implementation",
+        "cashvio": "None needed — built to be self-serve",
+        "competitor": "Often requires a partner or technical help"
+      },
+      "r3": {
+        "feature": "Cost structure",
+        "cashvio": "Free plan; simple flat paid tiers in EGP",
+        "competitor": "Free community edition exists, but hosting, apps, and implementation add up"
+      },
+      "r4": {
+        "feature": "Scope",
+        "cashvio": "Focused on selling: POS, online store, inventory, reports",
+        "competitor": "Full ERP: accounting, HR, manufacturing, and far more"
+      },
+      "r5": {
+        "feature": "Hosting & updates",
+        "cashvio": "Cloud-hosted; updates arrive automatically",
+        "competitor": "Self-hosting puts servers, backups, and upgrades on you — or paid hosting"
+      },
+      "r6": {
+        "feature": "Online store",
+        "cashvio": "Included and synced with the POS by default",
+        "competitor": "Separate eCommerce app to install and configure"
+      },
+      "r7": {
+        "feature": "Arabic & RTL",
+        "cashvio": "Arabic-first across POS, portal, and storefront",
+        "competitor": "Arabic available; RTL polish varies by module"
+      },
+      "r8": {
+        "feature": "Best for",
+        "cashvio": "Owner-run shops without IT staff",
+        "competitor": "Companies with technical resources or partner budget"
+      }
+    },
+    "choose": {
+      "title": "Which one fits you?",
+      "cashvio": {
+        "title": "Choose Cashvio if…",
+        "points": [
+          "You want to sell today, not configure a system",
+          "Nobody on the team wants to manage servers or modules",
+          "You need POS + online store + inventory — not a full ERP",
+          "You want Arabic that works everywhere out of the box",
+          "You want predictable, simple pricing"
+        ]
+      },
+      "competitor": {
+        "title": "Odoo may fit better if…",
+        "points": [
+          "You need accounting, HR, or manufacturing in the same system",
+          "You have developers or an implementation partner",
+          "You want deep customization at the code level"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Cashvio vs Odoo FAQ",
+      "q1": {
+        "question": "Isn't Odoo free too?",
+        "answer": "The community edition is open-source, but running it means hosting, maintenance, and usually paid apps or a partner. Cashvio's free plan is hosted, maintained, and ready in minutes."
+      },
+      "q2": {
+        "question": "Can Cashvio replace an ERP?",
+        "answer": "No — and it doesn't try to. Cashvio covers selling: POS, online store, inventory, purchasing, and reports. If you need full ERP modules like accounting and HR, Odoo is the right category."
+      },
+      "q3": {
+        "question": "What if I outgrow Cashvio?",
+        "answer": "Paid plans raise limits as you add branches, staff, and devices — and your catalog, customers, and sales history stay right where they are."
+      },
+      "q4": {
+        "question": "Is there a mobile app?",
+        "answer": "The portal is an installable web app (PWA) — add it to your home screen and it works like an app on Android and iOS."
+      }
+    },
+    "cta": {
+      "title": "Skip the implementation project",
+      "subtitle": "Everything you need to sell — already configured, already in Arabic."
+    }
+  },
+  "industries": {
+    "badge": "BUILT FOR YOUR BUSINESS",
+    "freeStamp": "FREE",
+    "heroCta": "Start free",
+    "heroSecondaryCta": "See pricing",
+    "heroNote": "Free forever plan — no credit card needed",
+    "painsBadge": "SOUND FAMILIAR?",
+    "featuresBadge": "WHAT YOU GET",
+    "ctaButton": "Create your free account",
+    "ctaSecondaryButton": "See pricing",
+    "ctaNote": "Set up in minutes — Arabic & English"
+  },
+  "industryCafe": {
+    "hero": {
+      "title": "A cafe POS that keeps up with",
+      "titleHighlight": "the morning rush",
+      "subtitle": "Fast checkout, custom orders, and live order statuses — free for your coffee shop, juice bar, or dessert spot."
+    },
+    "pains": {
+      "title": "Where paper breaks down at a cafe",
+      "p1": {
+        "title": "The queue at 8 AM",
+        "description": "Handwritten orders slow the line — and slow lines lose customers who just want their coffee."
+      },
+      "p2": {
+        "title": "Custom orders get lost",
+        "description": "Extra shot, oat milk, no sugar — details scribbled on cups get missed and remade."
+      },
+      "p3": {
+        "title": "Profit is a guess",
+        "description": "You know what sold, but not what the milk, cups, and syrups left you at the end of the day."
+      }
+    },
+    "features": {
+      "title": "What your cafe gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Checkout built for queues",
+        "description": "Big product tiles and quick custom items keep the line moving at rush hour."
+      },
+      "f2": {
+        "title": "Dine-in, pickup & delivery",
+        "description": "Mark each order's type and move it through preparing, ready, and delivering."
+      },
+      "f3": {
+        "title": "Notes on every cup",
+        "description": "Per-item notes — extra shot, less ice — print with the order so nothing gets remade."
+      },
+      "f4": {
+        "title": "Customers see the status",
+        "description": "Online orders get a tracking page, and you can WhatsApp 'your order is ready' in one tap."
+      },
+      "f5": {
+        "title": "Stock alerts before you run out",
+        "description": "Track cups, beans, and packaged items with low-stock alerts and reorder points."
+      },
+      "f6": {
+        "title": "End-of-day numbers",
+        "description": "Sales and profit for the day — by product and by staff member."
+      }
+    },
+    "faq": {
+      "title": "Cafe POS FAQ",
+      "q1": {
+        "question": "Does it work on a tablet?",
+        "answer": "Yes — the POS runs in the browser on tablets, laptops, and phones. No special hardware required."
+      },
+      "q2": {
+        "question": "Can customers order online?",
+        "answer": "Yes — the free plan includes an online store on your own link where customers browse the menu and order for pickup or delivery."
+      },
+      "q3": {
+        "question": "Does it print receipts?",
+        "answer": "Yes — thermal receipt printers are supported, plus digital receipts customers can open from a QR code."
+      }
+    },
+    "cta": {
+      "title": "Open the register in minutes",
+      "subtitle": "Free for your cafe — no credit card, no sales call."
+    }
+  },
+  "industryClothing": {
+    "hero": {
+      "title": "A clothing store POS that speaks",
+      "titleHighlight": "sizes and colors",
+      "subtitle": "Variants, barcode labels, returns with store credit, and a free online boutique — built for fashion retail."
+    },
+    "pains": {
+      "title": "Fashion retail pain, in three receipts",
+      "p1": {
+        "title": "The size-color maze",
+        "description": "One t-shirt is really twelve products — S to XXL in four colors — and paper can't track which one sold."
+      },
+      "p2": {
+        "title": "Returns eat your day",
+        "description": "Wrong-size returns without records turn into arguments — and quietly leak money."
+      },
+      "p3": {
+        "title": "Pricing blind",
+        "description": "Without cost per item, sale-season discounts can end up selling below cost."
+      }
+    },
+    "features": {
+      "title": "What your boutique gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Real variants",
+        "description": "Sizes and colors as proper variants — each with its own SKU, stock count, and price."
+      },
+      "f2": {
+        "title": "Barcode labels you print yourself",
+        "description": "Generate A4 label sheets per variant and scan them at the register."
+      },
+      "f3": {
+        "title": "Returns with store credit",
+        "description": "Accept returns with recorded reasons and refund to store credit — the money stays in your shop."
+      },
+      "f4": {
+        "title": "A free online boutique",
+        "description": "Product photos, per-size availability, and customer reviews on your own store link."
+      },
+      "f5": {
+        "title": "Coupons in-store and online",
+        "description": "One discount code works at the register and at online checkout."
+      },
+      "f6": {
+        "title": "Margin you can see",
+        "description": "Cost per variant and profit reports show what each piece really earns."
+      }
+    },
+    "faq": {
+      "title": "Clothing store POS FAQ",
+      "q1": {
+        "question": "Can I import my existing catalog?",
+        "answer": "Yes — upload a CSV or Excel file with the import wizard; it validates sizes, prices, and SKUs before anything is saved."
+      },
+      "q2": {
+        "question": "How do returns work?",
+        "answer": "Pick the items, record the reason, choose whether to restock, and refund by cash or store credit — every step is logged."
+      },
+      "q3": {
+        "question": "Can customers see what's in stock online?",
+        "answer": "Yes — the storefront shows availability per size and color, and out-of-stock variants can't be ordered."
+      }
+    },
+    "cta": {
+      "title": "Put the back office on autopilot",
+      "subtitle": "Free for your boutique — start with your bestsellers today."
+    }
+  },
+  "industryMinimarket": {
+    "hero": {
+      "title": "A minimarket POS built for",
+      "titleHighlight": "speed and the credit book",
+      "subtitle": "Scan-to-sell checkout, a digital credit book, low-stock alerts, and supplier orders — free for minimarkets and grocery shops."
+    },
+    "pains": {
+      "title": "The three notebooks every minimarket keeps",
+      "p1": {
+        "title": "The credit notebook",
+        "description": "Neighbors buy on credit, and the notebook decides your cash flow — until a page goes missing."
+      },
+      "p2": {
+        "title": "The out-of-stock surprise",
+        "description": "Fast movers run out mid-week because nobody counts until the shelf is empty."
+      },
+      "p3": {
+        "title": "The end-of-day mystery",
+        "description": "Cash in the drawer doesn't tell you what you actually earned after costs."
+      }
+    },
+    "features": {
+      "title": "What your market gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Scan-to-sell",
+        "description": "Plug in a USB barcode scanner and fly through checkout — items ring up instantly."
+      },
+      "f2": {
+        "title": "The credit book, digitized",
+        "description": "Sell now, collect later — partial payments, due dates, and an overdue list per customer."
+      },
+      "f3": {
+        "title": "Low-stock alerts",
+        "description": "Set reorder points and see what needs restocking before the shelf goes empty."
+      },
+      "f4": {
+        "title": "Purchase orders & suppliers",
+        "description": "Order from suppliers, receive stock, and product costs update automatically."
+      },
+      "f5": {
+        "title": "Multi-branch ready",
+        "description": "Each branch keeps its own stock and prices under one dashboard."
+      },
+      "f6": {
+        "title": "Honest end-of-day",
+        "description": "Daily sales and real profit after costs — by product and by cashier."
+      }
+    },
+    "faq": {
+      "title": "Minimarket POS FAQ",
+      "q1": {
+        "question": "Does it work with my barcode scanner?",
+        "answer": "Yes — any USB (keyboard-wedge) scanner works out of the box: scan, and the item lands in the ticket."
+      },
+      "q2": {
+        "question": "Can I track customers who buy on credit?",
+        "answer": "Yes — record partial or pay-later sales with due dates, and see exactly who owes what in the overdue list."
+      },
+      "q3": {
+        "question": "Is it really free for a small market?",
+        "answer": "Yes — the free plan includes the POS, inventory, purchase orders, and reports, with unlimited products and orders."
+      }
+    },
+    "cta": {
+      "title": "Retire the notebooks",
+      "subtitle": "The register, the stock, and the credit book — one free system."
     }
   }
 }

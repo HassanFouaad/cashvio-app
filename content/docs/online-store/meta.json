@@ -1,4 +1,4 @@
 {
   "title": "Online Store",
-  "pages": ["storefront-overview", "sharing-your-store", "checkout-flow"]
+  "pages": ["storefront-overview", "sharing-your-store", "checkout-flow", "order-tracking"]
 }
