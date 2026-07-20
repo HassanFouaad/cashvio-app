@@ -45,6 +45,13 @@ const staticPages: PageConfig[] = [
   { path: '/industries/cafe' },
   { path: '/industries/clothing' },
   { path: '/industries/minimarket' },
+  { path: '/industries/restaurant' },
+  { path: '/industries/supermarket' },
+  { path: '/industries/pharmacy' },
+  { path: '/industries/bakery' },
+  { path: '/industries/mobile-shop' },
+  { path: '/industries/beauty' },
+  { path: '/free-pos-egypt' },
 ];
 
 const locales = ['en', 'ar'] as const;

@@ -50,18 +50,33 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
     description: metaT('description'),
   });
 
-  const breadcrumbSchema = schemaTemplates.breadcrumb(
-    [
-      { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', locale) },
-      {
-        name: 'POS by Business Type',
-        nameAr: 'كاشير حسب النشاط',
-        url: getCanonicalUrl('/industries', locale),
-      },
-      { name: metaT('title'), url: getCanonicalUrl(path, locale) },
-    ],
-    locale
-  );
+  const breadcrumbItems =
+    path.startsWith('/industries')
+      ? [
+          { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', locale) },
+          {
+            name: 'POS by Business Type',
+            nameAr: 'كاشير حسب النشاط',
+            url: getCanonicalUrl('/industries', locale),
+          },
+          { name: metaT('title'), url: getCanonicalUrl(path, locale) },
+        ]
+      : path === '/free-pos-egypt'
+        ? [
+            { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', locale) },
+            {
+              name: 'Free POS System',
+              nameAr: 'كاشير مجاني',
+              url: getCanonicalUrl('/features/free-pos', locale),
+            },
+            { name: metaT('title'), url: getCanonicalUrl(path, locale) },
+          ]
+        : [
+            { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', locale) },
+            { name: metaT('title'), url: getCanonicalUrl(path, locale) },
+          ];
+
+  const breadcrumbSchema = schemaTemplates.breadcrumb(breadcrumbItems, locale);
 
   const faqItems = faqKeys.map((key) => ({
     question: t(`faq.${key}.question`),

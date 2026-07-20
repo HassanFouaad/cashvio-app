@@ -119,8 +119,36 @@
       "description": "A free POS for minimarkets: USB barcode scanning, a digital credit book (who owes what), low-stock alerts, purchase orders, and end-of-day profit."
     },
     "industriesHub": {
-      "title": "Free POS by Business Type: Cafe, Clothing & Minimarket",
-      "description": "See how a free POS and free online store fit your business. Purpose-built guides for cafes, clothing boutiques, and minimarkets, in Arabic and English."
+      "title": "Free POS by Business Type: Cafe, Restaurant, Pharmacy & More",
+      "description": "See how a free POS and free online store fit your business in Egypt. Guides for cafes, restaurants, pharmacies, bakeries, mobile shops, and more."
+    },
+    "industryRestaurant": {
+      "title": "Restaurant POS Egypt: Free Cashier for Restaurants",
+      "description": "A free restaurant POS for Egypt: fast checkout, dine-in and delivery statuses, WhatsApp order updates, stock alerts, and daily profit. Arabic and English."
+    },
+    "industrySupermarket": {
+      "title": "Supermarket POS: Free Cashier for Grocery Stores",
+      "description": "A free supermarket and grocery POS: USB barcode scanning, credit book, low-stock alerts, purchase orders, and end-of-day profit. Built for Egypt."
+    },
+    "industryPharmacy": {
+      "title": "Pharmacy POS System: Free Cashier for Pharmacies",
+      "description": "A free pharmacy POS: barcode checkout, stock control, customer profiles, purchase orders, and daily profit reports. Arabic and English."
+    },
+    "industryBakery": {
+      "title": "Bakery POS: Free Cashier for Bakeries & Pastry Shops",
+      "description": "A free bakery and pastry POS: fast checkout, packaged and custom items, stock alerts, purchase orders, and end-of-day profit. Arabic and English."
+    },
+    "industryMobileShop": {
+      "title": "Mobile Shop POS: Free Cashier for Phone Stores",
+      "description": "A free POS for mobile and accessories shops: variants, barcodes, credit sales, purchase orders, and a free online store. Built for Egypt."
+    },
+    "industryBeauty": {
+      "title": "Cosmetics Store POS: Free Cashier for Beauty Shops",
+      "description": "A free cosmetics and beauty POS: product variants, barcode labels, returns with store credit, coupons, and a free online store. Arabic and English."
+    },
+    "freePosEgypt": {
+      "title": "Free POS Egypt: Free Cashier Software in EGP",
+      "description": "Free POS system for Egypt: Arabic receipts, offline sales, EGP pricing, free online store. No credit card. Start today with Cashvio."
     }
   },
   "common": {
@@ -175,7 +203,14 @@
     "industries": "Business Types",
     "industryCafe": "Cafe POS",
     "industryClothing": "Clothing Store POS",
-    "industryMinimarket": "Minimarket POS"
+    "industryMinimarket": "Minimarket POS",
+    "industryRestaurant": "Restaurant POS",
+    "industrySupermarket": "Supermarket POS",
+    "industryPharmacy": "Pharmacy POS",
+    "industryBakery": "Bakery POS",
+    "industryMobileShop": "Mobile Shop POS",
+    "industryBeauty": "Cosmetics POS",
+    "freePosEgypt": "Free POS Egypt"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -4517,11 +4552,41 @@
         "title": "Minimarkets & Groceries",
         "description": "USB barcode scanning, a digital credit book for customers who pay later, low-stock alerts, purchase orders, and end-of-day profit.",
         "cta": "See the minimarket POS"
+      },
+      "restaurant": {
+        "title": "Restaurants",
+        "description": "Fast service checkout, dine-in and delivery statuses, WhatsApp updates, and daily profit for busy kitchens.",
+        "cta": "See the restaurant POS"
+      },
+      "supermarket": {
+        "title": "Supermarkets & Groceries",
+        "description": "Barcode scanning, a digital credit book, low-stock alerts, purchase orders, and end-of-day profit.",
+        "cta": "See the supermarket POS"
+      },
+      "pharmacy": {
+        "title": "Pharmacies",
+        "description": "Barcode checkout, stock control, customer profiles from a phone number, and purchase orders.",
+        "cta": "See the pharmacy POS"
+      },
+      "bakery": {
+        "title": "Bakeries & Pastry Shops",
+        "description": "Packed items and custom cakes, stock alerts, purchase orders, and closing profit in one register.",
+        "cta": "See the bakery POS"
+      },
+      "mobileShop": {
+        "title": "Mobile & Accessories Shops",
+        "description": "Device variants, accessory barcodes, credit sales, and a free online store synced with the shelf.",
+        "cta": "See the mobile shop POS"
+      },
+      "beauty": {
+        "title": "Beauty & Cosmetics",
+        "description": "Shades and sizes as variants, barcode labels, returns with store credit, and coupons everywhere.",
+        "cta": "See the cosmetics POS"
       }
     },
     "more": {
-      "title": "Your business type is not listed?",
-      "subtitle": "Cashvio works for any shop that sells products: pharmacies, bakeries, mobile shops, bookstores, gift shops, and more. Start free and set it up around the way you already work."
+      "title": "Need another business type?",
+      "subtitle": "Cashvio also fits bookstores, gift shops, and other product retailers. Start free and shape it around how you already sell."
     },
     "cta": {
       "title": "Start with the free plan today",
@@ -4733,6 +4798,489 @@
     "cta": {
       "title": "Retire the notebooks",
       "subtitle": "The register, the stock, and the credit book. One free system."
+    }
+  },
+  "industryRestaurant": {
+    "hero": {
+      "title": "A restaurant POS built for",
+      "titleHighlight": "busy service",
+      "subtitle": "Ring up tables and delivery orders fast, move each ticket through preparing and ready, and know your profit before you close. Free for restaurants in Egypt."
+    },
+    "pains": {
+      "title": "Where restaurant paper systems fail",
+      "p1": {
+        "title": "Tickets pile up at peak",
+        "description": "Handwritten orders slow the counter, and the kitchen loses track when the rush hits."
+      },
+      "p2": {
+        "title": "Delivery vs dine-in chaos",
+        "description": "Without clear order types and statuses, pickup bags sit while a table waits for the same dish."
+      },
+      "p3": {
+        "title": "Food cost is a guess",
+        "description": "You know what sold tonight, but not what ingredients and packaging left you after closing."
+      }
+    },
+    "features": {
+      "title": "What your restaurant gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Checkout built for service",
+        "description": "Big product tiles and quick notes keep the line moving during lunch and dinner rushes."
+      },
+      "f2": {
+        "title": "Dine-in, pickup & delivery",
+        "description": "Mark each order type and move it through preparing, ready, delivering, and completed."
+      },
+      "f3": {
+        "title": "Notes the kitchen can read",
+        "description": "Per-item notes print with the order so no-onion and extra-sauce requests do not get remade."
+      },
+      "f4": {
+        "title": "WhatsApp when it is ready",
+        "description": "Share status updates with customers in one tap, in Arabic or English."
+      },
+      "f5": {
+        "title": "Stock before you run out",
+        "description": "Track packaged items and ingredients with low-stock alerts and purchase orders."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "Sales and profit by product and by staff member before you lock the door."
+      }
+    },
+    "faq": {
+      "title": "Restaurant POS FAQ",
+      "q1": {
+        "question": "Is Cashvio really free for restaurants?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, and reports with unlimited products and orders. Paid plans mainly raise limits like branches and users."
+      },
+      "q2": {
+        "question": "Can customers order online?",
+        "answer": "Yes. The free plan includes an online store on your own link where customers browse the menu and order for pickup or delivery."
+      },
+      "q3": {
+        "question": "Does it work offline?",
+        "answer": "Yes. Keep recording sales without internet. Everything syncs when you are back online. Arabic and English receipts are supported."
+      }
+    },
+    "cta": {
+      "title": "Open your restaurant register today",
+      "subtitle": "Free forever, no credit card, Arabic and English."
+    }
+  },
+  "industrySupermarket": {
+    "hero": {
+      "title": "A supermarket POS built for",
+      "titleHighlight": "barcode speed",
+      "subtitle": "Scan fast, track who owes what, reorder before shelves empty, and close the day with real profit. Free for grocery stores and bakalas in Egypt."
+    },
+    "pains": {
+      "title": "Where grocery paper systems fail",
+      "p1": {
+        "title": "Slow checkout lines",
+        "description": "Typing prices by hand loses customers when the evening rush hits the counter."
+      },
+      "p2": {
+        "title": "The credit notebook",
+        "description": "Who paid, who still owes, and by how much gets messy on paper and causes arguments."
+      },
+      "p3": {
+        "title": "Empty shelves surprise you",
+        "description": "Without low-stock alerts you only notice a gap when a customer asks for it."
+      }
+    },
+    "features": {
+      "title": "What your supermarket gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "USB barcode scanning",
+        "description": "Scan products at the register and keep the line moving without typing every price."
+      },
+      "f2": {
+        "title": "Digital credit book",
+        "description": "Pay-later and partial payments with due dates and a clear overdue list."
+      },
+      "f3": {
+        "title": "Low-stock alerts",
+        "description": "Set reorder points per product and get warned before you sell the last unit."
+      },
+      "f4": {
+        "title": "Purchase orders",
+        "description": "Order from suppliers, receive stock in parts, and let inventory update itself."
+      },
+      "f5": {
+        "title": "Multi-branch ready",
+        "description": "Separate stock and prices per store with transfers when you grow beyond one location."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "See sales, cost, and profit for the day instead of guessing from the cash drawer."
+      }
+    },
+    "faq": {
+      "title": "Supermarket POS FAQ",
+      "q1": {
+        "question": "Does it work with barcode scanners?",
+        "answer": "Yes. USB barcode scanners work with the browser POS. You can also print barcode labels for products that do not have them."
+      },
+      "q2": {
+        "question": "Can I track customer debts?",
+        "answer": "Yes. Record pay-later and partial payments with due dates, then open the overdue list to follow up."
+      },
+      "q3": {
+        "question": "Is it free for small bakalas?",
+        "answer": "Yes. The free plan covers the POS, inventory, purchase orders, and reports. No credit card required."
+      }
+    },
+    "cta": {
+      "title": "Scan your first sale today",
+      "subtitle": "Free forever for grocery stores in Egypt."
+    }
+  },
+  "industryPharmacy": {
+    "hero": {
+      "title": "A pharmacy POS that keeps",
+      "titleHighlight": "stock under control",
+      "subtitle": "Barcode checkout, clear stock counts, customer history from a phone number, and purchase orders. Free for pharmacies in Egypt."
+    },
+    "pains": {
+      "title": "Where pharmacy paper systems fail",
+      "p1": {
+        "title": "Wrong box on the shelf",
+        "description": "Similar packs and strengths make hand-written stock lists dangerous at rush hour."
+      },
+      "p2": {
+        "title": "Customers without history",
+        "description": "Without a profile you cannot see what they bought last week or what they still owe."
+      },
+      "p3": {
+        "title": "Supplier orders on sticky notes",
+        "description": "Reorders get lost between shifts, and you overbuy some SKUs while others run out."
+      }
+    },
+    "features": {
+      "title": "What your pharmacy gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Barcode-first checkout",
+        "description": "Scan packs at the counter and avoid typing mistakes on look-alike products."
+      },
+      "f2": {
+        "title": "Stock per product",
+        "description": "Track every SKU with low-stock alerts so you reorder before the shelf goes empty."
+      },
+      "f3": {
+        "title": "Customer profiles",
+        "description": "Start from a phone number: visits, spending, store credit, and full order history."
+      },
+      "f4": {
+        "title": "Purchase orders",
+        "description": "Send orders to suppliers, receive in parts, and update inventory automatically."
+      },
+      "f5": {
+        "title": "Staff permissions",
+        "description": "Give each employee a login with only the access their shift needs."
+      },
+      "f6": {
+        "title": "Daily sales reports",
+        "description": "See revenue and profit for the day, by product and by staff member."
+      }
+    },
+    "faq": {
+      "title": "Pharmacy POS FAQ",
+      "q1": {
+        "question": "Is this a free pharmacy POS?",
+        "answer": "Yes. The free plan includes the cashier, inventory, customers, purchase orders, and reports. Upgrade only when you need more branches or users."
+      },
+      "q2": {
+        "question": "Can I import my product list?",
+        "answer": "Yes. Export to CSV from your current system, map it to Cashvio's template, and upload. The import wizard validates before saving."
+      },
+      "q3": {
+        "question": "Does it work in Arabic?",
+        "answer": "Yes. Arabic-first with full RTL across the dashboard, POS, and receipts. Switch to English anytime."
+      }
+    },
+    "cta": {
+      "title": "Set up your pharmacy register",
+      "subtitle": "Free forever, no credit card, ready in minutes."
+    }
+  },
+  "industryBakery": {
+    "hero": {
+      "title": "A bakery POS that handles",
+      "titleHighlight": "morning trays and custom cakes",
+      "subtitle": "Sell packed items and custom orders fast, track flour and packaging stock, and close with real profit. Free for bakeries and pastry shops in Egypt."
+    },
+    "pains": {
+      "title": "Where bakery paper systems fail",
+      "p1": {
+        "title": "The morning queue",
+        "description": "Hand tickets slow the counter when trays are hot and customers want to pay and go."
+      },
+      "p2": {
+        "title": "Custom orders on scraps of paper",
+        "description": "Cake notes get lost between the counter and the kitchen, then remakes waste ingredients."
+      },
+      "p3": {
+        "title": "Ingredient cost is invisible",
+        "description": "You know what sold, but not whether today's trays left you ahead or behind."
+      }
+    },
+    "features": {
+      "title": "What your bakery gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Fast packed-item checkout",
+        "description": "Big tiles and barcodes move bread, sweets, and drinks through the line quickly."
+      },
+      "f2": {
+        "title": "Notes on custom cakes",
+        "description": "Per-item notes travel with the order so frosting colors and delivery times stay clear."
+      },
+      "f3": {
+        "title": "Pickup and delivery statuses",
+        "description": "Mark orders preparing, ready, or delivering so the counter and kitchen stay aligned."
+      },
+      "f4": {
+        "title": "Stock alerts for packaging",
+        "description": "Track cups, boxes, and packaged goods with low-stock alerts before the rush."
+      },
+      "f5": {
+        "title": "Purchase orders",
+        "description": "Reorder flour, dairy, and packaging from suppliers with a clear receive flow."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "See sales and profit for the day instead of counting trays and guessing."
+      }
+    },
+    "faq": {
+      "title": "Bakery POS FAQ",
+      "q1": {
+        "question": "Can I sell both packed goods and custom orders?",
+        "answer": "Yes. Catalog products for daily trays, add notes for custom cakes, and take payment at the same register."
+      },
+      "q2": {
+        "question": "Is there an online store for pre-orders?",
+        "answer": "Yes. The free plan includes an online store on your own link for browsing and ordering pickup or delivery."
+      },
+      "q3": {
+        "question": "Does it print thermal receipts?",
+        "answer": "Yes. Thermal printers are supported, plus digital receipts customers can open from a QR code."
+      }
+    },
+    "cta": {
+      "title": "Open the bakery register free",
+      "subtitle": "No credit card. Arabic and English from day one."
+    }
+  },
+  "industryMobileShop": {
+    "hero": {
+      "title": "A mobile shop POS for",
+      "titleHighlight": "phones and accessories",
+      "subtitle": "Track models and variants, scan accessories, sell on credit, and sync stock with a free online store. Built for phone shops in Egypt."
+    },
+    "pains": {
+      "title": "Where phone-shop paper systems fail",
+      "p1": {
+        "title": "Models and colors mix up",
+        "description": "One phone line is many SKUs. Paper cannot tell which color and storage sold."
+      },
+      "p2": {
+        "title": "Accessories without barcodes",
+        "description": "Chargers and cases get undercharged or forgotten when the counter is busy."
+      },
+      "p3": {
+        "title": "Installments on sticky notes",
+        "description": "Customer deposits and remaining balances disappear between shifts."
+      }
+    },
+    "features": {
+      "title": "What your mobile shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Variants that match the shelf",
+        "description": "Color, storage, and accessory options as real variants with their own stock and price."
+      },
+      "f2": {
+        "title": "Barcode labels",
+        "description": "Print labels for accessories and scan them at the register instead of guessing prices."
+      },
+      "f3": {
+        "title": "Credit and partial payments",
+        "description": "Record deposits and remaining balances with due dates and an overdue list."
+      },
+      "f4": {
+        "title": "Free online store",
+        "description": "Show phones and accessories on your own link with stock that matches the shop."
+      },
+      "f5": {
+        "title": "Purchase orders",
+        "description": "Order from distributors, receive in parts, and update inventory automatically."
+      },
+      "f6": {
+        "title": "Staff and profit reports",
+        "description": "See who sold what and what each day really earned after cost."
+      }
+    },
+    "faq": {
+      "title": "Mobile shop POS FAQ",
+      "q1": {
+        "question": "Can I track phones and accessories together?",
+        "answer": "Yes. One catalog covers devices and accessories with separate stock counts and prices per variant."
+      },
+      "q2": {
+        "question": "Does it support pay-later sales?",
+        "answer": "Yes. Take a deposit, leave a balance with a due date, and follow up from the overdue list."
+      },
+      "q3": {
+        "question": "Is the online store included free?",
+        "answer": "Yes. Your free plan includes an online store synced with shop stock. No commission on the free plan."
+      }
+    },
+    "cta": {
+      "title": "Run your mobile shop on one system",
+      "subtitle": "Free forever. Start in minutes."
+    }
+  },
+  "industryBeauty": {
+    "hero": {
+      "title": "A cosmetics POS built for",
+      "titleHighlight": "shades and shelves",
+      "subtitle": "Variants, barcode labels, returns with store credit, coupons, and a free online store. Free for beauty and cosmetics shops in Egypt."
+    },
+    "pains": {
+      "title": "Where beauty retail paper fails",
+      "p1": {
+        "title": "Shade and size maze",
+        "description": "One lipstick is many SKUs. Paper mixes shades and you sell what you do not have."
+      },
+      "p2": {
+        "title": "Returns without records",
+        "description": "Opened or wrong-shade returns turn into arguments when nothing was written down."
+      },
+      "p3": {
+        "title": "Promo codes on two systems",
+        "description": "In-store discounts and online offers drift apart and customers notice."
+      }
+    },
+    "features": {
+      "title": "What your beauty shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Real product variants",
+        "description": "Shades, sizes, and kits as variants with their own SKU, stock, and price."
+      },
+      "f2": {
+        "title": "Barcode labels",
+        "description": "Print labels and scan at the register so the right shade always rings up."
+      },
+      "f3": {
+        "title": "Returns with store credit",
+        "description": "Accept returns with reasons and refund to store credit so money stays in your shop."
+      },
+      "f4": {
+        "title": "Coupons everywhere",
+        "description": "One discount code works at the register and at online checkout."
+      },
+      "f5": {
+        "title": "Free online store",
+        "description": "Product photos and availability on your own link, synced with shelf stock."
+      },
+      "f6": {
+        "title": "Margin you can see",
+        "description": "Cost per item and profit reports show which products actually earn."
+      }
+    },
+    "faq": {
+      "title": "Cosmetics store POS FAQ",
+      "q1": {
+        "question": "Can I manage shades as separate stock?",
+        "answer": "Yes. Each shade or size is a variant with its own stock count, barcode, and price."
+      },
+      "q2": {
+        "question": "Do coupons work in-store and online?",
+        "answer": "Yes. Create one code and it validates at the POS and at online checkout in real time."
+      },
+      "q3": {
+        "question": "Is it free for small beauty shops?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, and reports. No credit card required."
+      }
+    },
+    "cta": {
+      "title": "Open your beauty register free",
+      "subtitle": "Arabic and English. No credit card."
+    }
+  },
+  "freePosEgypt": {
+    "hero": {
+      "title": "Free POS for Egypt",
+      "titleHighlight": "built around how shops here sell",
+      "subtitle": "EGP pricing, Arabic receipts, offline sales, and a free online store. No credit card. Made for merchants across Egypt."
+    },
+    "pains": {
+      "title": "What Egyptian shop owners need from a free POS",
+      "p1": {
+        "title": "Pricing in EGP",
+        "description": "You sell in Egyptian pounds. Your POS, reports, and storefront should too."
+      },
+      "p2": {
+        "title": "Arabic that actually works",
+        "description": "Receipts, dashboard, and storefront need real RTL, not a bolted-on translation."
+      },
+      "p3": {
+        "title": "Internet drops happen",
+        "description": "The counter cannot stop when the connection dies. Offline sales must keep working."
+      }
+    },
+    "features": {
+      "title": "What you get free in Egypt",
+      "subtitle": "Shipped features on the free forever plan.",
+      "f1": {
+        "title": "Free cashier in Arabic and English",
+        "description": "Sales screen, cash register, shifts, and thermal or digital receipts."
+      },
+      "f2": {
+        "title": "EGP-native money",
+        "description": "Prices, reports, and payments stay in Egyptian pounds without awkward conversions."
+      },
+      "f3": {
+        "title": "Offline-capable sales",
+        "description": "Keep ringing up orders without internet. Sync when you are back online."
+      },
+      "f4": {
+        "title": "Free online store",
+        "description": "Your own store link synced with shop stock. No commission on the free plan."
+      },
+      "f5": {
+        "title": "Inventory and purchase orders",
+        "description": "Stock per store, low-stock alerts, suppliers, and two-step purchase orders."
+      },
+      "f6": {
+        "title": "WhatsApp-friendly updates",
+        "description": "Share order status and digital receipts the way your customers already chat."
+      }
+    },
+    "faq": {
+      "title": "Free POS Egypt FAQ",
+      "q1": {
+        "question": "Is Cashvio really free in Egypt?",
+        "answer": "Yes. The free forever plan includes the POS, online store, inventory, and reports. No credit card to start. Paid plans raise limits when you grow."
+      },
+      "q2": {
+        "question": "What does a POS cost in Egypt?",
+        "answer": "With Cashvio the starting price is zero EGP. See the pricing page for paid plan limits in EGP when you need more branches, users, or devices."
+      },
+      "q3": {
+        "question": "Does it work offline and in Arabic?",
+        "answer": "Yes. Keep selling offline and sync later. The product is Arabic-first with bilingual receipts and a full RTL experience."
+      }
+    },
+    "cta": {
+      "title": "Start your free POS in Egypt today",
+      "subtitle": "Register in minutes. No credit card. Arabic and English."
     }
   }
 }

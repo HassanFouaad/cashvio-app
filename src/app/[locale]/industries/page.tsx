@@ -19,18 +19,20 @@ const industriesKeywords: Record<Locale, string[]> = {
   en: [
     'POS by business type',
     'free POS for small business',
+    'restaurant POS Egypt',
+    'pharmacy POS',
+    'supermarket POS',
     'cafe POS system',
-    'clothing store POS',
-    'minimarket POS',
     'retail POS Egypt',
     'Cashvio',
   ],
   ar: [
     'كاشير حسب النشاط',
     'كاشير مجاني للمحلات',
+    'كاشير مطعم',
+    'برنامج صيدلية',
+    'كاشير سوبر ماركت',
     'كاشير كافيه',
-    'كاشير محل ملابس',
-    'كاشير ميني ماركت',
     'برنامج كاشير مصر',
     'كاشفيو',
   ],
@@ -46,12 +48,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const industryKeys = ['cafe', 'clothing', 'minimarket'] as const;
+const industryKeys = [
+  'cafe',
+  'clothing',
+  'minimarket',
+  'restaurant',
+  'supermarket',
+  'pharmacy',
+  'bakery',
+  'mobileShop',
+  'beauty',
+] as const;
 
 const industryLinks: Record<(typeof industryKeys)[number], string> = {
   cafe: '/industries/cafe',
   clothing: '/industries/clothing',
   minimarket: '/industries/minimarket',
+  restaurant: '/industries/restaurant',
+  supermarket: '/industries/supermarket',
+  pharmacy: '/industries/pharmacy',
+  bakery: '/industries/bakery',
+  mobileShop: '/industries/mobile-shop',
+  beauty: '/industries/beauty',
 };
 
 export default async function IndustriesHubPage({ params }: Props) {
