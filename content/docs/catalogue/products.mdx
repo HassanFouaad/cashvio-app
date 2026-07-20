@@ -28,7 +28,7 @@ Fill in the basic details:
 | **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
 | **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
 | **Tax Included** | Toggle to indicate if the selling price already includes tax |
-| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items) |
+| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation — it cannot be changed later.** |
 
 ### Step 2: Variants and Pricing
 
@@ -169,6 +169,10 @@ If **Track Inventory** is enabled for a product:
 - **Low stock alerts** appear when stock falls below the reorder point (see [Stock Management](/docs/inventory/stock-management))
 
 If inventory tracking is **disabled**, the product is treated as always in stock.
+
+<Callout title="Important">
+**Track Inventory** can only be chosen when you create the product. Editing a product later shows the current setting as read-only — create a new product if you need the other tracking mode.
+</Callout>
 
 <Callout title="Tip">
 Set up your categories and options **before** creating products. This makes the product creation process faster and more organized.
