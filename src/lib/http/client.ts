@@ -115,9 +115,11 @@ class HttpClient {
 
       if (!response.ok) {
         const errorData = responseData as ApiError;
+        // The backend envelope nests the translated message under `error`;
+        // fall back to a top-level `message` for non-envelope responses.
         throw new HttpError(
           response.status,
-          errorData.message || 'An error occurred',
+          errorData.error?.message || errorData.message || 'An error occurred',
           errorData.details
         );
       }

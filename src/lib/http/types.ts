@@ -22,11 +22,19 @@ export interface ApiResponse<T> {
 
 /**
  * API Error response
+ *
+ * The backend wraps errors in a standard envelope with the translated
+ * message nested under `error`. Top-level `message`/`statusCode` are kept
+ * for non-envelope errors (e.g. proxies).
  */
 export interface ApiError {
-  message: string;
-  error?: string;
-  statusCode: number;
+  success?: boolean;
+  error?: {
+    code?: string;
+    message?: string;
+  };
+  message?: string;
+  statusCode?: number;
   details?: Record<string, unknown>;
 }
 
