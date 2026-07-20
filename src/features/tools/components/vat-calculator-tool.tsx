@@ -7,7 +7,8 @@ import { cn } from '@/lib/utils';
 
 type VatMode = 'exclusive' | 'inclusive';
 
-const EGYPT_VAT_RATE = 14;
+/** Egypt standard VAT; editable in the UI for other rates. */
+const DEFAULT_VAT_RATE = 14;
 
 function parseNonNegativeNumber(raw: string): number | null {
   if (!raw.trim()) return null;
@@ -40,7 +41,7 @@ export function VatCalculatorTool() {
 
   const [mode, setMode] = React.useState<VatMode>('exclusive');
   const [amount, setAmount] = React.useState('100');
-  const [rate, setRate] = React.useState(String(EGYPT_VAT_RATE));
+  const [rate, setRate] = React.useState(String(DEFAULT_VAT_RATE));
 
   const amountValue = parseNonNegativeNumber(amount);
   const rateValue = parseNonNegativeNumber(rate);
@@ -127,7 +128,7 @@ export function VatCalculatorTool() {
             value={rate}
             onChange={(e) => setRate(e.target.value)}
             className="paper-input"
-            placeholder={String(EGYPT_VAT_RATE)}
+            placeholder={String(DEFAULT_VAT_RATE)}
             dir="ltr"
           />
           <p className="font-receipt text-xs text-muted-foreground">{t('rateHint')}</p>

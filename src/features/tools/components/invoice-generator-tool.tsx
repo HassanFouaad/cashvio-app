@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { trackButtonClick } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
-const EGYPT_VAT_RATE = 14;
+const DEFAULT_VAT_RATE = 14;
 const MAX_LINE_ITEMS = 20;
 
 interface LineItem {
@@ -62,6 +62,7 @@ export function InvoiceGeneratorTool() {
   const [invoiceDate, setInvoiceDate] = React.useState(todayIsoDate);
   const [notes, setNotes] = React.useState('');
   const [includeVat, setIncludeVat] = React.useState(true);
+  const [vatRate, setVatRate] = React.useState(String(DEFAULT_VAT_RATE));
   const [lines, setLines] = React.useState<LineItem[]>([createLineItem()]);
 
   const computedLines = lines.map((line) => {
@@ -75,8 +76,12 @@ export function InvoiceGeneratorTool() {
     };
   });
 
+  const vatRateValue = parseNonNegativeNumber(vatRate);
+  const effectiveVatRate =
+    vatRateValue !== null && vatRateValue < 100 ? vatRateValue : DEFAULT_VAT_RATE;
+
   const subtotal = computedLines.reduce((sum, line) => sum + line.lineTotal, 0);
-  const vatAmount = includeVat ? subtotal * (EGYPT_VAT_RATE / 100) : 0;
+  const vatAmount = includeVat ? subtotal * (effectiveVatRate / 100) : 0;
   const total = subtotal + vatAmount;
   const hasAnyLine = computedLines.some(
     (line) => line.description.trim() || line.unitPrice > 0
@@ -288,15 +293,36 @@ export function InvoiceGeneratorTool() {
             </button>
           </div>
 
-          <label className="flex items-center gap-3 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={includeVat}
-              onChange={(e) => setIncludeVat(e.target.checked)}
-              className="size-4 accent-primary"
-            />
-            <span className="font-receipt text-sm text-foreground">{t('includeVat')}</span>
-          </label>
+          <div className="space-y-4">
+            <label className="flex items-center gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={includeVat}
+                onChange={(e) => setIncludeVat(e.target.checked)}
+                className="size-4 accent-primary"
+              />
+              <span className="font-receipt text-sm text-foreground">{t('includeVat')}</span>
+            </label>
+
+            {includeVat && (
+              <div className="space-y-2">
+                <label htmlFor="inv-vat-rate" className="block mono-label text-muted-foreground">
+                  {t('rateLabel')}
+                </label>
+                <input
+                  id="inv-vat-rate"
+                  type="text"
+                  inputMode="decimal"
+                  value={vatRate}
+                  onChange={(e) => setVatRate(e.target.value)}
+                  className="paper-input max-w-[10rem]"
+                  placeholder={String(DEFAULT_VAT_RATE)}
+                  dir="ltr"
+                />
+                <p className="font-receipt text-xs text-muted-foreground">{t('rateHint')}</p>
+              </div>
+            )}
+          </div>
 
           <div className="space-y-2">
             <label htmlFor="inv-notes" className="block mono-label text-muted-foreground">
@@ -415,7 +441,11 @@ export function InvoiceGeneratorTool() {
           {includeVat && (
             <div className="flex items-baseline gap-3 text-sm">
               <dt className="text-muted-foreground">
-                {t('vatLine', { rate: EGYPT_VAT_RATE })}
+                {t('vatLine', {
+                  rate: effectiveVatRate.toLocaleString('en-US', {
+                    maximumFractionDigits: 2,
+                  }),
+                })}
               </dt>
               <span className="tear-line flex-1 self-center" aria-hidden="true" />
               <dd className="font-receipt text-foreground" dir="ltr">

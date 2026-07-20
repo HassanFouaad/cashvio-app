@@ -5407,7 +5407,9 @@
       "lineTotalLabel": "Total",
       "addItem": "Add line",
       "removeItem": "Remove",
-      "includeVat": "Add Egypt 14% VAT",
+      "includeVat": "Add VAT",
+      "rateLabel": "VAT rate %",
+      "rateHint": "Defaults to Egypt 14%. Change it if your case differs.",
       "notesLabel": "Notes (optional)",
       "notesPlaceholder": "Payment terms, thank-you line, bank details…",
       "print": "Print invoice",
@@ -5429,7 +5431,7 @@
       },
       "s2": {
         "title": "Add the sale lines",
-        "description": "Description, quantity, and unit price. Toggle Egypt 14% VAT if you need it."
+        "description": "Description, quantity, and unit price. Toggle VAT and set the rate (defaults to Egypt 14%)."
       },
       "s3": {
         "title": "Print or save as PDF",
@@ -5465,7 +5467,7 @@
       },
       "q3": {
         "question": "Does it include Egypt VAT?",
-        "answer": "Optionally. Turn on Add Egypt 14% VAT and the preview adds tax on top of the line-item subtotal."
+        "answer": "Optionally. Turn on Add VAT, keep the default Egypt 14% rate or change it, and the preview adds tax on top of the line-item subtotal."
       }
     },
     "cta": {
