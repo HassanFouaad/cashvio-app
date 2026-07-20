@@ -61,12 +61,17 @@ See [Online Checkout Flow](/docs/online-store/checkout-flow) for the full checko
 The storefront supports **light and dark mode only**. Custom themes, colors, fonts, or layout customization beyond the mode toggle are not available.
 </Callout>
 
+### Announcement Bar
+- An optional **promo strip at the very top of every page** (above the header) in your brand color — perfect for offers like "Free delivery on orders over 500 EGP"
+- Configured per language in **Online Store > Content & SEO > Announcement Bar & Footer Text**; leave it empty to hide the bar
+
 ### Footer
 - **Copyright notice** with your store name
+- Your optional **custom footer text** (a personal message, address, or story) configured in **Content & SEO**
 - **"Powered by Cashvio"** attribution with a link to the Cashvio website and a "Create your free online store" link
 - Links to your **static pages** (terms, privacy, refund policy, etc.)
 - **Social media links** if configured
-- On mobile, a **bottom navigation bar** replaces the footer with quick access to Home, Categories, Products, Cart, and Contact
+- On mobile, a **bottom navigation bar** replaces the footer with quick access to Home, Categories, Products, Cart, and Contact — the custom footer text appears in the mobile **Information** sheet
 
 ## Configuring Your Online Store
 
@@ -95,6 +100,7 @@ Cashvio supports **subdomain-based storefronts only**. Custom domains are not cu
 | **Hero Images** | Up to 5 home-page banners, each with an optional **click-through link** (great for promotions) |
 | **Special Products** | Up to 10 featured products pinned on the home page, reorderable by drag and drop |
 | **SEO Settings** | Meta title (60 chars), meta description (160 chars), and favicon |
+| **Announcement Bar & Footer Text** | Bilingual promo text shown at the top of every page, and a custom footer message |
 | **Social Media Links** | Facebook, Instagram, TikTok, YouTube, and your website URL |
 | **Hide Out of Stock Items** | Hide products with zero inventory from the storefront |
 | **Tracking** | Google Tag Manager, Facebook Pixel, and TikTok Pixel IDs |
@@ -109,7 +115,7 @@ Your storefront is connected to the business portal. Changes you make in the por
 | **Products** | Products with "Active" status appear on the store |
 | **Categories** | Active categories appear in navigation and browsing |
 | **Prices** | Selling prices from product variants are displayed |
-| **Fulfillment Methods** | Enabled methods (Delivery, Pickup) appear during checkout |
+| **Fulfillment Methods** | Storefront-enabled methods (Delivery, Pickup) appear during checkout — configured separately from portal methods |
 | **Delivery Zones** | Available delivery areas and fees during checkout |
 | **Storefront Payment Methods** | Cash and Receipt appear during checkout based on your configuration |
 | **Service Fees** | Delivery and service fees are applied during checkout |
@@ -154,6 +160,21 @@ Improve your store's visibility in search engines:
 
 <Callout title="Tip">
 Write compelling meta titles and descriptions that include relevant keywords. This helps customers find your store in search results.
+</Callout>
+
+## Announcement Bar & Footer Text
+
+Promote offers and add a personal touch, from **Online Store > Content & SEO > Announcement Bar & Footer Text**:
+
+1. Enter your **Announcement (English)** and **Announcement (Arabic)** — e.g., "Free delivery on orders over 500 EGP". The bar appears at the very top of every storefront page in your brand color, in the language the customer is browsing in.
+2. Enter your **Footer text (English)** and **Footer text (Arabic)** — a short message shown near the bottom of the storefront footer.
+3. Click **Save Content**.
+
+- If only one language is filled in, it's shown for both languages.
+- Clear a field and save to **hide** the bar or footer message.
+
+<Callout title="Tip">
+Announcing a real offer works best — for example, pair "Free delivery on orders over 500 EGP" with the store's [Free Delivery Threshold](/docs/stores/delivery-zones#free-delivery-threshold) so the storefront actually waives the fee automatically.
 </Callout>
 
 ## Static Pages

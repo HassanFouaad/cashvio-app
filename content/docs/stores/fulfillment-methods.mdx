@@ -18,8 +18,16 @@ Fulfillment methods define **how orders are delivered to customers**. When creat
 
 ## How to Configure Fulfillment Methods
 
+Fulfillment methods are configured **separately for each channel** — just like payment methods:
+
+- **Portal** — the methods your staff can choose when creating orders from the business portal or POS.
+- **Storefront (Online)** — the methods your customers see at online checkout.
+
 1. Go to **Settings > Stores**, open your store, and select the **Fulfillment** tab.
-2. Enable or disable each method using its toggle (each change asks for confirmation).
+2. Switch between the **Storefront (Online)** and **Portal** tabs to manage each channel.
+3. Enable or disable each method using its toggle (each change asks for confirmation).
+
+Changes to one channel never affect the other: disabling Delivery for the storefront doesn't stop your staff from creating delivery orders in the portal.
 
 ## Delivery Fulfillment
 
@@ -32,7 +40,11 @@ See [Delivery Zones](/docs/stores/delivery-zones) for setting up delivery areas 
 
 ## Storefront Fulfillment
 
-On your online storefront, customers see only **Delivery** and **Pickup** as fulfillment options (In-Store and Dine-In are portal-only methods). Make sure you have at least one of these enabled if you want customers to place orders through the storefront.
+On your online storefront, customers can only be offered **Delivery** and **Pickup**. Make sure at least one of these is enabled on the **Storefront (Online)** tab if you want customers to place orders through the storefront.
+
+<Callout title="Important">
+**In-Store** can never be offered on the online storefront — it is a staff-only method for walk-in sales at the counter. The system rejects any attempt to enable it for online checkout, and online orders can never use it.
+</Callout>
 
 ## Order Status Tracking
 
