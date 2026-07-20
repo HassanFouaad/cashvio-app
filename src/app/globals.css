@@ -598,6 +598,25 @@ div:has(+ #nd-sidebar-mobile) {
   margin: 14px 16px 14px 8px;
 }
 
+/* Invoice totals leader: solid black dots (never grey) */
+.invoice-tear-line {
+  display: block;
+  height: 0;
+  border-bottom: 1px dotted black;
+  min-width: 1.5rem;
+}
+
+/* Force the invoice preview to print/read as black on white */
+.invoice-print-area,
+.invoice-print-area * {
+  color: black !important;
+  border-color: black !important;
+}
+
+.invoice-print-area {
+  background: white !important;
+}
+
 /* ============================================
    TOOL PRINT (invoice / receipt maker)
    Isolates .invoice-print-area so window.print()
@@ -626,12 +645,12 @@ div:has(+ #nd-sidebar-mobile) {
     border: none !important;
   }
 
-  .invoice-print-area .text-muted-foreground {
-    color: #444 !important;
-  }
-
-  .invoice-print-area .text-primary {
+  .invoice-print-area,
+  .invoice-print-area * {
     color: black !important;
+    border-color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 

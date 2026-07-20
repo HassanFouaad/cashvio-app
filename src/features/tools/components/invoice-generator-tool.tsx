@@ -354,50 +354,58 @@ export function InvoiceGeneratorTool() {
         </div>
       </div>
 
-      {/* Live preview + print target */}
-      <div className="invoice-print-area receipt-edge bg-card px-6 py-8 sm:px-10">
+      {/* Live preview + print target: solid black ink only (no greys / brand green) */}
+      <div className="invoice-print-area receipt-edge bg-white text-black px-6 py-8 sm:px-10">
         <div className="text-center space-y-1 mb-6">
-          <p className="font-display text-xl text-foreground">
+          <p className="font-display text-xl text-black">
             {businessName.trim() || t('previewBusinessFallback')}
           </p>
           {businessPhone.trim() && (
-            <p className="font-receipt text-sm text-muted-foreground" dir="ltr">
+            <p className="font-receipt text-sm text-black" dir="ltr">
               {businessPhone.trim()}
             </p>
           )}
           {businessAddress.trim() && (
-            <p className="font-receipt text-sm text-muted-foreground">{businessAddress.trim()}</p>
+            <p className="font-receipt text-sm text-black">{businessAddress.trim()}</p>
           )}
         </div>
 
-        <div className="flex flex-wrap justify-between gap-3 text-sm border-y border-dashed border-ledger-line py-3 mb-5">
+        <div className="flex flex-wrap justify-between gap-3 text-sm border-y border-dashed border-black py-3 mb-5">
           <div>
-            <p className="mono-label text-muted-foreground">{t('invoiceNumberLabel')}</p>
-            <p className="font-receipt text-foreground" dir="ltr">
+            <p className="mono-label text-black">{t('invoiceNumberLabel')}</p>
+            <p className="font-receipt text-black" dir="ltr">
               {invoiceNumber || '-'}
             </p>
           </div>
           <div>
-            <p className="mono-label text-muted-foreground">{t('dateLabel')}</p>
-            <p className="font-receipt text-foreground" dir="ltr">
+            <p className="mono-label text-black">{t('dateLabel')}</p>
+            <p className="font-receipt text-black" dir="ltr">
               {formattedDate}
             </p>
           </div>
           <div>
-            <p className="mono-label text-muted-foreground">{t('customerNameLabel')}</p>
-            <p className="font-receipt text-foreground">
+            <p className="mono-label text-black">{t('customerNameLabel')}</p>
+            <p className="font-receipt text-black">
               {customerName.trim() || t('previewCustomerFallback')}
             </p>
           </div>
         </div>
 
-        <table className="w-full text-sm mb-5">
+        <table className="w-full text-sm mb-5 text-black">
           <thead>
-            <tr className="border-b border-dashed border-ledger-line text-muted-foreground">
-              <th className="py-2 text-start font-normal mono-label">{t('descriptionLabel')}</th>
-              <th className="py-2 text-end font-normal mono-label w-16">{t('quantityLabel')}</th>
-              <th className="py-2 text-end font-normal mono-label w-24">{t('unitPriceLabel')}</th>
-              <th className="py-2 text-end font-normal mono-label w-24">{t('lineTotalLabel')}</th>
+            <tr className="border-b border-dashed border-black">
+              <th className="py-2 text-start font-normal mono-label text-black">
+                {t('descriptionLabel')}
+              </th>
+              <th className="py-2 text-end font-normal mono-label text-black w-16">
+                {t('quantityLabel')}
+              </th>
+              <th className="py-2 text-end font-normal mono-label text-black w-24">
+                {t('unitPriceLabel')}
+              </th>
+              <th className="py-2 text-end font-normal mono-label text-black w-24">
+                {t('lineTotalLabel')}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -405,24 +413,24 @@ export function InvoiceGeneratorTool() {
               computedLines
                 .filter((line) => line.description.trim() || line.unitPrice > 0)
                 .map((line) => (
-                  <tr key={line.id} className="border-b border-dashed border-ledger-line/60">
-                    <td className="py-2.5 text-start text-foreground">
+                  <tr key={line.id} className="border-b border-dashed border-black">
+                    <td className="py-2.5 text-start text-black">
                       {line.description.trim() || t('untitledItem')}
                     </td>
-                    <td className="py-2.5 text-end font-receipt" dir="ltr">
+                    <td className="py-2.5 text-end font-receipt text-black" dir="ltr">
                       {formatNumber(line.quantity)}
                     </td>
-                    <td className="py-2.5 text-end font-receipt" dir="ltr">
+                    <td className="py-2.5 text-end font-receipt text-black" dir="ltr">
                       {formatNumber(line.unitPrice)}
                     </td>
-                    <td className="py-2.5 text-end font-receipt" dir="ltr">
+                    <td className="py-2.5 text-end font-receipt text-black" dir="ltr">
                       {formatNumber(line.lineTotal)}
                     </td>
                   </tr>
                 ))
             ) : (
               <tr>
-                <td colSpan={4} className="py-6 text-center text-muted-foreground font-receipt">
+                <td colSpan={4} className="py-6 text-center text-black font-receipt">
                   {t('emptyPreview')}
                 </td>
               </tr>
@@ -430,46 +438,46 @@ export function InvoiceGeneratorTool() {
           </tbody>
         </table>
 
-        <dl className="space-y-2.5 max-w-xs ms-auto">
+        <dl className="space-y-2.5 max-w-xs ms-auto text-black">
           <div className="flex items-baseline gap-3 text-sm">
-            <dt className="text-muted-foreground">{t('subtotal')}</dt>
-            <span className="tear-line flex-1 self-center" aria-hidden="true" />
-            <dd className="font-receipt text-foreground" dir="ltr">
+            <dt className="text-black">{t('subtotal')}</dt>
+            <span className="invoice-tear-line flex-1 self-center" aria-hidden="true" />
+            <dd className="font-receipt text-black" dir="ltr">
               {formatNumber(subtotal)}
             </dd>
           </div>
           {includeVat && (
             <div className="flex items-baseline gap-3 text-sm">
-              <dt className="text-muted-foreground">
+              <dt className="text-black">
                 {t('vatLine', {
                   rate: effectiveVatRate.toLocaleString('en-US', {
                     maximumFractionDigits: 2,
                   }),
                 })}
               </dt>
-              <span className="tear-line flex-1 self-center" aria-hidden="true" />
-              <dd className="font-receipt text-foreground" dir="ltr">
+              <span className="invoice-tear-line flex-1 self-center" aria-hidden="true" />
+              <dd className="font-receipt text-black" dir="ltr">
                 {formatNumber(vatAmount)}
               </dd>
             </div>
           )}
-          <div className="flex items-baseline gap-3 text-sm font-semibold border-t border-dashed border-ledger-line pt-3">
-            <dt className="text-foreground uppercase tracking-wide">{t('total')}</dt>
-            <span className="tear-line flex-1 self-center" aria-hidden="true" />
-            <dd className="font-receipt text-primary text-base" dir="ltr">
+          <div className="flex items-baseline gap-3 text-sm font-semibold border-t border-dashed border-black pt-3">
+            <dt className="text-black uppercase tracking-wide">{t('total')}</dt>
+            <span className="invoice-tear-line flex-1 self-center" aria-hidden="true" />
+            <dd className="font-receipt text-black text-base" dir="ltr">
               {formatNumber(total)}
             </dd>
           </div>
         </dl>
 
         {notes.trim() && (
-          <div className="mt-6 pt-4 border-t border-dashed border-ledger-line">
-            <p className="mono-label text-muted-foreground mb-1">{t('notesLabel')}</p>
-            <p className="font-receipt text-sm text-foreground whitespace-pre-wrap">{notes.trim()}</p>
+          <div className="mt-6 pt-4 border-t border-dashed border-black">
+            <p className="mono-label text-black mb-1">{t('notesLabel')}</p>
+            <p className="font-receipt text-sm text-black whitespace-pre-wrap">{notes.trim()}</p>
           </div>
         )}
 
-        <p className="mt-8 text-center font-receipt text-xs text-muted-foreground">
+        <p className="mt-8 text-center font-receipt text-xs text-black">
           {t('thankYou')}
         </p>
       </div>
