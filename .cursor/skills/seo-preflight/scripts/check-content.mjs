@@ -92,6 +92,7 @@ function collectFiles(dir, filter) {
 
 const mdxFiles = collectFiles('content/docs', (f) => f.endsWith('.mdx'));
 let mdxBad = 0;
+let fmBad = 0;
 for (const f of mdxFiles) {
   const s = readFileSync(f, 'utf8');
   const n = (s.match(BANNED_G) || []).length;
@@ -99,8 +100,29 @@ for (const f of mdxFiles) {
     mdxBad += 1;
     fail(`${f}: ${n} banned character(s)`);
   }
+
+  // Frontmatter YAML safety: unquoted values containing ": " (or other YAML
+  // specials) crash the fumadocs build. Colons are common after the dash
+  // rewrites, so every such value must be quoted.
+  const fm = s.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fm) {
+    fmBad += 1;
+    fail(`${f}: missing frontmatter block`);
+    continue;
+  }
+  for (const line of fm[1].split(/\r?\n/)) {
+    const kv = line.match(/^(\w[\w-]*):\s*(.*)$/);
+    if (!kv || !kv[2]) continue;
+    const v = kv[2];
+    const isQuoted = /^".*"$/.test(v) || /^'.*'$/.test(v);
+    if (!isQuoted && (/:\s/.test(v) || /:$/.test(v) || /^[[{#&*!|>%@`]/.test(v))) {
+      fmBad += 1;
+      fail(`${f}: unquoted YAML value needs quotes -> ${kv[1]}: ${v}`);
+    }
+  }
 }
 if (!mdxBad) ok(`${mdxFiles.length} docs MDX files have no banned characters`);
+if (!fmBad) ok('all docs frontmatter is YAML-safe');
 
 // ---------- 4. src: suspicious lines (informational; comments are fine) ----------
 const srcFiles = collectFiles('src', (f) => /\.(ts|tsx)$/.test(f));
