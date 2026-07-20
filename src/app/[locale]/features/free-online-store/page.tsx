@@ -146,7 +146,7 @@ export default async function FreeOnlineStorePage({ params }: Props) {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'EGP',
-      description: 'Free forever plan — no commission on sales, no credit card required',
+      description: 'Free forever plan, no commission on sales, no credit card required',
     },
     isAccessibleForFree: true,
     featureList: [
@@ -199,7 +199,7 @@ export default async function FreeOnlineStorePage({ params }: Props) {
       <section aria-label={t('problem.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${t('problem.badge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${t('problem.badge')}`}
             title={t('problem.title')}
             subtitle={t('problem.subtitle')}
           />
@@ -220,7 +220,7 @@ export default async function FreeOnlineStorePage({ params }: Props) {
       <section aria-label={t('solution.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${t('solution.badge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${t('solution.badge')}`}
             title={t('solution.title')}
             subtitle={t('solution.subtitle')}
           />
@@ -241,7 +241,7 @@ export default async function FreeOnlineStorePage({ params }: Props) {
       <section aria-label={t('features.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 03 — ${t('features.badge')}`}
+            eyebrow={`${tLedger('no')} 03 · ${t('features.badge')}`}
             title={t('features.title')}
             subtitle={t('features.subtitle')}
           />
@@ -262,7 +262,7 @@ export default async function FreeOnlineStorePage({ params }: Props) {
       <section aria-label={t('posLink.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 04 — ${t('posLink.badge')}`}
+            eyebrow={`${tLedger('no')} 04 · ${t('posLink.badge')}`}
             title={t('posLink.title')}
             subtitle={t('posLink.subtitle')}
           />

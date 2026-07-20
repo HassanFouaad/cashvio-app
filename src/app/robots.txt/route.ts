@@ -31,7 +31,7 @@ export function GET(): Response {
   const disallowBlock = COMMON_DISALLOW.map((p) => `Disallow: ${p}`).join('\n');
 
   const content = [
-    `# Robots.txt — ${SITE_URL}`,
+    `# Robots.txt for ${SITE_URL}`,
     '#',
     '# This only affects the main marketing domain (e.g., cash-vio.com)',
     '# Subdomains (portal, api, console) have their own robots.txt with Disallow: /',
@@ -48,7 +48,7 @@ export function GET(): Response {
     'Allow: /',
     disallowBlock,
     '',
-    '# AI crawlers — explicit access to docs and LLM resources',
+    '# AI crawlers: explicit access to docs and LLM resources',
     ...AI_CRAWLERS.map((ua) => `User-Agent: ${ua}`),
     'Content-Signal: ai-train=no, search=yes, ai-input=yes',
     'Allow: /',

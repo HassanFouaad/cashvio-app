@@ -1,0 +1,1822 @@
+[
+  {
+    "path": "metadata.features.title",
+    "value": "Features — Free POS, Inventory & Online Store"
+  },
+  {
+    "path": "metadata.features.description",
+    "value": "Discover Cashvio: free POS (cashier), inventory management, orders, customers, analytics, and a free online store — everything you need to run and grow your business."
+  },
+  {
+    "path": "metadata.register.description",
+    "value": "Sign up for a free POS (cashier) and free online store. Manage sales, inventory, and customers today — free forever, no credit card required."
+  },
+  {
+    "path": "metadata.arabicPos.description",
+    "value": "The only POS and online storefront built natively for Arabic-speaking businesses. True right-to-left interface, bilingual receipts, ZATCA-ready invoicing, and MENA payment integrations. Not a translation layer — built from the ground up for Arabic commerce."
+  },
+  {
+    "path": "metadata.omnichannelRetail.title",
+    "value": "Omnichannel Retail Platform — One Dashboard for Physical & Online Stores"
+  },
+  {
+    "path": "metadata.omnichannelRetail.description",
+    "value": "Manage your physical stores and online storefront from one dashboard. Unified inventory, orders, customers, and analytics across every sales channel. Sell in-store, online, and via social media — all synced in real time."
+  },
+  {
+    "path": "metadata.inventoryManagement.description",
+    "value": "Free inventory management software that tracks stock per product variant, per store in real time. Low stock alerts, purchase orders, supplier management, stock transfers, adjustments with full audit trail, and profit reporting — all included free."
+  },
+  {
+    "path": "metadata.freePos.title",
+    "value": "Free POS System — 100% Free Cashier Software"
+  },
+  {
+    "path": "metadata.freePos.description",
+    "value": "Cashvio's free POS gives you a cashier screen, cash register, shifts, thermal receipts, and live inventory — free forever. Arabic & English, works offline, no credit card needed."
+  },
+  {
+    "path": "metadata.freeOnlineStore.title",
+    "value": "Free Online Store — Create Your Store in Minutes"
+  },
+  {
+    "path": "metadata.freeOnlineStore.description",
+    "value": "Create a free online store synced with a free POS. No commission, no monthly fee, Arabic & English storefront, delivery zones, and coupons — free forever."
+  },
+  {
+    "path": "metadata.orderManagement.title",
+    "value": "Order Management System — Every Sale in One Place"
+  },
+  {
+    "path": "metadata.orderManagement.description",
+    "value": "Track orders from your POS, online store, and manual sales in one screen. Fulfillment statuses, partial payments, digital receipts, and WhatsApp updates — free."
+  },
+  {
+    "path": "metadata.customerManagement.description",
+    "value": "Customer profiles that start with just a phone number. Track visits, spending, store credit, addresses, and full order history — built into your free POS."
+  },
+  {
+    "path": "metadata.salesAnalytics.title",
+    "value": "Sales Reports & Analytics — Revenue, Profit & Insights"
+  },
+  {
+    "path": "metadata.multiStoreManagement.title",
+    "value": "Multi-Store Management — All Your Branches, One Account"
+  },
+  {
+    "path": "metadata.multiStoreManagement.description",
+    "value": "Separate stock, prices, payments, and receipts per branch — one dashboard over all of them. Transfer stock between stores, limit staff per branch, compare reports."
+  },
+  {
+    "path": "metadata.tools.title",
+    "value": "Free Tools for Merchants — Barcode, QR & Profit Calculator"
+  },
+  {
+    "path": "metadata.barcodeGenerator.title",
+    "value": "Free Barcode Generator — Code 128 & EAN-13 PNG"
+  },
+  {
+    "path": "metadata.barcodeGenerator.description",
+    "value": "Generate scannable Code 128 or EAN-13 barcodes and download them as high-resolution PNGs — free, no watermark, no signup. Built by Cashvio."
+  },
+  {
+    "path": "metadata.qrCodeGenerator.title",
+    "value": "Free QR Code Generator — High-Resolution PNG"
+  },
+  {
+    "path": "metadata.qrCodeGenerator.description",
+    "value": "Create a QR code for your store link, WhatsApp, or menu and download a print-ready PNG — free, no watermark, no signup."
+  },
+  {
+    "path": "metadata.marginCalculator.title",
+    "value": "Profit Margin Calculator — Margin, Markup & Selling Price"
+  },
+  {
+    "path": "metadata.marginCalculator.description",
+    "value": "Free calculator for merchants: enter cost and price to see profit, margin, and markup — or set a target margin and get the right selling price."
+  },
+  {
+    "path": "metadata.industryCafe.title",
+    "value": "Cafe POS System — Free for Coffee Shops & Juice Bars"
+  },
+  {
+    "path": "metadata.industryClothing.title",
+    "value": "Clothing Store POS — Sizes, Colors, Barcodes & Returns"
+  },
+  {
+    "path": "metadata.industryMinimarket.title",
+    "value": "Minimarket & Grocery POS — Barcode Speed + Credit Book"
+  },
+  {
+    "path": "footer.newsletter.description",
+    "value": "Product updates and practical tips for growing your shop — no spam."
+  },
+  {
+    "path": "footer.newsletter.success",
+    "value": "You're in — we'll keep you posted."
+  },
+  {
+    "path": "home.hero.subtitle",
+    "value": "A free POS (cashier), a free online store, and everything in between — inventory, orders, customers, and reports in one place. Sell in-store, online, or both."
+  },
+  {
+    "path": "home.hero.eyebrow",
+    "value": "Cashvio — everything your shop needs"
+  },
+  {
+    "path": "home.hero.screenCaption",
+    "value": "Live view — your dashboard"
+  },
+  {
+    "path": "home.hero.receipt.number",
+    "value": "NO. 000001 — YOUR SHOP"
+  },
+  {
+    "path": "home.howItWorks.step1.description",
+    "value": "Sign up in under 2 minutes with just your email and phone number. No credit card required — your free forever plan is ready instantly."
+  },
+  {
+    "path": "home.howItWorks.eyebrow",
+    "value": "NO. 02 — YOUR FIRST DAY"
+  },
+  {
+    "path": "home.features.subtitle",
+    "value": "Powerful tools designed for modern commerce — from your first sale to your hundredth store"
+  },
+  {
+    "path": "home.features.eyebrow",
+    "value": "NO. 01 — WHAT YOU GET"
+  },
+  {
+    "path": "home.features.lineValue",
+    "value": "INCLUDED — 0.00"
+  },
+  {
+    "path": "home.mobileApp.eyebrow",
+    "value": "NO. 04 — IN YOUR POCKET"
+  },
+  {
+    "path": "home.mobileApp2.description",
+    "value": "Manage your entire product catalog, track inventory levels, and set custom pricing—all from your mobile device."
+  },
+  {
+    "path": "home.ordersShowcase.description",
+    "value": "Handle orders from any sales channel — POS, online storefront, phone, or social media. Track fulfillment, manage payments, process returns, and keep a complete audit trail of every action."
+  },
+  {
+    "path": "home.analyticsShowcase.feature3.description",
+    "value": "Know exactly which channels — Facebook, Instagram, WhatsApp, walk-in — drive the most revenue and orders."
+  },
+  {
+    "path": "home.productShowcase.eyebrow",
+    "value": "NO. 03 — SEE IT IN ACTION"
+  },
+  {
+    "path": "home.ticker.lines[0]",
+    "value": "09:14 — 2× Espresso — EGP 90 — PAID"
+  },
+  {
+    "path": "home.ticker.lines[1]",
+    "value": "09:31 — Order #1042 shipped — Cairo"
+  },
+  {
+    "path": "home.ticker.lines[2]",
+    "value": "09:48 — Stock alert — Blue T-shirt (M) — 3 left"
+  },
+  {
+    "path": "home.ticker.lines[3]",
+    "value": "10:15 — New customer — Sara A."
+  },
+  {
+    "path": "home.ticker.lines[4]",
+    "value": "10:40 — 1× Leather wallet — EGP 450 — PAID"
+  },
+  {
+    "path": "home.ticker.lines[5]",
+    "value": "11:05 — Shift opened — Register 2"
+  },
+  {
+    "path": "home.ticker.lines[6]",
+    "value": "11:22 — Refund approved — Order #0997"
+  },
+  {
+    "path": "home.ticker.lines[7]",
+    "value": "11:48 — 3× Notebook — EGP 120 — PAID"
+  },
+  {
+    "path": "home.ticker.lines[8]",
+    "value": "12:03 — Stock transfer — Downtown to Mall branch"
+  },
+  {
+    "path": "home.ticker.lines[9]",
+    "value": "12:30 — Daily target reached — EGP 5,000"
+  },
+  {
+    "path": "home.endOfDay.eyebrow",
+    "value": "NO. 05 — END OF DAY"
+  },
+  {
+    "path": "home.faq.eyebrow",
+    "value": "NO. 07 — QUESTIONS"
+  },
+  {
+    "path": "home.faq.q2.answer",
+    "value": "Yes — a full free POS: sales screen, cash register, shifts, and receipts in Arabic and English."
+  },
+  {
+    "path": "home.faq.q4.answer",
+    "value": "No — sign up with your email and phone number only."
+  },
+  {
+    "path": "home.faq.q6.answer",
+    "value": "Yes — keep selling offline and everything syncs when you're back online."
+  },
+  {
+    "path": "home.testimonials.eyebrow",
+    "value": "NO. 06 — FROM THE COUNTER"
+  },
+  {
+    "path": "home.testimonials.subtitle",
+    "value": "From the register to the online store — the parts of the day it takes over."
+  },
+  {
+    "path": "home.testimonials.items.t1.quote",
+    "value": "I stopped writing orders in a notebook. The register, the stock, and who owes me what — all in one screen."
+  },
+  {
+    "path": "home.testimonials.items.t1.author",
+    "value": "Minimarket owner — Cairo"
+  },
+  {
+    "path": "home.testimonials.items.t2.author",
+    "value": "Clothing boutique owner — Alexandria"
+  },
+  {
+    "path": "home.testimonials.items.t3.quote",
+    "value": "The Arabic isn't a bolted-on translation. Receipts, dashboard, storefront — everything reads right."
+  },
+  {
+    "path": "home.testimonials.items.t3.author",
+    "value": "Cafe owner — Giza"
+  },
+  {
+    "path": "pricing.faq.q5.answer",
+    "value": "Yes. Cashvio includes a free POS (cashier) on the free forever plan — sales screen, cash register, shifts, and receipts. No credit card required. See our Free POS page for details."
+  },
+  {
+    "path": "pricing.faq.q6.answer",
+    "value": "Yes. You can create a free online store synced with your free POS — no commission and no monthly fee on the free plan. See our Free Online Store page for details."
+  },
+  {
+    "path": "pricing.matrix.subtitle",
+    "value": "The free plan is a complete system. Paid plans raise the limits as you grow — exact numbers are on each plan card above."
+  },
+  {
+    "path": "pricing.whatsapp.subtitle",
+    "value": "Message us on WhatsApp — we'll help you pick the right plan in minutes."
+  },
+  {
+    "path": "alsoFree.subtitle",
+    "value": "Start with a free POS and a free online store — no credit card required."
+  },
+  {
+    "path": "contact.info.whatsappDescription",
+    "value": "The fastest way to reach us — questions, demos, or help getting set up."
+  },
+  {
+    "path": "privacy.sections.scope.content",
+    "value": "The Services are operated by Cashvio Technologies (\"Cashvio\", \"we\", \"us\", or \"our\"), headquartered in Cairo, Egypt.\n\nWe act in two distinct roles. For the personal information of merchants, their staff, and visitors to our own websites, we are the data controller — we decide how and why that information is processed. For the information that merchants store about their own customers (such as customer profiles and purchase history), we act as a data processor — we process it only on the merchant's behalf and instructions, as described in the section \"Your Customers' Data\" below."
+  },
+  {
+    "path": "privacy.sections.collection.items[0]",
+    "value": "Account information — your name, email address, phone number, password (stored only in hashed form), preferred language, and profile settings."
+  },
+  {
+    "path": "privacy.sections.collection.items[1]",
+    "value": "Business information — your business name, store names and addresses, business type, tax and registration details, logo and branding assets."
+  },
+  {
+    "path": "privacy.sections.collection.items[2]",
+    "value": "Transaction and operations data — orders, invoices, receipts, refunds, payment methods used, product catalogs, inventory movements, shift records, and reports generated from them."
+  },
+  {
+    "path": "privacy.sections.collection.items[3]",
+    "value": "Billing information — the subscription plan you choose and billing history. Card payments are processed by licensed payment providers; we never store full card numbers on our servers."
+  },
+  {
+    "path": "privacy.sections.collection.items[4]",
+    "value": "Customer records you create — information about your own customers that you enter into the platform, such as their names, contact details, purchase history, balances, and store credit."
+  },
+  {
+    "path": "privacy.sections.collection.items[5]",
+    "value": "Device and usage data — IP address, browser and device type, operating system, pages visited, features used, referral URLs, timestamps, and crash or error diagnostics."
+  },
+  {
+    "path": "privacy.sections.collection.items[6]",
+    "value": "Cookies and similar technologies — as described in the \"Cookies and Analytics\" section below."
+  },
+  {
+    "path": "privacy.sections.collection.items[7]",
+    "value": "Communications — messages, support requests, feedback, and recordings of support conversations where permitted by law."
+  },
+  {
+    "path": "privacy.sections.usage.items[0]",
+    "value": "Provide and operate the Services — creating your account, running your point of sale and storefront, processing orders, and syncing your data across devices."
+  },
+  {
+    "path": "privacy.sections.usage.items[1]",
+    "value": "Secure the platform — authenticating logins, enforcing permissions, detecting and preventing fraud, abuse, and unauthorized access."
+  },
+  {
+    "path": "privacy.sections.usage.items[2]",
+    "value": "Support you — responding to your questions, troubleshooting problems, and notifying you about incidents that affect your account."
+  },
+  {
+    "path": "privacy.sections.usage.items[3]",
+    "value": "Improve and develop — analyzing aggregated usage patterns to fix issues, improve performance, and build new features."
+  },
+  {
+    "path": "privacy.sections.usage.items[4]",
+    "value": "Communicate — sending service announcements, security alerts, billing notices, and (with your consent or where permitted) product news and offers you can opt out of at any time."
+  },
+  {
+    "path": "privacy.sections.usage.items[5]",
+    "value": "Comply with the law — meeting our accounting, tax, and other legal obligations, and responding to lawful requests from authorities."
+  },
+  {
+    "path": "privacy.sections.usage.footer",
+    "value": "We do not use your business data — such as your sales figures, margins, or customer lists — to compete with you, and we never sell it to third parties."
+  },
+  {
+    "path": "privacy.sections.customerData.content",
+    "value": "When you record information about your own customers in Cashvio — for example a customer profile, order history, or store credit balance — you are the data controller of that information and we process it strictly on your behalf.\n\nWe process such data only to provide the Services to you, never for our own marketing, and we do not contact your customers except as needed to deliver features you actively use (such as sending a digital receipt at your request). You are responsible for collecting your customers' data lawfully, informing them about how it is used, and honoring their privacy requests. If a customer contacts us directly about data you control, we will refer them to you and provide reasonable assistance."
+  },
+  {
+    "path": "privacy.sections.sharing.items[0]",
+    "value": "Service providers — companies that help us run the platform, such as cloud hosting, payment processing, email and SMS delivery, push notifications, and analytics. They may only use the data to provide their service to us and are bound by contractual confidentiality and data-protection obligations."
+  },
+  {
+    "path": "privacy.sections.sharing.items[1]",
+    "value": "Payment providers — when you or your customers make a payment, the transaction details are shared with the licensed payment provider handling it."
+  },
+  {
+    "path": "privacy.sections.sharing.items[2]",
+    "value": "Legal requirements — when required by applicable law, regulation, legal process, or an enforceable governmental request, and only to the extent required."
+  },
+  {
+    "path": "privacy.sections.sharing.items[3]",
+    "value": "Protecting rights and safety — to enforce our terms, investigate fraud or security issues, or protect the rights, property, or safety of Cashvio, our merchants, or the public."
+  },
+  {
+    "path": "privacy.sections.sharing.items[4]",
+    "value": "Business transfers — if Cashvio is involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. We will notify you before your data becomes subject to a different privacy policy."
+  },
+  {
+    "path": "privacy.sections.sharing.items[5]",
+    "value": "Aggregated or anonymized data — we may share statistics that cannot reasonably be used to identify you or your customers."
+  },
+  {
+    "path": "privacy.sections.security.items[1]",
+    "value": "Passwords stored using strong one-way hashing — we can never read your password."
+  },
+  {
+    "path": "privacy.sections.rights.items[0]",
+    "value": "Access — request a copy of the personal information we hold about you."
+  },
+  {
+    "path": "privacy.sections.rights.items[1]",
+    "value": "Correction — ask us to fix inaccurate or incomplete information."
+  },
+  {
+    "path": "privacy.sections.rights.items[2]",
+    "value": "Deletion — ask us to delete your personal information, subject to legal retention requirements."
+  },
+  {
+    "path": "privacy.sections.rights.items[3]",
+    "value": "Portability — receive your data in a structured, commonly used, machine-readable format."
+  },
+  {
+    "path": "privacy.sections.rights.items[4]",
+    "value": "Objection and restriction — object to or ask us to limit certain processing."
+  },
+  {
+    "path": "privacy.sections.rights.items[5]",
+    "value": "Withdraw consent — where processing is based on consent, withdraw it at any time without affecting prior processing."
+  },
+  {
+    "path": "privacy.sections.rights.items[6]",
+    "value": "Complain — lodge a complaint with your local data-protection authority."
+  },
+  {
+    "path": "terms.sections.eligibility.content",
+    "value": "To use the Services you must be at least 18 years old, capable of entering into a binding contract, and using the Services for business purposes. When you register, you agree to provide accurate, current, and complete information and to keep it up to date. We may refuse registration, or reclaim usernames or subdomains, where reasonably necessary — for example, where information is false, infringes the rights of others, or is reserved for platform use."
+  },
+  {
+    "path": "terms.sections.services.items[0]",
+    "value": "Change the free plan — add, change, limit, or remove any feature or capacity included in the free plan at any time, at our sole discretion and without compensation."
+  },
+  {
+    "path": "terms.sections.services.items[1]",
+    "value": "Temporarily suspend features on any plan — suspend, hold, limit, or disable any feature on any plan, free or paid, where reasonably necessary — for example to resolve technical issues, perform maintenance, roll out enhancements or upgrades, or protect the security and stability of the platform. We will work to restore availability promptly and, where practicable, announce planned work in advance."
+  },
+  {
+    "path": "terms.sections.services.items[2]",
+    "value": "Add free features — add new features or capacity to existing free or paid plans at no extra charge. Such additions do not change your fees, do not entitle you to a refund, and may later be modified, moved to a different plan tier, or withdrawn."
+  },
+  {
+    "path": "terms.sections.accounts.items[0]",
+    "value": "Use strong passwords and keep credentials confidential — never share accounts between individuals."
+  },
+  {
+    "path": "terms.sections.yourData.content",
+    "value": "You own your business data — your products, orders, customer records, reports, and other content you create in or upload to the Services (\"Merchant Data\"). You grant us a limited, non-exclusive license to host, process, transmit, back up, and display Merchant Data solely as necessary to provide and protect the Services.\n\nWe maintain regular backups and take the security measures described in our Privacy Policy. You can export your data through the tools we provide. Following termination of your account, we will make your Merchant Data available for export for at least 30 days, after which we may delete it, except where retention is required by law."
+  },
+  {
+    "path": "terms.sections.ip.content",
+    "value": "The Services — including all software, design, trademarks, logos, and documentation — are owned by Cashvio or its licensors and are protected by intellectual property laws. These Terms do not grant you any rights in the Services other than the limited right to use them in accordance with these Terms.\n\nIf you send us feedback, ideas, or suggestions, you grant us a perpetual, irrevocable, royalty-free license to use them without restriction or compensation — we may use your feedback to improve the Services for everyone."
+  },
+  {
+    "path": "terms.sections.availability.content",
+    "value": "We work hard to keep the Services available around the clock and design our infrastructure for high availability. However, the Services may occasionally be interrupted — for scheduled maintenance (which we will endeavor to announce in advance), emergency fixes, or causes beyond our reasonable control such as failures of hosting, telecommunications, or power providers.\n\nWe provide support through the channels published on our website. We do not guarantee uninterrupted or error-free operation, and you should maintain appropriate business practices (such as reviewing your reports and reconciling transactions) independent of the platform."
+  },
+  {
+    "path": "terms.sections.termination.content",
+    "value": "You may stop using the Services and close your account at any time.\n\nWe may suspend or terminate your access to the Services if you materially breach these Terms, if your use creates a security risk or legal exposure for us or others, if required by law, or if your account remains unpaid after reasonable notice. Where practicable, we will notify you and give you an opportunity to remedy the issue before termination.\n\nUpon termination: your right to use the Services ceases; fees owed remain payable; and the data export window described in \"Your Data and Ownership\" applies. Sections of these Terms that by their nature should survive termination — including ownership, disclaimers, limitation of liability, and governing law — will survive."
+  },
+  {
+    "path": "features.categories.capacity.description",
+    "value": "Grow your business without constraints — scale as you need"
+  },
+  {
+    "path": "features.solutions.inventoryManagement.description",
+    "value": "Track every product variant in every store in real time. Low stock alerts, purchase orders, supplier management, and a full audit trail — free forever."
+  },
+  {
+    "path": "features.solutions.freeOnlineStore.description",
+    "value": "Create a free online store synced with your shop — no commission, no monthly fee."
+  },
+  {
+    "path": "features.solutions.orderManagement.description",
+    "value": "Every order from the counter, the website, and the phone in one list — with statuses, payments, and WhatsApp updates."
+  },
+  {
+    "path": "features.solutions.customerManagement.description",
+    "value": "Profiles with visits, spending, store credit, addresses, and full order history — starting from just a phone number."
+  },
+  {
+    "path": "features.solutions.salesAnalytics.description",
+    "value": "Revenue, profit, best sellers, peak hours, and staff performance — with recommendations in plain words."
+  },
+  {
+    "path": "features.solutions.multiStoreManagement.description",
+    "value": "Separate stock, prices, and settings per branch — one dashboard, stock transfers, and per-store reports."
+  },
+  {
+    "path": "features.solutions.teamManagement.description",
+    "value": "A login for every employee with exactly the access their job needs — and a record of who did what."
+  },
+  {
+    "path": "features.screenshot.caption",
+    "value": "Live view — dashboard"
+  },
+  {
+    "path": "features.sectionShots.modules.caption",
+    "value": "Live view — product catalog"
+  },
+  {
+    "path": "features.sectionShots.solutions.caption",
+    "value": "Live view — POS on web"
+  },
+  {
+    "path": "features.sectionShots.solutions.companionCaption",
+    "value": "Live view — POS on mobile"
+  },
+  {
+    "path": "features.sectionShots.operations.caption",
+    "value": "Live view — inventory on web"
+  },
+  {
+    "path": "features.sectionShots.operations.companionCaption",
+    "value": "Live view — inventory on mobile"
+  },
+  {
+    "path": "features.sectionShots.functional.caption",
+    "value": "Live view — analytics"
+  },
+  {
+    "path": "features.sectionShots.capacity.caption",
+    "value": "Live view — stores"
+  },
+  {
+    "path": "couponsAndDiscounts.features.subtitle",
+    "value": "A complete coupon engine built into your retail and e-commerce workflow — no third-party tools, no spreadsheets, no guesswork."
+  },
+  {
+    "path": "couponsAndDiscounts.features.items.minimumCart.description",
+    "value": "Require a minimum order subtotal before a coupon can be applied. Use this to increase average order value — for example, offer 15% off on orders above 300."
+  },
+  {
+    "path": "couponsAndDiscounts.howItWorks.subtitle",
+    "value": "Three steps from idea to live promotion — no technical knowledge required."
+  },
+  {
+    "path": "couponsAndDiscounts.omnichannel.storefront.description",
+    "value": "Customers enter coupon codes in the checkout form on your online store. Validation happens in real time — the order summary updates instantly to reflect the discount. If a code is invalid, expired, or exceeds its limit, the customer sees a clear message explaining why."
+  },
+  {
+    "path": "couponsAndDiscounts.omnichannel.portal.description",
+    "value": "When your team creates orders manually through the business portal — for phone orders, WhatsApp requests, or social media sales — they can apply coupon codes in the Order Summary section. The same validation engine runs here: store match, usage limits, cart minimums, and validity dates."
+  },
+  {
+    "path": "couponsAndDiscounts.strategies.items.newCustomer.description",
+    "value": "Give new customers 10-15% off their first order. Set the per-customer limit to 1 so each buyer can only use it once. No expiry date needed — let it run as an evergreen acquisition tool."
+  },
+  {
+    "path": "couponsAndDiscounts.strategies.items.loyalty.description",
+    "value": "Reward returning customers with an exclusive code. Set per-customer usage to 3 so they can benefit multiple times. No total cap — let your loyal customers keep coming back."
+  },
+  {
+    "path": "couponsAndDiscounts.faq.items.q7.answer",
+    "value": "The coupon automatically becomes unusable — customers who try to apply it will see an error. The coupon stays visible in your list so you can view its history or increase the limit."
+  },
+  {
+    "path": "couponsAndDiscounts.cta.description",
+    "value": "Create your first coupon in under 60 seconds. No credit card required — the free plan includes full coupon management."
+  },
+  {
+    "path": "couponsAndDiscounts.screenshot.caption",
+    "value": "Live view — discount impact in analytics"
+  },
+  {
+    "path": "arabicPos.hero.subtitle",
+    "value": "Stop settling for tools that treat Arabic as an afterthought. Cashvio delivers a true right-to-left experience across your point of sale, online store, receipts, and reports — not a translation layer bolted on top."
+  },
+  {
+    "path": "arabicPos.problem.painPoints.noLocalPayments.description",
+    "value": "Global platforms prioritize Stripe and PayPal while ignoring the payment methods your customers actually use — Mada, KNET, Tabby, Tamara, and local bank transfers."
+  },
+  {
+    "path": "arabicPos.solution.subtitle",
+    "value": "Every screen, every button, every receipt was designed to work natively in Arabic from day one. When you switch to Arabic, the entire experience transforms — not just the text."
+  },
+  {
+    "path": "arabicPos.solution.points.mirroredInterface.description",
+    "value": "Every element — navigation, data tables, form fields, action buttons — repositions naturally for right-to-left reading. No visual glitches, no misaligned layouts. Your staff see the system exactly as it was designed to be seen."
+  },
+  {
+    "path": "arabicPos.solution.points.arabicTypography.description",
+    "value": "We use premium Arabic typefaces optimized for screen readability. Connected letters flow naturally, diacritics display correctly, and long text stays legible at every size — from receipt print to dashboard headline."
+  },
+  {
+    "path": "arabicPos.pos.title",
+    "value": "A POS That Speaks Your Language — Literally"
+  },
+  {
+    "path": "arabicPos.pos.features.receipts.description",
+    "value": "Generate receipts with Arabic product names, properly formatted prices, and your store branding — all in one clean layout. Add English as a second language on the same receipt for international customers."
+  },
+  {
+    "path": "arabicPos.pos.features.shifts.description",
+    "value": "Staff clock in, take breaks, and close registers with fully Arabic screens. Shift reports show earnings, transaction counts, and cash summaries — all formatted for Arabic readers."
+  },
+  {
+    "path": "arabicPos.pos.features.hardware.description",
+    "value": "Connect thermal printers that support Arabic character sets. Print clear, properly formatted receipts directly from the POS — no garbled text, no missing characters."
+  },
+  {
+    "path": "arabicPos.storefront.subtitle",
+    "value": "Your storefront is not just translated — it is rebuilt for Arabic shoppers. Product pages, cart, checkout, and order tracking all follow the natural right-to-left flow that your customers expect."
+  },
+  {
+    "path": "arabicPos.storefront.features.rtlShopping.description",
+    "value": "Product grids, category navigation, filters, and sorting — every element is positioned where Arabic readers naturally look. Conversion rates improve because shoppers feel at home."
+  },
+  {
+    "path": "arabicPos.regions.subtitle",
+    "value": "Whether you operate in Riyadh, Dubai, Cairo, or Kuwait City — Cashvio adapts to your local regulations, payment preferences, and business culture."
+  },
+  {
+    "path": "arabicPos.faq.q1.answer",
+    "value": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface, bilingual receipt printing, ZATCA e-invoicing compliance for Saudi Arabia, and integration with MENA payment methods like Mada, KNET, Tabby, and Tamara. Unlike global platforms that bolt on Arabic as a translation layer, Cashvio's entire interface — from checkout to analytics — was designed for Arabic from day one."
+  },
+  {
+    "path": "arabicPos.faq.q5.answer",
+    "value": "Global platforms like Shopify treat Arabic as an add-on through third-party translation apps, which results in broken layouts, misaligned elements, and poor Arabic SEO. Cashvio's storefront is architecturally built for right-to-left presentation — product grids, checkout flows, navigation, and all interactive elements mirror correctly. Arabic SEO is native with proper URL slugs, meta tags, and structured data in Arabic."
+  },
+  {
+    "path": "arabicPos.cta.title",
+    "value": "Ready to Sell in Arabic — the Right Way?"
+  },
+  {
+    "path": "arabicPos.screenshot.caption",
+    "value": "Live view — Arabic POS on web"
+  },
+  {
+    "path": "arabicPos.screenshot.companionCaption",
+    "value": "Live view — Arabic POS on mobile"
+  },
+  {
+    "path": "omnichannelRetail.hero.subtitle",
+    "value": "Stop juggling separate systems for in-store and online sales. Cashvio gives you a single command center where inventory, orders, customers, and analytics are unified across every channel — physical stores, online storefront, social media, and more."
+  },
+  {
+    "path": "omnichannelRetail.problem.painPoints.doubleEntry.description",
+    "value": "Every product update, price change, and stock adjustment has to be entered twice — once in your POS and once in your e-commerce platform. Errors multiply with every manual entry."
+  },
+  {
+    "path": "omnichannelRetail.solution.subtitle",
+    "value": "Cashvio was built from day one as a unified platform — not separate products stitched together. Your physical stores and online storefront share the same inventory, the same customers, and the same brain."
+  },
+  {
+    "path": "omnichannelRetail.solution.points.unifiedCustomer.description",
+    "value": "Every purchase — whether at the register, on the website, or via WhatsApp — ties to a single customer profile. See their total spending, store credit, visit history, and preferences in one view."
+  },
+  {
+    "path": "omnichannelRetail.solution.points.realTimeSync.description",
+    "value": "Changes propagate instantly. Update a product price, add a new variant, or adjust stock — it reflects everywhere within seconds. No waiting for overnight sync jobs."
+  },
+  {
+    "path": "omnichannelRetail.channels.items.onlineStorefront.highlight",
+    "value": "Built-in storefront — no third-party needed"
+  },
+  {
+    "path": "omnichannelRetail.inventory.features.realTimeStock.description",
+    "value": "Every sale, every return, every stock transfer updates your inventory count immediately. What you see is what you have — across all locations and all channels."
+  },
+  {
+    "path": "omnichannelRetail.inventory.features.multiStoreTransfers.description",
+    "value": "Move stock between locations with tracked transfer requests. The sending store's count drops and the receiving store's count rises — automatically and instantly."
+  },
+  {
+    "path": "omnichannelRetail.inventory.features.lowStockAlerts.description",
+    "value": "Set custom reorder points per product per location. Get notified before you run out — not after. Never miss a sale because an item went out of stock unnoticed."
+  },
+  {
+    "path": "omnichannelRetail.orders.title",
+    "value": "Every Order in One Queue — From Any Channel"
+  },
+  {
+    "path": "omnichannelRetail.orders.subtitle",
+    "value": "POS sale, website checkout, WhatsApp message, or phone call — every order enters the same pipeline with the same fulfillment workflow."
+  },
+  {
+    "path": "omnichannelRetail.analytics.title",
+    "value": "See the Complete Picture — Not Channel Fragments"
+  },
+  {
+    "path": "omnichannelRetail.analytics.features.unifiedProfitTracking.description",
+    "value": "Track cost prices, selling prices, discounts, and fees across channels. Understand your real margins — not what each silo reports independently."
+  },
+  {
+    "path": "omnichannelRetail.faq.q1.answer",
+    "value": "Omnichannel means your customers get a seamless experience whether they shop in your physical store, on your website, or through social media. Behind the scenes, Cashvio unifies your inventory, orders, customer data, and analytics into one platform — so you manage everything from a single dashboard instead of juggling separate systems."
+  },
+  {
+    "path": "omnichannelRetail.faq.q3.answer",
+    "value": "Yes. Cashvio supports cross-channel returns. A customer who bought online can return the item at any of your physical stores. The inventory restocks automatically, and refunds route to the original payment method — all tracked in one system."
+  },
+  {
+    "path": "omnichannelRetail.faq.q4.answer",
+    "value": "No. Cashvio includes a built-in online storefront as part of the platform. You get product pages, a shopping cart, checkout, and order tracking — all connected to the same inventory and customer database as your POS. No third-party e-commerce subscription needed."
+  },
+  {
+    "path": "omnichannelRetail.faq.q7.answer",
+    "value": "Yes. You maintain one product catalog with a base price. If you need different pricing per store location, you can set per-store price overrides. Any price change you make updates everywhere instantly — no need to manually update multiple systems."
+  },
+  {
+    "path": "omnichannelRetail.cta.subtitle",
+    "value": "Stop managing separate systems. Start selling everywhere from one dashboard — free."
+  },
+  {
+    "path": "omnichannelRetail.screenshot.caption",
+    "value": "Live view — omnichannel orders"
+  },
+  {
+    "path": "omnichannelRetail.screenshot.companionCaption",
+    "value": "Live view — orders on mobile"
+  },
+  {
+    "path": "inventoryManagement.hero.subtitle",
+    "value": "Track every product, every variant, across every store — in real time. Cashvio gives you per-variant, per-store inventory tracking, low stock alerts, purchase orders, supplier management, and a full audit trail. No spreadsheets, no guesswork, no monthly fee."
+  },
+  {
+    "path": "inventoryManagement.hero.cta",
+    "value": "Start Free — No Credit Card"
+  },
+  {
+    "path": "inventoryManagement.problem.painPoints.manualCounting.description",
+    "value": "Counting stock by hand leads to mistakes. One miscount and your records are wrong for weeks — you only discover the error when a customer orders something you do not actually have."
+  },
+  {
+    "path": "inventoryManagement.solution.points.perVariantTracking.description",
+    "value": "Every product variant — size, color, material — has its own stock count in each store. You know exactly how many \"Medium / Blue\" T-shirts are in your Downtown branch right now."
+  },
+  {
+    "path": "inventoryManagement.solution.points.fullAuditTrail.description",
+    "value": "Every stock change is logged — who made the adjustment, what quantity, when it happened, and the reason. You can trace any discrepancy back to its source."
+  },
+  {
+    "path": "inventoryManagement.coreFeatures.subtitle",
+    "value": "From barcode scanning to bulk adjustments, Cashvio covers every inventory operation your business needs — all included in the free plan."
+  },
+  {
+    "path": "inventoryManagement.coreFeatures.features.stockTracking.description",
+    "value": "View current stock for every product variant in every store. Filter by store, search by product name or SKU, and see stock status at a glance — In Stock, Low Stock, or Out of Stock."
+  },
+  {
+    "path": "inventoryManagement.coreFeatures.features.transfers.description",
+    "value": "Move stock between locations with tracked transfer requests. The sending store's count drops and the receiving store's count rises — automatically and instantly."
+  },
+  {
+    "path": "inventoryManagement.coreFeatures.features.bulkOperations.description",
+    "value": "Adjust hundreds of stock levels at once. Record shrinkage, damage, or receiving in bulk — with full audit trails showing who changed what and when."
+  },
+  {
+    "path": "inventoryManagement.coreFeatures.features.optionalTracking.description",
+    "value": "Not every product needs inventory tracking. Toggle tracking on or off per product. Items with tracking disabled are treated as always in stock — perfect for services or made-to-order items."
+  },
+  {
+    "path": "inventoryManagement.purchaseOrders.title",
+    "value": "Restock Smarter — From Low Stock Alert to Shelf"
+  },
+  {
+    "path": "inventoryManagement.purchaseOrders.subtitle",
+    "value": "See which products are running low, create a purchase order to your supplier, and receive the stock — all in one system. Your inventory updates the moment products arrive."
+  },
+  {
+    "path": "inventoryManagement.purchaseOrders.features.trackStatus.description",
+    "value": "Every purchase order moves through clear stages — Draft, Pending, Approved, Received, or Cancelled. Filter by store, supplier, status, or date to find any PO instantly."
+  },
+  {
+    "path": "inventoryManagement.purchaseOrders.features.receiveStock.description",
+    "value": "When products arrive, open the purchase order and click Receive Stock. Confirm the quantities and your store inventory updates immediately — no manual stock adjustment needed."
+  },
+  {
+    "path": "inventoryManagement.purchaseOrders.features.supplierManagement.description",
+    "value": "Keep all your supplier records in one place — company name, contact person, email, phone, address, tax ID, and payment terms. See every purchase order per supplier with full payment history."
+  },
+  {
+    "path": "inventoryManagement.multiStore.features.independentStock.description",
+    "value": "Each store maintains its own stock count for every product variant. Your Downtown branch can have 20 units of a product while your Mall location has 5 — each managed separately."
+  },
+  {
+    "path": "inventoryManagement.multiStore.features.storePricing.description",
+    "value": "Set different selling prices for different stores. Your airport location can charge differently from your warehouse outlet — all from the same product catalog."
+  },
+  {
+    "path": "inventoryManagement.comparison.subtitle",
+    "value": "See what you gain by switching from manual tracking to a real inventory management system — at no cost."
+  },
+  {
+    "path": "inventoryManagement.comparison.rows.variantTracking.cashvio",
+    "value": "Automatic — each size, color, variant tracked separately"
+  },
+  {
+    "path": "inventoryManagement.comparison.rows.alerts.others",
+    "value": "None — you discover stockouts at checkout"
+  },
+  {
+    "path": "inventoryManagement.comparison.rows.auditTrail.cashvio",
+    "value": "Every change logged — who, what, when, why"
+  },
+  {
+    "path": "inventoryManagement.comparison.rows.auditTrail.others",
+    "value": "No history — cell was overwritten"
+  },
+  {
+    "path": "inventoryManagement.comparison.rows.cost.cashvio",
+    "value": "Free forever — no per-user or per-store fees"
+  },
+  {
+    "path": "inventoryManagement.faq.q2.answer",
+    "value": "Every product can have variants based on options like size, color, or material. Each variant gets its own stock count in each store. For example, if you sell a T-shirt in sizes S, M, L across two stores, that is 6 separate stock counts — each tracked independently and updated automatically."
+  },
+  {
+    "path": "inventoryManagement.faq.q3.answer",
+    "value": "Stock decreases automatically when an order is completed. If the order is cancelled, stock is restored. If a customer returns an item and the return is approved, stock increases — unless the item is marked as damaged or non-restockable. No manual adjustment is needed for routine transactions."
+  },
+  {
+    "path": "inventoryManagement.faq.q6.answer",
+    "value": "No. Inventory tracking is optional per product. Products with tracking disabled are treated as always in stock — perfect for services, made-to-order items, or digital products. You choose which products need stock tracking."
+  },
+  {
+    "path": "inventoryManagement.faq.q8.answer",
+    "value": "Yes. If you use Cashvio's built-in online storefront, inventory is the same system. When stock changes — whether from a POS sale, an online order, or a manual adjustment — the available quantity updates everywhere instantly. There is no separate sync process."
+  },
+  {
+    "path": "inventoryManagement.cta.title",
+    "value": "Start Managing Inventory for Free — Today"
+  },
+  {
+    "path": "inventoryManagement.screenshot.caption",
+    "value": "Live view — inventory"
+  },
+  {
+    "path": "inventoryManagement.screenshot.companionCaption",
+    "value": "Live view — inventory on mobile"
+  },
+  {
+    "path": "freePos.hero.subtitle",
+    "value": "Get a complete cashier program for your shop — sales screen, cash register, shifts, receipts, and live inventory. 100% free plan, no trial period, no credit card."
+  },
+  {
+    "path": "freePos.hero.cta",
+    "value": "Start Free — No Credit Card"
+  },
+  {
+    "path": "freePos.hero.trust",
+    "value": "A real free plan — not a 14-day trial"
+  },
+  {
+    "path": "freePos.problem.painPoints.internetOnly.description",
+    "value": "If the internet drops, the register stops — and you lose sales while customers wait."
+  },
+  {
+    "path": "freePos.solution.subtitle",
+    "value": "Everything you need to sell in your shop is in the free plan — and it stays free."
+  },
+  {
+    "path": "freePos.solution.points.fastSetup.description",
+    "value": "Sign up, add products, and sell. Works on any computer, tablet, or phone — no special hardware."
+  },
+  {
+    "path": "freePos.features.items.receipts.description",
+    "value": "Print thermal receipts or send a digital receipt link — in Arabic or English."
+  },
+  {
+    "path": "freePos.features.items.reports.description",
+    "value": "See today's sales, best products, and profit — from your phone."
+  },
+  {
+    "path": "freePos.comparison.rows.price.cashvio",
+    "value": "0 — free forever"
+  },
+  {
+    "path": "freePos.faq.q1.answer",
+    "value": "Yes. The free plan is free forever — cashier screen, receipts, inventory, and reports included. You only pay if you need advanced features or higher limits."
+  },
+  {
+    "path": "freePos.faq.q5.answer",
+    "value": "Yes — full Arabic interface, Arabic receipts, and right-to-left design. Each employee chooses their own language."
+  },
+  {
+    "path": "freePos.cta.subtitle",
+    "value": "Sign up in 2 minutes, add your products, and make your first sale — free."
+  },
+  {
+    "path": "freePos.screenshot.caption",
+    "value": "Live view — POS on web"
+  },
+  {
+    "path": "freePos.screenshot.companionCaption",
+    "value": "Live view — POS on mobile"
+  },
+  {
+    "path": "freeOnlineStore.hero.subtitle",
+    "value": "Create a free online store in minutes — your products, prices, and stock sync automatically with your shop's cashier. No commissions, no monthly fee, no coding."
+  },
+  {
+    "path": "freeOnlineStore.hero.trust",
+    "value": "Free forever plan — no commission on your sales"
+  },
+  {
+    "path": "freeOnlineStore.problem.painPoints.commissions.description",
+    "value": "Some platforms take a cut of every order — the more you sell, the more you lose."
+  },
+  {
+    "path": "freeOnlineStore.problem.painPoints.deliveryChaos.description",
+    "value": "Orders arrive by phone and chat with no system — addresses get lost and orders are missed."
+  },
+  {
+    "path": "freeOnlineStore.solution.points.oneInventory.description",
+    "value": "Stock updates the moment you sell — in-store or online. No overselling."
+  },
+  {
+    "path": "freeOnlineStore.features.subtitle",
+    "value": "Your free store comes complete — not a stripped-down demo."
+  },
+  {
+    "path": "freeOnlineStore.features.items.catalog.description",
+    "value": "Photos, variants (size, color), prices, and categories — organized and searchable."
+  },
+  {
+    "path": "freeOnlineStore.posLink.items.orders.description",
+    "value": "Online orders and shop sales in one screen — nothing gets missed."
+  },
+  {
+    "path": "freeOnlineStore.posLink.items.reports.description",
+    "value": "See your whole business — shop plus online — in one daily report."
+  },
+  {
+    "path": "freeOnlineStore.comparison.rows.price.cashvio",
+    "value": "0 — free forever"
+  },
+  {
+    "path": "freeOnlineStore.faq.q4.answer",
+    "value": "Yes — a real right-to-left Arabic storefront, English, or both together."
+  },
+  {
+    "path": "freeOnlineStore.faq.q8.answer",
+    "value": "No. Add products with photos and prices and share your store link — that's it."
+  },
+  {
+    "path": "freeOnlineStore.cta.subtitle",
+    "value": "Your products online in minutes — synced with a free cashier for your shop."
+  },
+  {
+    "path": "freeOnlineStore.screenshot.caption",
+    "value": "Live view — product catalog on web"
+  },
+  {
+    "path": "freeOnlineStore.screenshot.companionCaption",
+    "value": "Live view — product catalog on mobile"
+  },
+  {
+    "path": "orderManagement.hero.subtitle",
+    "value": "Orders from your counter, your online store, and your phone all land in one list. See what needs preparing, what is out for delivery, and who still owes you money — then send the customer a WhatsApp update in one tap."
+  },
+  {
+    "path": "orderManagement.problem.subtitle",
+    "value": "A notebook at the register, a WhatsApp chat, and a stack of delivery slips — that works until one busy Friday. Then orders slip through, and nobody knows what happened."
+  },
+  {
+    "path": "orderManagement.problem.items.unpaidForgotten.description",
+    "value": "A customer pays half and promises the rest next week. Without a system that tracks due dates, that promise lives in someone's memory — and memories forget."
+  },
+  {
+    "path": "orderManagement.problem.items.noHistory.description",
+    "value": "An order was cancelled, a discount was given, a payment was edited — by whom? When? Without an order history, every dispute turns into guesswork."
+  },
+  {
+    "path": "orderManagement.problem.items.manualReceipts.description",
+    "value": "Writing receipts by hand or re-typing order details into WhatsApp wastes time at the busiest moment of the day — and looks unprofessional to customers."
+  },
+  {
+    "path": "orderManagement.features.subtitle",
+    "value": "From the moment an order is created to the moment it is paid, delivered, and receipted — Cashvio records every step."
+  },
+  {
+    "path": "orderManagement.features.items.oneList.description",
+    "value": "POS sales, online storefront orders, and manual orders your team enters — all in the same table with order number, customer, store, source, totals, and status."
+  },
+  {
+    "path": "orderManagement.features.items.orderDetails.description",
+    "value": "Open any order to see its items, payments, refunds, notes, and delivery address — plus a timeline of every status change and action taken on the order."
+  },
+  {
+    "path": "orderManagement.features.items.overdue.description",
+    "value": "One page lists every scheduled payment — on time, due soon, or overdue. Follow up before debts age, and update due dates when customers need more time."
+  },
+  {
+    "path": "orderManagement.features.items.whatsapp.description",
+    "value": "Send the digital receipt or an order status update on WhatsApp in one tap. The message matches the order's current status — no setup, no API account, sent from your own WhatsApp."
+  },
+  {
+    "path": "orderManagement.features.items.filters.description",
+    "value": "Filter by order number, status, date range, store, payment status, payment method, source, or sales channel — then export the filtered view to CSV for your accountant."
+  },
+  {
+    "path": "orderManagement.howItWorks.step2.description",
+    "value": "Update the fulfillment status as the order moves — preparing, ready, delivering. Tap the WhatsApp button to tell the customer, with a message that matches the status."
+  },
+  {
+    "path": "orderManagement.howItWorks.step3.description",
+    "value": "Record payments as they arrive — full, partial, or scheduled with a due date. Approve receipt-image payments after reviewing them. Print or send the receipt, and the order is done."
+  },
+  {
+    "path": "orderManagement.channels.pos.description",
+    "value": "The full-screen sale view: browse the catalogue, pick variants, attach a customer, apply coupons or discounts, and take payment — cash with automatic change, online, or receipt."
+  },
+  {
+    "path": "orderManagement.channels.storefront.description",
+    "value": "Storefront orders arrive with the customer's details, address, and chosen payment method. Cash and receipt payments arrive as pending — you approve them after checking."
+  },
+  {
+    "path": "orderManagement.channels.portal.description",
+    "value": "Phone calls, WhatsApp messages, Instagram DMs — your team enters them as manual orders and tags the sales channel, so nothing lives only in a chat thread."
+  },
+  {
+    "path": "orderManagement.statuses.items.pending.meaning",
+    "value": "The order is in — nobody has started on it yet"
+  },
+  {
+    "path": "orderManagement.statuses.items.completed.meaning",
+    "value": "The customer has the order — done"
+  },
+  {
+    "path": "orderManagement.statuses.items.cancelled.meaning",
+    "value": "Order cancelled — reserved stock goes back on the shelf"
+  },
+  {
+    "path": "orderManagement.statuses.note",
+    "value": "Payment status is tracked separately: Pending, Partial, Paid, Refunded — so you always know the money side too."
+  },
+  {
+    "path": "orderManagement.faq.items.q1.answer",
+    "value": "Yes. Every order — from the POS, the online storefront, or entered manually by your team — appears in the same Sales list. Each order is tagged with its source, and you can filter by it."
+  },
+  {
+    "path": "orderManagement.faq.items.q2.answer",
+    "value": "Cancelling a pending order returns the stock automatically — quantities go back to what they were before the order, as long as inventory tracking is enabled for those products."
+  },
+  {
+    "path": "orderManagement.faq.items.q4.answer",
+    "value": "Open the Overdue Payments page. It lists every scheduled payment with its due date and status — on time, due soon, or overdue. From there, open the order to record the payment or push the due date."
+  },
+  {
+    "path": "orderManagement.faq.items.q5.answer",
+    "value": "No. Cashvio opens WhatsApp with a ready message — the receipt link or a status update — and you press send from your own account. It works with any WhatsApp, personal or business, with nothing to configure."
+  },
+  {
+    "path": "orderManagement.faq.items.q7.answer",
+    "value": "A receipt payment is a bank or wallet transfer proven with an uploaded image. When a storefront customer pays this way, the payment arrives pending — you open the order, view the uploaded image, and confirm it to mark the payment complete."
+  },
+  {
+    "path": "orderManagement.faq.items.q8.answer",
+    "value": "Yes. Apply any filters you want — dates, store, payment status, channel — and export the filtered view to CSV from the toolbar."
+  },
+  {
+    "path": "orderManagement.cta.description",
+    "value": "Start free and see today's orders — from every channel — in a single list within minutes. No credit card required."
+  },
+  {
+    "path": "orderManagement.screenshot.caption",
+    "value": "Live view — orders"
+  },
+  {
+    "path": "orderManagement.screenshot.companionCaption",
+    "value": "Live view — orders on mobile"
+  },
+  {
+    "path": "customerManagement.hero.subtitle",
+    "value": "A customer profile starts with just a phone number. From there, Cashvio tracks every visit, every order, every address, and every pound of store credit — so when a regular walks in, you already know their story."
+  },
+  {
+    "path": "customerManagement.problem.items.noHistory.description",
+    "value": "A customer asks about something they bought two months ago — the color, the size, the price. Without order history under their name, you simply cannot answer."
+  },
+  {
+    "path": "customerManagement.features.subtitle",
+    "value": "You do not fill in forms all day. Profiles build themselves from real orders — you just attach the customer at checkout."
+  },
+  {
+    "path": "customerManagement.features.items.quickProfiles.description",
+    "value": "The phone number is the only required field. Name, birth date, and notes are optional — add them when you learn them. Create customers from the customer page, the POS, or the dashboard."
+  },
+  {
+    "path": "customerManagement.features.items.stats.description",
+    "value": "Every customer shows total visits, total spent, store credit balance, and their last visit date — updated automatically with every order they place."
+  },
+  {
+    "path": "customerManagement.features.items.addresses.description",
+    "value": "Save multiple addresses per customer — apartment, house, or office — with region, street, floor, and delivery instructions. The default address fills in automatically on delivery orders."
+  },
+  {
+    "path": "customerManagement.features.items.notes.description",
+    "value": "Keep notes only your team can see — preferences, allergies, special instructions, or how they like their order packed. Small details that make customers feel known."
+  },
+  {
+    "path": "customerManagement.features.items.recordVisit.description",
+    "value": "Log purchases that happened outside the system — sales from before Cashvio, or offline sales — so a customer's totals reflect their real history with your shop."
+  },
+  {
+    "path": "customerManagement.features.items.newOrder.description",
+    "value": "A New Order button on every customer's page opens the sale screen with that customer already attached — their credit balance visible and their address ready."
+  },
+  {
+    "path": "customerManagement.storeCredit.subtitle",
+    "value": "Instead of handing cash back out of the drawer, offer credit that keeps the money in your business — tracked to the pound."
+  },
+  {
+    "path": "customerManagement.storeCredit.refund.description",
+    "value": "When you process a refund, choose Store Credit as the method — the amount is added to the customer's balance the moment the refund is processed."
+  },
+  {
+    "path": "customerManagement.storeCredit.automatic.description",
+    "value": "The balance is managed entirely by orders and refunds — nobody can fat-finger it. It shows green on the customer list, so the whole team sees it at a glance."
+  },
+  {
+    "path": "customerManagement.faq.items.q1.answer",
+    "value": "Just a phone number. Name, date of birth, notes, and address are all optional — you can add them later as you get to know the customer."
+  },
+  {
+    "path": "customerManagement.faq.items.q2.answer",
+    "value": "Yes. Customers are optional on every sale. Attach one when you want the order on their record — for history, store credit, or delivery."
+  },
+  {
+    "path": "customerManagement.faq.items.q3.answer",
+    "value": "Issue a refund and choose Store Credit as the refund method. The amount is added to their balance automatically when the refund is processed. There is no manual \"add credit\" button — every credit comes from a real, recorded refund."
+  },
+  {
+    "path": "customerManagement.faq.items.q5.answer",
+    "value": "Yes — save as many as needed (apartment, house, office) and mark one as the default. On delivery orders, the default fills in automatically, and you can switch to any saved address."
+  },
+  {
+    "path": "customerManagement.cta.description",
+    "value": "Create your free account and attach a customer to your next sale — that is all it takes to start building real customer records."
+  },
+  {
+    "path": "customerManagement.screenshot.caption",
+    "value": "Live view — customers"
+  },
+  {
+    "path": "salesAnalytics.hero.subtitle",
+    "value": "Revenue, profit, best sellers, peak hours, staff performance — six ready reports built from your real sales. Every number compares itself to the previous period, and the Insights tab tells you in plain words what to do about it."
+  },
+  {
+    "path": "salesAnalytics.problem.items.gutFeeling.description",
+    "value": "Which products to reorder, when to schedule staff, what to put on sale — most shops guess. Guessing works until a competitor stops guessing."
+  },
+  {
+    "path": "salesAnalytics.problem.items.hiddenPatterns.description",
+    "value": "Which product actually carries the shop? Which hours are dead? What sells on weekends? The data exists in your sales — but not in a form you can read."
+  },
+  {
+    "path": "salesAnalytics.tabs.subtitle",
+    "value": "Reports build themselves from your sales — open the Reports page and they are simply there."
+  },
+  {
+    "path": "salesAnalytics.tabs.items.overview.description",
+    "value": "Revenue, gross profit, orders, average order value, items sold, discounts, tax, and new customers — each with its change versus the previous period."
+  },
+  {
+    "path": "salesAnalytics.tabs.items.insights.description",
+    "value": "Health scores per area, issues that need attention now, opportunities, recent wins — each with concrete recommended actions."
+  },
+  {
+    "path": "salesAnalytics.features.items.byChannel.description",
+    "value": "Storefront, portal, Instagram, WhatsApp, phone orders — see which channels actually bring revenue before you spend another marketing pound."
+  },
+  {
+    "path": "salesAnalytics.features.items.byPayment.description",
+    "value": "How customers actually pay — cash, online, receipt transfers, store credit — so drawer counts and settlement reports stop being surprises."
+  },
+  {
+    "path": "salesAnalytics.features.items.storeVisits.description",
+    "value": "Unique, new, and returning visitors to your online store — see whether your store is getting discovered and who comes back."
+  },
+  {
+    "path": "salesAnalytics.features.items.csvExport.description",
+    "value": "Export the sales data behind the Overview tab to CSV — for your accountant, your spreadsheet, or your own deeper analysis."
+  },
+  {
+    "path": "salesAnalytics.insights.subtitle",
+    "value": "The Insights tab analyzes your sales, products, customers, and returns — then talks to you like a sharp business partner, not a dashboard."
+  },
+  {
+    "path": "salesAnalytics.insights.items.health.description",
+    "value": "One overall business health score, plus per-area scores for revenue, products, customers, profit, stores, and returns — know at a glance where it hurts."
+  },
+  {
+    "path": "salesAnalytics.insights.items.attention.description",
+    "value": "Critical issues surfaced automatically — a high discount rate, a product bleeding margin, a spike in returns — before they show up in your bank balance."
+  },
+  {
+    "path": "salesAnalytics.insights.items.actions.description",
+    "value": "Every insight comes with concrete recommendations, the expected impact, and a priority — so the next step is decided, not debated."
+  },
+  {
+    "path": "salesAnalytics.howItWorks.step2.description",
+    "value": "Open Reports, choose day, week, month, or a custom range. Every metric shows its change versus the previous period — up, down, and by how much."
+  },
+  {
+    "path": "salesAnalytics.howItWorks.step3.description",
+    "value": "Read the Insights tab like a briefing: what needs attention, what to double down on, and what to fix — each with a recommended action."
+  },
+  {
+    "path": "salesAnalytics.faq.items.q2.answer",
+    "value": "Profit uses the cost price you set on each product variant: selling price minus cost. Keep cost prices up to date — especially when supplier prices change — and your margins stay honest."
+  },
+  {
+    "path": "salesAnalytics.faq.items.q3.answer",
+    "value": "Yes, automatically. Every metric shows its change versus the previous period — pick month view and each number compares against the month before."
+  },
+  {
+    "path": "salesAnalytics.faq.items.q6.answer",
+    "value": "It converts your numbers into plain-language guidance: health scores per area, critical issues, warnings, opportunities, and recent wins — each with recommended actions, expected impact, and priority."
+  },
+  {
+    "path": "salesAnalytics.cta.description",
+    "value": "Create a free account, make a few sales, and open Reports — your first real numbers are minutes away."
+  },
+  {
+    "path": "salesAnalytics.screenshot.caption",
+    "value": "Live view — analytics"
+  },
+  {
+    "path": "purchaseOrders.problem.subtitle",
+    "value": "A voice note to the supplier, a price agreed on the phone, a delivery checked by memory — until quantities do not match and nobody can prove anything."
+  },
+  {
+    "path": "purchaseOrders.problem.items.uncheckedDeliveries.description",
+    "value": "Boxes arrive, someone shelves them, and the count in your head becomes the count in your stock. Missing items are discovered weeks later — too late to claim."
+  },
+  {
+    "path": "purchaseOrders.features.subtitle",
+    "value": "From \"we are running low\" to \"it is on the shelf\" — every step has a record, a status, and a number."
+  },
+  {
+    "path": "purchaseOrders.features.items.wizard.description",
+    "value": "Pick the store and supplier, add products with quantities and agreed unit costs, then set the expected delivery date, delivery fees, and notes. Done — the PO is created as a draft."
+  },
+  {
+    "path": "purchaseOrders.features.items.statuses.description",
+    "value": "Draft, Approved, Partially Received, Completed, Cancelled — every purchase order tells you exactly where it stands at a glance."
+  },
+  {
+    "path": "purchaseOrders.features.items.approval.description",
+    "value": "Approving a PO requires typing APPROVE — a small speed bump that prevents expensive accidental orders. Cancelling works the same way."
+  },
+  {
+    "path": "purchaseOrders.features.items.receiving.description",
+    "value": "When a delivery arrives, enter what actually came — item by item. The PO tracks ordered, received, and remaining counts until everything is in."
+  },
+  {
+    "path": "purchaseOrders.features.items.suppliers.description",
+    "value": "Keep every supplier's name, phone, email, and address in one place — and pick them in one tap when creating a purchase order."
+  },
+  {
+    "path": "purchaseOrders.features.items.history.description",
+    "value": "Open a supplier to see every purchase order you ever placed with them — quantities, costs, and statuses. Negotiate the next price knowing the last five."
+  },
+  {
+    "path": "purchaseOrders.features.items.filters.description",
+    "value": "Find any PO by number, store, supplier, status, or date range — no more digging through paper files or chat threads."
+  },
+  {
+    "path": "purchaseOrders.howItWorks.step2.description",
+    "value": "Review the draft and approve it by typing APPROVE. The order is now official — waiting for delivery, visible to your team, and impossible to lose."
+  },
+  {
+    "path": "purchaseOrders.howItWorks.step3.description",
+    "value": "When boxes arrive, enter the received quantity per item — all of it or just what came. Stock goes up instantly, and the PO closes itself when everything is in."
+  },
+  {
+    "path": "purchaseOrders.effects.items.created.effect",
+    "value": "Nothing changes — it is a record of intent, not stock"
+  },
+  {
+    "path": "purchaseOrders.effects.items.cancelled.effect",
+    "value": "Nothing changes — the order is voided with no stock movement"
+  },
+  {
+    "path": "purchaseOrders.faq.items.q1.answer",
+    "value": "Yes. Enter the quantity that actually arrived per item — the PO becomes Partially Received and keeps tracking the remaining quantities until everything is in, then completes itself."
+  },
+  {
+    "path": "purchaseOrders.faq.items.q2.answer",
+    "value": "No. Creating and approving a PO changes nothing in inventory — it is a record of what you ordered. Stock only increases when you receive it, by the quantities you actually received."
+  },
+  {
+    "path": "purchaseOrders.faq.items.q4.answer",
+    "value": "Yes. The supplier's page shows their full purchase order history — with the same view, approve, cancel, and receive actions as the main PO list — plus a button to start a new PO with them pre-selected."
+  },
+  {
+    "path": "purchaseOrders.faq.items.q8.answer",
+    "value": "Yes. Purchase order permissions are fine-grained — view, create, edit, approve, receive, and cancel are separate permissions you assign per role."
+  },
+  {
+    "path": "purchaseOrders.cta.description",
+    "value": "Create your free account, add your suppliers, and place your first purchase order — the days of restocking by memory are over."
+  },
+  {
+    "path": "purchaseOrders.screenshot.caption",
+    "value": "Live view — purchase orders"
+  },
+  {
+    "path": "returnsAndRefunds.hero.subtitle",
+    "value": "A clear process for the least fun part of retail: item-level returns with recorded reasons, control over what goes back on the shelf, an approval step, and four refund methods — including store credit that keeps the money in your business."
+  },
+  {
+    "path": "returnsAndRefunds.problem.subtitle",
+    "value": "Every shop gets returns. The damage is not the return itself — it is the missing record, the wrong stock count, and the cash that left the drawer with no trace."
+  },
+  {
+    "path": "returnsAndRefunds.problem.items.noProcess.description",
+    "value": "No process means whoever is at the counter decides. One employee refunds everything, another refuses everything — and customers learn to argue."
+  },
+  {
+    "path": "returnsAndRefunds.returnTypes.items.returnOnly.description",
+    "value": "Goods come back with no money out — an exchange, a warranty case, or store policy. Inventory is corrected without touching the cash."
+  },
+  {
+    "path": "returnsAndRefunds.returnTypes.items.refundOnly.description",
+    "value": "Money goes back with no goods returned — a compensation, a goodwill gesture, or an item the customer keeps. The refund is recorded against the order."
+  },
+  {
+    "path": "returnsAndRefunds.features.subtitle",
+    "value": "Item by item, reason by reason — the return flow asks the right questions so your stock and your money stay correct."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.restockControl.description",
+    "value": "Decide per item whether it goes back into sellable stock. Damaged, expired, or contaminated items are marked with a non-restock reason instead — never resold by accident."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.restockingFee.description",
+    "value": "Charge a restocking fee on returned items when your policy calls for it — recorded on the return, deducted from the refund."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.reasons.description",
+    "value": "Every return carries a reason — changed mind, wrong item, defective, damaged, size issue, and more. Reasons feed the Returns report so patterns become visible."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.approval.description",
+    "value": "Returns are created as pending, then approved, rejected, or cancelled — rejections and cancellations require a written reason. Stock only moves on approval."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.approval.subs",
+    "value": "Pending → Approved • Reject With Reason • Audit Trail"
+  },
+  {
+    "path": "returnsAndRefunds.features.items.pendingProcess.description",
+    "value": "Creating a refund does not move money by itself. A pending refund is processed explicitly — or cancelled with a reason — so the books match the drawer."
+  },
+  {
+    "path": "returnsAndRefunds.features.items.pendingProcess.subs",
+    "value": "Pending → Completed • Explicit Processing • Cancel With Reason"
+  },
+  {
+    "path": "returnsAndRefunds.howItWorks.step2.description",
+    "value": "A pending return is reviewed and approved — or rejected with a written reason. On approval, restockable items go back into inventory automatically."
+  },
+  {
+    "path": "returnsAndRefunds.howItWorks.step3.description",
+    "value": "Create the refund — full or partial — pick the method, and process it. Store credit refunds land on the customer's balance the moment they are processed."
+  },
+  {
+    "path": "returnsAndRefunds.refundMethods.items.cash.when",
+    "value": "The customer paid cash and wants cash back — straight from the drawer, recorded"
+  },
+  {
+    "path": "returnsAndRefunds.refundMethods.items.online.when",
+    "value": "Refunding a digital payment — available when the original payment was online"
+  },
+  {
+    "path": "returnsAndRefunds.refundMethods.items.storeCredit.when",
+    "value": "The refund becomes balance on the customer's account — money stays in your business"
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q1.answer",
+    "value": "Yes — that is the Refund Only type. Money is returned against the order with no return record and no inventory movement. Useful for compensations and goodwill gestures."
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q2.answer",
+    "value": "Yes — Return Only. The items are returned and restocked (or marked non-restockable) with no money out. Useful for exchanges and warranty flows."
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q4.answer",
+    "value": "No — returns and refunds are separate deliberate steps. Approving a return settles the goods; you then create and process a refund to settle the money. Nothing moves by accident."
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q5.answer",
+    "value": "Choose Store Credit as the refund method (the order must have a customer attached). When the refund is processed, the amount is added to the customer's balance — which they can spend on any future order."
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q7.answer",
+    "value": "Yes. When restocking a returned item you can add a restocking fee — it is recorded on the return and reflected in the refund amount."
+  },
+  {
+    "path": "returnsAndRefunds.faq.items.q8.answer",
+    "value": "Yes. The Returns report shows your return rate, the reasons breakdown, the most-returned products, and the total value of returns — so recurring problems surface instead of repeating."
+  },
+  {
+    "path": "returnsAndRefunds.cta.description",
+    "value": "A clear process, correct stock, and refunds with a paper trail — set it up free in minutes."
+  },
+  {
+    "path": "returnsAndRefunds.screenshot.caption",
+    "value": "Live view — returns"
+  },
+  {
+    "path": "multiStoreManagement.hero.subtitle",
+    "value": "Each branch keeps its own stock, prices, payment methods, and receipts — and you see all of them from one dashboard. Transfer stock between stores, limit staff to their branch, and compare branches side by side."
+  },
+  {
+    "path": "multiStoreManagement.problem.subtitle",
+    "value": "One shop fits in your head. Two do not. The moment you open a second branch, every question — stock, prices, staff, numbers — has two answers that do not talk to each other."
+  },
+  {
+    "path": "multiStoreManagement.problem.items.stockBlindness.description",
+    "value": "A customer wants a size that is out here — is it available downtown? Without shared visibility, the answer is a phone call, a wait, and often a lost sale."
+  },
+  {
+    "path": "multiStoreManagement.problem.items.priceDrift.description",
+    "value": "A price update reaches one branch and not the other. Customers notice before you do — and it never feels good to explain."
+  },
+  {
+    "path": "multiStoreManagement.features.items.oneAccount.description",
+    "value": "Add branches as your plan allows — a shop, a warehouse, a kiosk. Your first store is created automatically when you sign up; the rest take a minute each."
+  },
+  {
+    "path": "multiStoreManagement.features.items.perStorePricing.description",
+    "value": "Set store-specific prices per product variant when branches serve different areas or customer segments — deliberately, not by accident."
+  },
+  {
+    "path": "multiStoreManagement.features.items.transfers.description",
+    "value": "Move inventory from one branch to another with a recorded transfer — quantities leave one store, arrive at the other, and the trail is kept."
+  },
+  {
+    "path": "multiStoreManagement.features.items.perStoreConfig.description",
+    "value": "Currency, payment methods, fulfillment options, delivery zones, service fees, receipt content, and sales channels — all configured per store."
+  },
+  {
+    "path": "multiStoreManagement.features.items.scopedRoles.description",
+    "value": "Assign roles business-wide or scoped to a single store. A cashier in the downtown branch sees downtown — nothing else."
+  },
+  {
+    "path": "multiStoreManagement.howItWorks.subtitle",
+    "value": "The setup is minutes, not weeks — because everything you built for the first store carries over."
+  },
+  {
+    "path": "multiStoreManagement.howItWorks.step1.description",
+    "value": "Name, currency, contact details, address — save, and the branch exists with its own automatically generated store code."
+  },
+  {
+    "path": "multiStoreManagement.howItWorks.step2.description",
+    "value": "Enable its payment methods, set fulfillment options and delivery zones, adjust receipt details, and stock it — fresh, or by transferring from another branch."
+  },
+  {
+    "path": "multiStoreManagement.howItWorks.step3.description",
+    "value": "Staff sell in their own branch; you watch all branches from one dashboard — stock, orders, and revenue per store, compared automatically."
+  },
+  {
+    "path": "multiStoreManagement.perStore.title",
+    "value": "What Is Separate Per Store — and What Is Shared"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.catalogue.scope",
+    "value": "Shared — define products once, sell them in any store"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.inventory.scope",
+    "value": "Per store — every variant has its own stock count in each branch"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.payments.scope",
+    "value": "Per store — each branch enables what it accepts"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.fulfillment.scope",
+    "value": "Per store — pickup, delivery areas, and fees per branch"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.receipts.scope",
+    "value": "Per store — each branch prints its own details"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.channels.scope",
+    "value": "Per store — enable channels per branch"
+  },
+  {
+    "path": "multiStoreManagement.perStore.items.staff.scope",
+    "value": "Your choice — business-wide or scoped to one store"
+  },
+  {
+    "path": "multiStoreManagement.faq.items.q1.answer",
+    "value": "It depends on your plan — each plan includes a number of stores. Your first store is created automatically when you sign up, and you can add more from Settings as your plan allows."
+  },
+  {
+    "path": "multiStoreManagement.faq.items.q2.answer",
+    "value": "Yes. Stock transfers move quantities between stores with a full record — what moved, from where, to where, and when. No spreadsheet reconciliation."
+  },
+  {
+    "path": "multiStoreManagement.faq.items.q4.answer",
+    "value": "Yes. Currency is set per store — useful when branches operate in different markets."
+  },
+  {
+    "path": "multiStoreManagement.faq.items.q6.answer",
+    "value": "Yes. Reports break down by store — revenue share per branch, plus filters across orders and inventory. Click a branch in the Sales by Store chart to open its orders."
+  },
+  {
+    "path": "multiStoreManagement.faq.items.q7.answer",
+    "value": "The branch stops accepting new activity but loses nothing — its history, stock records, and settings stay intact. You can reactivate it any time."
+  },
+  {
+    "path": "multiStoreManagement.cta.description",
+    "value": "Start free with your first store — and when the second branch opens, it takes minutes to bring it in."
+  },
+  {
+    "path": "multiStoreManagement.screenshot.caption",
+    "value": "Live view — stores"
+  },
+  {
+    "path": "teamManagement.hero.subtitle",
+    "value": "Stop sharing the owner's password. Give each team member their own account with exactly the permissions their job needs — a cashier sells, an accountant sees money, a warehouse worker touches stock — and every action is recorded under their name."
+  },
+  {
+    "path": "teamManagement.problem.items.sharedLogin.description",
+    "value": "The whole team on one login means every employee can see profits, change prices, delete products, and cancel orders — whether they should or not."
+  },
+  {
+    "path": "teamManagement.problem.items.allOrNothing.description",
+    "value": "You want the new hire to ring up sales — not to see revenue reports or edit the catalogue. Without roles, you cannot give one without the other."
+  },
+  {
+    "path": "teamManagement.problem.items.exStaffRisk.description",
+    "value": "Someone leaves, and the password they know still works. Changing it means telling everyone the new one — and the cycle repeats."
+  },
+  {
+    "path": "teamManagement.features.items.invite.description",
+    "value": "Enter their name, email, username, and role. Cashvio generates a temporary password you hand over yourself — no invitation emails to get lost, and you can reset it any time."
+  },
+  {
+    "path": "teamManagement.features.items.permissions.description",
+    "value": "Permissions follow an action-on-resource model: view orders, create products, approve purchase orders, process refunds — grant exactly what each role needs, nothing more."
+  },
+  {
+    "path": "teamManagement.features.items.systemRoles.description",
+    "value": "Tenant Admin for full access, Cashier for day-to-day selling, Accountant for financial visibility — usable from day one, no configuration needed."
+  },
+  {
+    "path": "teamManagement.features.items.customRoles.description",
+    "value": "Create as many roles as your team needs — a Warehouse Staff role limited to inventory and purchase orders, a Supervisor role that can cancel orders. Name it, tick the permissions, save."
+  },
+  {
+    "path": "teamManagement.features.items.adaptiveUI.description",
+    "value": "Team members only see the menus, buttons, and quick actions their permissions allow. No forbidden buttons, no confusion — a cashier's screen is a cashier's screen."
+  },
+  {
+    "path": "teamManagement.features.items.deactivate.description",
+    "value": "Someone leaving? Deactivate their account — login blocked instantly, history intact. If they come back, reactivate in one click."
+  },
+  {
+    "path": "teamManagement.howItWorks.step1.description",
+    "value": "Start with a ready-made role — Cashier, Accountant — or create a custom one and tick exactly the permissions the job needs."
+  },
+  {
+    "path": "teamManagement.howItWorks.step2.description",
+    "value": "Enter their details, assign the role — business-wide or scoped to one store — and hand them the temporary password Cashvio generates."
+  },
+  {
+    "path": "teamManagement.howItWorks.step3.description",
+    "value": "They log in and see only their job. Orders, adjustments, and returns they create carry their name — and the Staff report shows how everyone performs."
+  },
+  {
+    "path": "teamManagement.permissionGroups.subtitle",
+    "value": "Each resource has its own set of actions — grant them per role, and View is included automatically whenever you grant an action."
+  },
+  {
+    "path": "teamManagement.faq.items.q1.answer",
+    "value": "No. Cashvio generates a temporary password and shows it once with a copy button — you share it with the team member yourself, in person or through a channel you trust. If it is lost, set a new password from their profile."
+  },
+  {
+    "path": "teamManagement.faq.items.q2.answer",
+    "value": "Their username or email plus their password. Each person has their own credentials — the owner's password stays with the owner."
+  },
+  {
+    "path": "teamManagement.faq.items.q4.answer",
+    "value": "Three system roles ship with Cashvio: Tenant Admin (full access), Cashier (day-to-day selling), and Accountant (financial visibility). They cannot be edited — but you can create unlimited custom roles alongside them."
+  },
+  {
+    "path": "teamManagement.faq.items.q5.answer",
+    "value": "Yes — grant only the View permission for that resource. Granting any action (create, edit, delete) automatically includes View, because nobody can edit what they cannot see."
+  },
+  {
+    "path": "teamManagement.faq.items.q6.answer",
+    "value": "Deactivate their account — their login stops working immediately, and everything they ever created keeps their name for your records. Reactivate any time if they return."
+  },
+  {
+    "path": "teamManagement.faq.items.q8.answer",
+    "value": "Yes. The Staff report shows revenue per team member, orders processed per person, and performance trends — useful for scheduling, targets, and rewards."
+  },
+  {
+    "path": "teamManagement.screenshot.caption",
+    "value": "Live view — store team workspace"
+  },
+  {
+    "path": "tools.hero.subtitle",
+    "value": "A barcode generator, a QR code generator, and a profit-margin calculator — free, in your browser, no signup needed."
+  },
+  {
+    "path": "tools.items.margin.description",
+    "value": "See profit, margin, and markup from your numbers — or work backwards from a target margin to a price."
+  },
+  {
+    "path": "tools.cta.subtitle",
+    "value": "Cashvio gives you a free POS, a free online store, inventory, and profit reports — these tools are just the warm-up."
+  },
+  {
+    "path": "tools.cta.note",
+    "value": "Free forever plan — no credit card needed"
+  },
+  {
+    "path": "barcodeGenerator.tool.formats.CODE128",
+    "value": "Code 128 — any text, best for SKUs"
+  },
+  {
+    "path": "barcodeGenerator.tool.formats.EAN13",
+    "value": "EAN-13 — retail standard, 12–13 digits"
+  },
+  {
+    "path": "barcodeGenerator.tool.ean13Hint",
+    "value": "Enter 12 digits and the check digit is computed for you — or 13 digits with a valid check digit."
+  },
+  {
+    "path": "barcodeGenerator.pitch.subtitle",
+    "value": "Cashvio turns your product catalog into printable A4 label sheets — and every scan at the register updates your stock."
+  },
+  {
+    "path": "barcodeGenerator.pitch.p3.description",
+    "value": "Every scanned sale adjusts inventory automatically — no counting notebooks."
+  },
+  {
+    "path": "barcodeGenerator.faq.q1.answer",
+    "value": "Yes — generate and download as many barcodes as you like. No watermark, no account, no limits."
+  },
+  {
+    "path": "barcodeGenerator.faq.q2.answer",
+    "value": "Use Code 128 for internal SKUs — it accepts letters and numbers and scans reliably on any modern scanner. Use EAN-13 only when you need the 13-digit retail standard."
+  },
+  {
+    "path": "barcodeGenerator.cta.subtitle",
+    "value": "Import your products into Cashvio and print whole barcode label sheets in one click — on the free plan."
+  },
+  {
+    "path": "barcodeGenerator.cta.note",
+    "value": "Free forever plan — no credit card needed"
+  },
+  {
+    "path": "qrCodeGenerator.hero.subtitle",
+    "value": "Make a QR code for your store link, WhatsApp number, or menu — and download a high-resolution PNG that stays scannable in print."
+  },
+  {
+    "path": "qrCodeGenerator.steps.s3.description",
+    "value": "Pick a size — bigger prints need bigger sizes — and save the PNG."
+  },
+  {
+    "path": "qrCodeGenerator.pitch.subtitle",
+    "value": "Cashvio gives your shop a free online store — and prints the QR materials for you."
+  },
+  {
+    "path": "qrCodeGenerator.pitch.p1.description",
+    "value": "Your products on your own store link, ready to take orders — live in minutes."
+  },
+  {
+    "path": "qrCodeGenerator.pitch.p3.description",
+    "value": "Printed receipts carry a QR to the digital receipt — customers keep the link, you look professional."
+  },
+  {
+    "path": "qrCodeGenerator.faq.q1.answer",
+    "value": "Free and unlimited — and the codes never expire, because the image itself encodes your text permanently."
+  },
+  {
+    "path": "qrCodeGenerator.faq.q3.answer",
+    "value": "Yes — paste a wa.me link with your number and the code opens a chat with you when scanned."
+  },
+  {
+    "path": "qrCodeGenerator.cta.note",
+    "value": "Free forever plan — no credit card needed"
+  },
+  {
+    "path": "marginCalculator.hero.subtitle",
+    "value": "See profit, margin, and markup from your cost and price — or set a target margin and get the selling price to charge."
+  },
+  {
+    "path": "marginCalculator.tool.sellingBelowCost",
+    "value": "You're selling below cost — this price loses money."
+  },
+  {
+    "path": "marginCalculator.tool.marginTooHigh",
+    "value": "Margin must be below 100% — no selling price can reach it."
+  },
+  {
+    "path": "marginCalculator.steps.s1.description",
+    "value": "Include what the unit truly costs you — purchase price, packaging, delivery to your shop."
+  },
+  {
+    "path": "marginCalculator.steps.s3.description",
+    "value": "Profit per unit, margin (share of price), and markup (share of cost) — updated live."
+  },
+  {
+    "path": "marginCalculator.pitch.subtitle",
+    "value": "Cashvio tracks the real numbers automatically — per product and per sale."
+  },
+  {
+    "path": "marginCalculator.pitch.p3.description",
+    "value": "Profit reports show which products actually earn — not just which ones sell."
+  },
+  {
+    "path": "marginCalculator.faq.q2.answer",
+    "value": "It depends on the category — groceries often run 10–25%, clothing and accessories 40–60%. Watch your own numbers per product rather than a universal rule."
+  },
+  {
+    "path": "marginCalculator.faq.q3.answer",
+    "value": "Yes — it records cost and profit on every sale and shows margin per product in the profit report, on the free plan."
+  },
+  {
+    "path": "marginCalculator.cta.title",
+    "value": "Know your real profit — automatically"
+  },
+  {
+    "path": "marginCalculator.cta.note",
+    "value": "Free forever plan — no credit card needed"
+  },
+  {
+    "path": "industryCafe.hero.subtitle",
+    "value": "Fast checkout, custom orders, and live order statuses — free for your coffee shop, juice bar, or dessert spot."
+  },
+  {
+    "path": "industryCafe.pains.p1.description",
+    "value": "Handwritten orders slow the line — and slow lines lose customers who just want their coffee."
+  },
+  {
+    "path": "industryCafe.pains.p2.description",
+    "value": "Extra shot, oat milk, no sugar — details scribbled on cups get missed and remade."
+  },
+  {
+    "path": "industryCafe.features.f3.description",
+    "value": "Per-item notes — extra shot, less ice — print with the order so nothing gets remade."
+  },
+  {
+    "path": "industryCafe.features.f6.description",
+    "value": "Sales and profit for the day — by product and by staff member."
+  },
+  {
+    "path": "industryCafe.faq.q1.answer",
+    "value": "Yes — the POS runs in the browser on tablets, laptops, and phones. No special hardware required."
+  },
+  {
+    "path": "industryCafe.faq.q2.answer",
+    "value": "Yes — the free plan includes an online store on your own link where customers browse the menu and order for pickup or delivery."
+  },
+  {
+    "path": "industryCafe.faq.q3.answer",
+    "value": "Yes — thermal receipt printers are supported, plus digital receipts customers can open from a QR code."
+  },
+  {
+    "path": "industryCafe.cta.subtitle",
+    "value": "Free for your cafe — no credit card, no sales call."
+  },
+  {
+    "path": "industryClothing.hero.subtitle",
+    "value": "Variants, barcode labels, returns with store credit, and a free online boutique — built for fashion retail."
+  },
+  {
+    "path": "industryClothing.pains.p1.description",
+    "value": "One t-shirt is really twelve products — S to XXL in four colors — and paper can't track which one sold."
+  },
+  {
+    "path": "industryClothing.pains.p2.description",
+    "value": "Wrong-size returns without records turn into arguments — and quietly leak money."
+  },
+  {
+    "path": "industryClothing.features.f1.description",
+    "value": "Sizes and colors as proper variants — each with its own SKU, stock count, and price."
+  },
+  {
+    "path": "industryClothing.features.f3.description",
+    "value": "Accept returns with recorded reasons and refund to store credit — the money stays in your shop."
+  },
+  {
+    "path": "industryClothing.faq.q1.answer",
+    "value": "Yes — upload a CSV or Excel file with the import wizard; it validates sizes, prices, and SKUs before anything is saved."
+  },
+  {
+    "path": "industryClothing.faq.q2.answer",
+    "value": "Pick the items, record the reason, choose whether to restock, and refund by cash or store credit — every step is logged."
+  },
+  {
+    "path": "industryClothing.faq.q3.answer",
+    "value": "Yes — the storefront shows availability per size and color, and out-of-stock variants can't be ordered."
+  },
+  {
+    "path": "industryClothing.cta.subtitle",
+    "value": "Free for your boutique — start with your bestsellers today."
+  },
+  {
+    "path": "industryMinimarket.hero.subtitle",
+    "value": "Scan-to-sell checkout, a digital credit book, low-stock alerts, and supplier orders — free for minimarkets and grocery shops."
+  },
+  {
+    "path": "industryMinimarket.pains.p1.description",
+    "value": "Neighbors buy on credit, and the notebook decides your cash flow — until a page goes missing."
+  },
+  {
+    "path": "industryMinimarket.features.f1.description",
+    "value": "Plug in a USB barcode scanner and fly through checkout — items ring up instantly."
+  },
+  {
+    "path": "industryMinimarket.features.f2.description",
+    "value": "Sell now, collect later — partial payments, due dates, and an overdue list per customer."
+  },
+  {
+    "path": "industryMinimarket.features.f6.description",
+    "value": "Daily sales and real profit after costs — by product and by cashier."
+  },
+  {
+    "path": "industryMinimarket.faq.q1.answer",
+    "value": "Yes — any USB (keyboard-wedge) scanner works out of the box: scan, and the item lands in the ticket."
+  },
+  {
+    "path": "industryMinimarket.faq.q2.answer",
+    "value": "Yes — record partial or pay-later sales with due dates, and see exactly who owes what in the overdue list."
+  },
+  {
+    "path": "industryMinimarket.faq.q3.answer",
+    "value": "Yes — the free plan includes the POS, inventory, purchase orders, and reports, with unlimited products and orders."
+  },
+  {
+    "path": "industryMinimarket.cta.subtitle",
+    "value": "The register, the stock, and the credit book — one free system."
+  }
+]

@@ -30,7 +30,7 @@ GET ${SITE_URL}/.well-known/oauth-authorization-server
 
 Returns token endpoint, registration endpoint, and supported grant types.
 
-## Step 1 — Register
+## Step 1: Register
 
 Create a tenant account by sending a POST request to the registration endpoint.
 
@@ -64,7 +64,7 @@ Response (201):
 
 The access token is a short-lived JWT. The refresh token is long-lived. Store both securely.
 
-## Step 2 — Authenticate
+## Step 2: Authenticate
 
 If you already have an account, obtain credentials by signing in:
 
@@ -90,7 +90,7 @@ Response (200):
 }
 \`\`\`
 
-## Step 3 — Use the Access Token
+## Step 3: Use the Access Token
 
 Present the access token as a Bearer token on all API requests:
 
@@ -99,7 +99,7 @@ GET ${API_URL}/resource
 Authorization: Bearer <accessToken>
 \`\`\`
 
-## Step 4 — Refresh
+## Step 4: Refresh
 
 When the access token expires, refresh it:
 
@@ -137,13 +137,13 @@ Access is further restricted by the user's role and permissions within their ten
 
 The API provides endpoints for:
 
-- **Products** — catalogue management, variants, pricing
-- **Inventory** — stock tracking across stores
-- **Orders** — multi-channel order processing
-- **Customers** — customer management, balances
-- **Suppliers** — supplier management, purchase orders
-- **Stores** — multi-location management
-- **Reports** — analytics and reporting
+- **Products**: catalogue management, variants, pricing
+- **Inventory**: stock tracking across stores
+- **Orders**: multi-channel order processing
+- **Customers**: customer management, balances
+- **Suppliers**: supplier management, purchase orders
+- **Stores**: multi-location management
+- **Reports**: analytics and reporting
 
 ## Documentation
 
@@ -166,10 +166,10 @@ All errors follow a standard envelope:
 }
 \`\`\`
 
-- 401 on a previously-working token → refresh the token (Step 4).
-- 401 after refresh fails → re-authenticate (Step 2).
-- 429 → back off and retry.
-- 5xx → exponential backoff.
+- 401 on a previously-working token: refresh the token (Step 4).
+- 401 after refresh fails: re-authenticate (Step 2).
+- 429: back off and retry.
+- 5xx: retry with exponential backoff.
 
 ## Contact
 

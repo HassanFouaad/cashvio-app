@@ -28,7 +28,7 @@ export function GET() {
   const docsDir = join(process.cwd(), 'content', 'docs');
 
   const lines: string[] = [
-    `# ${siteConfig.name} — Full Documentation`,
+    `# ${siteConfig.name}: Full Documentation`,
     '',
     `> ${siteConfig.description}`,
     '',

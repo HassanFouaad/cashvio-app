@@ -15,6 +15,7 @@ export const mainNavigation: NavItem[] = [
   { key: 'home', href: '/' },
   { key: 'features', href: '/features' },
   { key: 'freePos', href: '/features/free-pos' },
+  { key: 'industries', href: '/industries' },
   { key: 'pricing', href: '/pricing' },
   { key: 'tools', href: '/tools' },
   { key: 'docs', href: '/docs' },
@@ -49,15 +50,21 @@ export const footerNavigation: FooterSection[] = [
     ],
   },
   {
+    key: 'industries',
+    items: [
+      { key: 'industries', href: '/industries' },
+      { key: 'industryCafe', href: '/industries/cafe' },
+      { key: 'industryClothing', href: '/industries/clothing' },
+      { key: 'industryMinimarket', href: '/industries/minimarket' },
+    ],
+  },
+  {
     key: 'resources',
     items: [
       { key: 'tools', href: '/tools' },
       { key: 'barcodeGenerator', href: '/tools/barcode-generator' },
       { key: 'qrCodeGenerator', href: '/tools/qr-code-generator' },
       { key: 'marginCalculator', href: '/tools/profit-margin-calculator' },
-      { key: 'industryCafe', href: '/industries/cafe' },
-      { key: 'industryClothing', href: '/industries/clothing' },
-      { key: 'industryMinimarket', href: '/industries/minimarket' },
       { key: 'changelog', href: '/docs/changelog' },
     ],
   },

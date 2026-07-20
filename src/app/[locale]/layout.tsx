@@ -111,9 +111,6 @@ export async function generateMetadata({
     alternates: {
       canonical: getCanonicalUrl("", typedLocale),
       languages: getAlternateUrls(""),
-      types: {
-        "application/rss+xml": `${siteConfig.url}/feed.xml`,
-      },
     },
     openGraph: {
       ...openGraphDefaults,
@@ -275,27 +272,41 @@ export default async function LocaleLayout({
         <MetaPixelProvider />
         <AttributionTracker />
 
+        {/* Chatwoot is deferred until first interaction (or idle timeout) so it
+            never competes with LCP/INP on landing pages. Core Web Vitals matter
+            for rankings. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-
   window.chatwootSettings = ${chatwootSettings};
-  (function(d,t) {
-    var BASE_URL="https://helpdesk.cash-vio.com";
-    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=BASE_URL+"/packs/js/sdk.js";
-    g.async = true;
-    s.parentNode.insertBefore(g,s);
-    g.onload=function(){
-      window.chatwootSDK.run({
-        websiteToken: 'EGzDPux3QhPYK5eoCuZ6fpqd',
-        baseUrl: BASE_URL,
-        locale: ${JSON.stringify(locale)}
-      })
+  (function(d){
+    var loaded = false;
+    var events = ['pointerdown','keydown','touchstart','scroll'];
+    function loadChatwoot(){
+      if (loaded) return;
+      loaded = true;
+      events.forEach(function(e){ window.removeEventListener(e, loadChatwoot); });
+      var BASE_URL = "https://helpdesk.cash-vio.com";
+      var g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.src = BASE_URL + "/packs/js/sdk.js";
+      g.async = true;
+      g.defer = true;
+      s.parentNode.insertBefore(g, s);
+      g.onload = function(){
+        window.chatwootSDK.run({
+          websiteToken: 'EGzDPux3QhPYK5eoCuZ6fpqd',
+          baseUrl: BASE_URL,
+          locale: ${JSON.stringify(locale)}
+        });
+      };
     }
-  })(document,"script");
-
-
+    events.forEach(function(e){ window.addEventListener(e, loadChatwoot, { passive: true, once: true }); });
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function(){ setTimeout(loadChatwoot, 4000); });
+    } else {
+      setTimeout(loadChatwoot, 6000);
+    }
+  })(document);
   `,
           }}
         />

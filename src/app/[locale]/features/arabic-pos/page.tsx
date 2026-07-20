@@ -229,7 +229,7 @@ export default async function ArabicPosPage({ params }: Props) {
       <section aria-label={t('problem.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${t('problem.badge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${t('problem.badge')}`}
             title={t('problem.title')}
             subtitle={t('problem.subtitle')}
           />
@@ -250,7 +250,7 @@ export default async function ArabicPosPage({ params }: Props) {
       <section aria-label={t('solution.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${t('solution.badge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${t('solution.badge')}`}
             title={t('solution.title')}
             subtitle={t('solution.subtitle')}
           />
@@ -271,7 +271,7 @@ export default async function ArabicPosPage({ params }: Props) {
       <section aria-label={t('pos.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 03 — ${t('pos.badge')}`}
+            eyebrow={`${tLedger('no')} 03 · ${t('pos.badge')}`}
             title={t('pos.title')}
             subtitle={t('pos.subtitle')}
           />
@@ -292,7 +292,7 @@ export default async function ArabicPosPage({ params }: Props) {
       <section aria-label={t('storefront.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 04 — ${t('storefront.badge')}`}
+            eyebrow={`${tLedger('no')} 04 · ${t('storefront.badge')}`}
             title={t('storefront.title')}
             subtitle={t('storefront.subtitle')}
           />

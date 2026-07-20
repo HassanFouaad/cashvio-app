@@ -32,7 +32,7 @@ export async function Testimonials({ locale }: TestimonialsProps) {
               title={t(`items.${key}.quote`)}
               footer={
                 <p className="font-receipt text-xs text-muted-foreground">
-                  — {t(`items.${key}.author`)}
+                  {t(`items.${key}.author`)}
                 </p>
               }
             />

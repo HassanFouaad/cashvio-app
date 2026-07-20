@@ -26,7 +26,7 @@ import type { Locale } from '@/i18n/routing';
  * Used for schema dateModified — must NOT be "new Date()" (a lastmod
  * that changes every build teaches Google to ignore our freshness signals).
  */
-export const contentLastUpdated = '2026-07-19';
+export const contentLastUpdated = '2026-07-21';
 
 export const brand = {
   name: 'Cashvio',
@@ -34,7 +34,7 @@ export const brand = {
   alternateName: ['كاشفيو', 'Cash-vio', 'Cashvio POS', 'Cashvio Commerce'],
   tagline: 'Business Operations & Commerce Platform',
   slogan: 'Sell Smarter, Grow Faster',
-  shortDescription: 'Free POS and free online store — complete business management for selling in-store and online',
+  shortDescription: 'Free POS and free online store: complete business management for selling in-store and online',
   longDescription: 'Cashvio is a comprehensive SaaS platform with a free POS (cashier) and free online store. Manage point-of-sale, inventory, orders, customers, and analytics across multiple stores and sales channels.',
   founded: '2024',
   type: 'SaaS' as const,
@@ -409,7 +409,7 @@ export const schemaTemplates = {
           itemOffered: {
             '@type': 'Service',
             name: `${brand.name} Free Plan`,
-            description: 'Free forever plan — POS, online store, inventory, and reports',
+            description: 'Free forever plan with POS, online store, inventory, and reports',
           },
           price: '0',
           priceCurrency: 'EGP',
@@ -654,7 +654,7 @@ export const schemaTemplates = {
           itemOffered: {
             '@type': 'Service',
             name: 'Cashvio Free Plan',
-            description: 'Free forever plan — POS, online store, inventory, and reports',
+            description: 'Free forever plan with POS, online store, inventory, and reports',
           },
           price: '0',
           priceCurrency: 'EGP',

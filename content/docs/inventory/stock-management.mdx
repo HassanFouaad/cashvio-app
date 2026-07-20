@@ -35,7 +35,7 @@ You can search, filter to low-stock only, and **export the current view to CSV**
 
 ### Available vs. Committed vs. On Hand
 
-When a customer places an order that isn't completed yet, those units become **committed** — still physically in the store, but reserved. **Available = On Hand − Committed**, and it's the number that matters for what you can still sell.
+When a customer places an order that isn't completed yet, those units become **committed**: still physically in the store, but reserved. **Available = On Hand − Committed**, and it's the number that matters for what you can still sell.
 
 ## Low Stock Alerts
 
@@ -48,7 +48,7 @@ Items appear here when their current stock falls to or below the **reorder point
 Reorder points are set **per variant, per store**:
 
 1. Open the row's actions menu (on the Inventory list, Low Stock page, or inventory details) and choose **Update Reorder Point**.
-2. Enter the minimum stock level that should trigger an alert — the dialog shows the current stock and warns if the new value would immediately flag the item as low.
+2. Enter the minimum stock level that should trigger an alert. The dialog shows the current stock and warns if the new value would immediately flag the item as low.
 3. Click **Save**.
 
 **Example:** If you set the reorder point for "T-shirt / M / Blue" to 10, it appears in the Low Stock list when stock drops to 10 or below.
@@ -60,7 +60,7 @@ Turn a low-stock alert into a supplier order in one click:
 1. On the **Low Stock** page (or any inventory row), open the row's actions menu and choose **Create Purchase Order**. The same action is available in the header of the **inventory item details** page.
 2. The [purchase order form](/docs/suppliers/purchase-orders) opens with everything prefilled:
    - The **store** is preselected
-   - The item is added with a **suggested quantity** — enough to refill up to twice the reorder point (or up to the max stock level when one is set)
+   - The item is added with a **suggested quantity**, enough to refill up to twice the reorder point (or up to the max stock level when one is set)
    - The **unit cost** defaults to the variant's purchase price
 3. Pick the **supplier**, adjust the quantity or cost if needed, and continue as usual.
 

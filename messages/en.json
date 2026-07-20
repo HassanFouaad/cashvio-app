@@ -1,14 +1,14 @@
 {
   "metadata": {
     "siteName": "Cashvio",
-    "siteDescription": "Complete business management platform for online and in-store operations - sales, inventory, payments, and analytics",
+    "siteDescription": "Complete business management platform for online and in-store operations: sales, inventory, payments, and analytics",
     "home": {
-      "title": "Cashvio — Free POS System & Free Online Store",
-      "description": "Run your shop with a 100% free POS (cashier) and a free online store — inventory, orders, customers, and reports in one place. Arabic & English. Free forever, no credit card."
+      "title": "Free POS System & Free Online Store",
+      "description": "Run your shop with a 100% free POS (cashier) and a free online store. Inventory, orders, customers, and reports in one place. Arabic & English. Free forever, no credit card."
     },
     "pricing": {
-      "title": "Pricing — Free POS, Free Online Store & Paid Plans",
-      "description": "Start with a free POS (cashier) and free online store forever. Compare Cashvio plans — transparent pricing, no hidden fees, upgrade when you grow."
+      "title": "Pricing: Free POS, Free Online Store & Paid Plans",
+      "description": "Start with a free POS (cashier) and free online store forever. Compare Cashvio plans with transparent pricing and no hidden fees, then upgrade when you grow."
     },
     "contact": {
       "title": "Contact Us",
@@ -106,18 +106,6 @@
       "title": "Profit Margin Calculator — Margin, Markup & Selling Price",
       "description": "Free calculator for merchants: enter cost and price to see profit, margin, and markup — or set a target margin and get the right selling price."
     },
-    "compareLoyverse": {
-      "title": "Cashvio vs Loyverse — Free POS With an Online Store",
-      "description": "Compare Cashvio and Loyverse for small shops: what each free plan includes, online store, purchase orders, staff roles, credit sales, and Arabic support."
-    },
-    "compareFoodics": {
-      "title": "Cashvio vs Foodics — Start Free Instead of Enterprise",
-      "description": "Compare Cashvio and Foodics: free start vs enterprise F&B pricing, browser-based POS vs dedicated hardware, and which fits small shops and cafes."
-    },
-    "compareOdooPos": {
-      "title": "Cashvio vs Odoo POS — Ready in Minutes vs Full ERP",
-      "description": "Compare Cashvio and Odoo POS: instant self-signup vs ERP implementation, cloud hosting vs self-hosting, and which fits owner-run shops."
-    },
     "industryCafe": {
       "title": "Cafe POS System — Free for Coffee Shops & Juice Bars",
       "description": "A free POS for cafes: fast checkout, order notes, dine-in/pickup/delivery, live order statuses with WhatsApp updates, stock alerts, and daily profit."
@@ -129,6 +117,10 @@
     "industryMinimarket": {
       "title": "Minimarket & Grocery POS — Barcode Speed + Credit Book",
       "description": "A free POS for minimarkets: USB barcode scanning, a digital credit book (who owes what), low-stock alerts, purchase orders, and end-of-day profit."
+    },
+    "industriesHub": {
+      "title": "Free POS by Business Type: Cafe, Clothing & Minimarket",
+      "description": "See how a free POS and free online store fit your business. Purpose-built guides for cafes, clothing boutiques, and minimarkets, in Arabic and English."
     }
   },
   "common": {
@@ -180,9 +172,7 @@
     "barcodeGenerator": "Barcode Generator",
     "qrCodeGenerator": "QR Code Generator",
     "marginCalculator": "Margin Calculator",
-    "compareLoyverse": "Cashvio vs Loyverse",
-    "compareFoodics": "Cashvio vs Foodics",
-    "compareOdooPos": "Cashvio vs Odoo POS",
+    "industries": "Business Types",
     "industryCafe": "Cafe POS",
     "industryClothing": "Clothing Store POS",
     "industryMinimarket": "Minimarket POS"
@@ -194,6 +184,7 @@
     "company": "Company",
     "legal": "Legal",
     "resources": "Resources",
+    "industries": "Business Types",
     "social": "Follow Us",
     "copyright": "© {year} Cashvio. All rights reserved.",
     "madeWith": "Built for businesses worldwide",
@@ -4493,328 +4484,49 @@
       "note": "Free forever plan — no credit card needed"
     }
   },
-  "compare": {
-    "badge": "COMPARISON",
-    "freeStamp": "FREE FOREVER",
-    "heroCta": "Start free with Cashvio",
-    "heroSecondaryCta": "See pricing",
-    "heroNote": "Free forever plan — no credit card needed",
-    "glanceBadge": "AT A GLANCE",
-    "chooseBadge": "HONEST FIT",
-    "headers": {
-      "feature": "What matters",
-      "cashvio": "Cashvio"
-    },
-    "disclaimer": "This comparison is based on publicly available information as of July 2026 and may change — always verify details with each vendor. All product names and trademarks belong to their respective owners.",
-    "ctaButton": "Create your free account",
-    "ctaSecondaryButton": "See pricing",
-    "ctaNote": "Set up in minutes — Arabic & English"
-  },
-  "compareLoyverse": {
-    "competitorName": "Loyverse",
-    "hero": {
-      "title": "Cashvio vs",
-      "titleHighlight": "Loyverse",
-      "subtitle": "Both offer a free POS. The difference: Cashvio's free plan also includes an online store, purchase orders, staff roles, and credit-sales tracking — built Arabic-first."
-    },
-    "glance": {
-      "title": "The free plans, side by side",
-      "subtitle": "What you get without paying anything — and what becomes a paid add-on."
-    },
-    "rows": {
-      "r1": {
-        "feature": "Free plan scope",
-        "cashvio": "POS + online store + inventory + reports, with unlimited products and orders",
-        "competitor": "Free POS app; employee management, advanced inventory, and integrations are paid add-ons"
-      },
-      "r2": {
-        "feature": "Online store",
-        "cashvio": "Included free — your own store link, synced with POS stock",
-        "competitor": "No built-in online store; needs third-party services"
-      },
-      "r3": {
-        "feature": "Purchase orders & suppliers",
-        "cashvio": "Included free",
-        "competitor": "Part of the paid advanced-inventory add-on"
-      },
-      "r4": {
-        "feature": "Staff accounts & roles",
-        "cashvio": "Included free with per-role permissions",
-        "competitor": "Paid employee-management add-on"
-      },
-      "r5": {
-        "feature": "Credit sales (customer debts)",
-        "cashvio": "Pay-later and partial payments with due dates and an overdue list",
-        "competitor": "No built-in customer debt book"
-      },
-      "r6": {
-        "feature": "Arabic experience",
-        "cashvio": "Arabic-first: RTL portal, bilingual receipts, Arabic storefront",
-        "competitor": "App offers Arabic translation; there is no storefront to localize"
-      },
-      "r7": {
-        "feature": "Local fit",
-        "cashvio": "EGP pricing, transfer-receipt checkout flow, WhatsApp sharing built in",
-        "competitor": "Global product; local payment habits need workarounds"
-      },
-      "r8": {
-        "feature": "Coupons online + in-store",
-        "cashvio": "One coupon code works at the register and at online checkout",
-        "competitor": "POS discounts; no native online checkout to apply codes"
-      }
-    },
-    "choose": {
-      "title": "Which one fits you?",
-      "cashvio": {
-        "title": "Choose Cashvio if…",
-        "points": [
-          "You want one free system for the register AND an online store",
-          "You sell on credit and need who-owes-what tracked",
-          "You want purchase orders, suppliers, and staff roles without add-on fees",
-          "Your customers live on WhatsApp",
-          "You work in Arabic and want real RTL, not a translation"
-        ]
-      },
-      "competitor": {
-        "title": "Loyverse may fit better if…",
-        "points": [
-          "You only need a standalone POS app and nothing online",
-          "You already invested in Loyverse-specific add-ons and workflows",
-          "You operate in a region where its local integrations matter more"
-        ]
-      }
-    },
-    "faq": {
-      "title": "Cashvio vs Loyverse FAQ",
-      "q1": {
-        "question": "Is Cashvio really free like Loyverse?",
-        "answer": "Yes — the free plan is free forever and includes the POS, the online store, inventory, and reports with unlimited products and orders. Paid plans mainly raise limits like branches, users, and devices."
-      },
-      "q2": {
-        "question": "Can I move my products from Loyverse to Cashvio?",
-        "answer": "Yes. Export your item list to CSV from Loyverse, adapt it to Cashvio's import template, and upload it — the import wizard validates everything before saving."
-      },
-      "q3": {
-        "question": "Does Cashvio charge per employee or per device?",
-        "answer": "No add-on fees — each plan is a flat price with set limits for branches, team members, and devices, and higher plans raise those limits."
-      },
-      "q4": {
-        "question": "Does Cashvio work in Arabic?",
-        "answer": "Yes — Arabic-first with full RTL across the dashboard, POS, receipts, and your online store. You can switch to English anytime."
-      }
-    },
-    "cta": {
-      "title": "Get the free plan that includes the store",
-      "subtitle": "Register, add products, and share your store link — all in one sitting."
-    }
-  },
-  "compareFoodics": {
-    "competitorName": "Foodics",
-    "hero": {
-      "title": "Cashvio vs",
-      "titleHighlight": "Foodics",
-      "subtitle": "Foodics is built for restaurant chains with enterprise budgets. Cashvio starts free, runs in the browser, and covers shops, cafes, and boutiques."
-    },
-    "glance": {
-      "title": "Different weight classes, honestly compared",
-      "subtitle": "Where a free, self-serve platform ends and enterprise F&B software begins."
-    },
-    "rows": {
-      "r1": {
-        "feature": "Starting price",
-        "cashvio": "Free forever plan — upgrade only when you grow",
-        "competitor": "Paid subscriptions; enterprise F&B pricing with custom quotes"
-      },
-      "r2": {
-        "feature": "Built for",
-        "cashvio": "Small shops, cafes, boutiques, and minimarkets",
-        "competitor": "Restaurant chains and enterprise food-service operations"
-      },
-      "r3": {
-        "feature": "Hardware",
-        "cashvio": "Runs in the browser on devices you already own",
-        "competitor": "Typically deployed with dedicated POS hardware"
-      },
-      "r4": {
-        "feature": "Getting started",
-        "cashvio": "Self-signup — selling within minutes",
-        "competitor": "Sales-led onboarding, contracts, and training"
-      },
-      "r5": {
-        "feature": "Online store",
-        "cashvio": "Included free on your own store link",
-        "competitor": "Online ordering through separate paid products"
-      },
-      "r6": {
-        "feature": "Retail depth",
-        "cashvio": "Variants, purchase orders, suppliers, returns, and store credit",
-        "competitor": "Menu-and-kitchen-centric feature set"
-      },
-      "r7": {
-        "feature": "Credit sales",
-        "cashvio": "Pay-later and partial payments with overdue tracking",
-        "competitor": "Not the product's focus"
-      },
-      "r8": {
-        "feature": "Arabic",
-        "cashvio": "Arabic-first with bilingual receipts and an Arabic storefront",
-        "competitor": "Also strong Arabic support — a KSA-born product"
-      }
-    },
-    "choose": {
-      "title": "Which one fits you?",
-      "cashvio": {
-        "title": "Choose Cashvio if…",
-        "points": [
-          "You run a small shop or cafe and the budget matters",
-          "You want to start today without a sales call",
-          "You need retail features — variants, purchase orders, returns",
-          "You want a free online store included",
-          "You prefer using the devices you already own"
-        ]
-      },
-      "competitor": {
-        "title": "Foodics may fit better if…",
-        "points": [
-          "You run a multi-branch restaurant chain with enterprise needs",
-          "You need deep kitchen operations like kitchen display systems",
-          "You have the budget for enterprise onboarding and hardware"
-        ]
-      }
-    },
-    "faq": {
-      "title": "Cashvio vs Foodics FAQ",
-      "q1": {
-        "question": "Is Cashvio suitable for cafes like Foodics is?",
-        "answer": "For small cafes, yes: fast checkout, per-item notes, dine-in/pickup/delivery, live order statuses, and WhatsApp updates. Large chains needing kitchen display systems and aggregator integrations are Foodics' territory."
-      },
-      "q2": {
-        "question": "How much cheaper is Cashvio?",
-        "answer": "The free plan costs nothing, forever. Paid plans are simple flat prices in EGP — the pricing page always shows the current numbers."
-      },
-      "q3": {
-        "question": "Do I need to buy hardware?",
-        "answer": "No — Cashvio runs in the browser on a laptop, tablet, or phone. USB barcode scanners and thermal receipt printers work whenever you want them."
-      },
-      "q4": {
-        "question": "Can I try Cashvio before committing?",
-        "answer": "There's nothing to commit to — the free plan is the trial, and it never expires."
-      }
-    },
-    "cta": {
-      "title": "Start free — grow when you're ready",
-      "subtitle": "The register, the store, and the stock — running today, at zero cost."
-    }
-  },
-  "compareOdooPos": {
-    "competitorName": "Odoo POS",
-    "hero": {
-      "title": "Cashvio vs",
-      "titleHighlight": "Odoo POS",
-      "subtitle": "Odoo is a powerful ERP that can do almost anything — after setup. Cashvio does one thing out of the box: run your shop, in minutes."
-    },
-    "glance": {
-      "title": "Ready-made vs build-your-own",
-      "subtitle": "The honest trade-off between a focused shop system and a full ERP."
-    },
-    "rows": {
-      "r1": {
-        "feature": "Time to first sale",
-        "cashvio": "Minutes — sign up and the POS and store are ready",
-        "competitor": "Days to weeks — ERP setup, apps, and configuration"
-      },
-      "r2": {
-        "feature": "Implementation",
-        "cashvio": "None needed — built to be self-serve",
-        "competitor": "Often requires a partner or technical help"
-      },
-      "r3": {
-        "feature": "Cost structure",
-        "cashvio": "Free plan; simple flat paid tiers in EGP",
-        "competitor": "Free community edition exists, but hosting, apps, and implementation add up"
-      },
-      "r4": {
-        "feature": "Scope",
-        "cashvio": "Focused on selling: POS, online store, inventory, reports",
-        "competitor": "Full ERP: accounting, HR, manufacturing, and far more"
-      },
-      "r5": {
-        "feature": "Hosting & updates",
-        "cashvio": "Cloud-hosted; updates arrive automatically",
-        "competitor": "Self-hosting puts servers, backups, and upgrades on you — or paid hosting"
-      },
-      "r6": {
-        "feature": "Online store",
-        "cashvio": "Included and synced with the POS by default",
-        "competitor": "Separate eCommerce app to install and configure"
-      },
-      "r7": {
-        "feature": "Arabic & RTL",
-        "cashvio": "Arabic-first across POS, portal, and storefront",
-        "competitor": "Arabic available; RTL polish varies by module"
-      },
-      "r8": {
-        "feature": "Best for",
-        "cashvio": "Owner-run shops without IT staff",
-        "competitor": "Companies with technical resources or partner budget"
-      }
-    },
-    "choose": {
-      "title": "Which one fits you?",
-      "cashvio": {
-        "title": "Choose Cashvio if…",
-        "points": [
-          "You want to sell today, not configure a system",
-          "Nobody on the team wants to manage servers or modules",
-          "You need POS + online store + inventory — not a full ERP",
-          "You want Arabic that works everywhere out of the box",
-          "You want predictable, simple pricing"
-        ]
-      },
-      "competitor": {
-        "title": "Odoo may fit better if…",
-        "points": [
-          "You need accounting, HR, or manufacturing in the same system",
-          "You have developers or an implementation partner",
-          "You want deep customization at the code level"
-        ]
-      }
-    },
-    "faq": {
-      "title": "Cashvio vs Odoo FAQ",
-      "q1": {
-        "question": "Isn't Odoo free too?",
-        "answer": "The community edition is open-source, but running it means hosting, maintenance, and usually paid apps or a partner. Cashvio's free plan is hosted, maintained, and ready in minutes."
-      },
-      "q2": {
-        "question": "Can Cashvio replace an ERP?",
-        "answer": "No — and it doesn't try to. Cashvio covers selling: POS, online store, inventory, purchasing, and reports. If you need full ERP modules like accounting and HR, Odoo is the right category."
-      },
-      "q3": {
-        "question": "What if I outgrow Cashvio?",
-        "answer": "Paid plans raise limits as you add branches, staff, and devices — and your catalog, customers, and sales history stay right where they are."
-      },
-      "q4": {
-        "question": "Is there a mobile app?",
-        "answer": "The portal is an installable web app (PWA) — add it to your home screen and it works like an app on Android and iOS."
-      }
-    },
-    "cta": {
-      "title": "Skip the implementation project",
-      "subtitle": "Everything you need to sell — already configured, already in Arabic."
-    }
-  },
   "industries": {
     "badge": "BUILT FOR YOUR BUSINESS",
     "freeStamp": "FREE",
     "heroCta": "Start free",
     "heroSecondaryCta": "See pricing",
-    "heroNote": "Free forever plan — no credit card needed",
+    "heroNote": "Free forever plan, no credit card needed",
     "painsBadge": "SOUND FAMILIAR?",
     "featuresBadge": "WHAT YOU GET",
     "ctaButton": "Create your free account",
     "ctaSecondaryButton": "See pricing",
-    "ctaNote": "Set up in minutes — Arabic & English"
+    "ctaNote": "Set up in minutes, in Arabic and English"
+  },
+  "industriesHub": {
+    "hero": {
+      "title": "A free POS that fits",
+      "titleHighlight": "how your shop works",
+      "subtitle": "Every business rings up sales differently. Pick your business type and see exactly how Cashvio handles your day, from the first receipt to closing time."
+    },
+    "items": {
+      "cafe": {
+        "title": "Cafes & Coffee Shops",
+        "description": "Fast checkout with order notes, dine-in and delivery statuses, WhatsApp order updates, and stock alerts before you run out.",
+        "cta": "See the cafe POS"
+      },
+      "clothing": {
+        "title": "Clothing Stores & Boutiques",
+        "description": "Size and color variants, printable barcode labels, returns with store credit, and a free online boutique that syncs with your stock.",
+        "cta": "See the clothing store POS"
+      },
+      "minimarket": {
+        "title": "Minimarkets & Groceries",
+        "description": "USB barcode scanning, a digital credit book for customers who pay later, low-stock alerts, purchase orders, and end-of-day profit.",
+        "cta": "See the minimarket POS"
+      }
+    },
+    "more": {
+      "title": "Your business type is not listed?",
+      "subtitle": "Cashvio works for any shop that sells products: pharmacies, bakeries, mobile shops, bookstores, gift shops, and more. Start free and set it up around the way you already work."
+    },
+    "cta": {
+      "title": "Start with the free plan today",
+      "subtitle": "Create your account, add your products, and ring up your first sale in minutes."
+    }
   },
   "industryCafe": {
     "hero": {

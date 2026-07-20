@@ -127,7 +127,7 @@ export async function Footer({ locale }: FooterProps) {
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="barcode w-32 text-foreground/50" aria-hidden="true" />
             <p className="mono-label text-muted-foreground">
-              — {t('endOfReceipt')} —
+              *** {t('endOfReceipt')} ***
             </p>
             <p className="font-receipt text-xs text-muted-foreground">
               {t('copyright', { year: currentYear })}

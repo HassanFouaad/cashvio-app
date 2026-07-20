@@ -122,7 +122,7 @@ export async function ToolPageShell({ locale, namespace, path, tool }: ToolPageS
       <section aria-label={t('steps.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${t('steps.badge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${t('steps.badge')}`}
             title={t('steps.title')}
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -142,7 +142,7 @@ export async function ToolPageShell({ locale, namespace, path, tool }: ToolPageS
       <section aria-label={t('pitch.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${t('pitch.badge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${t('pitch.badge')}`}
             title={t('pitch.title')}
             subtitle={t('pitch.subtitle')}
           />

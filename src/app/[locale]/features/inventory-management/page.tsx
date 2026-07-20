@@ -195,7 +195,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('problem.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${t('problem.badge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${t('problem.badge')}`}
             title={t('problem.title')}
             subtitle={t('problem.subtitle')}
           />
@@ -216,7 +216,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('solution.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${t('solution.badge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${t('solution.badge')}`}
             title={t('solution.title')}
             subtitle={t('solution.subtitle')}
           />
@@ -237,7 +237,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('coreFeatures.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 03 — ${t('coreFeatures.badge')}`}
+            eyebrow={`${tLedger('no')} 03 · ${t('coreFeatures.badge')}`}
             title={t('coreFeatures.title')}
             subtitle={t('coreFeatures.subtitle')}
           />
@@ -258,7 +258,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('automaticStock.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 04 — ${t('automaticStock.badge')}`}
+            eyebrow={`${tLedger('no')} 04 · ${t('automaticStock.badge')}`}
             title={t('automaticStock.title')}
             subtitle={t('automaticStock.subtitle')}
           />
@@ -291,7 +291,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('purchaseOrders.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 05 — ${t('purchaseOrders.badge')}`}
+            eyebrow={`${tLedger('no')} 05 · ${t('purchaseOrders.badge')}`}
             title={t('purchaseOrders.title')}
             subtitle={t('purchaseOrders.subtitle')}
           />
@@ -312,7 +312,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('multiStore.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 06 — ${t('multiStore.badge')}`}
+            eyebrow={`${tLedger('no')} 06 · ${t('multiStore.badge')}`}
             title={t('multiStore.title')}
             subtitle={t('multiStore.subtitle')}
           />
@@ -333,7 +333,7 @@ export default async function InventoryManagementPage({ params }: Props) {
       <section aria-label={t('reporting.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 07 — ${t('reporting.badge')}`}
+            eyebrow={`${tLedger('no')} 07 · ${t('reporting.badge')}`}
             title={t('reporting.title')}
             subtitle={t('reporting.subtitle')}
           />

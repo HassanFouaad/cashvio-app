@@ -12,8 +12,8 @@ A **product** is an item you sell. Each product has a name, belongs to a [catego
 1. Go to **Catalogue > Products** in the sidebar.
 2. Click **Add New Product**.
 3. Choose your creation method:
-   - **Quick Create** — A simplified form for simple products
-   - **Full Form** — A multi-step wizard for products with variants and detailed configuration
+   - **Quick Create**: A simplified form for simple products
+   - **Full Form**: A multi-step wizard for products with variants and detailed configuration
 
 ### Step 1: Product Information
 
@@ -28,7 +28,7 @@ Fill in the basic details:
 | **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
 | **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
 | **Tax Included** | Toggle to indicate if the selling price already includes tax |
-| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation — it cannot be changed later.** |
+| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
 
 ### Step 2: Variants and Pricing
 
@@ -51,11 +51,11 @@ Add the product's variants. Each variant is added manually with **Add Another Va
 
 Upload images for the product:
 
-- **Multiple Images** — Add several images per product
-- **Primary Image** — Choose the main image shown in product lists and on the storefront
+- **Multiple Images**: Add several images per product
+- **Primary Image**: Choose the main image shown in product lists and on the storefront
 
 <Callout title="Tip">
-Use high-quality images — they make a big difference on your online store.
+Use high-quality images. They make a big difference on your online store.
 </Callout>
 
 ### Step 4: Store-Specific Pricing (Multi-Store)
@@ -96,7 +96,7 @@ Click on a product to view its full details.
 
 When a new product is almost identical to an existing one (same category, tax setup, variants, and photos), duplicate it instead of starting from scratch:
 
-1. Open the product's details page — or find it in the products list.
+1. Open the product's details page, or find it in the products list.
 2. Click **Duplicate** and confirm.
 3. You land on the copy's details page: rename it, adjust the SKUs and prices, then set its status to **Active** when it's ready to sell.
 
@@ -104,12 +104,12 @@ What the copy includes:
 
 | Copied | Adjusted automatically |
 |--------|------------------------|
-| Category, description, tax settings, inventory tracking | Name gets a **(Copy)** suffix — rename it before selling |
+| Category, description, tax settings, inventory tracking | Name gets a **(Copy)** suffix; rename it before selling |
 | All variants with their prices, units, and option values | Every SKU gets a numeric suffix (e.g. `TSHIRT-001-2`), since SKUs must stay unique |
 | Photos and store-specific prices | Status starts as **Inactive** and stock starts at **zero** |
 
 <Callout title="Why the copy starts inactive">
-An inactive copy never appears on your storefront or POS until you've reviewed the name, SKUs, and prices — so customers never see a half-finished "(Copy)" product.
+An inactive copy never appears on your storefront or POS until you've reviewed the name, SKUs, and prices, so customers never see a half-finished "(Copy)" product.
 </Callout>
 
 ## Printing Barcode Labels
@@ -118,22 +118,22 @@ Print ready-to-stick price labels with a scannable barcode for any variant:
 
 1. Open the product details and find the variant (the variants table, or the details panel for single-variant products).
 2. Click **Print labels**.
-3. Choose the **Number of labels** — one A4 sheet fits **21 labels** (3 columns × 7 rows), and the dialog shows how many sheets will print.
-4. Click **Print labels** in the dialog. Your browser's print dialog opens with the sheet — print it, or choose **Save as PDF**.
+3. Choose the **Number of labels**. One A4 sheet fits **21 labels** (3 columns × 7 rows), and the dialog shows how many sheets will print.
+4. Click **Print labels** in the dialog. Your browser's print dialog opens with the sheet. Print it, or choose **Save as PDF**.
 
 ### What's on each label
 
 - The **product name** and **variant name**
 - The **selling price**
-- A **Code 128 barcode** of the variant's SKU — scannable by any barcode reader, including the one you use at the [POS](/docs/orders/creating-orders)
+- A **Code 128 barcode** of the variant's SKU, scannable by any barcode reader, including the one you use at the [POS](/docs/orders/creating-orders)
 
 ### Printing tips
 
-- The layout matches common **A4 sticker sheets** (63.5 × 38.1 mm labels, 21 per sheet) — or print on plain paper and cut along the dashed guides.
+- The layout matches common **A4 sticker sheets** (63.5 × 38.1 mm labels, 21 per sheet). You can also print on plain paper and cut along the dashed guides.
 - Scan a printed label at the POS to add that exact variant to a sale instantly.
 
 <Callout title="Note">
-If nothing opens when you click **Print labels**, allow popups for the portal in your browser and try again. If the SKU contains unusual characters that can't be encoded as a barcode, you'll see an error — edit the variant's SKU to use letters, numbers, and dashes.
+If nothing opens when you click **Print labels**, allow popups for the portal in your browser and try again. If the SKU contains unusual characters that can't be encoded as a barcode, you'll see an error. Edit the variant's SKU to use letters, numbers, and dashes.
 </Callout>
 
 ## Product Statuses
@@ -143,7 +143,7 @@ Each product has a status that controls its visibility and availability:
 | Status | Meaning |
 |--------|---------|
 | **Active** | The product is visible in the catalogue, can be added to orders, and appears on the [online storefront](/docs/online-store/storefront-overview) |
-| **Inactive** | The product is unavailable — hidden from customers, while its history is preserved in past orders |
+| **Inactive** | The product is unavailable: hidden from customers, while its history is preserved in past orders |
 
 You can change a product's status at any time from the product details page.
 
@@ -151,9 +151,9 @@ You can change a product's status at any time from the product details page.
 
 Tax is configured **per product**:
 
-- **Tax Category** — **Standard VAT** (taxed) or **Exempt** (no tax)
-- **Tax Rate** — The tax percentage for Standard VAT products
-- **Tax Included** — Toggle this if your selling price already includes tax (the system extracts the tax amount correctly)
+- **Tax Category**: **Standard VAT** (taxed) or **Exempt** (no tax)
+- **Tax Rate**: The tax percentage for Standard VAT products
+- **Tax Included**: Toggle this if your selling price already includes tax (the system extracts the tax amount correctly)
 
 <Callout title="Note">
 See [Pricing & Tax Calculations](/docs/calculations/pricing-tax-calculations) for how tax affects order totals.
@@ -171,7 +171,7 @@ If **Track Inventory** is enabled for a product:
 If inventory tracking is **disabled**, the product is treated as always in stock.
 
 <Callout title="Important">
-**Track Inventory** can only be chosen when you create the product. Editing a product later shows the current setting as read-only — create a new product if you need the other tracking mode.
+**Track Inventory** can only be chosen when you create the product. Editing a product later shows the current setting as read-only. Create a new product if you need the other tracking mode.
 </Callout>
 
 <Callout title="Tip">

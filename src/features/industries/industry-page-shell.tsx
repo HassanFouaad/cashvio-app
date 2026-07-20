@@ -53,6 +53,11 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
   const breadcrumbSchema = schemaTemplates.breadcrumb(
     [
       { name: 'Home', nameAr: 'الرئيسية', url: getCanonicalUrl('', locale) },
+      {
+        name: 'POS by Business Type',
+        nameAr: 'كاشير حسب النشاط',
+        url: getCanonicalUrl('/industries', locale),
+      },
       { name: metaT('title'), url: getCanonicalUrl(path, locale) },
     ],
     locale
@@ -94,7 +99,7 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
       <section aria-label={t('pains.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${tIndustries('painsBadge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${tIndustries('painsBadge')}`}
             title={t('pains.title')}
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -114,7 +119,7 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
       <section aria-label={t('features.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${tIndustries('featuresBadge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${tIndustries('featuresBadge')}`}
             title={t('features.title')}
             subtitle={t('features.subtitle')}
           />

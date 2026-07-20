@@ -53,7 +53,7 @@ export function ComparisonTable({ headers, rows }: ComparisonTableProps) {
               <td className="p-4 text-muted-foreground align-top">
                 <div className="flex items-start gap-2.5">
                   <span className="font-receipt text-muted-foreground/60 shrink-0" aria-hidden="true">
-                    [—]
+                    [✗]
                   </span>
                   <span>{row.others}</span>
                 </div>

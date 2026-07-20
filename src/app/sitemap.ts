@@ -41,10 +41,7 @@ const staticPages: PageConfig[] = [
   { path: '/tools/qr-code-generator' },
   { path: '/tools/profit-margin-calculator' },
 
-  { path: '/compare/loyverse' },
-  { path: '/compare/foodics' },
-  { path: '/compare/odoo-pos' },
-
+  { path: '/industries' },
   { path: '/industries/cafe' },
   { path: '/industries/clothing' },
   { path: '/industries/minimarket' },

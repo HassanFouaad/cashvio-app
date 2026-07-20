@@ -191,7 +191,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('problem.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 01 — ${t('problem.badge')}`}
+            eyebrow={`${tLedger('no')} 01 · ${t('problem.badge')}`}
             title={t('problem.title')}
             subtitle={t('problem.subtitle')}
           />
@@ -212,7 +212,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('solution.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 02 — ${t('solution.badge')}`}
+            eyebrow={`${tLedger('no')} 02 · ${t('solution.badge')}`}
             title={t('solution.title')}
             subtitle={t('solution.subtitle')}
           />
@@ -233,7 +233,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('channels.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 03 — ${t('channels.badge')}`}
+            eyebrow={`${tLedger('no')} 03 · ${t('channels.badge')}`}
             title={t('channels.title')}
             subtitle={t('channels.subtitle')}
           />
@@ -255,7 +255,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('inventory.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 04 — ${t('inventory.badge')}`}
+            eyebrow={`${tLedger('no')} 04 · ${t('inventory.badge')}`}
             title={t('inventory.title')}
             subtitle={t('inventory.subtitle')}
           />
@@ -276,7 +276,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('orders.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 05 — ${t('orders.badge')}`}
+            eyebrow={`${tLedger('no')} 05 · ${t('orders.badge')}`}
             title={t('orders.title')}
             subtitle={t('orders.subtitle')}
           />
@@ -297,7 +297,7 @@ export default async function OmnichannelRetailPage({ params }: Props) {
       <section aria-label={t('analytics.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 06 — ${t('analytics.badge')}`}
+            eyebrow={`${tLedger('no')} 06 · ${t('analytics.badge')}`}
             title={t('analytics.title')}
             subtitle={t('analytics.subtitle')}
           />

@@ -35,6 +35,17 @@ const nextConfig: NextConfig = {
         destination: '/:path*',
         permanent: true,
       },
+      // Comparison pages were removed; send old URLs to the homepage
+      {
+        source: '/compare/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ar/compare/:path*',
+        destination: '/ar',
+        permanent: true,
+      },
     ];
   },
 

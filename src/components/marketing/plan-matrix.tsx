@@ -1,5 +1,5 @@
 interface PlanMatrixCell {
-  /** true = included (✓), false = not included (—), string = printed as-is */
+  /** true = included (✓), false = not included (✗), string = printed as-is */
   value: boolean | string;
 }
 
@@ -29,7 +29,7 @@ function MatrixCell({ value }: PlanMatrixCell) {
   if (value === false) {
     return (
       <span className="font-receipt text-muted-foreground/60" aria-label="not included">
-        [—]
+        [✗]
       </span>
     );
   }
