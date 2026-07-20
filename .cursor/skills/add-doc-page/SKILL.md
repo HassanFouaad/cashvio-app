@@ -22,7 +22,7 @@ Docs are SEO assets: they feed `llms.txt`/`llms-full.txt` and rank for how-to qu
 ```mdx
 ---
 title: Keyword-first short title
-description: One plain sentence saying what the reader will learn.
+description: "One plain sentence saying what the reader will learn."
 ---
 
 Intro paragraph: what this feature does and why a merchant cares (2 to 3 sentences).
@@ -31,6 +31,8 @@ Intro paragraph: what this feature does and why a merchant cares (2 to 3 sentenc
 
 Steps, tables, and callouts...
 ```
+
+WARNING: a frontmatter value containing `: ` (colon + space) MUST be double-quoted or the fumadocs build fails with a YAMLException. Quote descriptions by default.
 
 ## Conventions
 

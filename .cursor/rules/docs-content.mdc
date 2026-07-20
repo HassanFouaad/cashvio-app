@@ -15,9 +15,11 @@ Every topic ships as two files in the same folder: `<page>.mdx` (English) and `<
 ```yaml
 ---
 title: Short keyword-first title
-description: One sentence, plain words, no banned characters
+description: "One sentence, plain words, no banned characters"
 ---
 ```
+
+CRITICAL: any frontmatter value containing a colon followed by a space MUST be wrapped in double quotes, or the YAML parser crashes the whole build (`YAMLException: bad indentation of a mapping entry`). Colons are common after dash rewrites; when unsure, quote the value.
 
 ## Section navigation
 
