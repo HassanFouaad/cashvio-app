@@ -71,6 +71,8 @@ export function GET() {
     `- [Barcode generator](${SITE_URL}/tools/barcode-generator): Scannable Code 128 and EAN-13 barcodes as high-resolution PNG downloads`,
     `- [QR code generator](${SITE_URL}/tools/qr-code-generator): Print-ready QR codes for store links, menus, and WhatsApp`,
     `- [Profit margin calculator](${SITE_URL}/tools/profit-margin-calculator): Profit, margin, and markup from cost and price, or a selling price from a target margin`,
+    `- [Egypt VAT calculator](${SITE_URL}/tools/vat-calculator): Add or extract Egypt 14% VAT from any amount`,
+    `- [Invoice generator](${SITE_URL}/tools/invoice-generator): Free printable bilingual invoice and receipt maker with optional 14% VAT`,
     '',
     `## Documentation`,
     '',

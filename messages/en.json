@@ -91,8 +91,8 @@
       "description": "Give every employee their own login with exactly the permissions their job needs. Ready-made and custom roles, store-scoped access, and sales per staff member."
     },
     "tools": {
-      "title": "Free Tools for Merchants: Barcode, QR & Profit Calculator",
-      "description": "Free browser tools from Cashvio: a barcode generator (Code 128 & EAN-13), a QR code generator, and a profit-margin calculator. No signup, no watermark."
+      "title": "Free Tools for Merchants: VAT, Invoice, Barcode & More",
+      "description": "Free browser tools from Cashvio: Egypt VAT calculator, printable invoice maker, barcode and QR generators, and a profit-margin calculator. No signup, no watermark."
     },
     "barcodeGenerator": {
       "title": "Free Barcode Generator: Code 128 & EAN-13 PNG",
@@ -149,6 +149,14 @@
     "freePosEgypt": {
       "title": "Free POS Egypt: Free Cashier Software in EGP",
       "description": "Free POS system for Egypt: Arabic receipts, offline sales, EGP pricing, free online store. No credit card. Start today with Cashvio."
+    },
+    "vatCalculator": {
+      "title": "Free Egypt VAT Calculator: 14% Value Added Tax",
+      "description": "Free Egypt 14% VAT calculator. Add VAT to a net price or extract VAT from a gross total. Instant results, no signup."
+    },
+    "invoiceGenerator": {
+      "title": "Free Invoice Generator: Printable Bilingual Receipt Maker",
+      "description": "Make a printable invoice or sales receipt in your browser. Bilingual labels, optional Egypt 14% VAT, free, no signup, no watermark."
     }
   },
   "common": {
@@ -210,7 +218,9 @@
     "industryBakery": "Bakery POS",
     "industryMobileShop": "Mobile Shop POS",
     "industryBeauty": "Cosmetics POS",
-    "freePosEgypt": "Free POS Egypt"
+    "freePosEgypt": "Free POS Egypt",
+    "vatCalculator": "VAT Calculator",
+    "invoiceGenerator": "Invoice Generator"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -4269,7 +4279,7 @@
     "hero": {
       "title": "Free tools for",
       "titleHighlight": "your shop",
-      "subtitle": "A barcode generator, a QR code generator, and a profit-margin calculator, free, in your browser, no signup needed."
+      "subtitle": "Barcode and QR generators, VAT and margin calculators, and a printable invoice maker. Free in your browser, no signup needed."
     },
     "items": {
       "barcode": {
@@ -4286,6 +4296,16 @@
         "title": "Profit margin calculator",
         "description": "See profit, margin, and markup from your numbers, or work backwards from a target margin to a price.",
         "cta": "Open the calculator"
+      },
+      "vat": {
+        "title": "Egypt VAT calculator",
+        "description": "Add or extract Egypt 14% VAT from any amount. Instant net, VAT, and gross totals.",
+        "cta": "Open the VAT calculator"
+      },
+      "invoice": {
+        "title": "Invoice & receipt maker",
+        "description": "Fill in your shop details and line items, then print a clean bilingual invoice.",
+        "cta": "Open the invoice maker"
       }
     },
     "cta": {
@@ -5281,6 +5301,178 @@
     "cta": {
       "title": "Start your free POS in Egypt today",
       "subtitle": "Register in minutes. No credit card. Arabic and English."
+    }
+  },
+  "vatCalculator": {
+    "hero": {
+      "title": "Free Egypt",
+      "titleHighlight": "VAT calculator",
+      "subtitle": "Add 14% VAT to a net price, or peel VAT out of a gross total. Built for Egyptian merchants. Free, no signup."
+    },
+    "tool": {
+      "modeLabel": "Calculation mode",
+      "modes": {
+        "exclusive": "Add VAT to net",
+        "inclusive": "Extract VAT from gross"
+      },
+      "netLabel": "Amount without VAT (net)",
+      "grossLabel": "Amount with VAT (gross)",
+      "rateLabel": "VAT rate %",
+      "rateHint": "Egypt standard rate is 14%. Change it only if your case differs.",
+      "results": {
+        "net": "Net (ex-VAT)",
+        "vat": "VAT amount",
+        "gross": "Gross (inc-VAT)"
+      },
+      "rateTooHigh": "VAT rate must be below 100%.",
+      "emptyState": "Enter an amount to see net, VAT, and gross"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "VAT in three clicks",
+      "s1": {
+        "title": "Pick the direction",
+        "description": "Adding tax to a clean price, or unpacking a price that already includes VAT."
+      },
+      "s2": {
+        "title": "Enter the amount",
+        "description": "Type the net or gross figure. Rate defaults to Egypt 14%."
+      },
+      "s3": {
+        "title": "Read the split",
+        "description": "Net, VAT, and gross update live so you can quote or invoice with confidence."
+      }
+    },
+    "pitch": {
+      "badge": "BEYOND THE CALCULATOR",
+      "title": "VAT math on every sale, automatically",
+      "subtitle": "Cashvio records tax-ready totals on POS and online orders so you stop recalculating by hand.",
+      "p1": {
+        "title": "Prices you control",
+        "description": "Set product prices once. Every receipt and online order uses the same numbers."
+      },
+      "p2": {
+        "title": "Clear daily totals",
+        "description": "Close the day with sales and profit reports instead of a notebook full of VAT sums."
+      },
+      "p3": {
+        "title": "Arabic receipts",
+        "description": "Thermal and digital receipts in Arabic and English, ready for your customers."
+      }
+    },
+    "faq": {
+      "title": "Egypt VAT calculator FAQ",
+      "q1": {
+        "question": "What is the VAT rate in Egypt?",
+        "answer": "The standard value added tax rate in Egypt is 14%. This calculator defaults to 14% and lets you change the rate if your case needs a different figure."
+      },
+      "q2": {
+        "question": "What is the difference between adding and extracting VAT?",
+        "answer": "Add VAT when your price is net (ex-tax): net × 1.14 = gross. Extract VAT when the customer-facing price already includes tax: gross ÷ 1.14 = net."
+      },
+      "q3": {
+        "question": "Is this VAT calculator free?",
+        "answer": "Yes. Use it as often as you like in the browser. No account, no watermark, no limit."
+      }
+    },
+    "cta": {
+      "title": "Stop doing VAT by hand on every sale",
+      "subtitle": "Cashvio rings up sales with clear totals on the free plan.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan: no credit card needed"
+    }
+  },
+  "invoiceGenerator": {
+    "hero": {
+      "title": "Free invoice",
+      "titleHighlight": "generator",
+      "subtitle": "Make a printable bilingual invoice or sales receipt in your browser. Optional Egypt 14% VAT. Free, no signup, no watermark."
+    },
+    "tool": {
+      "businessNameLabel": "Business name",
+      "businessNamePlaceholder": "Your shop name",
+      "businessPhoneLabel": "Phone",
+      "businessPhonePlaceholder": "01xxxxxxxxx",
+      "businessAddressLabel": "Address (optional)",
+      "businessAddressPlaceholder": "Street, city",
+      "customerNameLabel": "Customer",
+      "customerNamePlaceholder": "Customer name",
+      "invoiceNumberLabel": "Invoice no.",
+      "dateLabel": "Date",
+      "itemsLabel": "Line items",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Item",
+      "quantityLabel": "Qty",
+      "unitPriceLabel": "Unit price",
+      "lineTotalLabel": "Total",
+      "addItem": "Add line",
+      "removeItem": "Remove",
+      "includeVat": "Add Egypt 14% VAT",
+      "notesLabel": "Notes (optional)",
+      "notesPlaceholder": "Payment terms, thank-you line, bank details…",
+      "print": "Print invoice",
+      "subtotal": "Subtotal",
+      "vatLine": "VAT ({rate}%)",
+      "total": "Total",
+      "thankYou": "Thank you for your business",
+      "previewBusinessFallback": "Your business name",
+      "previewCustomerFallback": "Walk-in customer",
+      "untitledItem": "Item",
+      "emptyPreview": "Add line items above to build the invoice"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "From blank form to printed invoice",
+      "s1": {
+        "title": "Fill your shop details",
+        "description": "Name, phone, and optional address appear at the top of the invoice."
+      },
+      "s2": {
+        "title": "Add the sale lines",
+        "description": "Description, quantity, and unit price. Toggle Egypt 14% VAT if you need it."
+      },
+      "s3": {
+        "title": "Print or save as PDF",
+        "description": "Use your browser print dialog. Choose a printer or Save as PDF. No watermark."
+      }
+    },
+    "pitch": {
+      "badge": "WHEN ONE-OFF INVOICES ARE NOT ENOUGH",
+      "title": "Real receipts from every sale",
+      "subtitle": "Cashvio prints thermal and digital receipts automatically when you ring up an order.",
+      "p1": {
+        "title": "POS receipts in seconds",
+        "description": "Sell at the register and print Arabic or English receipts without rebuilding the form."
+      },
+      "p2": {
+        "title": "Digital receipt links",
+        "description": "Share a receipt link on WhatsApp so the customer keeps a clean copy."
+      },
+      "p3": {
+        "title": "History you can search",
+        "description": "Every order stays in your history with totals, customer, and payment status."
+      }
+    },
+    "faq": {
+      "title": "Invoice generator FAQ",
+      "q1": {
+        "question": "Is this invoice generator really free?",
+        "answer": "Yes. Create and print as many invoices as you need. No account, no watermark, no limit."
+      },
+      "q2": {
+        "question": "Can I make the invoice in Arabic?",
+        "answer": "Yes. Switch the site language to Arabic and the form labels, preview, and print layout follow RTL Arabic copy."
+      },
+      "q3": {
+        "question": "Does it include Egypt VAT?",
+        "answer": "Optionally. Turn on Add Egypt 14% VAT and the preview adds tax on top of the line-item subtotal."
+      }
+    },
+    "cta": {
+      "title": "Ready for receipts that print themselves?",
+      "subtitle": "Cashvio turns every POS and online sale into a proper receipt, free.",
+      "button": "Create your free account",
+      "note": "Free forever plan: no credit card needed"
     }
   }
 }

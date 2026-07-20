@@ -19,20 +19,21 @@ const toolsKeywords: Record<Locale, string[]> = {
   en: [
     'free business tools',
     'free tools for merchants',
+    'VAT calculator Egypt',
+    'free invoice generator',
     'free barcode generator',
     'free QR code generator',
     'profit margin calculator',
-    'free retail tools Egypt',
-    'Cashvio free tools',
     'Cashvio',
   ],
   ar: [
     'أدوات مجانية للتجار',
     'أدوات مجانية للمحلات',
+    'حاسبة ضريبة القيمة المضافة',
+    'عمل فاتورة',
     'مولد باركود مجاني',
     'مولد QR مجاني',
     'حاسبة هامش الربح',
-    'أدوات كاشفيو المجانية',
     'كاشفيو',
   ],
 };
@@ -47,12 +48,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const toolKeys = ['barcode', 'qr', 'margin'] as const;
+const toolKeys = ['barcode', 'qr', 'margin', 'vat', 'invoice'] as const;
 
 const toolLinks: Record<(typeof toolKeys)[number], string> = {
   barcode: '/tools/barcode-generator',
   qr: '/tools/qr-code-generator',
   margin: '/tools/profit-margin-calculator',
+  vat: '/tools/vat-calculator',
+  invoice: '/tools/invoice-generator',
 };
 
 export default async function ToolsPage({ params }: Props) {

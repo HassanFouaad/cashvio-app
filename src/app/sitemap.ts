@@ -40,6 +40,8 @@ const staticPages: PageConfig[] = [
   { path: '/tools/barcode-generator' },
   { path: '/tools/qr-code-generator' },
   { path: '/tools/profit-margin-calculator' },
+  { path: '/tools/vat-calculator' },
+  { path: '/tools/invoice-generator' },
 
   { path: '/industries' },
   { path: '/industries/cafe' },
