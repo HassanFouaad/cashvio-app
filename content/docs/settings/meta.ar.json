@@ -1,4 +1,9 @@
 {
   "title": "الإعدادات",
-  "pages": ["account-settings", "business-settings", "branding"]
+  "pages": [
+    "account-settings",
+    "business-settings",
+    "branding",
+    "sales-digest-notifications"
+  ]
 }

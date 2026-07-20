@@ -10,10 +10,10 @@ Cashvio lets you reach customers on WhatsApp directly from the portal:
 - **Send receipts** right after a sale (from the success screen) or later from order details
 - **Send order status updates** ("your order is ready", "out for delivery", and more) from order details
 
-There is nothing to configure. Cashvio opens WhatsApp with a ready-to-send message; you review it and press send from your own WhatsApp account.
+There is nothing to configure. Cashvio prepares a ready-to-send message; you review it and press send from your own WhatsApp account.
 
 <Callout title="How it works">
-The buttons use WhatsApp "click to chat" links. If the order has a customer phone number, the chat opens directly with that customer. If not, WhatsApp asks you to pick the recipient from your contacts.
+On phones that support the system share sheet, Cashvio opens that sheet first (WhatsApp usually appears at the top in Egypt). If you cancel, nothing else opens. On browsers without native share, or if share fails, Cashvio falls back to a WhatsApp "click to chat" link. If the order has a customer phone number, that chat opens directly; otherwise WhatsApp asks you to pick a contact.
 </Callout>
 
 ## Sending a Receipt via WhatsApp
@@ -67,7 +67,8 @@ Update the fulfillment status first, then click **WhatsApp customer**; the messa
 ## Requirements & Tips
 
 - **Phone numbers need a country code** (e.g., `+20 100 123 4567`). Numbers saved in local format may not open the right chat. Cashvio strips formatting, but the country code must be present.
-- On desktop, links open **WhatsApp Web or the WhatsApp desktop app**; on mobile, the WhatsApp app opens directly.
+- On **installed mobile apps** and many phones, you get the **native share sheet** first; pick WhatsApp (or another app) from there.
+- On desktop without native share, links open **WhatsApp Web or the WhatsApp desktop app**.
 - The message language follows your **portal language**. Switch the portal to Arabic to send Arabic messages.
 - You can **edit the message freely** in WhatsApp before sending; the prefilled text is a starting point.
 - Messages are sent from **your own WhatsApp account**, exactly as if you typed them yourself.

@@ -1,0 +1,64 @@
+---
+title: Dead Stock Report
+description: "Find inventory that has not sold in 30, 60, or 90 days and see how much cash is sleeping on your shelves."
+---
+
+The **Dead stock** tab in Reports answers one question merchants screenshot and share: how much money is tied up in stock that is not moving.
+
+## Open the report
+
+1. Go to **Reports** in the sidebar.
+2. Open the **Dead stock** tab.
+3. Pick a window: **30d**, **60d**, or **90d**.
+
+You need analytics on your plan and permission to view orders (same as the other report tabs).
+
+## The headline
+
+At the top you see a line like:
+
+> **EGP 12,000 sleeping on your shelves**
+
+That is the **total value at cost** of active products that still have units on hand and had **no completed sales** in the selected window (or were never sold). Below it: how many SKUs and units that covers.
+
+## The product list
+
+Each row shows:
+
+| Column | Meaning |
+|--------|---------|
+| **Product** | Name, variant, and SKU |
+| **Store** | Which store holds the stock |
+| **Units** | Quantity on hand |
+| **Value at cost** | Units × cost per unit |
+| **Last sale** | Date of the last completed sale, or **Never sold** |
+
+Tap a row to open that product in the catalogue.
+
+## How stock is counted as "dead"
+
+A SKU×store line appears when:
+
+- Quantity on hand is greater than zero
+- The product is **active**
+- There is no **completed** sale for that variant at that store in the last 30, 60, or 90 days (depending on the toggle), or there has never been a sale
+
+Cost comes from the inventory cost on hand, not the selling price.
+
+<Callout title="Tip">
+Start with **90d** to find the deepest sleepers, then tighten to **30d** when you want a weekly cleanup list for discounts or purchase pauses.
+</Callout>
+
+## Related Features
+
+- [Analytics & Reports](/docs/reports/analytics-reports): the other report tabs
+- [Products](/docs/catalogue/products): edit cost, status, and variants
+- [Inventory](/docs/inventory/stock-management): adjust quantities and costs
+
+## FAQs
+
+**Q: Why is something listed if I sold it yesterday?**
+A: Only **completed** sales count. Pending or cancelled orders do not clear dead stock.
+
+**Q: Can I export the list?**
+A: Not from this tab yet. Use the headline and table for decisions, or open products from the rows.

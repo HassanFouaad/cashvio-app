@@ -1,4 +1,10 @@
 {
   "title": "الطلبات",
-  "pages": ["creating-orders", "managing-orders", "whatsapp-sharing", "overdue-payments"]
+  "pages": [
+    "creating-orders",
+    "managing-orders",
+    "pos-daily-summary",
+    "whatsapp-sharing",
+    "overdue-payments"
+  ]
 }
