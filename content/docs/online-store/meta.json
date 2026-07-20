@@ -1,4 +1,12 @@
 {
   "title": "Online Store",
-  "pages": ["storefront-overview", "sharing-your-store", "checkout-flow", "order-tracking"]
+  "pages": [
+    "storefront-overview",
+    "storefront-appearance",
+    "storefront-seo-content",
+    "social-whatsapp-button",
+    "sharing-your-store",
+    "checkout-flow",
+    "order-tracking"
+  ]
 }

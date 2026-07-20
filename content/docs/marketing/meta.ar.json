@@ -1,4 +1,10 @@
 {
   "title": "التسويق",
-  "pages": ["coupons"]
+  "pages": [
+    "coupons",
+    "create-manage-coupons",
+    "coupon-rules",
+    "apply-coupons",
+    "coupon-tips-troubleshooting"
+  ]
 }

@@ -1,0 +1,50 @@
+---
+title: Apply Coupons to Orders
+description: "Apply discount codes on New Sale in the portal and during online checkout on your storefront."
+---
+
+Coupons work in the business portal and on your online storefront. One coupon per order. See [Coupon rules and validation](/docs/marketing/coupon-rules) for what the system checks.
+
+## In the Business Portal (New Sale)
+
+When creating a sale on the [New Sale screen](/docs/orders/creating-orders):
+
+1. Select the store and add products to the cart
+2. Open the **Coupon** option in the cart
+3. Enter the coupon code and apply it
+4. The system validates:
+   - Coupon exists and is active
+   - Belongs to the selected store
+   - Meets minimum cart value requirement
+   - Hasn't exceeded usage limits
+   - Is within validity period
+5. If valid:
+   - The coupon and its discount appear in the cart summary
+   - The discount is applied to the order total
+   - Remove the coupon at any time before payment
+6. If invalid:
+   - An error message explains why (e.g., "Expired", "Minimum cart value not met")
+
+For **Specific Items** coupons, at least one cart line must match the selected products or categories. See [Coupon rules and validation](/docs/marketing/coupon-rules).
+
+## On the Online Storefront
+
+Customers apply coupons during [checkout](/docs/online-store/checkout-flow):
+
+1. Customer enters coupon code in checkout form
+2. System validates in real-time
+3. Discount applies immediately if valid
+4. Order summary shows applied discount
+
+The same validation rules apply: store match, active status, dates, limits, minimum cart, and applicability for targeted coupons.
+
+<Callout title="Note">
+Only one coupon can be applied per order in the portal and on the storefront.
+</Callout>
+
+## Related
+
+- [Coupons & Discount Codes](/docs/marketing/coupons): Overview
+- [Creating Orders (New Sale)](/docs/orders/creating-orders): Full POS sale flow
+- [Checkout flow](/docs/online-store/checkout-flow): Storefront order placement
+- [Coupon rules and validation](/docs/marketing/coupon-rules): Detailed validation rules

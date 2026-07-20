@@ -1,4 +1,11 @@
 {
   "title": "البدء",
-  "pages": ["signing-up", "onboarding", "dashboard"]
+  "pages": [
+    "signing-up",
+    "onboarding",
+    "first-week-checklist",
+    "your-first-sale",
+    "go-live-online",
+    "dashboard"
+  ]
 }

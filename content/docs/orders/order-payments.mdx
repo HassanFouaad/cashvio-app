@@ -1,0 +1,47 @@
+---
+title: Order Payments
+description: "Add payments to orders with a balance due and accept pending storefront cash or receipt payments from order details."
+---
+
+## Adding a Payment
+
+If an order has an outstanding balance:
+
+1. Open the order details.
+2. Click **Add Payment**.
+3. Select the payment method (Cash, Online, or Receipt).
+4. If **Receipt** is selected, you can optionally upload a receipt image.
+5. Enter the amount.
+6. Confirm the payment.
+
+The payment status updates automatically based on the remaining balance.
+
+## Accepting Storefront Receipt Payments
+
+When a customer places an order through your online storefront and selects **Receipt** as the payment method, the order is created with a **pending** payment record. The customer uploads a receipt image as proof of payment during checkout.
+
+To accept the payment:
+
+1. Open the order details. You will see the **Accept Payment Receipt** button in the header (instead of the usual "Add Payment" button).
+2. Click **Accept Payment Receipt**.
+3. A confirmation dialog opens showing the **receipt image** uploaded by the customer.
+4. Review the receipt to verify the payment.
+5. Click **Confirm** to mark the payment as **Completed**.
+
+<Callout title="Note">
+The "Accept Payment Receipt" button only appears for storefront orders with Receipt payment method that have a pending payment. For other orders, the regular "Add Payment" button is shown.
+</Callout>
+
+## Accepting Storefront Cash Payments
+
+When a customer places a storefront order with **Cash** payment, a pending payment record is created. After the customer pays on delivery or pickup:
+
+1. Open the order details.
+2. Click **Add Payment** (or use the order actions to mark the payment as complete).
+3. The payment is recorded and the order payment status updates.
+
+## Related
+
+- [Managing Orders](/docs/orders/managing-orders): View the Order Payments section on order details
+- [Overdue Payments](/docs/orders/overdue-payments): Track scheduled payments that are due
+- [Payment Methods](/docs/stores/payment-methods): Configure which methods each store accepts

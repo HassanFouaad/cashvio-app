@@ -1,4 +1,4 @@
 {
   "title": "المخزون",
-  "pages": ["stock-management", "adjustments-transfers"]
+  "pages": ["stock-management", "low-stock-alerts", "adjustments-transfers", "stock-transfers"]
 }

@@ -1,0 +1,118 @@
+---
+title: Coupon Rules and Validation
+description: "How Cashvio validates coupon codes: applicability, usage limits, validity dates, and cart requirements."
+---
+
+When a customer or cashier applies a coupon, Cashvio checks every rule below in real time. Set these fields when you [create or manage coupons](/docs/marketing/create-manage-coupons).
+
+## Applicability
+
+Coupons apply in one of two scopes:
+
+### Whole Order
+
+- The discount applies to the entire order subtotal
+- Best for general promotions (welcome codes, store-wide sales)
+- No product or category selection is required
+
+### Specific Items
+
+- The discount applies only to matching products or categories you selected on the coupon
+- You must pick at least one product or category when creating the coupon
+- The discount is calculated from eligible line items only; everything else stays full price
+- Example: 20% off beverages when the coupon targets the Beverages category
+
+**At checkout:** If the coupon is set to **Specific Items**, the cart must contain at least one item from the selected products or categories. Otherwise the code is rejected even if the order total is high enough.
+
+Percentage and fixed discounts both respect applicability: only eligible subtotals receive the discount.
+
+## Usage Limits
+
+Two independent limits control how often a coupon can be redeemed.
+
+### Maximum Usage Count (coupon-wide)
+
+- **Unlimited:** Leave empty or enter `0`
+- **Limited:** Total redemptions across all customers
+- Example: `100` means the coupon stops working after 100 successful uses
+- The coupons table shows progress as "15 / 100" or "15 / Unlimited"
+- When the limit is reached, the coupon becomes unusable but stays in the list until you edit or deactivate it
+
+### Maximum Usage Per Customer
+
+- **Unlimited:** Leave empty or enter `0`
+- **Limited:** How many times each individual customer can use the same code
+- Example: `1` for a one-time welcome offer per customer
+- Requires a customer on the order (portal sale with customer attached, or storefront checkout with customer identity)
+
+Both limits are checked at apply time. Hitting either limit produces an error.
+
+## Validity Period
+
+Optional start and end dates define when a coupon may be used:
+
+### Valid From
+
+- Empty: usable as soon as the coupon is **Active**
+- Future date: the code is rejected before that date even if status is Active
+- Tip: create the coupon early, keep it **Inactive**, then activate on launch day
+
+### Valid To
+
+- Empty: no automatic expiry
+- End date: the code is rejected after that date
+- Pair with marketing copy that mentions the deadline
+
+**Note:** Valid From and Valid To do not change the Active/Inactive toggle automatically. You still control status manually. See [Tips and troubleshooting](/docs/marketing/coupon-tips-troubleshooting) for scheduling workflows.
+
+Current date must fall within the configured range when both dates are set.
+
+## Minimum Cart Value
+
+Optional threshold on order subtotal:
+
+- Empty or `0`: no minimum
+- Any positive amount: subtotal must meet or exceed it before the coupon applies
+- Shown in the coupons table in the store's currency
+- Evaluated before discount is calculated
+
+## Coupon Validation Rules
+
+Coupons are validated against these rules at apply time:
+
+### Existence and Status
+
+- Coupon code must exist for the selected store
+- Coupon must be **Active**
+- Coupon must belong to the same store as the sale or checkout
+
+Codes are matched case-insensitively but stored in uppercase.
+
+### Validity Period
+
+- Current date must be on or after **Valid From** (if set)
+- Current date must be on or before **Valid To** (if set)
+
+### Usage Limits
+
+- **Maximum Usage Count:** Total redemptions must not exceed the limit
+- **Maximum Usage Per Customer:** That customer's redemption count must not exceed the limit
+
+### Cart Requirements
+
+- **Minimum Cart Value:** Order subtotal must meet or exceed the minimum
+
+### Applicability (Specific Items)
+
+- At least one cart line must match a selected product or category
+- If nothing matches, the coupon is rejected with an applicability error
+
+### Discount Caps
+
+- Percentage discounts cannot exceed 100%
+
+## Related
+
+- [Coupons & Discount Codes](/docs/marketing/coupons): Overview
+- [Create and manage coupons](/docs/marketing/create-manage-coupons): Form fields for each rule
+- [Apply coupons to orders](/docs/marketing/apply-coupons): Portal and storefront apply flow

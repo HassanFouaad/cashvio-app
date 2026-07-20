@@ -1,4 +1,4 @@
 {
   "title": "Team & Permissions",
-  "pages": ["roles-permissions", "users"]
+  "pages": ["roles-permissions", "create-edit-roles", "users"]
 }

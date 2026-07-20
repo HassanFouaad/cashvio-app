@@ -1,6 +1,6 @@
 ---
 title: Online Storefront Overview
-description: How your online store works, what customers see, and how to configure it from the business portal.
+description: "How your online store works, what customers see, and where to configure appearance, content, social links, checkout, and tracking."
 ---
 
 ## What is the Online Store?
@@ -18,7 +18,7 @@ Cashvio supports **subdomain-based storefronts only** (format: `yourstorename.ca
 When customers visit your storefront, they see:
 
 ### Home Page
-- **Hero images**: Up to 5 large banner images you configure with display order control
+- **Hero images**: Up to 5 large banner images with display order control (see [Storefront Appearance](/docs/online-store/storefront-appearance))
 - **Featured categories**: Your product categories for easy browsing
 - **Featured products**: A selection of your active products
 
@@ -27,32 +27,24 @@ When customers visit your storefront, they see:
 - **Category pages** showing products in each category
 - **Product detail** pages with images, descriptions, variant selection, pricing, and **share buttons** (WhatsApp, Facebook, copy link; see [Sharing Your Store](/docs/online-store/sharing-your-store))
 - **Review stars on product cards**: Products with approved [reviews](/docs/catalogue/product-reviews) show their star rating and review count everywhere they're listed
-- **Recently viewed**: A strip of the customer's recently viewed products appears on the home page and under each product page, making it easy to jump back
-- **Sorting options**: Sort by newest, name, price low to high, or price high to low
-- **Filters**: Filter by category, in-stock only
+- **Recently viewed**: A strip of the customer's recently viewed products on the home page and under each product page
+- **Sorting and filters**: Sort by newest, name, or price; filter by category or in-stock only
 - **Hide Out of Stock**: Option to hide products that are out of stock (configurable in store settings)
 
 ### Shopping Cart
-- Customers add products to their cart
-- They can adjust quantities, remove items, and see the order summary
-- The cart shows subtotal, shipping, tax, and total
+- Customers add products, adjust quantities, and see subtotal, shipping, tax, and total
 - **Stock validation**: The cart checks product availability and maximum order quantities
-- **Minimum order nudge**: If you set a [minimum order value](/docs/stores/payment-methods#minimum-order-value), the cart shows a progress bar and "Add X more to place your order" until the minimum is reached
+- **Minimum order nudge**: If you set a [minimum order value](/docs/stores/storefront-payment-methods), the cart shows a progress bar until the minimum is reached
 
 ### Checkout
-- **Fulfillment selection**: Delivery or Pickup
-- **Payment method selection**: Cash or Receipt (with receipt image upload)
-- **Delivery zones**: If configured, only your delivery area countries and cities are available
-- **Order preview**: Full breakdown of costs before placing the order
-- **Minimum order validation**: Enforces minimum order value if configured
+Customers choose delivery or pickup, select payment (Cash or Receipt), confirm delivery zones and fees, and review the full order breakdown before placing the order.
 
 See [Online Checkout Flow](/docs/online-store/checkout-flow) for the full checkout process.
 
 ### Language Support
 - Customers can switch between **English** and **Arabic**
 - The entire storefront supports RTL (right-to-left) for Arabic
-- Product names, categories, and checkout forms display in the selected language
-- **Language-specific links**: Add `?lang=ar` or `?lang=en` to any store link to open it in that language (great for sharing; see [Sharing Your Store](/docs/online-store/sharing-your-store#share-in-a-specific-language)). Search engines are also told about both language versions of every page automatically
+- Add `?lang=ar` or `?lang=en` to any store link to open it in that language (see [Sharing Your Store](/docs/online-store/sharing-your-store#share-in-a-specific-language))
 
 ### Theme
 - Customers can toggle between **light** and **dark** mode
@@ -62,54 +54,23 @@ The storefront supports **light and dark mode only**. Custom themes, colors, fon
 </Callout>
 
 ### Announcement Bar
-- An optional **promo strip at the very top of every page** (above the header) in your brand color, perfect for offers like "Free delivery on orders over 500 EGP"
-- Configured per language in **Online Store > Content & SEO > Announcement Bar & Footer Text**; leave it empty to hide the bar
+An optional **promo strip at the very top of every page** in your brand color. Configure bilingual text in [Storefront SEO & Content](/docs/online-store/storefront-seo-content); leave it empty to hide the bar.
 
 ### Footer
-- **Copyright notice** with your store name
-- Your optional **custom footer text** (a personal message, address, or story) configured in **Content & SEO**
-- **"Powered by Cashvio"** attribution with a link to the Cashvio website and a "Create your free online store" link
-- Links to your **static pages** (terms, privacy, refund policy, etc.)
-- **Social media links** if configured
-- On mobile, a **bottom navigation bar** replaces the footer with quick access to Home, Categories, Products, Cart, and Contact. The custom footer text appears in the mobile **Information** sheet
+Copyright, optional custom footer text, static page links, social icons, and **"Powered by Cashvio"** attribution. On mobile, a bottom navigation bar replaces the footer. Configure footer text in [Storefront SEO & Content](/docs/online-store/storefront-seo-content).
 
 ### WhatsApp Chat Button
-- A **floating WhatsApp button** appears on every storefront page so customers can start a chat with your store in one tap
-- It uses your dedicated **WhatsApp Number** (or your contact phone when no WhatsApp number is set)
-- You can turn it off any time with the **Show WhatsApp Button** toggle (see [Social Media Links & WhatsApp](#social-media-links--whatsapp))
+A **floating WhatsApp button** on every page lets customers start a chat in one tap. Configure the number and toggle in [Social Media & WhatsApp](/docs/online-store/social-whatsapp-button).
 
-## Configuring Your Online Store
+## Portal Settings
 
 In the portal, open **Online Store** from the sidebar (or **Settings > Stores > your store > Online Store tab**). If the storefront hasn't been created yet, a **Create** button sets it up.
 
-Settings are organized in five sections: **General**, **Appearance**, **Content & SEO**, **Social Media Links**, and **Tracking**. In **General** you can also switch the storefront **Active / Inactive** and toggle **Hide Out of Stock**.
+From **General**, switch the storefront **Active / Inactive** and toggle **Hide Out of Stock**. Settings are grouped into **General**, **Appearance**, **Content & SEO**, **Social Media Links**, and **Tracking**. Use the cards below for step-by-step guides on each area.
 
-### Store Subdomain Configuration
+### Tracking IDs
 
-Each store can have its own unique subdomain:
-
-- **Subdomain Format**: `yourstorename.cash-vio.com`
-- **Subdomain Setup**: Configure your store's subdomain in the Online Store settings
-- **Access**: Once configured, your storefront is accessible at the subdomain URL
-- **Sharing**: Copy the link or **print a QR poster** customers can scan to order (see [Sharing Your Store](/docs/online-store/sharing-your-store))
-
-<Callout title="Important">
-Cashvio supports **subdomain-based storefronts only**. Custom domains are not currently available. Choose your subdomain carefully as it becomes part of your store's web address.
-</Callout>
-
-### What You Can Configure
-
-| Setting | Description |
-|---------|-------------|
-| **Store Logo** | Your storefront logo (JPEG/PNG/WEBP, up to 2 MB) |
-| **Hero Images** | Up to 5 home-page banners, each with an optional **click-through link** (great for promotions) |
-| **Special Products** | Up to 10 featured products pinned on the home page, reorderable by drag and drop |
-| **SEO Settings** | Meta title (60 chars), meta description (160 chars), and favicon |
-| **Announcement Bar & Footer Text** | Bilingual promo text shown at the top of every page, and a custom footer message |
-| **Social Media Links** | Facebook, Instagram, TikTok, YouTube, website URL, contact phone/email, plus a dedicated **WhatsApp number** and the **Show WhatsApp Button** toggle |
-| **Hide Out of Stock Items** | Hide products with zero inventory from the storefront |
-| **Tracking** | Google Tag Manager, Facebook Pixel, and TikTok Pixel IDs |
-| **Static Pages** | Refund Policy, Shipping Policy, and About Us, each in English and Arabic with a rich text editor |
+Under **Online Store > Tracking**, add Google Tag Manager, Facebook Pixel, and TikTok Pixel IDs to measure storefront behavior. See [Google Tags](/docs/integrations/google-tags), [Facebook Pixel](/docs/integrations/facebook-pixel), and [TikTok Pixel](/docs/integrations/tiktok-pixel) for setup details.
 
 ## What Affects Your Online Store
 
@@ -129,97 +90,19 @@ Your storefront is connected to the business portal. Changes you make in the por
 Only **active** products and categories appear on the storefront. Inactive items are hidden from customers. If "Hide Out of Stock Items" is enabled, products with zero inventory are also hidden.
 </Callout>
 
-## Managing Hero Images
+## Configure Your Storefront
 
-Hero images are the large banners at the top of your storefront home page:
+<Cards>
+  <Card title="Storefront Appearance" href="/docs/online-store/storefront-appearance" description="Store logo, hero banners, featured products, and the light/dark theme customers see." />
+  <Card title="Storefront SEO & Content" href="/docs/online-store/storefront-seo-content" description="Meta title and description, announcement bar, footer text, and static pages." />
+  <Card title="Social Media & WhatsApp" href="/docs/online-store/social-whatsapp-button" description="Social profile links, contact details, and the floating WhatsApp chat button." />
+  <Card title="Sharing Your Store" href="/docs/online-store/sharing-your-store" description="Copy your link, print a QR poster, and share products on social channels." />
+  <Card title="Online Checkout Flow" href="/docs/online-store/checkout-flow" description="How customers choose fulfillment, pay, and place an order." />
+  <Card title="Order Tracking" href="/docs/online-store/order-tracking" description="Let customers follow order status with order number and phone." />
+</Cards>
 
-1. Open **Online Store > Appearance**.
-2. **Upload images**: up to 5 (JPEG/PNG/WEBP, 5 MB each; ~1920×600px looks best). Images display in the order you upload them.
-3. **Add a link** (optional): give any banner a click-through URL, e.g., to a category or promotion page.
-4. **Remove images** you no longer want.
+## Related
 
-<Callout title="Tip">
-Use high-quality, visually appealing images that represent your brand. Keep file sizes reasonable for fast loading times.
-</Callout>
-
-## Featured (Special) Products
-
-Pin up to **10 products** on your storefront home page:
-
-1. Open **Online Store > Appearance > Special Products**.
-2. Click **Add** and pick a product (each product can be added once).
-3. **Drag and drop** to set the display order.
-4. Remove products from the list any time.
-
-<Callout title="Note">
-Only **Active** products display properly; the list warns you if a pinned product is inactive.
-</Callout>
-
-## SEO Settings
-
-Improve your store's visibility in search engines:
-
-- **Meta Title**: The title that appears in search engine results and browser tabs (recommended: 50-60 characters)
-- **Meta Description**: A brief description of your store (recommended: 150-160 characters)
-- **Favicon**: Upload a small icon (16x16 or 32x32px) that appears in browser tabs and bookmarks
-
-<Callout title="Tip">
-Write compelling meta titles and descriptions that include relevant keywords. This helps customers find your store in search results.
-</Callout>
-
-## Announcement Bar & Footer Text
-
-Promote offers and add a personal touch, from **Online Store > Content & SEO > Announcement Bar & Footer Text**:
-
-1. Enter your **Announcement (English)** and **Announcement (Arabic)**, e.g., "Free delivery on orders over 500 EGP". The bar appears at the very top of every storefront page in your brand color, in the language the customer is browsing in.
-2. Enter your **Footer text (English)** and **Footer text (Arabic)**, a short message shown near the bottom of the storefront footer.
-3. Click **Save Content**.
-
-- If only one language is filled in, it's shown for both languages.
-- Clear a field and save to **hide** the bar or footer message.
-
-<Callout title="Tip">
-Announcing a real offer works best. For example, pair "Free delivery on orders over 500 EGP" with the store's [Free Delivery Threshold](/docs/stores/delivery-zones#free-delivery-threshold) so the storefront actually waives the fee automatically.
-</Callout>
-
-## Social Media Links & WhatsApp
-
-Connect your customer-facing contact channels from **Online Store > Social Media Links**:
-
-- **Social profiles**: Facebook, Instagram, TikTok, YouTube, and website URLs shown as icons in the storefront footer and the mobile Contact sheet
-- **Contact Phone Number**: The number customers call. When empty, the store's contact phone is used instead
-- **Contact Email**: Shown to customers on the storefront. When empty, the store's contact email is used instead
-- **WhatsApp Number**: A dedicated number for WhatsApp chats, useful when your WhatsApp Business number differs from your call line. When empty, the contact phone number is used instead
-- **Show WhatsApp Button**: Controls the floating WhatsApp chat button and all WhatsApp links on your storefront (footer icon, mobile Contact sheet, and the order-tracking help buttons). Turn it off if you don't offer WhatsApp support
-
-<Callout title="Tip">
-Customers on the [order tracking page](/docs/online-store/order-tracking) get **WhatsApp the store** and **Call the store** buttons, and the WhatsApp message starts with their order number, so you instantly know which order they're asking about.
-</Callout>
-
-## Static Pages
-
-Create informative pages for your customers:
-
-### Creating a Static Page
-
-1. Go to **Online Store** settings.
-2. Navigate to **Static Pages**.
-3. Select the page type (Refund Policy, Shipping Policy, or About Us).
-4. Use the **rich text editor** to format your content:
-   - Bold and italic text
-   - Bulleted and numbered lists
-   - Links to other pages or websites
-   - Headings and paragraphs
-5. Click **Save**.
-
-These pages are automatically linked in your storefront footer and can be accessed by customers at any time.
-
-## Analytics Integration
-
-Track customer behavior on your storefront with:
-
-- **Google Tag Manager**: Add your GTM container ID to track page views, add-to-cart events, checkouts, and purchases
-- **Facebook Pixel**: Add your Pixel ID to track conversions and build retargeting audiences
-- **TikTok Pixel**: Add your TikTok Pixel ID to measure TikTok ad performance
-
-See [Google Tags](/docs/integrations/google-tags), [Facebook Pixel](/docs/integrations/facebook-pixel), and [TikTok Pixel](/docs/integrations/tiktok-pixel) for detailed setup instructions.
+- [Go Live Online](/docs/getting-started/go-live-online): Publish your subdomain and place a test order
+- [Delivery Zones](/docs/stores/delivery-zones): Areas and fees shown at checkout
+- [Storefront Payment Methods](/docs/stores/storefront-payment-methods): Cash and Receipt options online

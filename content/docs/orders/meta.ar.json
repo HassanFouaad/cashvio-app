@@ -2,7 +2,13 @@
   "title": "الطلبات",
   "pages": [
     "creating-orders",
+    "pos-barcode-scanning",
+    "pos-cart-discounts",
+    "pos-taking-payment",
     "managing-orders",
+    "order-fulfillment-status",
+    "order-payments",
+    "print-share-receipts",
     "pos-daily-summary",
     "whatsapp-sharing",
     "overdue-payments"

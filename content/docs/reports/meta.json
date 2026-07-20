@@ -1,4 +1,13 @@
 {
   "title": "Reports & Analytics",
-  "pages": ["analytics-reports", "dead-stock-analytics"]
+  "pages": [
+    "analytics-reports",
+    "sales-overview-report",
+    "profit-report",
+    "customer-analytics",
+    "staff-performance",
+    "returns-fulfillment-reports",
+    "dead-stock-analytics",
+    "business-insights"
+  ]
 }

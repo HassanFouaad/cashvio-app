@@ -1,11 +1,11 @@
 ---
 title: Pricing, Tax & Discount Calculations
-description: Understand how Cashvio calculates prices, taxes, discounts, fees, and order totals.
+description: "Understand how Cashvio calculates order subtotals, fees, discounts, tax, and the final order total."
 ---
 
-## How Order Totals are Calculated
+Every order in Cashvio follows a fixed calculation flow. Use the cards below for tax, discounts, fees, and profit details.
 
-Every order in Cashvio follows this calculation flow:
+## How Order Totals are Calculated
 
 ```
 Subtotal = Sum of (item price × quantity) for all items
@@ -29,69 +29,6 @@ Example:
 | Jeans (L) | 350 EGP | 1 | 350 EGP |
 | **Subtotal** | | | **650 EGP** |
 
-## Tax Calculation
-
-Tax is calculated based on the **tax rate** set for each product:
-
-### Tax Exclusive (Price does NOT include tax)
-If the product price **does not** include tax:
-- **Tax = Subtotal × Tax Rate**
-- **Total = Subtotal + Tax**
-
-Example: Product price is 100 EGP, tax rate is 14%
-- Tax = 100 × 0.14 = **14 EGP**
-- Total = 100 + 14 = **114 EGP**
-
-### Tax Inclusive (Price includes tax)
-If the product price **already includes** tax:
-- **Price before tax = Price ÷ (1 + Tax Rate)**
-- **Tax = Price - Price before tax**
-
-Example: Product price is 114 EGP (tax included), tax rate is 14%
-- Price before tax = 114 ÷ 1.14 = **100 EGP**
-- Tax = 114 - 100 = **14 EGP**
-
-<Callout title="Important">
-The **Tax Included** toggle on each product controls how tax is calculated. Make sure this is set correctly to avoid pricing errors.
-</Callout>
-
-## Discounts
-
-Discounts can be applied manually when creating an order:
-
-### Fixed Discount
-A specific amount subtracted from the subtotal.
-
-Example: 50 EGP discount on a 650 EGP subtotal
-- Discounted subtotal = 650 - 50 = **600 EGP**
-- Tax is then calculated on 600 EGP
-
-### Percentage Discount
-A percentage of the subtotal.
-
-Example: 10% discount on a 650 EGP subtotal
-- Discount = 650 × 0.10 = 65 EGP
-- Discounted subtotal = 650 - 65 = **585 EGP**
-- Tax is then calculated on 585 EGP
-
-## Service Fees
-
-Service fees are added after the subtotal:
-
-### Fixed Service Fee
-A fixed amount (e.g., 20 EGP service fee).
-
-### Percentage Service Fee
-A percentage of the subtotal (e.g., 10% of subtotal).
-
-Service fees are **subject to tax**; tax is calculated on the subtotal plus service fee.
-
-## Delivery Fees
-
-Delivery fees are determined by the **delivery zone** matching the customer's address. They are a fixed amount added to the order.
-
-Delivery fees are typically **not subject to tax** (they appear as a separate line item).
-
 ## Full Calculation Example
 
 | Line | Calculation | Amount |
@@ -107,22 +44,8 @@ Delivery fees are typically **not subject to tax** (they appear as a separate li
 | Delivery Fee | Fixed | 30 EGP |
 | **Order Total** | | **763.59 EGP** |
 
-## Profit Calculations
-
-Profit is calculated using the **cost price** vs. **selling price** of each product:
-
-**Gross Profit = Selling Price - Cost Price**
-
-**Profit Margin = (Gross Profit ÷ Selling Price) × 100%**
-
-Example:
-- Selling price: 150 EGP
-- Cost price: 80 EGP
-- Gross profit: 70 EGP
-- Profit margin: 46.7%
-
-These calculations appear in the **Profit Report** under Reports.
-
-<Callout title="Tip">
-Always keep your product cost prices up to date. This ensures accurate profit reporting and helps you make informed pricing decisions.
-</Callout>
+<Cards>
+  <Card title="Tax calculations" href="/docs/calculations/tax-calculations" description="Tax exclusive vs. tax inclusive pricing and how tax is derived." />
+  <Card title="Discounts and fees" href="/docs/calculations/discounts-and-fees" description="Fixed and percentage discounts, service fees, and delivery fees." />
+  <Card title="Profit calculations" href="/docs/calculations/profit-calculations" description="Gross profit and margin from cost price vs. selling price." />
+</Cards>

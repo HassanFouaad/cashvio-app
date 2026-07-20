@@ -1,0 +1,31 @@
+---
+title: Stock Transfers
+description: "Move inventory between stores and see transfer movements in adjustment history."
+---
+
+If you operate multiple stores, you can transfer inventory from one store to another.
+
+## How to Transfer Stock
+
+1. Go to **Inventory** and open the store that currently **has** the stock (the source is the store you are viewing).
+2. Find the product variant, open its **actions menu**, and select **Transfer Stock**.
+3. Fill in:
+
+| Field | Description |
+|-------|-------------|
+| **Destination Store** | The store receiving the stock |
+| **Quantity** | How many units to transfer (capped at the source's on-hand stock) |
+| **Reason** | Optional note for the transfer |
+
+4. Click **Confirm**.
+
+The stock is deducted from the source store and added to the destination store instantly. Both movements appear in [adjustment history](/docs/inventory/adjustments-transfers) as **Transfer Out** and **Transfer In**.
+
+<Callout title="Tip">
+Use the Low Stock page to identify which stores need stock, then transfer from stores that have excess inventory.
+</Callout>
+
+## Related
+
+- [Low Stock Alerts](/docs/inventory/low-stock-alerts): Find stores that need restocking
+- [Stock Adjustments](/docs/inventory/adjustments-transfers): Manual adjustments and full audit history

@@ -1,0 +1,64 @@
+---
+title: Taking Payment and After the Sale
+description: "Charge the cart on New Sale with cash, online, receipt, or store credit, then print or share the receipt after checkout."
+---
+
+## Taking Payment
+
+Click **Charge / Checkout** to open the payment dialog.
+
+### Store Credit
+
+If the attached customer has store credit:
+
+- A **Use Store Credit** toggle appears at the top.
+- Enable it to apply the balance toward the order. If credit covers the whole amount, no other payment method is needed.
+
+### Payment Methods
+
+Choose the method for the remaining amount:
+
+| Method | Description |
+|--------|-------------|
+| **Cash** | Quick-amount buttons let you tap the tendered cash in one touch; the **change due** is calculated automatically. |
+| **Online** | Digital payment (card, InstaPay, mobile wallet, bank transfer, etc.). |
+| **Receipt** | Transfer payment with an optional receipt image upload (JPEG, PNG, or WebP). |
+
+<Callout title="Note">
+Only payment methods **enabled** for the selected store appear. See [Payment Methods](/docs/stores/payment-methods) to configure them.
+</Callout>
+
+### Partial and Scheduled Payments
+
+You can take **part of the total now** and schedule the rest:
+
+1. Edit the **amount to pay now**.
+2. Enable **Schedule Remaining Payment** and pick a **due date**.
+3. The remainder becomes a scheduled payment you can track in [Overdue Payments](/docs/orders/overdue-payments).
+
+### Pay Later
+
+For **Pickup, Delivery, and Dine-In** orders, you can skip payment entirely and collect it later; the order is created as unpaid. In-Store sales always require payment.
+
+## After the Sale
+
+The **success screen** shows:
+
+- The **change due** (large and clear, when the customer paid cash)
+- The order number and total
+- **New Sale**: start the next sale immediately
+- **Print Receipt**: print via a connected thermal printer or the browser print dialog. If **auto-print** is enabled in your [receipt settings](/docs/stores/receipt-settings), the receipt prints automatically.
+- **Send via WhatsApp**: share the digital receipt with the customer on WhatsApp. See [WhatsApp Sharing](/docs/orders/whatsapp-sharing).
+- **View Orders**: exit to the orders list
+
+The order appears in **Sales** with its order number, inventory is adjusted automatically (when tracking is enabled), and the order source is recorded for analytics.
+
+<Callout title="Tip">
+Need a digital receipt? Open the order from **Sales > All Sales**. From the order details you can download a **PDF**, copy a **shareable receipt link**, or show a **QR code** the customer can scan.
+</Callout>
+
+## Related
+
+- [Creating Orders (New Sale)](/docs/orders/creating-orders): Overview of the full sale screen
+- [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts): Build the ticket before checkout
+- [Print and Share Receipts](/docs/orders/print-share-receipts): PDF, link, WhatsApp, and QR from order details

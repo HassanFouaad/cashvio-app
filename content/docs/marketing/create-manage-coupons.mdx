@@ -1,0 +1,208 @@
+---
+title: Create and Manage Coupons
+description: "Add, edit, filter, activate, deactivate, and delete discount coupons from Sales > Coupons."
+---
+
+Use this guide to set up coupons in the portal. For how codes are validated at checkout, see [Coupon rules and validation](/docs/marketing/coupon-rules).
+
+## Accessing Coupons
+
+1. Go to **Sales > Coupons** in the sidebar
+2. You will see all coupons across your stores
+3. Use filters to find specific coupons by store or status
+
+## Creating a New Coupon
+
+### Step 1: Open Create Coupon Modal
+
+1. Click the **Add** button in the top-right corner
+2. The coupon creation form will open
+
+### Step 2: Configure Basic Settings
+
+#### Store Selection
+- **Store** (Required): Select which store this coupon applies to
+- Once created, coupons cannot be moved to different stores
+- Create separate coupons for each store if needed
+
+#### Coupon Code
+- **Code** (Required): Enter a unique coupon code (e.g., `SUMMER20`, `WELCOME10`)
+- Codes are automatically converted to UPPERCASE
+- Must be unique within the store
+- Recommended: Use clear, memorable codes
+- Tip: Include the discount amount in the code for clarity (e.g., `SAVE15` for 15% off)
+
+### Step 3: Set Discount Parameters
+
+#### Discount Type and Value
+Choose between two discount types:
+
+**Percentage Discount:**
+- Select **Percentage** from the Discount Type dropdown
+- Enter a value between 0-100
+- Example: Enter `20` for 20% off
+
+**Fixed Amount Discount:**
+- Select **Fixed** from the Discount Type dropdown
+- Enter the discount amount in your store's currency
+- Example: Enter `50` for 50 EGP/SAR/etc. off
+
+#### Minimum Cart Value (Optional)
+- Set a minimum cart value required to use the coupon
+- Enter `0` or leave empty for no minimum
+- Example: Require minimum 200 EGP cart value for coupon to apply
+
+### Step 4: Configure Applicability
+
+#### Applicable To
+Choose where the coupon discount applies:
+
+**Whole Order:**
+- Discount applies to the entire order subtotal
+- Recommended for general promotional codes
+- Simplest option for most campaigns
+
+**Specific Items:**
+- Discount applies only to the products or categories you choose
+- After selecting this option, use the **Applicable Products** and **Applicable Categories** fields that appear. Search and pick as many as you need (at least one is required)
+- The discount is calculated only from matching items in the cart; other items stay full price
+- Use for targeted product promotions (e.g., 20% off all beverages)
+
+For validation details when customers apply the code, see [Coupon rules and validation](/docs/marketing/coupon-rules).
+
+### Step 5: Set Usage Limits
+
+#### Maximum Usage Count (Optional)
+- **Unlimited**: Leave empty or enter `0`
+- **Limited**: Enter the total number of times this coupon can be used across all customers
+- Example: Set to `100` to limit coupon to first 100 customers
+- Displays as "X / 100" in the coupons table
+
+#### Maximum Usage Per Customer (Optional)
+- **Unlimited**: Leave empty or enter `0`
+- **Limited**: Enter how many times each customer can use this coupon
+- Example: Set to `1` for one-time use per customer
+- Prevents abuse while allowing multiple customers to benefit
+
+### Step 6: Set Validity Period (Optional)
+
+#### Valid From Date
+- Leave empty for immediate activation
+- Or select a future start date for scheduled campaigns
+- Example: Schedule Black Friday coupons in advance
+
+#### Valid To Date
+- Leave empty for no expiration
+- Or select an end date for limited-time offers
+- Example: Set expiry for seasonal promotions
+
+### Step 7: Set Initial Status
+
+#### Active Status Toggle
+- **Active** (Green): Coupon can be used immediately
+- **Inactive** (Gray): Coupon is disabled and cannot be used
+- Create coupons in advance and activate them when ready
+
+### Step 8: Save
+
+1. Click **Save** to create the coupon
+2. Success message confirms creation
+3. Coupon appears in the coupons table
+4. Customers can now use this code at checkout
+
+## Viewing All Coupons
+
+The coupons table displays all your coupons with the following information:
+
+| Column | Description |
+|--------|-------------|
+| **Code** | The coupon code customers will enter |
+| **Store** | Which store the coupon belongs to |
+| **Discount** | The discount value (percentage or fixed amount with currency) |
+| **Min. Cart Value** | Minimum cart value requirement (shown in store's currency) |
+| **Usage** | Current redemptions vs. maximum limit (e.g., "15 / 100" or "15 / Unlimited") |
+| **Status** | Active (green) or Inactive (gray) badge |
+| **Valid** | Validity period dates |
+
+### Mobile View
+
+On mobile devices, coupons are displayed as cards with:
+- Coupon code
+- Store name
+- Discount amount
+- Status badge
+- Usage statistics
+- Validity dates
+
+## Filtering Coupons
+
+Use the filter bar to narrow down your coupons:
+
+### Store Filter
+- Filter coupons by specific store
+- Useful for multi-store businesses
+- Shows store name in dropdown
+
+### Status Filter
+- **All**: Show all coupons regardless of status
+- **Active**: Show only active coupons
+- **Inactive**: Show only disabled coupons
+
+### Quick Actions
+- **Refresh**: Reload the coupons list
+- **Clear Filters**: Reset all filters to default
+
+## Editing a Coupon
+
+To modify an existing coupon:
+
+1. Click the **Edit** (pencil) icon on the coupon row
+2. The edit form opens with current values
+3. Modify any fields except the store (store cannot be changed)
+4. Click **Save** to apply changes
+
+**What You Can Edit:**
+- Coupon code
+- Discount type and value
+- Minimum cart value
+- Applicable scope
+- Usage limits
+- Validity dates
+- Active status
+
+**What You Cannot Edit:**
+- The store assignment (create a new coupon for different store)
+
+## Activating or Deactivating Coupons
+
+### Quick Status Toggle
+The status badge in the table reflects current state:
+- **Green (Active)**: Coupon is live and can be used
+- **Gray (Inactive)**: Coupon is disabled
+
+To change status:
+1. Click **Edit** on the coupon
+2. Toggle the **Active** switch
+3. Click **Save**
+
+### When to Deactivate Coupons
+- Pause coupons temporarily without deleting them
+- End promotions early if needed
+- Disable coupons that reached usage limit manually
+- Keep coupons for historical records
+
+## Deleting a Coupon
+
+To permanently remove a coupon:
+
+1. Click the **Delete** (trash) icon on the coupon row
+2. A confirmation dialog appears
+3. Review the coupon code and details
+4. Click **Delete** to confirm, or **Cancel** to abort
+
+**Warning:** Deletion is permanent and cannot be undone. Consider deactivating instead if you want to preserve records.
+
+## Related
+
+- [Coupons & Discount Codes](/docs/marketing/coupons): Overview and links to all coupon topics
+- [Coupon rules and validation](/docs/marketing/coupon-rules): How applicability, limits, and dates are enforced

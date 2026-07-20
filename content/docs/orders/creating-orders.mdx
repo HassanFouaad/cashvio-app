@@ -1,6 +1,6 @@
 ---
 title: Creating Orders (New Sale)
-description: Step-by-step guide to the full-screen sale screen, covering adding products, applying coupons and discounts, and taking payment.
+description: "Open the full-screen sale screen, browse the catalogue, build the cart, and take payment at the register."
 ---
 
 ## Opening the Sale Screen
@@ -29,110 +29,25 @@ The main area of the screen shows your products as **tiles**:
 3. **Tap a product** to add it to the cart. If the product has multiple variants (size, color, etc.), a variant picker opens so you can choose the right one.
 4. Out-of-stock products are indicated on the tile, and stock limits are enforced when adding to the cart.
 
-### Barcode Scanning
-
-There are two ways to scan products into the sale:
-
-- **Barcode scanner (USB or Bluetooth)**: Scan anywhere on the sale screen and the item is added to the cart by its SKU. You do not need to click into the search field first; scans are picked up even after tapping the cart or a product tile.
-- **Camera scanning**: Tap the **Scan with camera** button next to the search field and point the camera at the product barcode. The item is added as soon as the barcode is recognized, with no scanner hardware needed. Works on any device with a camera: Android and iPhone/iPad phones and tablets, and laptops or desktops with a webcam.
-
-The [barcode labels](/docs/catalogue/products) you print from the Products page work with both methods.
-
-**Scanned an item that isn't in your catalogue yet?** When a scan doesn't match any product, the **Quick Add Product** dialog opens with the scanned barcode already saved as the product's SKU. Type the name, category, and price, then click **Create Product** — the product is created and added to the sale in one step, so the queue keeps moving. This works for both scanning methods and appears only if your role can create products.
-
-<Callout title="Note">
-The first camera scan asks for **camera permission** and may take a moment while the scanner component loads. If the camera does not start, check the browser's camera permission for the site.
-</Callout>
-
-### Custom Items
-
-To sell something that is not in your catalogue (a service or a one-off item), open the cart menu and choose **Custom Item**:
-
-- Enter a name, price, and quantity.
-- Custom items do not affect inventory levels.
+To add items with a USB or Bluetooth scanner or your device camera, see [Barcode Scanning on New Sale](/docs/orders/pos-barcode-scanning).
 
 ## The Cart (Ticket)
 
-The cart panel shows everything about the current sale:
+The cart panel shows everything about the current sale: customer, fulfillment method, line items, and the running total. On **mobile**, the cart appears as a bar at the bottom of the screen. Tap it to open the full cart drawer.
 
-| Section | What you can do |
-|---------|-----------------|
-| **Customer** | Attach an existing customer or create a new one on the spot. The customer's store credit balance is shown. |
-| **Fulfillment** | Choose In-Store, Pickup, Delivery, or Dine-In. Delivery asks for the customer's address. |
-| **Items** | Adjust quantities with + / −, or remove lines. |
-| **Summary** | Subtotal, fees, discount, coupon, tax, and the final total. |
-
-On **mobile**, the cart appears as a bar at the bottom of the screen. Tap it to open the full cart drawer.
-
-### Coupons
-
-1. Open the **Coupon** option in the cart.
-2. Enter the coupon code.
-3. The code is validated instantly (active status, validity dates, usage limits, and minimum order value are all checked) and the discount is applied to the summary.
-
-See [Coupons](/docs/marketing/coupons) for how to create and manage coupon codes.
-
-### Manual Discounts
-
-1. Open the **Discount** option in the cart.
-2. Choose **Fixed Amount** (e.g., 50 EGP off) or **Percentage** (e.g., 10% off).
-3. The total updates automatically.
-
-### Fees and Notes
-
-- **[Service fees](/docs/stores/service-fees)** and **[delivery fees](/docs/stores/delivery-zones)** are added automatically based on your store configuration, and can be edited on the sale.
-- Add an optional **note** to the order from the cart menu.
+From the cart you can attach a customer, apply coupons and manual discounts, add service or delivery fees, and sell custom items that are not in your catalogue. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts) for the full walkthrough.
 
 ## Taking Payment
 
-Click **Charge / Checkout** to open the payment dialog.
+When the cart is ready, tap **Charge / Checkout** to open the payment dialog. Choose cash, online, receipt, or store credit, take partial or scheduled payments, or skip payment for pickup and delivery orders that will be paid later.
 
-### Store Credit
+See [Taking Payment and After the Sale](/docs/orders/pos-taking-payment) for payment methods, store credit, partial payments, and what happens on the success screen.
 
-If the attached customer has store credit:
+## Go deeper
 
-- A **Use Store Credit** toggle appears at the top.
-- Enable it to apply the balance toward the order. If credit covers the whole amount, no other payment method is needed.
-
-### Payment Methods
-
-Choose the method for the remaining amount:
-
-| Method | Description |
-|--------|-------------|
-| **Cash** | Quick-amount buttons let you tap the tendered cash in one touch; the **change due** is calculated automatically. |
-| **Online** | Digital payment (card, InstaPay, mobile wallet, bank transfer, etc.). |
-| **Receipt** | Transfer payment with an optional receipt image upload (JPEG, PNG, or WebP). |
-
-<Callout title="Note">
-Only payment methods **enabled** for the selected store appear. See [Payment Methods](/docs/stores/payment-methods) to configure them.
-</Callout>
-
-### Partial and Scheduled Payments
-
-You can take **part of the total now** and schedule the rest:
-
-1. Edit the **amount to pay now**.
-2. Enable **Schedule Remaining Payment** and pick a **due date**.
-3. The remainder becomes a scheduled payment you can track in [Overdue Payments](/docs/orders/overdue-payments).
-
-### Pay Later
-
-For **Pickup, Delivery, and Dine-In** orders, you can skip payment entirely and collect it later; the order is created as unpaid. In-Store sales always require payment.
-
-## After the Sale
-
-The **success screen** shows:
-
-- The **change due** (large and clear, when the customer paid cash)
-- The order number and total
-- **New Sale**: start the next sale immediately
-- **Print Receipt**: print via a connected thermal printer or the browser print dialog. If **auto-print** is enabled in your [receipt settings](/docs/stores/receipt-settings), the receipt prints automatically.
-- **Send via WhatsApp**: share the digital receipt with the customer on WhatsApp. See [WhatsApp Sharing](/docs/orders/whatsapp-sharing).
-- **View Orders**: exit to the orders list
-
-The order appears in **Sales** with its order number, inventory is adjusted automatically (when tracking is enabled), and the order source is recorded for analytics.
-
-<Callout title="Tip">
-Need a digital receipt? Open the order from the **Sales** list. From the order details you can download a **PDF**, copy a **shareable receipt link**, or show a **QR code** the customer can scan.
-</Callout>
+<Cards>
+  <Card title="Barcode Scanning on New Sale" href="/docs/orders/pos-barcode-scanning" description="USB, Bluetooth, and camera scanning, plus Quick Add Product for unknown barcodes." />
+  <Card title="Cart, Discounts, and Fees" href="/docs/orders/pos-cart-discounts" description="Coupons, manual discounts, service and delivery fees, notes, and custom items." />
+  <Card title="Taking Payment and After the Sale" href="/docs/orders/pos-taking-payment" description="Payment methods, partial and scheduled payments, receipts, and WhatsApp sharing." />
+  <Card title="Today at This Store" href="/docs/orders/pos-daily-summary" description="Today's revenue, order count, and cash vs non-cash for the store you are selling from." />
+</Cards>

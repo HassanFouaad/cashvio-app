@@ -1,0 +1,74 @@
+---
+title: Portal Payment Methods
+description: "Configure Cash, Online, and Receipt for portal orders, plus store credit, split pay, and scheduling."
+---
+
+Portal payment methods control what options your team sees when creating orders in the business portal.
+
+## Configuring Portal Payment Methods
+
+1. Go to **Settings > Stores**, open your store, and select the **Payments** tab.
+2. The **Portal** tab lists the manageable methods: **Cash**, **Online**, and **Receipt**.
+3. **Enable** or **disable** each method using the toggle switch (each change asks for confirmation).
+
+<Callout title="Note">
+**Store Credit** is not a toggle; it is offered automatically whenever the selected customer has a balance.
+</Callout>
+
+<Callout title="Note">
+Only enabled portal payment methods appear as options when [creating orders](/docs/orders/creating-orders) in the business portal.
+</Callout>
+
+## Store Credit Payments
+
+If a customer has **store credit** (balance on their account), it can be used to pay for portal orders:
+
+- Store credit appears as an option when a customer is selected and has a balance.
+- You can use all or part of the credit.
+- If the credit does not cover the full order, the remaining amount can be paid with another method (split payment).
+- The credit is automatically deducted from the customer's balance.
+
+A customer's store credit grows when you issue a [refund](/docs/returns-refunds/refunds) with the Store Credit method. See [Store Credit](/docs/customers/store-credit) for how balances work on the customer profile.
+
+## Split Payments
+
+Cashvio supports **split payments** on a single order. A customer can pay part of an order with store credit and the remainder with cash or another method.
+
+When processing a split payment in the portal:
+
+1. During checkout, enable the **Use Store Credit** toggle.
+2. The system shows how much store credit will be applied.
+3. The remaining amount is paid with the selected payment method.
+4. Both payment records are tracked separately.
+
+See [Taking Payment and After the Sale](/docs/orders/pos-taking-payment) for the full New Sale payment screen.
+
+## Scheduling Payments
+
+For orders that are not paid in full immediately, you can **schedule the remaining payment**:
+
+1. During checkout, enable **Schedule Remaining Payment**.
+2. Set the **due date** for the remaining balance.
+3. The order is created with a pending scheduled payment.
+4. The order appears in the **Overdue Payments** section if not paid by the due date.
+
+See [Overdue Payments](/docs/orders/overdue-payments) for more details.
+
+## Receipt Upload (Portal)
+
+When the **Receipt** payment method is selected in the portal during order creation or when adding a payment:
+
+1. An upload section appears below the payment method selector.
+2. Click **Choose File** to upload a photo of the receipt (JPEG, PNG, or WebP).
+3. The receipt is uploaded and attached to the payment record.
+4. This is optional; you can create a receipt payment without uploading the image.
+
+<Callout title="Tip">
+Receipt uploads are useful for tracking transfer payments. The receipt image can be viewed later from the order details page.
+</Callout>
+
+## Related
+
+- [Payment Methods](/docs/stores/payment-methods): Overview of all methods
+- [Creating Orders](/docs/orders/creating-orders): New Sale checkout flow
+- [Store Credit](/docs/customers/store-credit): Customer balances and refunds

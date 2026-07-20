@@ -1,4 +1,4 @@
 {
   "title": "Customers",
-  "pages": ["managing-customers"]
+  "pages": ["managing-customers", "customer-addresses", "store-credit"]
 }

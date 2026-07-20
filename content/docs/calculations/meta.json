@@ -1,4 +1,9 @@
 {
   "title": "Calculations & Pricing",
-  "pages": ["pricing-tax-calculations"]
+  "pages": [
+    "pricing-tax-calculations",
+    "tax-calculations",
+    "discounts-and-fees",
+    "profit-calculations"
+  ]
 }

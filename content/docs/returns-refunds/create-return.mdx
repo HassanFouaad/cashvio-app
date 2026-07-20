@@ -1,0 +1,64 @@
+---
+title: Create a Return
+description: "Create a return from an order: select items, return reasons, restock options, and submit the return."
+---
+
+Returns are created from a specific order.
+
+## Creating a Return
+
+1. Open the **Order Details** page for the order you want to return items from.
+2. Click **Create Return** and choose the return type.
+3. Select the items to return. Only items that are still **returnable** are offered (the system checks how many units of each item were already returned). For each selected item you can set:
+   - The **quantity** being returned (capped at the returnable quantity)
+   - Whether to **restock** the item back into inventory
+   - A **restocking fee** (when restocking)
+   - A **non-restock reason** (required when not restocking)
+   - Optional **condition notes**
+
+Then choose one **return reason** for the return and add optional notes.
+
+### Return Reasons
+
+When creating a return, you must select a reason for each item. The available predefined reasons are:
+
+| Reason | Description |
+|--------|-------------|
+| **Changed Mind** | Customer decided not to keep the product |
+| **Wrong Item** | A different product was delivered |
+| **Defective** | Product has a manufacturing defect |
+| **Damaged** | Product was damaged during delivery or handling |
+| **Not as Described** | Product does not match its description |
+| **Size/Fit Issue** | Wrong size or does not fit |
+| **Quality Issue** | Product quality is below expectations |
+| **Duplicate Order** | Customer accidentally ordered twice |
+| **Missing Parts** | Product is incomplete or missing accessories |
+| **Expired** | Product has passed its expiry date |
+| **Other** | Any other reason (add a note) |
+
+### Non-Restock Reasons
+
+When processing a return, you can mark items as **non-restockable** if they cannot be returned to inventory. The available non-restock reasons are:
+
+| Reason | Description |
+|--------|-------------|
+| **Damaged** | Item is too damaged to resell |
+| **Defective** | Item has defects that prevent resale |
+| **Expired** | Item has passed its expiry date |
+| **Contaminated** | Item has been contaminated and cannot be resold |
+| **Compensation** | Item given as compensation to customer |
+| **Customer Kept** | Customer kept the item despite return request |
+| **Quality Issue** | Quality issues prevent resale |
+| **Packaging Damaged** | Packaging is damaged and item cannot be resold |
+| **Other** | Any other reason (add a note) |
+
+<Callout title="Note">
+Items that don't track inventory can never be restocked; the restock option is disabled for them automatically.
+</Callout>
+
+4. For **Return & Refund**, set the refund amount (items total or a custom amount) and the refund method.
+5. Review the return summary and click **Submit**.
+
+<Callout title="Note">
+Choosing **Refund Only** takes you to the [refund creation flow](/docs/returns-refunds/refunds) instead, and no return record is created.
+</Callout>

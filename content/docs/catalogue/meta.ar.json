@@ -4,6 +4,9 @@
     "categories",
     "options",
     "products",
+    "create-product",
+    "product-tax-inventory",
+    "barcode-labels",
     "importing-products",
     "product-reviews"
   ]

@@ -1,6 +1,6 @@
 ---
 title: Managing Orders
-description: How to view, filter, update, and manage your sales orders including fulfillment status, payments, and receipt approvals.
+description: "View, filter, and open order details from Sales, then follow up on fulfillment, payments, receipts, and customer updates."
 ---
 
 ## Viewing All Orders
@@ -92,82 +92,14 @@ This section is useful for orders with split payments or multiple payment transa
 ### Order History
 - Timeline showing all status changes and actions
 
-## Updating Fulfillment Status
+From order details you can update fulfillment, add payments, print or share receipts, and message customers. Use the guides below for each workflow.
 
-To update an order's fulfillment status:
+## Go deeper
 
-1. Open the order details.
-2. Click **Update Fulfillment Status**.
-3. Select the new status from the available options (you can skip ahead, e.g., straight from Pending to Completed) and add optional notes.
-4. Confirm the update.
-
-The available statuses depend on the current status and fulfillment method. See [Fulfillment Methods](/docs/stores/fulfillment-methods) for the full status flow.
-
-<Callout title="Note">
-**In-Store** orders don't have fulfillment tracking; the customer receives the items immediately. Fulfillment updates are also unavailable once an order is completed or cancelled.
-</Callout>
-
-## Adding a Payment
-
-If an order has an outstanding balance:
-
-1. Open the order details.
-2. Click **Add Payment**.
-3. Select the payment method (Cash, Online, or Receipt).
-4. If **Receipt** is selected, you can optionally upload a receipt image.
-5. Enter the amount.
-6. Confirm the payment.
-
-The payment status updates automatically based on the remaining balance.
-
-## Accepting Storefront Receipt Payments
-
-When a customer places an order through your online storefront and selects **Receipt** as the payment method, the order is created with a **pending** payment record. The customer uploads a receipt image as proof of payment during checkout.
-
-To accept the payment:
-
-1. Open the order details. You will see the **Accept Payment Receipt** button in the header (instead of the usual "Add Payment" button).
-2. Click **Accept Payment Receipt**.
-3. A confirmation dialog opens showing the **receipt image** uploaded by the customer.
-4. Review the receipt to verify the payment.
-5. Click **Confirm** to mark the payment as **Completed**.
-
-<Callout title="Note">
-The "Accept Payment Receipt" button only appears for storefront orders with Receipt payment method that have a pending payment. For other orders, the regular "Add Payment" button is shown.
-</Callout>
-
-## Accepting Storefront Cash Payments
-
-When a customer places a storefront order with **Cash** payment, a pending payment record is created. After the customer pays on delivery or pickup:
-
-1. Open the order details.
-2. Click **Add Payment** (or use the order actions to mark the payment as complete).
-3. The payment is recorded and the order payment status updates.
-
-## Cancelling an Order
-
-1. Open the order details.
-2. Click **Cancel Order**.
-3. Confirm the cancellation.
-
-<Callout title="Note">
-Only **Pending** orders can be cancelled. Cancelling reverses inventory changes if inventory tracking was enabled, so stock levels return to what they were before the order.
-</Callout>
-
-## Receipts: Print, PDF, Link, WhatsApp, and QR
-
-Open the order details and click **Print / Share Receipt**:
-
-- **Print**: via a paired thermal printer or the browser print dialog (your choice is remembered per store)
-- **Download PDF**: save the receipt as a PDF
-- **Share Link**: copy a public digital-receipt link the customer can open
-- **Send via WhatsApp**: open WhatsApp with the receipt link ready to send to the customer (see [WhatsApp Sharing](/docs/orders/whatsapp-sharing))
-- **QR Code**: show a QR code the customer can scan to view their receipt
-
-The receipt follows your [Receipt Settings](/docs/stores/receipt-settings), including the auto-print option.
-
-## Notifying Customers on WhatsApp
-
-When an order has a customer phone number, a **WhatsApp customer** button appears in the order details header. It opens WhatsApp with a message matching the order's current fulfillment status (received, preparing, ready, delivering, completed, or cancelled), plus a link to the order.
-
-See [WhatsApp Sharing & Customer Updates](/docs/orders/whatsapp-sharing) for the full flow and message templates.
+<Cards>
+  <Card title="Fulfillment Status and Cancellation" href="/docs/orders/order-fulfillment-status" description="Move orders through Pending, Preparing, Ready, and Completed, or cancel pending orders." />
+  <Card title="Order Payments" href="/docs/orders/order-payments" description="Add payments, accept storefront receipt uploads, and record cash on delivery." />
+  <Card title="Print and Share Receipts" href="/docs/orders/print-share-receipts" description="Print, PDF, share link, WhatsApp, and QR from order details." />
+  <Card title="WhatsApp Sharing & Customer Updates" href="/docs/orders/whatsapp-sharing" description="Send receipt links and status updates to customers on WhatsApp." />
+  <Card title="Overdue Payments" href="/docs/orders/overdue-payments" description="Track and collect scheduled payments that are due or overdue." />
+</Cards>

@@ -1,6 +1,6 @@
 ---
 title: Managing Customers
-description: How to add, view, and manage customer profiles, addresses, store credit, visits, and order history.
+description: "How to add, view, edit, and delete customer profiles, record visits, and review order history."
 ---
 
 ## What is a Customer?
@@ -53,7 +53,7 @@ Four cards at the top: **Balance**, **Total Spent**, **Total Visits**, and **Las
 Name, phone, date of birth, member-since date, and staff notes.
 
 ### Addresses
-All saved addresses with add, edit, and delete actions (see below).
+All saved addresses with add, edit, and delete actions. See [Customer Addresses](/docs/customers/customer-addresses) for field details and default-address behavior.
 
 ### Order History
 The customer's full order list with the same filters as the main Orders page (status, dates, payment status, and more). Click any order to open its details.
@@ -67,47 +67,6 @@ Use **Record Visit** to log a purchase that happened outside the system (for exa
 3. Click **Save**.
 
 The customer's total visits, total spent, and last-visit date update accordingly. Orders created in Cashvio update these stats automatically, so you do not need to record visits for them.
-
-## Customer Addresses
-
-Each customer can have multiple addresses for delivery orders:
-
-### Adding an Address
-
-1. Open the customer's details page.
-2. In the **Addresses** section, click **Add New Address**.
-3. Fill in the address details:
-
-| Field | Description |
-|-------|-------------|
-| **Address Type** | Apartment, House, or Office |
-| **Country / City** | Selected from lists (city depends on the country) |
-| **Region** | Required; the area or district |
-| **Contact Phone** | Required; defaults to the customer's phone |
-| **Street / Building / Floor / Apartment / ZIP** | Detailed address fields |
-| **Additional Details** | Any extra delivery instructions |
-| **Default Address** | Check to make this the default delivery address |
-
-4. Click **Save**.
-
-You can **edit** or **delete** any address from its card.
-
-<Callout title="Tip">
-When creating a delivery order, the customer's default address is filled in automatically, but you can pick any of their saved addresses.
-</Callout>
-
-## Store Credit (Balance)
-
-Store credit is a balance on the customer's account that can be used to pay for orders.
-
-### How balance changes
-
-- **Refund to store credit**: When you issue a [refund](/docs/returns-refunds/refunds) with the method **Store Credit**, the amount is added to the customer's balance.
-- **Paying with store credit**: When taking payment on an order for this customer, enable **Use Store Credit** to apply the balance. If the credit doesn't cover the whole amount, the rest is paid with another method.
-
-<Callout title="Note">
-The balance shown on the customer page is managed automatically by orders and refunds. There is no manual "add credit" button. To give a customer credit, issue a refund with the Store Credit method.
-</Callout>
 
 ## Editing a Customer
 
@@ -125,3 +84,9 @@ The balance shown on the customer page is managed automatically by orders and re
 <Callout title="Note">
 Deleting a customer does not delete their order history. Past orders still reference the customer.
 </Callout>
+
+<Cards>
+  <Card title="Customer Addresses" href="/docs/customers/customer-addresses" description="Add, edit, and delete delivery addresses and set a default." />
+  <Card title="Store Credit" href="/docs/customers/store-credit" description="How balance grows from refunds and how customers pay with credit." />
+  <Card title="Creating Orders" href="/docs/orders/creating-orders" description="Ring up sales in the portal with a customer pre-selected." />
+</Cards>

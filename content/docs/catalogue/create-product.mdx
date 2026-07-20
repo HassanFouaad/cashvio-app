@@ -1,0 +1,76 @@
+---
+title: Add a New Product
+description: "Create products with Quick Create or the full wizard: product info, variants, images, and store-specific pricing."
+---
+
+Use this guide to add products from **Catalogue > Products**. For an overview of viewing, editing, and duplicating products, see [Products](/docs/catalogue/products).
+
+<Callout title="Tip">
+Set up your [categories](/docs/catalogue/categories) and [options](/docs/catalogue/options) **before** creating products. This makes the product creation process faster and more organized.
+</Callout>
+
+## How to Add a New Product
+
+1. Go to **Catalogue > Products** in the sidebar.
+2. Click **Add New Product**.
+3. Choose your creation method:
+   - **Quick Create**: A simplified form for simple products
+   - **Full Form**: A multi-step wizard for products with variants and detailed configuration
+
+### Step 1: Product Information
+
+Fill in the basic details:
+
+| Field | Description |
+|-------|-------------|
+| **Product Name** | The name of the product |
+| **Description** | An optional rich-text description |
+| **Category** | The category this product belongs to |
+| **Status** | Active or Inactive (see [Product Statuses](/docs/catalogue/products#product-statuses)) |
+| **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
+| **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
+| **Tax Included** | Toggle to indicate if the selling price already includes tax |
+| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
+
+For how tax and inventory tracking work after creation, see [Tax and inventory](/docs/catalogue/product-tax-inventory).
+
+### Step 2: Variants and Pricing
+
+Add the product's variants. Each variant is added manually with **Add Another Variant**, and you assign [option](/docs/catalogue/options) values (like Size: L, Color: Red) to label it. For each variant, set:
+
+| Field | Description |
+|-------|-------------|
+| **SKU** | A unique stock keeping unit code (auto-suggested from the product name, editable) |
+| **Option Values** | The option values that identify this variant (e.g., "L / Red") |
+| **Selling Price** | The price the customer pays |
+| **Cost Price** | Your cost to acquire the product (needed for accurate profit reports) |
+| **Unit of Measure** | How the product is sold: Piece, Kilogram, Liter, Meter, Square Meter, Cubic Meter, or Unit |
+| **Max Quantity per Order** | Optional cap on how many a customer can buy in one order (empty = unlimited) |
+
+<Callout title="Important">
+**Cost Price** is essential for profit reporting. Without accurate cost prices, profit calculations in the [Reports](/docs/reports/analytics-reports) section will be incorrect.
+</Callout>
+
+### Step 3: Product Images
+
+Upload images for the product:
+
+- **Multiple Images**: Add several images per product
+- **Primary Image**: Choose the main image shown in product lists and on the storefront
+
+<Callout title="Tip">
+Use high-quality images. They make a big difference on your online store.
+</Callout>
+
+### Step 4: Store-Specific Pricing (Multi-Store)
+
+If you have multiple stores, you can set different prices for each store:
+
+1. After creating the product, go to the **Pricing** section.
+2. Click **Add Store Price**.
+3. Select the store and enter the selling price for that store.
+4. Repeat for each store that should have a different price.
+
+If no store-specific price is set, the product uses the default selling price for all stores.
+
+Click **Save** to create the product.

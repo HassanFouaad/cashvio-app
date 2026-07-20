@@ -1,0 +1,34 @@
+---
+title: Tax Calculations
+description: "How Cashvio calculates tax for tax exclusive and tax inclusive product prices."
+---
+
+Tax is calculated based on the **tax rate** set for each product. The **Tax Included** toggle on each product controls which method applies.
+
+## Tax Exclusive (Price does NOT include tax)
+
+If the product price **does not** include tax:
+
+- **Tax = Subtotal × Tax Rate**
+- **Total = Subtotal + Tax**
+
+Example: Product price is 100 EGP, tax rate is 14%
+
+- Tax = 100 × 0.14 = **14 EGP**
+- Total = 100 + 14 = **114 EGP**
+
+## Tax Inclusive (Price includes tax)
+
+If the product price **already includes** tax:
+
+- **Price before tax = Price ÷ (1 + Tax Rate)**
+- **Tax = Price - Price before tax**
+
+Example: Product price is 114 EGP (tax included), tax rate is 14%
+
+- Price before tax = 114 ÷ 1.14 = **100 EGP**
+- Tax = 114 - 100 = **14 EGP**
+
+<Callout title="Important">
+The **Tax Included** toggle on each product controls how tax is calculated. Make sure this is set correctly to avoid pricing errors.
+</Callout>
