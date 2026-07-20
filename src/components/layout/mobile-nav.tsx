@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
-import { mainNavigation } from '@/config/navigation';
+import { mainNavigation, type NavItem } from '@/config/navigation';
 import { cn } from '@/lib/utils/cn';
 import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
@@ -14,6 +14,66 @@ import { AuthAwareActionsMobile } from './auth-aware-actions';
 
 interface MobileNavProps {
   locale: Locale;
+}
+
+interface MobileNavGroupProps {
+  item: NavItem;
+  onNavigate: () => void;
+}
+
+function MobileNavGroup({ item, onNavigate }: MobileNavGroupProps) {
+  const [expanded, setExpanded] = useState(false);
+  const t = useTranslations('navigation');
+  const children = item.children ?? [];
+
+  return (
+    <div className="rounded-xl bg-muted/30 overflow-hidden">
+      <div className="flex items-center">
+        <Link
+          href={item.href}
+          onClick={onNavigate}
+          className="flex-1 px-4 py-3 text-foreground font-medium hover:bg-muted/60 transition-all duration-200"
+        >
+          {t(item.key)}
+        </Link>
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          aria-expanded={expanded}
+          aria-label={t(item.key)}
+          className="px-4 py-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
+        >
+          <svg
+            className={cn('w-4 h-4 transition-transform duration-200', expanded && 'rotate-180')}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </div>
+      {expanded && (
+        <ul className="pb-2">
+          {children.map((child) => (
+            <li key={child.key}>
+              <Link
+                href={child.href}
+                onClick={onNavigate}
+                className="block ps-8 pe-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
+              >
+                {t(child.key)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 export function MobileNav({ locale }: MobileNavProps) {
@@ -79,13 +139,17 @@ export function MobileNav({ locale }: MobileNavProps) {
             <ul className="space-y-1.5">
               {mainNavigation.map((item) => (
                 <li key={item.key}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center px-4 py-3 rounded-xl text-foreground font-medium bg-muted/30 hover:bg-muted/60 transition-all duration-200"
-                  >
-                    {t(item.key)}
-                  </Link>
+                  {item.children?.length ? (
+                    <MobileNavGroup item={item} onNavigate={() => setIsOpen(false)} />
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center px-4 py-3 rounded-xl text-foreground font-medium bg-muted/30 hover:bg-muted/60 transition-all duration-200"
+                    >
+                      {t(item.key)}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
