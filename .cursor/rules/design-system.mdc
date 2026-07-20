@@ -1,0 +1,29 @@
+---
+description: Ledger/receipt design system — reuse marketing components, never hand-assemble sections
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# Design System: "The Shopkeeper's Ledger"
+
+The site has ONE visual identity: receipts, ledgers, mono labels, dashed rules. Pages are assembled from existing pieces, never invented per-page.
+
+## Building blocks (import from `@/components/marketing`)
+
+| Component | Use for |
+| --- | --- |
+| `LedgerHero` | Page hero: eyebrow, title + highlight, subtitle, actions, stamp |
+| `LedgerHeading` | Section heading with mono eyebrow annotation |
+| `ReceiptCard` | Feature/pain/step cards (code, title, description, footer) |
+| `LedgerCta` | Closing call-to-action band |
+| `FaqSection` | FAQ accordion (pair with `schemaTemplates.faqPage`) |
+| `ComparisonTable` / `PlanMatrix` | Ledger-style tables with `[✓]` / `[✗]` markers |
+
+## Conventions
+
+- Section eyebrows: `` `${tLedger('no')} 01 · ${t('section.badge')}` `` (middle dot separator, zero-padded numbers)
+- Section wrapper: `<section className="section-padding-sm">` with `<div className="container-wide">`; alternate bands add `ledger-rules border-y border-border`
+- Receipt-style text uses `font-receipt`; mono micro-labels use `mono-label`
+- CTA links point to `/register` (localized: `/ar/register`); demo requests go to `/contact`
+- No new hex colors in pages; tokens live in `globals.css`
+- Icons/markers: `[✓]` included, `[✗]` not included, `***` for receipt end lines

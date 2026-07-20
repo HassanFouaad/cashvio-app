@@ -1,0 +1,36 @@
+---
+description: SEO invariants — metadata, titles, structured data, URLs, and freshness signals
+alwaysApply: true
+---
+
+# SEO Standards
+
+This is a marketing site whose job is to rank. Every page change must respect these invariants.
+
+## Titles
+
+- The layout template appends `| Cashvio` automatically. NEVER include the brand in a page title string (no "Cashvio — ..." titles; that renders the brand twice).
+- Titles are keyword-first: "Free POS System & Free Online Store", "كاشير مجاني ومتجر إلكتروني مجاني". Put the money keyword before everything else.
+- Descriptions: 140 to 160 characters, include the target keyword naturally, end with a differentiator (free forever, Arabic and English, no credit card).
+
+## Metadata
+
+- New pages use `buildPageMetadata()` from `src/lib/seo/page-metadata.ts` (canonical + hreflang + OG + Twitter in one call). Never hand-roll metadata objects.
+- Titles/descriptions live under `metadata.<namespace>` in BOTH message files.
+- Per-page keywords: `Record<Locale, string[]>`, money keywords first.
+
+## URLs and locales
+
+- English at root (`/features/free-pos`), Arabic prefixed (`/ar/features/free-pos`), `localePrefix: 'as-needed'`.
+- hreflang comes from `getAlternateUrls()` (en, ar, x-default pointing to en). Never build alternate URLs manually.
+- No locale auto-redirects. `localeDetection` stays false.
+
+## Structured data
+
+- JSON-LD only via `schemaTemplates` in `src/config/seo.ts`, serialized with `serializeSchema()`, rendered as `<script type="application/ld+json">` in the server component body.
+- Every marketing page gets at least WebPage + BreadcrumbList. Pages with FAQs add `schemaTemplates.faqPage()`.
+- NEVER fabricate data in schema: no fake `aggregateRating`, review counts, or stats. Only claim shipped features.
+
+## Freshness
+
+- `contentLastUpdated` in `src/config/seo.ts` is bumped ONLY on meaningful content changes. Never use `new Date()` for lastModified or dateModified; a lastmod that changes every build teaches Google to ignore freshness signals.

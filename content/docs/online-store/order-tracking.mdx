@@ -1,6 +1,6 @@
 ---
 title: Customer Order Tracking
-description: Your online store includes a self-serve tracking page where customers follow their order status using the order number and phone — no account needed.
+description: Your online store includes a self-serve tracking page where customers follow their order status using the order number and phone, with no account needed.
 ---
 
 ## Overview
@@ -20,9 +20,11 @@ The order-success page shows the order number with a copy button and a **Track o
 
 The tracking page shows a live view of the order:
 
-- **Status timeline** — the order's progress through fulfillment
-- **Order items** — products and quantities
-- **Totals** — subtotal, discounts, fees, and the final amount
+- **Status timeline**: the order's progress through fulfillment
+- **What happens next**: a short line under the timeline explains the current status (e.g., "Your order is with the courier and on its way to you")
+- **Order items**: products and quantities
+- **Totals**: subtotal, discounts, fees, and the final amount
+- **Contact buttons**: **WhatsApp the store** and **Call the store**, so questions about the order reach you directly
 
 The timeline follows the order's **fulfillment status**:
 
@@ -35,29 +37,40 @@ The timeline follows the order's **fulfillment status**:
 | **Completed** | Order fulfilled |
 | **Cancelled** | Order was cancelled |
 
+<Callout title="No retyping after checkout">
+When a customer opens the tracking page right after placing an order (via the **Track order** button), the phone field is **prefilled automatically** — they only tap Track Order.
+</Callout>
+
+## Contacting You From the Tracking Page
+
+Below the order status (and when a lookup fails), customers see contact buttons:
+
+- **WhatsApp the store**: Opens a chat with your [WhatsApp number](/docs/online-store/storefront-overview#social-media-links--whatsapp), with a message that already includes the order number. Shown only when **Show WhatsApp Button** is enabled.
+- **Call the store**: Dials your storefront contact phone.
+
 ## Keeping the Page Accurate
 
 The tracking page reflects whatever fulfillment status the order has **right now**. To keep customers informed:
 
 1. Open the order from **Sales > All Sales**.
-2. Update the **fulfillment status** as the order progresses (Preparing → Ready → Delivering → Completed).
-3. Optionally click **WhatsApp customer** to send a status message — the tracking link gives customers a place to check anytime without messaging you.
+2. Update the **fulfillment status** as the order progresses (Preparing, then Ready, Delivering, and finally Completed).
+3. Optionally click **WhatsApp customer** to send a status message. The tracking link gives customers a place to check anytime without messaging you.
 
 <Callout title="Fewer 'where is my order?' calls">
-Merchants who update statuses promptly get fewer WhatsApp check-ins — the customer's answer is always one page away.
+Merchants who update statuses promptly get fewer WhatsApp check-ins, because the customer's answer is always one page away.
 </Callout>
 
 ## Requirements & Tips
 
-- The phone number must **match the one entered at checkout** — customers who typo their phone at checkout won't be able to look the order up; you can always share the status manually from order details.
+- The phone number must **match the one entered at checkout**. Customers who typo their phone at checkout won't be able to look the order up; you can always share the status manually from order details.
 - Tracking is available for **online store orders**. POS sales are shared via the digital receipt instead.
-- The page follows your storefront language — customers can switch between Arabic and English.
+- The page follows your storefront language, and customers can switch between Arabic and English.
 
 ## Related Features
 
-- [Checkout Flow](/docs/online-store/checkout-flow) — What customers do before the tracking page matters
-- [Managing Orders](/docs/orders/managing-orders) — Updating fulfillment statuses
-- [WhatsApp Sharing](/docs/orders/whatsapp-sharing) — Proactive status updates on WhatsApp
+- [Checkout Flow](/docs/online-store/checkout-flow): What customers do before the tracking page matters
+- [Managing Orders](/docs/orders/managing-orders): Updating fulfillment statuses
+- [WhatsApp Sharing](/docs/orders/whatsapp-sharing): Proactive status updates on WhatsApp
 
 ## FAQs
 
@@ -68,4 +81,4 @@ A: No. The order number plus the checkout phone number is all they need.
 A: No. Both the order number and the matching phone number are required, and lookups are rate-limited.
 
 **Q: What shows for pickup orders vs delivery orders?**
-A: The timeline adapts — pickup orders show **Ready** for collection, delivery orders show **Delivering** on the way.
+A: The timeline adapts: pickup orders show **Ready** for collection, delivery orders show **Delivering** on the way.

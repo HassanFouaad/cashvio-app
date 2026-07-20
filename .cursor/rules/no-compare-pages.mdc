@@ -1,0 +1,13 @@
+---
+description: Restriction — competitor comparison pages are banned
+alwaysApply: true
+---
+
+# No Competitor Comparison Pages
+
+The owner removed all `/compare/*` pages (Loyverse, Foodics, Odoo POS) deliberately. Do not bring them back.
+
+- NEVER create pages, routes, or content comparing Cashvio to a named competitor (no `/compare/*`, no "Cashvio vs X" pages or titles).
+- `next.config.ts` permanently redirects `/compare/:path*` and `/ar/compare/:path*` to the homepage. Keep these redirects; old URLs may still be indexed.
+- Allowed: generic comparison SECTIONS inside feature pages using `ComparisonTable` against unnamed "generic platforms" (see the `arabicPos` page's comparison section). The distinction: generic category comparisons are fine, named-competitor pages are not.
+- Do not add competitor names to keywords arrays, titles, or JSON-LD.

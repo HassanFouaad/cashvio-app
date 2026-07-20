@@ -1,0 +1,50 @@
+---
+description: Content writing style — banned characters and human copywriter voice for all user-visible text
+alwaysApply: true
+---
+
+# Content Style (CRITICAL)
+
+All user-visible text must read like it was written by an expert human content writer, never like AI output.
+
+## Banned characters in ALL content
+
+Never use these in any user-visible string (messages/*.json, content/docs/**, JSON-LD descriptions, text served by routes like llms.txt/auth.md, or strings rendered from .tsx):
+
+- Em-dash `—` (U+2014)
+- En-dash `–` (U+2013)
+- Arrow `→` (U+2192)
+- Never substitute with `--` or a floating hyphen either
+
+Hyphens inside compound words are fine: `end-of-day`, `low-stock`, `sign-up`.
+
+## How to rewrite instead
+
+Vary by context; never apply one strategy mechanically:
+
+```text
+BAD:  Free forever plan — no credit card needed
+GOOD: Free forever plan, no credit card needed
+
+BAD:  Six ready reports — overview, profit, customers
+GOOD: Six ready reports: overview, profit, customers
+
+BAD:  Track stock in real time — never oversell again
+GOOD: Track stock in real time. Never oversell again.
+
+BAD:  Pending → Approved
+GOOD: Pending to Approved   (prose)  |  Settings > Branding   (navigation paths)
+```
+
+## Fixed conventions
+
+- Receipt/ledger mono labels use a middle dot: `NO. 01 · WHAT YOU GET`
+- Table "not included" marker is `[✗]`, never `[—]`
+- Docs navigation paths use `>`: "Settings > Branding"
+- Status flows in docs: "Pending, then Preparing, then Ready" or "moves through X, Y, and Z"
+
+## Voice
+
+- Punchy, confident, concrete. Short sentences over long ones.
+- Arabic copy: Modern Standard Arabic with the file's existing light Egyptian flavor (شوف، اللي، مش). Match the register of surrounding strings; do not formalize casual copy or casualize formal copy.
+- Keep SEO keywords intact when editing (free POS, free cashier, كاشير مجاني, متجر إلكتروني مجاني).

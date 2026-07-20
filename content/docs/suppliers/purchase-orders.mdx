@@ -15,7 +15,7 @@ A **purchase order** (PO) is a formal request to buy products from a supplier. I
 
 ### Step 1: Store & Items
 - Select the **store** the stock is for and the **supplier**.
-- Add products from your catalogue — for each item set the **quantity** and the agreed **unit cost** (plus optional notes).
+- Add products from your catalogue. For each item, set the **quantity** and the agreed **unit cost** (plus optional notes).
 
 ### Step 2: Date & Fees
 - Set the **expected delivery date** (optional).
@@ -24,13 +24,13 @@ A **purchase order** (PO) is a formal request to buy products from a supplier. I
 
 ### Shortcut: Create from a Low-Stock Item
 
-You can also start a purchase order directly from [Inventory > Low Stock](/docs/inventory/stock-management#restocking-directly-from-low-stock): open the row's actions menu and choose **Create Purchase Order**. The form opens with the store preselected and the item already added — with a **suggested restock quantity** and the variant's **purchase price** as the unit cost. You only pick the supplier and submit.
+You can also start a purchase order directly from [Inventory > Low Stock](/docs/inventory/stock-management#restocking-directly-from-low-stock): open the row's actions menu and choose **Create Purchase Order**. The form opens with the store preselected and the item already added, with a **suggested restock quantity** and the variant's **purchase price** as the unit cost. You only pick the supplier and submit.
 
 ## Purchase Order Statuses
 
 | Status | Meaning |
 |--------|---------|
-| **Draft** | PO created — review it, then approve |
+| **Draft** | PO created; review it, then approve |
 | **Approved** | PO approved and waiting for delivery |
 | **Partially Received** | Some items have arrived and been received; the rest are still expected |
 | **Completed** | All items received and stock updated |
@@ -38,8 +38,8 @@ You can also start a purchase order directly from [Inventory > Low Stock](/docs/
 
 ## Approving and Cancelling
 
-- **Approve** — available for Draft POs. To prevent mistakes, you confirm by **typing "APPROVE"** in the dialog.
-- **Cancel** — available for Draft and Approved POs, confirmed by **typing "CANCEL"**. Cancelling changes nothing in inventory.
+- **Approve**: available for Draft POs. To prevent mistakes, you confirm by **typing "APPROVE"** in the dialog.
+- **Cancel**: available for Draft and Approved POs, confirmed by **typing "CANCEL"**. Cancelling changes nothing in inventory.
 
 ## Receiving Stock from a Purchase Order
 
@@ -60,19 +60,19 @@ Receiving stock requires the Inventory module to be enabled in your plan.
 
 The **Purchase Orders** page shows all POs with filters:
 
-- **PO Number** — Search by PO number
-- **Store** — Filter by store
-- **Supplier** — Filter by supplier
-- **Status** — Filter by PO status
-- **Date Range** — Filter by date
+- **PO Number**: Search by PO number
+- **Store**: Filter by store
+- **Supplier**: Filter by supplier
+- **Status**: Filter by PO status
+- **Date Range**: Filter by date
 
 ## How Purchase Orders Affect the System
 
 | Action | Effect |
 |--------|--------|
-| **PO Created / Approved** | No inventory change — it is a record of intent |
+| **PO Created / Approved** | No inventory change; it is a record of intent |
 | **Stock Received** | Inventory increases by the received quantities (each receipt is logged as an adjustment) |
-| **PO Cancelled** | No inventory change — the order is voided |
+| **PO Cancelled** | No inventory change; the order is voided |
 
 <Callout title="Tip">
 Use the [Low Stock](/docs/inventory/stock-management) alerts in the Inventory section to identify which products need restocking, then create a Purchase Order to order them from the appropriate [supplier](/docs/suppliers/managing-suppliers).

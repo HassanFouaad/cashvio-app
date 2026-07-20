@@ -1,0 +1,21 @@
+---
+description: Core Web Vitals constraints — third-party scripts, fonts, and images
+alwaysApply: true
+---
+
+# Performance (Core Web Vitals are a ranking factor)
+
+## Third-party scripts
+
+- NEVER load a third-party script eagerly in layouts or pages. Chatwoot in `src/app/[locale]/layout.tsx` is the reference pattern: inject only on first user interaction (pointerdown/keydown/touchstart/scroll with `once: true`) or after a `requestIdleCallback` + timeout fallback.
+- Analytics stay behind the existing `AnalyticsProvider` / `MetaPixelProvider` wrappers; do not add raw `<script src>` tags.
+
+## Fonts
+
+- Fonts load ONLY through `next/font/google` with `display: "swap"`, `preload`, explicit `weight` arrays, and fallbacks. Never add a font `<link>` tag and never add unused weights (each weight is a render-blocking file on Arabic pages).
+
+## Images
+
+- Always `next/image`. Marketing screenshots use the existing `ThemedShot`/`FeatureScreenshot` components.
+- Above-the-fold images get `priority`; everything else lazy-loads.
+- Static assets rely on the immutable cache headers in `next.config.ts`; do not add cache-busting query strings.
