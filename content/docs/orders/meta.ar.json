@@ -3,6 +3,7 @@
   "pages": [
     "creating-orders",
     "pos-barcode-scanning",
+    "pos-cashier-shortcuts",
     "pos-cart-discounts",
     "pos-taking-payment",
     "managing-orders",

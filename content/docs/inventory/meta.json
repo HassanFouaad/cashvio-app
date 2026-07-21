@@ -1,4 +1,4 @@
 {
   "title": "Inventory",
-  "pages": ["stock-management", "low-stock-alerts", "adjustments-transfers", "stock-transfers"]
+  "pages": ["stock-management", "stocktake", "low-stock-alerts", "adjustments-transfers", "stock-transfers"]
 }

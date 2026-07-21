@@ -1,0 +1,62 @@
+---
+title: POS Cashier Shortcuts
+description: "Type bulk quantities on the ticket, open the cash drawer with no sale, and pair or test your receipt printer before customers arrive."
+---
+
+Small counter habits that save time on every sale. These work on the full-screen **New Sale** screen and in store **Receipt** settings.
+
+## Type a quantity (bulk packs)
+
+The ticket stepper is fine for 1 or 2 units. For a case of 24 bottles, tapping **+** twenty-four times is the wrong tool.
+
+1. Open **New Sale** and add the product to the ticket.
+2. Tap the **quantity number** between the minus and plus controls.
+3. Type the count (for example `24`) and press Enter, or tap outside the field.
+4. **Max quantity per order** and available stock still apply. If you type above either limit, you see an error and the line stays unchanged (same rules as the plus button).
+5. Type `0` to remove the line.
+
+Plus and minus still work for small adjustments.
+
+## Open the cash drawer (no sale)
+
+Use this when you need the drawer open without completing a sale (change, float check, or end-of-day).
+
+1. On **New Sale**, look in the top bar for the **cash** icon (**Open cash drawer**).
+2. Tap it. The paired thermal printer sends a drawer-kick pulse (same signal used after a cash sale print).
+3. If no printer is paired yet, the browser asks you to choose one first.
+
+<Callout title="Needs a thermal printer">
+The drawer opens through the receipt printer's kick cable. Browser / system print cannot open a drawer. Pair the printer under **Settings > Stores > Receipt** first if the icon is missing or pairing fails.
+</Callout>
+
+You can also open the drawer from **Receipt** settings (see below).
+
+## Pair and test the printer before a sale
+
+Pairing used to happen mid-sale while a customer waited. Do it once in settings:
+
+1. Go to **Settings > Stores**, open your store, then the **Receipt** tab.
+2. In the **Printer** card, check the status line (paired device name, browser print, or none).
+3. Tap **Pair printer** (or **Change printer**) and pick the USB or Bluetooth COM device.
+4. Tap **Test print** to send a sample receipt labeled `TEST-PRINT` (not a real order).
+5. Optionally tap **Open cash drawer** to confirm the kick cable.
+
+Your choice is remembered **per store on this browser**. Use **Remove** if you need to clear it.
+
+## Related Features
+
+- [Creating Orders](/docs/orders/creating-orders): the New Sale screen
+- [Receipt Settings](/docs/stores/receipt-settings): header, footer, auto-print, and printer setup
+- [Print and Share Receipts](/docs/orders/print-share-receipts): print after a real order
+- [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): success screen print actions
+
+## FAQs
+
+**Q: Does typing a quantity skip stock checks?**
+A: No. The same stock and max-per-order rules as the plus button still apply.
+
+**Q: Why is Open cash drawer missing?**
+A: The icon appears only when this browser supports thermal printing (Chrome or Edge with Web Serial or WebUSB). Pair and test from **Receipt** settings on a supported device.
+
+**Q: Will Test print create an order in reports?**
+A: No. It prints a local sample with order number `TEST-PRINT` and never calls the API.

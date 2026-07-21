@@ -22,6 +22,7 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 | **Available** | Units that can still be sold |
 | **Committed** | Units reserved by pending orders |
 | **On Hand** | Physical units in the store (available + committed) |
+| **Last Counted** | When this item was last included in a [stocktake](/docs/inventory/stocktake) (empty until you run one) |
 
 You can search, filter to low-stock only, and **export the current view to CSV**.
 
@@ -56,7 +57,8 @@ Only products with **Track Inventory** enabled are affected by these stock chang
 </Callout>
 
 <Cards>
+  <Card title="Stocktake" href="/docs/inventory/stocktake" description="Physical count sheet, enter counts, and apply them in one submit." />
   <Card title="Low Stock Alerts" href="/docs/inventory/low-stock-alerts" description="Reorder points, the Low Stock list, and creating purchase orders." />
-  <Card title="Stock Adjustments" href="/docs/inventory/adjustments-transfers" description="Manual counts, damaged items, and adjustment history." />
+  <Card title="Stock Adjustments" href="/docs/inventory/adjustments-transfers" description="One-off corrections, damaged items, and adjustment history." />
   <Card title="Stock Transfers" href="/docs/inventory/stock-transfers" description="Move inventory between stores instantly." />
 </Cards>
