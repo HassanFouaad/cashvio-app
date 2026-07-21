@@ -334,7 +334,7 @@
           }
         ],
         "totalLabel": "Total",
-        "totalValue": "EGP 0.00",
+        "totalValue": "0.00",
         "stamp": "Free forever",
         "thanks": "Thank you for opening your shop with us"
       }
@@ -4562,7 +4562,12 @@
     "featuresBadge": "WHAT YOU GET",
     "ctaButton": "Create your free account",
     "ctaSecondaryButton": "See pricing",
-    "ctaNote": "Set up in minutes, in Arabic and English"
+    "ctaNote": "Set up in minutes, in Arabic and English",
+    "receipt": {
+      "totalLabel": "Total",
+      "totalValue": "0.00",
+      "stamp": "Free forever"
+    }
   },
   "industriesHub": {
     "hero": {
@@ -4718,6 +4723,37 @@
     "cta": {
       "title": "Open the register in minutes",
       "subtitle": "Free for your cafe: no credit card, no sales call."
+    },
+    "receipt": {
+      "title": "Cashvio * Cafe Receipt",
+      "number": "NO. 000001 · YOUR CAFE",
+      "items": [
+        {
+          "name": "Fast checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Order notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Dine-in & delivery",
+          "value": "0.00"
+        },
+        {
+          "name": "WhatsApp updates",
+          "value": "0.00"
+        },
+        {
+          "name": "Stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Daily profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your cafe with us"
     }
   },
   "industryClothing": {
@@ -4787,6 +4823,37 @@
     "cta": {
       "title": "Put the back office on autopilot",
       "subtitle": "Free for your boutique: start with your bestsellers today."
+    },
+    "receipt": {
+      "title": "Cashvio * Boutique Receipt",
+      "number": "NO. 000001 · YOUR BOUTIQUE",
+      "items": [
+        {
+          "name": "Size & color variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Barcode labels",
+          "value": "0.00"
+        },
+        {
+          "name": "Returns with credit",
+          "value": "0.00"
+        },
+        {
+          "name": "Coupons everywhere",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online boutique",
+          "value": "0.00"
+        },
+        {
+          "name": "Stock sync",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your boutique with us"
     }
   },
   "industryMinimarket": {
@@ -4856,6 +4923,37 @@
     "cta": {
       "title": "Retire the notebooks",
       "subtitle": "The register, the stock, and the credit book. One free system."
+    },
+    "receipt": {
+      "title": "Cashvio * Minimarket Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "USB barcode scan",
+          "value": "0.00"
+        },
+        {
+          "name": "Digital credit book",
+          "value": "0.00"
+        },
+        {
+          "name": "Low-stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "End-of-day profit",
+          "value": "0.00"
+        },
+        {
+          "name": "Fast counter",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your shop with us"
     }
   },
   "industryRestaurant": {
@@ -4925,6 +5023,37 @@
     "cta": {
       "title": "Open your restaurant register today",
       "subtitle": "Free forever, no credit card, Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Restaurant Receipt",
+      "number": "NO. 000001 · YOUR KITCHEN",
+      "items": [
+        {
+          "name": "Service checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Table & delivery status",
+          "value": "0.00"
+        },
+        {
+          "name": "WhatsApp updates",
+          "value": "0.00"
+        },
+        {
+          "name": "Stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Staff logins",
+          "value": "0.00"
+        },
+        {
+          "name": "Daily profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your restaurant with us"
     }
   },
   "industrySupermarket": {
@@ -4994,6 +5123,37 @@
     "cta": {
       "title": "Scan your first sale today",
       "subtitle": "Free forever for grocery stores."
+    },
+    "receipt": {
+      "title": "Cashvio * Grocery Receipt",
+      "number": "NO. 000001 · YOUR STORE",
+      "items": [
+        {
+          "name": "Barcode checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Credit book",
+          "value": "0.00"
+        },
+        {
+          "name": "Low-stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Multi-aisle stock",
+          "value": "0.00"
+        },
+        {
+          "name": "Closing profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your store with us"
     }
   },
   "industryPharmacy": {
@@ -5063,6 +5223,37 @@
     "cta": {
       "title": "Set up your pharmacy register",
       "subtitle": "Free forever, no credit card, ready in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Pharmacy Receipt",
+      "number": "NO. 000001 · YOUR PHARMACY",
+      "items": [
+        {
+          "name": "Barcode checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "SKU stock control",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer profiles",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Staff permissions",
+          "value": "0.00"
+        },
+        {
+          "name": "Daily reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your pharmacy with us"
     }
   },
   "industryBakery": {
@@ -5132,6 +5323,37 @@
     "cta": {
       "title": "Open the bakery register free",
       "subtitle": "No credit card. Arabic and English from day one."
+    },
+    "receipt": {
+      "title": "Cashvio * Bakery Receipt",
+      "number": "NO. 000001 · YOUR BAKERY",
+      "items": [
+        {
+          "name": "Packed-item checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Custom cake notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Pickup statuses",
+          "value": "0.00"
+        },
+        {
+          "name": "Packaging stock",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "End-of-day profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your bakery with us"
     }
   },
   "industryMobileShop": {
@@ -5201,6 +5423,37 @@
     "cta": {
       "title": "Run your mobile shop on one system",
       "subtitle": "Free forever. Start in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Mobile Shop Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Device variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Accessory barcodes",
+          "value": "0.00"
+        },
+        {
+          "name": "Credit sales",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Stock sync",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your mobile shop with us"
     }
   },
   "industryBeauty": {
@@ -5270,6 +5523,37 @@
     "cta": {
       "title": "Open your beauty register free",
       "subtitle": "Arabic and English. No credit card."
+    },
+    "receipt": {
+      "title": "Cashvio * Beauty Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Shade & size variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Barcode labels",
+          "value": "0.00"
+        },
+        {
+          "name": "Returns with credit",
+          "value": "0.00"
+        },
+        {
+          "name": "Coupons",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Margin reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your beauty shop with us"
     }
   },
   "freePosEgypt": {
@@ -5339,6 +5623,37 @@
     "cta": {
       "title": "Start your free POS today",
       "subtitle": "Register in minutes. No credit card. Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Free POS Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Arabic & English POS",
+          "value": "0.00"
+        },
+        {
+          "name": "Local-currency pricing",
+          "value": "0.00"
+        },
+        {
+          "name": "Offline-capable sales",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Inventory & POs",
+          "value": "0.00"
+        },
+        {
+          "name": "WhatsApp updates",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your shop with us"
     }
   },
   "vatCalculator": {
@@ -5582,6 +5897,37 @@
     "cta": {
       "title": "Open your bookstore register",
       "subtitle": "Free forever, no credit card, ready in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Bookstore Receipt",
+      "number": "NO. 000001 · YOUR BOOKSHOP",
+      "items": [
+        {
+          "name": "SKU & barcode checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Title stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer profiles",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Daily profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your bookstore with us"
     }
   },
   "industryGiftShop": {
@@ -5651,6 +5997,37 @@
     "cta": {
       "title": "Start your gift shop register",
       "subtitle": "Arabic and English. Free forever."
+    },
+    "receipt": {
+      "title": "Cashvio * Gift Shop Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Fast gift checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Wrap variants & notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Seasonal stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "WhatsApp updates",
+          "value": "0.00"
+        },
+        {
+          "name": "Coupons & credit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your gift shop with us"
     }
   },
   "industryJewelry": {
@@ -5720,6 +6097,37 @@
     "cta": {
       "title": "Secure your jewelry register",
       "subtitle": "Free forever, no credit card."
+    },
+    "receipt": {
+      "title": "Cashvio * Jewelry Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Barcode-first checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Piece-level stock",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer credit",
+          "value": "0.00"
+        },
+        {
+          "name": "Staff permissions",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Profit reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your jewelry shop with us"
     }
   },
   "industryHardware": {
@@ -5789,6 +6197,37 @@
     "cta": {
       "title": "Run your hardware counter free",
       "subtitle": "Arabic and English. Ready in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Hardware Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "USB barcode scan",
+          "value": "0.00"
+        },
+        {
+          "name": "Digital credit book",
+          "value": "0.00"
+        },
+        {
+          "name": "Low-stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Multi-store ready",
+          "value": "0.00"
+        },
+        {
+          "name": "End-of-day profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your hardware shop with us"
     }
   },
   "industryElectronics": {
@@ -5858,6 +6297,37 @@
     "cta": {
       "title": "Open your electronics register",
       "subtitle": "Free forever. Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Electronics Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Model variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Barcode labels",
+          "value": "0.00"
+        },
+        {
+          "name": "Warranty notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer credit",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase & reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your electronics shop with us"
     }
   },
   "freeOnlineStoreEgypt": {
@@ -5927,6 +6397,37 @@
     "cta": {
       "title": "Launch your free store",
       "subtitle": "Register in minutes. No credit card. Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Online Store Receipt",
+      "number": "NO. 000001 · YOUR STORE",
+      "items": [
+        {
+          "name": "Arabic storefront",
+          "value": "0.00"
+        },
+        {
+          "name": "Local-currency checkout",
+          "value": "0.00"
+        },
+        {
+          "name": "Stock synced with POS",
+          "value": "0.00"
+        },
+        {
+          "name": "No free-plan commission",
+          "value": "0.00"
+        },
+        {
+          "name": "Order statuses",
+          "value": "0.00"
+        },
+        {
+          "name": "Coupons & profiles",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your store with us"
     }
   },
   "customerCredit": {

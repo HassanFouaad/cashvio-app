@@ -7,7 +7,9 @@ import {
   LedgerCta,
   ReceiptCard,
   FaqSection,
+  PrinterReceipt,
 } from '@/components/marketing';
+import type { PrinterReceiptItem } from '@/components/marketing/printer-receipt';
 import {
   schemaTemplates,
   serializeSchema,
@@ -27,9 +29,9 @@ const featureKeys = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6'] as const;
 const faqKeys = ['q1', 'q2', 'q3'] as const;
 
 /**
- * Shared layout for industry landing pages: hero, the pains of running
- * that business on paper, what Cashvio gives the vertical (honest,
- * shipped features only), FAQ (with schema), and the closing CTA.
+ * Shared layout for industry landing pages: hero with printer receipt,
+ * the pains of running that business on paper, what Cashvio gives the
+ * vertical (honest, shipped features only), FAQ (with schema), and CTA.
  */
 export async function IndustryPageShell({ locale, namespace, path }: IndustryPageShellProps) {
   const t = await getTranslations({ locale, namespace });
@@ -42,6 +44,8 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
   const localizedPath = locale === 'en' ? path : `/ar${path}`;
   const itemCode = (index: number): string =>
     `${tLedger('item')} ${String(index + 1).padStart(2, '0')}`;
+
+  const receiptItems = t.raw('receipt.items') as PrinterReceiptItem[];
 
   const webPageSchema = schemaTemplates.webPage({
     locale,
@@ -118,9 +122,21 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
         secondaryAction={{ label: tIndustries('heroSecondaryCta'), href: pricingLink }}
         note={tIndustries('heroNote')}
         stamp={tIndustries('freeStamp')}
+        aside={
+          Array.isArray(receiptItems) && receiptItems.length > 0 ? (
+            <PrinterReceipt
+              title={t('receipt.title')}
+              number={t('receipt.number')}
+              items={receiptItems}
+              totalLabel={tIndustries('receipt.totalLabel')}
+              totalValue={tIndustries('receipt.totalValue')}
+              stamp={tIndustries('receipt.stamp')}
+              thanks={t('receipt.thanks')}
+            />
+          ) : undefined
+        }
       />
 
-      {/* The pains */}
       <section aria-label={t('pains.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
@@ -140,8 +156,10 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
         </div>
       </section>
 
-      {/* What Cashvio gives this vertical */}
-      <section aria-label={t('features.title')} className="section-padding-sm ledger-rules border-y border-border">
+      <section
+        aria-label={t('features.title')}
+        className="section-padding-sm ledger-rules border-y border-border"
+      >
         <div className="container-wide">
           <LedgerHeading
             eyebrow={`${tLedger('no')} 02 · ${tIndustries('featuresBadge')}`}

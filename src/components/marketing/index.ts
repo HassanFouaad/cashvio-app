@@ -3,6 +3,7 @@ export { LedgerHero } from './ledger-hero';
 export { LedgerCta } from './ledger-cta';
 export { ReceiptCard } from './receipt-card';
 export { ReceiptStamp } from './receipt-stamp';
+export { PrinterReceipt } from './printer-receipt';
 export { PriceTag } from './price-tag';
 export { TearDivider } from './tear-divider';
 export { SalesTicker } from './sales-ticker';
