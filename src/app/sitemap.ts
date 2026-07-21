@@ -29,6 +29,9 @@ const staticPages: PageConfig[] = [
   { path: '/features/returns-and-refunds' },
   { path: '/features/multi-store-management' },
   { path: '/features/team-management' },
+  { path: '/features/customer-credit' },
+  { path: '/features/whatsapp-commerce' },
+  { path: '/features/barcode-pos' },
   { path: '/pricing' },
   { path: '/contact' },
   { path: '/register' },
@@ -53,7 +56,13 @@ const staticPages: PageConfig[] = [
   { path: '/industries/bakery' },
   { path: '/industries/mobile-shop' },
   { path: '/industries/beauty' },
+  { path: '/industries/bookstore' },
+  { path: '/industries/gift-shop' },
+  { path: '/industries/jewelry' },
+  { path: '/industries/hardware' },
+  { path: '/industries/electronics' },
   { path: '/free-pos-egypt' },
+  { path: '/free-online-store-egypt' },
 ];
 
 const locales = ['en', 'ar'] as const;

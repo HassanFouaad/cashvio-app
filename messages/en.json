@@ -120,7 +120,7 @@
     },
     "industriesHub": {
       "title": "Free POS by Business Type: Cafe, Restaurant, Pharmacy & More",
-      "description": "See how a free POS and free online store fit your business in Egypt. Guides for cafes, restaurants, pharmacies, bakeries, mobile shops, and more."
+      "description": "See how a free POS and free online store fit your business in Egypt. Guides for cafes, restaurants, pharmacies, bookstores, gift shops, jewelry, hardware, electronics, and more."
     },
     "industryRestaurant": {
       "title": "Restaurant POS Egypt: Free Cashier for Restaurants",
@@ -157,6 +157,42 @@
     "invoiceGenerator": {
       "title": "Free Invoice Generator: Printable Bilingual Receipt Maker",
       "description": "Make a printable invoice or sales receipt in your browser. Bilingual labels, optional Egypt 14% VAT, free, no signup, no watermark."
+    },
+    "industryBookstore": {
+      "title": "Bookstore POS: Free Cashier for Bookshops",
+      "description": "A free bookstore POS: SKU and barcode checkout, stock alerts, customer profiles, purchase orders, and a free online store for books. Arabic and English."
+    },
+    "industryGiftShop": {
+      "title": "Gift Shop POS: Free Cashier for Flowers & Gifts",
+      "description": "A free gift and flower shop POS: fast checkout, variants, stock alerts, WhatsApp updates, coupons, and a free online store. Built for Egypt."
+    },
+    "industryJewelry": {
+      "title": "Jewelry Store POS: Free Cashier for Gold Shops",
+      "description": "A free jewelry POS: barcode checkout, precise stock, customer credit, staff permissions, and daily profit. Arabic and English."
+    },
+    "industryHardware": {
+      "title": "Hardware Store POS: Free Cashier for Tools Shops",
+      "description": "A free hardware and tools POS: USB barcode scanning, digital credit book, low-stock alerts, purchase orders, and end-of-day profit."
+    },
+    "industryElectronics": {
+      "title": "Electronics Store POS: Free Cashier for Appliances",
+      "description": "A free electronics POS for appliances and accessories: variants, barcodes, credit, purchase orders, and a free online store. Distinct from phone shops."
+    },
+    "freeOnlineStoreEgypt": {
+      "title": "Free Online Store Egypt: Free Ecommerce in EGP",
+      "description": "Free online store for Egypt: Arabic storefront, EGP pricing, stock synced with your free POS, no commission on the free plan. No credit card."
+    },
+    "customerCredit": {
+      "title": "Customer Credit & Digital Credit Book for Retail",
+      "description": "Replace paper آجل notes with store credit, balances, and payment history inside your free POS. Phone-number profiles. Free forever, no credit card."
+    },
+    "whatsappCommerce": {
+      "title": "WhatsApp Order Updates for Your Free POS",
+      "description": "Share order status and digital receipts on WhatsApp from Cashvio. One queue for POS and online store orders. Free forever, Arabic and English."
+    },
+    "barcodePos": {
+      "title": "Barcode POS: USB Scanning & Labels for Retail",
+      "description": "Free barcode POS checkout with USB scanning, printable labels, and live stock updates. Built into Cashvio for Egypt retail. No credit card."
     }
   },
   "common": {
@@ -220,7 +256,16 @@
     "industryBeauty": "Cosmetics POS",
     "freePosEgypt": "Free POS Egypt",
     "vatCalculator": "VAT Calculator",
-    "invoiceGenerator": "Invoice Generator"
+    "invoiceGenerator": "Invoice Generator",
+    "industryBookstore": "Bookstore POS",
+    "industryGiftShop": "Gift Shop POS",
+    "industryJewelry": "Jewelry POS",
+    "industryHardware": "Hardware Store POS",
+    "industryElectronics": "Electronics POS",
+    "freeOnlineStoreEgypt": "Free Online Store Egypt",
+    "customerCredit": "Customer Credit",
+    "whatsappCommerce": "WhatsApp Commerce",
+    "barcodePos": "Barcode POS"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -1338,6 +1383,21 @@
       "teamManagement": {
         "title": "Team & Permissions",
         "description": "A login for every employee with exactly the access their job needs, and a record of who did what.",
+        "cta": "Learn More"
+      },
+      "customerCredit": {
+        "title": "Customer Credit",
+        "description": "Digital credit book with store credit, balances, and payment history from a phone number.",
+        "cta": "Learn More"
+      },
+      "whatsappCommerce": {
+        "title": "WhatsApp Commerce",
+        "description": "Share order status and digital receipts on WhatsApp from one order queue.",
+        "cta": "Learn More"
+      },
+      "barcodePos": {
+        "title": "Barcode POS",
+        "description": "USB barcode scanning, printable labels, and live stock updates at the register.",
         "cta": "Learn More"
       }
     },
@@ -4555,11 +4615,36 @@
         "title": "Beauty & Cosmetics",
         "description": "Shades and sizes as variants, barcode labels, returns with store credit, and coupons everywhere.",
         "cta": "See the cosmetics POS"
+      },
+      "bookstore": {
+        "title": "Bookstores & Stationery",
+        "description": "SKU and barcode checkout, stock alerts, customer history, and a free online store for titles and supplies.",
+        "cta": "See the bookstore POS"
+      },
+      "giftShop": {
+        "title": "Gift Shops & Florists",
+        "description": "Seasonal stock, variants for wraps, WhatsApp updates, coupons, and a free online gift store.",
+        "cta": "See the gift shop POS"
+      },
+      "jewelry": {
+        "title": "Jewelry & Gold Shops",
+        "description": "Barcode checkout for high-value pieces, customer credit, staff permissions, and profit reports.",
+        "cta": "See the jewelry POS"
+      },
+      "hardware": {
+        "title": "Hardware & Tools Shops",
+        "description": "USB barcode scanning, digital credit book, low-stock alerts, and purchase orders for high SKU counts.",
+        "cta": "See the hardware POS"
+      },
+      "electronics": {
+        "title": "Electronics & Appliances",
+        "description": "Variants for models and colors, barcodes, credit sales, and a free online store for appliances and accessories.",
+        "cta": "See the electronics POS"
       }
     },
     "more": {
       "title": "Need another business type?",
-      "subtitle": "Cashvio also fits bookstores, gift shops, and other product retailers. Start free and shape it around how you already sell."
+      "subtitle": "Cashvio also fits stationery corners, home goods, and other product retailers. Start free and shape it around how you already sell."
     },
     "cta": {
       "title": "Start with the free plan today",
@@ -5428,6 +5513,645 @@
       "subtitle": "Cashvio turns every POS and online sale into a proper receipt, free.",
       "button": "Create your free account",
       "note": "Free forever plan: no credit card needed"
+    }
+  },
+  "industryBookstore": {
+    "hero": {
+      "title": "A bookstore POS that tracks",
+      "titleHighlight": "every title on the shelf",
+      "subtitle": "SKU and barcode checkout, stock alerts, customer history, and a free online store for books and stationery. Free for bookshops in Egypt."
+    },
+    "pains": {
+      "title": "Where bookstore paper fails",
+      "p1": {
+        "title": "Titles look alike",
+        "description": "Similar covers and editions make hand lists slow and easy to sell the wrong ISBN."
+      },
+      "p2": {
+        "title": "Seasonal dead stock",
+        "description": "School season and exam weeks bury slow titles until you count the shelf by hand."
+      },
+      "p3": {
+        "title": "Online requests on chat",
+        "description": "Customers ask for books on WhatsApp while the shelf count lives in a notebook."
+      }
+    },
+    "features": {
+      "title": "What your bookstore gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Barcode and SKU checkout",
+        "description": "Scan or search titles at the register so editions ring up correctly."
+      },
+      "f2": {
+        "title": "Stock per title",
+        "description": "Track every SKU with low-stock alerts before popular titles run out."
+      },
+      "f3": {
+        "title": "Customer profiles",
+        "description": "Start from a phone number: visits, spending, store credit, and order history."
+      },
+      "f4": {
+        "title": "Free online store",
+        "description": "List books online with stock synced to the shelf. No commission on the free plan."
+      },
+      "f5": {
+        "title": "Purchase orders",
+        "description": "Reorder from suppliers, receive in parts, and update inventory automatically."
+      },
+      "f6": {
+        "title": "Daily profit reports",
+        "description": "See which titles earned today instead of guessing from the till."
+      }
+    },
+    "faq": {
+      "title": "Bookstore POS FAQ",
+      "q1": {
+        "question": "Is this a free bookstore POS?",
+        "answer": "Yes. The free plan includes the cashier, inventory, customers, online store, and reports. Upgrade only when you need more branches or users."
+      },
+      "q2": {
+        "question": "Can I import my title list?",
+        "answer": "Yes. Export to CSV from your current list, map it to Cashvio's template, and upload. The import wizard validates before saving."
+      },
+      "q3": {
+        "question": "Does it work in Arabic?",
+        "answer": "Yes. Arabic-first with full RTL across the dashboard, POS, and receipts. Switch to English anytime."
+      }
+    },
+    "cta": {
+      "title": "Open your bookstore register",
+      "subtitle": "Free forever, no credit card, ready in minutes."
+    }
+  },
+  "industryGiftShop": {
+    "hero": {
+      "title": "A gift and flower POS for",
+      "titleHighlight": "seasons and last-minute rushes",
+      "subtitle": "Fast checkout, variants for wraps and sizes, stock alerts, and a free online store. Free for gift shops and florists in Egypt."
+    },
+    "pains": {
+      "title": "Where gift shop paper fails",
+      "p1": {
+        "title": "Season spikes",
+        "description": "Mother's Day and holidays empty shelves while your notebook still shows last week's count."
+      },
+      "p2": {
+        "title": "Bundles on sticky notes",
+        "description": "Flower plus chocolate plus wrap gets reinvented every sale with no shared price."
+      },
+      "p3": {
+        "title": "Orders stuck in chat",
+        "description": "Pickup and delivery requests live in WhatsApp while the till has no status trail."
+      }
+    },
+    "features": {
+      "title": "What your gift shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Fast gift checkout",
+        "description": "Big tiles and barcodes move flowers, wraps, and ready gifts through the line."
+      },
+      "f2": {
+        "title": "Variants and notes",
+        "description": "Sizes, colors, and order notes travel with the sale so the wrap matches the ask."
+      },
+      "f3": {
+        "title": "Stock alerts",
+        "description": "Track perishable and seasonal items with low-stock alerts before the rush."
+      },
+      "f4": {
+        "title": "Free online store",
+        "description": "Show gift sets online with stock synced to the shop. Share one link."
+      },
+      "f5": {
+        "title": "WhatsApp-friendly updates",
+        "description": "Share order status and digital receipts the way customers already chat."
+      },
+      "f6": {
+        "title": "Coupons and store credit",
+        "description": "Run promo codes and refund to store credit so gift returns stay clean."
+      }
+    },
+    "faq": {
+      "title": "Gift shop POS FAQ",
+      "q1": {
+        "question": "Is this free for flower and gift shops?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, coupons, and reports. No credit card required."
+      },
+      "q2": {
+        "question": "Can I sell gift sets as one item?",
+        "answer": "Yes. Create a product or variant for the set with its own price, barcode, and stock, and add notes for custom wraps."
+      },
+      "q3": {
+        "question": "Does the online store sync with the shelf?",
+        "answer": "Yes. Availability on your store link follows the same inventory you sell at the register."
+      }
+    },
+    "cta": {
+      "title": "Start your gift shop register",
+      "subtitle": "Arabic and English. Free forever."
+    }
+  },
+  "industryJewelry": {
+    "hero": {
+      "title": "A jewelry POS that protects",
+      "titleHighlight": "high-value pieces",
+      "subtitle": "Barcode checkout, precise stock, customer credit, and staff permissions. Free for jewelry and gold shops in Egypt."
+    },
+    "pains": {
+      "title": "Where jewelry paper fails",
+      "p1": {
+        "title": "One wrong piece costs real money",
+        "description": "Hand tickets and mixed trays make it easy to sell or misplace a high-value SKU."
+      },
+      "p2": {
+        "title": "Layaway on scraps of paper",
+        "description": "Deposits and balances live in notebooks, then arguments start when the customer returns."
+      },
+      "p3": {
+        "title": "Staff without clear access",
+        "description": "Everyone sees every price and discount when there is only one shared till login."
+      }
+    },
+    "features": {
+      "title": "What your jewelry shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Barcode-first checkout",
+        "description": "Scan each piece so the right SKU, price, and stock move together."
+      },
+      "f2": {
+        "title": "Stock you can trust",
+        "description": "Per-item counts with low-stock alerts and a clear audit trail on adjustments."
+      },
+      "f3": {
+        "title": "Customer credit and balances",
+        "description": "Track store credit and payment history from a phone number, not a sticky note."
+      },
+      "f4": {
+        "title": "Staff permissions",
+        "description": "Give each employee a login with only the access their shift needs."
+      },
+      "f5": {
+        "title": "Purchase orders",
+        "description": "Reorder from suppliers, receive in parts, and update inventory automatically."
+      },
+      "f6": {
+        "title": "Sales and profit reports",
+        "description": "See revenue and margin by product and by staff without rebuilding Excel."
+      }
+    },
+    "faq": {
+      "title": "Jewelry POS FAQ",
+      "q1": {
+        "question": "Is this a free jewelry store POS?",
+        "answer": "Yes. The free plan includes the cashier, inventory, customers, store credit, and reports. Upgrade when you need more branches or users."
+      },
+      "q2": {
+        "question": "Can I track each piece separately?",
+        "answer": "Yes. Every SKU has its own stock, barcode, and price. Variants cover size and metal when you need them."
+      },
+      "q3": {
+        "question": "Does it work in Arabic?",
+        "answer": "Yes. Arabic-first with full RTL across the dashboard, POS, and receipts. English is one toggle away."
+      }
+    },
+    "cta": {
+      "title": "Secure your jewelry register",
+      "subtitle": "Free forever, no credit card."
+    }
+  },
+  "industryHardware": {
+    "hero": {
+      "title": "A hardware POS built for",
+      "titleHighlight": "thousands of SKUs",
+      "subtitle": "Barcode speed, credit book for regulars, purchase orders, and end-of-day profit. Free for hardware and tools shops in Egypt."
+    },
+    "pains": {
+      "title": "Where hardware paper fails",
+      "p1": {
+        "title": "Bins without counts",
+        "description": "Screws, fittings, and brands look alike. Hand lists lag the shelf by days."
+      },
+      "p2": {
+        "title": "Contractors who pay later",
+        "description": "آجل balances live in a notebook until someone forgets who owes what."
+      },
+      "p3": {
+        "title": "Supplier reorders by memory",
+        "description": "You overbuy slow bolts and run out of the size everyone needs this week."
+      }
+    },
+    "features": {
+      "title": "What your hardware shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "USB barcode scanning",
+        "description": "Scan parts at the counter and keep the line moving without typing codes."
+      },
+      "f2": {
+        "title": "Digital credit book",
+        "description": "Know who owes what from a customer profile, with store credit and history."
+      },
+      "f3": {
+        "title": "Low-stock alerts",
+        "description": "Set reorder points so bins refill before the next contractor rush."
+      },
+      "f4": {
+        "title": "Purchase orders",
+        "description": "Order from suppliers, receive in parts, and update stock automatically."
+      },
+      "f5": {
+        "title": "Multi-store ready",
+        "description": "Separate stock per branch when you grow, with one dashboard."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "Close with sales and margin instead of counting drawers and guessing."
+      }
+    },
+    "faq": {
+      "title": "Hardware store POS FAQ",
+      "q1": {
+        "question": "Is this free for hardware shops?",
+        "answer": "Yes. The free plan includes the POS, inventory, credit balances, purchase orders, and reports. No credit card to start."
+      },
+      "q2": {
+        "question": "Can I handle customers who pay later?",
+        "answer": "Yes. Attach a customer by phone, track store credit and payments, and see the balance on the next visit."
+      },
+      "q3": {
+        "question": "Will barcode scanning work with my USB scanner?",
+        "answer": "Yes. Use a standard USB barcode scanner at the POS for fast checkout on high SKU counts."
+      }
+    },
+    "cta": {
+      "title": "Run your hardware counter free",
+      "subtitle": "Arabic and English. Ready in minutes."
+    }
+  },
+  "industryElectronics": {
+    "hero": {
+      "title": "An electronics POS for",
+      "titleHighlight": "appliances and accessories",
+      "subtitle": "Variants, barcodes, warranties notes, credit sales, and a free online store. Free for electronics shops in Egypt. Built for appliances and accessories, not phone IMEI workflows."
+    },
+    "pains": {
+      "title": "Where electronics paper fails",
+      "p1": {
+        "title": "Models and colors multiply",
+        "description": "One fridge is many SKUs. Paper mixes wattage, color, and size at rush hour."
+      },
+      "p2": {
+        "title": "Accessory stock goes dark",
+        "description": "Cables and small parts sell fast while big boxes get all the attention."
+      },
+      "p3": {
+        "title": "Installment talk on paper",
+        "description": "Deposits and remaining balances scatter across notebooks and chat screenshots."
+      }
+    },
+    "features": {
+      "title": "What your electronics shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Real product variants",
+        "description": "Colors, sizes, and models as variants with their own SKU, stock, and price."
+      },
+      "f2": {
+        "title": "Barcode labels and scanning",
+        "description": "Print labels and scan at the register so the right model always rings up."
+      },
+      "f3": {
+        "title": "Order notes at checkout",
+        "description": "Capture warranty or delivery notes on the sale so the team stays aligned."
+      },
+      "f4": {
+        "title": "Customer credit",
+        "description": "Track store credit and payment history from a phone number."
+      },
+      "f5": {
+        "title": "Free online store",
+        "description": "List appliances and accessories online with stock synced to the shop."
+      },
+      "f6": {
+        "title": "Purchase orders and reports",
+        "description": "Reorder from suppliers and see daily profit by product and staff."
+      }
+    },
+    "faq": {
+      "title": "Electronics store POS FAQ",
+      "q1": {
+        "question": "Is this different from a mobile shop POS?",
+        "answer": "Yes. This page is for appliances and electronics accessories. Phone and accessories shops should use the mobile shop POS page."
+      },
+      "q2": {
+        "question": "Is it free for electronics retailers?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, customers, and reports. No credit card required."
+      },
+      "q3": {
+        "question": "Can I import my product catalog?",
+        "answer": "Yes. Upload a CSV with the import wizard. Map columns, validate, then save."
+      }
+    },
+    "cta": {
+      "title": "Open your electronics register",
+      "subtitle": "Free forever. Arabic and English."
+    }
+  },
+  "freeOnlineStoreEgypt": {
+    "hero": {
+      "title": "Free online store for Egypt",
+      "titleHighlight": "synced with your free POS",
+      "subtitle": "EGP pricing, Arabic storefront, no commission on the free plan, and stock that matches the shelf. Built for merchants across Egypt."
+    },
+    "pains": {
+      "title": "What Egyptian sellers need from a free store",
+      "p1": {
+        "title": "Pricing in EGP",
+        "description": "Your storefront, checkout, and reports should speak Egyptian pounds, not awkward conversions."
+      },
+      "p2": {
+        "title": "Arabic that customers trust",
+        "description": "RTL layout, Arabic product pages, and clear checkout copy. Not a bolted-on translation."
+      },
+      "p3": {
+        "title": "Stock that lies online",
+        "description": "Selling the same item in-store and online from two lists means overselling and refunds."
+      }
+    },
+    "features": {
+      "title": "What you get free in Egypt",
+      "subtitle": "Shipped features on the free forever plan.",
+      "f1": {
+        "title": "Free storefront in Arabic and English",
+        "description": "Your own store link with product pages, cart, and checkout."
+      },
+      "f2": {
+        "title": "EGP-native money",
+        "description": "Prices and totals stay in Egyptian pounds across store and POS."
+      },
+      "f3": {
+        "title": "Stock synced with the POS",
+        "description": "One inventory for the shelf and the storefront. No double counting."
+      },
+      "f4": {
+        "title": "No commission on the free plan",
+        "description": "Keep more of every online sale. See pricing for paid plan limits."
+      },
+      "f5": {
+        "title": "Order statuses and WhatsApp updates",
+        "description": "Mark preparing, ready, or delivering, and share updates customers already read."
+      },
+      "f6": {
+        "title": "Coupons and customer profiles",
+        "description": "One discount code and one customer record for in-store and online."
+      }
+    },
+    "faq": {
+      "title": "Free online store Egypt FAQ",
+      "q1": {
+        "question": "Is the online store really free in Egypt?",
+        "answer": "Yes. The free forever plan includes the online store with the free POS, inventory, and reports. No credit card to start."
+      },
+      "q2": {
+        "question": "Does it work with my free POS?",
+        "answer": "Yes. Orders, stock, customers, and coupons stay in one system for the register and the storefront."
+      },
+      "q3": {
+        "question": "Is the storefront Arabic-ready?",
+        "answer": "Yes. Arabic-first RTL storefront and bilingual product content. Switch language anytime."
+      }
+    },
+    "cta": {
+      "title": "Launch your free store in Egypt",
+      "subtitle": "Register in minutes. No credit card. Arabic and English."
+    }
+  },
+  "customerCredit": {
+    "hero": {
+      "badge": "Customer credit",
+      "title": "A digital credit book for",
+      "titleHighlight": "who owes what",
+      "subtitle": "Track store credit, balances, and payment history from a phone number. Replace paper آجل notes with a clear customer ledger inside your free POS.",
+      "note": "Free forever. No credit card.",
+      "stamp": "FREE"
+    },
+    "pains": {
+      "badge": "The problem",
+      "title": "Where paper credit books fail",
+      "p1": {
+        "title": "Balances nobody trusts",
+        "description": "Notebooks and chat screenshots disagree, then the argument starts at the counter."
+      },
+      "p2": {
+        "title": "Refunds without a trail",
+        "description": "Store credit from returns gets forgotten unless someone writes it twice."
+      },
+      "p3": {
+        "title": "No history on the next visit",
+        "description": "Staff cannot see what the customer still owes or already paid last week."
+      }
+    },
+    "features": {
+      "badge": "What you get",
+      "title": "Credit that stays with the customer",
+      "subtitle": "Shipped on the free plan with your cashier and online store.",
+      "f1": {
+        "title": "Profile from a phone number",
+        "description": "Open a customer record in seconds and attach every sale that matters."
+      },
+      "f2": {
+        "title": "Store credit from refunds",
+        "description": "Refund to store credit and the balance updates when the refund is processed."
+      },
+      "f3": {
+        "title": "Spend credit at checkout",
+        "description": "Apply store credit on the next order at the POS or online when a balance exists."
+      },
+      "f4": {
+        "title": "Partial payments",
+        "description": "Record what was paid now and what remains so overdue balances stay visible."
+      },
+      "f5": {
+        "title": "Order history in one place",
+        "description": "See visits, spending, and credit moves without digging through paper."
+      },
+      "f6": {
+        "title": "Works with returns",
+        "description": "Item-level returns can restock and refund to credit so money stays in your shop."
+      }
+    },
+    "faq": {
+      "title": "Customer credit FAQ",
+      "q1": {
+        "question": "Is the digital credit book free?",
+        "answer": "Yes. Customer profiles, store credit, and order history are included in the free forever plan."
+      },
+      "q2": {
+        "question": "How does a customer get store credit?",
+        "answer": "Issue a refund and choose store credit as the method. The balance increases when the refund is processed."
+      },
+      "q3": {
+        "question": "Can staff see who owes money?",
+        "answer": "Yes. Open the customer profile to see balance, visits, and payment history before you ring up the next sale."
+      }
+    },
+    "cta": {
+      "title": "Replace the paper credit book",
+      "subtitle": "Start free. Arabic and English.",
+      "note": "No credit card required."
+    }
+  },
+  "whatsappCommerce": {
+    "hero": {
+      "badge": "WhatsApp commerce",
+      "title": "Order updates where your",
+      "titleHighlight": "customers already chat",
+      "subtitle": "Share order status and digital receipts on WhatsApp from the same system that runs your free POS and free online store.",
+      "note": "Free forever. No credit card.",
+      "stamp": "FREE"
+    },
+    "pains": {
+      "badge": "The problem",
+      "title": "Where chat-only selling breaks",
+      "p1": {
+        "title": "Status lives in threads",
+        "description": "Preparing, ready, and delivering get lost between staff chats and customer chats."
+      },
+      "p2": {
+        "title": "Receipts as screenshots",
+        "description": "Customers ask for proof of purchase and you dig through the till or phone gallery."
+      },
+      "p3": {
+        "title": "No single order list",
+        "description": "WhatsApp, walk-in, and online orders never meet in one fulfillment queue."
+      }
+    },
+    "features": {
+      "badge": "What you get",
+      "title": "WhatsApp-friendly updates, free",
+      "subtitle": "Shipped with order management on the free plan.",
+      "f1": {
+        "title": "Fulfillment statuses",
+        "description": "Mark orders preparing, ready, or delivering so the team and customer stay aligned."
+      },
+      "f2": {
+        "title": "Shareable digital receipts",
+        "description": "Send a clean receipt link instead of a blurry photo of paper."
+      },
+      "f3": {
+        "title": "One order list",
+        "description": "POS, online store, and manual orders sit in the same queue."
+      },
+      "f4": {
+        "title": "Customer from a phone number",
+        "description": "Attach the chat contact to a profile so history follows the next sale."
+      },
+      "f5": {
+        "title": "Free online store link",
+        "description": "Send your store link in WhatsApp when the customer wants to browse and pay."
+      },
+      "f6": {
+        "title": "Works in Arabic",
+        "description": "RTL dashboard and bilingual receipts for Egypt and MENA customers."
+      }
+    },
+    "faq": {
+      "title": "WhatsApp commerce FAQ",
+      "q1": {
+        "question": "Does Cashvio send WhatsApp messages automatically?",
+        "answer": "You share order updates and receipts through WhatsApp from the order flow. Customers get the link in the chat they already use."
+      },
+      "q2": {
+        "question": "Is this included in the free plan?",
+        "answer": "Yes. Order statuses, digital receipts, the free POS, and the free online store are on the free forever plan."
+      },
+      "q3": {
+        "question": "Can I take orders that started on WhatsApp?",
+        "answer": "Yes. Create or fulfill the order in Cashvio, attach the customer by phone, and share status updates back in chat."
+      }
+    },
+    "cta": {
+      "title": "Meet customers on WhatsApp",
+      "subtitle": "Keep status and stock in one system.",
+      "note": "No credit card required."
+    }
+  },
+  "barcodePos": {
+    "hero": {
+      "badge": "Barcode POS",
+      "title": "Scan at the register,",
+      "titleHighlight": "stop typing SKUs",
+      "subtitle": "USB barcode scanning, printable labels, and stock that updates with every scan. Built into your free POS for Egypt retail.",
+      "note": "Free forever. No credit card.",
+      "stamp": "FREE"
+    },
+    "pains": {
+      "badge": "The problem",
+      "title": "Where typing codes fails",
+      "p1": {
+        "title": "Wrong product, wrong price",
+        "description": "Look-alike packs and long SKUs turn rush hour into costly typos."
+      },
+      "p2": {
+        "title": "Labels that do not match stock",
+        "description": "Printed codes from elsewhere drift from the shelf count in your notebook."
+      },
+      "p3": {
+        "title": "Slow queues",
+        "description": "Hunting items by name on a small screen kills the line at a minimarket or pharmacy."
+      }
+    },
+    "features": {
+      "badge": "What you get",
+      "title": "Barcode checkout that ships free",
+      "subtitle": "Part of the free POS, not a separate paid add-on.",
+      "f1": {
+        "title": "USB scanner at the POS",
+        "description": "Scan products into the cart with a standard USB barcode scanner."
+      },
+      "f2": {
+        "title": "Printable barcode labels",
+        "description": "Generate labels for your own SKUs and stick them before the rush."
+      },
+      "f3": {
+        "title": "Stock updates on sale",
+        "description": "Every scanned sale adjusts inventory so the shelf count stays honest."
+      },
+      "f4": {
+        "title": "Variants with their own codes",
+        "description": "Sizes, colors, and packs each keep a barcode, price, and stock count."
+      },
+      "f5": {
+        "title": "Works with purchase orders",
+        "description": "Receive supplier stock and keep the same barcodes from shelf to till."
+      },
+      "f6": {
+        "title": "Free barcode tool",
+        "description": "Need a quick PNG label? Use the free barcode generator with no signup."
+      }
+    },
+    "faq": {
+      "title": "Barcode POS FAQ",
+      "q1": {
+        "question": "Is barcode scanning free?",
+        "answer": "Yes. Barcode checkout, labels, and inventory updates are included in the free forever POS plan."
+      },
+      "q2": {
+        "question": "What scanner do I need?",
+        "answer": "A standard USB barcode scanner that types into the POS works. No special proprietary hardware required."
+      },
+      "q3": {
+        "question": "Is this the same as the barcode generator tool?",
+        "answer": "No. The generator makes PNG labels in the browser. This page is the POS scanning workflow inside Cashvio."
+      }
+    },
+    "cta": {
+      "title": "Scan your next sale",
+      "subtitle": "Free POS with barcodes built in.",
+      "note": "No credit card required."
     }
   }
 }
