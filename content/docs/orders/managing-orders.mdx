@@ -13,7 +13,7 @@ description: "View, filter, and open order details from Sales, then follow up on
 | **Order Number** | Unique identifier for each order |
 | **Customer** | The customer who placed the order |
 | **Store** | Which store the order belongs to |
-| **Order Source** | Where the order was created: **Web** (business portal) or **Storefront** (online store) |
+| **Order Source** | Where the order was created: **Web** (business portal) or **Storefront** (online store). This is separate from the **sales channel** (Web, Portal, Facebook, and so on). Storefront orders get the **Web** sales channel automatically. |
 | **Payment Method** | The primary payment method used (Cash, Online, Receipt, or Store Credit) |
 | **Fulfillment Method** | How the order will be fulfilled (In-Store, Pickup, Delivery, or Dine-In) |
 | **Fulfillment Status** | Current fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled) |
@@ -45,7 +45,7 @@ Use the filter bar to narrow down your orders:
 - **Payment Status**: Filter by payment status
 - **Payment Method**: Cash, Online, Receipt, or Store Credit
 - **Source**: Web (portal) or Storefront
-- **Channel**: Filter by sales channel
+- **Channel**: Filter by sales channel (storefront orders appear under **Web**)
 
 You can also **export the current filtered view to CSV** using the export button in the toolbar.
 
@@ -61,6 +61,7 @@ Click on any order to open its **Order Details** page. Here you will find:
 - Order number, date, and time
 - Customer name and contact
 - **Order source**: Whether the order was created from the business portal (Web) or the online storefront
+- **Sales channel**: Where the sale is attributed for reports (storefront orders use **Web** automatically; portal and POS sales use the channel your team selected)
 - Fulfillment method and delivery address (if applicable)
 - Order notes
 
