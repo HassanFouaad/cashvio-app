@@ -1,24 +1,25 @@
-import { source } from '@/lib/docs-source';
+import { join } from 'path';
+
 import { siteConfig } from '@/config/site';
+import { source } from '@/lib/docs-source';
+import { loadDocsLlmSections } from '@/lib/docs-llm';
 
 export const revalidate = false; // static at build time
 
 export function GET() {
   const SITE_URL = siteConfig.url;
+  const docsDir = join(process.cwd(), 'content', 'docs');
+  const sections = loadDocsLlmSections(docsDir);
   const pages = source.getPages('en');
 
-  const sections: Map<string, { title: string; description: string; url: string }[]> = new Map();
+  const pageByDocsPath = new Map<
+    string,
+    { title: string; description: string; url: string }
+  >();
 
   for (const page of pages) {
     const docsPath = page.url.replace(/^\/(en|ar)/, '');
-    const parts = docsPath.replace('/docs/', '').split('/');
-    const section = parts.length > 1 ? parts[0] : 'overview';
-
-    if (!sections.has(section)) {
-      sections.set(section, []);
-    }
-
-    sections.get(section)!.push({
+    pageByDocsPath.set(docsPath, {
       title: page.data.title,
       description: page.data.description || '',
       url: `${SITE_URL}${docsPath}`,
@@ -76,20 +77,37 @@ export function GET() {
     '',
     `## Documentation`,
     '',
+    `Merchant docs follow an onboarding path: account and store, catalogue, stock, first sale, then online store and growth topics.`,
+    '',
     `Full docs with all content inline: ${SITE_URL}/llms-full.txt`,
+    `Arabic docs use the same URLs under ${SITE_URL}/ar/docs/...`,
+    '',
+    `### Start here`,
+    '',
+    `- [Docs home](${SITE_URL}/docs): Journey hub for first week, sell in store, sell online, and grow`,
+    `- [Quick setup](${SITE_URL}/docs/getting-started/onboarding): From a fresh account to the first sale`,
+    `- [First-week checklist](${SITE_URL}/docs/getting-started/first-week-checklist): Day-by-day plan for the first week`,
+    `- [Your first sale](${SITE_URL}/docs/getting-started/your-first-sale): Open New Sale and take payment`,
+    `- [Go live online](${SITE_URL}/docs/getting-started/go-live-online): Turn on the free online store`,
+    `- [Changelog](${SITE_URL}/docs/changelog): Recent product updates`,
     '',
   ];
 
-  for (const [section, pages] of sections) {
-    const sectionTitle = section
-      .split('-')
-      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ');
-
-    lines.push(`### ${sectionTitle}`);
+  for (const section of sections) {
+    lines.push(`### ${section.title}`);
     lines.push('');
 
-    for (const page of pages) {
+    for (const slug of section.pageSlugs) {
+      const docsPath =
+        section.key === 'overview' || section.key === slug
+          ? slug === 'index'
+            ? '/docs'
+            : `/docs/${slug}`
+          : `/docs/${section.key}/${slug}`;
+
+      const page = pageByDocsPath.get(docsPath);
+      if (!page) continue;
+
       const desc = page.description ? `: ${page.description}` : '';
       lines.push(`- [${page.title}](${page.url})${desc}`);
     }
@@ -104,6 +122,8 @@ export function GET() {
   lines.push(`- Features: ${SITE_URL}/features`);
   lines.push(`- Pricing: ${SITE_URL}/pricing`);
   lines.push(`- Contact: ${SITE_URL}/contact`);
+  lines.push(`- Auth for agents: ${SITE_URL}/auth.md`);
+  lines.push(`- API catalog: ${SITE_URL}/.well-known/api-catalog`);
   lines.push('');
 
   const content = lines.join('\n');

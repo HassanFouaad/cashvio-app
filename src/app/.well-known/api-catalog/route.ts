@@ -22,12 +22,20 @@ export function GET(): Response {
             type: 'text/html',
           },
           {
+            href: `${SITE_URL}/docs/getting-started/onboarding`,
+            type: 'text/html',
+          },
+          {
             href: `${SITE_URL}/llms.txt`,
             type: 'text/plain',
           },
           {
             href: `${SITE_URL}/llms-full.txt`,
             type: 'text/plain',
+          },
+          {
+            href: `${SITE_URL}/auth.md`,
+            type: 'text/markdown',
           },
         ],
         status: [

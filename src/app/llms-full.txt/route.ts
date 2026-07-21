@@ -1,27 +1,17 @@
-import { readFileSync, readdirSync, statSync } from 'fs';
-import { join, relative } from 'path';
-import { source } from '@/lib/docs-source';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
 import { siteConfig } from '@/config/site';
+import { source } from '@/lib/docs-source';
+import {
+  collectEnglishMdxFiles,
+  docsPathFromRelPath,
+  parseMdxFrontmatter,
+  sortMdxFilesByDocsTree,
+  stripMdxComponents,
+} from '@/lib/docs-llm';
 
 export const revalidate = false; // static at build time
-
-function collectMdxFiles(dir: string): string[] {
-  const files: string[] = [];
-  const entries = readdirSync(dir);
-
-  for (const entry of entries) {
-    const fullPath = join(dir, entry);
-    const stat = statSync(fullPath);
-
-    if (stat.isDirectory()) {
-      files.push(...collectMdxFiles(fullPath));
-    } else if (entry.endsWith('.mdx') && !entry.includes('.ar.')) {
-      files.push(fullPath);
-    }
-  }
-
-  return files;
-}
 
 export function GET() {
   const SITE_URL = siteConfig.url;
@@ -32,13 +22,17 @@ export function GET() {
     '',
     `> ${siteConfig.description}`,
     '',
-    `Cashvio is a complete business management platform for online and in-store operations. It provides product catalogue management, inventory control, multi-channel order processing, customer management, supplier & purchasing, analytics & reporting, team roles & permissions, and online storefront capabilities.`,
+    `Cashvio is a complete business management platform for online and in-store operations. It provides a free POS (free cashier), a free online store, product catalogue management, inventory control, multi-channel order processing, customer management, supplier & purchasing, analytics & reporting, team roles & permissions, and online storefront capabilities.`,
+    '',
+    `Docs are ordered for merchant onboarding: getting started, stores, catalogue, inventory, sales, customers, returns, suppliers, online store, marketing, then team, reports, settings, integrations, and calculations.`,
+    '',
+    `Index only (titles and URLs): ${SITE_URL}/llms.txt`,
+    `Arabic HTML docs: ${SITE_URL}/ar/docs`,
     '',
     '---',
     '',
   ];
 
-  // Build a map from slug to Fumadocs page for URL/metadata
   const pageMap = new Map<string, { url: string; title: string; description: string }>();
   const pages = source.getPages('en');
   for (const page of pages) {
@@ -50,44 +44,23 @@ export function GET() {
     });
   }
 
-  // Read raw MDX files and pair with metadata
-  const mdxFiles = collectMdxFiles(docsDir);
+  const mdxFiles = sortMdxFilesByDocsTree(docsDir, collectEnglishMdxFiles(docsDir));
 
   for (const filePath of mdxFiles) {
     const rawContent = readFileSync(filePath, 'utf-8');
+    const { title, description } = parseMdxFrontmatter(rawContent);
 
-    // Extract frontmatter title/description
-    const frontmatterMatch = rawContent.match(/^---\s*\n([\s\S]*?)\n---/);
-    let title = '';
-    let description = '';
-
-    if (frontmatterMatch) {
-      const fm = frontmatterMatch[1];
-      const titleMatch = fm.match(/^title:\s*(.+)$/m);
-      const descMatch = fm.match(/^description:\s*(.+)$/m);
-      if (titleMatch) title = titleMatch[1].trim();
-      if (descMatch) description = descMatch[1].trim();
-    }
-
-    // Derive the docs path from file path
-    const relPath = relative(docsDir, filePath)
+    const relPath = filePath
+      .slice(docsDir.length + 1)
       .replace(/\\/g, '/')
-      .replace(/\.mdx$/, '')
-      .replace(/\/index$/, '');
-    const docsPath = relPath === 'index' ? '/docs' : `/docs/${relPath}`;
+      .replace(/\.mdx$/, '');
+    const docsPath = docsPathFromRelPath(relPath);
 
-    // Use Fumadocs metadata if available, fall back to frontmatter
     const meta = pageMap.get(docsPath);
     const pageTitle = meta?.title || title;
     const pageUrl = meta?.url || `${SITE_URL}${docsPath}`;
     const pageDesc = meta?.description || description;
-
-    // Strip frontmatter from content
-    const contentBody = rawContent
-      .replace(/^---[\s\S]*?---\s*/, '')
-      .replace(/<Callout[^>]*>/g, '> **Note:** ')
-      .replace(/<\/Callout>/g, '')
-      .trim();
+    const contentBody = stripMdxComponents(rawContent);
 
     lines.push(`## ${pageTitle}`);
     lines.push('');

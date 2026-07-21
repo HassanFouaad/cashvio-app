@@ -55,6 +55,8 @@ export function GET(): Response {
     'Allow: /docs/',
     'Allow: /llms.txt',
     'Allow: /llms-full.txt',
+    'Allow: /auth.md',
+    'Allow: /.well-known/api-catalog',
     disallowBlock,
     '',
     `Sitemap: ${SITE_URL}/sitemap.xml`,

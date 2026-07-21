@@ -137,19 +137,28 @@ Access is further restricted by the user's role and permissions within their ten
 
 The API provides endpoints for:
 
-- **Products**: catalogue management, variants, pricing
-- **Inventory**: stock tracking across stores
-- **Orders**: multi-channel order processing
-- **Customers**: customer management, balances
+- **Products**: catalogue management, variants, pricing, barcode labels
+- **Inventory**: stock tracking, low-stock alerts, adjustments, transfers
+- **Orders**: POS and online orders, payments, fulfillment, WhatsApp sharing
+- **Customers**: profiles, addresses, store credit, visits
 - **Suppliers**: supplier management, purchase orders
-- **Stores**: multi-location management
-- **Reports**: analytics and reporting
+- **Stores**: multi-location management, payment and fulfillment methods
+- **Marketing**: coupons and discount codes
+- **Online store**: storefront settings, checkout, order tracking
+- **Reports**: sales, profit, customers, staff, dead stock, insights
+- **Team**: users, roles, and permissions
 
 ## Documentation
 
-- Full documentation: ${SITE_URL}/docs
-- LLM-optimized index: ${SITE_URL}/llms.txt
-- LLM-optimized full docs: ${SITE_URL}/llms-full.txt
+Merchant docs are split into focused how-to pages and ordered for onboarding (account, store, catalogue, stock, first sale, then online store).
+
+- Docs home: ${SITE_URL}/docs
+- Quick setup: ${SITE_URL}/docs/getting-started/onboarding
+- First-week checklist: ${SITE_URL}/docs/getting-started/first-week-checklist
+- LLM-optimized index (all doc URLs): ${SITE_URL}/llms.txt
+- LLM-optimized full docs (inline content): ${SITE_URL}/llms-full.txt
+- Arabic docs: ${SITE_URL}/ar/docs
+- API catalog: ${SITE_URL}/.well-known/api-catalog
 - OpenAPI spec: ${API_URL}/docs-json
 
 ## Errors
