@@ -772,53 +772,6 @@
       "title": "30-Day Money-Back Guarantee",
       "description": "Not satisfied? Get a full refund within 30 days, no questions asked."
     },
-    "matrix": {
-      "title": "What's in free vs paid",
-      "subtitle": "The free plan is a complete system. Paid plans raise the limits as you grow. Exact numbers are on each plan card above.",
-      "headers": {
-        "feature": "Included",
-        "free": "Free plan",
-        "paid": "Paid plans"
-      },
-      "rows": {
-        "pos": {
-          "feature": "POS (cashier screen)"
-        },
-        "onlineStore": {
-          "feature": "Online store on your own link"
-        },
-        "products": {
-          "feature": "Unlimited products"
-        },
-        "orders": {
-          "feature": "Unlimited orders & customers"
-        },
-        "inventory": {
-          "feature": "Inventory, suppliers & purchase orders"
-        },
-        "reports": {
-          "feature": "Sales & profit reports"
-        },
-        "whatsapp": {
-          "feature": "WhatsApp receipts & order updates"
-        },
-        "stores": {
-          "feature": "Stores (branches)",
-          "free": "Starter limit",
-          "paid": "More branches"
-        },
-        "team": {
-          "feature": "Team members",
-          "free": "Starter limit",
-          "paid": "Bigger teams"
-        },
-        "devices": {
-          "feature": "POS devices",
-          "free": "Starter limit",
-          "paid": "More devices"
-        }
-      }
-    },
     "whatsapp": {
       "title": "Prefer to talk it through?",
       "subtitle": "Message us on WhatsApp: we'll help you pick the right plan in minutes.",

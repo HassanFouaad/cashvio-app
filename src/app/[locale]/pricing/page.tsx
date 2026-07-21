@@ -6,9 +6,7 @@ import { PricingPlans } from "@/components/sections/pricing-plans";
 import {
   AlsoFreeStrip,
   FaqSection,
-  LedgerHeading,
   LedgerHero,
-  PlanMatrix,
   ReceiptStamp,
 } from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
@@ -75,18 +73,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const planKeys = ["starter", "professional", "enterprise"] as const;
 const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
-const matrixRowKeys = [
-  "pos",
-  "onlineStore",
-  "products",
-  "orders",
-  "inventory",
-  "reports",
-  "whatsapp",
-  "stores",
-  "team",
-  "devices",
-] as const;
 
 export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
@@ -99,18 +85,6 @@ export default async function PricingPage({ params }: Props) {
     namespace: "metadata.pricing",
   });
   const whatsAppLink = getWhatsAppLink(t("whatsapp.prefill"));
-
-  // Boolean rows render as ✓ in both columns; limit rows print text per column
-  const textualMatrixRows: ReadonlyArray<(typeof matrixRowKeys)[number]> = [
-    "stores",
-    "team",
-    "devices",
-  ];
-  const matrixRows = matrixRowKeys.map((key) => ({
-    feature: t(`matrix.rows.${key}.feature`),
-    free: textualMatrixRows.includes(key) ? t(`matrix.rows.${key}.free`) : true,
-    paid: textualMatrixRows.includes(key) ? t(`matrix.rows.${key}.paid`) : true,
-  }));
 
   // Fetch plans from API (SSR) with Accept-Language header
   const plans = await getPublicPlans(undefined, locale);
@@ -180,26 +154,7 @@ export default async function PricingPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Plan comparison matrix — what's in free vs paid */}
-      <section aria-label={t("matrix.title")} className="section-padding-sm ledger-rules border-t border-border">
-        <div className="container-wide">
-          <LedgerHeading
-            title={t("matrix.title")}
-            subtitle={t("matrix.subtitle")}
-            align="center"
-          />
-          <PlanMatrix
-            headers={{
-              feature: t("matrix.headers.feature"),
-              free: t("matrix.headers.free"),
-              paid: t("matrix.headers.paid"),
-            }}
-            rows={matrixRows}
-          />
-        </div>
-      </section>
-
-      {/* Money Back Guarantee — a stamped ledger note */}
+      {/* Money Back Guarantee: stamped ledger note */}
       <section className="py-10 sm:py-12 ledger-rules border-y border-border">
         <div className="container-wide">
           <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 text-center md:text-start">

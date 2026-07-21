@@ -17,7 +17,7 @@ The site has ONE visual identity: receipts, ledgers, mono labels, dashed rules. 
 | `ReceiptCard` | Feature/pain/step cards (code, title, description, footer) |
 | `LedgerCta` | Closing call-to-action band |
 | `FaqSection` | FAQ accordion (pair with `schemaTemplates.faqPage`) |
-| `ComparisonTable` / `PlanMatrix` | Ledger-style tables with `[✓]` / `[✗]` markers |
+| `ComparisonTable` | Ledger-style tables with `[✓]` / `[✗]` markers |
 
 ## Conventions
 

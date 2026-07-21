@@ -8,6 +8,5 @@ export { TearDivider } from './tear-divider';
 export { SalesTicker } from './sales-ticker';
 export { FaqSection } from './faq-section';
 export { ComparisonTable } from './comparison-table';
-export { PlanMatrix } from './plan-matrix';
 export { AlsoFreeStrip } from './also-free-strip';
 export { FeatureScreenshot } from './feature-screenshot';
