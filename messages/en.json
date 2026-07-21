@@ -254,7 +254,7 @@
     "industryBakery": "Bakery POS",
     "industryMobileShop": "Mobile Shop POS",
     "industryBeauty": "Cosmetics POS",
-    "freePosEgypt": "Free POS Egypt",
+    "freePosEgypt": "Free POS · local",
     "vatCalculator": "VAT Calculator",
     "invoiceGenerator": "Invoice Generator",
     "industryBookstore": "Bookstore POS",
@@ -262,7 +262,7 @@
     "industryJewelry": "Jewelry POS",
     "industryHardware": "Hardware Store POS",
     "industryElectronics": "Electronics POS",
-    "freeOnlineStoreEgypt": "Free Online Store Egypt",
+    "freeOnlineStoreEgypt": "Free online store · local",
     "customerCredit": "Customer Credit",
     "whatsappCommerce": "WhatsApp Commerce",
     "barcodePos": "Barcode POS"
@@ -659,7 +659,7 @@
     "ticker": {
       "lines": [
         "09:14 · 2× Espresso · EGP 90 · PAID",
-        "09:31 · Order #1042 shipped · Cairo",
+        "09:31 · Order #1042 shipped · Downtown",
         "09:48 · Stock alert · Blue T-shirt (M) · 3 left",
         "10:15 · New customer · Sara A.",
         "10:40 · 1× Leather wallet · EGP 450 · PAID",
@@ -715,7 +715,7 @@
       "items": {
         "t1": {
           "quote": "I stopped writing orders in a notebook. The register, the stock, and who owes me what. All in one screen.",
-          "author": "Minimarket owner, Cairo"
+          "author": "Minimarket owner"
         },
         "t2": {
           "quote": "My store link was live the same day I signed up. Customers browse it and order without calling me first.",
@@ -1322,7 +1322,7 @@
       "subtitle": "Deep dives into how Cashvio solves specific business challenges",
       "arabicPos": {
         "title": "Arabic POS & Storefront",
-        "description": "The only POS and storefront built natively for Arabic. True right-to-left interface, bilingual receipts, and MENA payment integrations.",
+        "description": "The only POS and storefront built natively for Arabic. True right-to-left interface, bilingual receipts, and regional payment integrations.",
         "cta": "Learn More"
       },
       "omnichannelRetail": {
@@ -1812,7 +1812,7 @@
       "subtitle": "Stop settling for tools that treat Arabic as an afterthought. Cashvio delivers a true right-to-left experience across your point of sale, online store, receipts, and reports. Not a translation layer bolted on top.",
       "cta": "Start Selling in Arabic",
       "secondaryCta": "See How It Works",
-      "trust": "Designed for merchants in Egypt, Saudi Arabia, UAE, Kuwait, and across the Arab world"
+      "trust": "Designed for Arabic-speaking merchants"
     },
     "problem": {
       "badge": "The Industry Problem",
@@ -1923,25 +1923,25 @@
       }
     },
     "regions": {
-      "badge": "Built for the MENA Region",
+      "badge": "Built for Arabic commerce",
       "title": "Designed for Every Arabic-Speaking Market",
-      "subtitle": "Whether you operate in Riyadh, Dubai, Cairo, or Kuwait City. Cashvio adapts to your local regulations, payment preferences, and business culture.",
+      "subtitle": "Cashvio adapts to your local regulations, payment preferences, and business culture.",
       "markets": {
         "ksa": {
-          "name": "Saudi Arabia",
-          "features": "ZATCA e-invoicing compliance, Mada card payments, Arabic + English bilingual support, VAT-ready tax configuration"
+          "name": "E-invoicing ready",
+          "features": "Tax-ready invoicing workflows, Mada card payments, Arabic + English bilingual support, VAT-ready tax configuration"
         },
         "uae": {
-          "name": "United Arab Emirates",
-          "features": "Multi-currency (AED/USD), tourist-friendly bilingual receipts, delivery zone management, free zone & mainland support"
+          "name": "Multi-currency ready",
+          "features": "Sell in your currency, bilingual storefront, and payment methods your customers already use"
         },
         "egypt": {
-          "name": "Egypt",
-          "features": "EGP currency support, local payment gateways, Arabic-first interface, multi-store management across governorates"
+          "name": "Arabic-first POS",
+          "features": "Arabic-first interface, local payment options, and multi-store management when you grow"
         },
         "kuwait": {
-          "name": "Kuwait",
-          "features": "KNET integration, KWD currency, bilingual storefront, delivery zone pricing by area"
+          "name": "Regional payments",
+          "features": "Regional card rails, bilingual storefront, and delivery pricing by zone"
         },
         "gcc": {
           "name": "Bahrain, Oman & Qatar",
@@ -1969,12 +1969,12 @@
           "others": "Single language or broken mixed layouts"
         },
         "zatca": {
-          "feature": "ZATCA e-invoicing (Saudi Arabia)",
+          "feature": "Tax-ready e-invoicing",
           "cashvio": "Built-in compliance with QR codes",
           "others": "Requires third-party plugin or manual process"
         },
         "localPayments": {
-          "feature": "MENA payment methods",
+          "feature": "Regional payment methods",
           "cashvio": "Mada, KNET, PayTabs, Tap, Tabby, Tamara",
           "others": "Stripe & PayPal only, limited regional options"
         },
@@ -2005,15 +2005,15 @@
       "subtitle": "Common questions about Cashvio's Arabic POS and storefront capabilities",
       "q1": {
         "question": "What is the best POS system for Arabic-speaking businesses?",
-        "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface, bilingual receipt printing, ZATCA e-invoicing compliance for Saudi Arabia, and integration with MENA payment methods like Mada, KNET, Tabby, and Tamara. Unlike global platforms that bolt on Arabic as a translation layer, Cashvio's entire interface. From checkout to analytics, was designed for Arabic from day one."
+        "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface, bilingual receipt printing, tax-ready invoicing workflows, and integration with regional payment methods like Mada, KNET, Tabby, and Tamara. Unlike global platforms that bolt on Arabic as a translation layer, Cashvio's entire interface. From checkout to analytics, was designed for Arabic from day one."
       },
       "q2": {
         "question": "Does Cashvio support both Arabic and English at the same time?",
         "answer": "Yes. Cashvio is fully bilingual. Each staff member can independently choose to operate in Arabic or English without affecting other users. Receipts can display both languages simultaneously. Your online storefront automatically shows the correct language based on each customer's preference. Product catalogs support dual-language entries for names, descriptions, and categories."
       },
       "q4": {
-        "question": "What payment methods does Cashvio support in the Middle East?",
-        "answer": "Cashvio integrates with the payment methods your MENA customers prefer: Mada (Saudi Arabia), KNET (Kuwait), PayTabs, Tap Payments, Tabby (buy now pay later), Tamara, and local bank transfers. All payment methods work seamlessly in both the POS and online storefront with Arabic and English display."
+        "question": "What payment methods does Cashvio support for Arabic-speaking businesses?",
+        "answer": "Cashvio integrates with the payment methods your customers prefer: Mada, KNET, PayTabs, Tap Payments, Tabby (buy now pay later), Tamara, and local bank transfers. All payment methods work seamlessly in both the POS and online storefront with Arabic and English display."
       },
       "q5": {
         "question": "How does Cashvio's Arabic storefront differ from Shopify or other global platforms?",
@@ -2024,8 +2024,8 @@
         "answer": "Yes. Cashvio supports thermal receipt printers with Arabic character sets. Receipts display product names, prices, tax information, and store branding in clear, properly formatted Arabic. You can also print bilingual receipts with both Arabic and English for international customers."
       },
       "q7": {
-        "question": "Does Cashvio work in countries outside Saudi Arabia?",
-        "answer": "Absolutely. Cashvio serves Arabic-speaking businesses across the entire MENA region including Saudi Arabia, UAE, Egypt, Kuwait, Bahrain, Oman, Qatar, Jordan, and more. The platform supports multi-currency operations, country-specific payment integrations, and adapts to local tax and invoicing requirements."
+        "question": "Does Cashvio work across Arabic-speaking markets?",
+        "answer": "Yes. Cashvio serves Arabic-speaking businesses with multi-currency operations, regional payment integrations, and local tax and invoicing workflows."
       },
       "q8": {
         "question": "Is there a free plan available?",
@@ -4311,8 +4311,8 @@
         "cta": "Open the calculator"
       },
       "vat": {
-        "title": "Egypt VAT calculator",
-        "description": "Add or extract Egypt 14% VAT from any amount. Instant net, VAT, and gross totals.",
+        "title": "VAT calculator",
+        "description": "Add or extract 14% VAT from any amount. Instant net, VAT, and gross totals.",
         "cta": "Open the VAT calculator"
       },
       "invoice": {
@@ -4862,7 +4862,7 @@
     "hero": {
       "title": "A restaurant POS built for",
       "titleHighlight": "busy service",
-      "subtitle": "Ring up tables and delivery orders fast, move each ticket through preparing and ready, and know your profit before you close. Free for restaurants in Egypt."
+      "subtitle": "Ring up tables and delivery orders fast, move each ticket through preparing and ready, and know your profit before you close. Free for restaurants."
     },
     "pains": {
       "title": "Where restaurant paper systems fail",
@@ -4931,7 +4931,7 @@
     "hero": {
       "title": "A supermarket POS built for",
       "titleHighlight": "barcode speed",
-      "subtitle": "Scan fast, track who owes what, reorder before shelves empty, and close the day with real profit. Free for grocery stores and bakalas in Egypt."
+      "subtitle": "Scan fast, track who owes what, reorder before shelves empty, and close the day with real profit. Free for grocery stores and bakalas."
     },
     "pains": {
       "title": "Where grocery paper systems fail",
@@ -4993,14 +4993,14 @@
     },
     "cta": {
       "title": "Scan your first sale today",
-      "subtitle": "Free forever for grocery stores in Egypt."
+      "subtitle": "Free forever for grocery stores."
     }
   },
   "industryPharmacy": {
     "hero": {
       "title": "A pharmacy POS that keeps",
       "titleHighlight": "stock under control",
-      "subtitle": "Barcode checkout, clear stock counts, customer history from a phone number, and purchase orders. Free for pharmacies in Egypt."
+      "subtitle": "Barcode checkout, clear stock counts, customer history from a phone number, and purchase orders. Free for pharmacies."
     },
     "pains": {
       "title": "Where pharmacy paper systems fail",
@@ -5069,7 +5069,7 @@
     "hero": {
       "title": "A bakery POS that handles",
       "titleHighlight": "morning trays and custom cakes",
-      "subtitle": "Sell packed items and custom orders fast, track flour and packaging stock, and close with real profit. Free for bakeries and pastry shops in Egypt."
+      "subtitle": "Sell packed items and custom orders fast, track flour and packaging stock, and close with real profit. Free for bakeries and pastry shops."
     },
     "pains": {
       "title": "Where bakery paper systems fail",
@@ -5138,7 +5138,7 @@
     "hero": {
       "title": "A mobile shop POS for",
       "titleHighlight": "phones and accessories",
-      "subtitle": "Track models and variants, scan accessories, sell on credit, and sync stock with a free online store. Built for phone shops in Egypt."
+      "subtitle": "Track models and variants, scan accessories, sell on credit, and sync stock with a free online store. Built for phone shops."
     },
     "pains": {
       "title": "Where phone-shop paper systems fail",
@@ -5207,7 +5207,7 @@
     "hero": {
       "title": "A cosmetics POS built for",
       "titleHighlight": "shades and shelves",
-      "subtitle": "Variants, barcode labels, returns with store credit, coupons, and a free online store. Free for beauty and cosmetics shops in Egypt."
+      "subtitle": "Variants, barcode labels, returns with store credit, coupons, and a free online store. Free for beauty and cosmetics shops."
     },
     "pains": {
       "title": "Where beauty retail paper fails",
@@ -5274,15 +5274,15 @@
   },
   "freePosEgypt": {
     "hero": {
-      "title": "Free POS for Egypt",
-      "titleHighlight": "built around how shops here sell",
-      "subtitle": "EGP pricing, Arabic receipts, offline sales, and a free online store. No credit card. Made for merchants across Egypt."
+      "title": "Free POS",
+      "titleHighlight": "built around how shops sell",
+      "subtitle": "Local-currency pricing, Arabic receipts, offline sales, and a free online store. No credit card. Made for merchants."
     },
     "pains": {
-      "title": "What Egyptian shop owners need from a free POS",
+      "title": "What shop owners need from a free POS",
       "p1": {
-        "title": "Pricing in EGP",
-        "description": "You sell in Egyptian pounds. Your POS, reports, and storefront should too."
+        "title": "Pricing in your currency",
+        "description": "You sell in your currency. Your POS, reports, and storefront should too."
       },
       "p2": {
         "title": "Arabic that actually works",
@@ -5294,15 +5294,15 @@
       }
     },
     "features": {
-      "title": "What you get free in Egypt",
+      "title": "What you get free",
       "subtitle": "Shipped features on the free forever plan.",
       "f1": {
         "title": "Free cashier in Arabic and English",
         "description": "Sales screen, cash register, shifts, and thermal or digital receipts."
       },
       "f2": {
-        "title": "EGP-native money",
-        "description": "Prices, reports, and payments stay in Egyptian pounds without awkward conversions."
+        "title": "Your currency, end to end",
+        "description": "Prices, reports, and payments stay in your currency without awkward conversions."
       },
       "f3": {
         "title": "Offline-capable sales",
@@ -5322,14 +5322,14 @@
       }
     },
     "faq": {
-      "title": "Free POS Egypt FAQ",
+      "title": "Free POS FAQ",
       "q1": {
-        "question": "Is Cashvio really free in Egypt?",
+        "question": "Is Cashvio really free?",
         "answer": "Yes. The free forever plan includes the POS, online store, inventory, and reports. No credit card to start. Paid plans raise limits when you grow."
       },
       "q2": {
-        "question": "What does a POS cost in Egypt?",
-        "answer": "With Cashvio the starting price is zero EGP. See the pricing page for paid plan limits in EGP when you need more branches, users, or devices."
+        "question": "What does a POS cost?",
+        "answer": "With Cashvio the starting price is zero. See the pricing page for paid plan limits when you need more branches, users, or devices."
       },
       "q3": {
         "question": "Does it work offline and in Arabic?",
@@ -5337,15 +5337,15 @@
       }
     },
     "cta": {
-      "title": "Start your free POS in Egypt today",
+      "title": "Start your free POS today",
       "subtitle": "Register in minutes. No credit card. Arabic and English."
     }
   },
   "vatCalculator": {
     "hero": {
-      "title": "Free Egypt",
+      "title": "Free",
       "titleHighlight": "VAT calculator",
-      "subtitle": "Add 14% VAT to a net price, or peel VAT out of a gross total. Built for Egyptian merchants. Free, no signup."
+      "subtitle": "Add 14% VAT to a net price, or peel VAT out of a gross total. Built for merchants. Free, no signup."
     },
     "tool": {
       "modeLabel": "Calculation mode",
@@ -5356,7 +5356,7 @@
       "netLabel": "Amount without VAT (net)",
       "grossLabel": "Amount with VAT (gross)",
       "rateLabel": "VAT rate %",
-      "rateHint": "Egypt standard rate is 14%. Change it only if your case differs.",
+      "rateHint": "Standard rate defaults to 14%. Change it only if your case differs.",
       "results": {
         "net": "Net (ex-VAT)",
         "vat": "VAT amount",
@@ -5374,7 +5374,7 @@
       },
       "s2": {
         "title": "Enter the amount",
-        "description": "Type the net or gross figure. Rate defaults to Egypt 14%."
+        "description": "Type the net or gross figure. Rate defaults to 14%."
       },
       "s3": {
         "title": "Read the split",
@@ -5399,10 +5399,10 @@
       }
     },
     "faq": {
-      "title": "Egypt VAT calculator FAQ",
+      "title": "VAT calculator FAQ",
       "q1": {
-        "question": "What is the VAT rate in Egypt?",
-        "answer": "The standard value added tax rate in Egypt is 14%. This calculator defaults to 14% and lets you change the rate if your case needs a different figure."
+        "question": "What is the VAT rate?",
+        "answer": "The standard value added tax rate is 14%. This calculator defaults to 14% and lets you change the rate if your case needs a different figure."
       },
       "q2": {
         "question": "What is the difference between adding and extracting VAT?",
@@ -5424,7 +5424,7 @@
     "hero": {
       "title": "Free invoice",
       "titleHighlight": "generator",
-      "subtitle": "Make a printable bilingual invoice or sales receipt in your browser. Optional Egypt 14% VAT. Free, no signup, no watermark."
+      "subtitle": "Make a printable bilingual invoice or sales receipt in your browser. Optional 14% VAT. Free, no signup, no watermark."
     },
     "tool": {
       "businessNameLabel": "Business name",
@@ -5447,7 +5447,7 @@
       "removeItem": "Remove",
       "includeVat": "Add VAT",
       "rateLabel": "VAT rate %",
-      "rateHint": "Defaults to Egypt 14%. Change it if your case differs.",
+      "rateHint": "Defaults to 14%. Change it if your case differs.",
       "notesLabel": "Notes (optional)",
       "notesPlaceholder": "Payment terms, thank-you line, bank details…",
       "print": "Print invoice",
@@ -5469,7 +5469,7 @@
       },
       "s2": {
         "title": "Add the sale lines",
-        "description": "Description, quantity, and unit price. Toggle VAT and set the rate (defaults to Egypt 14%)."
+        "description": "Description, quantity, and unit price. Toggle VAT and set the rate (defaults to 14%)."
       },
       "s3": {
         "title": "Print or save as PDF",
@@ -5504,8 +5504,8 @@
         "answer": "Yes. Switch the site language to Arabic and the form labels, preview, and print layout follow RTL Arabic copy."
       },
       "q3": {
-        "question": "Does it include Egypt VAT?",
-        "answer": "Optionally. Turn on Add VAT, keep the default Egypt 14% rate or change it, and the preview adds tax on top of the line-item subtotal."
+        "question": "Does it include VAT?",
+        "answer": "Optionally. Turn on Add VAT, keep the default 14% rate or change it, and the preview adds tax on top of the line-item subtotal."
       }
     },
     "cta": {
@@ -5519,7 +5519,7 @@
     "hero": {
       "title": "A bookstore POS that tracks",
       "titleHighlight": "every title on the shelf",
-      "subtitle": "SKU and barcode checkout, stock alerts, customer history, and a free online store for books and stationery. Free for bookshops in Egypt."
+      "subtitle": "SKU and barcode checkout, stock alerts, customer history, and a free online store for books and stationery. Free for bookshops."
     },
     "pains": {
       "title": "Where bookstore paper fails",
@@ -5588,7 +5588,7 @@
     "hero": {
       "title": "A gift and flower POS for",
       "titleHighlight": "seasons and last-minute rushes",
-      "subtitle": "Fast checkout, variants for wraps and sizes, stock alerts, and a free online store. Free for gift shops and florists in Egypt."
+      "subtitle": "Fast checkout, variants for wraps and sizes, stock alerts, and a free online store. Free for gift shops and florists."
     },
     "pains": {
       "title": "Where gift shop paper fails",
@@ -5657,7 +5657,7 @@
     "hero": {
       "title": "A jewelry POS that protects",
       "titleHighlight": "high-value pieces",
-      "subtitle": "Barcode checkout, precise stock, customer credit, and staff permissions. Free for jewelry and gold shops in Egypt."
+      "subtitle": "Barcode checkout, precise stock, customer credit, and staff permissions. Free for jewelry and gold shops."
     },
     "pains": {
       "title": "Where jewelry paper fails",
@@ -5726,7 +5726,7 @@
     "hero": {
       "title": "A hardware POS built for",
       "titleHighlight": "thousands of SKUs",
-      "subtitle": "Barcode speed, credit book for regulars, purchase orders, and end-of-day profit. Free for hardware and tools shops in Egypt."
+      "subtitle": "Barcode speed, credit book for regulars, purchase orders, and end-of-day profit. Free for hardware and tools shops."
     },
     "pains": {
       "title": "Where hardware paper fails",
@@ -5795,7 +5795,7 @@
     "hero": {
       "title": "An electronics POS for",
       "titleHighlight": "appliances and accessories",
-      "subtitle": "Variants, barcodes, warranties notes, credit sales, and a free online store. Free for electronics shops in Egypt. Built for appliances and accessories, not phone IMEI workflows."
+      "subtitle": "Variants, barcodes, warranties notes, credit sales, and a free online store. Free for electronics shops. Built for appliances and accessories, not phone IMEI workflows."
     },
     "pains": {
       "title": "Where electronics paper fails",
@@ -5862,15 +5862,15 @@
   },
   "freeOnlineStoreEgypt": {
     "hero": {
-      "title": "Free online store for Egypt",
+      "title": "Free online store",
       "titleHighlight": "synced with your free POS",
-      "subtitle": "EGP pricing, Arabic storefront, no commission on the free plan, and stock that matches the shelf. Built for merchants across Egypt."
+      "subtitle": "Local-currency pricing, Arabic storefront, no commission on the free plan, and stock that matches the shelf. Built for merchants."
     },
     "pains": {
-      "title": "What Egyptian sellers need from a free store",
+      "title": "What sellers need from a free store",
       "p1": {
-        "title": "Pricing in EGP",
-        "description": "Your storefront, checkout, and reports should speak Egyptian pounds, not awkward conversions."
+        "title": "Pricing in your currency",
+        "description": "Your storefront, checkout, and reports should use your currency, not awkward conversions."
       },
       "p2": {
         "title": "Arabic that customers trust",
@@ -5882,15 +5882,15 @@
       }
     },
     "features": {
-      "title": "What you get free in Egypt",
+      "title": "What you get free",
       "subtitle": "Shipped features on the free forever plan.",
       "f1": {
         "title": "Free storefront in Arabic and English",
         "description": "Your own store link with product pages, cart, and checkout."
       },
       "f2": {
-        "title": "EGP-native money",
-        "description": "Prices and totals stay in Egyptian pounds across store and POS."
+        "title": "Your currency, end to end",
+        "description": "Prices and totals stay in your currency across store and POS."
       },
       "f3": {
         "title": "Stock synced with the POS",
@@ -5910,9 +5910,9 @@
       }
     },
     "faq": {
-      "title": "Free online store Egypt FAQ",
+      "title": "Free online store FAQ",
       "q1": {
-        "question": "Is the online store really free in Egypt?",
+        "question": "Is the online store really free?",
         "answer": "Yes. The free forever plan includes the online store with the free POS, inventory, and reports. No credit card to start."
       },
       "q2": {
@@ -5925,7 +5925,7 @@
       }
     },
     "cta": {
-      "title": "Launch your free store in Egypt",
+      "title": "Launch your free store",
       "subtitle": "Register in minutes. No credit card. Arabic and English."
     }
   },
@@ -6055,7 +6055,7 @@
       },
       "f6": {
         "title": "Works in Arabic",
-        "description": "RTL dashboard and bilingual receipts for Egypt and MENA customers."
+        "description": "RTL dashboard and bilingual receipts for Arabic-speaking customers."
       }
     },
     "faq": {
@@ -6084,7 +6084,7 @@
       "badge": "Barcode POS",
       "title": "Scan at the register,",
       "titleHighlight": "stop typing SKUs",
-      "subtitle": "USB barcode scanning, printable labels, and stock that updates with every scan. Built into your free POS for Egypt retail.",
+      "subtitle": "USB barcode scanning, printable labels, and stock that updates with every scan. Built into your free POS.",
       "note": "Free forever. No credit card.",
       "stamp": "FREE"
     },
