@@ -1944,8 +1944,8 @@
           "features": "Regional card rails, bilingual storefront, and delivery pricing by zone"
         },
         "gcc": {
-          "name": "Bahrain, Oman & Qatar",
-          "features": "GCC VAT compliance, multi-currency operations, Arabic customer management, regional payment methods"
+          "name": "Multi-market ready",
+          "features": "VAT-ready tax setup, multi-currency operations, Arabic customer management, regional payment methods"
         }
       }
     },
