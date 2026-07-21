@@ -1,47 +1,45 @@
 ---
 title: Stocktake
-description: Run a physical stock count, print a count sheet, and apply all counts in one submit.
+description: Count stock by scanning barcodes, adjust with plus and minus, and save all counts in one submit.
 ---
 
 ## What is a stocktake?
 
-A **stocktake** is a physical count of products in a store. You build a count sheet, count what is on the shelf, then submit once so Cashvio updates stock and records a **Manual Count** where the numbers differ.
+A **stocktake** is a physical count of products in a store. Scan each item (or type its SKU), set the counted quantity, then save once so Cashvio updates stock and records a **Manual Count** where the numbers differ.
 
 Use stocktake for seasonal or periodic counts. For a one-off fix on a single item, use [Adjust Stock](/docs/inventory/adjustments-transfers) instead.
 
-## Start a stocktake
+## Count with a scanner or camera
 
 1. Go to **Inventory > Stocktake**.
 2. Choose the **store** (if you have more than one).
-3. Search or browse inventory and **Add** items to the sheet, or **Add page** to add everything on the current list page.
-4. A sheet can hold up to **100** items. Remove lines you do not need before you start counting.
-
-## Print a count sheet
-
-Click **Print sheet** to open an A4 worksheet with SKU, product name, system quantity, and a blank **Counted** box for each line. Print it, count on paper, then enter the numbers in Cashvio.
+3. Scan a barcode (USB/Bluetooth scanner, or the camera button on your phone). Each scan adds **1** to that product. Scan again to add another.
+4. Tap the number to type a full count, or use **+** and **-**.
+5. You can count up to **100** products in one stocktake.
 
 <Callout title="Tip">
-Print before you start counting if you want a paper checklist. You can print again from count mode if needed.
+No barcode? Type the SKU in the search box and press Enter. It works the same as a scan.
 </Callout>
 
-## Enter counts and submit
+## Print a count sheet (optional)
 
-1. Click **Start count**.
-2. Enter the **Counted** quantity for each line. The **Variance** column shows the difference from system stock.
-3. You can scan or type a SKU to jump to that line.
-4. Click **Submit count**, review how many lines have a difference, and confirm.
+**Print sheet** opens an A4 worksheet with SKU, product name, system quantity, and a blank **Counted** box. Use it if you want to count on paper first, then enter the numbers in Cashvio.
+
+## Save the count
+
+Click **Save count**, review how many items differ from system stock, and confirm.
 
 Cashvio applies the counts in one go:
 
 - Stock on hand becomes the counted quantity.
 - Differences are saved in [adjustment history](/docs/inventory/adjustments-transfers) as **Manual Count**.
-- **Last Counted** is updated for every line on the sheet, even when the count matches the system.
+- **Last Counted** is updated for every line you counted, even when the count matches the system.
 
 ## Stocktake vs Adjust Stock vs Consume Damaged
 
 | Action | When to use |
 |--------|-------------|
-| **Stocktake** | Full physical count for many items at once |
+| **Stocktake** | Physical count for many items at once |
 | **Adjust Stock** | Quick correction for one item |
 | **Consume / Damaged** | Stock removed as damage, loss, or waste (not a count) |
 
