@@ -1,0 +1,61 @@
+---
+title: VAT Setup and Tax Reports
+description: "Set a default tax rate for new products, print your VAT and commercial registration numbers on receipts, and read the tax summary report."
+---
+
+Cashvio is VAT-ready out of the box. Three pieces work together: a store default tax rate so you stop typing the same rate on every product, your tax registration numbers printed on every receipt, and a tax summary report that tells you how much tax you collected in any period.
+
+## Set a Default Tax Rate
+
+Instead of typing `14%` on every new product, set it once per store:
+
+1. Go to **Settings > Stores** and open your store's **Settings** tab.
+2. Enter your rate in **Default Tax Rate** (for example `14` for Egyptian VAT).
+3. Click **Save Store Details**.
+
+From now on, every new product starts with this rate already filled in, on the full **Add Product** page and in the quick-create dialog on **New Sale**. You can still change or remove the rate on any individual product before saving.
+
+| Behavior | Detail |
+|----------|--------|
+| **New products** | Start with the default rate and "tax included" pricing |
+| **Existing products** | Never touched; they keep the rate they already have |
+| **Imported products** | Products from a [CSV or Excel import](/docs/catalogue/importing-products) get the default rate automatically, since the import file has no tax column |
+| **Set to 0** | Disables the default; new products start with no tax |
+
+<Callout title="Note">
+If you were already using tax on your products before this setting existed, Cashvio filled it in for you with the rate you use most. Check **Settings > Stores** once to confirm it matches your registration.
+</Callout>
+
+The rate itself still lives on each product, so mixed catalogs (some items taxed, some exempt) keep working exactly as before. See [Tax Calculations](/docs/calculations/tax-calculations) for how inclusive and exclusive tax math works.
+
+## Print VAT Numbers on Receipts
+
+Registered businesses in Egypt must show their tax registration on customer receipts. Add yours once:
+
+1. Go to **Settings > Stores**, open your store, and select the **Receipt** tab.
+2. In the **Tax Registration** card, enter your **VAT Registration Number** and **Commercial Registration Number**.
+3. Click **Save**.
+
+Both numbers print under your store name and phone on every receipt: thermal prints, browser prints, PDF downloads, and the digital receipt your customers open from the QR code. Leave a field empty and that line simply does not print.
+
+## Read the Tax Summary Report
+
+To know how much tax you collected for a filing period:
+
+1. Go to **Reports** and open the **Tax** tab.
+2. Pick your period: day, week, month, or a custom range.
+
+The report shows four headline numbers and a day-by-day table:
+
+| Figure | Meaning |
+|--------|---------|
+| **Tax Collected** | Total tax on completed orders in the period |
+| **Sales (excl. tax)** | Your merchandise sales with tax and fees stripped out |
+| **Taxed Orders** | How many completed orders carried tax, out of all orders |
+| **Effective Tax Rate** | Tax collected as a percentage of sales excluding tax |
+
+Use **Export CSV** to download the daily breakdown for your accountant.
+
+<Callout title="Important">
+Amounts are as collected on completed orders. Refunds are not deducted from the tax figures, so review refunded orders with your accountant when preparing a filing.
+</Callout>

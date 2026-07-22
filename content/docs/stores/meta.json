@@ -1,4 +1,4 @@
 {
   "title": "Store Management",
-  "pages": ["creating-store", "payment-methods", "portal-payment-methods", "storefront-payment-methods", "fulfillment-methods", "service-fees", "delivery-zones", "receipt-settings", "pos-devices"]
+  "pages": ["creating-store", "payment-methods", "portal-payment-methods", "storefront-payment-methods", "fulfillment-methods", "service-fees", "delivery-zones", "receipt-settings", "taxes-and-vat", "pos-devices"]
 }

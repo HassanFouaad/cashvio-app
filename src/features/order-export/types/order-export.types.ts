@@ -40,6 +40,8 @@ export interface OrderExportStore {
   showStorePhone: boolean;
   showLogo: boolean;
   showHeader: boolean;
+  vatNumber?: string;
+  commercialRegistrationNumber?: string;
 }
 
 /**

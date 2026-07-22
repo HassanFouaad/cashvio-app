@@ -26,7 +26,8 @@ One row = one product. The columns are:
 | Column | Required? | What to enter |
 |--------|-----------|---------------|
 | **name** | Required | The product name your customers see (up to 64 characters) |
-| **sku** | Required | A unique code for the product, such as a barcode number or your own code. No two products can share a code |
+| **sku** | Required | A unique code for the product, your own internal reference. No two products can share a code |
+| **barcode** | Optional | The scannable barcode on the product (EAN/UPC number or your own code). Leave empty if there isn't one; scanning and labels fall back to the SKU |
 | **sellingPrice** | Required | The price you sell at. Numbers only, e.g. `250` or `99.99` |
 | **purchasePrice** | Optional | What the product costs you, used for profit reports |
 | **category** | Optional | The category name. If it doesn't exist yet, it is created for you |
@@ -82,6 +83,7 @@ If anything interrupts the process (for example a connection problem), it automa
 | Maximum file size | 5 MB |
 | File format | Excel (.xlsx) or CSV |
 | SKU uniqueness | Every SKU must be unique, both in the file and in your existing catalog |
+| Barcode uniqueness | Every filled barcode must be unique, both in the file and in your existing catalog |
 | Initial quantity | A whole number from 0 to 1,000,000 per row |
 | One file at a time | Wait for the current upload to finish before starting another |
 

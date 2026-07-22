@@ -1155,7 +1155,7 @@
       "emailTooLong": "Email is too long (max 255 characters)",
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 8 characters",
-      "passwordTooLong": "Password is too long (max 255 characters)",
+      "passwordTooLong": "Password is too long (max 128 characters)",
       "userExists": "An account with this email already exists",
       "registrationFailed": "Registration failed. Please try again."
     },
@@ -1712,6 +1712,8 @@
     "thankYou": "Thank you for your order!",
     "phone": "Phone",
     "email": "Email",
+    "vatNumber": "VAT No.",
+    "commercialRegistration": "C.R. No.",
     "poweredBy": "Powered by",
     "poweredByCta": "Create your free online store",
     "errors": {

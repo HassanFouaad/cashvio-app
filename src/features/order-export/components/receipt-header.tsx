@@ -67,6 +67,18 @@ export function ReceiptHeader({ store }: ReceiptHeaderProps) {
             {store.addressLine2 && `, ${store.addressLine2}`}
           </p>
         )}
+        {store.vatNumber && (
+          <p className="text-xs">
+            <span className="font-medium">{t("vatNumber")}:</span>{" "}
+            <span dir="ltr">{store.vatNumber}</span>
+          </p>
+        )}
+        {store.commercialRegistrationNumber && (
+          <p className="text-xs">
+            <span className="font-medium">{t("commercialRegistration")}:</span>{" "}
+            <span dir="ltr">{store.commercialRegistrationNumber}</span>
+          </p>
+        )}
       </div>
     </div>
   );

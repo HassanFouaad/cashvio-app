@@ -9,14 +9,16 @@ On **New Sale**, you can add catalogue items by scanning instead of tapping tile
 
 There are two ways to scan products into the sale:
 
-- **Barcode scanner (USB or Bluetooth)**: Scan anywhere on the sale screen and the item is added to the cart by its SKU. You do not need to click into the search field first; scans are picked up even after tapping the cart or a product tile.
-- **Camera scanning**: Tap the **Scan with camera** button next to the search field and point the camera at the product barcode. The item is added as soon as the barcode is recognized, with no scanner hardware needed. Works on any device with a camera: Android and iPhone/iPad phones and tablets, and laptops or desktops with a webcam.
+- **Barcode scanner (USB or Bluetooth)**: Scan anywhere on the sale screen and the item is added to the cart. You do not need to click into the search field first; scans are picked up even after tapping the cart or a product tile.
+- **Camera scanning**: Tap the **Scan with camera** button next to the search field and point the camera at the product barcode. The item is added as soon as the barcode is confirmed, with no scanner hardware needed. Works on any device with a camera: Android and iPhone/iPad phones and tablets, and laptops or desktops with a webcam.
 
-The [barcode labels](/docs/catalogue/barcode-labels) you print from the Products page work with both methods.
+A scan looks up the code as a variant **Barcode** first, then as a **SKU**. So manufacturer barcodes, generated in-store barcodes, and older labels that encode the SKU all keep working. The [barcode labels](/docs/catalogue/barcode-labels) you print from the Products page work with both methods.
 
-**Scanned an item that isn't in your catalogue yet?** When a scan doesn't match any product, the **Quick Add Product** dialog opens with the scanned barcode already saved as the product's SKU (so you can print matching [barcode labels](/docs/catalogue/barcode-labels) later). Type the name, category, and price, then click **Create Product**. The product is created and added to the sale in one step, so the queue keeps moving.
+The camera reads the barcode types found in retail: EAN-13, EAN-8, UPC-A, UPC-E, and Code 128. A code must be recognized on two consecutive camera frames before it is accepted, which blocks the wrong-number misreads blurry frames can cause.
 
-This works for both scanning methods. It appears only if your role can create products. Otherwise you see a warning that no product matched the SKU. You can also open **Quick Add Product** from the **New catalog product** item in the catalogue add menu (same permission).
+**Scanned an item that isn't in your catalogue yet?** When a scan doesn't match any product, the **Quick Add Product** dialog opens with the scanned code already saved as the product's **barcode**, so the very next scan of that item resolves instantly (and printed [barcode labels](/docs/catalogue/barcode-labels) match too). The SKU is generated from the product name. Type the name, category, and price, then click **Create Product**. The product is created and added to the sale in one step, so the queue keeps moving.
+
+This works for both scanning methods. It appears only if your role can create products. Otherwise you see a warning that no product matched the code. You can also open **Quick Add Product** from the **New catalog product** item in the catalogue add menu (same permission).
 
 <Callout title="Note">
 The first camera scan asks for **camera permission** and may take a moment while the scanner component loads. If the camera does not start, check the browser's camera permission for the site.

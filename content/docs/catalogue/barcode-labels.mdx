@@ -1,9 +1,9 @@
 ---
 title: Barcode Labels
-description: "Print A4 barcode label sheets for product variants, with product name, price, and a scannable Code 128 SKU barcode."
+description: "Print A4 barcode label sheets for product variants, with product name, price, and a scannable barcode (EAN-13, UPC, or Code 128)."
 ---
 
-Print ready-to-stick price labels with a scannable barcode for any variant. Labels use each variant's **SKU**, which you can scan at the [POS](/docs/orders/creating-orders) or with a dedicated scanner (see [Barcode scanning](/docs/orders/pos-barcode-scanning)).
+Print ready-to-stick price labels with a scannable barcode for any variant. Labels encode the variant's **Barcode** when it has one, and fall back to the **SKU** when it doesn't. Either way, the printed label scans at the [POS](/docs/orders/creating-orders) or with a dedicated scanner (see [Barcode scanning](/docs/orders/pos-barcode-scanning)).
 
 ## Printing Barcode Labels
 
@@ -16,7 +16,9 @@ Print ready-to-stick price labels with a scannable barcode for any variant. Labe
 
 - The **product name** and **variant name**
 - The **selling price**
-- A **Code 128 barcode** of the variant's SKU, scannable by any barcode reader, including the one you use at the POS
+- A **scannable barcode** of the variant's barcode (or its SKU when no barcode is set), readable by any barcode reader, including the one you use at the POS
+
+Labels use the same barcode types real retailers use. Standard retail numbers (EAN-13, UPC-A, EAN-8) print in their native format, exactly like the barcodes on packaged goods. Anything else, such as a text SKU, prints as Code 128.
 
 ### Printing tips
 
@@ -24,7 +26,7 @@ Print ready-to-stick price labels with a scannable barcode for any variant. Labe
 - Scan a printed label at the POS to add that exact variant to a sale instantly.
 
 <Callout title="Note">
-If nothing opens when you click **Print labels**, allow popups for the portal in your browser and try again. Code 128 barcodes need **Latin** letters, numbers, and dashes. Arabic letters and other non-Latin characters in a SKU cannot be encoded. Edit the SKU before printing, or keep the scanned barcode as the SKU when you [quick-add from a scan](/docs/orders/pos-barcode-scanning).
+If nothing opens when you click **Print labels**, allow popups for the portal in your browser and try again. Code 128 barcodes need **Latin** letters, numbers, and dashes. Arabic letters and other non-Latin characters cannot be encoded. The easiest fix: open the variant, press the **Generate barcode** wand on the **Barcode** field to get a standard retail number, save, and print again.
 </Callout>
 
 ## Related
