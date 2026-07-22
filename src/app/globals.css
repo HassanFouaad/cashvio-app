@@ -606,20 +606,23 @@ div:has(+ #nd-sidebar-mobile) {
   min-width: 1.5rem;
 }
 
-/* Force the invoice preview to print/read as black on white */
+/* Force tool print previews to print/read as black on white */
 .invoice-print-area,
-.invoice-print-area * {
+.invoice-print-area *,
+.price-tag-print-area,
+.price-tag-print-area * {
   color: black !important;
   border-color: black !important;
 }
 
-.invoice-print-area {
+.invoice-print-area,
+.price-tag-print-area {
   background: white !important;
 }
 
 /* ============================================
-   TOOL PRINT (invoice / receipt maker)
-   Isolates .invoice-print-area so window.print()
+   TOOL PRINT (invoice / price tags)
+   Isolates print areas so window.print()
    yields a clean single-page document.
    ============================================ */
 @media print {
@@ -628,11 +631,14 @@ div:has(+ #nd-sidebar-mobile) {
   }
 
   .invoice-print-area,
-  .invoice-print-area * {
+  .invoice-print-area *,
+  .price-tag-print-area,
+  .price-tag-print-area * {
     visibility: visible !important;
   }
 
-  .invoice-print-area {
+  .invoice-print-area,
+  .price-tag-print-area {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -646,7 +652,9 @@ div:has(+ #nd-sidebar-mobile) {
   }
 
   .invoice-print-area,
-  .invoice-print-area * {
+  .invoice-print-area *,
+  .price-tag-print-area,
+  .price-tag-print-area * {
     color: black !important;
     border-color: black !important;
     -webkit-print-color-adjust: exact;

@@ -92,7 +92,7 @@
     },
     "tools": {
       "title": "Free Tools for Merchants: VAT, Invoice, Barcode & More",
-      "description": "Free browser tools from Cashvio: Egypt VAT calculator, printable invoice maker, barcode and QR generators, and a profit-margin calculator. No signup, no watermark."
+      "description": "Free browser tools from Cashvio: Egypt VAT calculator, printable invoice maker, barcode and QR generators, discount and margin calculators, and a price tag maker. No signup."
     },
     "barcodeGenerator": {
       "title": "Free Barcode Generator: Code 128 & EAN-13 PNG",
@@ -120,7 +120,7 @@
     },
     "industriesHub": {
       "title": "Free POS by Business Type: Cafe, Restaurant, Pharmacy & More",
-      "description": "See how a free POS and free online store fit your business in Egypt. Guides for cafes, restaurants, pharmacies, bookstores, gift shops, jewelry, hardware, electronics, and more."
+      "description": "See how a free POS and free online store fit your business in Egypt. Guides for cafes, restaurants, pharmacies, stationery, auto parts, furniture, optics, and more."
     },
     "industryRestaurant": {
       "title": "Restaurant POS Egypt: Free Cashier for Restaurants",
@@ -178,6 +178,22 @@
       "title": "Electronics Store POS: Free Cashier for Appliances",
       "description": "A free electronics POS for appliances and accessories: variants, barcodes, credit, purchase orders, and a free online store. Distinct from phone shops."
     },
+    "industryStationery": {
+      "title": "Stationery POS: Free Cashier for Office & School Supplies",
+      "description": "A free stationery POS for Egypt: barcode checkout, school-season stock alerts, purchase orders, and a free online store for pens and notebooks. Arabic and English."
+    },
+    "industryAutoParts": {
+      "title": "Auto Parts POS: Free Cashier for Spare Parts Shops",
+      "description": "A free auto parts POS for Egypt: USB barcode scanning, digital credit book for workshops, low-stock alerts, and purchase orders. Arabic and English, no credit card."
+    },
+    "industryFurniture": {
+      "title": "Furniture Store POS: Free Cashier for Home Furniture",
+      "description": "A free furniture POS for Egypt: product variants, delivery notes, customer credit, purchase orders, and a free online store for showroom stock. Arabic and English."
+    },
+    "industryOptics": {
+      "title": "Optics POS: Free Cashier for Eyewear & Optical Shops",
+      "description": "A free optics and eyewear POS: frame variants, barcode labels, customer profiles, and a free online store for sunglasses and frames. Built for Egypt optical shops."
+    },
     "freeOnlineStoreEgypt": {
       "title": "Free Online Store Egypt: Free Ecommerce in EGP",
       "description": "Free online store for Egypt: Arabic storefront, EGP pricing, stock synced with your free POS, no commission on the free plan. No credit card."
@@ -193,6 +209,14 @@
     "barcodePos": {
       "title": "Barcode POS: USB Scanning & Labels for Retail",
       "description": "Free barcode POS checkout with USB scanning, printable labels, and live stock updates. Built into Cashvio for Egypt retail. No credit card."
+    },
+    "discountCalculator": {
+      "title": "Free Discount Calculator: % Off & Final Price",
+      "description": "Free discount calculator for merchants: enter a price and percent off to get the final sale price, or find the discount percent from two prices. No signup."
+    },
+    "priceTagGenerator": {
+      "title": "Free Price Tag Generator: Printable A4 Shelf Labels",
+      "description": "Make printable A4 shelf price tags with product name, price, and an optional Code 128 barcode. Free in your browser, no watermark, no signup needed."
     }
   },
   "common": {
@@ -262,10 +286,16 @@
     "industryJewelry": "Jewelry POS",
     "industryHardware": "Hardware Store POS",
     "industryElectronics": "Electronics POS",
+    "industryStationery": "Stationery POS",
+    "industryAutoParts": "Auto Parts POS",
+    "industryFurniture": "Furniture POS",
+    "industryOptics": "Optics POS",
     "freeOnlineStoreEgypt": "Free online store · local",
     "customerCredit": "Customer Credit",
     "whatsappCommerce": "WhatsApp Commerce",
-    "barcodePos": "Barcode POS"
+    "barcodePos": "Barcode POS",
+    "discountCalculator": "Discount Calculator",
+    "priceTagGenerator": "Price Tag Generator"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -4294,7 +4324,7 @@
     "hero": {
       "title": "Free tools for",
       "titleHighlight": "your shop",
-      "subtitle": "Barcode and QR generators, VAT and margin calculators, and a printable invoice maker. Free in your browser, no signup needed."
+      "subtitle": "Barcode and QR generators, VAT, margin and discount calculators, a printable invoice maker, and A4 price tags. Free in your browser, no signup needed."
     },
     "items": {
       "barcode": {
@@ -4321,6 +4351,16 @@
         "title": "Invoice & receipt maker",
         "description": "Fill in your shop details and line items, then print a clean bilingual invoice.",
         "cta": "Open the invoice maker"
+      },
+      "discount": {
+        "title": "Discount calculator",
+        "description": "Apply a percent off to get the final price, or reverse it from the original and sale prices.",
+        "cta": "Open the discount calculator"
+      },
+      "priceTag": {
+        "title": "Price tag generator",
+        "description": "Print an A4 sheet of shelf labels with product name, price, and an optional barcode.",
+        "cta": "Open the price tag maker"
       }
     },
     "cta": {
@@ -4624,8 +4664,8 @@
         "cta": "See the cosmetics POS"
       },
       "bookstore": {
-        "title": "Bookstores & Stationery",
-        "description": "SKU and barcode checkout, stock alerts, customer history, and a free online store for titles and supplies.",
+        "title": "Bookstores",
+        "description": "SKU and barcode checkout, stock alerts, customer history, and a free online store for titles.",
         "cta": "See the bookstore POS"
       },
       "giftShop": {
@@ -4647,11 +4687,31 @@
         "title": "Electronics & Appliances",
         "description": "Variants for models and colors, barcodes, credit sales, and a free online store for appliances and accessories.",
         "cta": "See the electronics POS"
+      },
+      "stationery": {
+        "title": "Stationery & Office Supplies",
+        "description": "Barcode checkout for pens and notebooks, school-season stock alerts, purchase orders, and a free online stationery store.",
+        "cta": "See the stationery POS"
+      },
+      "autoParts": {
+        "title": "Auto Parts & Spare Parts",
+        "description": "USB barcode scanning, credit book for workshops, low-stock alerts, and purchase orders for high SKU counts.",
+        "cta": "See the auto parts POS"
+      },
+      "furniture": {
+        "title": "Furniture & Home Furnishings",
+        "description": "Color and size variants, delivery notes, customer credit, and a free online store synced with the showroom.",
+        "cta": "See the furniture POS"
+      },
+      "optics": {
+        "title": "Optics & Eyewear",
+        "description": "Frame variants, barcode labels, customer profiles, and a free online store for sunglasses and frames.",
+        "cta": "See the optics POS"
       }
     },
     "more": {
       "title": "Need another business type?",
-      "subtitle": "Cashvio also fits stationery corners, home goods, and other product retailers. Start free and shape it around how you already sell."
+      "subtitle": "Cashvio also fits pet shops, toy stores, and other product retailers. Start free and shape it around how you already sell."
     },
     "cta": {
       "title": "Start with the free plan today",
@@ -6332,6 +6392,406 @@
       "thanks": "Thank you for opening your electronics shop with us"
     }
   },
+  "industryStationery": {
+    "hero": {
+      "title": "A stationery POS built for",
+      "titleHighlight": "pens, notebooks, and school rush",
+      "subtitle": "Barcode speed, school-season stock alerts, purchase orders, and a free online store. Free for stationery and office supply shops."
+    },
+    "pains": {
+      "title": "Where stationery paper fails",
+      "p1": {
+        "title": "Too many small SKUs",
+        "description": "Pens, refills, and notebook sizes look alike. Hand lists lag the shelf by days."
+      },
+      "p2": {
+        "title": "School season empties the wrong bin",
+        "description": "You overbuy slow brands and run out of the pack every parent asks for in September."
+      },
+      "p3": {
+        "title": "Office accounts on sticky notes",
+        "description": "Schools and firms buy on credit. Balances live in a notebook until someone forgets who owes what."
+      }
+    },
+    "features": {
+      "title": "What your stationery shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "USB barcode scanning",
+        "description": "Scan pens and packs at the counter without typing codes during the school rush."
+      },
+      "f2": {
+        "title": "Low-stock alerts",
+        "description": "Set reorder points so popular notebooks refill before the next term starts."
+      },
+      "f3": {
+        "title": "Purchase orders",
+        "description": "Order from suppliers, receive in parts, and update stock automatically."
+      },
+      "f4": {
+        "title": "Digital credit book",
+        "description": "Track school and office accounts from a phone number, with store credit and history."
+      },
+      "f5": {
+        "title": "Free online store",
+        "description": "List stationery packs online with stock synced to the shelf."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "Close with sales and margin instead of counting drawers and guessing."
+      }
+    },
+    "faq": {
+      "title": "Stationery POS FAQ",
+      "q1": {
+        "question": "Is this free for stationery shops?",
+        "answer": "Yes. The free plan includes the POS, inventory, credit balances, purchase orders, online store, and reports. No credit card to start."
+      },
+      "q2": {
+        "question": "Is this different from a bookstore POS?",
+        "answer": "Yes. This page is for pens, notebooks, and office supplies. Bookshops that focus on titles should use the bookstore POS page."
+      },
+      "q3": {
+        "question": "Can I import a big catalog before school season?",
+        "answer": "Yes. Upload a CSV with the import wizard. Map columns, validate, then save so stock is ready for the rush."
+      }
+    },
+    "cta": {
+      "title": "Run your stationery counter free",
+      "subtitle": "Arabic and English. Ready in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Stationery Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "USB barcode scan",
+          "value": "0.00"
+        },
+        {
+          "name": "Low-stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Digital credit book",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "End-of-day profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your stationery shop with us"
+    }
+  },
+  "industryAutoParts": {
+    "hero": {
+      "title": "An auto parts POS built for",
+      "titleHighlight": "thousands of spare parts",
+      "subtitle": "Barcode speed, credit book for workshops, purchase orders, and end-of-day profit. Free for spare parts shops."
+    },
+    "pains": {
+      "title": "Where auto parts paper fails",
+      "p1": {
+        "title": "Bins without counts",
+        "description": "Filters, pads, and brands look alike. Hand lists lag the shelf by days."
+      },
+      "p2": {
+        "title": "Workshops who pay later",
+        "description": "آجل balances live in a notebook until someone forgets which garage owes what."
+      },
+      "p3": {
+        "title": "Supplier reorders by memory",
+        "description": "You overbuy slow parts and run out of the SKU every mechanic needs this week."
+      }
+    },
+    "features": {
+      "title": "What your auto parts shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "USB barcode scanning",
+        "description": "Scan parts at the counter and keep the line moving without typing codes."
+      },
+      "f2": {
+        "title": "Digital credit book",
+        "description": "Know which workshop owes what from a customer profile, with store credit and history."
+      },
+      "f3": {
+        "title": "Low-stock alerts",
+        "description": "Set reorder points so fast movers refill before the next garage rush."
+      },
+      "f4": {
+        "title": "Purchase orders",
+        "description": "Order from suppliers, receive in parts, and update stock automatically."
+      },
+      "f5": {
+        "title": "Multi-store ready",
+        "description": "Separate stock per branch when you grow, with one dashboard."
+      },
+      "f6": {
+        "title": "End-of-day profit",
+        "description": "Close with sales and margin instead of counting drawers and guessing."
+      }
+    },
+    "faq": {
+      "title": "Auto parts POS FAQ",
+      "q1": {
+        "question": "Is this free for spare parts shops?",
+        "answer": "Yes. The free plan includes the POS, inventory, credit balances, purchase orders, and reports. No credit card to start."
+      },
+      "q2": {
+        "question": "Can I handle workshops that pay later?",
+        "answer": "Yes. Attach a customer by phone, track store credit and payments, and see the balance on the next visit."
+      },
+      "q3": {
+        "question": "Will barcode scanning work with my USB scanner?",
+        "answer": "Yes. Use a standard USB barcode scanner at the POS for fast checkout on high SKU counts."
+      }
+    },
+    "cta": {
+      "title": "Run your spare parts counter free",
+      "subtitle": "Arabic and English. Ready in minutes."
+    },
+    "receipt": {
+      "title": "Cashvio * Auto Parts Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "USB barcode scan",
+          "value": "0.00"
+        },
+        {
+          "name": "Digital credit book",
+          "value": "0.00"
+        },
+        {
+          "name": "Low-stock alerts",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Multi-store ready",
+          "value": "0.00"
+        },
+        {
+          "name": "End-of-day profit",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your auto parts shop with us"
+    }
+  },
+  "industryFurniture": {
+    "hero": {
+      "title": "A furniture POS for",
+      "titleHighlight": "showroom and delivery days",
+      "subtitle": "Variants for color and size, delivery notes, customer credit, and a free online store. Free for furniture shops."
+    },
+    "pains": {
+      "title": "Where furniture paper fails",
+      "p1": {
+        "title": "Colors and sizes multiply",
+        "description": "One sofa is many SKUs. Paper mixes fabric, size, and finish at rush hour."
+      },
+      "p2": {
+        "title": "Deposits scattered in chats",
+        "description": "Down payments and remaining balances live across notebooks and WhatsApp screenshots."
+      },
+      "p3": {
+        "title": "Delivery details get lost",
+        "description": "Address, floor, and timing notes vanish between the sale and the truck."
+      }
+    },
+    "features": {
+      "title": "What your furniture shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Real product variants",
+        "description": "Colors, sizes, and finishes as variants with their own SKU, stock, and price."
+      },
+      "f2": {
+        "title": "Order notes at checkout",
+        "description": "Capture delivery address, floor, and timing notes on the sale so the team stays aligned."
+      },
+      "f3": {
+        "title": "Customer credit",
+        "description": "Track deposits, store credit, and payment history from a phone number."
+      },
+      "f4": {
+        "title": "Free online store",
+        "description": "List showroom pieces online with stock synced to the floor."
+      },
+      "f5": {
+        "title": "Purchase orders",
+        "description": "Reorder from suppliers and receive stock without rewriting paper lists."
+      },
+      "f6": {
+        "title": "Staff roles and reports",
+        "description": "Limit who can discount or refund, and see daily profit by product and staff."
+      }
+    },
+    "faq": {
+      "title": "Furniture store POS FAQ",
+      "q1": {
+        "question": "Is it free for furniture retailers?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, customers, and reports. No credit card required."
+      },
+      "q2": {
+        "question": "Can I track deposits and remaining balances?",
+        "answer": "Yes. Attach a customer by phone, record store credit and payments, and see the balance on the next visit."
+      },
+      "q3": {
+        "question": "Can customers browse the showroom online?",
+        "answer": "Yes. The free online store lists your products with stock synced to the shop, in Arabic and English."
+      }
+    },
+    "cta": {
+      "title": "Open your furniture register",
+      "subtitle": "Free forever. Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Furniture Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Color & size variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Delivery notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer credit",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Purchase orders",
+          "value": "0.00"
+        },
+        {
+          "name": "Roles & reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your furniture shop with us"
+    }
+  },
+  "industryOptics": {
+    "hero": {
+      "title": "An optics POS for",
+      "titleHighlight": "frames, lenses, and sunglasses",
+      "subtitle": "Frame variants, barcode labels, customer profiles, and a free online store. Free for optical and eyewear shops."
+    },
+    "pains": {
+      "title": "Where optics paper fails",
+      "p1": {
+        "title": "Frames multiply by size and color",
+        "description": "One model is many SKUs. Paper mixes size, color, and brand at rush hour."
+      },
+      "p2": {
+        "title": "Customer history lives in drawers",
+        "description": "Prior purchases and notes scatter across notebooks when the same family returns."
+      },
+      "p3": {
+        "title": "Sunglasses stock goes dark",
+        "description": "Seasonal frames sell fast while the showroom focus stays on prescription work."
+      }
+    },
+    "features": {
+      "title": "What your optical shop gets, free",
+      "subtitle": "Everything below ships in the free plan.",
+      "f1": {
+        "title": "Real product variants",
+        "description": "Sizes, colors, and brands as variants with their own SKU, stock, and price."
+      },
+      "f2": {
+        "title": "Barcode labels and scanning",
+        "description": "Print labels and scan at the register so the right frame always rings up."
+      },
+      "f3": {
+        "title": "Customer profiles",
+        "description": "Find a customer by phone and see purchase history on the next visit."
+      },
+      "f4": {
+        "title": "Order notes at checkout",
+        "description": "Capture fitting or pickup notes on the sale so the team stays aligned."
+      },
+      "f5": {
+        "title": "Free online store",
+        "description": "List sunglasses and frames online with stock synced to the shop."
+      },
+      "f6": {
+        "title": "Staff roles and reports",
+        "description": "Limit discounts and refunds, and see daily profit by product and staff."
+      }
+    },
+    "faq": {
+      "title": "Optics POS FAQ",
+      "q1": {
+        "question": "Is this free for optical shops?",
+        "answer": "Yes. The free plan includes the POS, online store, inventory, customers, and reports. No credit card to start."
+      },
+      "q2": {
+        "question": "Can I track frame sizes and colors?",
+        "answer": "Yes. Create variants for size and color with separate SKU, stock, and price for each option."
+      },
+      "q3": {
+        "question": "Does Cashvio replace an optometry EMR?",
+        "answer": "No. Cashvio is a retail POS for selling frames, lenses packs, and sunglasses. It is not a clinical eye exam record system."
+      }
+    },
+    "cta": {
+      "title": "Open your optics register",
+      "subtitle": "Free forever. Arabic and English."
+    },
+    "receipt": {
+      "title": "Cashvio * Optics Receipt",
+      "number": "NO. 000001 · YOUR SHOP",
+      "items": [
+        {
+          "name": "Frame variants",
+          "value": "0.00"
+        },
+        {
+          "name": "Barcode labels",
+          "value": "0.00"
+        },
+        {
+          "name": "Customer profiles",
+          "value": "0.00"
+        },
+        {
+          "name": "Order notes",
+          "value": "0.00"
+        },
+        {
+          "name": "Free online store",
+          "value": "0.00"
+        },
+        {
+          "name": "Roles & reports",
+          "value": "0.00"
+        }
+      ],
+      "thanks": "Thank you for opening your optical shop with us"
+    }
+  },
   "freeOnlineStoreEgypt": {
     "hero": {
       "title": "Free online store",
@@ -6655,6 +7115,168 @@
       "title": "Scan your next sale",
       "subtitle": "Free POS with barcodes built in.",
       "note": "No credit card required."
+    }
+  },
+  "discountCalculator": {
+    "hero": {
+      "title": "Free discount",
+      "titleHighlight": "calculator",
+      "subtitle": "See the final price after a percent off, or find the discount percent from the original and sale prices. Instant, free, no signup."
+    },
+    "tool": {
+      "modeLabel": "Calculator mode",
+      "modes": {
+        "percentOff": "I know the % off",
+        "findPercent": "I know both prices"
+      },
+      "originalLabel": "Original price",
+      "percentLabel": "Discount %",
+      "salePriceLabel": "Sale price",
+      "results": {
+        "savings": "You save",
+        "discountPercent": "Discount",
+        "finalPrice": "Final price"
+      },
+      "percentTooHigh": "Discount cannot be above 100%.",
+      "saleAboveOriginal": "Sale price is higher than the original. That is a markup, not a discount.",
+      "emptyState": "Enter your numbers to see the results"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "Price the sale without guessing",
+      "s1": {
+        "title": "Enter the original price",
+        "description": "The sticker price before any discount or coupon."
+      },
+      "s2": {
+        "title": "Add a percent or a sale price",
+        "description": "Know the % off? Get the final price. Know both prices? Get the percent."
+      },
+      "s3": {
+        "title": "Read the savings",
+        "description": "Final price, amount saved, and discount percent update as you type."
+      }
+    },
+    "pitch": {
+      "badge": "RUN REAL PROMOTIONS",
+      "title": "A calculator cannot send the coupon to the till",
+      "subtitle": "Cashvio coupons and discounts apply at the POS and online store, with rules you control.",
+      "p1": {
+        "title": "Coupons that actually ring up",
+        "description": "Create percent or fixed coupons and redeem them at checkout in the free POS."
+      },
+      "p2": {
+        "title": "Same offer online",
+        "description": "Customers apply the code on your free online store. One promotion, two channels."
+      },
+      "p3": {
+        "title": "Rules that protect margin",
+        "description": "Set min spend, expiry, and usage limits so a sale does not erase your profit."
+      }
+    },
+    "faq": {
+      "title": "Discount calculator FAQ",
+      "q1": {
+        "question": "How do I calculate 20% off a price?",
+        "answer": "Enter the original price and 20 as the discount percent. The tool shows the final price and how much the customer saves."
+      },
+      "q2": {
+        "question": "Can I find the discount percent from two prices?",
+        "answer": "Yes. Switch to \"I know both prices\", enter the original and the sale price, and you get the percent off plus the savings amount."
+      },
+      "q3": {
+        "question": "Can Cashvio apply discounts at the register?",
+        "answer": "Yes. Coupons and discounts work in the free POS and on the online store, so you are not recalculating by hand at every sale."
+      }
+    },
+    "cta": {
+      "title": "Ready to run real coupons?",
+      "subtitle": "Create percent or fixed coupons in Cashvio and redeem them at the POS and online store, free.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan: no credit card needed"
+    }
+  },
+  "priceTagGenerator": {
+    "hero": {
+      "title": "Free price tag",
+      "titleHighlight": "generator",
+      "subtitle": "Print an A4 sheet of shelf labels with product name, price, and an optional barcode. Free, no watermark, no signup."
+    },
+    "tool": {
+      "shopNameLabel": "Shop name (optional)",
+      "shopNamePlaceholder": "Your shop name",
+      "fillSheet": "Fill the whole A4 sheet with this label",
+      "labelsHeading": "Label details",
+      "labelNumber": "Label {number}",
+      "productNameLabel": "Product name",
+      "productNamePlaceholder": "e.g. Olive oil 1L",
+      "priceLabel": "Price",
+      "currencyLabel": "Currency label",
+      "showBarcode": "Include barcode",
+      "barcodeLabel": "Barcode / SKU",
+      "barcodePlaceholder": "e.g. SKU-1001",
+      "barcodeHint": "Code 128: any text or SKU your scanner can read.",
+      "addLabel": "Add another label",
+      "removeLabel": "Remove",
+      "sheetHint": "Prints 10 labels per A4 sheet (2 columns by 5 rows). Use Save as PDF if you have no printer.",
+      "print": "Print A4 sheet",
+      "emptyLabel": "Empty slot",
+      "untitledProduct": "Product",
+      "barcodePreviewAlt": "Barcode preview"
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "From product to shelf label",
+      "s1": {
+        "title": "Enter the product and price",
+        "description": "Add an optional shop name and currency label so the tag matches your shelf."
+      },
+      "s2": {
+        "title": "Add a barcode if you need it",
+        "description": "Paste a SKU or Code 128 value. Leave it off for plain price tags."
+      },
+      "s3": {
+        "title": "Print the A4 sheet",
+        "description": "Fill the sheet with one product or mix up to 10 labels, then print or save as PDF."
+      }
+    },
+    "pitch": {
+      "badge": "FROM ONE TAG TO THE WHOLE CATALOG",
+      "title": "Hand-typing labels does not scale",
+      "subtitle": "Cashvio prints barcode label sheets from your product catalog and scans them at the free POS.",
+      "p1": {
+        "title": "Labels from your catalog",
+        "description": "Print A4 barcode label sheets for any product variant straight from the portal."
+      },
+      "p2": {
+        "title": "Scan to sell",
+        "description": "Plug in a USB barcode scanner and ring items up instantly at the register."
+      },
+      "p3": {
+        "title": "Stock that follows every scan",
+        "description": "Each scanned sale updates inventory automatically. No recounting the shelf."
+      }
+    },
+    "faq": {
+      "title": "Price tag generator FAQ",
+      "q1": {
+        "question": "Is this price tag generator free?",
+        "answer": "Yes. Build and print as many A4 sheets as you need. No account, no watermark, no limit."
+      },
+      "q2": {
+        "question": "What size are the labels?",
+        "answer": "The sheet lays out 10 labels on a standard A4 page in 2 columns and 5 rows. Cut along the dashed borders after printing."
+      },
+      "q3": {
+        "question": "Will the barcode scan in Cashvio POS?",
+        "answer": "Yes, when the barcode value matches the product SKU. Cashvio also prints full label sheets from your catalog so you do not rebuild tags by hand."
+      }
+    },
+    "cta": {
+      "title": "Print labels for your whole catalog",
+      "subtitle": "Import products into Cashvio and print barcode label sheets in one click. On the free plan.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan: no credit card needed"
     }
   }
 }

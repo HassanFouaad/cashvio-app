@@ -16,20 +16,32 @@ Service fees are additional charges added to orders, for example a restaurant's 
 |---------|-------------|
 | **Fee Type** | **Fixed** (a set amount) or **Percentage** (a share of the subtotal, up to 100%) |
 | **Fee Value** | The amount or the percentage |
+| **Fulfillment method** | Optional. Leave empty to apply the fee to **all** methods, or pick one method (for example Dine-In only) |
 
 3. Click **Save**.
 
 A store can have **multiple service fees**; each appears in the fees table where you can **edit** or **delete** it.
 
+## Scope by Fulfillment Method
+
+Many cafes need a service charge on dine-in only, not on pickup or delivery.
+
+- If **Fulfillment method** is left empty, the fee applies to every order for that store.
+- If you set it to a method (for example **Dine-In**), the fee applies only when the order uses that method.
+
+**Cafe example:** a **12%** fee scoped to **Dine-In**. A dine-in ticket gets the 12% charge; the same cart as Pickup does not.
+
+You can combine a dine-in-only fee with other fees that apply to all methods, or with fees scoped to Pickup or Delivery.
+
 ## How Service Fees Appear on Orders
 
-When an order is created for a store with service fees:
+When an order is created for a store with matching service fees:
 
-- The fee is added to the order automatically
-- It appears as **Service Fee** in the order summary
+- Matching fees are added to the order automatically
+- Each appears as **Service Fee** in the order summary
 - Percentage fees are calculated from the subtotal
 
-**Example:**
+**Example (10% on all methods):**
 
 | Item | Amount |
 |------|--------|
@@ -51,3 +63,9 @@ When [making a sale](/docs/orders/creating-orders), you can **manually adjust** 
 <Callout title="Note">
 Overriding the fee only affects the current order. The default fee configuration stays unchanged for future orders.
 </Callout>
+
+## Related
+
+- [Fulfillment Methods](/docs/stores/fulfillment-methods): Enable dine-in and optional table numbers
+- [Kitchen Board](/docs/orders/kitchen-board): Run open tickets for the kitchen
+- [Pricing & Tax Calculations](/docs/calculations/pricing-tax-calculations): How fees fit into the total

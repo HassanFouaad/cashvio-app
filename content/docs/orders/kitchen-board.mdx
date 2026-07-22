@@ -1,0 +1,52 @@
+---
+title: Kitchen Board
+description: "Run open dine-in, pickup, and delivery tickets on a live kitchen board: see items, table numbers, and advance fulfillment status."
+---
+
+The **Kitchen** board is a full-screen view for the kitchen or expo station. It shows open tickets with line items, refreshes on its own, and lets staff move each order to the next fulfillment status without opening the full order page.
+
+## Open the board
+
+1. Go to **Sales > Kitchen** in the sidebar (or open the **Kitchen** tab under Sales).
+2. If you have more than one store, pick the store you want to watch.
+3. Leave the page open on a tablet or second screen near the kitchen.
+
+<Callout title="Who can use it">
+You need permission to **view orders** to open the board. Advancing a ticket needs permission to **edit orders**. If the page or the advance button is missing, ask an admin to update your role.
+</Callout>
+
+## What each ticket shows
+
+Tickets are grouped by fulfillment status, typically **Preparing** and **Ready**. Each card includes:
+
+| Detail | Why it matters |
+|--------|----------------|
+| **Order number** | Match the ticket to the POS or online order |
+| **Table number** | Shown for dine-in orders when set, so runners know where to deliver |
+| **Fulfillment method** | Dine-In, Pickup, or Delivery |
+| **Time** | When the order was created |
+| **Line items** | Quantity and product name for every item |
+
+In-store walk-up sales do not appear here. Those complete at the counter with no kitchen tracking.
+
+## Advance a ticket
+
+On each card, tap the primary button to move the order to the **next** fulfillment status (for example Preparing to Ready, then Ready to Completed).
+
+You can still jump statuses or cancel from [Order Details](/docs/orders/order-fulfillment-status) if you need a non-sequential change. The board is built for the fast path on the line.
+
+## Refresh and polling
+
+The board **refetches about every 5 seconds** while the page is open, so new POS and online tickets appear without a manual reload. You can also leave the page and reopen it to force a fresh load.
+
+## Tips for cafes
+
+- Set a **table number** when you know it (on New Sale or later on Order Details). It is optional; tickets still appear without one. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts).
+- Scope a **service fee** to dine-in only (for example 12%) under [Service Fees](/docs/stores/service-fees).
+- Enable **Dine-In** for the portal (and the storefront if guests order for dine-in online) under [Fulfillment Methods](/docs/stores/fulfillment-methods). The storefront does not collect a table number.
+
+## Related
+
+- [Fulfillment Status and Cancellation](/docs/orders/order-fulfillment-status): Update or cancel from order details
+- [Managing Orders](/docs/orders/managing-orders): Full sales list and filters
+- [Creating Orders (New Sale)](/docs/orders/creating-orders): Ring up dine-in at the POS

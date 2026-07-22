@@ -14,7 +14,15 @@ Fulfillment methods define **how orders are delivered to customers**. When creat
 | **In-Store** | The customer purchases and receives the product at the store. | Portal only |
 | **Pickup** | The customer places the order and picks it up at the store later. | Portal + Storefront |
 | **Delivery** | The order is delivered to the customer's address. | Portal + Storefront |
-| **Dine-In** | The customer orders and eats at the store (for restaurants/cafes). | Portal only |
+| **Dine-In** | The customer orders and eats at the store (for restaurants/cafes). | Portal + Storefront |
+
+## Dine-In and Table Numbers
+
+When **Dine-In** is selected, a **table number** is optional (up to 50 characters). Use numbers or short labels such as `12`, `A1`, or `T3`.
+
+- On **New Sale**, the cart shows an optional **Table** row. You can charge without it, or set the table later on the order. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts).
+- The **online storefront** does not ask for a table at checkout. Staff can set or edit it on **Order Details** after the order is placed.
+- When set, the table number appears on the order, on receipts when shown, and on the [Kitchen board](/docs/orders/kitchen-board) so runners know where to deliver.
 
 ## How to Configure Fulfillment Methods
 
@@ -40,7 +48,7 @@ See [Delivery Zones](/docs/stores/delivery-zones) for setting up delivery areas 
 
 ## Storefront Fulfillment
 
-On your online storefront, customers can only be offered **Delivery** and **Pickup**. Make sure at least one of these is enabled on the **Storefront (Online)** tab if you want customers to place orders through the storefront.
+On your online storefront, customers can be offered **Delivery**, **Pickup**, and **Dine-In** (when each is enabled on the **Storefront (Online)** tab). Make sure at least one storefront method is enabled if you want customers to place orders online.
 
 <Callout title="Important">
 **In-Store** can never be offered on the online storefront; it is a staff-only method for walk-in sales at the counter. The system rejects any attempt to enable it for online checkout, and online orders can never use it.
@@ -63,7 +71,9 @@ Pickup, Delivery, and Dine-In orders follow a status flow that you update from t
 4. **Delivering**: Out for delivery
 5. **Completed**: Delivered to customer
 
-You can move directly to a later status (e.g., from Pending straight to Completed), and at any stage the fulfillment can be **Cancelled**.
+You can move directly to a later status (for example from Pending straight to Completed), and at any stage the fulfillment can be **Cancelled**.
+
+For a live kitchen view of open tickets, use the [Kitchen board](/docs/orders/kitchen-board).
 
 <Callout title="Note">
 **In-Store** orders have no fulfillment tracking; the customer receives the items at the counter, so there is nothing to track.

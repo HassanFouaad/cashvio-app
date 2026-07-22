@@ -63,6 +63,10 @@ const industryKeys = [
   'jewelry',
   'hardware',
   'electronics',
+  'stationery',
+  'autoParts',
+  'furniture',
+  'optics',
 ] as const;
 
 const industryLinks: Record<(typeof industryKeys)[number], string> = {
@@ -80,6 +84,10 @@ const industryLinks: Record<(typeof industryKeys)[number], string> = {
   jewelry: '/industries/jewelry',
   hardware: '/industries/hardware',
   electronics: '/industries/electronics',
+  stationery: '/industries/stationery',
+  autoParts: '/industries/auto-parts',
+  furniture: '/industries/furniture',
+  optics: '/industries/optics',
 };
 
 export default async function IndustriesHubPage({ params }: Props) {

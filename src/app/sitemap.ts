@@ -45,6 +45,8 @@ const staticPages: PageConfig[] = [
   { path: '/tools/profit-margin-calculator' },
   { path: '/tools/vat-calculator' },
   { path: '/tools/invoice-generator' },
+  { path: '/tools/discount-calculator' },
+  { path: '/tools/price-tag-generator' },
 
   { path: '/industries' },
   { path: '/industries/cafe' },
@@ -61,6 +63,10 @@ const staticPages: PageConfig[] = [
   { path: '/industries/jewelry' },
   { path: '/industries/hardware' },
   { path: '/industries/electronics' },
+  { path: '/industries/stationery' },
+  { path: '/industries/auto-parts' },
+  { path: '/industries/furniture' },
+  { path: '/industries/optics' },
   { path: '/free-pos-egypt' },
   { path: '/free-online-store-egypt' },
 ];
