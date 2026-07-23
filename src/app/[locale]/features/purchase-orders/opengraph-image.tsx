@@ -26,7 +26,7 @@ export default async function OGImage({
   const description = t('description');
 
   const features = isArabic
-    ? ['أمر شراء في خطوتين', 'اعتماد مقصود', 'استلام على دفعات', 'مخزون يتحدث تلقائياً', 'بيانات الموردين', 'سجل لكل مورد']
+    ? ['أمر شراء في خطوتين', 'اعتماد مدروس', 'استلام على دفعات', 'تحديث تلقائي للمخزون', 'بيانات الموردين', 'سجل لكل مورد']
     : ['Two-Step PO Creation', 'Deliberate Approval', 'Partial Receiving', 'Auto Inventory Updates', 'Supplier Database', 'Per-Supplier History'];
 
   return new ImageResponse(
