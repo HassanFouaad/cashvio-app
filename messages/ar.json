@@ -1745,7 +1745,8 @@
     "vatNumber": "الرقم الضريبي",
     "commercialRegistration": "السجل التجاري",
     "poweredBy": "مدعوم من",
-    "poweredByCta": "أنشئ متجرك الإلكتروني مجاناً",
+    "poweredByCta": "احصل على Cashvio مجاناً",
+    "poweredByCtaHint": "كاشير مجاني ومتجر إلكتروني مجاني لمحلك",
     "errors": {
       "title": "تعذر تحميل الإيصال",
       "orderNotFound": "لم يتم العثور على هذا الطلب. ربما تم حذفه أو الرابط غير صالح.",

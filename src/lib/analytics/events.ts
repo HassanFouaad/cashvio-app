@@ -214,11 +214,15 @@ export function trackRegistrationStart(source?: string): void {
 /**
  * Track successful registration completion
  */
-export function trackRegistrationComplete(planType?: string): void {
+export function trackRegistrationComplete(
+  planType?: string,
+  source?: string,
+): void {
   trackEvent(GA_EVENT_NAMES.REGISTRATION_COMPLETE, {
     event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: planType || 'default',
+    event_label: source || planType || 'default',
     plan_type: planType,
+    registration_source: source,
   });
 }
 

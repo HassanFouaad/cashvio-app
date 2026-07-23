@@ -180,9 +180,9 @@ export function RegistrationForm() {
 
       await authService.register(registerData, localeConfig);
 
-      // Success! Track registration with the plan chosen on the pricing page
+      // Success! Track plan + first-touch source (UTM/ref) for growth loops
       trackFormSubmit('registration_form', 'register_page');
-      trackRegistrationComplete(getSelectedPlan());
+      trackRegistrationComplete(getSelectedPlan(), getRegistrationSource());
 
       // Save preferences for cross-app sync
       // Note: Auth tokens are now set as HttpOnly cookies by the backend

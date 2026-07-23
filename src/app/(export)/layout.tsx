@@ -118,8 +118,8 @@ export default async function ExportLayout({
   const { direction } = localeMetadata[locale];
   const isRTL = direction === "rtl";
 
-  // Receipt visitors are end customers — attribute any click-through
-  const poweredByHref = `${locale === "ar" ? "/ar" : "/"}?utm_source=digital_receipt&utm_medium=referral&utm_campaign=powered_by`;
+  // Receipt visitors are end customers. Attribute shop-owner click-throughs.
+  const poweredByHref = `${locale === "ar" ? "/ar" : ""}/register?utm_source=digital_receipt&utm_medium=referral&utm_campaign=get_cashvio_free`;
 
   return (
     <html
@@ -173,13 +173,21 @@ export default async function ExportLayout({
             {children}
           </main>
 
-          {/* Minimal Footer */}
-          <footer className="py-2">
+          {/* Minimal Footer — same acquisition CTA as the receipt body */}
+          <footer className="py-4">
             <div className="container flex justify-center">
-              <p className="text-xs text-muted-foreground hover:underline">
-                {t("poweredBy")}{" "}
-                <Link href={poweredByHref}>Cashvio</Link>
-              </p>
+              <Link
+                href={poweredByHref}
+                className="inline-flex flex-col items-center gap-0.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <span>
+                  {t("poweredBy")}{" "}
+                  <span className="font-semibold text-foreground">Cashvio</span>
+                </span>
+                <span className="underline underline-offset-2">
+                  {t("poweredByCta")}
+                </span>
+              </Link>
             </div>
           </footer>
         </NextIntlClientProvider>

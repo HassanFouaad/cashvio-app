@@ -1745,7 +1745,8 @@
     "vatNumber": "VAT No.",
     "commercialRegistration": "C.R. No.",
     "poweredBy": "Powered by",
-    "poweredByCta": "Create your free online store",
+    "poweredByCta": "Get Cashvio free",
+    "poweredByCtaHint": "Free POS and online store for your shop",
     "errors": {
       "title": "Unable to Load Receipt",
       "orderNotFound": "This order could not be found. It may have been deleted or the link is invalid.",

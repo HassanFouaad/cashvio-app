@@ -20,9 +20,9 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
   const t = useTranslations("receipt");
   const locale = useLocale();
 
-  // Customers land here from receipt QR codes — the platform's most visited
-  // public surface. Route them to the marketing home with attribution.
-  const poweredByHref = `${locale === "ar" ? "/ar" : "/"}?utm_source=digital_receipt&utm_medium=referral&utm_campaign=powered_by`;
+  // Customers land here from receipt QR codes. Route shop owners to register
+  // with attribution so the receipt loop is measurable.
+  const poweredByHref = `${locale === "ar" ? "/ar" : ""}/register?utm_source=digital_receipt&utm_medium=referral&utm_campaign=get_cashvio_free`;
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -85,8 +85,6 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
           />
         </div>
 
-
-
         {/* Order Notes (if any) */}
         {order.notes && (
           <>
@@ -116,17 +114,20 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
         </div>
       </div>
 
-      {/* Powered by Cashvio — platform attribution + acquisition CTA */}
+      {/* Platform attribution + acquisition CTA */}
       <div className="mt-6 text-center">
         <Link
           href={poweredByHref}
-          className="inline-flex flex-col items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          className="inline-flex flex-col items-center gap-1 rounded-lg border border-border bg-card px-5 py-3 text-sm text-foreground transition-colors hover:border-foreground/30 hover:bg-muted/40"
         >
-          <span>
-            {t("poweredBy")} <span className="font-semibold">Cashvio</span>
+          <span className="text-xs text-muted-foreground">
+            {t("poweredBy")} <span className="font-semibold text-foreground">Cashvio</span>
           </span>
-          <span className="underline underline-offset-2">
+          <span className="font-semibold underline underline-offset-2">
             {t("poweredByCta")}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            {t("poweredByCtaHint")}
           </span>
         </Link>
       </div>
