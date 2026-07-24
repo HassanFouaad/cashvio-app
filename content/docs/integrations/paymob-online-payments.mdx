@@ -30,13 +30,13 @@ Every Paymob account starts in test mode. Test keys only work with test Integrat
 ## Connect Paymob to a store
 
 1. Go to **Settings > Integrations** in the business portal.
-2. On the **Paymob** card, click **Connect**.
+2. On the **Paymob** card, click **Connect Paymob**.
 3. Choose the **Store** to connect.
-4. Choose the **Country** of your Paymob account. The country must match your store currency: Egypt (EGP), UAE (AED), Saudi Arabia (SAR), or Oman (OMR).
+4. Choose the **Paymob country** of your account. Only countries matching your store currency are offered: Egypt (EGP), UAE (AED), Saudi Arabia (SAR), or Oman (OMR).
 5. Paste the **API Key**, **Secret Key**, **Public Key**, and **HMAC Secret**.
 6. Add your **Integration IDs**, one entry per payment method.
-7. Optionally set a **Payment fee** (see below).
-8. Save, then click **Verify connection** to test your keys live against Paymob.
+7. Optionally set an **Order fee** (see below).
+8. Save. You land on the integration settings page: click **Verify credentials** to test your keys live against Paymob.
 
 ## Add the callback link in Paymob
 
@@ -56,9 +56,9 @@ You can add a fee or a discount that applies only when the customer pays online:
 
 | Setting | Options |
 |---------|---------|
-| **Type** | Percentage of the order total, or a fixed amount |
-| **Direction** | Increase (surcharge added to the total) or Decrease (discount off the total) |
-| **Value** | The percentage or amount |
+| **Fee type** | Percentage of the order total, or a fixed amount |
+| **Applied as** | Extra charge (added to the total) or Discount (off the total) |
+| **Fee value** | The percentage or amount |
 
 The fee appears as its own line in the checkout totals before the customer confirms, and it is included in the amount charged by Paymob.
 
@@ -69,7 +69,7 @@ Once the Paymob connection is active:
 1. Go to **Settings > Stores**, open the store, and select the **Payments** tab, then the **Storefront** section.
 2. Enable **Online Payment** and save.
 
-The storefront checkout now shows **Pay Online**. You cannot enable Online Payment before connecting a gateway, and you cannot disable or delete the gateway while Online Payment is still enabled.
+The storefront checkout now shows **Pay Online**. Before a gateway is connected, the Online Payment switch stays off and shows a **Configure payment gateway** shortcut instead. You also cannot disable or delete the gateway while Online Payment is still enabled.
 
 ## How online-paid orders behave
 
