@@ -3,6 +3,7 @@
   "pages": [
     "categories",
     "options",
+    "modifiers",
     "products",
     "create-product",
     "product-tax-inventory",

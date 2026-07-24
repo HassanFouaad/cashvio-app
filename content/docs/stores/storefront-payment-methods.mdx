@@ -1,15 +1,11 @@
 ---
 title: Storefront Payment Methods
-description: "Configure Cash and Receipt for online checkout and set a minimum order value for the storefront."
+description: "Configure Cash, Receipt, and Online payments for storefront checkout and set a minimum order value."
 ---
 
-Storefront payment methods control what options customers see during online checkout. By default, **Cash** and **Receipt** are enabled for all stores.
+Storefront payment methods control what options customers see during online checkout. By default, **Cash** and **Receipt** are enabled for all stores. **Online Payment** becomes available once you connect a payment gateway.
 
 Configure them from **Settings > Stores**, open your store, and select the **Payments** tab, then the **Storefront** section.
-
-<Callout title="Note">
-Online payments are not yet available. Cash and Receipt are the currently supported storefront payment methods. When online payments become available, you will be able to enable them from the portal.
-</Callout>
 
 ## How Each Method Works on the Storefront
 
@@ -17,6 +13,11 @@ Online payments are not yet available. Cash and Receipt are the currently suppor
 |--------|---------------------|
 | **Cash** | Customer selects "Cash" at checkout. A pending payment record is created. You mark it as paid from the business portal when the customer pays on delivery or pickup. |
 | **Receipt** | Customer selects "Upload Receipt" and uploads a photo of their payment transfer. A pending payment is created with the receipt attached. You review and accept the receipt from the business portal. |
+| **Online Payment** | Customer selects "Pay Online" and is redirected to a secure payment page to pay by card or wallet. The order is marked paid automatically the moment the payment is confirmed. No manual review needed. |
+
+<Callout title="Online payments need a gateway first">
+You can only enable **Online Payment** after connecting a payment gateway (such as Paymob) to the store. See [Online Payments with Paymob](/docs/integrations/paymob-online-payments) for the full setup guide.
+</Callout>
 
 See [Online Checkout Flow](/docs/online-store/checkout-flow) for the full customer journey and [Order Payments](/docs/orders/order-payments) for accepting receipts and marking cash paid from the portal.
 

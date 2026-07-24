@@ -1,0 +1,109 @@
+---
+title: Online Payments with Paymob
+description: "Connect Paymob to your store so customers pay by card or wallet at checkout, with automatic payment confirmation and refunds."
+---
+
+## What is the Paymob integration?
+
+Paymob is a payment gateway that lets your storefront customers pay online by card, mobile wallet, and other local payment methods in Egypt, the UAE, Saudi Arabia, and Oman. Once connected, checkout gains a **Pay Online** option: the customer is redirected to a secure Paymob page, completes the payment, and the order is marked paid automatically. You never confirm these payments by hand.
+
+<Callout title="Store level integration">
+Paymob is connected per store. Each store with an online storefront gets its own Paymob connection, its own keys, and its own payment fee settings.
+</Callout>
+
+## Before you start
+
+You need a Paymob merchant account with these values from the Paymob dashboard under **Settings > API Keys** and **Settings > Payment Integrations**:
+
+| Value | Where to find it |
+|-------|------------------|
+| **API Key** | Paymob dashboard, Settings > API Keys |
+| **Secret Key** | Paymob dashboard, Settings > API Keys |
+| **Public Key** | Paymob dashboard, Settings > API Keys |
+| **HMAC Secret** | Paymob dashboard, Settings > API Keys |
+| **Integration IDs** | Paymob dashboard, Settings > Payment Integrations. One number per payment method you enabled (cards, wallets, and so on) |
+
+<Callout title="Test mode and live mode must match">
+Every Paymob account starts in test mode. Test keys only work with test Integration IDs, and live keys only work with live Integration IDs. Mixing them is the most common setup mistake. Start with test values, place a test order, then switch everything to live together.
+</Callout>
+
+## Connect Paymob to a store
+
+1. Go to **Settings > Integrations** in the business portal.
+2. On the **Paymob** card, click **Connect**.
+3. Choose the **Store** to connect.
+4. Choose the **Country** of your Paymob account. The country must match your store currency: Egypt (EGP), UAE (AED), Saudi Arabia (SAR), or Oman (OMR).
+5. Paste the **API Key**, **Secret Key**, **Public Key**, and **HMAC Secret**.
+6. Add your **Integration IDs**, one entry per payment method.
+7. Optionally set a **Payment fee** (see below).
+8. Save, then click **Verify connection** to test your keys live against Paymob.
+
+## Add the callback link in Paymob
+
+After saving, the integration page shows a **Callback URL** with a copy button. Paste this link in your Paymob dashboard so Paymob can notify us the moment a payment happens:
+
+1. In the Paymob dashboard, open **Settings > Payment Integrations** and edit each integration you use.
+2. Paste the link into both **Transaction processed callback** and **Transaction response callback**.
+3. Save.
+
+<Callout title="Why this matters">
+The callback is how Paymob tells your store that a payment succeeded. We also check every payment directly with Paymob before marking an order paid, so a missed callback never loses a payment, but setting it keeps confirmations instant.
+</Callout>
+
+## Payment fee (optional)
+
+You can add a fee or a discount that applies only when the customer pays online:
+
+| Setting | Options |
+|---------|---------|
+| **Type** | Percentage of the order total, or a fixed amount |
+| **Direction** | Increase (surcharge added to the total) or Decrease (discount off the total) |
+| **Value** | The percentage or amount |
+
+The fee appears as its own line in the checkout totals before the customer confirms, and it is included in the amount charged by Paymob.
+
+## Enable Online Payment for the storefront
+
+Once the Paymob connection is active:
+
+1. Go to **Settings > Stores**, open the store, and select the **Payments** tab, then the **Storefront** section.
+2. Enable **Online Payment** and save.
+
+The storefront checkout now shows **Pay Online**. You cannot enable Online Payment before connecting a gateway, and you cannot disable or delete the gateway while Online Payment is still enabled.
+
+## How online-paid orders behave
+
+Online payments are controlled by the system from start to finish:
+
+- The order starts as **Pending** while the customer pays on the Paymob page.
+- The payment is confirmed with Paymob directly, then the order flips to **Paid** automatically. The order page shows the gateway, the Paymob transaction number, and the card or wallet used.
+- Manual payment actions are disabled for these orders: no recording payments by hand, no editing amounts, and no manual refunds. This keeps your records exactly in sync with Paymob.
+- If a payment attempt fails, the customer can retry from the storefront. Every attempt is tracked on the order.
+
+## Refunds for online-paid orders
+
+Refunds for gateway payments are always processed through Paymob and always for the full paid amount:
+
+- **Cancelling a paid order** automatically sends the full refund through Paymob. No extra steps.
+- Creating a refund from the order page sends the same full refund through Paymob.
+- The refund is marked **Completed** only after Paymob confirms the money moved. Until then it shows as **Processing**.
+
+<Callout title="Same-day cancellations">
+When a payment is cancelled the same day, we void the transaction at Paymob instead of refunding it, which usually returns the money faster and avoids gateway fees.
+</Callout>
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| **Verify connection fails on the API key or Secret key** | Re-copy the key from Paymob, Settings > API Keys. Make sure there are no extra spaces. |
+| **Verify connection fails on the Integration IDs** | Your keys and Integration IDs are from different modes (test vs live) or a different country account. Match them and try again. |
+| **Customer paid but the order is still Pending** | Confirm the callback link is set in Paymob. The system also re-checks pending payments with Paymob automatically within minutes, so the order will update on its own. |
+| **Cannot enable Online Payment** | Connect and activate a Paymob integration for this store first. |
+| **Cannot disable the integration** | Turn off the **Online Payment** storefront method first, then disable the integration. |
+
+## Related
+
+- [Storefront Payment Methods](/docs/stores/storefront-payment-methods): Enable and order checkout payment options
+- [Online Checkout Flow](/docs/online-store/checkout-flow): The full customer journey
+- [Order Payments](/docs/orders/order-payments): How payments appear on orders
