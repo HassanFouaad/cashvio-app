@@ -1,6 +1,6 @@
 ---
 title: Kitchen Board
-description: "Run open dine-in, pickup, and delivery tickets on a live kitchen board: see items, table numbers, and advance fulfillment status."
+description: "Run open dine-in, pickup, and delivery tickets on a live kitchen board: items, notes, elapsed-time colors, and new-ticket sound alerts."
 ---
 
 The **Kitchen** board is a full-screen view for the kitchen or expo station. It shows open tickets with line items, refreshes on its own, and lets staff move each order to the next fulfillment status without opening the full order page.
@@ -28,10 +28,34 @@ Tickets are grouped by fulfillment status, typically **Preparing** and **Ready**
 | **Order number** | Match the ticket to the POS or online order |
 | **Table number** | Shown for dine-in orders when set, so runners know where to deliver |
 | **Fulfillment method** | Dine-In, Pickup, or Delivery |
-| **Time** | When the order was created |
+| **Elapsed time** | How long the ticket has been waiting (color changes as it ages; see below) |
 | **Line items** | Quantity and product name for every item |
+| **Item notes** | Kitchen instructions under a line (for example no sugar), when the cashier added them on [New Sale](/docs/orders/pos-cart-discounts) |
+| **Order notes** | Whole-order comments, when set |
 
 In-store walk-up sales do not appear here. Those complete at the counter with no kitchen tracking.
+
+## Elapsed time colors
+
+Each ticket shows how long it has been open since it was created. The elapsed badge changes color so slow tickets stand out at a glance:
+
+| Stage | When | Color |
+|-------|------|-------|
+| **Fresh** | Under 5 minutes | Default text |
+| **Warning** | 5 minutes or more | Warning (amber) |
+| **Critical** | 15 minutes or more | Error (red) |
+
+Leave the board open so the timer keeps updating while staff cook.
+
+## New ticket sound
+
+When a new kitchen ticket appears on the board, Cashvio can play a short **Kitchen new ticket** alert tone in the browser.
+
+Turn sounds on or off and pick the tone under **Settings > Account** in the **In-app sounds** section (notification sounds). Enable **In-app sounds** on the kitchen device, and leave volume up.
+
+<Callout title="Browser audio unlock">
+Most browsers block sound until someone clicks or taps the page once. After you open **Sales > Kitchen**, tap anywhere on the board (or use a settings preview) so audio can play. Keep the kitchen page open on that tablet or screen.
+</Callout>
 
 ## Advance a ticket
 
@@ -46,6 +70,7 @@ The board **refetches about every 5 seconds** while the page is open, so new POS
 ## Tips for cafes
 
 - Set a **table number** when you know it (on New Sale or later on Order Details). It is optional; tickets still appear without one. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts).
+- Add **item notes** on New Sale for mods the kitchen must see (no sugar, extra shot). They appear on the ticket under that line.
 - Scope a **service fee** to dine-in only (for example 12%) under [Service Fees](/docs/stores/service-fees).
 - Enable **Dine-In** for the portal (and the storefront if guests order for dine-in online) under [Fulfillment Methods](/docs/stores/fulfillment-methods). The storefront does not collect a table number.
 

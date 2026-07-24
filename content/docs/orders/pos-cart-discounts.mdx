@@ -1,6 +1,6 @@
 ---
 title: Cart, Discounts, and Fees on New Sale
-description: "Build the sale ticket on New Sale: customer, fulfillment, coupons, manual discounts, fees, notes, and custom items."
+description: "Build the sale ticket on New Sale: customer, fulfillment, coupons, discounts, fees, item notes, order notes, and custom items."
 ---
 
 The cart panel on **New Sale** shows everything about the current sale:
@@ -9,7 +9,7 @@ The cart panel on **New Sale** shows everything about the current sale:
 |---------|-----------------|
 | **Customer** | Attach an existing customer or create a new one on the spot. The customer's store credit balance is shown. |
 | **Fulfillment** | Choose In-Store, Pickup, Delivery, or Dine-In (when Cafe/Restaurant Mode is on). Delivery asks for the customer's address. Dine-In can include an optional **table number**. |
-| **Items** | Adjust quantities with + / −, or remove lines. |
+| **Items** | Adjust quantities with + / −, remove lines, or add an **item note** for the kitchen. |
 | **Summary** | Subtotal, fees, discount, coupon, tax, and the final total. |
 
 On **mobile**, the cart appears as a bar at the bottom of the screen. Tap it to open the full cart drawer.
@@ -44,10 +44,20 @@ See [Coupons](/docs/marketing/coupons) for how to create and manage coupon codes
 2. Choose **Fixed Amount** (e.g., 50 EGP off) or **Percentage** (e.g., 10% off).
 3. The total updates automatically.
 
+## Item Notes
+
+Use **item notes** for kitchen instructions on a single line (for example no sugar, extra shot, or no onions):
+
+1. On a cart line, tap the **note** icon.
+2. Type the instruction (up to 500 characters) and save.
+3. The note appears under that line on the ticket. Tap the icon again to edit or clear it.
+
+Item notes print on receipts and show on [Kitchen](/docs/orders/kitchen-board) tickets so the kitchen sees them with the item. They are separate from the optional **order note** below.
+
 ## Fees and Notes
 
 - **[Service fees](/docs/stores/service-fees)** and **[delivery fees](/docs/stores/delivery-zones)** are added automatically based on your store configuration, and can be edited on the sale.
-- Add an optional **note** to the order from the cart menu.
+- Add an optional **note** to the whole order from the cart menu (general comments, not per-item kitchen mods).
 
 ## Custom Items
 
@@ -60,5 +70,5 @@ To sell something that is not in your catalogue (a service or a one-off item), o
 
 - [Creating Orders (New Sale)](/docs/orders/creating-orders): Overview of the full sale screen
 - [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): Charge the cart and finish the sale
-- [Kitchen Board](/docs/orders/kitchen-board): Live tickets with table numbers for the kitchen
+- [Kitchen Board](/docs/orders/kitchen-board): Live tickets with table numbers, item notes, and new-ticket sounds
 - [Service Fees](/docs/stores/service-fees): Scope a dine-in service charge by fulfillment method
