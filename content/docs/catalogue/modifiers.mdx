@@ -1,22 +1,22 @@
 ---
-title: Product Modifiers and Add-ons
-description: "Sell add-ons like extra shot or toppings with their own prices. Create modifier groups, attach them to products, and take picks at the POS and online store."
+title: Product Extras and Add-ons
+description: "Sell add-ons like extra shot or toppings with their own prices. Create extras groups, attach them to products, and take picks at the POS and online store."
 ---
 
-Modifiers are the add-ons a customer picks when ordering: extra shot, oat milk, toppings, gift wrap. Each modifier can add to the item price, and the picks print on the kitchen ticket and the receipt. Unlike options, modifiers do not create separate SKUs, so "Latte + extra shot" stays one product with one stock count.
+Extras are the add-ons a customer picks when ordering: extra shot, oat milk, toppings, gift wrap. Each extra can add to the item price, and the picks print on the kitchen ticket and the receipt. Unlike options, extras do not create separate SKUs, so "Latte + extra shot" stays one product with one stock count.
 
-## Modifiers or Options?
+## Extras or Options?
 
 | Question | Use |
 |----------|-----|
 | Does the choice change which physical item you stock? (Size, Color) | **Options** create separate variants with their own SKU and stock |
-| Is it an add-on to the same item? (extra shot, sauces, gift wrap) | **Modifiers** add to the price without touching stock |
+| Is it an add-on to the same item? (extra shot, sauces, gift wrap) | **Extras** add to the price without touching stock |
 
-A cafe latte usually uses both: a Size option for Small and Large cups you stock, plus an Extras modifier group for the add-ons.
+A cafe latte usually uses both: a Size option for Small and Large cups you stock, plus an Extras group for the add-ons.
 
-## Create a Modifier Group
+## Create an Extras Group
 
-1. Go to **Catalogue > Modifiers** and click **Add Modifier Group**.
+1. Go to **Catalogue > Extras** and click **Add Extras Group**.
 2. Name the group. The name is the section header customers and cashiers see, for example `Extras` or `Milk type`.
 3. Set the selection rules:
 
@@ -25,29 +25,29 @@ A cafe latte usually uses both: a Size option for Small and Large cups you stock
 | **Minimum required** | `0` makes the group optional. `1` or more forces a pick before the item can be added |
 | **Maximum allowed** | Caps how many picks are allowed. Leave empty for unlimited. A maximum of `1` shows the group as a single-choice picker |
 
-4. Add the modifiers. Each row has a name and an **Extra price** (use `0` for free choices like "No sugar"). Mark a row as **Default** to preselect it, and use the availability toggle to hide a modifier temporarily without deleting it.
+4. Add the extras. Each row has a name and an **Extra price** (use `0` for free choices like "No sugar"). Mark a row as **Default** to preselect it, and use the availability toggle to hide an extra temporarily without deleting it.
 5. Click **Save**. The group is ready to attach to products.
 
 ## Attach Groups to Products
 
 1. Open the product from **Catalogue > Products**.
-2. In the **Modifiers** card, click **Manage Modifiers**.
+2. In the **Extras** card, click **Manage Extras**.
 3. Pick the groups this product offers. Their order here is the order shown in pickers.
 4. Save.
 
 The same group can be attached to any number of products, so one `Extras` group can serve the whole drinks menu.
 
-## How Modifiers Behave at the Point of Sale
+## How Extras Behave at the Point of Sale
 
-When a cashier taps a product that has modifier groups, the picker opens before the item joins the ticket. Required groups must be satisfied, defaults come preselected, and the button shows the live item total. The same item with different picks becomes its own ticket line, so "Latte + extra shot" and a plain "Latte" stay separate.
+When a cashier taps a product that has extras groups, the picker opens before the item joins the ticket. Required groups must be satisfied, defaults come preselected, and the button shows the live item total. The same item with different picks becomes its own ticket line, so "Latte + extra shot" and a plain "Latte" stay separate.
 
-Modifier picks appear:
+Extra picks appear:
 
 - On the ticket line with the price additions
 - On the kitchen board in bold under the item
 - On printed and digital receipts under the item name
 
-## How Modifiers Behave in the Online Store
+## How Extras Behave in the Online Store
 
 Customers see the same groups on the product page with the rules spelled out. Required groups block the **Add to Cart** button until satisfied, and the price updates live as they pick. Each selection combination is its own cart line, and picks show on order tracking after checkout.
 
@@ -58,13 +58,13 @@ The extra price of every pick is added to the item's unit price. Taxes, discount
 **Example:** A latte at `50` with Large `+20` and an extra shot `+10` rings up as one item at `80`. Two of them make the line `160`.
 
 <Callout title="Receipts never change after the sale">
-Sold orders keep a snapshot of the picked modifiers with their names and prices at the time of sale. Renaming, repricing, or deleting a modifier later never changes past receipts or reports.
+Sold orders keep a snapshot of the picked extras with their names and prices at the time of sale. Renaming, repricing, or deleting an extra later never changes past receipts or reports.
 </Callout>
 
 ## Managing Groups Later
 
-- **Edit**: rename the group, change the rules, reprice or reorder modifiers. Changes apply to new orders only.
-- **Hide a modifier**: toggle its availability off when an add-on runs out, and back on later.
+- **Edit**: rename the group, change the rules, reprice or reorder extras. Changes apply to new orders only.
+- **Hide an extra**: toggle its availability off when an add-on runs out, and back on later.
 - **Deactivate a group**: turn off **Group is offered on products** to pause the whole group everywhere without detaching it.
 - **Delete**: removes the group from every product that uses it. Past orders keep their receipts unchanged.
 
@@ -72,18 +72,18 @@ Sold orders keep a snapshot of the picked modifiers with their names and prices 
 
 - [Product Options](/docs/catalogue/options): choices that create separate variants and SKUs
 - [Creating Orders](/docs/orders/creating-orders): the New Sale screen where pickers open
-- [Kitchen Board](/docs/orders/kitchen-board): where modifier picks show for the kitchen
+- [Kitchen Board](/docs/orders/kitchen-board): where extra picks show for the kitchen
 - [Item Notes](/docs/orders/creating-orders): free-text instructions for one-off requests
 
 ## FAQs
 
-**Q: Do modifiers affect inventory?**
+**Q: Do extras affect inventory?**
 A: No. Stock is tracked on the product variant only. If you need stock tracking per choice, use options instead.
 
-**Q: Can a modifier reduce the price?**
-A: No. Extra prices start at `0`. Use a free modifier like "No cheese" for removals, or a discount for price cuts.
+**Q: Can an extra reduce the price?**
+A: No. Extra prices start at `0`. Use a free extra like "No cheese" for removals, or a discount for price cuts.
 
-**Q: What happens to carts when I deactivate a modifier?**
+**Q: What happens to carts when I deactivate an extra?**
 A: Online carts drop the unavailable pick automatically and the cart total updates. At checkout the order is priced from what is actually available.
 
 **Q: Can cashiers skip a required group?**
