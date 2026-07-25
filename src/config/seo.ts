@@ -26,7 +26,7 @@ import type { Locale } from '@/i18n/routing';
  * Used for schema dateModified — must NOT be "new Date()" (a lastmod
  * that changes every build teaches Google to ignore our freshness signals).
  */
-export const contentLastUpdated = '2026-07-24';
+export const contentLastUpdated = '2026-07-26';
 
 export const brand = {
   name: 'Cashvio',
@@ -64,6 +64,13 @@ export const urls = {
   support: 'https://support.cash-vio.com',
   demo: `${env.site.url}/contact`,
 } as const;
+
+/**
+ * schema.org requires priceCurrency alongside any price, including zero-price
+ * offers where it carries no meaning. Paid plans use the currency the plans API
+ * returns; this is only the fallback and is deliberately not a market claim.
+ */
+export const schemaPriceCurrency = 'USD';
 
 // ============================================================================
 // CONTACT INFORMATION
@@ -412,7 +419,7 @@ export const schemaTemplates = {
             description: 'Free forever plan with POS, online store, inventory, and reports',
           },
           price: '0',
-          priceCurrency: 'EGP',
+          priceCurrency: schemaPriceCurrency,
           url: `${urls.site}/pricing`,
         },
       ],
@@ -547,11 +554,11 @@ export const schemaTemplates = {
       },
     ],
     offers: {
-      // AggregateOffer for freemium: lowPrice 0 EGP only.
+      // AggregateOffer for freemium: lowPrice 0 only.
       // No highPrice / offerCount — paid plan prices and counts come from
       // the API on the pricing page (ProductGroup) and must not be hardcoded.
       '@type': 'AggregateOffer',
-      priceCurrency: 'EGP',
+      priceCurrency: schemaPriceCurrency,
       lowPrice: '0',
       availability: 'https://schema.org/InStock',
       priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -642,8 +649,8 @@ export const schemaTemplates = {
     termsOfService: `${urls.site}/terms`,
     category: 'Business Software',
     // Only the free plan is asserted here — real paid plan prices live on the
-    // pricing page (ProductGroup schema, fetched from the API in EGP).
-    // Hardcoding stale USD prices contradicted that data.
+    // pricing page (ProductGroup schema), fetched from the API with their own
+    // currency. Hardcoding prices here would contradict that data.
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Cashvio Pricing Plans',
@@ -657,7 +664,7 @@ export const schemaTemplates = {
             description: 'Free forever plan with POS, online store, inventory, and reports',
           },
           price: '0',
-          priceCurrency: 'EGP',
+          priceCurrency: schemaPriceCurrency,
         },
       ],
     },
@@ -802,79 +809,6 @@ export const schemaTemplates = {
         addressCountry: contact.address.countryCode,
       },
     },
-  }),
-
-  /**
-   * Product/Pricing schema
-   */
-  pricingPage: (plans: Array<{ name: string; price: number; description: string }>) => ({
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: `${brand.name} Pricing Plans`,
-    description: `Choose from our range of ${brand.name} plans`,
-    itemListElement: plans.map((plan, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@type': 'Product',
-        name: `${brand.name} ${plan.name}`,
-        description: plan.description,
-        image: {
-          '@type': 'ImageObject',
-          url: `${urls.site}/assets/logo-light.png`,
-          width: 512,
-          height: 512,
-        },
-        brand: {
-          '@type': 'Brand',
-          name: brand.name,
-        },
-        offers: {
-          '@type': 'Offer',
-          price: plan.price,
-          priceCurrency: 'USD',
-          availability: 'https://schema.org/InStock',
-          priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
-            .toISOString()
-            .split('T')[0],
-          shippingDetails: {
-            '@type': 'OfferShippingDetails',
-            shippingRate: {
-              '@type': 'MonetaryAmount',
-              value: '0',
-              currency: 'USD',
-            },
-            shippingDestination: {
-              '@type': 'DefinedRegion',
-              addressCountry: 'EG',
-            },
-            deliveryTime: {
-              '@type': 'ShippingDeliveryTime',
-              handlingTime: {
-                '@type': 'QuantitativeValue',
-                minValue: 0,
-                maxValue: 0,
-                unitCode: 'DAY',
-              },
-              transitTime: {
-                '@type': 'QuantitativeValue',
-                minValue: 0,
-                maxValue: 0,
-                unitCode: 'DAY',
-              },
-            },
-          },
-          hasMerchantReturnPolicy: {
-            '@type': 'MerchantReturnPolicy',
-            applicableCountry: 'EG',
-            returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            merchantReturnDays: 30,
-            returnMethod: 'https://schema.org/ReturnByMail',
-            returnFees: 'https://schema.org/FreeReturn',
-          },
-        },
-      },
-    })),
   }),
 
   /**
@@ -1125,7 +1059,7 @@ export function getProductGroupSchema(plans: PublicPlan[] = []) {
           '@type': 'Offer',
           url: `${urls.site}/pricing`,
           price: plan.price,
-          priceCurrency: 'EGP',
+          priceCurrency: plan.currency ?? schemaPriceCurrency,
           availability: 'https://schema.org/InStock',
           priceValidUntil: priceValidUntil,
           seller: {
@@ -1138,7 +1072,7 @@ export function getProductGroupSchema(plans: PublicPlan[] = []) {
             shippingRate: {
               '@type': 'MonetaryAmount',
               value: '0',
-              currency: 'EGP',
+              currency: plan.currency ?? schemaPriceCurrency,
             },
             shippingDestination: {
               '@type': 'DefinedRegion',
@@ -1159,14 +1093,6 @@ export function getProductGroupSchema(plans: PublicPlan[] = []) {
                 unitCode: 'DAY',
               },
             },
-          },
-          hasMerchantReturnPolicy: {
-            '@type': 'MerchantReturnPolicy',
-            applicableCountry: 'EG',
-            returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            merchantReturnDays: 30,
-            returnMethod: 'https://schema.org/ReturnByMail',
-            returnFees: 'https://schema.org/FreeReturn',
           },
         },
       };

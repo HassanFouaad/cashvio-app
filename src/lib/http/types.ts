@@ -90,6 +90,8 @@ export interface PublicPlan {
   price: number;
   period: PlanPeriod;
   isFreemium: boolean;
+  /** ISO 4217 code from the API. Prices render without a symbol when absent. */
+  currency?: string;
 }
 
 // ============================================================================

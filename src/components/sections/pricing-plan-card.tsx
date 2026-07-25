@@ -9,6 +9,8 @@ interface PricingPlanCardProps {
   name: string;
   description: string;
   price: number | null;
+  /** ISO 4217 code from the API. Omitted renders the amount on its own. */
+  currency?: string;
   period: string;
   features: string[];
   isPro: boolean;
@@ -36,6 +38,7 @@ export function PricingPlanCard({
   name,
   description,
   price,
+  currency,
   period,
   features,
   isPro,
@@ -102,7 +105,7 @@ export function PricingPlanCard({
         ) : (
           <span className="flex items-baseline gap-1.5">
             <span className="font-receipt text-3xl font-semibold text-foreground tracking-tight">
-              EGP{price}
+              {currency ? `${currency} ${price}` : price}
             </span>
             <span className="font-receipt text-xs text-muted-foreground">{period}</span>
           </span>

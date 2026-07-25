@@ -361,7 +361,6 @@ export function ContactForm() {
           defaultCountry="EG"
           error={!!errors.phone}
           placeholder={t('placeholders.phone')}
-          dir="ltr"
         />
         {errors.phone && (
           <p className="font-receipt text-xs text-destructive">{errors.phone}</p>

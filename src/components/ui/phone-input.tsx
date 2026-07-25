@@ -1,7 +1,9 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { useLocale, useTranslations } from 'next-intl';
 import * as React from 'react';
+import { createPortal } from 'react-dom';
 
 // ============================================================================
 // Country Data
@@ -75,6 +77,68 @@ const COUNTRIES: Country[] = [
   return a.name.localeCompare(b.name);
 });
 
+// Longest dial codes first so "+212" never resolves to "+21"
+const COUNTRIES_BY_DIAL_CODE_LENGTH = [...COUNTRIES].sort(
+  (a, b) => b.dialCode.length - a.dialCode.length
+);
+
+function findCountryByDialCode(fullNumber: string): Country | undefined {
+  return COUNTRIES_BY_DIAL_CODE_LENGTH.find((country) =>
+    fullNumber.startsWith(country.dialCode)
+  );
+}
+
+function clampToMaxLength(country: Country, nationalNumber: string): string {
+  return country.maxLength
+    ? nationalNumber.slice(0, country.maxLength)
+    : nationalNumber;
+}
+
+// ============================================================================
+// Dropdown Positioning
+// ============================================================================
+
+const DROPDOWN_MIN_WIDTH = 240;
+const DROPDOWN_MAX_WIDTH = 340;
+const DROPDOWN_MAX_HEIGHT = 300;
+const DROPDOWN_GAP = 4;
+/** Breathing room kept between the panel and the viewport edges */
+const VIEWPORT_MARGIN = 8;
+
+/**
+ * The panel is portalled to the body so the receipt cards that wrap these
+ * forms (they clip with `overflow: hidden`) can't cut it off. That means the
+ * position has to be measured off the field on every open, scroll and resize.
+ * The field is always LTR, so the panel anchors to its left edge.
+ */
+function computePanelStyle(field: HTMLElement): React.CSSProperties {
+  const rect = field.getBoundingClientRect();
+  const { innerWidth, innerHeight } = window;
+
+  const width = Math.min(
+    Math.max(rect.width, DROPDOWN_MIN_WIDTH),
+    Math.max(DROPDOWN_MIN_WIDTH, innerWidth - VIEWPORT_MARGIN * 2),
+    DROPDOWN_MAX_WIDTH
+  );
+
+  const spaceBelow = innerHeight - rect.bottom - VIEWPORT_MARGIN;
+  const spaceAbove = rect.top - VIEWPORT_MARGIN;
+  const openUpward = spaceBelow < DROPDOWN_MAX_HEIGHT && spaceAbove > spaceBelow;
+  const maxHeight = Math.min(
+    DROPDOWN_MAX_HEIGHT,
+    Math.max(160, (openUpward ? spaceAbove : spaceBelow) - DROPDOWN_GAP)
+  );
+
+  const left = Math.min(
+    Math.max(VIEWPORT_MARGIN, rect.left),
+    Math.max(VIEWPORT_MARGIN, innerWidth - width - VIEWPORT_MARGIN)
+  );
+
+  return openUpward
+    ? { left, width, maxHeight, bottom: innerHeight - rect.top + DROPDOWN_GAP }
+    : { left, width, maxHeight, top: rect.bottom + DROPDOWN_GAP };
+}
+
 // ============================================================================
 // Phone Input Component
 // ============================================================================
@@ -85,7 +149,22 @@ export interface PhoneInputProps
   onChange?: (value: string) => void;
   defaultCountry?: string;
   error?: boolean;
-  dir?: 'ltr' | 'rtl';
+}
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
+  );
 }
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
@@ -96,99 +175,197 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       onChange,
       defaultCountry = 'EG',
       error,
-      dir = 'ltr',
       disabled,
       ...props
     },
     ref
   ) => {
+    const t = useTranslations('common.phoneInput');
+    const locale = useLocale();
     const [isOpen, setIsOpen] = React.useState(false);
     const [searchQuery, setSearchQuery] = React.useState('');
-    const [selectedCountry, setSelectedCountry] = React.useState<Country>(
+    const [panelStyle, setPanelStyle] = React.useState<React.CSSProperties | null>(null);
+    // Only remembers the dropdown pick; once a number exists the country is
+    // read back out of the value so the field stays fully controlled
+    const [pickedCountry, setPickedCountry] = React.useState<Country>(
       () => COUNTRIES.find((c) => c.code === defaultCountry) || COUNTRIES[0]
     );
-    const [phoneNumber, setPhoneNumber] = React.useState('');
 
     const dropdownRef = React.useRef<HTMLDivElement>(null);
+    const fieldRef = React.useRef<HTMLDivElement>(null);
+    const panelRef = React.useRef<HTMLDivElement>(null);
     const inputRef = React.useRef<HTMLInputElement>(null);
+    const searchInputRef = React.useRef<HTMLInputElement>(null);
 
-    // Parse initial value
-    React.useEffect(() => {
-      if (value) {
-        // Try to extract country code from value
-        const matchedCountry = COUNTRIES.find((country) =>
-          value.startsWith(country.dialCode)
-        );
-        if (matchedCountry) {
-          setSelectedCountry(matchedCountry);
-          setPhoneNumber(value.slice(matchedCountry.dialCode.length).trim());
-        } else {
-          setPhoneNumber(value);
-        }
+    const { selectedCountry, phoneNumber } = React.useMemo(() => {
+      if (!value) {
+        return { selectedCountry: pickedCountry, phoneNumber: '' };
+      }
+
+      // Prefer the dropdown pick when it fits, so countries that share a dial
+      // code (US and Canada) don't flip back on every keystroke
+      const matched = value.startsWith(pickedCountry.dialCode)
+        ? pickedCountry
+        : findCountryByDialCode(value);
+
+      if (!matched) {
+        return { selectedCountry: pickedCountry, phoneNumber: value.replace(/\D/g, '') };
+      }
+
+      return {
+        selectedCountry: matched,
+        phoneNumber: value.slice(matched.dialCode.length).replace(/\D/g, ''),
+      };
+    }, [value, pickedCountry]);
+
+    const countryLabels = React.useMemo(() => {
+      let regionNames: Intl.DisplayNames | null = null;
+      try {
+        regionNames = new Intl.DisplayNames([locale], { type: 'region' });
+      } catch {
+        regionNames = null;
+      }
+
+      return new Map(
+        COUNTRIES.map((country) => {
+          let localized: string | undefined;
+          try {
+            localized = regionNames?.of(country.code);
+          } catch {
+            localized = undefined;
+          }
+          // Intl falls back to the raw code for regions it doesn't know
+          return [
+            country.code,
+            localized && localized !== country.code ? localized : country.name,
+          ];
+        })
+      );
+    }, [locale]);
+
+    const updatePanelPosition = React.useCallback(() => {
+      if (fieldRef.current) {
+        setPanelStyle(computePanelStyle(fieldRef.current));
       }
     }, []);
 
-    // Close dropdown on outside click
+    const closeDropdown = React.useCallback(() => {
+      setIsOpen(false);
+      setSearchQuery('');
+    }, []);
+
+    // Measured before the panel renders so it never paints at a stale position
+    const openDropdown = React.useCallback(() => {
+      updatePanelPosition();
+      setIsOpen(true);
+    }, [updatePanelPosition]);
+
     React.useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
+      if (!isOpen) return;
+
+      const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+        const target = event.target as Node;
         if (
-          dropdownRef.current &&
-          !dropdownRef.current.contains(event.target as Node)
+          !dropdownRef.current?.contains(target) &&
+          !panelRef.current?.contains(target)
         ) {
-          setIsOpen(false);
-          setSearchQuery('');
+          closeDropdown();
         }
       };
 
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') closeDropdown();
+      };
+
+      document.addEventListener('mousedown', handlePointerDown);
+      document.addEventListener('touchstart', handlePointerDown);
+      document.addEventListener('keydown', handleKeyDown);
+      // Capture phase so the panel follows scrolling in any ancestor container
+      window.addEventListener('scroll', updatePanelPosition, true);
+      window.addEventListener('resize', updatePanelPosition);
+
+      // Autofocusing search on a phone raises the keyboard over the list, so
+      // the shortcut is reserved for pointer devices
+      const focusTimer = window.setTimeout(() => {
+        if (window.matchMedia('(pointer: fine)').matches) {
+          searchInputRef.current?.focus();
+        }
+      }, 60);
+
+      return () => {
+        document.removeEventListener('mousedown', handlePointerDown);
+        document.removeEventListener('touchstart', handlePointerDown);
+        document.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('scroll', updatePanelPosition, true);
+        window.removeEventListener('resize', updatePanelPosition);
+        window.clearTimeout(focusTimer);
+      };
+    }, [isOpen, closeDropdown, updatePanelPosition]);
 
     // Filter countries based on search
     const filteredCountries = React.useMemo(() => {
-      if (!searchQuery) return COUNTRIES;
+      const query = searchQuery.trim().toLowerCase();
+      if (!query) return COUNTRIES;
 
-      const query = searchQuery.toLowerCase();
       return COUNTRIES.filter(
         (country) =>
+          (countryLabels.get(country.code) ?? country.name).toLowerCase().includes(query) ||
           country.name.toLowerCase().includes(query) ||
           country.dialCode.includes(query) ||
           country.code.toLowerCase().includes(query)
       );
-    }, [searchQuery]);
+    }, [searchQuery, countryLabels]);
 
-    // Handle phone number change - strips leading 0 for countries that use it locally
-    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      let newNumber = e.target.value.replace(/[^\d]/g, '');
-      
-      // Strip leading 0 for countries that use it locally (e.g., Egypt 01234567890 -> 1234567890)
-      if (newNumber.startsWith('0') && COUNTRIES_WITH_LEADING_ZERO.includes(selectedCountry.code)) {
-        newNumber = newNumber.slice(1);
-      }
-      
-      // Limit to maxLength if defined
-      if (selectedCountry.maxLength && newNumber.length > selectedCountry.maxLength) {
-        newNumber = newNumber.slice(0, selectedCountry.maxLength);
-      }
-      
-      setPhoneNumber(newNumber);
-      onChange?.(`${selectedCountry.dialCode}${newNumber}`);
+    const emitChange = (country: Country, nationalNumber: string) => {
+      const clamped = clampToMaxLength(country, nationalNumber);
+      onChange?.(clamped ? `${country.dialCode}${clamped}` : '');
     };
 
-    // Handle country selection
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const raw = e.target.value.trim();
+      const digits = raw.replace(/\D/g, '');
+
+      // A pasted or autofilled number can carry its own country code
+      const international = raw.startsWith('+')
+        ? `+${digits}`
+        : digits.startsWith('00') && digits.length > 2
+          ? `+${digits.slice(2)}`
+          : null;
+
+      if (international) {
+        const matched = findCountryByDialCode(international);
+        if (matched) {
+          setPickedCountry(matched);
+          emitChange(matched, international.slice(matched.dialCode.length));
+          return;
+        }
+      }
+
+      // Local habit: numbers written with a trunk "0" the dial code replaces
+      const national =
+        digits.startsWith('0') && COUNTRIES_WITH_LEADING_ZERO.includes(selectedCountry.code)
+          ? digits.replace(/^0+/, '')
+          : digits;
+
+      emitChange(selectedCountry, national);
+    };
+
     const handleCountrySelect = (country: Country) => {
-      setSelectedCountry(country);
-      setIsOpen(false);
-      setSearchQuery('');
-      onChange?.(`${country.dialCode}${phoneNumber}`);
+      setPickedCountry(country);
+      closeDropdown();
+      emitChange(country, phoneNumber);
       inputRef.current?.focus();
     };
 
     return (
-      <div className={cn('relative', className)} dir={dir} ref={dropdownRef}>
+      // The control stays LTR in every language: the number is always typed in
+      // Latin digits, so mirroring it in Arabic only moves the dial code away
+      // from where people expect it.
+      <div className={cn('relative w-full', className)} ref={dropdownRef} dir="ltr">
         <div
+          ref={fieldRef}
           className={cn(
-            'flex h-11 w-full border-0 border-b border-dashed bg-transparent text-sm transition-colors',
+            'flex h-11 w-full items-stretch border-0 border-b border-dashed bg-transparent text-sm transition-colors',
             error ? 'border-destructive' : 'border-ledger-line',
             'focus-within:border-primary',
             disabled && 'cursor-not-allowed opacity-50'
@@ -197,41 +374,35 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
           {/* Country Selector */}
           <button
             type="button"
-            onClick={() => !disabled && setIsOpen(!isOpen)}
+            onClick={() => !disabled && (isOpen ? closeDropdown() : openDropdown())}
             className={cn(
-              'flex items-center gap-1.5 px-2 pe-3 border-e border-dashed border-ledger-line',
+              'flex shrink-0 items-center gap-1.5 border-e border-dashed border-ledger-line ps-1 pe-2.5',
               'hover:text-foreground transition-colors',
-              disabled && 'pointer-events-none',
-              dir === 'rtl' && 'order-last'
+              disabled && 'pointer-events-none'
             )}
             disabled={disabled}
+            aria-label={t('selectCountry')}
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
           >
-            <span className="text-lg">{selectedCountry.flag}</span>
-            <span className="text-muted-foreground text-xs font-medium">
+            <span className="w-6 shrink-0 text-center text-base leading-none" aria-hidden="true">
+              {selectedCountry.flag}
+            </span>
+            <span className="text-muted-foreground text-xs font-medium tabular-nums">
               {selectedCountry.dialCode}
             </span>
-            <svg
+            <ChevronDownIcon
               className={cn(
-                'h-4 w-4 text-muted-foreground transition-transform',
+                'h-4 w-4 shrink-0 text-muted-foreground transition-transform',
                 isOpen && 'rotate-180'
               )}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            />
           </button>
 
           {/* Phone Number Input */}
           <input
+            {...props}
             ref={(node) => {
-              // Handle both refs
               inputRef.current = node;
               if (typeof ref === 'function') {
                 ref(node);
@@ -240,71 +411,97 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
               }
             }}
             type="tel"
-            inputMode="numeric"
+            inputMode="tel"
+            autoComplete="tel"
             value={phoneNumber}
             onChange={handlePhoneChange}
-            className={cn(
-              'paper-input-bare flex-1 px-2 py-2 bg-transparent outline-none',
-              'placeholder:text-muted-foreground/70',
-              dir === 'rtl' && 'text-right'
-            )}
             disabled={disabled}
-            {...props}
+            className={cn(
+              'paper-input-bare min-w-0 flex-1 bg-transparent px-2 py-2 outline-none',
+              'placeholder:text-muted-foreground/70'
+            )}
           />
         </div>
 
         {/* Country Dropdown */}
-        {isOpen && (
-          <div
-            className={cn(
-              'absolute z-50 mt-1 w-full rounded-lg border border-border bg-card',
-              'max-h-64 overflow-hidden'
-            )}
-          >
-            {/* Search Input */}
-            <div className="p-2 border-b border-dashed border-ledger-line">
-              <input
-                type="text"
-                placeholder="Search country..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={cn(
-                  'w-full px-3 py-2 text-sm rounded-md border border-border bg-background',
-                  'outline-none focus:border-primary'
-                )}
-                autoFocus
-              />
-            </div>
-
-            {/* Country List */}
-            <div className="max-h-48 overflow-y-auto">
-              {filteredCountries.length === 0 ? (
-                <div className="px-3 py-4 text-center text-sm text-muted-foreground">
-                  No countries found
-                </div>
-              ) : (
-                filteredCountries.map((country) => (
-                  <button
-                    key={country.code}
-                    type="button"
-                    onClick={() => handleCountrySelect(country)}
-                    className={cn(
-                      'flex w-full items-center gap-3 px-3 py-2 text-sm',
-                      'hover:bg-muted transition-colors',
-                      selectedCountry.code === country.code && 'bg-muted'
-                    )}
-                  >
-                    <span className="text-lg">{country.flag}</span>
-                    <span className="flex-1 text-start">{country.name}</span>
-                    <span className="text-muted-foreground">
-                      {country.dialCode}
-                    </span>
-                  </button>
-                ))
+        {isOpen &&
+          panelStyle &&
+          createPortal(
+            <div
+              ref={panelRef}
+              style={panelStyle}
+              dir="ltr"
+              className={cn(
+                'fixed z-50 flex flex-col overflow-hidden rounded-xl border border-border',
+                'bg-background/95 shadow-lg backdrop-blur-xl'
               )}
-            </div>
-          </div>
-        )}
+            >
+              {/* Search Input */}
+              <div className="shrink-0 p-2 border-b border-dashed border-ledger-line">
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder={t('searchCountries')}
+                  aria-label={t('searchCountries')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className={cn(
+                    'w-full px-3 py-2 text-sm rounded-md border border-border bg-background',
+                    'outline-none focus:border-primary'
+                  )}
+                />
+              </div>
+
+              {/* Country List */}
+              <div
+                role="listbox"
+                aria-label={t('selectCountry')}
+                className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
+              >
+                {filteredCountries.length === 0 ? (
+                  <div className="px-3 py-4 text-center text-sm text-muted-foreground">
+                    {t('noCountriesFound')}
+                  </div>
+                ) : (
+                  filteredCountries.map((country) => {
+                    const isSelected = selectedCountry.code === country.code;
+
+                    return (
+                      <button
+                        key={country.code}
+                        type="button"
+                        role="option"
+                        aria-selected={isSelected}
+                        onClick={() => handleCountrySelect(country)}
+                        className={cn(
+                          'flex w-full items-center gap-2.5 px-3 py-2 text-sm',
+                          'hover:bg-muted transition-colors',
+                          isSelected && 'bg-muted'
+                        )}
+                      >
+                        <span className="w-6 shrink-0 text-center text-base leading-none" aria-hidden="true">
+                          {country.flag}
+                        </span>
+                        <span className="min-w-0 flex-1 truncate text-start">
+                          {countryLabels.get(country.code) ?? country.name}
+                        </span>
+                        <span className="shrink-0 text-muted-foreground tabular-nums">
+                          {country.dialCode}
+                        </span>
+                        <CheckIcon
+                          className={cn(
+                            'h-4 w-4 shrink-0 text-primary',
+                            isSelected ? 'opacity-100' : 'opacity-0'
+                          )}
+                        />
+                      </button>
+                    );
+                  })
+                )}
+              </div>
+            </div>,
+            document.body
+          )}
       </div>
     );
   }
@@ -328,10 +525,7 @@ export function validatePhoneNumber(fullNumber: string): {
     return { isValid: false, minLength: 0, maxLength: 0, currentLength: 0, country: null };
   }
 
-  // Find matching country by dial code
-  const matchedCountry = COUNTRIES.find((country) =>
-    fullNumber.startsWith(country.dialCode)
-  );
+  const matchedCountry = findCountryByDialCode(fullNumber);
 
   if (!matchedCountry) {
     return { isValid: false, minLength: 0, maxLength: 0, currentLength: fullNumber.length, country: null };
@@ -354,4 +548,3 @@ export function validatePhoneNumber(fullNumber: string): {
 }
 
 export { COUNTRIES, COUNTRIES_WITH_LEADING_ZERO };
-

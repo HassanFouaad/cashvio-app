@@ -249,7 +249,6 @@ export function RegistrationForm() {
           defaultCountry="EG"
           error={!!errors.contactPhone}
           placeholder={t('placeholders.phone')}
-          dir="ltr"
         />
         {errors.contactPhone && (
           <p className="font-receipt text-xs text-destructive">{errors.contactPhone}</p>

@@ -3,12 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n/routing";
 import { PricingPlans } from "@/components/sections/pricing-plans";
-import {
-  AlsoFreeStrip,
-  FaqSection,
-  LedgerHero,
-  ReceiptStamp,
-} from "@/components/marketing";
+import { AlsoFreeStrip, FaqSection, LedgerHero } from "@/components/marketing";
 import { getPublicPlans } from "@/lib/http/server";
 import { getWhatsAppLink } from "@/lib/utils/whatsapp";
 import {
@@ -71,7 +66,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const planKeys = ["starter", "professional", "enterprise"] as const;
 const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 export default async function PricingPage({ params }: Props) {
@@ -88,15 +82,6 @@ export default async function PricingPage({ params }: Props) {
 
   // Fetch plans from API (SSR) with Accept-Language header
   const plans = await getPublicPlans(undefined, locale);
-
-  // Build fallback plans from translations
-  const fallbackPlans = planKeys.map((key) => ({
-    key,
-    name: t(`${key}.name`),
-    description: t(`${key}.description`),
-    price: t(`${key}.price`),
-    features: t.raw(`${key}.features`) as string[],
-  }));
 
   // Schema.org structured data - Enhanced for SEO 2026
   const webPageSchema = schemaTemplates.webPage({
@@ -146,23 +131,7 @@ export default async function PricingPage({ params }: Props) {
       {/* Pricing Cards - SSR from API with fallback */}
       <section className="py-12 sm:py-16">
         <div className="container-wide">
-          <PricingPlans
-            plans={plans}
-            fallbackPlans={fallbackPlans}
-            locale={locale}
-          />
-        </div>
-      </section>
-
-      {/* Money Back Guarantee: stamped ledger note */}
-      <section className="py-10 sm:py-12 ledger-rules border-y border-border">
-        <div className="container-wide">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 text-center md:text-start">
-            <ReceiptStamp>{t("guarantee.title")}</ReceiptStamp>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
-              {t("guarantee.description")}
-            </p>
-          </div>
+          <PricingPlans plans={plans} locale={locale} />
         </div>
       </section>
 

@@ -180,6 +180,10 @@ export function VatCalculatorTool() {
             </p>
           )}
         </div>
+
+        <p className="font-receipt text-xs text-muted-foreground border-t border-dashed border-ledger-line pt-4">
+          {t('disclaimer')}
+        </p>
       </div>
     </div>
   );
