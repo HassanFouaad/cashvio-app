@@ -79,6 +79,7 @@ Online payments are controlled by the system from start to finish:
 - The payment is confirmed with Paymob directly, then the order flips to **Paid** automatically. The order page shows the gateway, the Paymob transaction number, and the card or wallet used.
 - Manual payment actions are disabled for these orders: no recording payments by hand, no editing amounts, and no manual refunds. This keeps your records exactly in sync with Paymob.
 - If a payment attempt fails, the customer can retry from the storefront. Every attempt is tracked on the order.
+- An unpaid order whose payment never completes cancels itself automatically after a few hours, so abandoned checkouts never pile up as pending orders.
 
 ## Refunds for online-paid orders
 
@@ -87,6 +88,7 @@ Refunds for gateway payments are always processed through Paymob and always for 
 - **Cancelling a paid order** automatically sends the full refund through Paymob. No extra steps.
 - Creating a refund from the order page sends the same full refund through Paymob.
 - The refund is marked **Completed** only after Paymob confirms the money moved. Until then it shows as **Processing**.
+- **Refunding an order you have not fulfilled yet cancels it automatically** once Paymob confirms the refund. Orders already fulfilled keep their completed state.
 
 <Callout title="Same-day cancellations">
 When a payment is cancelled the same day, we void the transaction at Paymob instead of refunding it, which usually returns the money faster and avoids gateway fees.
