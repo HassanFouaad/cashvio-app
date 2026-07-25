@@ -36,7 +36,7 @@ Every Paymob account starts in test mode. Test keys only work with test Integrat
 5. Paste the **API Key**, **Secret Key**, **Public Key**, and **HMAC Secret**.
 6. Add your **Integration IDs**, one entry per payment method.
 7. Optionally set an **Order fee** (see below).
-8. Save. You land on the integration settings page: click **Verify credentials** to test your keys live against Paymob.
+8. Save. Your keys are checked live with Paymob before anything is stored. If a key is wrong, the save is rejected with the exact reason, so fix the key and save again. The same live check runs every time you update the keys or settings later.
 
 ## Add the callback link in Paymob
 
@@ -96,8 +96,8 @@ When a payment is cancelled the same day, we void the transaction at Paymob inst
 
 | Problem | Fix |
 |---------|-----|
-| **Verify connection fails on the API key or Secret key** | Re-copy the key from Paymob, Settings > API Keys. Make sure there are no extra spaces. |
-| **Verify connection fails on the Integration IDs** | Your keys and Integration IDs are from different modes (test vs live) or a different country account. Match them and try again. |
+| **Saving fails on the API key or Secret key** | Re-copy the key from Paymob, Settings > API Keys. Make sure there are no extra spaces. |
+| **Saving fails on the Integration IDs** | Your keys and Integration IDs are from different modes (test vs live) or a different country account. Match them and try again. |
 | **Customer paid but the order is still Pending** | Confirm the callback link is set in Paymob. The system also re-checks pending payments with Paymob automatically within minutes, so the order will update on its own. |
 | **Cannot enable Online Payment** | Connect and activate a Paymob integration for this store first. |
 | **Cannot disable the integration** | Turn off the **Online Payment** storefront method first, then disable the integration. |
