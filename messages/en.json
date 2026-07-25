@@ -1833,7 +1833,7 @@
         },
         "noLocalPayments": {
           "title": "Missing Local Payment Methods",
-          "description": "Global platforms prioritize Stripe and PayPal while ignoring the payment methods your customers actually use. Mada, KNET, Tabby, Tamara, and local bank transfers."
+          "description": "Global platforms prioritize Stripe and PayPal while ignoring how your customers actually pay: cash at the counter, local bank transfers, and regional gateways."
         },
         "seoBlindSpot": {
           "title": "Invisible to Arabic Search",
@@ -1924,8 +1924,8 @@
       "subtitle": "Cashvio adapts to your local regulations, payment preferences, and business culture.",
       "markets": {
         "ksa": {
-          "name": "E-invoicing ready",
-          "features": "Tax-ready invoicing workflows, Mada card payments, Arabic + English bilingual support, VAT-ready tax configuration"
+          "name": "Tax details on every receipt",
+          "features": "Tax rate per product, VAT and commercial registration numbers printed on receipts, tax summary reports, Arabic + English"
         },
         "uae": {
           "name": "Multi-currency ready",
@@ -1966,7 +1966,7 @@
         },
         "localPayments": {
           "feature": "Regional payment methods",
-          "cashvio": "Mada, KNET, PayTabs, Tap, Tabby, Tamara",
+          "cashvio": "Paymob online, plus cash, transfer, and store credit at the counter",
           "others": "Stripe & PayPal only, limited regional options"
         },
         "arabicSeo": {
@@ -1996,7 +1996,7 @@
       "subtitle": "Common questions about Cashvio's Arabic POS and storefront capabilities",
       "q1": {
         "question": "What is the best POS system for Arabic-speaking businesses?",
-        "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface, bilingual receipt printing, tax-ready invoicing workflows, and integration with regional payment methods like Mada, KNET, Tabby, and Tamara. Unlike global platforms that bolt on Arabic as a translation layer, Cashvio's entire interface. From checkout to analytics, was designed for Arabic from day one."
+        "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface and bilingual receipt printing. Unlike global platforms that bolt on Arabic as a translation layer, every screen from checkout to analytics was designed for Arabic from day one."
       },
       "q2": {
         "question": "Does Cashvio support both Arabic and English at the same time?",
@@ -2004,7 +2004,7 @@
       },
       "q4": {
         "question": "What payment methods does Cashvio support for Arabic-speaking businesses?",
-        "answer": "Cashvio integrates with the payment methods your customers prefer: Mada, KNET, PayTabs, Tap Payments, Tabby (buy now pay later), Tamara, and local bank transfers. All payment methods work seamlessly in both the POS and online storefront with Arabic and English display."
+        "answer": "At the counter Cashvio takes cash, card, bank transfer, and store credit, and one order can be split across several of them. Online payments run through Paymob, which covers Egypt, the UAE, Saudi Arabia, and Oman. Everything displays in Arabic and English."
       },
       "q5": {
         "question": "How does Cashvio's Arabic storefront differ from Shopify or other global platforms?",
@@ -2016,7 +2016,7 @@
       },
       "q7": {
         "question": "Does Cashvio work across Arabic-speaking markets?",
-        "answer": "Yes. Cashvio serves Arabic-speaking businesses with multi-currency operations, regional payment integrations, and local tax and invoicing workflows."
+        "answer": "Yes. Cashvio serves Arabic-speaking businesses with a currency per store, tax settings you control, and online payments through Paymob in Egypt, the UAE, Saudi Arabia, and Oman."
       },
       "q8": {
         "question": "Is there a free plan available?",
