@@ -2,6 +2,7 @@
   "title": "Online Store",
   "pages": [
     "storefront-overview",
+    "product-availability",
     "storefront-appearance",
     "storefront-themes",
     "storefront-seo-content",

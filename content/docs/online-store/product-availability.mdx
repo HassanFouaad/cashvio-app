@@ -1,0 +1,64 @@
+---
+title: Choose Which Products Appear Online
+description: "Show or hide any product on your online store with one switch, while it keeps selling normally at the counter."
+---
+
+Not everything in your catalogue belongs on your online store. Counter-only items, wholesale packs, staff meals, and products you only sell face to face can stay out of the storefront while remaining fully sellable in [New Sale](/docs/orders/creating-orders). The **Available on Online Store** switch on each product decides that.
+
+The switch is on by default, so every product you create is published to your storefront unless you say otherwise.
+
+## Where to Find the Switch
+
+- **When creating a product**: **Catalogue > Products > Add New Product > Full Form**, in the **Status & Visibility** card.
+- **On an existing product**: open the product, click **Edit**, and toggle **Available on Online Store**.
+
+You can flip it as often as you like. The change takes effect on your storefront immediately.
+
+<Callout title="Note">
+The switch only shows when your plan includes the online store. On plans without it, every product simply stays published.
+</Callout>
+
+## What Happens When You Turn It Off
+
+| Where | Result |
+|-------|--------|
+| Storefront catalogue and search | The product disappears from the listing |
+| Product page link | Anyone opening the old URL gets a "not found" page |
+| Featured products | It is removed from the home page strip, and you cannot pin it |
+| Customer carts | The line is dropped automatically and the shopper is told it was removed |
+| Checkout | The order is rejected, so no one can buy it online through a stale page |
+| Sitemap | The product URL is no longer submitted to search engines |
+
+## What Stays Exactly the Same
+
+Hiding a product from your online store is purely a storefront decision. It does not touch anything else:
+
+- **New Sale** and every POS device still sell it normally
+- Stock, [purchase orders](/docs/suppliers/purchase-orders), and [stock transfers](/docs/inventory/stock-transfers) keep working
+- Past orders that included it are untouched
+- [Reports](/docs/reports/analytics-reports) still count it
+- Its [barcode labels](/docs/catalogue/barcode-labels) and scanning still work
+
+## Featured Products
+
+A product must be available on your online store before you can pin it as a [featured product](/docs/online-store/storefront-appearance#featured-special-products). In the product picker, hidden products are still listed so you can find them, but they appear dimmed with a **Not on online store** tag and cannot be selected.
+
+If you hide a product that is already pinned, it stops showing on your home page right away and the featured list flags it, so you know to publish it again or remove it from the list.
+
+## Availability vs Status
+
+These two settings answer different questions, and they work together.
+
+| Setting | Question it answers | Effect when off |
+|---------|--------------------|-----------------|
+| **Status** (Active / Inactive) | Do you still sell this product at all? | Hidden everywhere, including POS |
+| **Available on Online Store** | Do you sell it online? | Hidden online only, still sold in-store |
+
+An inactive product never reaches your storefront, no matter what its availability switch says. See [Product Statuses](/docs/catalogue/products#product-statuses).
+
+## Related
+
+- [Add a new product](/docs/catalogue/create-product): The full creation form, field by field
+- [Storefront Appearance](/docs/online-store/storefront-appearance): Featured products, banners, and logo
+- [Online Storefront Overview](/docs/online-store/storefront-overview): What customers see across the full storefront
+- [Products](/docs/catalogue/products): Viewing, editing, duplicating, and statuses
