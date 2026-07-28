@@ -1,0 +1,80 @@
+---
+title: Facebook and Instagram Product Catalog
+description: "Sync your products to Meta with a catalog feed link so you can run catalog ads and tag products on Facebook and Instagram."
+---
+
+## What is the catalog integration?
+
+The Facebook and Instagram Catalog integration publishes your online store products as a live feed link that Meta reads automatically. Once connected, your products, prices, photos, and stock levels appear in **Meta Commerce Manager**, ready for catalog ads, Advantage+ campaigns, and product tagging on Facebook and Instagram posts. There is nothing to re-upload when products change: Meta refetches the link on a schedule and stays in sync on its own.
+
+<Callout title="Store level integration">
+The catalog is connected per store. Each store with an online storefront gets its own feed link with its own products, prices, and stock.
+</Callout>
+
+## Before you start
+
+- Your store needs an active online storefront, since every catalog item links back to its product page.
+- You need a free Meta Business account with access to [Commerce Manager](https://business.facebook.com/commerce/).
+- Products need at least one photo. Meta rejects items without images, so products with no photos are left out of the feed.
+
+## What the feed contains
+
+| Catalog field | Comes from |
+|---------------|------------|
+| **Title and description** | The product name and description |
+| **Price** | The store price if one is set, otherwise the base selling price, in your store currency |
+| **Availability** | Live stock at this store: in stock or sold out |
+| **Link** | The product page on your online store |
+| **Images** | The product photos, main photo first |
+| **Brand** | The brand name you set on the integration, or the store name |
+| **Variants** | Each variant is its own catalog item, grouped under the product, with size and color when your options use those names |
+
+## Connect the catalog
+
+1. Go to **Settings > Integrations** in the business portal.
+2. On the **Facebook & Instagram Catalog** card, click **Connect**.
+3. Choose the **Store** to connect.
+4. Optionally set a **Brand name**. It shows on every catalog item; leave it empty to use the store name.
+5. Save. No keys or passwords are needed: saving creates your private **feed link** and opens the settings page where you can copy it.
+
+## Add the feed link in Commerce Manager
+
+1. In [Commerce Manager](https://business.facebook.com/commerce/), create a catalog of type **E-commerce**, or open an existing one.
+2. Go to **Catalog > Data sources** and click **Add items**.
+3. Choose **Data feed**, then **Scheduled feed**.
+4. Paste your feed link, pick an update schedule (daily works well; hourly is the fastest Meta allows), and save.
+
+Meta downloads your products right away and then refetches the link on the schedule you picked. You can trigger an extra fetch anytime from the data source settings with **Request update now**.
+
+<Callout title="Keep the link private">
+The feed link contains a long random token instead of a password. Anyone with the link can read your public product list, so only paste it into Commerce Manager. Deleting the integration invalidates the link immediately.
+</Callout>
+
+## Which products are included
+
+A product appears in the feed when all of these are true:
+
+- The product is **Active** and **Available on online store**.
+- It has at least one photo.
+- If your storefront hides out-of-stock products, the product is in stock. Otherwise out-of-stock products are included and Meta shows them as sold out.
+
+The feed reflects changes within about 15 minutes; Meta then picks them up on its next scheduled fetch.
+
+## Works with the Facebook Pixel
+
+If you also connected the [Facebook Pixel](/docs/integrations/facebook-pixel), catalog ads and retargeting work out of the box: the pixel reports the same product identity the feed publishes, so Meta can show visitors the exact products they viewed or added to cart.
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| **Meta says the feed URL cannot be reached** | Check the integration is **Active** in **Settings > Integrations** and that your store and its online storefront are active. |
+| **Some products are missing from the catalog** | Confirm the product is Active, available on the online store, and has at least one photo. If your storefront hides out-of-stock items, restock the product. |
+| **Prices or stock look outdated in Meta** | Meta refetches on your chosen schedule. Use **Request update now** in Commerce Manager to fetch immediately. |
+| **Items rejected for missing images** | Add at least one photo to the product; it joins the feed automatically. |
+
+## Related
+
+- [Facebook Pixel](/docs/integrations/facebook-pixel): Track storefront visitors for ads and retargeting
+- [Storefront Overview](/docs/online-store/storefront-overview): Launch the online store the catalog links to
+- [Products](/docs/catalogue/products): Manage the products behind the feed
