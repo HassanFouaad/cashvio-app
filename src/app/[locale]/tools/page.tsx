@@ -109,6 +109,7 @@ export default async function ToolsPage({ params }: Props) {
         titleHighlight={t('hero.titleHighlight')}
         subtitle={t('hero.subtitle')}
         stamp={t('freeStamp')}
+        trackLocation="/tools"
       />
 
       <section aria-label={t('hero.title')} className="section-padding-sm">
@@ -142,6 +143,7 @@ export default async function ToolsPage({ params }: Props) {
         primaryAction={{ label: t('cta.button'), href: registerLink }}
         note={t('cta.note')}
         stamp={t('freeStamp')}
+        trackLocation="/tools"
       />
     </>
   );

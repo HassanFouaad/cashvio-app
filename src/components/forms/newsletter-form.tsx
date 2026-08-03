@@ -4,7 +4,11 @@ import * as React from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { contactService, ContactRequest, HttpError, InquiryType, useLocaleConfig } from '@/lib/http';
-import { trackFormSubmit, trackFormError } from '@/lib/analytics';
+import {
+  trackFormSubmit,
+  trackFormError,
+  trackGenerateLead,
+} from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 const EMAIL_MAX = 255;
@@ -49,6 +53,7 @@ export function NewsletterForm() {
 
       await contactService.submit(request, localeConfig);
       trackFormSubmit('newsletter_form', 'footer');
+      trackGenerateLead('newsletter', 'footer');
       setStatus('success');
       setEmail('');
     } catch (error) {

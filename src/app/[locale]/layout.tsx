@@ -24,6 +24,7 @@ import { MobileFooterNav } from "@/components/layout/mobile-footer-nav";
 import {
   AnalyticsProvider,
   AttributionTracker,
+  EngagementTracker,
   MetaPixelProvider,
 } from "@/lib/analytics";
 
@@ -271,6 +272,7 @@ export default async function LocaleLayout({
         <AnalyticsProvider />
         <MetaPixelProvider />
         <AttributionTracker />
+        <EngagementTracker />
 
         {/* Chatwoot is deferred until first interaction (or idle timeout) so it
             never competes with LCP/INP on landing pages. Core Web Vitals matter

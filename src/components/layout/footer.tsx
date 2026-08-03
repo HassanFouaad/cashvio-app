@@ -4,6 +4,7 @@ import { type Locale } from '@/i18n/routing';
 import { footerNavigation } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
 import { getWhatsAppLink } from '@/lib/utils/whatsapp';
+import { TrackedExternalLink } from '@/lib/analytics';
 import { NewsletterForm } from '@/components/forms/newsletter-form';
 import { Logo } from './logo';
 
@@ -74,18 +75,18 @@ export async function Footer({ locale }: FooterProps) {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {socialLinks.map((link) => (
-                <a
+                <TrackedExternalLink
                   key={link.key}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  trackLocation="footer"
+                  trackKind={link.key === 'whatsapp' ? 'whatsapp' : 'outbound'}
                   className="w-9 h-9 rounded-full bg-muted/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   aria-label={link.label}
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d={link.path} />
                   </svg>
-                </a>
+                </TrackedExternalLink>
               ))}
             </div>
 

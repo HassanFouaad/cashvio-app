@@ -176,6 +176,7 @@ export async function ToolPageShell({ locale, namespace, path, tool }: ToolPageS
         primaryAction={{ label: t('cta.button'), href: registerLink }}
         note={t('cta.note')}
         stamp={tTools('freeStamp')}
+        trackLocation={path}
       />
     </>
   );

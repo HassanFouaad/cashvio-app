@@ -2,10 +2,9 @@
 
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
-import { buttonVariants } from '@/components/ui/button';
 import { ThemedShot } from '@/components/ui/themed-shot';
+import { TrackedButtonLink } from '@/lib/analytics';
 
 const views = [
   { id: 'pos', base: '/assets/mobile-pos' },
@@ -98,9 +97,14 @@ export function MobileAppShowcase() {
               ))}
             </div>
 
-            <Link href="/register" className={buttonVariants({ size: 'lg' })}>
+            <TrackedButtonLink
+              href="/register"
+              size="lg"
+              trackName="get_started"
+              trackLocation="home_mobile_app"
+            >
               {activeT('cta')}
-            </Link>
+            </TrackedButtonLink>
           </div>
         </div>
       </div>

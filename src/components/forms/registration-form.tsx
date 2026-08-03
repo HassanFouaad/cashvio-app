@@ -8,7 +8,6 @@ import {
   trackFormSubmit,
   trackFormError,
   trackRegistrationStart,
-  trackRegistrationComplete,
   getRegistrationSource,
 } from '@/lib/analytics';
 import { useLocale, useTranslations } from 'next-intl';
@@ -180,9 +179,8 @@ export function RegistrationForm() {
 
       await authService.register(registerData, localeConfig);
 
-      // Success! Track plan + first-touch source (UTM/ref) for growth loops
+      // Form submit only here; canonical sign_up fires on thank-you (avoids double-count)
       trackFormSubmit('registration_form', 'register_page');
-      trackRegistrationComplete(getSelectedPlan(), getRegistrationSource());
 
       // Save preferences for cross-app sync
       // Note: Auth tokens are now set as HttpOnly cookies by the backend
@@ -190,9 +188,15 @@ export function RegistrationForm() {
       saveThemePreference(theme);
       saveLanguagePreference(locale);
 
-      // Redirect to thank-you page (for Facebook/Meta conversion tracking)
+      // Carry selected plan to thank-you for GA sign_up attribution
+      const selectedPlan = getSelectedPlan();
+      const thankYouPath = selectedPlan
+        ? `/thank-you?plan=${encodeURIComponent(selectedPlan)}`
+        : '/thank-you';
+
+      // Redirect to thank-you page (GA sign_up + Meta conversion)
       // User's auth cookies are already set by the backend
-      router.push('/thank-you');
+      router.push(thankYouPath);
     } catch (error) {
       if (error instanceof HttpError) {
         if (error.statusCode === 409) {

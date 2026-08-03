@@ -13,7 +13,7 @@
  *   trackEvent,
  *   trackFormSubmit,
  *   trackCTAClick,
- *   trackRegistrationComplete,
+ *   trackSignUp,
  * } from '@/lib/analytics';
  *
  * // Import configuration and constants
@@ -26,12 +26,19 @@ export { AnalyticsProvider, GoogleAnalytics } from './provider';
 
 // First-touch acquisition attribution
 export {
+  applyAttributionToGtag,
   captureAttribution,
   getAttribution,
   getRegistrationSource,
+  toAttributionEventParams,
   type Attribution,
+  type AttributionEventParams,
 } from './attribution';
 export { AttributionTracker } from './attribution-tracker';
+export { EngagementTracker } from './engagement-tracker';
+export { PricingViewTracker } from './pricing-view-tracker';
+export { TrackedButtonLink } from './tracked-button-link';
+export { TrackedExternalLink } from './tracked-external-link';
 
 // Meta (Facebook) Pixel
 export {
@@ -50,10 +57,17 @@ export {
   type GAEventName,
 } from './config';
 
+export {
+  SCROLL_DEPTH_MILESTONES,
+  TIME_ON_PAGE_THRESHOLDS_SECONDS,
+  type ScrollDepthMilestone,
+} from './constants';
+
 // Event tracking utilities
 export {
   // Core tracking
   trackEvent,
+  withAttribution,
 
   // Form tracking
   trackFormStart,
@@ -63,6 +77,8 @@ export {
   // CTA tracking
   trackCTAClick,
   trackButtonClick,
+  trackWhatsAppClick,
+  trackPortalClick,
 
   // Navigation tracking
   trackOutboundLink,
@@ -71,7 +87,9 @@ export {
 
   // Conversion tracking
   trackRegistrationStart,
+  trackSignUp,
   trackRegistrationComplete,
+  trackGenerateLead,
   trackContactFormSubmit,
   trackDemoRequest,
   trackPricingView,
@@ -81,4 +99,3 @@ export {
   trackScrollDepth,
   trackTimeOnPage,
 } from './events';
-

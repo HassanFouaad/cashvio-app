@@ -27,6 +27,7 @@ export async function CTA({ locale }: CTAProps) {
       primaryAction={{ label: t('button'), href: registerLink }}
       secondaryAction={{ label: t('viewPricing'), href: pricingLink }}
       note={t('noCreditCard')}
+      trackLocation="home_cta"
     />
   );
 }

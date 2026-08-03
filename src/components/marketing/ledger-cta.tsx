@@ -1,9 +1,11 @@
-import { ButtonLink } from '@/components/ui/button';
+import { TrackedButtonLink } from '@/lib/analytics';
 import { ReceiptStamp } from './receipt-stamp';
 
 interface LedgerCtaAction {
   label: string;
   href: string;
+  /** Override default track name (primary = get_started, secondary = view_pricing) */
+  trackName?: string;
 }
 
 interface LedgerCtaLine {
@@ -23,6 +25,8 @@ interface LedgerCtaProps {
   /** Tilted stamp in the corner of the receipt, e.g. "FREE FOREVER" */
   stamp?: string;
   note?: string;
+  /** Analytics location, e.g. "home_cta", "features/free-pos" */
+  trackLocation?: string;
 }
 
 /**
@@ -39,6 +43,7 @@ export function LedgerCta({
   total,
   stamp,
   note,
+  trackLocation,
 }: LedgerCtaProps) {
   return (
     <section aria-label={title} className="section-padding-sm bg-muted/40 border-t border-border">
@@ -83,18 +88,26 @@ export function LedgerCta({
           )}
 
           <div className="mt-8 flex flex-col gap-3">
-            <ButtonLink size="lg" href={primaryAction.href} className="w-full">
+            <TrackedButtonLink
+              size="lg"
+              href={primaryAction.href}
+              className="w-full"
+              trackName={primaryAction.trackName ?? 'get_started'}
+              trackLocation={trackLocation}
+            >
               {primaryAction.label}
-            </ButtonLink>
+            </TrackedButtonLink>
             {secondaryAction && (
-              <ButtonLink
+              <TrackedButtonLink
                 variant="outline"
                 size="lg"
                 href={secondaryAction.href}
                 className="w-full"
+                trackName={secondaryAction.trackName ?? 'view_pricing'}
+                trackLocation={trackLocation}
               >
                 {secondaryAction.label}
-              </ButtonLink>
+              </TrackedButtonLink>
             )}
           </div>
 

@@ -191,6 +191,7 @@ export default async function TeamManagementPage({ params }: Props) {
         subtitle={t('hero.subtitle')}
         primaryAction={{ label: t('cta.getStarted'), href: registerLink }}
         secondaryAction={{ label: commonT('readDocs'), href: docsLink }}
+        trackLocation={PAGE_PATH}
       />
 
       {/* Problem */}
@@ -307,6 +308,7 @@ export default async function TeamManagementPage({ params }: Props) {
         primaryAction={{ label: t('cta.getStarted'), href: registerLink }}
         secondaryAction={{ label: t('cta.viewPricing'), href: pricingLink }}
         note={t('cta.freeNote')}
+        trackLocation={PAGE_PATH}
       />
     </>
   );

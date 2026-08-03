@@ -186,6 +186,7 @@ export default async function FreePosPage({ params }: Props) {
         primaryAction={{ label: t('hero.cta'), href: registerLink }}
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
         note={t('hero.trust')}
+        trackLocation="/features/free-pos"
       />
 
       <FeatureScreenshot
@@ -305,6 +306,7 @@ export default async function FreePosPage({ params }: Props) {
         primaryAction={{ label: t('cta.button'), href: registerLink }}
         secondaryAction={{ label: t('cta.secondaryButton'), href: pricingLink }}
         note={t('cta.note')}
+        trackLocation="/features/free-pos"
       />
     </>
   );

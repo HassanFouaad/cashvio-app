@@ -43,7 +43,8 @@ export const GA_EVENT_CATEGORIES = {
 } as const;
 
 /**
- * Predefined event names for common actions
+ * Predefined event names for common actions.
+ * Conversion names prefer GA4 recommended events (sign_up, generate_lead).
  */
 export const GA_EVENT_NAMES = {
   // Form Events
@@ -54,6 +55,8 @@ export const GA_EVENT_NAMES = {
   // CTA Events
   CTA_CLICK: 'cta_click',
   BUTTON_CLICK: 'button_click',
+  WHATSAPP_CLICK: 'whatsapp_click',
+  PORTAL_CLICK: 'portal_click',
 
   // Navigation Events
   PAGE_VIEW: 'page_view',
@@ -61,7 +64,9 @@ export const GA_EVENT_NAMES = {
   LOCALE_CHANGE: 'locale_change',
   THEME_CHANGE: 'theme_change',
 
-  // Conversion Events
+  // Conversion Events (GA4 recommended + funnel aliases)
+  SIGN_UP: 'sign_up',
+  GENERATE_LEAD: 'generate_lead',
   REGISTRATION_START: 'registration_start',
   REGISTRATION_COMPLETE: 'registration_complete',
   CONTACT_FORM_SUBMIT: 'contact_form_submit',
@@ -78,4 +83,3 @@ export const GA_EVENT_NAMES = {
 export type GAEventCategory =
   (typeof GA_EVENT_CATEGORIES)[keyof typeof GA_EVENT_CATEGORIES];
 export type GAEventName = (typeof GA_EVENT_NAMES)[keyof typeof GA_EVENT_NAMES];
-

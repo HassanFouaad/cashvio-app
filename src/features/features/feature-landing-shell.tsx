@@ -106,6 +106,7 @@ export async function FeatureLandingShell({
         secondaryAction={{ label: commonT('viewPricing'), href: pricingLink }}
         note={t('hero.note')}
         stamp={t('hero.stamp')}
+        trackLocation={path}
       />
 
       <section aria-label={t('pains.title')} className="section-padding-sm">
@@ -159,6 +160,7 @@ export async function FeatureLandingShell({
         secondaryAction={{ label: commonT('viewPricing'), href: pricingLink }}
         note={t('cta.note')}
         stamp={t('hero.stamp')}
+        trackLocation={path}
       />
     </>
   );

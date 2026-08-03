@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-import { ButtonLink } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 import { PortalLink } from '@/components/ui/portal-link';
 import { ctaLinks } from '@/config/navigation';
 import { isAuthenticated } from '@/lib/utils/cross-app-sync';
+import { TrackedButtonLink } from '@/lib/analytics';
 
 interface AuthAwareActionsProps {
   className?: string;
@@ -43,7 +43,7 @@ export function AuthAwareActions({ className }: AuthAwareActionsProps) {
     return (
       <div className={className}>
         <div className="w-px h-6 bg-border mx-2" />
-        <PortalLink variant="primary" size="sm" path="/">
+        <PortalLink variant="primary" size="sm" path="/" trackLocation="header">
           {tCommon('goToDashboard')}
         </PortalLink>
       </div>
@@ -53,12 +53,18 @@ export function AuthAwareActions({ className }: AuthAwareActionsProps) {
   return (
     <div className={className}>
       <div className="w-px h-6 bg-border mx-2" />
-      <PortalLink variant="ghost" size="sm" path="/login">
+      <PortalLink variant="ghost" size="sm" path="/login" trackLocation="header">
         {tCommon('login')}
       </PortalLink>
-      <ButtonLink variant="primary" size="sm" href={ctaLinks.getStarted}>
+      <TrackedButtonLink
+        variant="primary"
+        size="sm"
+        href={ctaLinks.getStarted}
+        trackName="get_started"
+        trackLocation="header"
+      >
         {tCommon('getStarted')}
-      </ButtonLink>
+      </TrackedButtonLink>
     </div>
   );
 }
@@ -89,7 +95,13 @@ export function AuthAwareActionsMobile() {
   if (isLoggedIn) {
     return (
       <div className="grid grid-cols-1 gap-2">
-        <PortalLink variant="primary" size="md" path="/" className="justify-center">
+        <PortalLink
+          variant="primary"
+          size="md"
+          path="/"
+          className="justify-center"
+          trackLocation="mobile_nav"
+        >
           {tCommon('goToDashboard')}
         </PortalLink>
       </div>
@@ -98,12 +110,25 @@ export function AuthAwareActionsMobile() {
 
   return (
     <div className="grid grid-cols-2 gap-2">
-      <PortalLink variant="outline" size="md" path="/login" className="justify-center">
+      <PortalLink
+        variant="outline"
+        size="md"
+        path="/login"
+        className="justify-center"
+        trackLocation="mobile_nav"
+      >
         {tCommon('login')}
       </PortalLink>
-      <ButtonLink variant="primary" size="md" href={ctaLinks.getStarted} className="justify-center">
+      <TrackedButtonLink
+        variant="primary"
+        size="md"
+        href={ctaLinks.getStarted}
+        className="justify-center"
+        trackName="get_started"
+        trackLocation="mobile_nav"
+      >
         {tCommon('getStarted')}
-      </ButtonLink>
+      </TrackedButtonLink>
     </div>
   );
 }

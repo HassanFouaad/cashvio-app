@@ -1,10 +1,12 @@
 import { type ReactNode } from 'react';
-import { ButtonLink } from '@/components/ui/button';
+import { TrackedButtonLink } from '@/lib/analytics';
 import { ReceiptStamp } from './receipt-stamp';
 
 interface LedgerHeroAction {
   label: string;
   href: string;
+  /** Override default track name (primary = get_started, secondary = view_pricing) */
+  trackName?: string;
 }
 
 interface LedgerHeroProps {
@@ -21,6 +23,8 @@ interface LedgerHeroProps {
   /** Optional right-column visual (e.g. industry printer receipt) */
   aside?: ReactNode;
   children?: ReactNode;
+  /** Analytics location, e.g. "features/free-pos", "industries/cafe" */
+  trackLocation?: string;
 }
 
 /**
@@ -39,6 +43,7 @@ export function LedgerHero({
   stamp,
   aside,
   children,
+  trackLocation,
 }: LedgerHeroProps) {
   const copy = (
     <div className={aside ? undefined : 'max-w-3xl'}>
@@ -66,19 +71,27 @@ export function LedgerHero({
         <div className="animate-fade-up animate-delay-200 mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex flex-col sm:flex-row gap-3">
             {primaryAction && (
-              <ButtonLink size="lg" href={primaryAction.href} className="w-full sm:w-auto">
+              <TrackedButtonLink
+                size="lg"
+                href={primaryAction.href}
+                className="w-full sm:w-auto"
+                trackName={primaryAction.trackName ?? 'get_started'}
+                trackLocation={trackLocation}
+              >
                 {primaryAction.label}
-              </ButtonLink>
+              </TrackedButtonLink>
             )}
             {secondaryAction && (
-              <ButtonLink
+              <TrackedButtonLink
                 variant="outline"
                 size="lg"
                 href={secondaryAction.href}
                 className="w-full sm:w-auto"
+                trackName={secondaryAction.trackName ?? 'view_pricing'}
+                trackLocation={trackLocation}
               >
                 {secondaryAction.label}
-              </ButtonLink>
+              </TrackedButtonLink>
             )}
           </div>
           {stamp && <ReceiptStamp className="self-center sm:ms-2">{stamp}</ReceiptStamp>}

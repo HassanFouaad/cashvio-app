@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils/cn';
 import { env } from '@/config/env';
 import { redirectToPortalWithState, getThemePreference } from '@/lib/utils/cross-app-sync';
 import { useLocale } from 'next-intl';
+import { trackPortalClick } from '@/lib/analytics';
 import { buttonVariants } from './button';
 
 export interface PortalLinkProps
@@ -15,21 +16,35 @@ export interface PortalLinkProps
    * Path on the portal to redirect to (e.g., '/login', '/dashboard')
    */
   path?: string;
+  /** Analytics location, e.g. "header", "mobile_nav" */
+  trackLocation?: string;
 }
 
 /**
  * Button component that redirects to the portal with theme and language preferences
- * 
+ *
  * Use this instead of regular links when redirecting to the portal to ensure
  * theme and language preferences are preserved across subdomains.
  */
 export const PortalLink = forwardRef<HTMLButtonElement, PortalLinkProps>(
-  ({ className, variant, size, path = '/login', children, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      path = '/login',
+      trackLocation = 'portal_link',
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const locale = useLocale();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      
+      trackPortalClick(path, trackLocation);
+
       const theme = getThemePreference() || 'light';
       redirectToPortalWithState(env.portal.url, path, {
         theme,
@@ -51,4 +66,3 @@ export const PortalLink = forwardRef<HTMLButtonElement, PortalLinkProps>(
 );
 
 PortalLink.displayName = 'PortalLink';
-

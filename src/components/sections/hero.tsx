@@ -1,10 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 
 import { type Locale } from '@/i18n/routing';
-import { ButtonLink } from '@/components/ui/button';
 import { ThemedShot } from '@/components/ui/themed-shot';
 import { PrinterReceipt, ReceiptStamp, SalesTicker } from '@/components/marketing';
 import type { PrinterReceiptItem } from '@/components/marketing/printer-receipt';
+import { TrackedButtonLink } from '@/lib/analytics';
 
 interface HeroProps {
   locale: Locale;
@@ -37,17 +37,25 @@ export async function Hero({ locale }: HeroProps) {
 
               <div className="animate-fade-up animate-delay-200 flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <ButtonLink size="lg" href={registerLink} className="w-full sm:w-auto">
+                  <TrackedButtonLink
+                    size="lg"
+                    href={registerLink}
+                    className="w-full sm:w-auto"
+                    trackName="get_started"
+                    trackLocation="home_hero"
+                  >
                     {t('cta')}
-                  </ButtonLink>
-                  <ButtonLink
+                  </TrackedButtonLink>
+                  <TrackedButtonLink
                     variant="outline"
                     size="lg"
                     href={featuresLink}
                     className="w-full sm:w-auto"
+                    trackName="explore_features"
+                    trackLocation="home_hero"
                   >
                     {t('secondaryCta')}
-                  </ButtonLink>
+                  </TrackedButtonLink>
                 </div>
                 <ReceiptStamp className="self-center sm:ms-2">{t('freeBadge')}</ReceiptStamp>
               </div>

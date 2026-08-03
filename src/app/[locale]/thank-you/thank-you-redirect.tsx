@@ -3,7 +3,7 @@
 /**
  * Thank-you page conversion + auto-redirect
  *
- * Fires the Meta CompleteRegistration conversion event, then automatically
+ * Fires GA sign_up + Meta CompleteRegistration, then automatically
  * redirects the new user to the portal so they land in their console instead
  * of stalling on the thank-you detour. The visible page content stays as a
  * fallback for users with JS-blocked redirects.
@@ -11,14 +11,24 @@
 
 import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { META_PIXEL_EVENTS, trackMetaEvent } from '@/lib/analytics';
+import {
+  getRegistrationSource,
+  META_PIXEL_EVENTS,
+  trackMetaEvent,
+  trackSignUp,
+} from '@/lib/analytics';
 import { addStateToUrl, getThemePreference } from '@/lib/utils/cross-app-sync';
 
-/** Delay before redirecting, long enough for the pixel request to flush */
+/** Delay before redirecting, long enough for analytics requests to flush */
 const REDIRECT_DELAY_MS = 2500;
 
 interface ThankYouRedirectProps {
   portalUrl: string;
+}
+
+function getPlanFromQuery(): string | undefined {
+  if (typeof window === 'undefined') return undefined;
+  return new URLSearchParams(window.location.search).get('plan') || undefined;
 }
 
 export function ThankYouRedirect({ portalUrl }: ThankYouRedirectProps) {
@@ -29,6 +39,7 @@ export function ThankYouRedirect({ portalUrl }: ThankYouRedirectProps) {
   );
 
   useEffect(() => {
+    trackSignUp(getPlanFromQuery(), getRegistrationSource());
     trackMetaEvent(META_PIXEL_EVENTS.COMPLETE_REGISTRATION);
 
     const countdownInterval = setInterval(() => {

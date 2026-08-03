@@ -204,6 +204,7 @@ export default async function FeaturesPage({ params }: Props) {
         eyebrow={t('badge')}
         title={t('title')}
         subtitle={t('subtitle')}
+        trackLocation="/features"
       />
 
       <FeatureScreenshot
@@ -391,6 +392,7 @@ export default async function FeaturesPage({ params }: Props) {
         subtitle={t('cta.description')}
         primaryAction={{ label: t('cta.getStarted'), href: registerLink }}
         secondaryAction={{ label: t('cta.viewPricing'), href: pricingLink }}
+        trackLocation="/features"
       />
     </>
   );

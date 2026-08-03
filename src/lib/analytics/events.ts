@@ -8,6 +8,11 @@
 'use client';
 
 import {
+  getRegistrationSource,
+  toAttributionEventParams,
+  type AttributionEventParams,
+} from './attribution';
+import {
   GA_CONFIG,
   GA_EVENT_CATEGORIES,
   GA_EVENT_NAMES,
@@ -36,7 +41,23 @@ interface CustomEventParams extends BaseEventParams {
  * Check if gtag is available (client-side only)
  */
 function isGtagAvailable(): boolean {
-  return typeof window !== 'undefined' && typeof window.gtag !== 'undefined' && typeof window.gtag === 'function';
+  return (
+    typeof window !== 'undefined' &&
+    typeof window.gtag !== 'undefined' &&
+    typeof window.gtag === 'function'
+  );
+}
+
+/**
+ * Merge first-touch attribution onto event params (conversions / leads).
+ */
+export function withAttribution(
+  params?: CustomEventParams
+): CustomEventParams & AttributionEventParams {
+  return {
+    ...toAttributionEventParams(),
+    ...params,
+  };
 }
 
 /**
@@ -57,7 +78,7 @@ export function trackEvent(
   }
 
   try {
-    window?.gtag?.('event', eventName, {
+    window.gtag?.('event', eventName, {
       ...params,
       debug_mode: GA_CONFIG.debugMode,
     });
@@ -154,6 +175,29 @@ export function trackButtonClick(
   });
 }
 
+/**
+ * Track WhatsApp click-to-chat CTAs
+ */
+export function trackWhatsAppClick(location: string): void {
+  trackEvent(GA_EVENT_NAMES.WHATSAPP_CLICK, {
+    event_category: GA_EVENT_CATEGORIES.CTA,
+    event_label: location,
+    cta_location: location,
+  });
+}
+
+/**
+ * Track clicks that leave the marketing site for the merchant portal
+ */
+export function trackPortalClick(path: string, location: string): void {
+  trackEvent(GA_EVENT_NAMES.PORTAL_CLICK, {
+    event_category: GA_EVENT_CATEGORIES.NAVIGATION,
+    event_label: path,
+    portal_path: path,
+    cta_location: location,
+  });
+}
+
 // ============================================================================
 // Navigation Tracking Events
 // ============================================================================
@@ -204,52 +248,95 @@ export function trackThemeChange(theme: 'light' | 'dark'): void {
  * Track registration process start
  */
 export function trackRegistrationStart(source?: string): void {
-  trackEvent(GA_EVENT_NAMES.REGISTRATION_START, {
-    event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: source || 'direct',
-    registration_source: source,
-  });
+  trackEvent(
+    GA_EVENT_NAMES.REGISTRATION_START,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: source || getRegistrationSource(),
+      registration_source: source || getRegistrationSource(),
+    })
+  );
 }
 
 /**
- * Track successful registration completion
+ * Track successful signup (GA4 recommended: sign_up).
+ * Canonical fire point is the thank-you page to avoid double-counting.
+ */
+export function trackSignUp(planType?: string, source?: string): void {
+  const registrationSource = source || getRegistrationSource();
+
+  trackEvent(
+    GA_EVENT_NAMES.SIGN_UP,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: registrationSource,
+      method: 'email',
+      plan_type: planType,
+      registration_source: registrationSource,
+    })
+  );
+}
+
+/**
+ * @deprecated Prefer trackSignUp on the thank-you page (single conversion point).
  */
 export function trackRegistrationComplete(
   planType?: string,
-  source?: string,
+  source?: string
 ): void {
-  trackEvent(GA_EVENT_NAMES.REGISTRATION_COMPLETE, {
-    event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: source || planType || 'default',
-    plan_type: planType,
-    registration_source: source,
-  });
+  trackSignUp(planType, source);
 }
 
 /**
- * Track contact form submission
+ * Track a lead (GA4 recommended: generate_lead).
+ */
+export function trackGenerateLead(
+  leadType: string,
+  source?: string
+): void {
+  trackEvent(
+    GA_EVENT_NAMES.GENERATE_LEAD,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: leadType,
+      lead_type: leadType,
+      form_source: source,
+    })
+  );
+}
+
+/**
+ * Track contact form submission (fires generate_lead + legacy alias)
  */
 export function trackContactFormSubmit(
   inquiryType: string,
   source?: string
 ): void {
-  trackEvent(GA_EVENT_NAMES.CONTACT_FORM_SUBMIT, {
-    event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: inquiryType,
-    inquiry_type: inquiryType,
-    form_source: source,
-  });
+  trackGenerateLead(inquiryType, source);
+
+  trackEvent(
+    GA_EVENT_NAMES.CONTACT_FORM_SUBMIT,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: inquiryType,
+      inquiry_type: inquiryType,
+      form_source: source,
+    })
+  );
 }
 
 /**
  * Track demo requests
  */
 export function trackDemoRequest(source?: string): void {
-  trackEvent(GA_EVENT_NAMES.DEMO_REQUEST, {
-    event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: source || 'direct',
-    demo_source: source,
-  });
+  trackEvent(
+    GA_EVENT_NAMES.DEMO_REQUEST,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: source || 'direct',
+      demo_source: source,
+    })
+  );
 }
 
 /**
@@ -271,14 +358,17 @@ export function trackPlanSelect(
   planPrice?: number,
   planPeriod?: string
 ): void {
-  trackEvent(GA_EVENT_NAMES.PLAN_SELECT, {
-    event_category: GA_EVENT_CATEGORIES.CONVERSION,
-    event_label: planName,
-    plan_name: planName,
-    plan_price: planPrice,
-    plan_period: planPeriod,
-    value: planPrice,
-  });
+  trackEvent(
+    GA_EVENT_NAMES.PLAN_SELECT,
+    withAttribution({
+      event_category: GA_EVENT_CATEGORIES.CONVERSION,
+      event_label: planName,
+      plan_name: planName,
+      plan_price: planPrice,
+      plan_period: planPeriod,
+      value: planPrice,
+    })
+  );
 }
 
 // ============================================================================
@@ -326,9 +416,8 @@ declare global {
   interface Window {
     gtag?: (
       command: 'event' | 'config' | 'set' | 'js',
-      targetId: string | Date,
+      targetId: string | Date | Record<string, unknown>,
       config?: Record<string, unknown>
     ) => void;
   }
 }
-

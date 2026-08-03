@@ -15,6 +15,7 @@
 'use client';
 
 import { getSharedCookie, setSharedCookie } from '@/lib/utils/cross-app-sync';
+import { GA_CONFIG } from './config';
 
 const ATTRIBUTION_COOKIE = 'cv_attribution';
 
@@ -45,6 +46,19 @@ export interface Attribution {
   firstTouchAt?: string;
 }
 
+/** Flat params merged onto GA conversion events */
+export interface AttributionEventParams {
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  ref?: string;
+  referrer?: string;
+  landing_page?: string;
+  registration_source?: string;
+}
+
 /** Known referrer hosts mapped to compact source names for analytics */
 const REFERRER_SOURCES: Array<{ pattern: RegExp; source: string }> = [
   { pattern: /google\./i, source: 'google' },
@@ -65,6 +79,14 @@ function safeParse(value: string): Attribution | null {
   } catch {
     return null;
   }
+}
+
+function isGtagAvailable(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    typeof window.gtag !== 'undefined' &&
+    typeof window.gtag === 'function'
+  );
 }
 
 /**
@@ -146,4 +168,71 @@ export function getRegistrationSource(): string {
   }
 
   return 'direct';
+}
+
+/**
+ * Flatten first-touch attribution into GA event params.
+ */
+export function toAttributionEventParams(): AttributionEventParams {
+  const attribution = getAttribution();
+  if (!attribution) {
+    return { registration_source: 'direct' };
+  }
+
+  return {
+    utm_source: attribution.utmSource,
+    utm_medium: attribution.utmMedium,
+    utm_campaign: attribution.utmCampaign,
+    utm_term: attribution.utmTerm,
+    utm_content: attribution.utmContent,
+    ref: attribution.ref,
+    referrer: attribution.referrer,
+    landing_page: attribution.landingPage,
+    registration_source: getRegistrationSource(),
+  };
+}
+
+/**
+ * Push first-touch campaign + user properties into gtag for Acquisition reports.
+ * Safe to call repeatedly; gtag set is idempotent for the same values.
+ */
+export function applyAttributionToGtag(): void {
+  if (!GA_CONFIG.isEnabled) {
+    if (GA_CONFIG.debugMode) {
+      console.log('[Analytics Debug] Attribution set skipped (GA disabled)', toAttributionEventParams());
+    }
+    return;
+  }
+
+  if (!isGtagAvailable()) {
+    if (GA_CONFIG.debugMode) {
+      console.log('[Analytics Debug] Attribution set deferred (gtag unavailable)', toAttributionEventParams());
+    }
+    return;
+  }
+
+  const attribution = getAttribution();
+  if (!attribution) return;
+
+  const campaign: Record<string, string> = {};
+  if (attribution.utmSource) campaign.source = attribution.utmSource;
+  if (attribution.utmMedium) campaign.medium = attribution.utmMedium;
+  if (attribution.utmCampaign) campaign.name = attribution.utmCampaign;
+  if (attribution.utmTerm) campaign.term = attribution.utmTerm;
+  if (attribution.utmContent) campaign.content = attribution.utmContent;
+
+  try {
+    if (Object.keys(campaign).length > 0) {
+      window.gtag?.('set', { campaign });
+    }
+
+    window.gtag?.('set', 'user_properties', {
+      acquisition_source: getRegistrationSource(),
+      first_landing_page: attribution.landingPage,
+      first_referrer: attribution.referrer,
+      first_ref: attribution.ref,
+    });
+  } catch (error) {
+    console.error('[Analytics] Failed to apply attribution to gtag:', error);
+  }
 }

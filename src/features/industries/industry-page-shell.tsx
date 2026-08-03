@@ -122,6 +122,7 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
         secondaryAction={{ label: tIndustries('heroSecondaryCta'), href: pricingLink }}
         note={tIndustries('heroNote')}
         stamp={tIndustries('freeStamp')}
+        trackLocation={path}
         aside={
           Array.isArray(receiptItems) && receiptItems.length > 0 ? (
             <PrinterReceipt
@@ -188,6 +189,7 @@ export async function IndustryPageShell({ locale, namespace, path }: IndustryPag
         secondaryAction={{ label: tIndustries('ctaSecondaryButton'), href: pricingLink }}
         note={tIndustries('ctaNote')}
         stamp={tIndustries('freeStamp')}
+        trackLocation={path}
       />
     </>
   );

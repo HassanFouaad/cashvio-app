@@ -141,6 +141,7 @@ export default async function IndustriesHubPage({ params }: Props) {
         titleHighlight={t('hero.titleHighlight')}
         subtitle={t('hero.subtitle')}
         stamp={tIndustries('freeStamp')}
+        trackLocation="/industries"
       />
 
       <section aria-label={t('hero.title')} className="section-padding-sm">
@@ -181,6 +182,7 @@ export default async function IndustriesHubPage({ params }: Props) {
         secondaryAction={{ label: tIndustries('ctaSecondaryButton'), href: pricingLink }}
         note={tIndustries('ctaNote')}
         stamp={tIndustries('freeStamp')}
+        trackLocation="/industries"
       />
     </>
   );
