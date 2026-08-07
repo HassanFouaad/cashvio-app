@@ -1,6 +1,8 @@
 /**
- * Attach local PNGs to CVX-* products via S3 presign.
- * Place files at scripts/marketing-shots/product-images/prod-CVX-001.png …
+ * Attach local images to CVX-* products via S3 presign.
+ * Place files at scripts/marketing-shots/product-images/prod-CVX-001.jpg|png …
+ *
+ * Prefer `npm run shots:sync-images` to download Unsplash photos + upload.
  *
  *   node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/upload-images.mjs
  */
@@ -9,6 +11,21 @@ import path from 'node:path';
 
 import { login, api, unwrap } from './lib/api.mjs';
 import { PRODUCT_IMG_DIR, sleep } from './lib/config.mjs';
+
+function findLocalImage(sku) {
+  for (const ext of ['jpg', 'jpeg', 'png', 'webp']) {
+    const file = path.join(PRODUCT_IMG_DIR, `prod-${sku}.${ext}`);
+    if (fs.existsSync(file)) return file;
+  }
+  return null;
+}
+
+function mimeFor(file) {
+  const ext = path.extname(file).toLowerCase();
+  if (ext === '.png') return 'image/png';
+  if (ext === '.webp') return 'image/webp';
+  return 'image/jpeg';
+}
 
 await login();
 
@@ -44,16 +61,18 @@ for (let i = 1; i <= 40; i++) {
     continue;
   }
 
-  const file = path.join(PRODUCT_IMG_DIR, `prod-${sku}.png`);
-  if (!fs.existsSync(file)) {
-    console.log('missing file', file);
+  const file = findLocalImage(sku);
+  if (!file) {
+    console.log('missing file for', sku);
     continue;
   }
   const bytes = fs.readFileSync(file);
+  const mime = mimeFor(file);
+  const ext = path.extname(file);
 
   const presRes = await api('POST', '/v1/files/presigned-upload-url', {
-    fileName: `${sku}.png`,
-    fileMimeType: 'image/png',
+    fileName: `${sku}${ext}`,
+    fileMimeType: mime,
     fileType: 'image',
     fileModule: 'products',
   });
@@ -70,7 +89,7 @@ for (let i = 1; i <= 40; i++) {
 
   const put = await fetch(uploadUrl, {
     method: 'PUT',
-    headers: { 'Content-Type': 'image/png' },
+    headers: { 'Content-Type': mime },
     body: bytes,
   });
   if (!put.ok) {

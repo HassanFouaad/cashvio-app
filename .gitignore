@@ -34,6 +34,7 @@ yarn-error.log*
 .env*
 !.env.example
 !scripts/marketing-shots/.env.example
+!scripts/clone-store/.env.example
 
 # marketing screenshot raw captures (processed assets live in public/assets)
 scripts/marketing-shots/raw/*
@@ -41,6 +42,14 @@ scripts/marketing-shots/raw/*
 scripts/marketing-shots/.env.local
 scripts/marketing-shots/product-images/*
 !scripts/marketing-shots/product-images/.gitkeep
+scripts/marketing-shots/category-images/*
+!scripts/marketing-shots/category-images/.gitkeep
+
+# clone-store runs (credentials, sessions, scraped images)
+scripts/clone-store/.env.local
+scripts/clone-store/runs/*
+!scripts/clone-store/runs/.gitkeep
+!scripts/clone-store/.env.example
 
 # vercel
 .vercel

@@ -1,0 +1,39 @@
+{
+  "sourceUrl": "https://example-fashion.com",
+  "scrapedAt": "2026-08-07T00:00:00.000Z",
+  "storeName": "Example Fashion",
+  "industry": "fashion",
+  "brandColors": {
+    "primary": "#111111"
+  },
+  "notes": "Dark minimal boutique look",
+  "announcementEn": "Free shipping over 500 EGP",
+  "announcementAr": "شحن مجاني فوق 500 جنيه",
+  "headerImages": [
+    "https://cdn.example.com/hero-1.jpg",
+    "https://cdn.example.com/hero-2.jpg"
+  ],
+  "categoryDetails": [
+    {
+      "name": "Dresses",
+      "imageUrl": "https://cdn.example.com/cat-dresses.jpg"
+    },
+    {
+      "name": "Accessories",
+      "imageUrl": null
+    }
+  ],
+  "categories": ["Dresses", "Tops", "Accessories"],
+  "products": [
+    {
+      "name": "Linen Midi Dress",
+      "price": 1290,
+      "cost": 520,
+      "category": "Dresses",
+      "description": "Breathable linen midi dress",
+      "imageUrl": "https://cdn.example.com/dress.jpg",
+      "sourceSku": "DRS-001",
+      "stock": 40
+    }
+  ]
+}

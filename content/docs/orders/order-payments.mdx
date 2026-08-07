@@ -16,29 +16,22 @@ If an order has an outstanding balance:
 
 The payment status updates automatically based on the remaining balance.
 
-## Accepting Storefront Receipt Payments
+## Accepting Storefront Pending Payments
 
-When a customer places an order through your online storefront and selects **Receipt** as the payment method, the order is created with a **pending** payment record. The customer uploads a receipt image as proof of payment during checkout.
+When a customer places an order through your online storefront with **Cash** or **Receipt**, the order is created with a **pending** payment. For Receipt, the customer also uploads a receipt image at checkout.
 
-To accept the payment:
+To accept the payment after you receive the cash (or verify the receipt):
 
-1. Open the order details. You will see the **Accept Payment Receipt** button in the header (instead of the usual "Add Payment" button).
-2. Click **Accept Payment Receipt**.
-3. A confirmation dialog opens showing the **receipt image** uploaded by the customer.
-4. Review the receipt to verify the payment.
-5. Click **Confirm** to mark the payment as **Completed**.
+1. Open the order details. You will see the **Accept Payment** button in the header (instead of the usual **Add Payment** button).
+2. Click **Accept Payment**.
+3. Review the confirmation. For Receipt payments, the uploaded receipt image is shown in the dialog.
+4. Click **Accept & Complete Payment** to mark the payment as **Completed**.
+
+You can also approve from the **Order Payments** section on the same page.
 
 <Callout title="Note">
-The "Accept Payment Receipt" button only appears for storefront orders with Receipt payment method that have a pending payment. For other orders, the regular "Add Payment" button is shown.
+**Accept Payment** appears only for storefront orders with a pending Cash or Receipt payment. Online (gateway) payments are confirmed automatically. For other orders, the regular **Add Payment** button is shown.
 </Callout>
-
-## Accepting Storefront Cash Payments
-
-When a customer places a storefront order with **Cash** payment, a pending payment record is created. After the customer pays on delivery or pickup:
-
-1. Open the order details.
-2. Click **Add Payment** (or use the order actions to mark the payment as complete).
-3. The payment is recorded and the order payment status updates.
 
 ## Related
 

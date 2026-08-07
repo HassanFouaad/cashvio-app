@@ -15,8 +15,11 @@ export const RAW_DIR = path.join(SHOTS_ROOT, 'raw');
 /** Final marketing assets served by Next */
 export const ASSETS_DIR = path.join(REPO_ROOT, 'public/assets');
 
-/** Optional product image sources for upload-images.mjs */
+/** Optional product image sources for upload-images.mjs / sync-images.mjs */
 export const PRODUCT_IMG_DIR = path.join(SHOTS_ROOT, 'product-images');
+
+/** Category image cache for sync-images.mjs */
+export const CATEGORY_IMG_DIR = path.join(SHOTS_ROOT, 'category-images');
 
 export const CONSOLE_URL =
   process.env.CASHVIO_CONSOLE_URL || 'https://console.cash-vio.com';

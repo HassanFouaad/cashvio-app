@@ -22,9 +22,15 @@ const CATEGORIES = [
   'Bags',
   'Dresses',
   'Activewear',
+  'Swimwear',
+  'Loungewear',
+  'Formalwear',
+  'Jewelry',
+  'Kids',
+  'Denim',
 ];
 
-// Original 14 + 26 extras (SKU index = array index + 1)
+// SKU index = array index + 1 → CVX-001 …
 const PRODUCTS = [
   ['Premium Cotton T-Shirt', 'Apparel', 350, 145],
   ['Slim Fit Jeans', 'Apparel', 780, 320],
@@ -66,6 +72,37 @@ const PRODUCTS = [
   ['Seamless Yoga Leggings', 'Activewear', 560, 240],
   ['Moisture-Wick Tank Top', 'Activewear', 290, 125],
   ['Lightweight Training Shorts', 'Activewear', 380, 165],
+  // Wave 2 — new categories + deeper assortment
+  ['High-Rise Skinny Jeans', 'Denim', 820, 340],
+  ['Vintage Wash Straight Jeans', 'Denim', 890, 370],
+  ['Raw Hem Denim Shorts', 'Denim', 520, 210],
+  ['Oversized Denim Shirt', 'Denim', 680, 280],
+  ['One-Piece Swimsuit', 'Swimwear', 750, 310],
+  ['High-Waist Bikini Set', 'Swimwear', 680, 280],
+  ['Quick-Dry Swim Trunks', 'Swimwear', 420, 175],
+  ['Cover-Up Beach Sarong', 'Swimwear', 320, 130],
+  ['Soft Jersey Pajama Set', 'Loungewear', 560, 230],
+  ['Cloud-Soft Robe', 'Loungewear', 890, 370],
+  ['Modal Sleep Shorts', 'Loungewear', 280, 110],
+  ['Knit Lounge Pants', 'Loungewear', 450, 185],
+  ['Tailored Wool Blazer', 'Formalwear', 2200, 960],
+  ['Slim Formal Trousers', 'Formalwear', 980, 420],
+  ['Silk Evening Blouse', 'Formalwear', 1250, 540],
+  ['Classic Tuxedo Shirt', 'Formalwear', 720, 300],
+  ['Layered Pendant Necklace', 'Jewelry', 480, 190],
+  ['Pearl Stud Earrings', 'Jewelry', 390, 155],
+  ['Minimalist Gold Bracelet', 'Jewelry', 520, 210],
+  ['Statement Cocktail Ring', 'Jewelry', 350, 140],
+  ['Kids Graphic Tee', 'Kids', 220, 85],
+  ['Kids Soft Jogger Pants', 'Kids', 280, 110],
+  ['Kids Rain Jacket', 'Kids', 450, 185],
+  ['Kids Canvas Sneakers', 'Kids', 380, 155],
+  ['Plaid Flannel Shirt', 'Apparel', 620, 255],
+  ['Cable Knit Polo', 'Apparel', 540, 220],
+  ['Utility Cargo Pants', 'Apparel', 780, 325],
+  ['Puffer Vest', 'Outerwear', 920, 390],
+  ['Platform Slide Sandals', 'Footwear', 490, 200],
+  ['Leather Biker Jacket', 'Outerwear', 2650, 1150],
 ];
 
 const CUSTOMERS = [
@@ -218,11 +255,7 @@ async function ensureCategories() {
 
 async function ensureProducts(catIds) {
   // Build SKU map from product details (list may omit variants)
-  const listed = unwrap(
-    await api('GET', '/v1/tenant/products?page=1&limit=100'),
-    'prods',
-  );
-  const list = Array.isArray(listed) ? listed : listed?.data || [];
+  const list = await listAll('/v1/tenant/products', 'prods');
   const bySku = new Map();
   for (const p of list) {
     const full = unwrap(
@@ -652,6 +685,21 @@ async function main() {
     await backfillCustomerStats();
     console.log('\nTOTALS:');
     await printTotals();
+    return;
+  }
+
+  // catalog — categories + products + stock only (no orders/POs)
+  if (mode === 'catalog') {
+    console.log('1) categories...');
+    const catIds = await ensureCategories();
+    console.log('2) products...');
+    const products = await ensureProducts(catIds);
+    console.log(`   ready: ${products.length} products`);
+    console.log('3) stock (varied)...');
+    await stockVaried(products);
+    console.log('\nTOTALS:');
+    await printTotals();
+    console.log('\nCATALOG SEED DONE');
     return;
   }
 

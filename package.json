@@ -9,13 +9,19 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "shots:seed": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/seed.mjs",
+    "shots:seed-catalog": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/seed.mjs catalog",
     "shots:restock": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/restock.mjs",
     "shots:customer-stats": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/customer-stats.mjs",
     "shots:status": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/status.mjs",
     "shots:totals": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/totals.mjs",
     "shots:upload-images": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/upload-images.mjs",
+    "shots:sync-images": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/sync-images.mjs",
     "shots:capture": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/capture.mjs",
-    "shots:process": "node scripts/marketing-shots/process.mjs"
+    "shots:process": "node scripts/marketing-shots/process.mjs",
+    "clone:store": "node scripts/clone-store/tools/run.mjs",
+    "clone:scrape": "node scripts/clone-store/tools/03-scrape-catalog.mjs",
+    "clone:seed": "node scripts/clone-store/tools/05-seed-catalog.mjs",
+    "clone:theme": "node scripts/clone-store/tools/07-apply-theme.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",

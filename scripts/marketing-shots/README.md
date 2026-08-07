@@ -22,19 +22,27 @@ only `.env.example` is in git.
 ```bash
 # 1) Seed / expand demo data (idempotent CVX-* SKUs)
 npm run shots:seed
+# or catalog only (categories + products + stock):
+npm run shots:seed-catalog
 
-# 2) Optional helpers
+# 2) Attach copyright-free Unsplash images to products + categories
+npm run shots:sync-images
+# or: npm run shots:sync-images -- products
+# or: npm run shots:sync-images -- categories
+# or: npm run shots:sync-images -- --force
+
+# 3) Optional helpers
 npm run shots:restock
 npm run shots:customer-stats
 npm run shots:status
 
-# 3) Capture screenshots → scripts/marketing-shots/raw/
+# 4) Capture screenshots → scripts/marketing-shots/raw/
 npm run shots:capture
 # or: npm run shots:capture -- desktop
 # or: npm run shots:capture -- mobile
 # or: npm run shots:capture -- pos
 
-# 4) Process into public/assets
+# 5) Process into public/assets
 npm run shots:process
 ```
 
@@ -46,7 +54,9 @@ npm run shots:process
 | `restock.mjs` | Safe inventory restock (only existing inventory rows) |
 | `customer-stats.mjs` | PATCH customer spend/visits from orders |
 | `status.mjs` / `totals.mjs` | Tenant health / counts |
-| `upload-images.mjs` | Attach PNGs from `product-images/` to CVX-* products |
+| `upload-images.mjs` | Attach local PNGs from `product-images/` to CVX-* products |
+| `sync-images.mjs` | Download Unsplash images + upload to CVX products and seed categories |
+| `lib/image-sources.mjs` | Curated Unsplash photo map (Unsplash License) |
 | `capture.mjs` | Playwright captures (en/ar × light/dark) |
 | `process.mjs` | sharp → `public/assets` |
 
@@ -66,4 +76,5 @@ npm run shots:process
 
 - Order seeding uses `source: WEB` + `IN_STORE` / `PICKUP` (skip `DELIVERY`).
 - Coupons / users routes are plan-gated on Starter — capture skips them.
-- `raw/` is gitignored; only processed `public/assets` are committed.
+- `raw/`, `product-images/`, and `category-images/` are gitignored; only processed `public/assets` are committed.
+- Product/category photos use the [Unsplash License](https://unsplash.com/license) (free commercial use).
