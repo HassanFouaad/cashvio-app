@@ -1139,7 +1139,10 @@
     },
     "errors": {
       "businessNameRequired": "Business name is required",
-      "businessNameTooLong": "Business name is too long (max 255 characters)",
+      "businessNameTooShort": "Business name must be at least 2 characters",
+      "businessNameTooLong": "Business name must be at most 100 characters",
+      "businessNameMustContainLetter": "Business name must include at least one letter",
+      "businessNameInvalidChars": "Business name can only use letters, numbers, spaces, and & ' . , - ( ) / + !",
       "phoneRequired": "Phone number is required",
       "phoneInvalid": "Please enter a valid phone number for the selected country",
       "phoneTooLong": "Phone number is too long",

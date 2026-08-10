@@ -2,7 +2,11 @@
 
 import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
 import { authService, HttpError, RegisterRequest, useLocaleConfig } from '@/lib/http';
-import { cn } from '@/lib/utils';
+import {
+  cn,
+  DisplayNameUtils,
+  DisplayNameValidationError,
+} from '@/lib/utils';
 import {
   trackFormStart,
   trackFormSubmit,
@@ -20,7 +24,6 @@ import { saveThemePreference, saveLanguagePreference, getThemePreference } from 
 // ============================================================================
 
 const VALIDATION = {
-  BUSINESS_NAME_MAX: 255,
   CONTACT_PHONE_MAX: 50,
   EMAIL_MAX: 255,
   PASSWORD_MIN: 8,
@@ -28,6 +31,22 @@ const VALIDATION = {
   // 129+ char passwords pass locally and fail server-side with a raw error
   PASSWORD_MAX: 128,
 } as const;
+
+const BUSINESS_NAME_ERROR_KEYS: Record<
+  DisplayNameValidationError,
+  | 'errors.businessNameRequired'
+  | 'errors.businessNameTooShort'
+  | 'errors.businessNameTooLong'
+  | 'errors.businessNameMustContainLetter'
+  | 'errors.businessNameInvalidChars'
+> = {
+  [DisplayNameValidationError.REQUIRED]: 'errors.businessNameRequired',
+  [DisplayNameValidationError.TOO_SHORT]: 'errors.businessNameTooShort',
+  [DisplayNameValidationError.TOO_LONG]: 'errors.businessNameTooLong',
+  [DisplayNameValidationError.MUST_CONTAIN_LETTER]:
+    'errors.businessNameMustContainLetter',
+  [DisplayNameValidationError.INVALID_CHARS]: 'errors.businessNameInvalidChars',
+};
 
 /**
  * Plan intent passed from the pricing page as ?plan=<slug>.
@@ -111,15 +130,15 @@ export function RegistrationForm() {
     handleFormInteraction();
   };
 
-  // Validate form - matching backend DTO validations
-  const validateForm = (): boolean => {
+  // Validate form - matching backend display-name + RegisterDto rules
+  const validateForm = ():
+    | { ok: true; businessName: string }
+    | { ok: false } => {
     const newErrors: FormErrors = {};
 
-    // Business name validation (required, max 255)
-    if (!formData.businessName.trim()) {
-      newErrors.businessName = t('errors.businessNameRequired');
-    } else if (formData.businessName.length > VALIDATION.BUSINESS_NAME_MAX) {
-      newErrors.businessName = t('errors.businessNameTooLong');
+    const businessNameResult = DisplayNameUtils.parse(formData.businessName);
+    if (!businessNameResult.ok) {
+      newErrors.businessName = t(BUSINESS_NAME_ERROR_KEYS[businessNameResult.error]);
     }
 
     // Phone validation (required, valid format, max 50)
@@ -143,7 +162,7 @@ export function RegistrationForm() {
       newErrors.email = t('errors.emailTooLong');
     }
 
-    // Password validation (required, min 8, max 255)
+    // Password validation (required, min 8, max 128)
     if (!formData.password) {
       newErrors.password = t('errors.passwordRequired');
     } else if (formData.password.length < VALIDATION.PASSWORD_MIN) {
@@ -152,9 +171,13 @@ export function RegistrationForm() {
       newErrors.password = t('errors.passwordTooLong');
     }
 
-
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+    if (Object.keys(newErrors).length > 0 || !businessNameResult.ok) {
+      return { ok: false };
+    }
+
+    return { ok: true, businessName: businessNameResult.value };
   };
 
   // Handle form submit
@@ -164,14 +187,16 @@ export function RegistrationForm() {
     // Prevent double submission
     if (isSubmitting) return;
 
-    if (!validateForm()) return;
+    const validation = validateForm();
+    if (!validation.ok) return;
 
     setIsSubmitting(true);
     setErrors({});
 
     try {
       const registerData: RegisterRequest = {
-        businessName: formData.businessName.trim(),
+        // Persist the normalized value (same pipeline as the API)
+        businessName: validation.businessName,
         contactPhone: formData.contactPhone,
         email: formData.email.trim(),
         password: formData.password,
@@ -233,6 +258,7 @@ export function RegistrationForm() {
           type="text"
           value={formData.businessName}
           onChange={handleChange}
+          autoComplete="organization"
           className={cn('paper-input', errors.businessName && 'paper-input-error')}
           placeholder={t('placeholders.businessName')}
         />

@@ -1139,7 +1139,10 @@
     },
     "errors": {
       "businessNameRequired": "اسم النشاط التجاري مطلوب",
-      "businessNameTooLong": "اسم النشاط التجاري طويل جداً (الحد الأقصى 255 حرفاً)",
+      "businessNameTooShort": "اسم النشاط التجاري يجب ألا يقل عن حرفين",
+      "businessNameTooLong": "اسم النشاط التجاري يجب ألا يزيد عن 100 حرف",
+      "businessNameMustContainLetter": "اسم النشاط التجاري يجب أن يحتوي على حرف واحد على الأقل",
+      "businessNameInvalidChars": "اسم النشاط التجاري يقبل الحروف والأرقام والمسافات والرموز: & ' . , - ( ) / + ! فقط",
       "phoneRequired": "رقم الهاتف مطلوب",
       "phoneInvalid": "يرجى إدخال رقم هاتف صالح",
       "phoneTooLong": "رقم الهاتف طويل جداً",
