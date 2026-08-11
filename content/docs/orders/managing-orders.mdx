@@ -10,29 +10,26 @@ description: "View, filter, and open order details from Sales, then follow up on
 
 | Column | Description |
 |--------|-------------|
-| **Order Number** | Unique identifier for each order |
+| **Order Number** | Unique identifier for each order. Fulfillment method, sales channel, and order date appear under the number. |
 | **Customer** | The customer who placed the order |
-| **Store** | Which store the order belongs to |
-| **Order Source** | Where the order was created: **Web** (business portal) or **Storefront** (online store). This is separate from the **sales channel** (Web, Portal, Facebook, and so on). Storefront orders get the **Web** sales channel automatically. |
-| **Payment Method** | The primary payment method used (Cash, Online, Receipt, or Store Credit) |
-| **Fulfillment Method** | How the order will be fulfilled (In-Store, Pickup, Delivery, or Dine-In) |
-| **Fulfillment Status** | Current fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled) |
+| **Store** | Which store the order belongs to (shown when you have more than one store) |
+| **Status** | Order lifecycle: Pending, Completed, or Cancelled |
 | **Payment Status** | Pending, Partial, Paid, Cancelled, Partially Refunded, or Refunded |
-| **Total** | The order total amount |
-| **Date** | When the order was created |
+| **Fulfillment Status** | Current fulfillment status (Pending, Preparing, Ready, Delivering, Completed, Cancelled) |
+| **Total** | The order total amount. If money is still owed, the amount due appears under the total. |
+
+Source (Web or Storefront) and payment method are available as **filters**, not as table columns. Fulfillment method shows under the order number and can also be filtered. Open an order for full payment and fulfillment details.
 
 ### Mobile View
 
 On mobile devices, orders are displayed as cards instead of a table. Each card shows:
 
-- Order number
+- Order number (with fulfillment method, channel, and date)
 - Customer name
-- Order source badge
-- Payment method
-- Fulfillment method and status
+- Total amount (and amount due when unpaid)
+- Order status
 - Payment status
-- Total amount
-- Date
+- Fulfillment status
 
 ## Filtering Orders
 
@@ -44,6 +41,8 @@ Use the filter bar to narrow down your orders:
 - **Store**: Filter by store
 - **Payment Status**: Filter by payment status
 - **Payment Method**: Cash, Online, Receipt, or Store Credit
+- **Fulfillment Method**: In-Store, Pickup, Delivery, or Dine-In
+- **Fulfillment Status**: Pending, Preparing, Ready, Delivering, Completed, or Cancelled
 - **Source**: Web (portal) or Storefront
 - **Channel**: Filter by sales channel (storefront orders appear under **Web**)
 
