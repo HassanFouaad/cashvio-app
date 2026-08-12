@@ -2046,6 +2046,9 @@
       "alt": "Cashvio Arabic POS catalog and checkout on desktop",
       "companionCaption": "Live view: Arabic POS on mobile",
       "companionAlt": "Cashvio Arabic POS screen on a phone"
+    },
+    "visual": {
+      "alt": "Cashvio bridging in-store POS and online store on a shop counter"
     }
   },
   "omnichannelRetail": {

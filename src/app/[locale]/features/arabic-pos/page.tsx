@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { type Locale } from '@/i18n/routing';
@@ -210,6 +211,22 @@ export default async function ArabicPosPage({ params }: Props) {
         primaryAction={{ label: t('hero.cta'), href: registerLink }}
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
         trackLocation="/features/arabic-pos"
+        aside={
+          <div className="mx-auto w-full max-w-md">
+            <div className="rounded-xl border border-border bg-card overflow-hidden">
+              <Image
+                src="/assets/posxonline.jpg"
+                alt={t('visual.alt')}
+                width={1400}
+                height={1400}
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 90vw, 448px"
+                className="block w-full h-auto aspect-square object-cover"
+              />
+            </div>
+          </div>
+        }
       />
 
       <FeatureScreenshot
