@@ -2307,6 +2307,9 @@
       "alt": "Cashvio orders from POS, online store, and social channels",
       "companionCaption": "Live view: orders on mobile",
       "companionAlt": "Cashvio orders list on a phone"
+    },
+    "visual": {
+      "alt": "Cashvio bridging in-store POS and online store on a shop counter"
     }
   },
   "inventoryManagement": {
@@ -2809,6 +2812,9 @@
       "alt": "Cashvio free POS catalog and checkout on desktop",
       "companionCaption": "Live view: POS on mobile",
       "companionAlt": "Cashvio free POS product catalog and checkout on a phone"
+    },
+    "visual": {
+      "alt": "Cashvio in-store POS solutions on a shop counter with register and inventory icons"
     }
   },
   "freeOnlineStore": {

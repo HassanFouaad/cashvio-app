@@ -26,7 +26,7 @@ import type { Locale } from '@/i18n/routing';
  * Used for schema dateModified — must NOT be "new Date()" (a lastmod
  * that changes every build teaches Google to ignore our freshness signals).
  */
-export const contentLastUpdated = '2026-07-26';
+export const contentLastUpdated = '2026-08-12';
 
 export const brand = {
   name: 'Cashvio',

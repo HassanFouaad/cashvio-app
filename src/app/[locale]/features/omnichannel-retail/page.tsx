@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { type Locale } from '@/i18n/routing';
@@ -172,6 +173,22 @@ export default async function OmnichannelRetailPage({ params }: Props) {
         secondaryAction={{ label: t('hero.secondaryCta'), href: featuresLink }}
         note={t('hero.trust')}
         trackLocation="/features/omnichannel-retail"
+        aside={
+          <div className="mx-auto w-full max-w-md">
+            <div className="rounded-xl border border-border bg-card overflow-hidden">
+              <Image
+                src="/assets/posxonline.jpg"
+                alt={t('visual.alt')}
+                width={1400}
+                height={1400}
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 90vw, 448px"
+                className="block w-full h-auto aspect-square object-cover"
+              />
+            </div>
+          </div>
+        }
       />
 
       <FeatureScreenshot
@@ -186,7 +203,6 @@ export default async function OmnichannelRetailPage({ params }: Props) {
           caption: t('screenshot.companionCaption'),
         }}
       />
-
 
       {/* The Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">
