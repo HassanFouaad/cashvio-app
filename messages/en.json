@@ -3379,6 +3379,9 @@
     "screenshot": {
       "caption": "Live view: customers",
       "alt": "Cashvio customers list with visits, spend, and store credit"
+    },
+    "visual": {
+      "alt": "Cashvio customer management solution on a shop counter ledger"
     }
   },
   "salesAnalytics": {

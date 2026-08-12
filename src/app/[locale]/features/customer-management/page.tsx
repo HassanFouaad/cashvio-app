@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { type Locale } from '@/i18n/routing';
@@ -195,6 +196,22 @@ export default async function CustomerManagementPage({ params }: Props) {
         primaryAction={{ label: t('cta.getStarted'), href: registerLink }}
         secondaryAction={{ label: commonT('readDocs'), href: docsLink }}
         trackLocation={PAGE_PATH}
+        aside={
+          <div className="mx-auto w-full max-w-lg">
+            <div className="rounded-xl border border-border bg-card overflow-hidden">
+              <Image
+                src="/assets/c-design.jpg"
+                alt={t('visual.alt')}
+                width={1400}
+                height={734}
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 90vw, 512px"
+                className="block w-full h-auto"
+              />
+            </div>
+          </div>
+        }
       />
 
       <FeatureScreenshot
