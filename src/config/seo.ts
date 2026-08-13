@@ -105,7 +105,7 @@ export const social = {
     url: 'https://twitter.com/cashvio',
   },
   facebook: {
-    url: env.social.facebook || 'https://facebook.com/cashvio',
+    url: env.social.facebook || 'https://www.facebook.com/cashvio',
     appId:"882610377639110"
   },
   linkedin: {

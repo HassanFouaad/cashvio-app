@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { getWhatsAppLink } from '@/lib/utils/whatsapp';
 import { TrackedExternalLink } from '@/lib/analytics';
 import { NewsletterForm } from '@/components/forms/newsletter-form';
+import { FacebookLikeButton } from '@/components/layout/facebook-like-button';
 import { Logo } from './logo';
 
 interface FooterProps {
@@ -88,6 +89,7 @@ export async function Footer({ locale }: FooterProps) {
                   </svg>
                 </TrackedExternalLink>
               ))}
+              <FacebookLikeButton />
             </div>
 
             {siteConfig.features.newsletter && (

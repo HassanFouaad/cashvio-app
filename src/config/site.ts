@@ -39,7 +39,7 @@ export const siteConfig = {
   social: {
     twitter: env.social.twitter,
     twitterUrl: env.social.twitter,
-    facebook: env.social.facebook || 'https://facebook.com/cashvio',
+    facebook: env.social.facebook || 'https://www.facebook.com/cashvio',
     linkedin: env.social.linkedin || 'https://linkedin.com/company/cashvio',
     instagram: env.social.instagram || 'https://instagram.com/cashvioapp',
     youtube: env.social.youtube,
