@@ -56,7 +56,7 @@
     },
     "freePos": {
       "title": "Free POS System: 100% Free Cashier Software",
-      "description": "Cashvio's free POS gives you a cashier screen, cash register, shifts, thermal receipts, and live inventory, free forever. Arabic & English, works offline, no credit card needed."
+      "description": "Cashvio's free POS gives you a cashier screen, barcode scanning, thermal and digital receipts, and live inventory, free forever. Arabic and English. No credit card needed."
     },
     "freeOnlineStore": {
       "title": "Free Online Store: Create Your Store in Minutes",
@@ -148,7 +148,7 @@
     },
     "freePosEgypt": {
       "title": "Free POS Egypt: Free Cashier Software in EGP",
-      "description": "Free POS system for Egypt: Arabic receipts, offline sales, EGP pricing, free online store. No credit card. Start today with Cashvio."
+      "description": "Free POS system for Egypt: Arabic receipts, EGP pricing, live inventory, free online store. No credit card. Start today with Cashvio."
     },
     "vatCalculator": {
       "title": "Free Egypt VAT Calculator: 14% Value Added Tax",
@@ -403,7 +403,7 @@
       "orders": {
         "title": "Orders & Payments",
         "description": "Process orders from any channel with flexible payment options and complete fulfillment tracking.",
-        "sub1": "Split payments & scheduled payments",
+        "sub1": "Partial payments and scheduled balances",
         "sub2": "Returns & refunds with approval workflow",
         "sub3": "Digital receipts & order history audit trail",
         "sub4": "Multi-channel attribution tracking",
@@ -429,11 +429,11 @@
       },
       "pos": {
         "title": "Point of Sale",
-        "description": "Complete in-store checkout with device management, shift tracking, and cash register operations.",
+        "description": "In-store checkout with barcode scanning, device pairing, thermal receipts, and live inventory.",
         "sub1": "Secure OTP-based device pairing",
-        "sub2": "Employee shift clock-in & clock-out",
-        "sub3": "Cash register open/close management",
-        "sub4": "Offline sync & multi-device support",
+        "sub2": "Barcode scanning and product search",
+        "sub3": "Thermal and digital receipts",
+        "sub4": "Installable web app on phone, tablet, or computer",
         "link": "Explore the free POS system"
       },
       "products": {
@@ -518,26 +518,26 @@
       "cta": "Start Managing Your Business"
     },
     "mobileApp": {
-      "badge": "Mobile First",
+      "badge": "Mobile Ready",
       "title": "Manage your business on the go",
-      "description": "Take your business anywhere with our powerful mobile app. Process orders, check inventory, and track sales from your phone or tablet.",
+      "description": "Install Cashvio as a web app on your phone or tablet. Process orders, check inventory, and track today's sales from the counter or on the go.",
       "feature1": {
-        "title": "Native Mobile Experience",
-        "description": "Built specifically for mobile devices with an intuitive interface that's easy to use on the go."
+        "title": "Installable Web App",
+        "description": "Add Cashvio to your home screen. Fast, full-screen checkout without a separate native app store download."
       },
       "feature2": {
-        "title": "Lightning Fast",
-        "description": "Optimized performance ensures quick access to your data, even with slow internet connections."
+        "title": "Built for Phones and Tablets",
+        "description": "Touch-friendly cashier screens and drawers sized for phones and tablets, not just desktops."
       },
       "feature3": {
-        "title": "Real-Time Sync",
-        "description": "Instant synchronization across all your devices. Changes made on mobile appear everywhere immediately."
+        "title": "Same Account Everywhere",
+        "description": "Sign in on phone, tablet, or computer. Your products, orders, and stock stay in one account."
       },
       "feature4": {
-        "title": "Secure & Reliable",
-        "description": "Enterprise-grade security with biometric authentication keeps your business data safe."
+        "title": "Secure Sign-In",
+        "description": "Protected sessions with the same account security you use on the web."
       },
-      "imageAlt": "Cashvio Mobile App Interface",
+      "imageAlt": "Cashvio installable web app on a phone",
       "cta": "Start Processing Orders",
       "eyebrow": "NO. 04 · IN YOUR POCKET"
     },
@@ -574,7 +574,7 @@
       },
       "feature2": {
         "title": "Flexible Payments",
-        "description": "Split payments across methods, schedule future payments, track overdue balances, and accept store credit."
+        "description": "Take a partial payment, schedule the remaining balance, track overdue amounts, and accept store credit."
       },
       "feature3": {
         "title": "Returns & Refunds",
@@ -649,7 +649,7 @@
       },
       "platforms": {
         "title": "Works Everywhere",
-        "description": "Web, iOS, and Android - access your business from any device"
+        "description": "Open in any browser, or install the web app on phone, tablet, or computer"
       }
     },
     "cta": {
@@ -724,7 +724,7 @@
       },
       "q2": {
         "question": "Does the free plan include a POS (cashier)?",
-        "answer": "Yes. A full free POS: sales screen, cash register, shifts, and receipts in Arabic and English."
+        "answer": "Yes. A free POS with a sales screen, barcode scanning, receipts in Arabic or English, and live inventory."
       },
       "q3": {
         "question": "Can I create a free online store?",
@@ -739,8 +739,8 @@
         "answer": "Yes, fully: Arabic interface, Arabic receipts, and a right-to-left storefront."
       },
       "q6": {
-        "question": "Does the POS work without internet?",
-        "answer": "Yes. Keep selling offline and everything syncs when you're back online."
+        "question": "Can I use the POS on my phone?",
+        "answer": "Yes. Open it in the browser on a phone, tablet, or computer, or install it as a web app on your home screen."
       }
     },
     "testimonials": {
@@ -803,7 +803,7 @@
       },
       "q5": {
         "question": "Is the POS free?",
-        "answer": "Yes. Cashvio includes a free POS (cashier) on the free forever plan. Sales screen, cash register, shifts, and receipts. No credit card required. See our Free POS page for details."
+        "answer": "Yes. Cashvio includes a free POS (cashier) on the free forever plan. Sales screen, barcode scanning, receipts, and live inventory. No credit card required. See our Free POS page for details."
       },
       "q6": {
         "question": "Can I get a free online store?",
@@ -1182,7 +1182,7 @@
       },
       "operations": {
         "title": "Operations & Workflow",
-        "description": "Streamline daily operations with tools for shifts, returns, purchasing, and more"
+        "description": "Streamline daily operations with tools for returns, purchasing, devices, and more"
       },
       "functional": {
         "title": "Advanced Capabilities",
@@ -1206,8 +1206,8 @@
       },
       "orders": {
         "name": "Order Management",
-        "description": "Process orders from any channel with split payments, fulfillment tracking, custom items, manual discounts, and complete order history audit trails.",
-        "subs": "Multi-Channel Orders • Split Payments • Fulfillment Tracking • Custom Items • Discounts • Audit Trail"
+        "description": "Process orders from any channel with partial payments, fulfillment tracking, custom items, manual discounts, and complete order history audit trails.",
+        "subs": "Multi-Channel Orders • Partial Payments • Fulfillment Tracking • Custom Items • Discounts • Audit Trail"
       },
       "customers": {
         "name": "Customer Management",
@@ -1226,8 +1226,8 @@
       },
       "pos": {
         "name": "Point of Sale",
-        "description": "Complete POS with secure OTP device pairing, employee shift management, cash register operations, offline sync, and multi-device support.",
-        "subs": "Device Pairing • Shift Management • Cash Registers • Offline Sync • Multi-Device"
+        "description": "Complete POS with secure OTP device pairing, barcode scanning, thermal and digital receipts, and live inventory on phone, tablet, or computer.",
+        "subs": "Device Pairing • Barcode Scanning • Thermal Receipts • Digital Receipts • Live Inventory"
       },
       "roles": {
         "name": "Team & Permissions",
@@ -1251,10 +1251,10 @@
         "description": "Multi-step purchase order creation with supplier selection, product picking, approval workflow, and stock receiving into inventory.",
         "subs": "Multi-Step Wizard • Supplier Selection • Approval Flow • Stock Receiving"
       },
-      "shifts": {
-        "name": "Shifts & Registers",
-        "description": "Employee shift clock-in/out with break tracking, hourly rates, earnings calculation, and cash register open/close management.",
-        "subs": "Clock In/Out • Break Tracking • Earnings • Cash Registers • Register Reports"
+      "posDevices": {
+        "name": "POS Devices",
+        "description": "Pair cashier devices with a secure OTP. Sales ring up against the right store and stock.",
+        "subs": "OTP Pairing • Store-Scoped Devices • Secure Access"
       },
       "notifications": {
         "name": "Push Notifications",
@@ -1338,7 +1338,7 @@
       },
       "freePos": {
         "title": "Free POS & Cashier",
-        "description": "A complete free cashier program: sales screen, register, shifts, receipts, and live inventory.",
+        "description": "A complete free cashier program: sales screen, barcode scanning, receipts, and live inventory.",
         "cta": "Explore the free POS"
       },
       "freeOnlineStore": {
@@ -1877,16 +1877,16 @@
           "description": "Product search, barcode scanning, quantity entry, and payment processing all flow right-to-left. Staff complete transactions faster because the interface follows the natural reading direction."
         },
         "receipts": {
-          "title": "Bilingual Receipts & Invoices",
-          "description": "Generate receipts with Arabic product names, properly formatted prices, and your store branding. All in one clean layout. Add English as a second language on the same receipt for international customers."
+          "title": "Arabic or English Receipts",
+          "description": "Print or share a receipt in Arabic or English, matching the language your cashier is using. Clear product names, prices, and store branding."
         },
-        "shifts": {
-          "title": "Shift Management in Arabic",
-          "description": "Staff clock in, take breaks, and close registers with fully Arabic screens. Shift reports show earnings, transaction counts, and cash summaries. All formatted for Arabic readers."
+        "inventory": {
+          "title": "Live Inventory in Arabic",
+          "description": "Every sale updates stock automatically. Low-stock alerts reach your team in the language they already use in the app."
         },
-        "offline": {
-          "title": "Works Without Internet",
-          "description": "Process sales even when your connection drops. Transactions sync automatically when you are back online. No lost sales, no duplicate orders, no data gaps."
+        "languages": {
+          "title": "Per-User Language",
+          "description": "One cashier works in Arabic while another uses English on the same store. Each person keeps their own language preference."
         },
         "hardware": {
           "title": "Arabic Receipt Printer Support",
@@ -2002,12 +2002,12 @@
         "answer": "Cashvio is built natively for Arabic-speaking businesses with a true right-to-left interface and bilingual receipt printing. Unlike global platforms that bolt on Arabic as a translation layer, every screen from checkout to analytics was designed for Arabic from day one."
       },
       "q2": {
-        "question": "Does Cashvio support both Arabic and English at the same time?",
-        "answer": "Yes. Cashvio is fully bilingual. Each staff member can independently choose to operate in Arabic or English without affecting other users. Receipts can display both languages simultaneously. Your online storefront automatically shows the correct language based on each customer's preference. Product catalogs support dual-language entries for names, descriptions, and categories."
+        "question": "Does Cashvio support both Arabic and English?",
+        "answer": "Yes. Each staff member can choose Arabic or English. Receipts print in the language the cashier is using. Your online storefront shows the language each customer prefers. Product catalogs support dual-language names, descriptions, and categories."
       },
       "q4": {
         "question": "What payment methods does Cashvio support for Arabic-speaking businesses?",
-        "answer": "At the counter Cashvio takes cash, card, bank transfer, and store credit, and one order can be split across several of them. Online payments run through Paymob, which covers Egypt, the UAE, Saudi Arabia, and Oman. Everything displays in Arabic and English."
+        "answer": "At the counter Cashvio takes cash, card or transfer proof, and store credit. You can take a partial payment and schedule the remaining balance. Online payments run through Paymob in Egypt, the UAE, Saudi Arabia, and Oman. Everything displays in Arabic and English."
       },
       "q5": {
         "question": "How does Cashvio's Arabic storefront differ from Shopify or other global platforms?",
@@ -2015,7 +2015,7 @@
       },
       "q6": {
         "question": "Can I print receipts in Arabic from the POS?",
-        "answer": "Yes. Cashvio supports thermal receipt printers with Arabic character sets. Receipts display product names, prices, tax information, and store branding in clear, properly formatted Arabic. You can also print bilingual receipts with both Arabic and English for international customers."
+        "answer": "Yes. Cashvio supports thermal receipt printers with Arabic character sets. Receipts display product names, prices, tax information, and store branding in clear Arabic or English, matching the cashier's language."
       },
       "q7": {
         "question": "Does Cashvio work across Arabic-speaking markets?",
@@ -2027,7 +2027,7 @@
       },
       "q9": {
         "question": "Can my staff use the POS in different languages simultaneously?",
-        "answer": "Yes. Cashvio supports per-user language preferences. One cashier can operate entirely in Arabic while another uses English on the same shift, on the same system. There is no need to log out, switch settings, or reload the application. Each user's language preference is saved and applied automatically."
+        "answer": "Yes. Cashvio supports per-user language preferences. One cashier can operate entirely in Arabic while another uses English on the same store. There is no need to log out, switch settings, or reload the application. Each user's language preference is saved and applied automatically."
       },
       "q10": {
         "question": "Does the Arabic storefront help with SEO and appearing in Arabic Google searches?",
@@ -2036,7 +2036,7 @@
     },
     "cta": {
       "title": "Ready to Sell in Arabic: the Right Way?",
-      "subtitle": "Join thousands of Arabic-speaking businesses already using Cashvio. Start free today with no credit card required.",
+      "subtitle": "Start free today with no credit card required.",
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
       "note": "Free forever plan • Setup in 2 minutes • Full Arabic support"
@@ -2122,8 +2122,8 @@
       "items": {
         "physicalStore": {
           "title": "Physical Stores & POS",
-          "description": "Full point-of-sale system with barcode scanning, receipt printing, shift management, and cash register operations. Process walk-in customers as fast as they arrive.",
-          "highlight": "Multi-device POS with offline support"
+          "description": "Full point-of-sale system with barcode scanning, receipt printing, and live inventory. Process walk-in customers as fast as they arrive.",
+          "highlight": "Phone, tablet, or computer checkout"
         },
         "onlineStorefront": {
           "title": "Online Storefront",
@@ -2179,8 +2179,8 @@
           "description": "Mark orders for pickup, delivery, dine-in, or in-store fulfillment. Configure delivery zones with custom fees. Each store manages its own fulfillment flow."
         },
         "splitPayments": {
-          "title": "Split & Scheduled Payments",
-          "description": "Accept partial payments, split across multiple methods, or schedule future installments. Track outstanding balances and overdue payments per customer."
+          "title": "Partial & Scheduled Payments",
+          "description": "Accept a partial payment now and schedule the remaining balance. Track outstanding amounts and overdue payments per customer. Combine store credit with another payment when needed."
         },
         "returnsAndRefunds": {
           "title": "Unified Returns & Refunds",
@@ -2625,7 +2625,7 @@
       "badge": "Free Forever",
       "title": "Free POS System",
       "titleHighlight": "and Cashier Software",
-      "subtitle": "Get a complete cashier program for your shop. Sales screen, cash register, shifts, receipts, and live inventory. 100% free plan, no trial period, no credit card.",
+      "subtitle": "Get a complete cashier program for your shop. Sales screen, barcode scanning, receipts, and live inventory. 100% free plan, no trial period, no credit card.",
       "cta": "Start Free: No Credit Card",
       "secondaryCta": "View All Features",
       "trust": "A real free plan: not a 14-day trial"
@@ -2655,9 +2655,9 @@
           "title": "Weak Arabic Support",
           "description": "Many POS programs have no Arabic interface or Arabic receipts, so your team struggles every day."
         },
-        "internetOnly": {
-          "title": "Stops Without Internet",
-          "description": "If the internet drops, the register stops, and you lose sales while customers wait."
+        "noLiveStock": {
+          "title": "Stock That Lies",
+          "description": "If inventory does not update with every sale, you oversell, run out mid-day, and lose trust."
         }
       }
     },
@@ -2674,13 +2674,13 @@
           "title": "Ready in Minutes",
           "description": "Sign up, add products, and sell. Works on any computer, tablet, or phone. No special hardware."
         },
-        "worksOffline": {
-          "title": "Works Offline",
-          "description": "Keep selling when the internet drops. Sales sync automatically when you are back online."
+        "worksOnAnyDevice": {
+          "title": "Phone, Tablet, or Computer",
+          "description": "Open the cashier in your browser, or install it as a web app on your home screen."
         },
         "arabicEnglish": {
           "title": "Arabic and English",
-          "description": "Full Arabic interface and bilingual receipts. Every employee picks their own language."
+          "description": "Full Arabic interface and receipts in Arabic or English. Every employee picks their own language."
         }
       }
     },
@@ -2695,12 +2695,12 @@
           "description": "Big touch-friendly buttons, product search, and barcode scanning for quick checkout."
         },
         "payments": {
-          "title": "All Payment Types",
-          "description": "Cash, card, wallet, or split the bill across more than one method."
+          "title": "Flexible Payments",
+          "description": "Cash, card or transfer proof, store credit, or take a partial payment and schedule the rest."
         },
-        "register": {
-          "title": "Cash Register & Shifts",
-          "description": "Open and close the register, count cash, and track every employee shift."
+        "pairing": {
+          "title": "Secure Device Pairing",
+          "description": "Pair a cashier device with a one-time code so sales ring up against the right store."
         },
         "receipts": {
           "title": "Printed & Digital Receipts",
@@ -2711,8 +2711,8 @@
           "description": "Every sale updates your stock automatically. Get alerts before products run out."
         },
         "reports": {
-          "title": "Daily Sales Reports",
-          "description": "See today's sales, best products, and profit. From your phone."
+          "title": "Today's Sales at a Glance",
+          "description": "See today's sales and order counts from the counter or your phone."
         }
       }
     },
@@ -2731,14 +2731,14 @@
           "others": "Monthly fee that grows with your business"
         },
         "devices": {
-          "feature": "Extra devices",
-          "cashvio": "Included",
-          "others": "Paid per device"
+          "feature": "Runs on",
+          "cashvio": "Any browser or installable web app",
+          "others": "Often special hardware or paid per device"
         },
-        "offline": {
-          "feature": "Works offline",
-          "cashvio": "Yes",
-          "others": "Often online-only"
+        "barcode": {
+          "feature": "Barcode scanning",
+          "cashvio": "USB scanner and camera scan",
+          "others": "Often extra or hardware-locked"
         },
         "arabic": {
           "feature": "Arabic interface & receipts",
@@ -2772,7 +2772,7 @@
       "subtitle": "Common questions about Cashvio's free POS and cashier software",
       "q1": {
         "question": "Is Cashvio's POS really free?",
-        "answer": "Yes. The free plan is free forever. Cashier screen, receipts, inventory, and reports included. You only pay if you need advanced features or higher limits."
+        "answer": "Yes. The free plan is free forever. Cashier screen, receipts, inventory, and today's sales view included. You only pay if you need advanced features or higher limits."
       },
       "q2": {
         "question": "Do I need to enter a credit card?",
@@ -2784,7 +2784,7 @@
       },
       "q4": {
         "question": "What devices does the free cashier work on?",
-        "answer": "Any device with a browser: computer, laptop, tablet, or phone. There is also a mobile app."
+        "answer": "Any device with a browser: computer, laptop, tablet, or phone. You can also install it as a web app on your home screen."
       },
       "q5": {
         "question": "Does it support Arabic?",
@@ -5052,8 +5052,8 @@
         "answer": "Yes. The free plan includes an online store on your own link where customers browse the menu and order for pickup or delivery."
       },
       "q3": {
-        "question": "Does it work offline?",
-        "answer": "Yes. Keep recording sales without internet. Everything syncs when you are back online. Arabic and English receipts are supported."
+        "question": "Can I use it on my phone?",
+        "answer": "Yes. Open Cashvio in the browser on a phone, tablet, or computer, or install it as a web app. Arabic and English receipts are supported."
       }
     },
     "cta": {
@@ -5596,7 +5596,7 @@
     "hero": {
       "title": "Free POS",
       "titleHighlight": "built around how shops sell",
-      "subtitle": "Local-currency pricing, Arabic receipts, offline sales, and a free online store. No credit card. Made for merchants."
+      "subtitle": "Local-currency pricing, Arabic receipts, live inventory, and a free online store. No credit card. Made for merchants."
     },
     "pains": {
       "title": "What shop owners need from a free POS",
@@ -5609,8 +5609,8 @@
         "description": "Receipts, dashboard, and storefront need real RTL, not a bolted-on translation."
       },
       "p3": {
-        "title": "Internet drops happen",
-        "description": "The counter cannot stop when the connection dies. Offline sales must keep working."
+        "title": "Stock that stays honest",
+        "description": "Every sale should update inventory. Otherwise you oversell and run out mid-day."
       }
     },
     "features": {
@@ -5618,15 +5618,15 @@
       "subtitle": "Shipped features on the free forever plan.",
       "f1": {
         "title": "Free cashier in Arabic and English",
-        "description": "Sales screen, cash register, shifts, and thermal or digital receipts."
+        "description": "Sales screen, barcode scanning, and thermal or digital receipts."
       },
       "f2": {
         "title": "Your currency, end to end",
         "description": "Prices, reports, and payments stay in your currency without awkward conversions."
       },
       "f3": {
-        "title": "Offline-capable sales",
-        "description": "Keep ringing up orders without internet. Sync when you are back online."
+        "title": "Live inventory with every sale",
+        "description": "Stock updates automatically. Low-stock alerts before you run out."
       },
       "f4": {
         "title": "Free online store",
@@ -5652,8 +5652,8 @@
         "answer": "With Cashvio the starting price is zero. See the pricing page for paid plan limits when you need more branches, users, or devices."
       },
       "q3": {
-        "question": "Does it work offline and in Arabic?",
-        "answer": "Yes. Keep selling offline and sync later. The product is Arabic-first with bilingual receipts and a full RTL experience."
+        "question": "Does it work in Arabic on phone and computer?",
+        "answer": "Yes. Use it in the browser on phone, tablet, or computer, or install it as a web app. Arabic-first with receipts in Arabic or English and a full RTL experience."
       }
     },
     "cta": {
@@ -5673,7 +5673,7 @@
           "value": "0.00"
         },
         {
-          "name": "Offline-capable sales",
+          "name": "Live inventory",
           "value": "0.00"
         },
         {

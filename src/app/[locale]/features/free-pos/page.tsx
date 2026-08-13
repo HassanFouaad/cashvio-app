@@ -48,9 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'free POS with inventory',
       'free POS Egypt',
       'free POS for small business',
-      'free offline POS',
       'free Arabic POS',
-      'free cash register software',
+      'free cashier for tablet',
       'Cashvio free POS',
       'Cashvio',
     ],
@@ -65,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'كاشير مجاني للمتاجر',
       'برنامج مبيعات مجاني',
       'كاشير بدون اشتراك',
-      'برنامج كاشير يعمل بدون انترنت',
+      'كاشير على الموبايل',
       'كاشير مجاني بالعربي',
       'برنامج كاشير مصر',
       'كاشفيو كاشير مجاني',
@@ -101,10 +100,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const painPointKeys = ['monthlyFees', 'payPerDevice', 'hiddenLimits', 'hardSetup', 'noArabic', 'internetOnly'] as const;
-const solutionKeys = ['reallyFree', 'fastSetup', 'worksOffline', 'arabicEnglish'] as const;
-const featureKeys = ['checkout', 'payments', 'register', 'receipts', 'inventory', 'reports'] as const;
-const comparisonRowKeys = ['price', 'devices', 'offline', 'arabic', 'inventory', 'storefront', 'setup', 'support'] as const;
+const painPointKeys = ['monthlyFees', 'payPerDevice', 'hiddenLimits', 'hardSetup', 'noArabic', 'noLiveStock'] as const;
+const solutionKeys = ['reallyFree', 'fastSetup', 'worksOnAnyDevice', 'arabicEnglish'] as const;
+const featureKeys = ['checkout', 'payments', 'pairing', 'receipts', 'inventory', 'reports'] as const;
+const comparisonRowKeys = ['price', 'devices', 'barcode', 'arabic', 'inventory', 'storefront', 'setup', 'support'] as const;
 const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'] as const;
 
 export default async function FreePosPage({ params }: Props) {
@@ -159,11 +158,11 @@ export default async function FreePosPage({ params }: Props) {
     isAccessibleForFree: true,
     featureList: [
       'Free cashier screen with barcode scanning',
-      'Cash register and shift management',
+      'Secure OTP POS device pairing',
       'Thermal and digital receipts in Arabic and English',
       'Live inventory synced with every sale',
-      'Offline mode with automatic sync',
-      'Daily sales and profit reports',
+      'Installable web app on phone, tablet, or computer',
+      'Daily sales view from the counter or phone',
     ],
     inLanguage: ['ar', 'en'],
     availableLanguage: [

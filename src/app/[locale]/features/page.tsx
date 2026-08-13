@@ -83,7 +83,7 @@ const operationsKeys = [
   'returns',
   'refunds',
   'purchaseOrders',
-  'shifts',
+  'posDevices',
   'notifications',
   'storefront',
   'deliveryZones',

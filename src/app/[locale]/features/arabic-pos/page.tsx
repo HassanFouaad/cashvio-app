@@ -128,7 +128,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const painPointKeys = ['brokenLayouts', 'wrongDirection', 'poorTypography', 'receiptsInvoices', 'noLocalPayments', 'seoBlindSpot'] as const;
 const solutionKeys = ['mirroredInterface', 'mixedContent', 'arabicTypography', 'instantSwitch'] as const;
-const posFeatureKeys = ['checkout', 'receipts', 'shifts', 'offline', 'hardware'] as const;
+const posFeatureKeys = ['checkout', 'receipts', 'inventory', 'languages', 'hardware'] as const;
 const storefrontFeatureKeys = ['rtlShopping', 'arabicSeo', 'bilingualCatalog', 'arabicNotifications', 'digitalReceipts'] as const;
 const comparisonRowKeys = ['rtlInterface', 'bilingualReceipts', 'arabicSeo', 'arabicTypography', 'languageSwitching', 'arabicReports'] as const;
 const faqKeys = ['q1', 'q2', 'q4', 'q5', 'q6', 'q8', 'q9', 'q10'] as const;
@@ -183,10 +183,10 @@ export default async function ArabicPosPage({ params }: Props) {
     },
     featureList: [
       'Native Arabic RTL interface',
-      'Bilingual Arabic-English receipts',
+      'Arabic or English receipts per print',
       'Per-user language preference',
       'Arabic storefront with SEO',
-      'Offline POS capability',
+      'Live inventory with every sale',
       'Arabic thermal receipt printing',
     ],
     inLanguage: ['ar', 'en'],

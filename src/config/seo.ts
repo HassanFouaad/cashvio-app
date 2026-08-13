@@ -26,7 +26,7 @@ import type { Locale } from '@/i18n/routing';
  * Used for schema dateModified — must NOT be "new Date()" (a lastmod
  * that changes every build teaches Google to ignore our freshness signals).
  */
-export const contentLastUpdated = '2026-08-12';
+export const contentLastUpdated = '2026-08-13';
 
 export const brand = {
   name: 'Cashvio',
@@ -579,13 +579,13 @@ export const schemaTemplates = {
       'Business Analytics & Reporting',
       'Multi-Store Operations',
       'Payment Processing Integration',
-      'E-commerce & Marketplace Integration',
-      'Employee & Shift Management',
+      'E-commerce Storefront',
+      'Team Roles & Permissions',
       'Purchase Order Management',
       'Returns & Refunds Processing',
       'Multi-language Support (Arabic & English)',
-      'Mobile POS App',
-      'Real-time Sync Across Devices',
+      'Installable Web App POS',
+      'Live Inventory Across Channels',
     ],
     softwareVersion: '2.0',
     datePublished: '2024-01-01',

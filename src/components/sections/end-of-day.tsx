@@ -24,7 +24,7 @@ const seals = [
   'Web',
   'iOS',
   'Android',
-  'Offline',
+  'PWA',
 ] as const;
 
 /**

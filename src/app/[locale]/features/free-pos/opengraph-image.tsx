@@ -26,8 +26,8 @@ export default async function OGImage({
   const description = t('description');
 
   const features = isArabic
-    ? ['شاشة بيع', 'صندوق نقد', 'ورديات', 'إيصالات حرارية', 'مخزون لحظي', 'مجاني للأبد']
-    : ['Sales Screen', 'Cash Register', 'Shifts', 'Thermal Receipts', 'Live Inventory', 'Free Forever'];
+    ? ['شاشة بيع', 'باركود', 'إيصالات حرارية', 'مخزون لحظي', 'عربي وإنجليزي', 'مجاني للأبد']
+    : ['Sales Screen', 'Barcode', 'Thermal Receipts', 'Live Inventory', 'Arabic & English', 'Free Forever'];
 
   return new ImageResponse(
     (
