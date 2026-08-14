@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import type { OrderExportPayment, PaymentMethod } from "../types";
 
 interface ReceiptPricingProps {
   subtotal: number;
@@ -9,8 +10,14 @@ interface ReceiptPricingProps {
   serviceFees: number;
   deliveryFees: number;
   totalAmount: number;
+  amountPaid?: number;
+  amountDue?: number;
+  changeGiven?: number;
   amountRefunded: number;
   currency: string;
+  payments?: OrderExportPayment[];
+  paymentMethod?: PaymentMethod;
+  paymentOption?: string;
 }
 
 export function ReceiptPricing({
@@ -20,10 +27,17 @@ export function ReceiptPricing({
   serviceFees,
   deliveryFees,
   totalAmount,
+  amountPaid,
+  amountDue,
+  changeGiven,
   amountRefunded,
   currency,
+  payments,
+  paymentMethod,
+  paymentOption,
 }: ReceiptPricingProps) {
   const t = useTranslations("receipt");
+  const tPaymentMethod = useTranslations("paymentMethod");
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat(undefined, {
@@ -87,6 +101,45 @@ export function ReceiptPricing({
           {formatCurrency(totalAmount)}
         </span>
       </div>
+
+      {/* Paid */}
+      {amountPaid !== undefined && amountPaid > 0 && (
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">{t("paid")}</span>
+          <span className="text-foreground">{formatCurrency(amountPaid)}</span>
+        </div>
+      )}
+
+      {/* Split payments if any */}
+      {payments && payments.length > 1 && (
+        <div className="space-y-1 ps-3 border-s-2 border-border text-xs text-muted-foreground">
+          {payments.map((p, idx) => (
+            <div key={idx} className="flex justify-between">
+              <span>
+                {tPaymentMethod(p.paymentMethod)}
+                {p.paymentOption ? ` (${p.paymentOption})` : ""}
+              </span>
+              <span>{formatCurrency(p.amount)}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Amount Due */}
+      {amountDue !== undefined && amountDue > 0 && (
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">{t("due")}</span>
+          <span className="text-foreground">{formatCurrency(amountDue)}</span>
+        </div>
+      )}
+
+      {/* Change */}
+      {changeGiven !== undefined && changeGiven > 0 && (
+        <div className="flex justify-between text-sm">
+          <span className="text-muted-foreground">{t("change")}</span>
+          <span className="text-foreground">{formatCurrency(changeGiven)}</span>
+        </div>
+      )}
 
       {/* Refunded Amount */}
       {amountRefunded > 0 && (

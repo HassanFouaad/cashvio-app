@@ -5,6 +5,7 @@ import type {
   FulfillmentMethod,
   FulfillmentStatus,
   OrderStatus,
+  PaymentMethod,
   PaymentStatus,
 } from "../types";
 
@@ -15,6 +16,8 @@ interface ReceiptOrderSummaryProps {
   fulfillmentMethod: FulfillmentMethod;
   fulfillmentStatus: FulfillmentStatus;
   paymentStatus: PaymentStatus;
+  paymentMethod?: PaymentMethod;
+  paymentOption?: string;
   customerName?: string;
   customerPhone?: string;
   completedAt?: string;
@@ -27,6 +30,8 @@ export function ReceiptOrderSummary({
   fulfillmentMethod,
   fulfillmentStatus,
   paymentStatus,
+  paymentMethod,
+  paymentOption,
   customerName,
   customerPhone,
   completedAt,
@@ -34,6 +39,7 @@ export function ReceiptOrderSummary({
   const t = useTranslations("receipt");
   const tOrderStatus = useTranslations("orderStatus");
   const tPaymentStatus = useTranslations("paymentStatus");
+  const tPaymentMethod = useTranslations("paymentMethod");
   const tFulfillmentMethod = useTranslations("fulfillmentMethod");
   const tFulfillmentStatus = useTranslations("fulfillmentStatus");
 
@@ -89,13 +95,24 @@ export function ReceiptOrderSummary({
    
 
       {/* Payment Status */}
-
       <div className="flex items-center gap-2 text-sm">
         <span className="text-muted-foreground">{t("paymentStatus")}:</span>
         <span className="font-medium text-foreground">
           {tPaymentStatus(paymentStatus)}
         </span>
       </div>
+
+      {/* Payment Method */}
+      {paymentMethod && (
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-muted-foreground">{t("paymentMethod")}:</span>
+          <span className="font-medium text-foreground">
+            {tPaymentMethod(paymentMethod)}
+            {paymentOption ? ` (${paymentOption})` : ""}
+          </span>
+        </div>
+      )}
+
       <div className="flex items-center gap-2 text-sm">
         <span className="text-muted-foreground">{t("orderStatus")}:</span>
         <span className="font-medium text-foreground">

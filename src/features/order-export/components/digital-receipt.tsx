@@ -45,6 +45,8 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
             fulfillmentMethod={order.fulfillmentMethod}
             fulfillmentStatus={order.fulfillmentStatus}
             paymentStatus={order.paymentStatus}
+            paymentMethod={order.paymentMethod}
+            paymentOption={order.paymentOption}
             customerName={order.customerName}
             customerPhone={order.customerPhone}
             completedAt={order.completedAt}
@@ -80,8 +82,14 @@ export function DigitalReceipt({ order }: DigitalReceiptProps) {
             serviceFees={order.serviceFees}
             deliveryFees={order.deliveryFees}
             totalAmount={order.totalAmount}
+            amountPaid={order.amountPaid}
+            amountDue={order.amountDue}
+            changeGiven={order.changeGiven}
             amountRefunded={order.amountRefunded}
             currency={order.store.currency}
+            payments={order.payments}
+            paymentMethod={order.paymentMethod}
+            paymentOption={order.paymentOption}
           />
         </div>
 

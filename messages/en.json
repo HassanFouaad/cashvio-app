@@ -1684,6 +1684,7 @@
     "fulfillmentStatus": "Fulfillment Status",
     "orderStatus": "Order Status",
     "paymentStatus": "Payment Status",
+    "paymentMethod": "Payment Method",
     "fulfillmentMethod": "Fulfillment Method",
     "completedAt": "Completed",
     "items": "Items",
@@ -1693,6 +1694,9 @@
     "serviceFees": "Service Fees",
     "deliveryFees": "Delivery Fees",
     "total": "Total",
+    "paid": "Paid",
+    "due": "Amount Due",
+    "change": "Change",
     "refunded": "Refunded",
     "netTotal": "Net Total",
     "deliveryAddress": "Delivery Address",
@@ -1735,6 +1739,12 @@
     "CANCELLED": "Payment Cancelled",
     "PARTIALLY_REFUNDED": "Partially Refunded",
     "REFUNDED": "Refunded"
+  },
+  "paymentMethod": {
+    "CASH": "Cash",
+    "ONLINE": "Online",
+    "RECEIPT": "Receipt / Transfer",
+    "STORE_CREDIT": "Store Credit"
   },
   "fulfillmentMethod": {
     "IN_STORE": "In Store",

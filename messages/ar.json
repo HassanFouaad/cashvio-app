@@ -1683,6 +1683,7 @@
     "customer": "العميل",
     "orderStatus": "حالة الطلب",
     "paymentStatus": "حالة الدفع",
+    "paymentMethod": "طريقة الدفع",
     "fulfillmentMethod": "طريقة التنفيذ",
     "fulfillmentStatus": "حالة التنفيذ",
     "completedAt": "اكتمل في",
@@ -1693,6 +1694,9 @@
     "serviceFees": "رسوم الخدمة",
     "deliveryFees": "رسوم التوصيل",
     "total": "الإجمالي",
+    "paid": "المدفوع",
+    "due": "المبلغ المستحق",
+    "change": "الباقي",
     "refunded": "المسترد",
     "netTotal": "الإجمالي الصافي",
     "deliveryAddress": "عنوان التوصيل",
@@ -1735,6 +1739,12 @@
     "CANCELLED": "الدفع ملغي",
     "PARTIALLY_REFUNDED": "مسترد جزئياً",
     "REFUNDED": "مسترد"
+  },
+  "paymentMethod": {
+    "CASH": "نقدي",
+    "ONLINE": "إلكتروني",
+    "RECEIPT": "إيصال / تحويل",
+    "STORE_CREDIT": "رصيد المتجر"
   },
   "fulfillmentMethod": {
     "IN_STORE": "في المتجر",

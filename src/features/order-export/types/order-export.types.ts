@@ -6,6 +6,7 @@
  */
 
 export type OrderStatus = "PENDING" | "COMPLETED" | "CANCELLED";
+export type PaymentMethod = "CASH" | "ONLINE" | "RECEIPT" | "STORE_CREDIT";
 export type PaymentStatus =
   | "PENDING"
   | "PARTIAL"
@@ -88,6 +89,15 @@ export interface OrderExportRefund {
 }
 
 /**
+ * Payment information visible on receipts
+ */
+export interface OrderExportPayment {
+  paymentMethod: PaymentMethod;
+  paymentOption?: string;
+  amount: number;
+}
+
+/**
  * Main order export DTO - matches backend PublicOrderExportDto
  */
 export interface OrderExportData {
@@ -98,6 +108,8 @@ export interface OrderExportData {
   fulfillmentMethod: FulfillmentMethod;
   fulfillmentStatus: FulfillmentStatus;
   paymentStatus: PaymentStatus;
+  paymentMethod?: PaymentMethod;
+  paymentOption?: string;
   customerName?: string;
   customerPhone?: string;
   notes?: string;
@@ -107,7 +119,11 @@ export interface OrderExportData {
   serviceFees: number;
   deliveryFees: number;
   totalAmount: number;
+  amountPaid?: number;
+  amountDue?: number;
+  changeGiven?: number;
   amountRefunded: number;
+  payments?: OrderExportPayment[];
   store: OrderExportStore;
   items: OrderExportItem[];
   deliveryAddress?: OrderExportDeliveryAddress;
