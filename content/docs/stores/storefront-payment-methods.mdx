@@ -1,9 +1,9 @@
 ---
 title: Storefront Payment Methods
-description: "Configure Cash, Receipt, and Online payments for storefront checkout and set a minimum order value."
+description: "Configure Cash, Receipt / Transfer, and Online payments for storefront checkout and set a minimum order value."
 ---
 
-Storefront payment methods control what options customers see during online checkout. By default, **Cash** and **Receipt** are enabled for all stores. **Online Payment** becomes available once you connect a payment gateway.
+Storefront payment methods control what options customers see during online checkout. By default, **Cash** and **Receipt / Transfer** are enabled for all stores. **Online Payment** becomes available once you connect a payment gateway.
 
 Configure them from **Settings > Stores**, open your store, and select the **Payments** tab, then the **Storefront** section.
 
@@ -12,8 +12,16 @@ Configure them from **Settings > Stores**, open your store, and select the **Pay
 | Method | Customer Experience |
 |--------|---------------------|
 | **Cash** | Customer selects "Cash" at checkout. A pending payment record is created. You mark it as paid from the business portal when the customer pays on delivery or pickup. |
-| **Receipt** | Customer selects "Upload Receipt" and uploads a photo of their payment transfer. A pending payment is created with the receipt attached. You review and accept the receipt from the business portal. |
+| **Receipt / Transfer** | Customer selects "Receipt / Transfer" and sees your configured mobile wallet or InstaPay numbers to make their transfer. They upload a photo of the payment receipt. A pending payment is created with the receipt attached. You review and accept the receipt from the business portal. |
 | **Online Payment** | Customer selects "Pay Online" and is redirected to a secure payment page to pay by card or wallet. The order is marked paid automatically the moment the payment is confirmed. No manual review needed. |
+
+### Receipt / Transfer Details (Wallet & InstaPay)
+
+When **Receipt / Transfer** is enabled, you can optionally configure:
+- **Mobile Wallet Number**: e.g. Vodafone Cash, Orange Cash, Etisalat Cash
+- **InstaPay Username or Number**: for direct bank transfers in Egypt
+
+These details are displayed directly on the storefront checkout page with copy buttons, making it easy for customers to send the transfer before uploading their receipt.
 
 <Callout title="Online payments need a gateway first">
 You can only enable **Online Payment** after connecting a payment gateway (such as Paymob) to the store. See [Online Payments with Paymob](/docs/integrations/paymob-online-payments) for the full setup guide.

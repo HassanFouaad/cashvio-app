@@ -3867,7 +3867,7 @@
           "when": "Refunding a digital payment: available when the original payment was online"
         },
         "receipt": {
-          "method": "Receipt",
+          "method": "Receipt / Transfer",
           "when": "A bank or wallet transfer documented with proof of the refund"
         },
         "storeCredit": {
