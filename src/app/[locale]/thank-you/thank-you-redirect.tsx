@@ -20,7 +20,7 @@ import {
 import { addStateToUrl, getThemePreference } from '@/lib/utils/cross-app-sync';
 
 /** Delay before redirecting, long enough for analytics requests to flush */
-const REDIRECT_DELAY_MS = 2500;
+const REDIRECT_DELAY_MS = 20000;
 
 interface ThankYouRedirectProps {
   portalUrl: string;
