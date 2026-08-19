@@ -1,6 +1,6 @@
 // Content preflight for the Cashvio marketing site.
 // Checks: banned characters, en/ar key parity, JSON validity.
-// Usage: node .cursor/skills/seo-preflight/scripts/check-content.mjs
+// Usage: node .agents/skills/seo-preflight/scripts/check-content.mjs
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 

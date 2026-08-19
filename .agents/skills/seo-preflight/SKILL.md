@@ -14,7 +14,7 @@ All commands run from the my-app root (`D:\work\Self\code\my-app`).
 ### 1. Content scan (banned characters + translation parity)
 
 ```bash
-node .cursor/skills/seo-preflight/scripts/check-content.mjs
+node .agents/skills/seo-preflight/scripts/check-content.mjs
 ```
 
 The script fails if it finds:
