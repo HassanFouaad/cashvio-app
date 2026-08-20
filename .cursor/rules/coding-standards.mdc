@@ -1,0 +1,111 @@
+---
+description: TypeScript strictness, Next.js 16/React 19 conventions, component boundaries, naming conventions, and code organization
+alwaysApply: true
+---
+
+# Code Conventions & Standards
+
+Strict TypeScript typing, Next.js 16 App Router conventions, explicit component boundaries, and clean separation of concerns across the marketing site.
+
+## Invariant Rules
+
+- **No `any` or `unknown`** — 100% explicit TypeScript typing across props, params, returns, and state.
+- **Async `params` unwrapping** — In Next.js 15+, page and layout `params` / `searchParams` are Promises; ALWAYS `await params` before accessing properties.
+- **`setRequestLocale(locale)` on every server route** — Call `setRequestLocale(locale)` at the top of every localized page and layout for cached static rendering.
+- **Server components by default** — Mark files with `'use client'` ONLY when they need local state, DOM/canvas APIs, event listeners, or client-side analytics.
+- **Locale-aware navigation** — ALWAYS import `Link`, `useRouter`, and `usePathname` from `@/i18n/navigation`, NEVER bare `next/link` on localized pages.
+- **No direct `localStorage` without sync** — Use `@/lib/utils/cross-app-sync` to ensure theme and locale sync across `.cash-vio.com` subdomains.
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Component Boundaries & Translations
+
+```tsx
+// ❌ FORBIDDEN — Unnecessary 'use client' for display-only translated section
+'use client';
+import { useTranslations } from 'next-intl';
+
+export function FeatureCard({ name }: { name: string }) {
+  const t = useTranslations('features');
+  return <div className="p-4">{t(name)}</div>;
+}
+
+// ✅ REQUIRED — Server component with pre-translated props or async server translations
+import { getTranslations } from 'next-intl/server';
+import { type Locale } from '@/i18n/routing';
+
+interface FeatureCardProps {
+  title: string;
+  description: string;
+}
+
+export function FeatureCard({ title, description }: FeatureCardProps) {
+  return (
+    <div className="p-4">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+}
+```
+
+### 2. Async Params & Static Locale Setup
+
+```tsx
+// ❌ FORBIDDEN — Synchronous params access without setRequestLocale
+export default function Page({ params }: { params: { locale: string } }) {
+  const locale = params.locale; // Crashes in Next.js 15+
+  return <div>{locale}</div>;
+}
+
+// ✅ REQUIRED — Awaited params + setRequestLocale
+import { setRequestLocale } from 'next-intl/server';
+import { type Locale } from '@/i18n/routing';
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const typedLocale = locale as Locale;
+
+  return <div>{typedLocale}</div>;
+}
+```
+
+### 3. Navigation Links
+
+```tsx
+// ❌ FORBIDDEN — Bare next/link losing locale prefix or requiring manual prefixing
+import Link from 'next/link';
+
+<Link href={locale === 'en' ? '/features' : '/ar/features'}>Features</Link>
+
+// ✅ REQUIRED — Locale-aware Link from @/i18n/navigation
+import { Link } from '@/i18n/navigation';
+
+<Link href="/features">Features</Link>
+```
+
+## Naming Conventions
+
+| Target | Convention | Example |
+| --- | --- | --- |
+| Components | PascalCase | `LedgerHero.tsx`, `ReceiptCard.tsx` |
+| Component Props | PascalCase with `Props` suffix | `LedgerHeroProps`, `ButtonProps` |
+| Functions & methods | camelCase, verb-first | `buildPageMetadata`, `formatNumber` |
+| Hook functions | camelCase with `use` prefix | `useLocaleConfig`, `useTranslations` |
+| Files & directories | kebab-case | `barcode-generator-tool.tsx`, `feature-landing-shell.tsx` |
+| Constants | UPPER_SNAKE_CASE | `SCROLL_DEPTH_MILESTONES`, `COOKIE_KEYS` |
+| CSS variables | kebab-case with `--` prefix | `--ledger-line`, `--font-receipt` |
+| Translation namespaces | camelCase | `freePos`, `marginCalculator`, `metadata` |
+
+## Code Organization
+
+- Reusable UI primitives live in `src/components/ui/` (buttons, inputs, cards, badges).
+- Marketing domain sections live in `src/components/marketing/` (ledger components, receipts, comparisons, FAQs).
+- Global layout components live in `src/components/layout/` (header, footer, nav drawers, theme/locale switchers).
+- Complex feature domains live in `src/features/<domain>/` (tools, industries, order-export).
+- Configuration & constants live in `src/config/` (`seo.ts`, `env.ts`, `navigation.ts`).

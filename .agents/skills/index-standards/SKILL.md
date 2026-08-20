@@ -1,0 +1,92 @@
+---
+name: index-standards
+description: Rebuild and validate .cursor/standards-index.yml catalog of rules and skills
+---
+
+# Index Standards
+
+Maintain and regenerate the machine-readable `.cursor/standards-index.yml` catalog.
+
+## When to Use
+
+- After creating, renaming, or deleting any rule in `.cursor/rules/` or skill in `.agents/skills/`.
+- To verify that all skills and rules are properly categorized.
+
+## Catalog Schema
+
+The catalog file `.cursor/standards-index.yml` uses top-level category keys mapping to rule/skill definitions:
+
+```yaml
+# Standards Index
+# Maps standards to categories for skill-based discovery
+
+global:
+  coding-standards:
+    description: TypeScript strictness, Next.js 16 conventions, and component boundaries
+  content-style:
+    description: Banned punctuation, copywriting voice, and Egyptian Arabic register
+  bilingual-content:
+    description: Strict English & Arabic translation parity and paired MDX docs
+  seo-standards:
+    description: Metadata generation, page titles, and JSON-LD structured data
+  design-system:
+    description: Tailwind CSS v4 CSS-first theming and thermal receipt aesthetics
+  performance:
+    description: Core Web Vitals, script deferral, font loading, and image optimization
+  no-pwa:
+    description: Browser-only policy, manifest display mode, and no service workers
+  no-compare-pages:
+    description: Permanent ban on named competitor comparison pages and redirects
+  pre-flight:
+    description: Mandatory pre-flight verification checklist before finishing tasks
+
+pages:
+  add-marketing-page:
+    description: Scaffold feature and custom marketing landing pages
+  add-industry-page:
+    description: Scaffold industry vertical landing pages with receipt previews
+  add-free-tool:
+    description: Scaffold interactive client-side business tools and calculators
+  app-router-pages:
+    description: Next.js 16 App Router page conventions and async params
+
+docs:
+  add-doc-page:
+    description: Add bilingual Fumadocs MDX merchant documentation topics
+  write-content:
+    description: Copywriting standards, voice, persona, and SEO keywords
+
+ui:
+  theme-styling:
+    description: Tailwind CSS v4 theme tokens, CSS variables, and receipt primitives
+  opengraph-images:
+    description: Dynamic Open Graph image generation using Next.js ImageResponse
+
+data_and_integrations:
+  analytics-tracking:
+    description: GA4 event tracking, Meta Pixel, and first-touch attribution
+  cross-app-sync:
+    description: Cross-subdomain cookie synchronization for theme and language
+  order-export:
+    description: Digital receipt export route and thermal printing layout
+  forms-and-api:
+    description: Lead and contact form validation and backend API integration
+  clone-store:
+    description: Demo tenant cloning and catalog scraping orchestrator
+
+verification:
+  verify-marketing-code:
+    description: Comprehensive 6-step verification and 35-item anti-pattern audit
+  preflight-check:
+    description: Fast 30-second preflight check protocol
+  seo-preflight:
+    description: Content scan, translation parity, and build verification
+
+governance:
+  inject-standards:
+    description: Load and inject all core project standards into agent session
+  discover-standards:
+    description: Extract new tribal knowledge into modular skills
+  index-standards:
+    description: Rebuild and validate standards-index.yml catalog
+```

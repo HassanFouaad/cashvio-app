@@ -1,0 +1,58 @@
+---
+description: Banned punctuation (em-dash, en-dash, arrow), copywriting voice, human copy persona, and Egyptian Arabic register
+alwaysApply: true
+---
+
+# Content Style & Copywriting Standards
+
+All user-visible copy must read like it was written by an expert human copywriter for retail and business owners, never like machine or AI output.
+
+## Invariant Rules
+
+- **Banned Characters (CRITICAL)**: NEVER use em-dash (`—`, U+2014), en-dash (`–`, U+2013), or arrows (`→`, U+2192) in any user-visible string (`messages/*.json`, `content/docs/**`, JSON-LD descriptions, route outputs like `llms.txt`, or `.tsx` rendered text).
+- **No Dash Substitutions**: Do NOT substitute banned dashes with `--` or a floating hyphen ` - `. Use hyphens ONLY inside compound words (`end-of-day`, `low-stock`, `sign-up`).
+- **Receipt Mono Annotations**: Use a middle dot (`·`) with zero-padded chapter labels: `NO. 01 · THE PROBLEM` / `رقم 01 · المشكلة`.
+- **Comparison Table Markers**: Use `[✓]` for included and `[✗]` for excluded — NEVER use `[—]`.
+- **Docs Navigation Paths**: Use bold with `>` separator: `**Settings > Branding**`, NEVER arrows.
+- **Docs Status Transitions**: Use prose transitions: `"Pending, then Preparing, then Ready"` or `"Pending to Ready"`.
+- **Banned SaaS Buzzwords**: Avoid generic AI filler: `unlock`, `empower`, `seamless`, `revolutionize`, `comprehensive`, `game-changer`.
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Punctuation & Connectors
+
+```text
+// ❌ FORBIDDEN
+Free forever plan — no credit card needed
+Six ready reports — overview, profit, customers
+Track stock in real time — never oversell again
+Pending → Approved → Completed
+Settings → Branding → Logo
+
+// ✅ REQUIRED
+Free forever plan, no credit card needed
+Six ready reports: overview, profit, customers
+Track stock in real time. Never oversell again.
+Pending, then Approved, then Completed
+Settings > Branding > Logo
+```
+
+### 2. Eyebrow Annotations & Ledger Slips
+
+```tsx
+// ❌ FORBIDDEN
+eyebrow="NO. 01 — WHAT YOU GET"
+<td>[—] Not Included</td>
+
+// ✅ REQUIRED
+eyebrow={`${tLedger('no')} 01 · ${t('features.badge')}`} // Renders: NO. 01 · WHAT YOU GET
+<td>[✗] Not Included</td>
+```
+
+### 3. Voice & Persona
+
+- **Direct & Merchant-Practical**: Speak directly to one shop owner (`"Run your shop"`, `"Track stock on your phone"`).
+- **Concrete over Abstract**: Focus on tangible features (barcode scanner, thermal receipts, inventory alerts, WhatsApp orders).
+- **Honest Claims Only**: Only claim shipped capabilities; no exaggerated stats, fake testimonials, or trial tricks.
+- **Arabic Register**: Modern Standard Arabic with light Egyptian merchant flavor (`شوف`, `اللي`, `مش`, `عندك`). Never machine-translate literally from English.
+- **English Brand/Technical Terms in Arabic**: Keep acronyms and names as English: `Cashvio`, `POS`, `USB`, `QR`, `CSV`, `PDF`, `PNG`.

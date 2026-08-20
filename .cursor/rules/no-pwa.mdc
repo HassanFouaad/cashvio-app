@@ -1,0 +1,63 @@
+---
+description: Marketing site browser-only policy, no PWA, no service worker, no install banners
+alwaysApply: true
+---
+
+# Browser-Only Policy (No PWA / Not Installable)
+
+The marketing and documentation website (`my-app`) is explicitly designed and required to behave strictly as a public, browser-accessible website, NOT an installable Progressive Web App.
+
+## Invariant Rules
+
+- **Manifest `display: "browser"` (CRITICAL)**: `src/app/manifest.ts` MUST always keep `display: 'browser'`. NEVER change it to `standalone`, `minimal-ui`, or `fullscreen`.
+- **Zero Service Workers**: NEVER add a service worker, `next-pwa`, Workbox, offline caching, or background sync scripts to `my-app`.
+- **No Install Prompts or Banners**: NEVER add `beforeinstallprompt` event listeners, "Add to Home Screen" buttons, or PWA install modal prompts.
+- **Brand Signals Only**: The `manifest.ts` file exists solely for search engine identity and browser tab icon metadata (name, description, theme color, icons).
+- **Scope Distinction**: This restriction applies strictly to `my-app`. The merchant tenant portal (`tenant-portal`) is a separate app with its own PWA capabilities.
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Web App Manifest Display Mode
+
+```typescript
+// ❌ FORBIDDEN — Standalone mode triggering Chrome install heuristics
+// src/app/manifest.ts
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Cashvio',
+    display: 'standalone', // FORBIDDEN!
+    start_url: '/',
+  };
+}
+
+// ✅ REQUIRED — Browser display mode keeping site strictly web-only
+// src/app/manifest.ts
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Cashvio',
+    short_name: 'Cashvio',
+    description: 'Free POS & Online Store Platform',
+    start_url: '/',
+    display: 'browser', // Intentional and required
+    background_color: '#faf9f7',
+    theme_color: '#059669',
+    icons: [
+      { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  };
+}
+```
+
+### 2. Service Worker Registration
+
+```tsx
+// ❌ FORBIDDEN — Service worker registration in client layout/component
+useEffect(() => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+}, []);
+
+// ✅ REQUIRED — No service worker registration code anywhere in the codebase.
+```

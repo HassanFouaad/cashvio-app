@@ -1,37 +1,62 @@
 ---
 name: write-content
-description: Write or rewrite bilingual marketing and docs copy for the Cashvio site in the expert-human voice with correct SEO keyword placement. Use when writing headlines, page copy, meta titles/descriptions, FAQ answers, or translating content between English and Arabic.
+description: Copywriting voice, tone, banned punctuation rewriting rules, and Egyptian Arabic retail register
 ---
 
-# Writing Cashvio Content
+# Copywriting & Content Standards
 
-Cashvio sells a free POS (كاشير مجاني) and free online store to small merchants in Egypt and MENA. The copy must sound like an experienced human wrote it for a shopkeeper, not like AI output.
+Guidelines for writing punchy, conversion-focused, and SEO-optimized English and Arabic copy.
 
-## Voice
+## When to Use
 
-- Talk to one shop owner, not "businesses". Concrete over abstract: "know who owes you what" beats "manage receivables".
-- Short sentences. Punchy, confident, zero filler. No "unlock", "empower", "seamless", "revolutionize".
-- Honest: only claim shipped features. Never invent stats, reviews, or customer counts.
-- Banned characters (see content-style rule): no em-dashes, en-dashes, or arrows anywhere. Use periods, commas, colons, or connectors.
+- Writing new marketing landing page sections, hero copy, pain points, feature bullets, or FAQs.
+- Translating or adapting merchant copy between English and Arabic.
+- Rewriting AI-generated text to match human copywriting standards.
 
-## SEO keyword placement
+## Core Rules & Invariants
 
-- Money keywords: free POS, free cashier, free POS system, free online store / كاشير مجاني، برنامج كاشير مجاني، نظام نقاط بيع مجاني، متجر إلكتروني مجاني. Egypt modifiers where relevant: "Egypt", "مصر".
-- Meta title: keyword first, brand never included (the layout appends "| Cashvio"). 45 to 60 characters.
-- Meta description: 140 to 160 characters, keyword once, end with a differentiator (free forever, Arabic and English, no credit card).
-- H1/hero: primary keyword near the start; subtitle covers secondary keywords naturally.
-- FAQ answers: direct answer in the first sentence, 2 to 3 sentences total (these get lifted into featured snippets and AI answers).
+- **Banned Punctuation**: Never use `—` (em-dash), `–` (en-dash), or `→` (arrow) in any user-facing text.
+- **Rewriting Strategies**:
+  - Lists: Use colons (`:`) or commas (`,`).
+  - Separation: Use periods (`.`) for punchy short sentences.
+  - Direction / Transitions: Use `"X to Y"`, `"X, then Y"`, or `**X > Y**`.
+- **Receipt Mono Annotations**: Use a middle dot `·` (`NO. 01 · OVERVIEW`).
+- **Voice & Tone**: Punchy, confident, concrete, practical. Speak directly to one shop owner.
+- **Arabic Register**: Modern Standard Arabic with light Egyptian merchant flavor (`شوف`, `اللي`, `مش`, `عندك`).
+- **Technical Terms**: Keep technical acronyms in English: `POS`, `QR`, `CSV`, `PDF`, `USB`.
 
-## Arabic rules
+## ❌ FORBIDDEN vs ✅ REQUIRED
 
-- Natural Arabic a merchant would say, never a literal translation of the English.
-- Register: Modern Standard Arabic with the light Egyptian flavor already used in messages/ar.json (شوف، اللي، مش، بكام). Match the surrounding strings.
-- Keep English technical/brand terms: Cashvio, POS, USB, QR, CSV.
-- Arabic comma (،) inside sentences; periods to split long ones.
+### 1. Punctuation Rewriting
 
-## Reference examples (current site voice)
+```text
+// ❌ FORBIDDEN
+All-in-one cashier — no extra hardware needed.
+Pending → In Progress → Delivered
+Settings → Stores → General
 
-- Hero: "Free POS & Free Online Store / For Your Business"
-- Description: "Run your shop with a 100% free POS (cashier) and a free online store. Inventory, orders, customers, and reports in one place. Arabic & English. Free forever, no credit card."
-- FAQ answer: "Yes. The free plan is free forever and includes the POS, the online store, inventory, and reports with unlimited products and orders."
-- Arabic hero: "كاشير مجاني ومتجر إلكتروني مجاني"
+// ✅ REQUIRED
+All-in-one cashier. No extra hardware needed.
+Pending, then In Progress, then Delivered
+Settings > Stores > General
+```
+
+### 2. Marketing Fluff Removal
+
+```text
+// ❌ FORBIDDEN
+Empower your enterprise with seamless, next-generation POS synergies to unlock boundless growth.
+
+// ✅ REQUIRED
+Scan barcodes, track stock, and print customer receipts on your phone or tablet in seconds.
+```
+
+### 3. Arabic Retail Register
+
+```text
+// ❌ FORBIDDEN — Literal, overly formal machine translation
+تتيح لك منصتنا المبتكرة إمكانية تحسين عمليات البيع بالتجزئة بسلاسة.
+
+// ✅ REQUIRED — Natural, merchant-friendly Arabic
+كاشير سريع ومجاني للمحلات. نظّم مبيعاتك وتابع مخزونك لحظة بلحظة من موبايلك أو الكمبيوتر.
+```

@@ -1,50 +1,127 @@
 ---
 name: add-doc-page
-description: Add a bilingual documentation topic (English .mdx + Arabic .ar.mdx pair) to content/docs with frontmatter, meta.json navigation, and Fumadocs components. Use when documenting a feature, writing help content, or when the user asks to add or update docs.
+description: Add a new merchant documentation guide in Fumadocs MDX with paired English and Arabic files, navigation meta, and search index registration
 ---
 
 # Add a Documentation Page
 
-Docs are SEO assets: they feed `llms.txt`/`llms-full.txt` and rank for how-to queries. Every topic ships in both languages at once.
+Merchant documentation guides explain product workflows, configuration, hardware setup, and POS operational steps.
 
-## Checklist
+## When to Use
 
-```
-- [ ] 1. content/docs/<section>/<slug>.mdx (English)
-- [ ] 2. content/docs/<section>/<slug>.ar.mdx (Arabic, same structure)
-- [ ] 3. Slug added to content/docs/<section>/meta.json "pages" array
-- [ ] 4. (New section only) folder + meta.json, referenced from content/docs/meta.json
-- [ ] 5. Run the seo-preflight skill
-```
+- Writing user manuals or tutorials for merchant features (e.g. `content/docs/pos/thermal-printers.mdx`).
+- Creating bilingual documentation pairs explaining dashboard settings, inventory imports, or receipt customizations.
 
-## File template
+## Core Rules & Invariants
+
+- **Mandatory Bilingual Pairing**: Always create BOTH files in the same turn:
+  - `content/docs/<section>/<slug>.mdx` (English)
+  - `content/docs/<section>/<slug>.ar.mdx` (Arabic)
+- **Fumadocs Navigation Registration**: Add the slug to the `pages` array in both:
+  - `content/docs/<section>/meta.json`
+  - `content/docs/<section>/meta.ar.json`
+- **Navigation Breadcrumbs Invariant**: Use bold with `>`: `**Settings > Branding > Receipts**`. Never use arrows (`→`).
+- **Punctuation Rules**: Zero em-dashes (`—`), en-dashes (`–`), or arrows (`→`).
+- **No Fabricated Capabilities**: Document only actual shipped UI screens and fields.
+- **Natural Arabic**: Write clear, easy-to-follow Arabic that retail shopkeepers easily understand.
+
+## Step-by-Step Implementation Flow
+
+### Step 1: Create the English Documentation Page (`content/docs/<section>/<slug>.mdx`)
 
 ```mdx
 ---
-title: Keyword-first short title
-description: "One plain sentence saying what the reader will learn."
+title: Setting Up Thermal Printers
+description: Connect USB and Bluetooth thermal receipt printers to your Cashvio POS.
 ---
 
-Intro paragraph: what this feature does and why a merchant cares (2 to 3 sentences).
+import { Callout } from 'fumadocs-ui/components/callout';
 
-## Section heading
+# Setting Up Thermal Printers
 
-Steps, tables, and callouts...
+Connect any 80mm or 58mm thermal receipt printer to print instant customer receipts.
+
+## Supported Connection Types
+
+- **USB Printers**: Plug directly into your computer, Android tablet, or POS terminal.
+- **Bluetooth Printers**: Pair wirelessly with mobile phones and portable tablets.
+- **Network / LAN Printers**: Connect via Ethernet cable to your local Wi-Fi router.
+
+<Callout type="info">
+  Cashvio supports standard ESC/POS commands used by Epson, Star Micronics, Xprinter, and generic thermal printers.
+</Callout>
+
+## Step-by-Step Setup
+
+1. Open your cashier screen and navigate to **Settings > Hardware > Printers**.
+2. Click **Add Printer** and select your connection type.
+3. Choose your paper width: **80mm** (standard retail) or **58mm** (compact).
+4. Click **Print Test Receipt** to verify clear output.
+5. Toggle **Auto-Print on Checkout** to print receipts automatically when completing sales.
 ```
 
-WARNING: a frontmatter value containing `: ` (colon + space) MUST be double-quoted or the fumadocs build fails with a YAMLException. Quote descriptions by default.
+### Step 2: Create the Arabic Documentation Page (`content/docs/<section>/<slug>.ar.mdx`)
 
-## Conventions
+```mdx
+---
+title: إعداد طابعات الإيصالات الحرارية
+description: ربط طابعات الإيصالات الحرارية عبر USB وبلوتوث بنظام كاشفيو.
+---
 
-- Both files mirror each other: same headings, same tables, same components, same order.
-- Navigation paths: **Settings > Branding** (bold, `>` separator, never arrows).
-- Status flows in prose: "Pending, then Preparing, then Ready, then Delivering, and finally Completed".
-- UI names in bold: **Adjust Stock**. Values and codes in backticks.
-- Use the existing MDX components: `<Callout>` for notes/warnings, `<Steps>` for sequences, `<Cards>` for link grids. Look at `content/docs/getting-started/onboarding.mdx` for reference.
-- content-style rule applies fully: no em-dashes, en-dashes, or arrows anywhere, including frontmatter.
-- Arabic file: natural Arabic (not literal translation), English technical terms kept as-is (POS, CSV, QR).
-- Docs URLs are auto-included in the sitemap and llms.txt from the Fumadocs source; no manual registration beyond meta.json.
+import { Callout } from 'fumadocs-ui/components/callout';
 
-## Sidebar registration
+# إعداد طابعات الإيصالات الحرارية
 
-`content/docs/<section>/meta.json` lists page slugs in display order. A page missing from `meta.json` will not appear in the sidebar. New sections are wired in `content/docs/meta.json` with a `---Section Label---` divider plus `"...<folder>"`.
+قم بتوصيل أي طابعة إيصالات حرارية بمقاس 80 مم أو 58 مم لطباعة فواتير العملاء فوراً.
+
+## طرق التوصيل المدعومة
+
+- **طابعات USB**: التوصيل المباشر بالكمبيوتر أو التابلت أو شاشة الكاشير.
+- **طابعات بلوتوث**: الاقتران اللاسلكي بالهواتف الذكية والأجهزة اللوحية.
+- **طابعات الشبكة (LAN)**: التوصيل عبر كابل الإنترنت بنفس شبكة الواي فاي.
+
+<Callout type="info">
+  يدعم كاشفيو أوامر ESC/POS القياسية المتوافقة مع إبسون وستار وإكس برينتر وجميع الطابعات الحرارية الشائعة.
+</Callout>
+
+## خطوات الإعداد
+
+1. افتح شاشة الكاشير وانتقل إلى **الإعدادات > الأجهزة > الطابعات**.
+2. اضغط على **إضافة طابعة** واختر طريقة التوصيل.
+3. حدد عرض الورق: **80 مم** (المقاس القياسي) أو **58 مم** (المقاس الصغير).
+4. اضغط على **طباعة إيصال تجريبي** للتأكد من وضوح الطباعة.
+5. فعّل خيار **طباعة تلقائية عند الدفع** لطباعة الفاتورة فور إتمام عملية البيع.
+```
+
+### Step 3: Register in Navigation Meta Files
+
+Update both `content/docs/<section>/meta.json` and `meta.ar.json`:
+
+```json
+// content/docs/pos/meta.json
+{
+  "title": "Point of Sale",
+  "pages": [
+    "overview",
+    "thermal-printers",
+    "barcode-scanners"
+  ]
+}
+
+// content/docs/pos/meta.ar.json
+{
+  "title": "نظام الكاشير (POS)",
+  "pages": [
+    "overview",
+    "thermal-printers",
+    "barcode-scanners"
+  ]
+}
+```
+
+### Step 4: Verification
+
+Run the automated checker to verify zero banned characters and valid YAML frontmatter:
+```bash
+node .agents/skills/seo-preflight/scripts/check-content.mjs
+```

@@ -1,0 +1,104 @@
+---
+description: Core Web Vitals (LCP, INP, CLS), third-party script deferral, font loading, and image optimization
+alwaysApply: true
+---
+
+# Performance & Core Web Vitals
+
+Core Web Vitals are a direct organic search ranking factor. Every page and component must maintain fast LCP (< 2.5s), low CLS (< 0.1), and responsive INP (< 200ms).
+
+## Invariant Rules
+
+- **Zero Eager Third-Party Scripts**: NEVER load third-party scripts (e.g. Chatwoot, Facebook SDK) eagerly in the root `<head>` or initial page bundle.
+- **Interaction/Idle Script Loading**: Defer non-critical customer support widgets (Chatwoot) until the first user interaction (`pointerdown`, `keydown`, `touchstart`, `scroll` with `{ once: true }`) or a delayed `requestIdleCallback` (4000ms–6000ms fallback).
+- **Google Fonts Invariant**: Load fonts ONLY via `next/font/google` (`Inter`, `Tajawal`, `IBM_Plex_Mono`) with `display: 'swap'`, `preload: true`, and explicit `weight` arrays. Never add raw `<link>` stylesheet tags.
+- **Image Optimization**:
+  - Always use `next/image` (`<Image />`).
+  - Hero / Above-the-fold screenshots MUST use `priority` on the active mode image.
+  - Below-the-fold images MUST use lazy loading (default).
+  - Explicit `width` and `height` or `fill` with parent `relative` aspect ratio to prevent CLS layout shifts.
+- **Static Assets Caching**: Rely on immutable cache headers configured in `next.config.ts`; never add random cache-busting query strings (`?v=123`).
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Third-Party Script Injection
+
+```tsx
+// ❌ FORBIDDEN — Eager script loading blocking main thread during initial page load
+<Head>
+  <script src="https://chat.cash-vio.com/packs/js/sdk.js" async />
+</Head>
+
+// ✅ REQUIRED — Interaction-driven / idle-deferred loader in layout
+<Script
+  id="chatwoot-defer"
+  strategy="lazyOnload"
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function(d){
+        var loaded = false;
+        function loadChatwoot() {
+          if (loaded) return;
+          loaded = true;
+          var g = d.createElement('script');
+          g.src = 'https://chat.cash-vio.com/packs/js/sdk.js';
+          g.async = true;
+          d.head.appendChild(g);
+        }
+        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function(e) {
+          window.addEventListener(e, loadChatwoot, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function(){ setTimeout(loadChatwoot, 4000); });
+        } else {
+          setTimeout(loadChatwoot, 6000);
+        }
+      })(document);
+    `,
+  }}
+/>
+```
+
+### 2. Dual-Mode LCP Image Optimization
+
+```tsx
+// ❌ FORBIDDEN — Missing priority or raw <img> causing layout shift and poor LCP
+<img src="/marketing/hero.png" alt="POS Dashboard" />
+
+// ✅ REQUIRED — ThemedShot with proper priority and layout dimensions
+import { ThemedShot } from '@/components/ui/themed-shot';
+
+<ThemedShot
+  base="/shots/hero-pos"
+  locale={locale}
+  alt="Cashvio POS interface"
+  width={1200}
+  height={750}
+  priority
+/>
+```
+
+### 3. Font Loading Optimization
+
+```tsx
+// ❌ FORBIDDEN — Unbounded weights or render-blocking font link
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet" />
+
+// ✅ REQUIRED — Subsetted next/font/google with exact weights
+import { Inter, Tajawal } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+  preload: true,
+});
+
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-arabic',
+  preload: true,
+});
+```

@@ -1,0 +1,97 @@
+---
+description: Bilingual English & Arabic parity, next-intl namespace conventions, translation file structure, and paired MDX docs
+alwaysApply: true
+---
+
+# Bilingual Content Standards (EN + AR)
+
+The Cashvio marketing site and merchant documentation are 100% bilingual. English lives at the root URL path (`/`), and Arabic lives with the `/ar` prefix (`/ar/*`). There is no such thing as an English-only or Arabic-only change to user-visible content.
+
+## Invariant Rules
+
+- **Strict Key Parity**: Every leaf key added to `messages/en.json` MUST be added to `messages/ar.json` with identical nesting, and vice versa. Missing keys crash next-intl at runtime.
+- **Paired MDX Documentation**: Every docs page MUST exist as a paired file: `content/docs/<section>/<slug>.mdx` (English) and `content/docs/<section>/<slug>.ar.mdx` (Arabic).
+- **Navigation Registration Parity**: Update both `content/docs/<section>/meta.json` and `meta.ar.json` when adding doc pages.
+- **Locale Prefix Strategy**: English uses no prefix (`localePrefix: 'as-needed'`), Arabic uses `/ar`.
+- **No Locale Auto-Redirects**: `localeDetection` is permanently `false` to maintain deterministic URLs for search engine crawlers.
+- **RTL Typography**: `Tajawal` font is loaded for Arabic (`dir="rtl"`), and `Inter` for English (`dir="ltr"`). Use Tailwind logical properties (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`).
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Translation Key Parity
+
+```json
+// ❌ FORBIDDEN — Key present in en.json but missing from ar.json
+// messages/en.json
+{
+  "features": {
+    "newFeature": {
+      "title": "Fast Checkout",
+      "description": "Scan barcodes in milliseconds."
+    }
+  }
+}
+// messages/ar.json
+{
+  "features": {} // CRASH: Missing key 'features.newFeature.title'
+}
+
+// ✅ REQUIRED — Exact structural mirror with natural translations
+// messages/en.json
+{
+  "features": {
+    "newFeature": {
+      "title": "Fast Checkout",
+      "description": "Scan barcodes in milliseconds."
+    }
+  }
+}
+// messages/ar.json
+{
+  "features": {
+    "newFeature": {
+      "title": "كاشير فائق السرعة",
+      "description": "امسح الباركود في أجزاء من الثانية."
+    }
+  }
+}
+```
+
+### 2. Dotted Namespace Consumption
+
+```tsx
+// ❌ FORBIDDEN — Hardcoded text or ambiguous namespaces
+const t = await getTranslations();
+return <h1>{t('title')}</h1>;
+
+// ✅ REQUIRED — Explicit namespace isolation
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { type Locale } from '@/i18n/routing';
+
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale: locale as Locale, namespace: 'freePos' });
+  const metaT = await getTranslations({ locale: locale as Locale, namespace: 'metadata.freePos' });
+
+  return <h1>{t('hero.title')}</h1>;
+}
+```
+
+## Structure & Namespaces
+
+- `metadata.<page>`: Title, description, and OG strings.
+- `<pageDomain>`: Body copy, hero, feature cards, FAQ questions and answers, CTAs.
+- `common`: Universal action buttons (`getStarted`, `viewPricing`, `login`).
+- `navigation`: Header and dropdown labels.
+- `footer`: Footer category headings and links.
+- `ledger`: Shopkeeper's ledger mono tokens (`no`, `item`, `total`).
+- `industriesHub` / `industry<Name>`: Industry hub and vertical-specific pages.
+- `tools` / `<toolName>`: Free tools hub and individual calculator/generator tools.
+
+## Automated Verification
+
+Always verify key parity and banned character compliance before committing:
+```bash
+node .agents/skills/seo-preflight/scripts/check-content.mjs
+```

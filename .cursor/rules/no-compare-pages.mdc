@@ -1,0 +1,57 @@
+---
+description: Permanent ban on named competitor comparison pages, redirect invariants, and generic comparison guidelines
+alwaysApply: true
+---
+
+# Competitor Comparison Policy
+
+Named competitor comparison pages (e.g. Loyverse, Foodics, Odoo POS, Square, Shopify) were deliberately removed and permanently banned from this repository.
+
+## Invariant Rules
+
+- **Zero Named Competitor Pages**: NEVER create pages, routes, or standalone markdown articles comparing Cashvio to a named commercial competitor (no `/compare/*` routes, no "Cashvio vs Foodics" landing pages).
+- **Permanent Redirects Invariant**: `next.config.ts` permanently redirects `/compare/:path*` and `/ar/compare/:path*` to the homepage. These redirects must NEVER be removed or altered, as search engines may still crawl historical URLs.
+- **Allowed Generic Comparisons**: Generic category comparisons against unnamed platforms (e.g., `"Generic POS"`, `"Other Platforms"`, `"الأنظمة التقليدية"`) using `ComparisonTable` inside feature pages are completely valid.
+- **No Competitor Keywords or Schema**: NEVER add named competitors to page `keywords` arrays, meta titles, or JSON-LD schema descriptions.
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Route Creation & Comparison Copy
+
+```text
+// ❌ FORBIDDEN
+/features/cashvio-vs-foodics
+/compare/loyverse
+"Switch from Odoo to Cashvio and save 100%"
+"Why Cashvio beats Loyverse in Saudi Arabia"
+
+// ✅ REQUIRED
+/features/free-pos
+/features/offline-mode
+"How Cashvio compares to traditional POS systems"
+"Why choose a modern cloud cashier over legacy hardware"
+```
+
+### 2. ComparisonTable Component Usage
+
+```tsx
+// ❌ FORBIDDEN — Named competitor in comparison table header
+<ComparisonTable
+  headers={{
+    feature: 'Feature',
+    cashvio: 'Cashvio',
+    others: 'Foodics / Loyverse', // FORBIDDEN!
+  }}
+  rows={rows}
+/>
+
+// ✅ REQUIRED — Generic platform category header
+<ComparisonTable
+  headers={{
+    feature: t('comparison.headers.feature'),
+    cashvio: t('comparison.headers.cashvio'),
+    others: t('comparison.headers.others'), // "Traditional Systems" / "الأنظمة التقليدية"
+  }}
+  rows={rows}
+/>
+```

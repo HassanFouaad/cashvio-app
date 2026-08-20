@@ -1,0 +1,39 @@
+---
+description: Mandatory pre-flight verification checklist before writing, editing, or completing code in my-app
+alwaysApply: true
+---
+
+# Pre-Flight Verification Check (MANDATORY)
+
+Before writing, modifying, or finalizing any code in `my-app`, you MUST follow this protocol.
+
+## Pre-Flight Decision Table
+
+| Task Category | Relevant Standard Files |
+| --- | --- |
+| Marketing / Feature Page | `.agents/skills/add-marketing-page/SKILL.md`, `.cursor/rules/seo-standards.mdc` |
+| Industry Vertical Page | `.agents/skills/add-industry-page/SKILL.md`, `.cursor/rules/design-system.mdc` |
+| Free Tool / Calculator | `.agents/skills/add-free-tool/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Documentation Topic | `.agents/skills/add-doc-page/SKILL.md`, `.cursor/rules/bilingual-content.mdc` |
+| Content Writing & Copy | `.agents/skills/write-content/SKILL.md`, `.cursor/rules/content-style.mdc` |
+| Design Tokens & Ledger UI | `.agents/skills/theme-styling/SKILL.md`, `.cursor/rules/design-system.mdc` |
+| Analytics & Attribution | `.agents/skills/analytics-tracking/SKILL.md`, `.cursor/rules/performance.mdc` |
+| App Router & Pages | `.agents/skills/app-router-pages/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Cross-App Cookie Sync | `.agents/skills/cross-app-sync/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Final Verification & Audit | `.agents/skills/verify-marketing-code/SKILL.md`, `.agents/skills/seo-preflight/SKILL.md` |
+
+## Mandatory Self-Check Checklist
+
+After writing or updating code, verify every item before presenting to the user:
+
+- [ ] **No Banned Characters**: No em-dashes (`—`), en-dashes (`–`), or arrows (`→`) in any added/modified copy.
+- [ ] **Bilingual Parity**: Every key added to `messages/en.json` is mirrored in `messages/ar.json`.
+- [ ] **Paired Docs**: Every doc page exists in both `.mdx` and `.ar.mdx`.
+- [ ] **SEO Title Brand Invariant**: No `"Cashvio"` or `"| Cashvio"` in meta title strings.
+- [ ] **No PWA / No Competitors**: Manifest remains `display: 'browser'`, zero competitor names.
+- [ ] **Async Params**: Page and layout `params` are awaited before property access.
+- [ ] **`setRequestLocale`**: Called at the top of every localized page and layout.
+- [ ] **Locale Navigation**: Links use `Link` from `@/i18n/navigation`, not bare `next/link`.
+- [ ] **Type-check & Preflight**: Passed `npm run type-check` and `node .agents/skills/seo-preflight/scripts/check-content.mjs`.
+
+If any check fails, fix the violation immediately before finishing the turn.

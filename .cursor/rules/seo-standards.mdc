@@ -1,0 +1,121 @@
+---
+description: Metadata generation, page titles, canonical URLs, hreflang links, JSON-LD structured data, and content freshness
+alwaysApply: true
+---
+
+# SEO Standards & Structured Data
+
+The primary goal of `my-app` is high organic search rankings and rich search engine snippet presentation for POS and e-commerce keywords.
+
+## Invariant Rules
+
+- **No Double Branding (CRITICAL)**: The root layout template in `src/app/[locale]/layout.tsx` automatically appends `| Cashvio` (`%s | Cashvio`). NEVER include `"Cashvio"` or `"| Cashvio"` in page title strings in `messages/{en,ar}.json`.
+- **Keyword-First Page Titles**: Place the primary target keyword at the very beginning of the title string (e.g., `"Free POS System & Cloud Cashier"`, `"كاشير مجاني ونظام نقاط بيع سحابي"`).
+- **Concise Descriptions**: Meta descriptions MUST be 140–160 characters, include target keywords naturally, and finish with a strong value differentiator.
+- **Centralized Metadata Builder**: ALWAYS use `buildPageMetadata()` from `@/lib/seo/page-metadata` in `generateMetadata()`. Never hand-roll `Metadata` objects.
+- **Deterministic Canonical & Hreflang**: Let `buildPageMetadata()` construct canonical URLs and hreflang alternatives (`en`, `ar`, `x-default` -> English).
+- **Schema via `schemaTemplates`**: Build structured JSON-LD schemas ONLY via `@/config/seo` templates, serialize with `serializeSchema()`, and render as `<script type="application/ld+json">` in the server component body.
+- **Freshness Invariant**: Update `contentLastUpdated` in `src/config/seo.ts` ONLY when meaningful content or features change. NEVER use dynamic timestamps like `new Date()` for `lastModified`.
+- **Zero Fabricated Schema Data**: Never fabricate review ratings, review counts, or fake pricing tiers in JSON-LD.
+
+## ❌ FORBIDDEN vs ✅ REQUIRED
+
+### 1. Page Title Formatting in Translations
+
+```json
+// ❌ FORBIDDEN — Brand appended in translation string (renders "Free POS System | Cashvio | Cashvio")
+// messages/en.json -> metadata.freePos
+{
+  "title": "Cashvio — Free POS System for Retail"
+}
+
+// ✅ REQUIRED — Keyword-first title without brand suffix (renders "Free POS System for Retail | Cashvio")
+// messages/en.json -> metadata.freePos
+{
+  "title": "Free POS System for Retail & Cashier"
+}
+```
+
+### 2. generateMetadata Implementation
+
+```tsx
+// ❌ FORBIDDEN — Hand-rolled metadata with manual alternate links
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  return {
+    title: 'Free POS',
+    alternates: {
+      canonical: `https://cash-vio.com/${params.locale}/free-pos`, // Broken on EN!
+    },
+  };
+}
+
+// ✅ REQUIRED — Standardized buildPageMetadata helper
+import { buildPageMetadata } from '@/lib/seo/page-metadata';
+import { type Locale } from '@/i18n/routing';
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  return buildPageMetadata({
+    locale: locale as Locale,
+    path: '/features/free-pos',
+    namespace: 'metadata.freePos',
+    keywords: {
+      en: ['free pos system', 'retail cashier software', 'free point of sale'],
+      ar: ['كاشير مجاني', 'نظام نقاط بيع مجاني', 'برنامج كاشير للمحلات'],
+    },
+  });
+}
+```
+
+### 3. JSON-LD Structured Data in Server Components
+
+```tsx
+// ❌ FORBIDDEN — Inline unescaped script tag with manual JSON
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(mySchema) }} // XSS / parsing hazard
+/>
+
+// ✅ REQUIRED — schemaTemplates + serializeSchema helper
+import { schemaTemplates, serializeSchema, siteConfig } from '@/config/seo';
+import { setRequestLocale } from 'next-intl/server';
+import { type Locale } from '@/i18n/routing';
+
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const typedLocale = locale as Locale;
+
+  const pageUrl = `${siteConfig.url}${typedLocale === 'ar' ? '/ar' : ''}/features/free-pos`;
+
+  const schemas = [
+    schemaTemplates.webPage({
+      url: pageUrl,
+      name: 'Free POS System',
+      description: 'Free cloud point of sale software.',
+      locale: typedLocale,
+    }),
+    schemaTemplates.breadcrumbList({
+      items: [
+        { name: 'Home', url: siteConfig.url },
+        { name: 'Features', url: `${siteConfig.url}/features` },
+        { name: 'Free POS', url: pageUrl },
+      ],
+    }),
+  ];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeSchema(schemas) }}
+      />
+      {/* Page Content */}
+    </>
+  );
+}
+```
