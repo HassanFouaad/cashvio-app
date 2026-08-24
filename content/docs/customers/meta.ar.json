@@ -1,4 +1,9 @@
 {
   "title": "العملاء",
-  "pages": ["managing-customers", "customer-addresses", "store-credit"]
+  "pages": [
+    "managing-customers",
+    "importing-customers",
+    "customer-addresses",
+    "store-credit"
+  ]
 }

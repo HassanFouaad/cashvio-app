@@ -1,0 +1,75 @@
+---
+title: Adding Customers from a File
+description: Add hundreds of customers at once by filling a simple Excel template and uploading it, with instant checks before anything is saved.
+---
+
+## What is it?
+
+Instead of adding customers one by one, you can fill a spreadsheet with your customer list and upload it in one go. Cashvio checks every row first, points out any problems clearly, and then adds or updates your customers in the background while you keep working.
+
+This is the fastest way to migrate your customer base into Cashvio when switching from another system, a spreadsheet, or an address book.
+
+## Before You Start
+
+1. Go to **Customers** in the sidebar.
+2. Click **Add from file**.
+3. Click **Download the template** to get an Excel file (.xlsx) with the correct column headers and example rows.
+4. Open the template in **Excel** or **Google Sheets**.
+
+<Callout title="Important">
+Keep the first row (the column headers) exactly as it is, and replace the example rows with your real customer data. Example rows starting with placeholder numbers like `+000` are detected automatically and will never be added.
+</Callout>
+
+## Filling the Template
+
+One row = one customer. The columns are:
+
+| Column | Required? | What to enter |
+|--------|-----------|---------------|
+| **name** | Optional | The customer name you see across the portal and receipt (up to 100 characters). Leave empty if not known |
+| **phone** | Required | Primary phone number in international format, for example `+201012345678` (between 7 and 32 characters) |
+| **dateofbirth** | Optional | Birth date in `YYYY-MM-DD` format (e.g. `1990-05-15`), useful for birthday loyalty offers |
+| **notes** | Optional | Private staff notes (preferences, delivery hints, customer tags) |
+| **country** | Optional | Country name (e.g. `Egypt` or `مصر`) or code (e.g. `EG`). Must match a country configured in the system |
+| **city** | Optional | City name (e.g. `Cairo` or `القاهرة`) or code. Must belong to the specified country |
+| **region** | Optional | Area, neighborhood, or district (up to 100 characters). Required whenever other address columns are provided |
+| **street** | Optional | Street name (up to 255 characters) |
+| **building** | Optional | Building number or name (up to 50 characters) |
+| **floor** | Optional | Floor number (up to 20 characters) |
+| **apartment** | Optional | Apartment or unit number (up to 50 characters) |
+| **landmark** | Optional | Delivery instructions or landmarks (up to 255 characters) |
+| **addresstype** | Optional | `apartment`, `house`, or `office`. Empty defaults to `apartment` |
+| **postalcode** | Optional | Postal code or ZIP code (up to 20 characters) |
+| **isdefault** | Optional | `yes` or `no`. Whether this is the customer's primary address. Empty defaults to `yes` |
+
+<Callout title="File formats">
+You can upload the file as **Excel (.xlsx)** or **CSV**. Both formats support Arabic names, regional addresses, and international phone numbers.
+</Callout>
+
+## Uploading and Reviewing
+
+1. Drag your file into the upload box (or click to choose it from your device).
+2. Cashvio checks your file **instantly** and displays:
+   - Total rows found in the file
+   - How many rows are **ready to add**
+   - Which rows have issues, with the exact line number and a clear explanation (e.g. "Row 4: Phone number is invalid")
+3. Nothing is saved yet. You can:
+   - Fix any issues in your file and upload it again, or
+   - Continue anyway: invalid rows are **skipped**, while valid rows are imported.
+4. Click **Add X customers** to start the background process.
+
+## While It Runs
+
+The import runs safely in the background, so you can close the window or browse other sections without losing progress:
+
+- A live progress indicator shows how many customers have been processed.
+- The counter displays how many customers were **added** or updated.
+- Any row-level issues encountered during processing are listed with their line numbers and reasons.
+
+<Callout title="Automatic updates and duplicates">
+Phone numbers are the unique identifier for customers. If a phone number already exists in your store, Cashvio updates that customer profile rather than creating a duplicate.
+</Callout>
+
+<Callout title="Resilient checkpoint resume">
+If your internet connection drops or a temporary interruption occurs, Cashvio saves checkpoints after every batch. You can upload the same file again and the process picks up right where it stopped.
+</Callout>
