@@ -4,6 +4,7 @@
     "managing-customers",
     "importing-customers",
     "customer-addresses",
-    "store-credit"
+    "store-credit",
+    "customer-credit"
   ]
 }

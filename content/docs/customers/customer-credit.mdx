@@ -1,0 +1,83 @@
+---
+title: Customer Credit (Pay Later)
+description: "Sell on credit at the counter, track what each customer owes, and collect the remainder later."
+---
+
+**Customer credit** lets trusted customers take goods now and pay later. Each on-credit sale is tied to a **customer profile** so you always know who owes what.
+
+This is separate from [Store Credit](/docs/customers/store-credit): store credit is a prepaid balance (often from refunds). **Amount owed** is unpaid money from on-credit orders.
+
+## Turn It On
+
+1. Go to **Settings > Plan**.
+2. Find **Customer Credit (Pay Later)** and switch it on.
+
+The module is off by default on existing accounts. When it is off, all sales must be paid at checkout (except the existing unpaid-order flow for pickup and delivery without credit tracking).
+
+<Callout title="Online store">
+On-credit sales work in the **portal and POS only**. Orders placed on your public online store must be paid at checkout.
+</Callout>
+
+## Pay Later at Checkout
+
+On **New Sale**, attach a **customer** first. Without a customer, **Pay later** stays disabled.
+
+Click **Charge / Checkout**, then **Pay later** to create the order with nothing collected now. This works for **Pickup**, **Delivery**, **Dine-In**, and **In-Store** sales.
+
+The success screen shows the order total and that it is **On credit**. The order appears in **Sales** with payment status **Partial** or **Unpaid** depending on whether anything was collected.
+
+### Optional collection date
+
+When you use **Pay later**, you can set an optional **promised collection date** on the order. This date is for your team’s reference; it does not create a separate scheduled payment row.
+
+### Partial payment now, rest on credit
+
+When the customer pays **part of the total** at checkout:
+
+1. Lower the **amount to pay now** and choose a payment method for that portion.
+2. Enable **Put the rest on customer credit**.
+3. Optionally pick a **promised collection date** for the remainder.
+
+The order is marked **On credit** for the unpaid balance. Collect the rest later from the order details page.
+
+<Callout title="Note">
+If **Customer Credit (Pay Later)** is off but you take a partial payment, you can still use **Save the rest as money owed** with a due date. That path creates a scheduled payment you track under [Overdue Payments](/docs/orders/overdue-payments). On-credit orders keep the balance on the order itself instead.
+</Callout>
+
+## Tracking What Customers Owe
+
+### Customer profile
+
+Open **Customers**, then a customer’s profile. When credit is enabled, the stats row includes **Amount owed**: the total still due on all open **On credit** orders for that customer.
+
+If they owe money, use **View open credit orders** above their order history. It filters to deferred orders with an outstanding balance.
+
+### Orders list
+
+On **Sales > All Sales**:
+
+| Filter | What it shows |
+|--------|----------------|
+| **Outstanding balance** | Orders that still have money due (including partial on-credit sales) |
+| **Payment terms: On credit** | Orders intentionally sold on credit |
+
+The payment column shows **On credit** under the payment status for deferred orders.
+
+### Dashboard
+
+Tiles that highlight orders needing attention link to the orders list with **Outstanding balance** applied so partial and on-credit sales are easy to find.
+
+## Collecting Later
+
+1. Open the order from **Sales** or the customer’s order history.
+2. Confirm **Payment terms** shows **On credit** and review **Due date** if one was set.
+3. Click **Add Payment** (or **Collect**) and enter the amount and method.
+
+When the full balance is paid, the order moves to **Paid** and the customer’s **Amount owed** drops automatically. **Cancelled** on-credit orders no longer count toward amount owed.
+
+## Related
+
+- [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): Full POS checkout flow including pay later
+- [Store Credit](/docs/customers/store-credit): Prepaid balance from refunds, not the same as amount owed
+- [Managing Customers](/docs/customers/managing-customers): Customer profiles and order history
+- [Business Settings & Plan](/docs/settings/business-settings): Enable or disable plan modules
