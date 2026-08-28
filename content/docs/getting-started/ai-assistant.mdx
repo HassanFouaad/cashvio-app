@@ -1,0 +1,81 @@
+---
+title: Using the AI Assistant
+description: Ask Cashvio about orders, inventory, customers, and reports in plain language. Approve store actions before they run.
+---
+
+## What is the AI Assistant?
+
+The **AI Assistant** is a chat panel inside the merchant portal. Ask questions in everyday language and get answers pulled from your live store data. When the assistant needs to change something (transfer stock, adjust inventory, update fulfillment, or create a refund), it shows an approval card and waits for you to tap **Approve** or **Deny**.
+
+Open it from the sidebar (**Assistant**) or the Dashboard quick action. On mobile, **Assistant** also appears in the bottom navigation.
+
+<Callout title="Plan and permissions">
+The AI Assistant requires the **AI Assistant** plan feature. Analytics-style answers (sales overview, profit, top products, slow movers, inventory valuation) also require the **Analytics** module and order-view permission. Your role must allow the underlying action before the assistant can run a tool.
+</Callout>
+
+## Starting a conversation
+
+1. Open **Assistant** from the sidebar.
+2. Tap **New conversation** or pick a thread from the list.
+3. Type a question or tap one of the suggested prompts on the welcome screen, for example:
+   - Which products are low on stock?
+   - How are sales today?
+   - Show me recent orders
+   - Who are my top customers?
+   - Give me an inventory summary
+   - What are today's key metrics?
+
+The assistant streams its reply in real time. While it works, you may see a **Thinking** indicator or a short note that a tool is running.
+
+## What you can ask about
+
+| Topic | Examples |
+| --- | --- |
+| **Products & stock** | Search products, read stock levels, summarize inventory |
+| **Orders** | Search recent orders, open order details |
+| **Customers** | Search customers, open a customer profile |
+| **Dashboard** | Today's key metrics for your store |
+| **Analytics** | Sales overview, profit, top products, slow movers, inventory valuation (when Analytics is enabled) |
+
+The assistant only sees data your account can access. If you manage multiple stores, inventory tools use the store selected in your session.
+
+## Approving store actions
+
+Mutating tools never run silently. The assistant posts a **confirmation card** with a plain summary of what will happen. Tap **Approve** to execute or **Deny** to cancel. If you wait too long, the request expires and you can ask the assistant to prepare it again.
+
+Examples of actions that require approval:
+
+- Transfer stock between stores
+- Adjust inventory quantities
+- Update order fulfillment status
+- Create a refund
+
+Read-only lookups (search, details, analytics summaries) do not need approval.
+
+## Daily usage limit
+
+Your plan includes a daily **token** budget for assistant messages. A progress strip above the message box shows how much remains. When the limit is reached:
+
+- You cannot send new messages until the limit resets
+- **New conversation** is disabled
+- Suggested prompts and archive actions are disabled until reset
+
+The strip shows when usage resets (midnight in your tenant timezone).
+
+## Managing conversations
+
+- **Search**: when you have many threads, use the search box in the sidebar.
+- **Archive**: remove a conversation from your list. Messages stay on record; archiving only hides the thread from the sidebar.
+- **Copy**: copy any assistant or user message from the thread menu.
+
+## Tips for better answers
+
+- Name the store or product when you manage more than one location or have similar item names.
+- For analytics, mention the date range you care about (today, this week, last 30 days).
+- If the assistant asks you to pick between similar orders or products, reply with the number or name it shows.
+
+## Related guides
+
+- [Understanding the Dashboard](/docs/getting-started/dashboard)
+- [Analytics reports](/docs/reports/analytics-reports)
+- [Low stock alerts](/docs/inventory/low-stock-alerts)

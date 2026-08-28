@@ -74,6 +74,10 @@
       "title": "Sales Reports & Analytics: Revenue, Profit & Insights",
       "description": "Six ready reports: overview, profit, customers, returns, staff, and plain-language insights. Compare periods, spot best sellers and peak hours, export CSV."
     },
+    "aiAssistant": {
+      "title": "AI Assistant for Retail: Ask About Sales, Stock & Orders",
+      "description": "Ask Cashvio in plain language about orders, inventory, customers, and reports. Approve store actions before they run. Daily token limits keep usage predictable. Arabic and English."
+    },
     "purchaseOrders": {
       "title": "Purchase Order Software with Supplier Management",
       "description": "Create purchase orders in two steps, approve them deliberately, receive stock in parts, and let inventory update itself. Supplier contacts and full PO history included."
@@ -265,6 +269,7 @@
     "orderManagement": "Order Management",
     "customerManagement": "Customer Management",
     "salesAnalytics": "Sales Analytics",
+    "aiAssistant": "AI Assistant",
     "purchaseOrders": "Purchase Orders",
     "returnsAndRefunds": "Returns & Refunds",
     "multiStoreManagement": "Multi-Store Management",
@@ -1360,6 +1365,11 @@
       "salesAnalytics": {
         "title": "Sales Reports & Analytics",
         "description": "Revenue, profit, best sellers, peak hours, and staff performance. With recommendations in plain words.",
+        "cta": "Learn More"
+      },
+      "aiAssistant": {
+        "title": "AI Assistant",
+        "description": "Ask about orders, stock, customers, and dashboard metrics. Approve changes before they run.",
         "cta": "Learn More"
       },
       "purchaseOrders": {
@@ -6951,6 +6961,81 @@
       "title": "Replace the paper credit book",
       "subtitle": "Start free. Arabic and English.",
       "note": "No credit card required."
+    }
+  },
+  "aiAssistant": {
+    "hero": {
+      "badge": "AI Assistant",
+      "title": "Ask your shop in",
+      "titleHighlight": "plain language",
+      "subtitle": "Chat about orders, stock, customers, and sales without digging through menus. Cashvio reads live data and asks you to approve anything that changes the store.",
+      "note": "On eligible plans. Arabic and English.",
+      "stamp": "AI"
+    },
+    "pains": {
+      "badge": "The problem",
+      "title": "Where quick questions get stuck",
+      "p1": {
+        "title": "Too many screens for one number",
+        "description": "You only wanted today's sales or low stock, but the answer lives three menus deep."
+      },
+      "p2": {
+        "title": "Staff hesitate to click",
+        "description": "New hires know what they need but fear touching the wrong button on the POS or portal."
+      },
+      "p3": {
+        "title": "Reports arrive too late",
+        "description": "Insights exist in Reports, but the counter needs an answer before the customer walks away."
+      }
+    },
+    "features": {
+      "badge": "What you get",
+      "title": "Answers from live store data",
+      "subtitle": "Shipped in the merchant portal for plans with the AI Assistant feature.",
+      "f1": {
+        "title": "Plain-language questions",
+        "description": "Ask about orders, inventory, customers, and dashboard metrics the way you would ask a colleague."
+      },
+      "f2": {
+        "title": "Search products, orders, and people",
+        "description": "The assistant looks up products, stock levels, orders, and customer profiles from your account."
+      },
+      "f3": {
+        "title": "Analytics when your plan includes it",
+        "description": "Sales overview, profit, top products, slow movers, and inventory valuation when Analytics is enabled."
+      },
+      "f4": {
+        "title": "Approve before anything changes",
+        "description": "Stock transfers, adjustments, fulfillment updates, and refunds show a confirmation card first."
+      },
+      "f5": {
+        "title": "Conversation history",
+        "description": "Pick up past threads from the sidebar, search when the list grows, and archive when you are done."
+      },
+      "f6": {
+        "title": "Daily usage meter",
+        "description": "A visible token budget shows what remains today and when it resets so usage stays predictable."
+      }
+    },
+    "faq": {
+      "title": "AI Assistant FAQ",
+      "q1": {
+        "question": "Is the AI Assistant included in my plan?",
+        "answer": "It requires the AI Assistant plan feature. Analytics-style answers also need the Analytics module and the right permissions for your role."
+      },
+      "q2": {
+        "question": "Can it change my store without asking?",
+        "answer": "No. Lookups run immediately. Any action that changes stock, orders, or refunds waits for you to tap Approve or Deny."
+      },
+      "q3": {
+        "question": "What happens when I hit the daily limit?",
+        "answer": "Sending new messages and starting new conversations pause until your token budget resets at midnight in your tenant timezone."
+      }
+    },
+    "cta": {
+      "title": "Ask your shop, not the menu",
+      "subtitle": "Start free, then unlock the assistant on eligible plans.",
+      "note": "Arabic and English."
     }
   },
   "whatsappCommerce": {

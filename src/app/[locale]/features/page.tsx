@@ -149,6 +149,7 @@ const solutionLinks = [
   { key: 'whatsappCommerce', href: '/features/whatsapp-commerce' },
   { key: 'barcodePos', href: '/features/barcode-pos' },
   { key: 'salesAnalytics', href: '/features/sales-analytics' },
+  { key: 'aiAssistant', href: '/features/ai-assistant' },
   { key: 'purchaseOrders', href: '/features/purchase-orders' },
   { key: 'returnsAndRefunds', href: '/features/returns-and-refunds' },
   { key: 'multiStoreManagement', href: '/features/multi-store-management' },

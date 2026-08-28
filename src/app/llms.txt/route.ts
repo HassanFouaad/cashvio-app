@@ -45,6 +45,7 @@ export function GET() {
     `- [Order management](${SITE_URL}/features/order-management): Orders from POS, online store, and manual entry in one list, with fulfillment statuses, partial payments, digital receipts, and WhatsApp updates`,
     `- [Customer management](${SITE_URL}/features/customer-management): Customer profiles with visits, spending, store credit, addresses, and full order history, starting from a phone number`,
     `- [Sales analytics](${SITE_URL}/features/sales-analytics): Six ready reports covering overview, profit, customers, returns, staff, and plain-language insights with recommended actions`,
+    `- [AI assistant](${SITE_URL}/features/ai-assistant): Ask about orders, stock, customers, and analytics in plain language with approval before store changes`,
     `- [Purchase orders & suppliers](${SITE_URL}/features/purchase-orders): Two-step purchase orders with partial receiving, automatic inventory updates, and a supplier database`,
     `- [Returns & refunds](${SITE_URL}/features/returns-and-refunds): Item-level returns with restock control, recorded reasons, an approval flow, and four refund methods including store credit`,
     `- [Multi-store management](${SITE_URL}/features/multi-store-management): Separate stock, prices, and settings per branch with one dashboard, stock transfers, and per-store reports`,

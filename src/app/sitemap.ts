@@ -25,6 +25,7 @@ const staticPages: PageConfig[] = [
   { path: '/features/order-management' },
   { path: '/features/customer-management' },
   { path: '/features/sales-analytics' },
+  { path: '/features/ai-assistant' },
   { path: '/features/purchase-orders' },
   { path: '/features/returns-and-refunds' },
   { path: '/features/multi-store-management' },
