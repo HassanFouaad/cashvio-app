@@ -11,16 +11,16 @@ Before writing, modifying, or finalizing any code in `my-app`, you MUST follow t
 
 | Task Category | Relevant Standard Files |
 | --- | --- |
-| Marketing / Feature Page | `.agents/skills/add-marketing-page/SKILL.md`, `.cursor/rules/seo-standards.mdc` |
-| Industry Vertical Page | `.agents/skills/add-industry-page/SKILL.md`, `.cursor/rules/design-system.mdc` |
-| Free Tool / Calculator | `.agents/skills/add-free-tool/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
-| Documentation Topic | `.agents/skills/add-doc-page/SKILL.md`, `.cursor/rules/bilingual-content.mdc` |
-| Content Writing & Copy | `.agents/skills/write-content/SKILL.md`, `.cursor/rules/content-style.mdc` |
-| Design Tokens & Ledger UI | `.agents/skills/theme-styling/SKILL.md`, `.cursor/rules/design-system.mdc` |
-| Analytics & Attribution | `.agents/skills/analytics-tracking/SKILL.md`, `.cursor/rules/performance.mdc` |
-| App Router & Pages | `.agents/skills/app-router-pages/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
-| Cross-App Cookie Sync | `.agents/skills/cross-app-sync/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
-| Final Verification & Audit | `.agents/skills/verify-marketing-code/SKILL.md`, `.agents/skills/seo-preflight/SKILL.md` |
+| Marketing / Feature Page | `.agents/skills/marketing-site-add-marketing-page/SKILL.md`, `.cursor/rules/seo-standards.mdc` |
+| Industry Vertical Page | `.agents/skills/marketing-site-add-industry-page/SKILL.md`, `.cursor/rules/design-system.mdc` |
+| Free Tool / Calculator | `.agents/skills/marketing-site-add-free-tool/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Documentation Topic | `.agents/skills/marketing-site-add-doc-page/SKILL.md`, `.cursor/rules/bilingual-content.mdc` |
+| Content Writing & Copy | `.agents/skills/marketing-site-write-content/SKILL.md`, `.cursor/rules/content-style.mdc` |
+| Design Tokens & Ledger UI | `.agents/skills/marketing-site-theme-styling/SKILL.md`, `.cursor/rules/design-system.mdc` |
+| Analytics & Attribution | `.agents/skills/marketing-site-analytics-tracking/SKILL.md`, `.cursor/rules/performance.mdc` |
+| App Router & Pages | `.agents/skills/marketing-site-app-router-pages/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Cross-App Cookie Sync | `.agents/skills/marketing-site-cross-app-sync/SKILL.md`, `.cursor/rules/coding-standards.mdc` |
+| Final Verification & Audit | `.agents/skills/marketing-site-verify-marketing-code/SKILL.md`, `.agents/skills/marketing-site-seo-preflight/SKILL.md` |
 
 ## Mandatory Self-Check Checklist
 
@@ -34,6 +34,6 @@ After writing or updating code, verify every item before presenting to the user:
 - [ ] **Async Params**: Page and layout `params` are awaited before property access.
 - [ ] **`setRequestLocale`**: Called at the top of every localized page and layout.
 - [ ] **Locale Navigation**: Links use `Link` from `@/i18n/navigation`, not bare `next/link`.
-- [ ] **Type-check & Preflight**: Passed `npm run type-check` and `node .agents/skills/seo-preflight/scripts/check-content.mjs`.
+- [ ] **Type-check & Preflight**: Passed `npm run type-check` and `node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs`.
 
 If any check fails, fix the violation immediately before finishing the turn.

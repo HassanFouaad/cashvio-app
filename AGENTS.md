@@ -15,7 +15,7 @@ Machine-readable catalog of every standard: `.cursor/standards-index.yml`.
 1. Match the task under "Task → standards" below.
 2. Read those files before editing anything.
 3. Follow every pattern they define.
-4. Self-check output against "Never ship", then `.agents/skills/verify-marketing-code/SKILL.md` or `.agents/skills/preflight-check/SKILL.md`.
+4. Self-check output against "Never ship", then `.agents/skills/marketing-site-verify-marketing-code/SKILL.md` or `.agents/skills/marketing-site-preflight-check/SKILL.md`.
 
 ## Agent Startup (Non-Cursor / CLI Agents)
 
@@ -62,7 +62,7 @@ Fumadocs MDX for merchant documentation. Dev port: **3005**.
 
 - Dev `npm run dev` (port 3005) · build `npm run build`
 - Type-check `npm run type-check` (`tsc --noEmit`) · lint `npm run lint`
-- Preflight SEO content check: `node .agents/skills/seo-preflight/scripts/check-content.mjs`
+- Preflight SEO content check: `node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs`
 
 ## Structure
 
@@ -85,18 +85,18 @@ scripts/                marketing-shots, clone-store
 
 ### Marketing Pages & Landing Pages
 
-- Creating new feature landing pages: see `.agents/skills/add-marketing-page/SKILL.md`
-- Industry-specific landing pages: see `.agents/skills/add-industry-page/SKILL.md`
-- Free online business tools: see `.agents/skills/add-free-tool/SKILL.md`
-- App Router page conventions & async params: see `.agents/skills/app-router-pages/SKILL.md`
-- Design system & styling: see `.cursor/rules/design-system.mdc` and `.agents/skills/theme-styling/SKILL.md`
-- Dynamic OpenGraph social preview cards: see `.agents/skills/opengraph-images/SKILL.md`
+- Creating new feature landing pages: see `.agents/skills/marketing-site-add-marketing-page/SKILL.md`
+- Industry-specific landing pages: see `.agents/skills/marketing-site-add-industry-page/SKILL.md`
+- Free online business tools: see `.agents/skills/marketing-site-add-free-tool/SKILL.md`
+- App Router page conventions & async params: see `.agents/skills/marketing-site-app-router-pages/SKILL.md`
+- Design system & styling: see `.cursor/rules/design-system.mdc` and `.agents/skills/marketing-site-theme-styling/SKILL.md`
+- Dynamic OpenGraph social preview cards: see `.agents/skills/marketing-site-opengraph-images/SKILL.md`
 
 ### Content Writing & Docs
 
-- Content voice and banned punctuation: see `.cursor/rules/content-style.mdc` and `.agents/skills/write-content/SKILL.md`
+- Content voice and banned punctuation: see `.cursor/rules/content-style.mdc` and `.agents/skills/marketing-site-write-content/SKILL.md`
 - Bilingual parity (en + ar): see `.cursor/rules/bilingual-content.mdc`
-- Adding merchant documentation pages: see `.agents/skills/add-doc-page/SKILL.md`
+- Adding merchant documentation pages: see `.agents/skills/marketing-site-add-doc-page/SKILL.md`
 
 ### SEO, Performance & Guardrails
 
@@ -107,20 +107,20 @@ scripts/                marketing-shots, clone-store
 
 ### Data, State & Integrations
 
-- Analytics event tracking & attribution: see `.agents/skills/analytics-tracking/SKILL.md`
-- Cross-app cookie synchronization: see `.agents/skills/cross-app-sync/SKILL.md`
-- Order export & digital receipts: see `.agents/skills/order-export/SKILL.md`
-- Lead forms & backend API: see `.agents/skills/forms-and-api/SKILL.md`
-- Store cloning workflow: see `.agents/skills/clone-store/SKILL.md`
+- Analytics event tracking & attribution: see `.agents/skills/marketing-site-analytics-tracking/SKILL.md`
+- Cross-app cookie synchronization: see `.agents/skills/marketing-site-cross-app-sync/SKILL.md`
+- Order export & digital receipts: see `.agents/skills/marketing-site-order-export/SKILL.md`
+- Lead forms & backend API: see `.agents/skills/marketing-site-forms-and-api/SKILL.md`
+- Store cloning workflow: see `.agents/skills/marketing-site-clone-store/SKILL.md`
 
 ### Before Declaring the Task Done
 
-- Comprehensive 6-step code & content audit: see `.agents/skills/verify-marketing-code/SKILL.md`
-- Fast 30-second preflight check: see `.agents/skills/preflight-check/SKILL.md`
-- SEO preflight check script: see `.agents/skills/seo-preflight/SKILL.md`
+- Comprehensive 6-step code & content audit: see `.agents/skills/marketing-site-verify-marketing-code/SKILL.md`
+- Fast 30-second preflight check: see `.agents/skills/marketing-site-preflight-check/SKILL.md`
+- SEO preflight check script: see `.agents/skills/marketing-site-seo-preflight/SKILL.md`
 
 ### Maintaining the Standards Themselves
 
-- Inject standards into session: see `.agents/skills/inject-standards/SKILL.md`
-- Extract new tribal knowledge into a skill: see `.agents/skills/discover-standards/SKILL.md`
-- Rebuild standards index catalog: see `.agents/skills/index-standards/SKILL.md`
+- Inject standards into session: see `.agents/skills/marketing-site-inject-standards/SKILL.md`
+- Extract new tribal knowledge into a skill: see `.agents/skills/marketing-site-discover-standards/SKILL.md`
+- Rebuild standards index catalog: see `.agents/skills/marketing-site-index-standards/SKILL.md`

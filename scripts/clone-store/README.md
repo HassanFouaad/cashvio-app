@@ -3,7 +3,7 @@
 Turn a public shop webpage into a Cashvio tenant: scrape products (exact prices), create the tenant, seed catalogue + images, apply a matching storefront theme/colors, attach category + hero imagery, and emit admin credentials.
 
 **Hand this folder + a shop URL + a system-admin refresh token to an AI agent.**  
-Agent brief: [`prompt.md`](./prompt.md) · Cursor skill: [`.agents/skills/clone-store/`](../../.agents/skills/clone-store/)
+Agent brief: [`prompt.md`](./prompt.md) · Cursor skill: [`.agents/skills/marketing-site-clone-store/`](../../.agents/skills/marketing-site-clone-store/)
 
 ## Quick start
 

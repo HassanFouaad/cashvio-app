@@ -11,7 +11,7 @@ Optional: store name override, industry hint, forced theme key, plan id, max pro
 
 ## Your job
 
-1. Read this folder (`scripts/clone-store/`) and `.agents/skills/clone-store/SKILL.md`
+1. Read this folder (`scripts/clone-store/`) and `.agents/skills/marketing-site-clone-store/SKILL.md`
 2. Run the tools (or `tools/run.mjs`) to:
    - scrape products with **exact selling prices**
    - create a new tenant named after the store

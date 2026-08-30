@@ -93,5 +93,5 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
 Always verify key parity and banned character compliance before committing:
 ```bash
-node .agents/skills/seo-preflight/scripts/check-content.mjs
+node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs
 ```

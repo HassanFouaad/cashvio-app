@@ -1,3 +1,22 @@
+---
+name: marketing-site-index-standards
+description: Rebuild and validate .cursor/standards-index.yml catalog of rules and skills
+---
+
+# Index Standards
+
+Maintain and regenerate the machine-readable `.cursor/standards-index.yml` catalog.
+
+## When to Use
+
+- After creating, renaming, or deleting any rule in `.cursor/rules/` or skill in `.agents/skills/`.
+- To verify that all skills and rules are properly categorized.
+
+## Catalog Schema
+
+The catalog file `.cursor/standards-index.yml` uses top-level category keys mapping to rule/skill definitions:
+
+```yaml
 # Standards Index
 # Maps standards to categories for skill-based discovery
 
@@ -70,3 +89,4 @@ governance:
     description: Extract new tribal knowledge into modular skills
   marketing-site-index-standards:
     description: Rebuild and validate standards-index.yml catalog
+```
