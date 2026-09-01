@@ -66,7 +66,7 @@ export const env = {
   social: {
     x: process.env.NEXT_PUBLIC_X_URL || '',
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || '',
-    facebookAppId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '882610377639110',
+    facebookAppId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '3148922795296408',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
     youtube: process.env.NEXT_PUBLIC_YOUTUBE_URL || '',
