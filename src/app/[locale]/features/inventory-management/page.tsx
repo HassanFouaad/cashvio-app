@@ -116,6 +116,7 @@ export default async function InventoryManagementPage({ params }: Props) {
   const registerLink = typedLocale === 'en' ? '/register' : '/ar/register';
   const pricingLink = typedLocale === 'en' ? '/pricing' : '/ar/pricing';
   const featuresLink = typedLocale === 'en' ? '/features' : '/ar/features';
+  const assistantLink = typedLocale === 'en' ? '/features/ai-assistant' : '/ar/features/ai-assistant';
 
   const webPageSchema = schemaTemplates.webPage({
     locale: typedLocale,

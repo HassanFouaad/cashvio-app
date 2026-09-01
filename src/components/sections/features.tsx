@@ -15,6 +15,7 @@ const featureKeys = [
   'customers',
   'multistore',
   'team',
+  'aiAssistant',
 ] as const;
 
 // Keyword-anchored internal links to the feature landing pages
@@ -26,6 +27,7 @@ const featureLinks: Partial<Record<(typeof featureKeys)[number], string>> = {
   customers: '/features/customer-management',
   multistore: '/features/free-online-store',
   team: '/features/team-management',
+  aiAssistant: '/features/ai-assistant',
 };
 
 export async function Features({ locale }: FeaturesProps) {

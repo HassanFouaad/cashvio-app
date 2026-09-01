@@ -52,6 +52,16 @@ Examples of actions that require approval:
 
 Read-only lookups (search, details, analytics summaries) do not need approval.
 
+## Structured input forms
+
+When the assistant needs missing details before it can continue (for example refund amount, refund method, or an optional reason), it shows a compact **input card** in the thread instead of asking the same questions only in prose.
+
+- Answer with suggested choices or use **Other** for a custom text or number when offered.
+- Optional fields are marked and may be left blank.
+- Tap **Continue** to submit. The assistant validates your answers and resumes the task.
+- You can still type a normal message in the composer. That message counts as your answer and disables the earlier card.
+- Submitting the form only supplies parameters. Mutations such as refunds still require a separate **Approve** step on the confirmation card.
+
 ## Daily usage limit
 
 Your plan includes a daily **token** budget for assistant messages. A progress strip above the message box shows how much remains. When the limit is reached:

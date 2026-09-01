@@ -19,6 +19,7 @@ const tabs: TabConfig[] = [
   { id: 'orders', base: '/assets/orders', namespace: 'home.ordersShowcase', featureStyle: 'detailed' },
   { id: 'analytics', base: '/assets/analytics', namespace: 'home.analyticsShowcase', featureStyle: 'detailed' },
   { id: 'customers', base: '/assets/customers', namespace: 'home.customerManagement', featureStyle: 'simple' },
+  { id: 'aiAssistant', base: '/assets/dashboard', namespace: 'home.aiAssistantShowcase', featureStyle: 'detailed' },
 ];
 
 const featureKeys = ['feature1', 'feature2', 'feature3', 'feature4'] as const;

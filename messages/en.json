@@ -75,8 +75,8 @@
       "description": "Six ready reports: overview, profit, customers, returns, staff, and plain-language insights. Compare periods, spot best sellers and peak hours, export CSV."
     },
     "aiAssistant": {
-      "title": "AI Assistant for Retail: Ask About Sales, Stock & Orders",
-      "description": "Ask Cashvio in plain language about orders, inventory, customers, and reports. Approve store actions before they run. Daily token limits keep usage predictable. Arabic and English."
+      "title": "AI Assistant for Retail: Sales, Stock & Orders Chat",
+      "description": "Ask in plain language about orders, inventory, customers, and reports. Approve store changes on confirmation cards. Daily token limits keep usage predictable."
     },
     "purchaseOrders": {
       "title": "Purchase Order Software with Supplier Management",
@@ -477,6 +477,15 @@
         "sub4": "Activity audit trails & user management",
         "link": "Explore roles & permissions"
       },
+      "aiAssistant": {
+        "title": "AI Store Assistant",
+        "description": "Ask questions about orders, inventory, and sales in plain Arabic or English with built-in safety approvals.",
+        "sub1": "Live inventory and order lookups",
+        "sub2": "Human-in-the-loop approval cards",
+        "sub3": "Sales overview and profit summaries",
+        "sub4": "Multi-turn conversational history",
+        "link": "Explore the AI assistant"
+      },
       "eyebrow": "NO. 01 · WHAT YOU GET",
       "lineValue": "INCLUDED · 0.00"
     },
@@ -631,6 +640,29 @@
       "stat2Value": "$127",
       "cta": "Start Building Customer Loyalty"
     },
+    "aiAssistantShowcase": {
+      "badge": "Conversational Store Intelligence",
+      "title": "Ask questions, get answers from live store data",
+      "description": "Chat naturally about stock, sales, and orders in Arabic or English. The assistant reads live store records and presents clear confirmation cards before making any changes.",
+      "feature1": {
+        "title": "Natural Arabic & English Chat",
+        "description": "Ask about orders, revenue, top sellers, and low stock the way you would ask an experienced store manager."
+      },
+      "feature2": {
+        "title": "Approval Before Any Action",
+        "description": "Stock adjustments, store transfers, fulfillment updates, and refunds require explicit confirmation before they run."
+      },
+      "feature3": {
+        "title": "Grounded in Live Store Data",
+        "description": "Answers reflect actual inventory levels, real customer histories, and today's register figures."
+      },
+      "feature4": {
+        "title": "Visual Choice & KPI Cards",
+        "description": "Receive responses with formatted metric summaries, disambiguation chips, and direct links to orders."
+      },
+      "imageAlt": "Cashvio AI Assistant Interface",
+      "cta": "Explore AI Assistant"
+    },
     "trust": {
       "title": "Trusted Technology",
       "subtitle": "Integrated with the tools you already use",
@@ -693,7 +725,8 @@
         "dashboard": "Dashboard",
         "orders": "Orders",
         "analytics": "Analytics",
-        "customers": "Customers"
+        "customers": "Customers",
+        "aiAssistant": "AI Assistant"
       },
       "eyebrow": "NO. 03 · SEE IT IN ACTION"
     },
@@ -814,6 +847,14 @@
       "q6": {
         "question": "Can I get a free online store?",
         "answer": "Yes. You can create a free online store synced with your free POS. No commission and no monthly fee on the free plan. See our Free Online Store page for details."
+      },
+      "q7": {
+        "question": "How does the AI Assistant work and what are token limits?",
+        "answer": "Eligible plans include a daily token allowance to chat with the AI assistant about sales, inventory, and orders. A transparent meter displays remaining capacity and resets every midnight. You can upgrade capacity as your team grows."
+      },
+      "q8": {
+        "question": "Can the AI Assistant change store records without asking?",
+        "answer": "No. Lookups and reports display immediately. Any action that changes inventory, transfers stock, updates fulfillment, or creates a refund pauses for your explicit approval on a confirmation card."
       }
     },
     "whatsapp": {
@@ -2533,7 +2574,8 @@
           "title": "Return Patterns",
           "description": "See which products get returned most, and why. Identify quality issues, sizing problems, or description mismatches before they become expensive trends."
         }
-      }
+      },
+      "assistantLink": "Prefer asking questions in plain language? Explore the AI Store Assistant"
     },
     "comparison": {
       "title": "Cashvio vs. Tracking Inventory in Spreadsheets",
@@ -3530,7 +3572,8 @@
           "title": "Recommended Actions",
           "description": "Every insight comes with concrete recommendations, the expected impact, and a priority. So the next step is decided, not debated."
         }
-      }
+      },
+      "assistantLink": "Prefer asking questions in plain language? Explore the AI Store Assistant"
     },
     "howItWorks": {
       "title": "From Raw Sales to Clear Decisions",
@@ -4019,7 +4062,8 @@
           "description": "Pair the cashier devices each branch uses to that store. Sales ring up against the right branch, the right stock, and the right drawer.",
           "subs": "Device Pairing • Per-Store Registers"
         }
-      }
+      },
+      "assistantLink": "Prefer to manage branch stock and transfers in chat? Explore the AI Store Assistant"
     },
     "howItWorks": {
       "title": "Opening Your Next Branch in Cashvio",
@@ -6969,73 +7013,221 @@
       "title": "Ask your shop in",
       "titleHighlight": "plain language",
       "subtitle": "Chat about orders, stock, customers, and sales without digging through menus. Cashvio reads live data and asks you to approve anything that changes the store.",
+      "cta": "Start Free: No Credit Card",
+      "secondaryCta": "View All Features",
       "note": "On eligible plans. Arabic and English.",
+      "trust": "Zero silent changes: full human approval before any store modification",
       "stamp": "AI"
     },
-    "pains": {
+    "screenshot": {
+      "alt": "Cashvio AI assistant conversation panel showing sales overview and stock confirmation card",
+      "caption": "Live view: AI store assistant & approval cards"
+    },
+    "problem": {
       "badge": "The problem",
       "title": "Where quick questions get stuck",
-      "p1": {
-        "title": "Too many screens for one number",
-        "description": "You only wanted today's sales or low stock, but the answer lives three menus deep."
-      },
-      "p2": {
-        "title": "Staff hesitate to click",
-        "description": "New hires know what they need but fear touching the wrong button on the POS or portal."
-      },
-      "p3": {
-        "title": "Reports arrive too late",
-        "description": "Insights exist in Reports, but the counter needs an answer before the customer walks away."
+      "subtitle": "When finding one store number requires clicking through multiple screens and menus.",
+      "painPoints": {
+        "tooManyMenus": {
+          "title": "Too many screens for one number",
+          "description": "You only wanted today's sales or low stock, but the answer lives three menus deep."
+        },
+        "staffHesitation": {
+          "title": "Staff hesitate to click",
+          "description": "New hires know what they need but fear touching the wrong button on the POS or portal."
+        },
+        "delayedReports": {
+          "title": "Reports arrive too late",
+          "description": "Insights exist in Reports, but the counter needs an answer before the customer walks away."
+        },
+        "genericAIFails": {
+          "title": "Generic bots lack store context",
+          "description": "Public chatbots do not know your inventory, your current orders, or your branch pricing."
+        },
+        "uncontrolledChanges": {
+          "title": "Fear of automated mistakes",
+          "description": "Autonomous bots modifying inventory or balances without human oversight create costly errors."
+        },
+        "disconnectedChannels": {
+          "title": "Multi-channel blindspots",
+          "description": "Stock changes on the online store or at the register are not unified when asked verbally."
+        }
       }
     },
-    "features": {
-      "badge": "What you get",
-      "title": "Answers from live store data",
-      "subtitle": "Shipped in the merchant portal for plans with the AI Assistant feature.",
-      "f1": {
-        "title": "Plain-language questions",
-        "description": "Ask about orders, inventory, customers, and dashboard metrics the way you would ask a colleague."
+    "safety": {
+      "badge": "Safety by design",
+      "title": "Zero silent edits: you stay in complete control",
+      "subtitle": "The assistant reads records immediately. When any modification is requested, it prepares an action card and waits for your explicit confirmation.",
+      "items": {
+        "preview": {
+          "title": "Full Action Preview",
+          "description": "See the exact product, branch, quantity, and reason before anything changes."
+        },
+        "oneTap": {
+          "title": "One-Tap Approve or Deny",
+          "description": "Tap Approve to execute through validated backend domain services, or Deny to cancel safely."
+        },
+        "permissions": {
+          "title": "Scoped User Permissions",
+          "description": "Staff accounts can only request actions permitted by their assigned role."
+        },
+        "receipts": {
+          "title": "Audit Trail & Receipts",
+          "description": "Approved mutations generate structured execution receipts logged in store history."
+        }
+      }
+    },
+    "capabilities": {
+      "badge": "Core capabilities",
+      "title": "Grounded in your live store data",
+      "subtitle": "Shipped directly inside the merchant portal on eligible plans.",
+      "items": {
+        "plainLanguage": {
+          "title": "Plain-Language Questions",
+          "description": "Ask about orders, inventory, customers, and dashboard metrics the way you would ask a partner."
+        },
+        "liveSearch": {
+          "title": "Real-Time Record Search",
+          "description": "Instantly look up products, stock balances across locations, customer debts, and order statuses."
+        },
+        "profitAnalytics": {
+          "title": "Conversational Profit & Analytics",
+          "description": "Ask for profit margins, sales overviews, top sellers, and dead stock without opening spreadsheets."
+        },
+        "humanApproval": {
+          "title": "Safety Confirmation Cards",
+          "description": "Stock transfers, manual adjustments, fulfillment updates, and refunds require explicit approval."
+        },
+        "conversationHistory": {
+          "title": "Thread History & Search",
+          "description": "Pick up previous conversations, search past queries, and archive completed threads."
+        },
+        "dailyTokenMeter": {
+          "title": "Transparent Daily Token Allowance",
+          "description": "A clear progress meter displays remaining daily capacity and resets automatically at midnight."
+        }
+      }
+    },
+    "sampleQueries": {
+      "badge": "Practical examples",
+      "title": "Real merchant questions answered in seconds",
+      "subtitle": "Speak naturally in Egyptian, Gulf, or Standard Arabic and English.",
+      "items": {
+        "dailyPulse": {
+          "title": "Daily Sales Pulse",
+          "prompt": "\"How did sales go today compared to yesterday?\"",
+          "description": "Fetches gross revenue, paid order count, and average ticket size into formatted KPI cards."
+        },
+        "lowStock": {
+          "title": "Low Stock Alerts",
+          "prompt": "\"Show products that are below reorder level in Downtown branch\"",
+          "description": "Lists product names and current quantities so you can restock before items sell out."
+        },
+        "deadStock": {
+          "title": "Dead Stock Discovery",
+          "prompt": "\"Which products have not sold in the last 60 days?\"",
+          "description": "Identifies stagnant inventory to help you plan clearance promotions and free up working capital."
+        },
+        "stockTransfer": {
+          "title": "Branch Stock Transfers",
+          "prompt": "\"Transfer 10 units of Linen Shirt (L) from Main Store to Mall branch\"",
+          "description": "Prepares the transfer details and renders an Approve/Deny card for instant validation."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Workflow",
+      "title": "From question to confirmed action in three steps",
+      "subtitle": "Accessible from the sidebar, dashboard, or mobile navigation.",
+      "step1": {
+        "title": "Ask in natural language",
+        "description": "Type your question or choose a suggested prompt in the assistant panel."
       },
-      "f2": {
-        "title": "Search products, orders, and people",
-        "description": "The assistant looks up products, stock levels, orders, and customer profiles from your account."
+      "step2": {
+        "title": "Receive structured, live answers",
+        "description": "The assistant queries live store records and presents text, metric cards, or choices."
       },
-      "f3": {
-        "title": "Analytics when your plan includes it",
-        "description": "Sales overview, profit, top products, slow movers, and inventory valuation when Analytics is enabled."
+      "step3": {
+        "title": "Approve changes with one tap",
+        "description": "When an action is prepared, tap Approve to execute or Deny to discard safely."
+      }
+    },
+    "comparison": {
+      "badge": "How it compares",
+      "title": "Built for store operations, not generic chatter",
+      "subtitle": "Why grounded retail AI outperforms manual menu navigation and standalone chatbots.",
+      "headers": {
+        "feature": "Capability",
+        "cashvio": "Cashvio AI Assistant",
+        "others": "Traditional Menus / Generic Bots"
       },
-      "f4": {
-        "title": "Approve before anything changes",
-        "description": "Stock transfers, adjustments, fulfillment updates, and refunds show a confirmation card first."
-      },
-      "f5": {
-        "title": "Conversation history",
-        "description": "Pick up past threads from the sidebar, search when the list grows, and archive when you are done."
-      },
-      "f6": {
-        "title": "Daily usage meter",
-        "description": "A visible token budget shows what remains today and when it resets so usage stays predictable."
+      "rows": {
+        "liveData": {
+          "feature": "Live store database connection",
+          "cashvio": "[✓] Reads real-time stock, orders, and sales",
+          "others": "[✗] Manual menu navigation or disconnected chat"
+        },
+        "safeActions": {
+          "feature": "Human-in-the-loop approval cards",
+          "cashvio": "[✓] Confirmation card with Approve/Deny for mutations",
+          "others": "[✗] Risky blind actions or view-only answers"
+        },
+        "arabicRetail": {
+          "feature": "Arabic retail and merchant terms",
+          "cashvio": "[✓] Native Egyptian, Gulf, and MSA retail phrasing",
+          "others": "[✗] Literal translations that misunderstand store context"
+        },
+        "analytics": {
+          "feature": "Profit margins and valuation summaries",
+          "cashvio": "[✓] Instant profit, slow movers, and inventory valuation",
+          "others": "[✗] Manual spreadsheet formulas and CSV exports"
+        },
+        "visualCards": {
+          "feature": "Rich UI cards and entity links",
+          "cashvio": "[✓] KPI rows, choice chips, and direct order links",
+          "others": "[✗] Plain wall of unformatted text"
+        },
+        "tokenLimits": {
+          "feature": "Predictable daily token allowance",
+          "cashvio": "[✓] Visible progress meter with midnight reset",
+          "others": "[✗] Unpredictable surprise usage charges"
+        }
       }
     },
     "faq": {
       "title": "AI Assistant FAQ",
+      "subtitle": "Common questions about features, safety, and plan allowances",
       "q1": {
         "question": "Is the AI Assistant included in my plan?",
-        "answer": "It requires the AI Assistant plan feature. Analytics-style answers also need the Analytics module and the right permissions for your role."
+        "answer": "The AI Assistant is available on eligible plans. Analytics queries (profit, top products, valuation) also require the Analytics module and appropriate user role permissions."
       },
       "q2": {
-        "question": "Can it change my store without asking?",
-        "answer": "No. Lookups run immediately. Any action that changes stock, orders, or refunds waits for you to tap Approve or Deny."
+        "question": "Can the assistant modify my store without permission?",
+        "answer": "No. Lookups and reports display immediately. Any action that alters inventory quantities, store transfers, order fulfillments, or refunds presents a confirmation card and pauses until you tap Approve."
       },
       "q3": {
-        "question": "What happens when I hit the daily limit?",
-        "answer": "Sending new messages and starting new conversations pause until your token budget resets at midnight in your tenant timezone."
+        "question": "How do daily token limits work?",
+        "answer": "Your plan includes a daily token allowance. A visible progress meter displays remaining capacity and resets every midnight in your tenant timezone. Sending pauses once the budget is reached until reset."
+      },
+      "q4": {
+        "question": "Which languages and dialects does it understand?",
+        "answer": "The assistant supports Arabic and English natively, understanding standard retail terms as well as Egyptian and Gulf merchant expressions."
+      },
+      "q5": {
+        "question": "Can staff members see data they do not have permission for?",
+        "answer": "No. The assistant enforces role permissions on every query. If a staff member does not have permission to view profits or orders, the assistant will not display that data."
+      },
+      "q6": {
+        "question": "Does the assistant work on mobile devices?",
+        "answer": "Yes. The assistant is fully responsive and accessible via the bottom navigation bar and dashboard shortcuts on phones, tablets, and desktop browsers."
       }
     },
     "cta": {
       "title": "Ask your shop, not the menu",
-      "subtitle": "Start free, then unlock the assistant on eligible plans.",
-      "note": "Arabic and English."
+      "subtitle": "Start free today, then activate the AI assistant on eligible plans.",
+      "button": "Start Free: No Credit Card",
+      "secondaryButton": "View Pricing & Plans",
+      "note": "Arabic and English support. Cancel anytime."
     }
   },
   "whatsappCommerce": {
