@@ -66,9 +66,9 @@ export async function Footer({ locale }: FooterProps) {
   return (
     <footer className="bg-muted/40">
       <div className="tear-line" aria-hidden="true" />
-      <div className="container-wide py-12 md:py-16">
+      <div className="container-wide py-8 md:py-10">
         {/* Top row: brand + nav columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           <div className="lg:col-span-2">
             <Logo size="md" />
             <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
