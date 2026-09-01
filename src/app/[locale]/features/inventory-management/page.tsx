@@ -349,6 +349,15 @@ export default async function InventoryManagementPage({ params }: Props) {
               />
             ))}
           </div>
+          <p className="mt-8">
+            <a
+              href={assistantLink}
+              className="inline-flex items-center gap-2 font-receipt text-sm text-primary hover:underline"
+            >
+              {t('reporting.assistantLink')}
+              <span aria-hidden="true" className="rtl:-scale-x-100">-&gt;</span>
+            </a>
+          </p>
         </div>
       </section>
 

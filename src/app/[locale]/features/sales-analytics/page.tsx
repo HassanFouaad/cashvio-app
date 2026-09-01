@@ -115,6 +115,7 @@ export default async function SalesAnalyticsPage({ params }: Props) {
   const registerLink = typedLocale === 'en' ? '/register' : '/ar/register';
   const pricingLink = typedLocale === 'en' ? '/pricing' : '/ar/pricing';
   const docsLink = typedLocale === 'en' ? '/docs/reports/analytics-reports' : '/ar/docs/reports/analytics-reports';
+  const assistantLink = typedLocale === 'en' ? '/features/ai-assistant' : '/ar/features/ai-assistant';
 
   const webPageSchema = schemaTemplates.webPage({
     locale: typedLocale,
@@ -273,6 +274,15 @@ export default async function SalesAnalyticsPage({ params }: Props) {
               />
             ))}
           </div>
+          <p className="mt-8">
+            <a
+              href={assistantLink}
+              className="inline-flex items-center gap-2 font-receipt text-sm text-primary hover:underline"
+            >
+              {t('insights.assistantLink')}
+              <span aria-hidden="true" className="rtl:-scale-x-100">-&gt;</span>
+            </a>
+          </p>
         </div>
       </section>
 
