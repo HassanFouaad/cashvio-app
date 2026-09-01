@@ -65,7 +65,7 @@ const REFERRER_SOURCES: Array<{ pattern: RegExp; source: string }> = [
   { pattern: /facebook\.com|fb\.com/i, source: 'facebook' },
   { pattern: /instagram\.com/i, source: 'instagram' },
   { pattern: /tiktok\.com/i, source: 'tiktok' },
-  { pattern: /twitter\.com|x\.com|t\.co/i, source: 'twitter' },
+  { pattern: /twitter\.com|x\.com|t\.co/i, source: 'x' },
   { pattern: /youtube\.com|youtu\.be/i, source: 'youtube' },
   { pattern: /linkedin\.com/i, source: 'linkedin' },
   { pattern: /whatsapp\.com|wa\.me/i, source: 'whatsapp' },

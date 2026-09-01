@@ -64,7 +64,7 @@ export const env = {
    * Social Links
    */
   social: {
-    twitter: process.env.NEXT_PUBLIC_TWITTER_URL || '',
+    x: process.env.NEXT_PUBLIC_X_URL || '',
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || '',
     facebookAppId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '882610377639110',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',

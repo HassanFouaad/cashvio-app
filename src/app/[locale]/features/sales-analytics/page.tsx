@@ -19,7 +19,7 @@ import {
   getAlternateLocales,
   getSpeakableSchema,
   openGraphDefaults,
-  twitterDefaults,
+  xCardDefaults,
   brand,
   social,
 } from '@/config/seo';
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternateLocale: getAlternateLocales(typedLocale),
     },
     facebook: { appId: social.facebook.appId },
-    twitter: { ...twitterDefaults, title: t('title'), description: t('description') },
+    twitter: { ...xCardDefaults, title: t('title'), description: t('description') },
     robots: {
       index: true,
       follow: true,

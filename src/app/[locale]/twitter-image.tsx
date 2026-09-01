@@ -12,7 +12,7 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-export default async function TwitterImage({
+export default async function XCardImage({
   params,
 }: {
   params: Promise<{ locale: string }>;

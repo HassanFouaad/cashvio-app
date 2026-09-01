@@ -19,7 +19,7 @@ import {
   getSpeakableSchema,
   keywords,
   openGraphDefaults,
-  twitterDefaults,
+  xCardDefaults,
   social,
 } from '@/config/seo';
 
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       appId: social.facebook.appId,
     },
     twitter: {
-      ...twitterDefaults,
+      ...xCardDefaults,
       title: t('title'),
       description: t('description'),
     },

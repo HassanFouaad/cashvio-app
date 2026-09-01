@@ -1,4 +1,5 @@
 import { env } from './env';
+import { social } from './seo';
 
 // Keywords as a mutable array for Next.js metadata compatibility
 const keywords: string[] = [
@@ -37,8 +38,8 @@ export const siteConfig = {
   },
 
   social: {
-    twitter: env.social.twitter,
-    twitterUrl: env.social.twitter,
+    xUrl: social.x.url,
+    xHandle: social.x.handle,
     facebook: env.social.facebook || 'https://www.facebook.com/cashvio',
     facebookAppId: env.social.facebookAppId,
     linkedin: env.social.linkedin || 'https://linkedin.com/company/cashvio',

@@ -2,7 +2,7 @@
  * Shared metadata builder for marketing pages.
  *
  * Reproduces the exact per-page metadata pattern used across the site
- * (canonical + hreflang alternates, OG with locale alternates, Twitter card,
+ * (canonical + hreflang alternates, OG with locale alternates, X card via Metadata `twitter`,
  * robots directives, Facebook app id) so new pages stay consistent without
  * repeating ~40 lines each.
  */
@@ -16,7 +16,7 @@ import {
   getAlternateUrls,
   getAlternateLocales,
   openGraphDefaults,
-  twitterDefaults,
+  xCardDefaults,
   social,
 } from '@/config/seo';
 
@@ -56,7 +56,7 @@ export async function buildPageMetadata({
       alternateLocale: getAlternateLocales(typedLocale),
     },
     facebook: { appId: social.facebook.appId },
-    twitter: { ...twitterDefaults, title: t('title'), description: t('description') },
+    twitter: { ...xCardDefaults, title: t('title'), description: t('description') },
     robots: {
       index: true,
       follow: true,
