@@ -11,3 +11,4 @@ export { FaqSection } from './faq-section';
 export { ComparisonTable } from './comparison-table';
 export { AlsoFreeStrip } from './also-free-strip';
 export { FeatureScreenshot } from './feature-screenshot';
+export { AnswerBlock } from './answer-block';

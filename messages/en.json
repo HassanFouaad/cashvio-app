@@ -47,12 +47,12 @@
       "description": "The only POS and online storefront built natively for Arabic-speaking businesses. True right-to-left interface, bilingual receipts, Arabic thermal printing, and MENA payment integrations. Not a translation layer."
     },
     "omnichannelRetail": {
-      "title": "Omnichannel Retail Platform: One Dashboard for Physical & Online Stores",
-      "description": "Manage your physical stores and online storefront from one dashboard. Unified inventory, orders, customers, and analytics across every sales channel. Sell in-store, online, and via social media. All synced in real time."
+      "title": "Track In-Store and Online Sales in One Dashboard",
+      "description": "Manage physical stores and online sales from one dashboard. Unified inventory, orders, customers, and reports across every sales channel. Real-time sync for in-store, online, and social commerce."
     },
     "inventoryManagement": {
-      "title": "Free Inventory Management Software - Track Stock Across All Stores",
-      "description": "Free inventory management software that tracks stock per product variant, per store in real time. Low stock alerts, purchase orders, supplier management, stock transfers, adjustments with full audit trail, and profit reporting. All included free."
+      "title": "Free Inventory Software - Track Stock Across Stores",
+      "description": "Track stock per variant, per store in real time. Low stock alerts, purchase orders, supplier management, transfers, and profit reporting. Free forever."
     },
     "freePos": {
       "title": "Free POS System: 100% Free Cashier Software",
@@ -2124,6 +2124,31 @@
       "secondaryCta": "Explore Features",
       "trust": "Built for omnichannel operations across retail, F&B, and service businesses"
     },
+    "answerBlock": {
+      "badge": "Quick Answer",
+      "title": "How do I track in-person and online sales in one dashboard?",
+      "intro": "Use a unified retail platform where your physical POS and online store share the same backend. Every sale updates one inventory count, one customer profile, and one reporting dashboard.",
+      "step1": {
+        "title": "Connect Your Sales Channels",
+        "description": "Set up your POS for in-store checkout and enable your online storefront. Both pull from the same product catalog and inventory pool."
+      },
+      "step2": {
+        "title": "Unified Order Queue",
+        "description": "Every transaction, whether at the register or on the website, appears in one order list. Filter by channel, status, or date to see exactly what happened where."
+      },
+      "step3": {
+        "title": "Real-Time Reporting",
+        "description": "Open your analytics dashboard to see revenue, order count, and performance per channel. Compare in-store versus online without exporting spreadsheets or switching apps."
+      },
+      "note": "Cashvio provides this as a single platform. No integrations, no batch syncing, no separate logins for POS and e-commerce."
+    },
+    "relatedLinks": {
+      "title": "Related Features and Resources",
+      "orderManagement": "Unified order management across channels",
+      "salesAnalytics": "Cross-channel sales analytics and reporting",
+      "freeOnlineStore": "Built-in free online storefront",
+      "freePOS": "Free POS system for physical stores"
+    },
     "problem": {
       "badge": "The Fragmentation Problem",
       "title": "Separate Systems Are Killing Your Business",
@@ -2379,6 +2404,10 @@
     }
   },
   "inventoryManagement": {
+    "answerBlock": {
+      "question": "What is inventory management software?",
+      "answer": "Inventory management software tracks your product stock in real time across all locations. It records every sale, return, transfer, and purchase to keep quantities accurate. The system alerts you when stock runs low, manages purchase orders, and shows which items are profitable. For multi-store businesses, it tracks stock separately per location while giving you central visibility across all branches."
+    },
     "hero": {
       "badge": "Free Forever",
       "title": "Free Inventory Management",
@@ -5763,6 +5792,25 @@
       "title": "Free",
       "titleHighlight": "VAT calculator",
       "subtitle": "Add 14% VAT to a net price, or peel VAT out of a gross total. Built for merchants. Free, no signup."
+    },
+    "answerBlock": {
+      "badge": "QUICK ANSWER",
+      "title": "How to calculate VAT in Egypt",
+      "addVat": {
+        "title": "Add 14% VAT to a net price",
+        "description": "Multiply your price by 1.14. For example, EGP 100 becomes EGP 114. The VAT amount is EGP 14."
+      },
+      "extractVat": {
+        "title": "Extract 14% VAT from a gross total",
+        "description": "Divide your total by 1.14. For example, EGP 114 becomes EGP 100 net. The VAT included is EGP 14."
+      },
+      "defaultRate": "Egypt's standard VAT rate is 14%. You can edit the rate in the calculator if your case differs."
+    },
+    "relatedLinks": {
+      "title": "Related tools and guides",
+      "invoiceGenerator": "Make a printable invoice with optional VAT",
+      "pricing": "POS pricing and plans",
+      "taxSetup": "Set up tax rates in your POS"
     },
     "tool": {
       "modeLabel": "Calculation mode",
