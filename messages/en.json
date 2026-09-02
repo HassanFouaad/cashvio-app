@@ -39,24 +39,24 @@
       "description": "Your account has been created successfully. Start managing your business today."
     },
     "couponsAndDiscounts": {
-      "title": "Coupons & Discount Code Management for Retailers",
-      "description": "Create, manage, and track promotional coupons and discount codes across all your stores. Set usage limits, schedule campaigns, and validate codes in real time at checkout."
+      "title": "Manage Coupons and Discount Codes Across Your Stores",
+      "description": "Create percentage and fixed discounts with usage limits, schedules, and automatic validation at POS and online checkout. Track coupon redemptions and campaign performance."
     },
     "arabicPos": {
-      "title": "Arabic POS System & Storefront with Native RTL Support",
-      "description": "The only POS and online storefront built natively for Arabic-speaking businesses. True right-to-left interface, bilingual receipts, Arabic thermal printing, and MENA payment integrations. Not a translation layer."
+      "title": "Arabic POS System and Online Store with Full RTL Support",
+      "description": "POS and online storefront built for Arabic-speaking businesses. Native right-to-left interface, bilingual receipts, Arabic thermal printing, and MENA payment integrations."
     },
     "omnichannelRetail": {
-      "title": "Track In-Store and Online Sales in One Dashboard",
-      "description": "Manage physical stores and online sales from one dashboard. Unified inventory, orders, customers, and reports across every sales channel. Real-time sync for in-store, online, and social commerce."
+      "title": "One Dashboard for In-Store and Online Sales",
+      "description": "Track in-store and online sales from a single dashboard. Shared inventory, orders, customers, and channel reports. Real-time sync between POS and online store."
     },
     "inventoryManagement": {
-      "title": "Free Inventory Software - Track Stock Across Stores",
-      "description": "Track stock per variant, per store in real time. Low stock alerts, purchase orders, supplier management, transfers, and profit reporting. Free forever."
+      "title": "Free Online Inventory Tracker: Track Product Stock in Real Time",
+      "description": "Track inventory online per product, variant, and store location. Low stock alerts, purchase orders, stock transfers, stocktake reports, and dead stock analytics. Free forever."
     },
     "freePos": {
-      "title": "Free POS System: 100% Free Cashier Software",
-      "description": "Cashvio's free POS gives you a cashier screen, barcode scanning, thermal and digital receipts, and live inventory, free forever. Arabic and English. No credit card needed."
+      "title": "Free POS System: Free Cashier and Cash Register Software",
+      "description": "Free online cashier software with barcode scanning, thermal and digital receipts, live inventory tracking, and Arabic support. No credit card, no device limits, free forever."
     },
     "freeOnlineStore": {
       "title": "Free Online Store: Create Your Store in Minutes",
@@ -151,12 +151,12 @@
       "description": "A free cosmetics and beauty POS: product variants, barcode labels, returns with store credit, coupons, and a free online store. Arabic and English."
     },
     "freePosEgypt": {
-      "title": "Free POS Egypt: Free Cashier Software in EGP",
-      "description": "Free POS system for Egypt: Arabic receipts, EGP pricing, live inventory, free online store. No credit card. Start today with Cashvio."
+      "title": "Free Cashier Software Egypt: POS System in Arabic and EGP",
+      "description": "Free cashier software for businesses in Egypt. Arabic interface and receipts, EGP pricing, live inventory tracking, barcode scanning, and free online store. No credit card required."
     },
     "vatCalculator": {
-      "title": "Free Egypt VAT Calculator: 14% Value Added Tax",
-      "description": "Free Egypt 14% VAT calculator. Add VAT to a net price or extract VAT from a gross total. Instant results, no signup."
+      "title": "Egypt VAT Calculator: Add or Remove 14% Tax",
+      "description": "Free Egypt 14% VAT calculator. Add VAT to net prices or extract VAT from gross totals. Works in your browser, no signup required."
     },
     "invoiceGenerator": {
       "title": "Free Invoice Generator: Printable Bilingual Receipt Maker",
@@ -219,8 +219,8 @@
       "description": "Free discount calculator for merchants: enter a price and percent off to get the final sale price, or find the discount percent from two prices. No signup."
     },
     "priceTagGenerator": {
-      "title": "Free Price Tag Generator: Printable A4 Shelf Labels",
-      "description": "Make printable A4 shelf price tags with product name, price, and an optional Code 128 barcode. Free in your browser, no watermark, no signup needed."
+      "title": "Price Tag Generator: Print Price Labels with Barcodes Free",
+      "description": "Make printable price tags and shelf labels with product names, prices, and Code 128 barcodes. Print on A4 sheets from your browser. Free, no watermark, no signup."
     }
   },
   "common": {
