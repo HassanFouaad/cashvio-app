@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
 import {
   LedgerHero,
@@ -192,6 +193,50 @@ export default async function InventoryManagementPage({ params }: Props) {
         }}
       />
 
+      {/* Answer Block */}
+      <section aria-label={t('answerBlock.question')} className="section-padding-sm">
+        <div className="container-wide">
+          <div className="receipt-edge bg-card px-6 py-8 sm:px-8 max-w-3xl mx-auto space-y-4">
+            <p className="mono-label text-primary">QUICK ANSWER</p>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">
+              {t('answerBlock.question')}
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {t('answerBlock.answer')}
+            </p>
+            <div className="border-t border-dashed border-ledger-line pt-4 space-y-2">
+              <p className="mono-label text-xs text-muted-foreground">
+                {typedLocale === 'ar' ? 'أدلة إعداد المخزون والتقارير' : 'INVENTORY GUIDES & REPORTING'}
+              </p>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-receipt">
+                <Link href="/docs/inventory/low-stock-alerts" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'تنبيهات المخزون' : 'Low-stock alerts'}
+                </Link>
+                <span>·</span>
+                <Link href="/docs/inventory/stocktake" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'تقارير الجرد' : 'Stocktake'}
+                </Link>
+                <span>·</span>
+                <Link href="/docs/inventory/stock-transfers" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'تحويلات الفروع' : 'Stock transfers'}
+                </Link>
+                <span>·</span>
+                <Link href="/docs/suppliers/purchase-orders" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'أوامر الشراء' : 'Purchase orders'}
+                </Link>
+                <span>·</span>
+                <Link href="/docs/reports/dead-stock-analytics" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'المخزون الراكد' : 'Dead stock'}
+                </Link>
+                <span>·</span>
+                <Link href="/tools/dead-stock-report" className="text-primary hover:underline">
+                  {typedLocale === 'ar' ? 'نموذج التقرير' : 'Report template'}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The Problem */}
       <section aria-label={t('problem.title')} className="section-padding-sm">

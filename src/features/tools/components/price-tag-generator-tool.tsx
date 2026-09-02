@@ -4,7 +4,8 @@ import * as React from 'react';
 import JsBarcode from 'jsbarcode';
 import { useTranslations } from 'next-intl';
 
-import { trackButtonClick } from '@/lib/analytics';
+import { Link } from '@/i18n/navigation';
+import { trackButtonClick, trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 const LABELS_PER_SHEET = 10;
@@ -92,6 +93,7 @@ export function PriceTagGeneratorTool() {
 
   const [shopName, setShopName] = React.useState('');
   const [fillSheet, setFillSheet] = React.useState(true);
+  const [hasPrinted, setHasPrinted] = React.useState(false);
   const [labels, setLabels] = React.useState<LabelItem[]>([
     createLabelItem({
       productName: 'Sample product',
@@ -131,6 +133,12 @@ export function PriceTagGeneratorTool() {
 
   const handlePrint = () => {
     trackButtonClick('price_tag_print', 'price_tag_generator_tool');
+    trackEvent('tool_completed', {
+      category: 'engagement',
+      tool_name: 'price_tag_generator',
+      fill_sheet: fillSheet,
+    });
+    setHasPrinted(true);
     window.print();
   };
 
@@ -316,6 +324,45 @@ export function PriceTagGeneratorTool() {
             {t('print')}
           </button>
         </div>
+      </div>
+
+      {hasPrinted && (
+        <div className="receipt-edge bg-primary/10 border border-primary/20 p-6 rounded-lg text-center print:hidden space-y-3">
+          <p className="font-semibold text-foreground">
+            Print barcode price tags directly from your catalogue
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Cashvio generates price labels and barcode tags automatically from your inventory records.
+          </p>
+          <Link
+            href="/register"
+            className="inline-flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Start free with Cashvio
+          </Link>
+        </div>
+      )}
+
+      {/* Related Resources Links (Visible on web, hidden on print) */}
+      <div className="receipt-edge bg-card px-6 py-6 sm:px-8 print:hidden">
+        <p className="mono-label text-primary mb-3">RELATED TOOLS & GUIDES</p>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <Link href="/tools/barcode-generator" className="text-primary hover:underline font-medium">
+              Create and download Code 128 / EAN-13 barcodes
+            </Link>
+          </li>
+          <li>
+            <Link href="/features/barcode-pos" className="text-primary hover:underline font-medium">
+              Barcode POS scanning for retail checkout
+            </Link>
+          </li>
+          <li>
+            <Link href="/docs/catalogue/barcode-labels" className="text-primary hover:underline font-medium">
+              Guide to printing barcode labels from your inventory
+            </Link>
+          </li>
+        </ul>
       </div>
 
       <div className="price-tag-print-area bg-white text-black p-4 sm:p-6">

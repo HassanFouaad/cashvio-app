@@ -74,6 +74,7 @@ export const mainNavigation: NavItem[] = [
       { key: 'invoiceGenerator', href: '/tools/invoice-generator' },
       { key: 'discountCalculator', href: '/tools/discount-calculator' },
       { key: 'priceTagGenerator', href: '/tools/price-tag-generator' },
+      { key: 'deadStockReport', href: '/tools/dead-stock-report' },
     ],
   },
   { key: 'docs', href: '/docs' },

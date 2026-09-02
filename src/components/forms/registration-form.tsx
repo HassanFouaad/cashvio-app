@@ -1,6 +1,10 @@
 'use client';
 
-import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
+import {
+  PhoneInput,
+  isPhoneProvided,
+  preparePhoneNumberForSubmit,
+} from '@/components/ui/phone-input';
 import { authService, HttpError, RegisterRequest, useLocaleConfig } from '@/lib/http';
 import {
   cn,
@@ -132,7 +136,7 @@ export function RegistrationForm() {
 
   // Validate form - matching backend display-name + RegisterDto rules
   const validateForm = ():
-    | { ok: true; businessName: string }
+    | { ok: true; businessName: string; contactPhone: string }
     | { ok: false } => {
     const newErrors: FormErrors = {};
 
@@ -141,14 +145,18 @@ export function RegistrationForm() {
       newErrors.businessName = t(BUSINESS_NAME_ERROR_KEYS[businessNameResult.error]);
     }
 
-    // Phone validation (required, valid format, max 50)
-    if (!formData.contactPhone) {
+    // Phone validation (required, valid format, max 50) — trunk "0" stripped on submit
+    let contactPhone = '';
+
+    if (!isPhoneProvided(formData.contactPhone)) {
       newErrors.contactPhone = t('errors.phoneRequired');
     } else {
-      const phoneValidation = validatePhoneNumber(formData.contactPhone);
-      if (!phoneValidation.isValid) {
+      const preparedPhone = preparePhoneNumberForSubmit(formData.contactPhone);
+      contactPhone = preparedPhone.normalized;
+
+      if (!preparedPhone.validation.isValid) {
         newErrors.contactPhone = t('errors.phoneInvalid');
-      } else if (formData.contactPhone.length > VALIDATION.CONTACT_PHONE_MAX) {
+      } else if (contactPhone.length > VALIDATION.CONTACT_PHONE_MAX) {
         newErrors.contactPhone = t('errors.phoneTooLong');
       }
     }
@@ -177,7 +185,7 @@ export function RegistrationForm() {
       return { ok: false };
     }
 
-    return { ok: true, businessName: businessNameResult.value };
+    return { ok: true, businessName: businessNameResult.value, contactPhone };
   };
 
   // Handle form submit
@@ -197,7 +205,7 @@ export function RegistrationForm() {
       const registerData: RegisterRequest = {
         // Persist the normalized value (same pipeline as the API)
         businessName: validation.businessName,
-        contactPhone: formData.contactPhone,
+        contactPhone: validation.contactPhone,
         email: formData.email.trim(),
         password: formData.password,
       };

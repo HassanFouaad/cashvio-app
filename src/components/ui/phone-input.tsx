@@ -88,10 +88,68 @@ function findCountryByDialCode(fullNumber: string): Country | undefined {
   );
 }
 
+function getNationalPhoneDigits(fullNumber: string): string {
+  const matchedCountry = findCountryByDialCode(fullNumber);
+
+  if (!matchedCountry) {
+    return fullNumber.replace(/\D/g, '');
+  }
+
+  return fullNumber.slice(matchedCountry.dialCode.length).replace(/\D/g, '');
+}
+
+/**
+ * True when the user entered any national digits (not just the country dial code).
+ */
+export function isPhoneProvided(fullNumber: string): boolean {
+  return getNationalPhoneDigits(fullNumber).length > 0;
+}
+
+function getEffectiveMaxLength(country: Country, nationalNumber: string): number {
+  const baseMax = country.maxLength ?? 15;
+
+  if (
+    nationalNumber.startsWith('0') &&
+    COUNTRIES_WITH_LEADING_ZERO.includes(country.code) &&
+    country.maxLength
+  ) {
+    return baseMax + 1;
+  }
+
+  return baseMax;
+}
+
 function clampToMaxLength(country: Country, nationalNumber: string): string {
-  return country.maxLength
-    ? nationalNumber.slice(0, country.maxLength)
-    : nationalNumber;
+  return nationalNumber.slice(0, getEffectiveMaxLength(country, nationalNumber));
+}
+
+/**
+ * Strip trunk "0" prefixes from the national number on submit.
+ * Countries like Egypt write local numbers as 01xxxxxxxxx; the dial code replaces that 0.
+ */
+export function normalizePhoneNumber(fullNumber: string): string {
+  if (!fullNumber) {
+    return fullNumber;
+  }
+
+  const matchedCountry = findCountryByDialCode(fullNumber);
+
+  if (!matchedCountry || !COUNTRIES_WITH_LEADING_ZERO.includes(matchedCountry.code)) {
+    return fullNumber;
+  }
+
+  const nationalNumber = fullNumber
+    .slice(matchedCountry.dialCode.length)
+    .replace(/\D/g, '');
+
+  if (!nationalNumber.startsWith('0')) {
+    return fullNumber;
+  }
+
+  const normalizedNational = nationalNumber.replace(/^0+/, '');
+  return normalizedNational
+    ? `${matchedCountry.dialCode}${normalizedNational}`
+    : matchedCountry.dialCode;
 }
 
 // ============================================================================
@@ -341,13 +399,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         }
       }
 
-      // Local habit: numbers written with a trunk "0" the dial code replaces
-      const national =
-        digits.startsWith('0') && COUNTRIES_WITH_LEADING_ZERO.includes(selectedCountry.code)
-          ? digits.replace(/^0+/, '')
-          : digits;
-
-      emitChange(selectedCountry, national);
+      emitChange(selectedCountry, digits);
     };
 
     const handleCountrySelect = (country: Country) => {
@@ -510,6 +562,20 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 PhoneInput.displayName = 'PhoneInput';
 
 /**
+ * Normalize and validate a phone number for form submit.
+ * Accepts the raw PhoneInput value (may include a trunk "0" while typing).
+ */
+export function preparePhoneNumberForSubmit(fullNumber: string): {
+  normalized: string;
+  validation: ReturnType<typeof validatePhoneNumber>;
+} {
+  const normalized = normalizePhoneNumber(fullNumber);
+  const validation = validatePhoneNumber(normalized);
+
+  return { normalized, validation };
+}
+
+/**
  * Validate phone number based on country
  * @param fullNumber - Full phone number with dial code (e.g., +201234567890)
  * @returns Object with isValid, minLength, maxLength, and currentLength
@@ -525,13 +591,20 @@ export function validatePhoneNumber(fullNumber: string): {
     return { isValid: false, minLength: 0, maxLength: 0, currentLength: 0, country: null };
   }
 
-  const matchedCountry = findCountryByDialCode(fullNumber);
+  const normalizedNumber = normalizePhoneNumber(fullNumber);
+  const matchedCountry = findCountryByDialCode(normalizedNumber);
 
   if (!matchedCountry) {
-    return { isValid: false, minLength: 0, maxLength: 0, currentLength: fullNumber.length, country: null };
+    return {
+      isValid: false,
+      minLength: 0,
+      maxLength: 0,
+      currentLength: normalizedNumber.length,
+      country: null,
+    };
   }
 
-  const numberWithoutDialCode = fullNumber.slice(matchedCountry.dialCode.length);
+  const numberWithoutDialCode = normalizedNumber.slice(matchedCountry.dialCode.length);
   const currentLength = numberWithoutDialCode.length;
   const minLength = matchedCountry.minLength || 7;
   const maxLength = matchedCountry.maxLength || 15;

@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const toolKeys = ['barcode', 'qr', 'margin', 'vat', 'invoice', 'discount', 'priceTag'] as const;
+const toolKeys = ['barcode', 'qr', 'margin', 'vat', 'invoice', 'discount', 'priceTag', 'deadStock'] as const;
 
 const toolLinks: Record<(typeof toolKeys)[number], string> = {
   barcode: '/tools/barcode-generator',
@@ -63,6 +63,7 @@ const toolLinks: Record<(typeof toolKeys)[number], string> = {
   invoice: '/tools/invoice-generator',
   discount: '/tools/discount-calculator',
   priceTag: '/tools/price-tag-generator',
+  deadStock: '/tools/dead-stock-report',
 };
 
 export default async function ToolsPage({ params }: Props) {

@@ -90,6 +90,7 @@ export function GET() {
     `- [Invoice generator](${SITE_URL}/tools/invoice-generator): Free printable bilingual invoice and receipt maker with optional 14% VAT`,
     `- [Discount calculator](${SITE_URL}/tools/discount-calculator): Percent-off final price, or discount percent from original and sale prices`,
     `- [Price tag generator](${SITE_URL}/tools/price-tag-generator): Printable A4 shelf labels with price and optional Code 128 barcode`,
+    `- [Dead stock report template](${SITE_URL}/tools/dead-stock-report): Printable and CSV aging stock template with 30, 60, and 90-day buckets`,
     '',
     `## Documentation`,
     '',

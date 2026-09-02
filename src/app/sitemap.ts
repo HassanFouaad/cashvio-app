@@ -48,6 +48,7 @@ const staticPages: PageConfig[] = [
   { path: '/tools/invoice-generator' },
   { path: '/tools/discount-calculator' },
   { path: '/tools/price-tag-generator' },
+  { path: '/tools/dead-stock-report' },
 
   { path: '/industries' },
   { path: '/industries/cafe' },

@@ -1,6 +1,10 @@
 'use client';
 
-import { PhoneInput, validatePhoneNumber } from '@/components/ui/phone-input';
+import {
+  PhoneInput,
+  isPhoneProvided,
+  preparePhoneNumberForSubmit,
+} from '@/components/ui/phone-input';
 import { contactService, ContactRequest, HttpError, InquiryType, useLocaleConfig } from '@/lib/http';
 import { cn } from '@/lib/utils';
 import {
@@ -124,12 +128,14 @@ export function ContactForm() {
       newErrors.email = t('errors.emailTooLong');
     }
 
-    // Phone validation (optional but if provided, must be valid, max 50)
-    if (formData.phone) {
-      const phoneValidation = validatePhoneNumber(formData.phone);
+    // Phone validation (optional but if provided, must be valid, max 50) — trunk "0" stripped on submit
+    if (isPhoneProvided(formData.phone)) {
+      const { normalized: phone, validation: phoneValidation } =
+        preparePhoneNumberForSubmit(formData.phone);
+
       if (!phoneValidation.isValid) {
         newErrors.phone = t('errors.phoneInvalid');
-      } else if (formData.phone.length > VALIDATION.PHONE_MAX) {
+      } else if (phone.length > VALIDATION.PHONE_MAX) {
         newErrors.phone = t('errors.phoneTooLong');
       }
     }
@@ -160,6 +166,8 @@ export function ContactForm() {
 
     if (!validateForm()) return;
 
+    const { normalized: phone } = preparePhoneNumberForSubmit(formData.phone);
+
     setIsSubmitting(true);
     setErrors({});
 
@@ -167,7 +175,7 @@ export function ContactForm() {
       const contactData: ContactRequest = {
         name: formData.name.trim(),
         email: formData.email.trim(),
-        phone: formData.phone || undefined,
+        phone: phone || undefined,
         subject: formData.subject.trim(),
         message: formData.message.trim(),
         type: formData.type,

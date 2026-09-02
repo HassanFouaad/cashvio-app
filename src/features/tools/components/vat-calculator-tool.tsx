@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 type VatMode = "exclusive" | "inclusive";
@@ -45,6 +46,7 @@ export function VatCalculatorTool({
 }: VatCalculatorToolProps = {}) {
   const t = useTranslations("vatCalculator.tool");
   const tAnswer = useTranslations("vatCalculator.answerBlock");
+  const tLinks = useTranslations("vatCalculator.relatedLinks");
 
   const [mode, setMode] = React.useState<VatMode>("exclusive");
   const [amount, setAmount] = React.useState("100");
@@ -239,6 +241,36 @@ export function VatCalculatorTool({
             {t("disclaimer")}
           </p>
         </div>
+      </div>
+
+      <div className="receipt-edge bg-card px-6 py-6 sm:px-8 max-w-2xl mx-auto mt-6">
+        <p className="mono-label text-primary mb-3">{tLinks("title")}</p>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <Link
+              href="/tools/invoice-generator"
+              className="text-primary hover:underline font-medium"
+            >
+              {tLinks("invoiceGenerator")}
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/pricing"
+              className="text-primary hover:underline font-medium"
+            >
+              {tLinks("pricing")}
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/docs/stores/taxes-and-vat"
+              className="text-primary hover:underline font-medium"
+            >
+              {tLinks("taxSetup")}
+            </Link>
+          </li>
+        </ul>
       </div>
     </>
   );

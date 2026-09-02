@@ -47,12 +47,12 @@
       "description": "POS and online storefront built for Arabic-speaking businesses. Native right-to-left interface, bilingual receipts, Arabic thermal printing, and MENA payment integrations."
     },
     "omnichannelRetail": {
-      "title": "One Dashboard for In-Store and Online Sales",
+      "title": "Track In-Store and Online Sales in One Dashboard",
       "description": "Track in-store and online sales from a single dashboard. Shared inventory, orders, customers, and channel reports. Real-time sync between POS and online store."
     },
     "inventoryManagement": {
       "title": "Free Online Inventory Tracker: Track Product Stock in Real Time",
-      "description": "Track inventory online per product, variant, and store location. Low stock alerts, purchase orders, stock transfers, stocktake reports, and dead stock analytics. Free forever."
+      "description": "Track inventory online per product, variant, and store. Low-stock alerts, purchase orders, stock transfers, and dead stock analytics. Free forever."
     },
     "freePos": {
       "title": "Free POS System: Free Cashier and Cash Register Software",
@@ -221,6 +221,10 @@
     "priceTagGenerator": {
       "title": "Price Tag Generator: Print Price Labels with Barcodes Free",
       "description": "Make printable price tags and shelf labels with product names, prices, and Code 128 barcodes. Print on A4 sheets from your browser. Free, no watermark, no signup."
+    },
+    "deadStockReport": {
+      "title": "Free Dead Stock Report Template: Track Aging Inventory",
+      "description": "Free dead stock report template with SKU, quantity, cost, stock value, last sale date, and aging buckets (30/60/90 days). Print or download CSV. No signup."
     }
   },
   "common": {
@@ -305,7 +309,8 @@
     "whatsappCommerce": "WhatsApp Commerce",
     "barcodePos": "Barcode POS",
     "discountCalculator": "Discount Calculator",
-    "priceTagGenerator": "Price Tag Generator"
+    "priceTagGenerator": "Price Tag Generator",
+    "deadStockReport": "Dead Stock Report"
   },
   "footer": {
     "description": "Cashvio is a business management platform that helps you sell, manage, and grow across all channels.",
@@ -4430,6 +4435,11 @@
         "title": "Price tag generator",
         "description": "Print an A4 sheet of shelf labels with product name, price, and an optional barcode.",
         "cta": "Open the price tag maker"
+      },
+      "deadStock": {
+        "title": "Dead stock report template",
+        "description": "Track slow-moving items with aging buckets, stock values, and recommended actions. Print or download CSV.",
+        "cta": "Open the report template"
       }
     },
     "cta": {
@@ -7587,6 +7597,109 @@
     "cta": {
       "title": "Print labels for your whole catalog",
       "subtitle": "Import products into Cashvio and print barcode label sheets in one click. On the free plan.",
+      "button": "Start free with Cashvio",
+      "note": "Free forever plan: no credit card needed"
+    }
+  },
+  "deadStockReport": {
+    "hero": {
+      "title": "Free dead stock",
+      "titleHighlight": "report template",
+      "subtitle": "Track slow-moving and aging inventory with SKU, quantity, unit cost, stock value, last sale date, and aging buckets. Print or download as CSV. Free, no signup."
+    },
+    "tool": {
+      "shopNameLabel": "Business name",
+      "shopNamePlaceholder": "Your shop name",
+      "reportDateLabel": "Report date",
+      "itemsHeading": "Inventory items",
+      "itemNumber": "Item {number}",
+      "skuLabel": "SKU",
+      "skuPlaceholder": "e.g. PROD-001",
+      "productNameLabel": "Product name",
+      "productNamePlaceholder": "e.g. Office chair",
+      "quantityLabel": "Quantity on hand",
+      "unitCostLabel": "Unit cost",
+      "lastSaleDateLabel": "Last sale date",
+      "ageBucketLabel": "Age bucket",
+      "age30": "30 days",
+      "age60": "60 days",
+      "age90": "90 days",
+      "ageNever": "Never sold",
+      "actionLabel": "Recommended action",
+      "actionPlaceholder": "e.g. Discount 20% or pause reorder",
+      "addItem": "Add inventory item",
+      "removeItem": "Remove",
+      "print": "Print report",
+      "downloadCsv": "Download CSV",
+      "reportTitle": "Dead Stock Report",
+      "reportDatePrefix": "Report date:",
+      "totalValueLabel": "Total dead stock value:",
+      "itemCountLabel": "{count, plural, =1 {1 item} other {# items}}",
+      "tableHeaders": {
+        "sku": "SKU",
+        "product": "Product",
+        "quantity": "Qty",
+        "unitCost": "Unit Cost",
+        "stockValue": "Stock Value",
+        "lastSale": "Last Sale",
+        "age": "Age",
+        "action": "Action"
+      },
+      "neverSold": "Never sold",
+      "ageDays": "{days} days",
+      "footerNote": "This template categorizes inventory by aging windows. 30-day buckets show recent slowdown; 60 and 90-day buckets reveal deeper sleepers. Thresholds vary by industry and product type. Use these aging categories as a starting point, not universal rules. Confirm stock counts and last sale dates before making clearance or purchasing decisions."
+    },
+    "steps": {
+      "badge": "HOW IT WORKS",
+      "title": "From raw stock to aging analysis",
+      "s1": {
+        "title": "Add your inventory items",
+        "description": "Enter SKU, product name, quantity, and unit cost for items you suspect are slow-moving."
+      },
+      "s2": {
+        "title": "Set last sale dates and age buckets",
+        "description": "Pick 30, 60, 90 days, or never sold. The template calculates stock value automatically."
+      },
+      "s3": {
+        "title": "Print or export to CSV",
+        "description": "Use the browser print dialog or download a CSV for further analysis in a spreadsheet."
+      }
+    },
+    "pitch": {
+      "badge": "BEYOND THE TEMPLATE",
+      "title": "See dead stock before it piles up",
+      "subtitle": "Cashvio calculates aging inventory automatically from your real sales history and sends low-movement alerts.",
+      "p1": {
+        "title": "Automatic aging reports",
+        "description": "Open the dead stock tab in Reports and see which SKUs have not sold in 30, 60, or 90 days."
+      },
+      "p2": {
+        "title": "Stock value at cost",
+        "description": "Know how much cash is sleeping on the shelf so you can run smart clearance sales."
+      },
+      "p3": {
+        "title": "Low-stock and overstock alerts",
+        "description": "Get notified when fast movers run low and when slow items pile up."
+      }
+    },
+    "faq": {
+      "title": "Dead stock report FAQ",
+      "q1": {
+        "question": "What is a dead stock report?",
+        "answer": "A dead stock report lists inventory that has not sold within a chosen aging window, typically 30, 60, or 90 days. It helps merchants identify slow-moving products and decide whether to discount, reorder less, or clear them out."
+      },
+      "q2": {
+        "question": "How do I choose the right aging bucket?",
+        "answer": "Start with 90 days to find the deepest sleepers, then tighten to 30 days for a weekly cleanup list. Thresholds depend on your industry: fashion moves faster than furniture, perishables faster than books."
+      },
+      "q3": {
+        "question": "Is this template free?",
+        "answer": "Yes. Fill it in, print it, or download the CSV as many times as you need. No account, no limit."
+      }
+    },
+    "cta": {
+      "title": "Track dead stock automatically",
+      "subtitle": "Cashvio shows aging inventory from your real sales history, free.",
       "button": "Start free with Cashvio",
       "note": "Free forever plan: no credit card needed"
     }
