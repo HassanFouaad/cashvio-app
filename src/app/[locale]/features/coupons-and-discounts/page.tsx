@@ -82,6 +82,14 @@ const featureKeys = [
   'codeManagement',
 ] as const;
 
+const catalogueFeatureKeys = [
+  'automatic',
+  'scheduling',
+  'scope',
+  'channels',
+  'stacking',
+] as const;
+
 const problemKeys = ['noTracking', 'abuse', 'noScheduling', 'fragmented'] as const;
 const strategyKeys = ['newCustomer', 'flashSale', 'aovBoost', 'seasonal', 'loyalty', 'clearance'] as const;
 const channelKeys = ['pos', 'storefront', 'portal'] as const;
@@ -207,11 +215,33 @@ export default async function CouponsAndDiscountsPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Catalogue discounts */}
+      <section aria-label={t('catalogue.title')} className="section-padding-sm ledger-rules border-y border-border">
+        <div className="container-wide">
+          <LedgerHeading
+            eyebrow={`${tLedger('no')} 03`}
+            title={t('catalogue.title')}
+            subtitle={t('catalogue.subtitle')}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {catalogueFeatureKeys.map((key, index) => (
+              <ReceiptCard
+                key={key}
+                code={itemCode(index)}
+                title={t(`catalogue.items.${key}.name`)}
+                description={t(`catalogue.items.${key}.description`)}
+                tags={t(`catalogue.items.${key}.subs`).split(' • ')}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section aria-label={t('howItWorks.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 03`}
+            eyebrow={`${tLedger('no')} 04`}
             title={t('howItWorks.title')}
             subtitle={t('howItWorks.subtitle')}
           />
@@ -239,7 +269,7 @@ export default async function CouponsAndDiscountsPage({ params }: Props) {
       <section aria-label={t('omnichannel.title')} className="section-padding-sm ledger-rules border-y border-border">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 04`}
+            eyebrow={`${tLedger('no')} 05`}
             title={t('omnichannel.title')}
             subtitle={t('omnichannel.subtitle')}
           />
@@ -260,7 +290,7 @@ export default async function CouponsAndDiscountsPage({ params }: Props) {
       <section aria-label={t('strategies.title')} className="section-padding-sm">
         <div className="container-wide">
           <LedgerHeading
-            eyebrow={`${tLedger('no')} 05`}
+            eyebrow={`${tLedger('no')} 06`}
             title={t('strategies.title')}
             subtitle={t('strategies.subtitle')}
           />

@@ -39,8 +39,8 @@
       "description": "Your account has been created successfully. Start managing your business today."
     },
     "couponsAndDiscounts": {
-      "title": "Manage Coupons and Discount Codes Across Your Stores",
-      "description": "Create percentage and fixed discounts with usage limits, schedules, and automatic validation at POS and online checkout. Track coupon redemptions and campaign performance."
+      "title": "Coupons and Catalogue Discounts for POS and Online Store",
+      "description": "Run coupon codes and automatic catalogue markdowns with schedules, store scope, and real-time validation at POS and online checkout. Track redemptions and sale prices everywhere you sell."
     },
     "arabicPos": {
       "title": "Arabic POS System and Online Store with Full RTL Support",
@@ -1564,6 +1564,37 @@
           "name": "Smart Code Management",
           "description": "Codes are automatically uppercased for consistency. The system enforces unique codes per store so there are no conflicts. Edit any coupon field except the store assignment after creation.",
           "subs": "Auto-Uppercase • Unique Per Store • Full Edit • Delete with Confirmation"
+        }
+      }
+    },
+    "catalogue": {
+      "title": "Automatic Catalogue Discounts, No Code Required",
+      "subtitle": "Mark products down on the shelf. The sale price applies at the register and on your online store without anyone typing a code.",
+      "items": {
+        "automatic": {
+          "name": "Automatic Price Markdowns",
+          "description": "Set a percentage or fixed amount off a variant, product, category, or whole store. Shoppers and cashiers see the reduced price immediately. No coupon field, no forgotten code at checkout.",
+          "subs": "No Code • POS & Online • Struck-Through Pricing"
+        },
+        "scheduling": {
+          "name": "Scheduled Sale Windows",
+          "description": "Pick a start and end date for each markdown. Weekend sales, Ramadan offers, and clearance events turn on and off on schedule without manual toggles.",
+          "subs": "Start Date • End Date • Status From Dates"
+        },
+        "scope": {
+          "name": "Variant, Product, Category, or Store Scope",
+          "description": "Target one SKU, one product, a whole category, or every item in a store. When more than one rule matches a line, the most specific scope wins.",
+          "subs": "Variant • Product • Category • Store"
+        },
+        "channels": {
+          "name": "Everywhere Customers See Price",
+          "description": "Sale badges and struck-through prices show on POS tiles, product lists, the online storefront, receipts, and the Meta catalogue feed sale_price field.",
+          "subs": "POS • Storefront • /sale Page • Meta Feed"
+        },
+        "stacking": {
+          "name": "Stacks With Coupon Codes",
+          "description": "Catalogue markdowns reduce the unit price first. A valid coupon can still apply on top. Minimum cart rules for coupons use the discounted subtotal, not the pre-sale total.",
+          "subs": "One Winner Per Line • Coupon On Top • Honest Totals"
         }
       }
     },

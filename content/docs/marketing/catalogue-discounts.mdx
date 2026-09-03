@@ -1,0 +1,66 @@
+---
+title: Catalogue Discounts
+description: "Automatic price markdowns on variants, products, categories, or a whole store: scheduling, overlap rules, POS and storefront parity, and reporting."
+---
+
+Catalogue discounts mark items down on the shelf. Shoppers and cashiers see the sale price automatically. No one types a code. This is different from [coupons](/docs/marketing/coupons), where the customer or cashier enters a code at checkout.
+
+<Cards>
+  <Card title="Coupons overview" href="/docs/marketing/coupons" description="Discount codes, usage limits, and validation at checkout." />
+  <Card title="Discount calculator" href="/tools/discount-calculator" description="Free tool to estimate sale prices before you publish a markdown." />
+</Cards>
+
+## What a catalogue discount is
+
+A catalogue discount reduces the unit price of matching items for a scheduled window. It applies at **New Sale**, on the **online storefront**, and in cart and checkout totals. Coupons still work on top after the markdown price is calculated.
+
+## Create a catalogue discount
+
+1. Open **Catalogue > Discounts** in the sidebar (requires the **Discounts** feature on your plan).
+2. Click **Add discount**.
+3. Set **Name**, **Store**, **Type** (percentage or fixed amount), and **Value**.
+4. Choose **Scope**: variant, product, category, or whole store, then pick the target.
+5. Set **Valid from** and **Valid to** dates.
+6. Save. Status is derived from dates and the active toggle, not a separate scheduled job.
+
+## When more than one rule matches
+
+Only **one** catalogue discount wins per order line. Resolution order:
+
+1. **Variant** (most specific)
+2. **Product**
+3. **Category**
+4. **Store** (broadest)
+
+If two rules share the same scope, the larger savings amount wins, then the newest rule.
+
+## Coupons and minimum cart values
+
+Catalogue markdowns apply first to the unit price. A valid coupon can still reduce the order afterward. **Minimum cart value** on a coupon is checked against the **discounted subtotal**, not the pre-sale list price.
+
+Modifier add-ons are **not** discounted. Only the base variant price is marked down.
+
+## Where shoppers and staff see it
+
+| Surface | What appears |
+| --- | --- |
+| **POS product tiles** | Sale badge and struck-through original price |
+| **POS ticket** | Line discount row and adjusted unit price |
+| **Receipts** | Line-level discount detail |
+| **Product lists (portal)** | Effective price and discount badge |
+| **Online storefront** | Badge on cards, sale price on the product page, `/sale` listing |
+| **Meta catalogue feed** | `sale_price` when a markdown is active |
+
+## Reporting
+
+Order **total discount** includes both coupon savings and catalogue markdowns. Staff analytics **discounts given** excludes automatic catalogue markdowns so scheduled sales are not blamed on individual cashiers. Your overall discount rate in reports may rise when you run more shelf sales. That is expected.
+
+## Known limitation
+
+On the online storefront, **sort by price** uses the pre-discount list price, not the effective sale price. Sale items still show the correct badge and checkout total. Use the **/sale** page or category filters to browse discounted products.
+
+## Related
+
+- [Coupons & Discounts feature page](/features/coupons-and-discounts): Commercial overview of coupons and catalogue markdowns
+- [Apply coupons to orders](/docs/marketing/apply-coupons): Code entry at POS and online checkout
+- [Discount calculator](/tools/discount-calculator): Estimate percentages and fixed amounts before you publish
