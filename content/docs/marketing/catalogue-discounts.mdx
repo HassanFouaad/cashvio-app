@@ -16,12 +16,12 @@ A catalogue discount reduces the unit price of matching items for a scheduled wi
 
 ## Create a catalogue discount
 
-1. Open **Catalogue > Discounts** in the sidebar (requires the **Discounts** feature on your plan).
+1. Open **Catalogue > Discounts** in the sidebar (requires the **Catalogue Discounts** feature on your plan).
 2. Click **Add discount**.
 3. Set **Name**, **Store**, **Type** (percentage or fixed amount), and **Value**.
-4. Choose **Scope**: variant, product, category, or whole store, then pick the target.
+4. Choose **Scope**: variant, product, category, or whole store, then select the specific item or category to discount.
 5. Set **Valid from** and **Valid to** dates.
-6. Save. Status is derived from dates and the active toggle, not a separate scheduled job.
+6. Save. Status is determined automatically from your dates and active toggle without relying on background jobs.
 
 ## When more than one rule matches
 
@@ -30,9 +30,9 @@ Only **one** catalogue discount wins per order line. Resolution order:
 1. **Variant** (most specific)
 2. **Product**
 3. **Category**
-4. **Store** (broadest)
+4. **Whole store** (broadest)
 
-If two rules share the same scope, the larger savings amount wins, then the newest rule.
+If two rules share the same scope, the larger savings amount wins, followed by the newest rule if savings are equal.
 
 ## Coupons and minimum cart values
 
@@ -42,22 +42,22 @@ Modifier add-ons are **not** discounted. Only the base variant price is marked d
 
 ## Where shoppers and staff see it
 
-| Surface | What appears |
+| Where it appears | What customers and staff see |
 | --- | --- |
 | **POS product tiles** | Sale badge and struck-through original price |
 | **POS ticket** | Line discount row and adjusted unit price |
-| **Receipts** | Line-level discount detail |
-| **Product lists (portal)** | Effective price and discount badge |
-| **Online storefront** | Badge on cards, sale price on the product page, `/sale` listing |
-| **Meta catalogue feed** | `sale_price` when a markdown is active |
+| **Receipts** | Line-level discount breakdown under matching items |
+| **Product lists (portal)** | Effective sale price and discount badge |
+| **Online storefront** | Badge on cards, sale price on the product page, and dedicated `/sale` page |
+| **Meta catalogue feed** | `sale_price` attribute automatically included while the discount is active |
 
 ## Reporting
 
 Order **total discount** includes both coupon savings and catalogue markdowns. Staff analytics **discounts given** excludes automatic catalogue markdowns so scheduled sales are not blamed on individual cashiers. Your overall discount rate in reports may rise when you run more shelf sales. That is expected.
 
-## Known limitation
+## Price sorting note
 
-On the online storefront, **sort by price** uses the pre-discount list price, not the effective sale price. Sale items still show the correct badge and checkout total. Use the **/sale** page or category filters to browse discounted products.
+On the online storefront, **sort by price** currently uses the pre-discount list price, while sale items still show their correct badge, sale price, and cart total everywhere. Shoppers can browse all discounted items directly on the **/sale** page or through category filters.
 
 ## Related
 
