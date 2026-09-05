@@ -19,11 +19,15 @@ Extras stay on one SKU. Discounts change the price. Bundles combine separate pro
 
 ## Create a Bundle
 
-1. Open **Catalogue > Products** and pick a product, or create a new one.
-2. A bundle product has **exactly one variant**. Turn **inventory tracking off** on that product. The bundle itself holds no stock.
-3. On the product details page, open the **Bundle contents** card and click **Make this a bundle** (or **Edit contents** if it already is one).
-4. Add each component: search for a product variant, set **Quantity per bundle** (how many units of that item go into one bundle), and reorder rows for display.
-5. Choose a pricing mode and save.
+1. Open **Catalogue > Products** and click **Add New Product**.
+2. On step 1, choose **Bundle** as the product type. Product type is set at creation and cannot be changed later.
+3. Fill in the name, category, and other general fields. Bundle products have **exactly one variant** and **inventory tracking stays off**. The bundle itself holds no stock.
+4. On step 2, add each component: search for a product variant, set **Quantity per bundle** (how many units of that item go into one bundle), and reorder rows for display.
+5. Choose a pricing mode, set the bundle price (or discount off the component total), and save.
+
+To change bundle contents later, open the product details page, use the **Bundle contents** card, and click **Edit contents**.
+
+To stop selling a bundle, deactivate the product or delete it. You cannot convert a bundle back to a standard product or turn a standard product into a bundle after creation.
 
 ## How Stock Works
 
@@ -74,7 +78,7 @@ These rules are intentional in this release:
 1. **No nesting**: a bundle cannot contain another bundle.
 2. **One variant only**: two colourways of the same set are two separate bundle products.
 3. **No stocktake row**: bundles do not appear in stocktake or low-stock alerts; track the components.
-4. **No CSV import**: you cannot create bundles through product import in this release. Build them in the product details page.
+4. **No CSV import**: you cannot create bundles through product import in this release. Create them with **Add New Product** and choose **Bundle**.
 5. **No dead-stock row**: the dead-stock report ranks products by stock movement. A bundle has none, so it never appears there.
 
 ## Related Features
