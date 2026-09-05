@@ -5,6 +5,7 @@
     "options",
     "modifiers",
     "products",
+    "bundles",
     "create-product",
     "product-tax-inventory",
     "barcode-labels",

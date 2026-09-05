@@ -1,0 +1,85 @@
+---
+title: Product Bundles
+description: "Sell several products as one item. Set bundle contents, pricing, and let stock flow from the components at POS, on receipts, and on your online store."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+A **bundle** is one product your customer buys once, made up of other products you already sell. Example: a gift set with two mugs and a bag of coffee. The bundle has its own price and photo, but stock comes from the items inside it.
+
+## Bundle, Extra, or Discount?
+
+| Question | Use |
+|----------|-----|
+| Does the customer pick add-ons on the same item? (extra shot, gift wrap) | **Extras** add to the price without touching stock |
+| Do you want a lower price on one SKU for a limited time? | **Catalogue discounts** mark a variant, product, or category down on a schedule |
+| Do you sell a fixed set of products together as one line? | **Bundles** take stock from every component when one bundle sells |
+
+Extras stay on one SKU. Discounts change the price. Bundles combine separate products into one sellable item.
+
+## Create a Bundle
+
+1. Open **Catalogue > Products** and pick a product, or create a new one.
+2. A bundle product has **exactly one variant**. Turn **inventory tracking off** on that product. The bundle itself holds no stock.
+3. On the product details page, open the **Bundle contents** card and click **Make this a bundle** (or **Edit contents** if it already is one).
+4. Add each component: search for a product variant, set **Quantity per bundle** (how many units of that item go into one bundle), and reorder rows for display.
+5. Choose a pricing mode and save.
+
+## How Stock Works
+
+A bundle never has its own quantity on the shelf. **Sellable now** is calculated from the components:
+
+- For each trackable component, divide available stock by **quantity per bundle** and round down.
+- The bundle can sell as many complete sets as the **lowest** of those numbers.
+- If every component is non-trackable, sellable quantity is **Unlimited**.
+
+The card also shows **Enough for N** beside each component so you can see which item is the bottleneck.
+
+<Callout type="info">
+  Bundles do not appear in stocktake or the low-stock list, because they hold no stock of their own. Watch the component products instead.
+</Callout>
+
+## Pricing Modes
+
+| Mode | What it does |
+|------|--------------|
+| **Set the price myself** | You type the bundle selling price directly |
+| **Calculate from components** | Cashvio totals component list prices, applies your discount percentage, and writes the result as the bundle price |
+
+Calculated prices **do not** auto-update when component prices change later. If the component total drifts from the bundle price, the portal shows a banner with **Recalculate** so you can refresh the price in one click.
+
+## Sales, Returns, and Profit
+
+- **Selling one bundle** deducts stock from **every** component in the quantities you defined.
+- **Returning one bundle** puts the same component quantities back when the return is restocked.
+- **Profit** on the bundle line uses the sum of component costs at sale time, so margin stays accurate even if you change the recipe later.
+
+Past orders keep a snapshot of what was inside each bundle, so receipts and order history stay correct after you edit contents.
+
+## Where Bundles Appear
+
+| Surface | What customers and staff see |
+|---------|------------------------------|
+| **New Sale** | Bundle label on the tile; stock follows derived availability |
+| **POS ticket** | One line with a short "Contains N items" note |
+| **Receipts** | Bundle name plus indented component lines |
+| **Product list** | Bundle marker and derived stock |
+| **Online store** | Bundle badge on cards, "What's inside" on the product page, contents note in the cart |
+| **Meta catalog feed** | Availability follows derived stock, not "always in stock" |
+
+## Limitations
+
+These rules are intentional in this release:
+
+1. **No nesting**: a bundle cannot contain another bundle.
+2. **One variant only**: two colourways of the same set are two separate bundle products.
+3. **No stocktake row**: bundles do not appear in stocktake or low-stock alerts; track the components.
+4. **No CSV import**: you cannot create bundles through product import in this release. Build them in the product details page.
+5. **No dead-stock row**: the dead-stock report ranks products by stock movement. A bundle has none, so it never appears there.
+
+## Related Features
+
+- [Products](/docs/catalogue/products): catalogue overview, duplicate, and status
+- [Product Extras and Add-ons](/docs/catalogue/modifiers): optional picks on a single item
+- [Catalogue discounts](/docs/marketing/catalogue-discounts): scheduled markdowns on existing SKUs
+- [Creating orders](/docs/orders/creating-orders): New Sale where bundle tiles appear
