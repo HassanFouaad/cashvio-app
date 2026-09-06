@@ -1,0 +1,51 @@
+---
+title: Editing Orders After Creation
+description: "Amend line items or attach a customer on pending POS orders. Learn what can change, what stays fixed, and how totals update."
+---
+
+## When you can edit
+
+You can edit a **pending** POS order while it is still unpaid and not completed. Open **Sales > Orders**, open the order, then use **Edit items** or **Attach customer** when those actions appear.
+
+If an action is hidden or blocked, the order is in a state that cannot be changed safely. Common reasons include: the order is fully paid, fulfillment is completed, the order came from your online store, a return exists, or an online payment is managed by the gateway.
+
+## Edit line items
+
+1. Open the order and click **Edit items**.
+2. Change quantities, add lines, remove lines, or override a unit price if your role allows it.
+3. Enter a **reason** (required). This appears in the order timeline.
+4. Review the before/after totals, then confirm.
+
+Stock reserved for the order updates when fulfillment is already in progress (for example **Preparing**). Pending storefront-style holds are not affected until the kitchen acknowledges the order.
+
+### Manual discount stays the same amount
+
+If the order was created with a manual discount, that discount keeps the **same money amount** on every edit. It does not shrink or grow when you add or remove lines. If the new order total is smaller than the discount, the discount is capped to the total (same rule as at checkout).
+
+### Coupon discount is not re-checked
+
+When a coupon was applied at checkout, the system keeps the **snapshot** of that coupon. It does not re-validate the coupon code or campaign rules on edit. If you make the order smaller, the coupon discount may shrink because it is re-capped against the new total.
+
+### Price override is permanent
+
+When a manager overrides a line price, that override stays for the life of the line. Clearing the override back to the catalogue price is not supported. To sell at catalogue price again, remove the line and add it fresh.
+
+## Attach a customer
+
+Walk-in orders can be linked to a customer once:
+
+1. Open the order.
+2. Click **Attach customer** when available.
+3. Search and select the customer.
+
+After a customer is attached, you cannot swap to a different customer on the same order. Orders paid with store credit cannot be re-assigned.
+
+## Receipts and history
+
+Every successful edit writes one row to the order timeline with the reason and a summary of what changed. Reprinting a receipt after an edit shows the **current** totals. A receipt the customer already received will not match.
+
+## Related
+
+- [Managing Orders](/docs/orders/managing-orders)
+- [Order Payments](/docs/orders/order-payments)
+- [POS Cart Discounts](/docs/orders/pos-cart-discounts)
