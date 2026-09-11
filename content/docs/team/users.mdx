@@ -20,10 +20,11 @@ The users list shows each user's **name**, **username**, **email**, **status** (
 | **Email** | Their email address |
 | **Username** | The username they can log in with (login accepts username or email) |
 | **Hourly Rate** | Optional; used for staff cost reporting |
-| **Role** | The role that determines their permissions |
-| **Store-specific role** | Check this to limit the role to one store, then pick the store. Otherwise the role applies across the whole business |
+| **Role assignments** | One or more rows. Each row binds a **role** to the whole business (tenant scope) or to a **specific store** |
 
 3. Click **Save**.
+
+You can assign multiple roles in one invitation. Example: **Cashier** at Store A plus **Inventory** at Store B. Duplicate role and store pairs are rejected.
 
 ### Sharing the temporary password
 
@@ -39,7 +40,7 @@ Click on a user to see their profile:
 
 - **Personal Information**: name, username, email
 - **Account Status**: Active / Inactive
-- **Role Assignments**: their role and whether it is business-wide or store-specific
+- **Role Assignments**: every role, scope (business-wide or store), and store target
 - **Last Activity**: last login time
 
 ### Actions available
@@ -48,12 +49,18 @@ Click on a user to see their profile:
 |--------|--------------|
 | **Edit** | Update first name, last name, and hourly rate |
 | **Change Password** | Set a new password for the user (useful when the temporary password is lost) |
-| **Change Role** | Assign a different role, business-wide or scoped to a store |
+| **Change Role** | Replace the full assignment set. Add, remove, or change rows. Saves only when you submit the complete list. |
 | **Activate / Deactivate** | Toggle whether the user can log in |
+
+If someone else edits assignments while you are on the form, save may fail with a conflict. Refresh the page and review the current assignments before saving again.
 
 <Callout title="Note">
 A user's **email cannot be edited** here; email changes go through the verified email-change flow that the user starts from their own [Account Settings](/docs/settings/account-settings).
 </Callout>
+
+## Store selection in the portal
+
+Operational pages (orders, inventory, POS, online store settings) use the **selected store** in the URL or picker. Permissions apply in that store context. Switch stores from the page filter or online store picker when you hold access to more than one location.
 
 ## Deactivating vs Deleting
 

@@ -2,6 +2,7 @@
   "title": "Getting Started",
   "pages": [
     "signing-up",
+    "login-and-sessions",
     "onboarding",
     "first-week-checklist",
     "your-first-sale",

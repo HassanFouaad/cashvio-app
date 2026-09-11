@@ -7,6 +7,8 @@ description: "How roles and permissions control what each team member can access
 
 A **role** defines what a team member can see and do in Cashvio. Each role has a set of **permissions** that control access to different features. For example, a "Cashier" role might only have permission to create orders, while a "Manager" role might have full access.
 
+A **role definition** is not the same as an **assignment**. You define roles once, then assign one or more roles to each user. Each assignment is either **business-wide** (tenant scope) or **limited to one store**.
+
 ## How Permissions Work
 
 Cashvio has fine-grained permissions in the format *action : resource*, grouped by resource. The main groups are:
@@ -34,12 +36,20 @@ Cashvio has fine-grained permissions in the format *action : resource*, grouped 
 When you grant any action on a resource, its **View** permission is added automatically, because you can't edit what you can't see.
 </Callout>
 
+## Scoped assignments and selected store
+
+Operational pages (orders, inventory, POS, online store settings) evaluate permissions in the **selected store** context. A cashier assignment at Store A does not grant order access at Store B, even if the same person also holds another role elsewhere.
+
+Business-wide (tenant-scoped) assignments apply across every store. Store-scoped assignments apply only at the chosen store.
+
+The **Tenant Admin** built-in role is identified by a stable system key, not by its display name. At least one active administrator must remain; the portal blocks changes that would remove the last active admin.
+
 ## How Roles Affect the Interface
 
-When a user logs in, their role determines:
+When a user logs in, their assignments determine:
 
-- **Which sidebar menu items they see**: Only modules they have "View" permission for appear.
-- **Which actions they can perform**: Buttons like "New Sale" or "Delete Product" only appear if the user has the corresponding permission.
+- **Which sidebar menu items they see**: Route access uses their combined assignments; store-bound actions respect the selected store.
+- **Which actions they can perform**: Buttons like "New Sale" or "Delete Product" only appear when the permission holds in the current store context (or tenant-wide when no store is required).
 - **Which Dashboard quick actions appear**: Only actions the user is allowed to perform are shown.
 
 <Callout title="Important">
