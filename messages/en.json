@@ -12,7 +12,7 @@
     },
     "contact": {
       "title": "Contact Us",
-      "description": "Have questions or need support? Get in touch with the Cashvio team today. We are here to help you succeed with our dedicated support and comprehensive documentation."
+      "description": "Have questions or need help? Get in touch with the Cashvio team today. We are here to help you at every step."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -24,7 +24,7 @@
     },
     "docs": {
       "title": "Documentation",
-      "description": "Explore comprehensive documentation, step-by-step guides, and API references for Cashvio. Learn how to manage sales, inventory, and operations effectively."
+      "description": "Step-by-step guides and references for Cashvio. Learn how to manage sales, inventory, orders, and daily operations."
     },
     "features": {
       "title": "Features: Free POS, Inventory & Online Store",
@@ -520,15 +520,15 @@
       },
       "support": {
         "title": "Dedicated Support",
-        "description": "Get help when you need it with responsive support and comprehensive documentation to guide you every step."
+        "description": "Get quick help from our team and clear step-by-step guides whenever you need them."
       }
     },
     "platformPreview": {
       "badge": "Powerful Dashboard",
       "title": "Own and control your business from one place",
-      "description": "Access real-time insights, manage operations, and make informed decisions with our comprehensive business dashboard designed for modern commerce.",
-      "feature1": "Comprehensive real-time business insights",
-      "feature2": "Flexible data views tailored to your needs",
+      "description": "See your sales, inventory, and orders update in real time, and make decisions from a clear, clean dashboard.",
+      "feature1": "Live sales numbers updated in real time",
+      "feature2": "Flexible views that fit how you work",
       "feature3": "Quick access to all business operations",
       "feature4": "Fast and informed decision-making tools",
       "imageAlt": "Cashvio Business Management Dashboard",
@@ -626,15 +626,15 @@
       },
       "feature4": {
         "title": "Smart Business Insights",
-        "description": "Get automated KPI health scores and actionable recommendations tailored to your business performance."
+        "description": "Track health scores and practical suggestions based on your store's sales and margins."
       },
       "imageAlt": "Cashvio Analytics Dashboard",
-      "cta": "Unlock Business Insights"
+      "cta": "See Your Reports"
     },
     "customerManagement": {
       "badge": "Customer Insights",
       "title": "Build lasting relationships with your customers",
-      "description": "Track customer activity, manage store credit balances, record visits, and build loyalty with comprehensive customer profiles and spending analytics.",
+      "description": "Track customer purchases, store credit balances, and visits in a single profile to serve them better and earn repeat business.",
       "feature1": "Complete customer profiles with full purchase history",
       "feature2": "Store credit & balance management with adjustment history",
       "feature3": "Visit tracking, spending analytics, and average order value",
@@ -682,7 +682,7 @@
         ]
       },
       "integrations": {
-        "title": "Seamless Integrations",
+        "title": "Built-In Integrations",
         "description": "Facebook Pixel, Google Tags, multi-currency & multi-language support for your online stores",
         "partners": [
           "Facebook Pixel",
@@ -697,7 +697,7 @@
       }
     },
     "cta": {
-      "title": "Ready to Streamline Your Operations?",
+      "title": "Ready to Organize Your Shop?",
       "subtitle": "Start managing your business better today.",
       "freeBadge": "Free Forever Plan Available",
       "button": "Start Free Now",
@@ -840,7 +840,7 @@
       },
       "q3": {
         "question": "How do I get started?",
-        "answer": "Simply create your free account and start using Cashvio immediately. Upgrade anytime as your business grows."
+        "answer": "Create your free account and start using Cashvio immediately. Upgrade anytime as your business grows."
       },
       "q4": {
         "question": "Can I cancel anytime?",
@@ -1114,7 +1114,7 @@
       },
       "thirdParty": {
         "title": "Third-Party Services",
-        "content": "The Services may integrate with or link to third-party services, such as payment providers, delivery services, or messaging platforms. Your use of any third-party service is governed by that provider's own terms and privacy policy, and you are responsible for reviewing and accepting them. We are not responsible for the acts, omissions, availability, or policies of third-party providers, even where we facilitate the integration."
+        "content": "The Services may integrate with or link to third-party services, such as payment providers, delivery services, or messaging platforms. Your use of any third-party service is governed by that provider's own terms and privacy policy, and you are responsible for reviewing and accepting them. We are not responsible for the acts, omissions, availability, or policies of third-party providers, even where we enable the integration."
       },
       "availability": {
         "title": "Service Availability and Support",
@@ -1234,12 +1234,12 @@
         "description": "Powerful modules that form the backbone of your business operations"
       },
       "operations": {
-        "title": "Operations & Workflow",
-        "description": "Streamline daily operations with tools for returns, purchasing, devices, and more"
+        "title": "Daily Operations",
+        "description": "Tools for handling returns, purchasing, receipts, devices, and cash drawer management"
       },
       "functional": {
         "title": "Advanced Capabilities",
-        "description": "Unlock powerful features to take your business to the next level"
+        "description": "Deeper tools that support your store as your sales and locations grow"
       },
       "capacity": {
         "title": "Scalable Limits",
@@ -1333,7 +1333,7 @@
     "functional": {
       "advancedAnalytics": {
         "name": "Advanced Analytics",
-        "description": "Deep insights with hourly trends, payment breakdowns, profit tracking, and business health scores with actionable recommendations."
+        "description": "Deep reports with hourly trends, payment breakdowns, profit tracking, and overall store health scores with practical tips."
       },
       "advancedInventory": {
         "name": "Advanced Inventory",
@@ -1341,7 +1341,7 @@
       },
       "customReports": {
         "name": "Custom Reports",
-        "description": "Create tailored reports with flexible date ranges, store filtering, channel attribution, and exportable data."
+        "description": "Filter reports by date range, store, and sales channel, and export your data anytime."
       },
       "multiLanguage": {
         "name": "Multi-Language & RTL",
@@ -2269,7 +2269,7 @@
     "inventory": {
       "badge": "Unified Inventory",
       "title": "One Stock Count. Every Channel. Always Accurate.",
-      "subtitle": "No more spreadsheets reconciliation at the end of the day. Your inventory is a single source of truth shared across every store and every sales channel.",
+      "subtitle": "Skip end-of-day spreadsheet reconciliation. Your inventory updates across every store and every sales channel in real time.",
       "features": {
         "realTimeStock": {
           "title": "Real-Time Stock Levels",
@@ -2296,7 +2296,7 @@
       "features": {
         "singleQueue": {
           "title": "One Order Queue",
-          "description": "No more checking multiple tabs. All orders from all channels appear in a single, sortable, filterable list. See what needs attention right now."
+          "description": "All orders from every channel appear in one sortable, filterable list without tab-hopping. See what needs attention right now."
         },
         "flexibleFulfillment": {
           "title": "Flexible Fulfillment",
@@ -2337,7 +2337,7 @@
     },
     "comparison": {
       "title": "Why Choose Cashvio Over Piecing Systems Together",
-      "subtitle": "Compare running a truly unified platform versus stitching separate POS and e-commerce tools",
+      "subtitle": "Compare running one connected platform with stitching separate POS and e-commerce tools",
       "headers": {
         "feature": "Capability",
         "cashvio": "Cashvio",
@@ -2391,7 +2391,7 @@
       "subtitle": "Common questions about Cashvio's omnichannel retail capabilities",
       "q1": {
         "question": "What does omnichannel mean for my retail business?",
-        "answer": "Omnichannel means your customers get a seamless experience whether they shop in your physical store, on your website, or through social media. Behind the scenes, Cashvio unifies your inventory, orders, customer data, and analytics into one platform. So you manage everything from a single dashboard instead of juggling separate systems."
+        "answer": "Omnichannel means your customers have the same smooth experience whether they shop in your physical store, on your website, or through social media. Behind the scenes, Cashvio connects your inventory, orders, customer data, and analytics in one place. You manage everything from a single dashboard instead of juggling separate systems."
       },
       "q2": {
         "question": "Does inventory sync automatically between my store and online shop?",
@@ -3370,7 +3370,7 @@
         },
         "noHistory": {
           "title": "No Purchase History",
-          "description": "A customer asks about something they bought two months ago. The color, the size, the price. Without order history under their name, you simply cannot answer."
+          "description": "A customer asks about something they bought two months ago. The color, the size, the price. Without order history under their name, you cannot answer."
         },
         "creditChaos": {
           "title": "Store Credit on Paper Slips",
@@ -3544,7 +3544,7 @@
     },
     "tabs": {
       "title": "Six Reports, Zero Setup",
-      "subtitle": "Reports build themselves from your sales. Open the Reports page and they are simply there.",
+      "subtitle": "Reports build themselves from your sales. Open the Reports page and your numbers are ready.",
       "items": {
         "overview": {
           "title": "Overview",
@@ -3777,7 +3777,7 @@
         },
         "filters": {
           "name": "Search & Filters",
-          "description": "Find any PO by number, store, supplier, status, or date range. No more digging through paper files or chat threads.",
+          "description": "Find any PO by number, store, supplier, status, or date range, without digging through paper files or chat threads.",
           "subs": "By Number • By Supplier • By Status • By Date"
         }
       }
@@ -4654,7 +4654,7 @@
       "title": "Price with your eyes open",
       "s1": {
         "title": "Enter your real cost",
-        "description": "Include what the unit truly costs you. Purchase price, packaging, delivery to your shop."
+        "description": "Include everything the unit costs you: purchase price, packaging, delivery to your shop."
       },
       "s2": {
         "title": "Add a price or a target",
