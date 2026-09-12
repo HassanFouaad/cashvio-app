@@ -104,7 +104,7 @@ export default async function FlowerShopIndustryPage({ params }: PageProps) {
       "title": "Frequently Asked Questions",
       "q1": {
         "question": "Is Cashvio really free for flower shops?",
-        "answer": "Yes. Our free tier includes complete POS checkout, unlimited products, inventory tracking, and one store location with no trial expiration."
+        "answer": "Yes. Our free tier includes complete POS checkout, up to 1,000 products, inventory tracking, and one store location with no trial expiration."
       },
       "q2": {
         "question": "Can I use barcode scanners and thermal printers?",

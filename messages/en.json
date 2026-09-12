@@ -2735,7 +2735,7 @@
       "subtitle": "No spreadsheets. No monthly fees. No stock surprises. Sign up in 2 minutes and start tracking every product across every store.",
       "button": "Start Free Now",
       "secondaryButton": "View Pricing",
-      "note": "Free forever plan • No credit card required • Unlimited products"
+      "note": "Free forever plan • No credit card required • Up to 1,000 products"
     },
     "screenshot": {
       "caption": "Live view: inventory",
@@ -5089,7 +5089,7 @@
       },
       "q3": {
         "question": "Is it really free for a small market?",
-        "answer": "Yes. The free plan includes the POS, inventory, purchase orders, and reports, with unlimited products and orders."
+        "answer": "Yes. The free plan includes the POS, inventory, purchase orders, and reports, with up to 1,000 products and full order management."
       }
     },
     "cta": {
@@ -5181,7 +5181,7 @@
       "title": "Restaurant POS FAQ",
       "q1": {
         "question": "Is Cashvio really free for restaurants?",
-        "answer": "Yes. The free plan includes the POS, online store, inventory, and reports with unlimited products and orders. Paid plans mainly raise limits like branches and users."
+        "answer": "Yes. The free plan includes the POS, online store, inventory, and reports with up to 1,000 products and full order management. Paid plans mainly raise limits like branches, users, and products."
       },
       "q2": {
         "question": "Can customers order online?",
