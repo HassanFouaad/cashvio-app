@@ -10,7 +10,8 @@ description: "View, filter, and open order details from Sales, then follow up on
 
 | Column | Description |
 |--------|-------------|
-| **Order Number** | Unique identifier for each order. Fulfillment method, sales channel, and order date appear under the number. |
+| **Order Number** | Unique identifier for each order. Fulfillment method and sales channel appear under the number. |
+| **Order Date** | When the order was placed (desktop table column; on mobile the date appears under the order number) |
 | **Customer** | The customer who placed the order |
 | **Store** | Which store the order belongs to (shown when you have more than one store) |
 | **Status** | Order lifecycle: Pending, Completed, or Cancelled |
@@ -19,6 +20,19 @@ description: "View, filter, and open order details from Sales, then follow up on
 | **Total** | The order total amount. If money is still owed, the amount due appears under the total. |
 
 Source (Web or Storefront) and payment method are available as **filters**, not as table columns. Fulfillment method shows under the order number and can also be filtered. Open an order for full payment and fulfillment details.
+
+### Sorting the list
+
+On desktop, click a column header to sort the full list (not just the current page):
+
+| Column | Sort behavior |
+|--------|---------------|
+| **Order Number** | A to Z, then Z to A, then back to the default newest-first list |
+| **Order Date** | Newest first, then oldest first, then default |
+| **Status** | A to Z by status label, then reverse, then default |
+| **Total** | Highest first, then lowest first, then default |
+
+The active sort stays in the page URL so you can refresh or share the link. On mobile cards, sorting uses the same server order; tap column headers on a wide-enough screen or rotate to landscape to reach them.
 
 ### Mobile View
 
