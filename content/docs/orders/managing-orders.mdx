@@ -32,20 +32,28 @@ On desktop, click a column header to sort the full list (not just the current pa
 | **Status** | A to Z by status label, then reverse, then default |
 | **Total** | Highest first, then lowest first, then default |
 
-The active sort stays in the page URL so you can refresh or share the link. On mobile cards, sorting uses the same server order; tap column headers on a wide-enough screen or rotate to landscape to reach them.
+The active sort stays in the page URL so you can refresh or share the link.
+
+On mobile there are no column headers, so the toolbar shows a **Sort by** list with the same four fields in both directions — for example **Order Date (newest first)** is written as **Order Date (descending)**. Choose **Default order** to go back to the newest-first list. Your choice is kept in the page URL exactly as it is on desktop, so switching between phone and computer keeps the same view.
 
 ### Mobile View
 
-On mobile devices, orders are displayed as cards instead of a table. Each card shows:
+On mobile devices, orders are displayed as cards instead of a table. Each card leads with what you need to act on, in this order:
 
-- Order number (with fulfillment method, channel, and date)
-- Customer name
-- Total amount (and amount due when unpaid)
-- Order status
-- Payment status
-- Fulfillment status
+1. Order number (with fulfillment method, channel, and date)
+2. Payment status (and amount due when money is still owed)
+3. Fulfillment status
+4. Total amount
+5. Order status
+6. Customer name
+
+Money and fulfillment come before the customer name so you can scan a list for orders that still need collecting or preparing without opening each one.
 
 ## Filtering Orders
+
+Open the **Filters** button in the toolbar. When filters are active, the count appears next to the label — for example **Filters (3)**.
+
+Filters apply as you choose them; there is no Apply button to press. On mobile the filter sheet ends with **Close**, which just puts the sheet away — your results are already filtered behind it.
 
 Use the filter bar to narrow down your orders:
 
@@ -66,9 +74,40 @@ You can also **export the current filtered view to CSV** using the export button
 To see one customer's orders, open the customer's page; their full order history appears there with the same filters.
 </Callout>
 
+### Getting Back to Your Filtered List
+
+Open an order — by tapping its order number or its **Order details** action — then use the back arrow at the top of the order page. You return to the same search, filters, sort, and page number you left. This also works with your browser's back button.
+
+If you open an order from a link, a bookmark, or a new tab, there is no list to return to, so the back arrow takes you to **Sales > All Sales**.
+
+### When the List Cannot Load
+
+If the orders list fails to load, you will see **Could not load this information** with the reason and a **Retry** button. An empty list and a failed list never look the same, so a connection problem will not be mistaken for "you have no orders".
+
+If the list is already on screen and only the refresh fails, your orders stay visible with the note **Could not refresh this information — Showing the last loaded information. It may be out of date.** **Retry** reloads using the filters you already have; nothing is cleared and no order is changed.
+
 ## Order Details
 
-Click on any order to open its **Order Details** page. Here you will find:
+Click on any order to open its **Order Details** page. The page is arranged in the order most people work through it:
+
+1. **Header** — the back arrow, order number, order status, and the actions you are allowed to take now
+2. **Totals** — total, paid, and amount due
+3. **Payment Status** and **Fulfillment Status** — plus **Payment terms** and the **Promised collection date** on deferred orders
+4. **Order Items** and **Order Payments** — the work itself
+5. **Order Information** and delivery details — who and where. On wide screens this sits beside the items instead of below them
+6. Refunds, returns, the digital receipt QR code, and **Order History**
+
+### Actions in the Header
+
+The header shows one highlighted action for the step the order is actually waiting on — **Accept Payment**, **Add Payment**, or **Update Fulfillment Status** — next to the everyday actions **Print / Share** and **Update Fulfillment Status**.
+
+Everything used less often sits under the **Other actions** button: **WhatsApp customer**, **Initiate Return**, and **Cancel Order**. The button is labelled, works with the keyboard, and an action you are not allowed to use stays listed with the reason written underneath it rather than hidden.
+
+<Callout title="Editing order items">
+**Edit** for order items lives in the **Order Items** section beside the items themselves, not in the page header. It appears only while the order can still be edited.
+</Callout>
+
+If the order fails to load you will see the reason with **Retry** and **Back**. **Back** still returns you to the list you came from.
 
 ### Order Information
 - Order number, date, and time
