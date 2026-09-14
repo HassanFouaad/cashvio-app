@@ -19,23 +19,14 @@ Set up your [categories](/docs/catalogue/categories) and [options](/docs/catalog
 
 On **New Sale**, you can also open **Quick Add Product** from the catalogue menu, or when you [scan a barcode](/docs/orders/pos-barcode-scanning) that is not in your catalogue yet (the scanned code is saved as the product's barcode).
 
-### Step 1: Product Information
+### Step 1: Selling Essentials
 
-Fill in the basic details:
+The form opens with what a product needs before it can be sold. Fill in the basic details:
 
 | Field | Description |
 |-------|-------------|
 | **Product Name** | The name of the product |
-| **Description** | An optional rich-text description |
 | **Category** | The category this product belongs to |
-| **Status** | Active or Inactive (see [Product Statuses](/docs/catalogue/products#product-statuses)) |
-| **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
-| **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
-| **Tax Included** | Toggle to indicate if the selling price already includes tax |
-| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
-| **Available on Online Store** | On by default. Turn it off to keep the product out of your [online store](/docs/online-store/product-availability) and sell it in-store only. You can change this any time. |
-
-For how tax and inventory tracking work after creation, see [Tax and inventory](/docs/catalogue/product-tax-inventory).
 
 ### Step 2: Variants and Pricing
 
@@ -55,18 +46,43 @@ Add the product's variants. Each variant is added manually with **Add Another Va
 **Cost Price** is essential for profit reporting. Without accurate cost prices, profit calculations in the [Reports](/docs/reports/analytics-reports) section will be incorrect.
 </Callout>
 
-### Step 3: Product Images
+### Step 3: Tax
 
-Upload images for the product:
+Set the tax inputs:
 
+| Field | Description |
+|-------|-------------|
+| **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
+| **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
+| **Tax Included** | Toggle to indicate if the selling price already includes tax |
+
+For how tax works after creation, see [Tax and inventory](/docs/catalogue/product-tax-inventory).
+
+### Step 4: Description and Images
+
+Optional storefront content — a product can be sold without filling this in.
+
+- **Description**: A rich-text description for your online store
 - **Multiple Images**: Add several images per product
-- **Primary Image**: Choose the main image shown in product lists and on the storefront
+- **Primary Image**: The first image is the main image shown in product lists and on the storefront
 
 <Callout title="Tip">
 Use high-quality images. They make a big difference on your online store.
 </Callout>
 
-### Step 4: Store-Specific Pricing (Multi-Store)
+### Step 5: Additional Configuration (Optional)
+
+The rarely-changed settings sit collapsed in the **Additional Configuration** section at the bottom of the form, with their current values summarized in one line — for example "Active · Stock tracked · In online store" — so you do not have to open it to know where things stand:
+
+| Field | Description |
+|-------|-------------|
+| **Status** | Active or Inactive (see [Product Statuses](/docs/catalogue/products#product-statuses)) |
+| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
+| **Available on Online Store** | On by default. Turn it off to keep the product out of your [online store](/docs/online-store/product-availability) and sell it in-store only. You can change this any time. |
+
+If one of these fields has a validation problem, the section opens on its own so the error is never hidden behind a closed section.
+
+### Step 6: Store-Specific Pricing (Multi-Store)
 
 If you have multiple stores, you can set different prices for each store:
 
