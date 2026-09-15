@@ -12,7 +12,7 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 ## Viewing Inventory
 
 1. Go to **Inventory** in the sidebar.
-2. If you have multiple stores, **select a store** to view its inventory.
+2. Use **Search**, the **Store** picker (when you manage more than one store), and **Low stock only** in the toolbar. Filters apply live and stay in the page URL so **Back** returns you to the same view.
 3. You will see a table showing:
 
 | Column | Description |
@@ -20,13 +20,14 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 | **Product / Variant** | The product name and variant (with its SKU) |
 | **Status** | In Stock, Low Stock, or Out of Stock |
 | **Available** | Units that can still be sold |
+| **Reorder Point** | Minimum stock level before the item is treated as low stock |
 | **Committed** | Units reserved by pending orders |
 | **On Hand** | Physical units in the store (available + committed) |
 | **Unit Cost** | Weighted-average cost per unit for this store (shown as "-" when unknown) |
 | **Total Value** | Value at cost: on-hand quantity × unit cost |
 | **Last Counted** | When this item was last included in a [stocktake](/docs/inventory/stocktake) (empty until you run one) |
 
-You can search, filter to low-stock only, and **export the current view to CSV**.
+Each row shows **Inventory details** and **Adjust Stock** directly. Other stock actions stay under **Actions**. You can **export the current view to CSV**. Open a row to see quantity KPIs first, then item metadata and recent adjustments.
 
 ## Stock Statuses
 
