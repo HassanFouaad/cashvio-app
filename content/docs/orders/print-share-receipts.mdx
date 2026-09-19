@@ -1,15 +1,38 @@
 ---
 title: Print and Share Receipts
-description: "Print, download, link, WhatsApp, or QR-share a receipt from order details, following your store receipt settings."
+description: "Print or reprint a receipt, share it by link, WhatsApp or QR, and follow up on print jobs that need attention."
 ---
 
 Open the order details and click **Print / Share** in the header:
 
-- **Print**: via a paired thermal printer or the browser print dialog (your choice is remembered per store)
-- **Download PDF**: save the receipt as a PDF
-- **Share Link**: copy a public digital-receipt link the customer can open
-- **Send via WhatsApp**: open WhatsApp with the receipt link ready to send to the customer (see [WhatsApp Sharing](/docs/orders/whatsapp-sharing))
-- **QR Code**: show a QR code the customer can scan to view their receipt
+- **Print**: sends the receipt to your paired thermal printer, or opens the browser print dialog if that is your chosen method (remembered per store)
+- **PDF**: opens the browser print dialog, where you can save the receipt as a PDF
+- **Share Link**: copies a public digital-receipt link the customer can open
+- **Send via WhatsApp**: opens WhatsApp with the receipt link ready to send to the customer (see [WhatsApp Sharing](/docs/orders/whatsapp-sharing))
+- **QR Code**: shows a QR code the customer can scan to view their receipt
+
+A reprint prints the current order data and your current [Receipt Settings](/docs/stores/receipt-settings) with the original order date, and is labeled **COPY - Current order** on the paper so it cannot be confused with the first print. Printing never opens the cash drawer.
+
+## Print jobs
+
+Every print, pairing, connection check and drawer command is listed under a **Print jobs** button that stays in the corner of the screen — including after you start a new sale or leave the page. If any job failed or ended unclearly, the button turns into **Print jobs need attention**.
+
+The app tells you what it actually observed — it never claims paper came out:
+
+| Status | Meaning |
+|--------|---------|
+| **In progress** | The app is preparing or sending the job |
+| **Command completed** | The command was fully sent to the printer. Check the printer for paper output — this does not itself confirm the customer received the receipt |
+| **Print dialog opened** | The browser print dialog opened; finish the job there |
+| **Failed** | The job did not reach the printer. The reason is shown under the status |
+| **Output uncertain** | The printer may have received part of the job. Check the paper before reprinting, so you do not hand the customer two copies |
+| **Cancelled** | The printer selection was cancelled. Your saved printer has not changed |
+
+<Callout title="If a receipt did not print">
+Do not create another sale or payment — the sale itself is complete. Check the printer and paper first, then open the order from **Sales**, click **Print / Share** and print a copy. Use the job list to confirm what happened to the first attempt.
+</Callout>
+
+Each job shows **Close** to clear it from the list, and receipt jobs also link to the order details.
 
 The receipt follows your [Receipt Settings](/docs/stores/receipt-settings), including the auto-print option.
 
@@ -26,4 +49,5 @@ See [WhatsApp Sharing & Customer Updates](/docs/orders/whatsapp-sharing) for the
 ## Related
 
 - [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): Receipt options on the New Sale success screen
+- [Receipt Settings](/docs/stores/receipt-settings): Pair and test your printer before serving customers
 - [Managing Orders](/docs/orders/managing-orders): Open order details from **Sales > All Sales**

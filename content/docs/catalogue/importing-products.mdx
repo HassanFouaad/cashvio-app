@@ -63,6 +63,7 @@ The process runs in the background, so you can leave the page and come back; the
 - A progress bar (e.g. "250 of 800 processed")
 - How many products were **added**
 - How many rows were **skipped**, each with the reason (e.g. "SKU already exists in your catalog")
+- How many rows were **not added** because your account reached its **product limit** (remaining rows in the file were not attempted)
 
 <Callout title="Resilient by design">
 If anything interrupts the process (for example a connection problem), it automatically continues from where it stopped. Products added so far are safe, and no product is ever created twice.
@@ -86,6 +87,7 @@ If anything interrupts the process (for example a connection problem), it automa
 | Barcode uniqueness | Every filled barcode must be unique, both in the file and in your existing catalog |
 | Initial quantity | A whole number from 0 to 1,000,000 per row |
 | One file at a time | Wait for the current upload to finish before starting another |
+| Product limit | Imports stop when your plan's product cap is reached. Rows already added stay in your catalog; unattempted rows are listed separately from skipped row errors |
 
 ## Common Questions
 
@@ -103,6 +105,9 @@ A: All quantities in one file go to the store you pick during the upload. Upload
 
 **Q: Can I update existing products with the file?**
 A: Not yet. The upload creates new products only. Rows whose SKU already exists are skipped and listed with the reason.
+
+**Q: The import stopped because I reached my product limit. What now?**
+A: Products added before the stop are already in your catalog. Remaining rows were not attempted. Upgrade your plan, remove products you no longer need, or delete unused items, then upload a **new file**. Rows whose SKU already exists are skipped automatically during validation.
 
 ## Related Features
 

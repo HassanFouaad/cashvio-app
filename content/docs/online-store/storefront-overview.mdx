@@ -18,46 +18,58 @@ Cashvio supports **subdomain-based storefronts only** (format: `yourstorename.ca
 When customers visit your storefront, they see:
 
 ### Home Page
+
 - **Hero images**: Up to 5 large banner images with display order control (see [Storefront Appearance](/docs/online-store/storefront-appearance))
 - **Featured categories**: Your product categories for easy browsing
 - **Featured products**: A selection of your active products
 
 ### Product Browsing
+
 - **All Products** page with search, sorting, and filtering
 - **Category pages** showing products in each category
 - **Product detail** pages with images, descriptions, variant selection, pricing, and **share buttons** (WhatsApp, Facebook, copy link; see [Sharing Your Store](/docs/online-store/sharing-your-store))
 - **Review stars on product cards**: Products with approved [reviews](/docs/catalogue/product-reviews) show their star rating and review count everywhere they're listed
 - **Recently viewed**: A strip of the customer's recently viewed products on the home page and under each product page
 - **Related products**: On each product page, more items from the same category ("You may also like")
-- **Sorting and filters**: Sort by newest, name, or price; filter by category or in-stock only
+- **Sorting and filters**: Sort by newest, name, or price; filter by category or in-stock only. On a phone, open **Filters** to see these controls. Remove individual filter tags or choose **Clear filters** to start over.
+- **Search recovery**: The search box stays in sync when customers remove a search filter or use browser back and forward. If nothing matches, the page offers **Clear filters**; if loading fails, **Try Again** keeps the current search and selections.
+- **Product cards**: Theme-aware availability labels, visible keyboard focus, and aligned prices make products easier to compare.
 - **Hide Out of Stock**: When enabled in **Online Store > General**, out-of-stock products stay out of the catalog, search, category pages, and featured (special) products on the home page. Direct product links also return not found, so shares and search results stay consistent.
 
 ### Shopping Cart
-- Customers add products, adjust quantities, and see subtotal, shipping, tax, and total
+
+- Customers add products, adjust quantities, and see subtotal, shipping, tax, and total. Totals recalculate when quantities or the fulfillment method change; checkout stays unavailable until the current totals are ready.
+- **Retry totals**: If totals or checkout options cannot load, customers can retry without losing their cart. Failed calculations do not appear as zero-priced orders.
 - **Stock validation**: The cart checks product availability and maximum order quantities
-- **Minimum order nudge**: If you set a [minimum order value](/docs/stores/storefront-payment-methods), the cart shows a progress bar until the minimum is reached
+- **Minimum order nudge**: If you set a [minimum order value](/docs/stores/storefront-payment-methods), the cart shows the required minimum and asks customers to add more items before checkout.
 
 ### Checkout
+
 Customers choose delivery or pickup, select payment (Cash, Receipt / Transfer, or Online), confirm delivery zones and fees, and review the full order breakdown before placing the order.
 
 See [Online Checkout Flow](/docs/online-store/checkout-flow) for the full checkout process.
 
 ### Language Support
+
 - Customers can switch between **English** and **Arabic**
 - The entire storefront supports RTL (right-to-left) for Arabic
 - Add `?lang=ar` or `?lang=en` to any store link to open it in that language (see [Sharing Your Store](/docs/online-store/sharing-your-store#share-in-a-specific-language))
 
 ### Theme
+
 - The look of the whole storefront (colors, fonts, corner style) comes from the [theme you pick](/docs/online-store/storefront-themes)
 - Customers can toggle between **light** and **dark** mode, and every theme includes both palettes
 
 ### Announcement Bar
+
 An optional **promo strip at the very top of every page** in your theme's primary color. Configure bilingual text in [Storefront SEO & Content](/docs/online-store/storefront-seo-content); leave it empty to hide the bar.
 
 ### Footer
+
 Copyright, optional custom footer text, static page links, social icons, and **"Powered by Cashvio"** attribution. On mobile, a bottom navigation bar replaces the footer. Configure footer text in [Storefront SEO & Content](/docs/online-store/storefront-seo-content).
 
 ### WhatsApp Chat Button
+
 A **floating WhatsApp button** on every page lets customers start a chat in one tap. Configure the number and toggle in [Social Media & WhatsApp](/docs/online-store/social-whatsapp-button).
 
 ## Portal Settings
@@ -75,7 +87,7 @@ Under **Online Store > Tracking**, add Google Tag Manager, Facebook Pixel, and T
 Your storefront is connected to the business portal. Changes you make in the portal are reflected on the storefront:
 
 | Portal Setting | Storefront Effect |
-|----------------|-------------------|
+| ---------------- | ------------------- |
 | **Products** | Products appear when their status is "Active" and [Available on Online Store](/docs/online-store/product-availability) is on |
 | **Categories** | Active categories appear in navigation and browsing |
 | **Prices** | Selling prices from product variants are displayed |
