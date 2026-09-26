@@ -4,15 +4,17 @@ export const revalidate = false;
 
 const COMMON_DISALLOW = [
   '/api/',
-  '/_next/',
   '/private/',
   '/admin/',
-  '/*.json$',
   '/cdn-cgi',
   '/thank-you',
+  '/ar/thank-you',
   '/export/',
-  '/*?*',
 ];
+
+// Keep public rendering resources crawlable, including /_next/static/ and
+// /_next/image?url=... . Marketing pages canonicalize tracking parameters;
+// blocking every query string prevents crawlers from fetching those images.
 
 const AI_CRAWLERS = [
   'GPTBot',
