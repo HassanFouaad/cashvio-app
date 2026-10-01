@@ -111,16 +111,18 @@ export interface PublicPlan {
 export interface RegisterRequest {
   businessName: string;
   contactPhone: string;
+  secondaryContactPhone?: string;
   email: string;
   password: string;
 }
 
 /**
- * Registration response
+ * Registration response body.
+ *
+ * Token-free: the access and refresh credentials arrive only as HttpOnly
+ * cookies on the same response. `expiresIn` is the access lifetime in seconds.
  */
 export interface RegisterResponse {
-  accessToken: string;
-  refreshToken: string;
   expiresIn: number;
   user: {
     id: string;
@@ -128,11 +130,12 @@ export interface RegisterResponse {
     lastName: string;
     username: string;
     email: string | null;
+    /** Session id of the new sign-in; matches `sessionId` from GET /auth/me. */
+    sessionId: string;
   };
   tenant: {
     id: string;
     name: string;
-    slug: string;
   };
 }
 

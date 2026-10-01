@@ -32,8 +32,7 @@ export const serverPlansService = {
   async getAll(revalidate?: number, locale?: string): Promise<PublicPlan[]> {
     try {
       const config = createServerConfig(revalidate, locale);
-      const response = await plansService.getAll(config);
-      return response as any ?? [];
+      return await plansService.getAll(config);
     } catch (error) {
       console.error('[Server] Failed to fetch plans:', error);
       return [];
