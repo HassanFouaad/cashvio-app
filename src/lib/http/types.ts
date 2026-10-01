@@ -57,6 +57,12 @@ export interface RequestConfig {
   cache?: RequestCache;
   next?: NextFetchRequestConfig;
   locale?: string; // Locale for Accept-Language header
+  /**
+   * Cookie mode for the request. Defaults to 'omit': the marketing site calls
+   * public endpoints and must not attach the portal's auth cookies. Only
+   * registration opts into 'include' so the browser accepts its Set-Cookie.
+   */
+  credentials?: RequestCredentials;
 }
 
 /**
