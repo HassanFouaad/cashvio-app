@@ -18,7 +18,7 @@ This document describes how authentication with the ${siteConfig.name} API works
 
 - There is **no OAuth, API key, or token-exchange flow** for third-party or non-browser agents today. No discovery metadata, client registration, grant types, or scopes exist.
 - Sessions are browser sessions. The API sets the credentials as **HttpOnly cookies** and never returns a token in a response body.
-- Credentialed cross-origin requests are accepted only from ${siteConfig.name}'s own first-party web apps (the merchant portal, the admin portal, and this site).
+- Credentialed cross-origin requests are accepted only from ${siteConfig.name}'s own first-party web apps (the merchant portal, the admin portal, and this site). Other origins can call public endpoints without credentials.
 - To act for a merchant, send the human to sign up at ${SITE_URL}/register or sign in at ${PORTAL_URL}/login and let them complete the task there.
 
 The rest of this document describes the browser contract used by the first-party apps.
@@ -33,6 +33,8 @@ The rest of this document describes the browser contract used by the first-party
 - Both cookies are \`SameSite=Lax\`, \`Secure\` in production, and scoped to the shared ${siteConfig.name} parent domain.
 - Response bodies contain no \`accessToken\` or \`refreshToken\` field. Read \`expiresIn\` (seconds) from the response to schedule a refresh; do not assume a short lifetime.
 - A browser holds **one ${siteConfig.name} session at a time**. Signing in or registering replaces the session presented in the request's refresh cookie, and the backend revokes that previous session.
+- If \`GET /v1/auth/me\` shows that the session belongs to the other portal, do not call \`/v1/auth/logout\`: that would end the other portal's session. Clear local state instead.
+- Changing the password or confirming an email change revokes every session of that user, on every device. Change password also clears the auth cookies in its response.
 - State-changing requests (POST, PUT, PATCH, DELETE) that carry the auth cookies must come from a first-party \`Origin\`. Otherwise the API answers \`403\` with \`auth.errors.csrf_rejected\`.
 
 ## Register a business
@@ -130,10 +132,16 @@ Returns the signed-in user: profile, tenant, roles, permissions, and \`sessionId
 
 \`\`\`http
 POST ${API_URL}/auth/logout
+Content-Type: application/json
 Cookie: cv_refresh_token=<set by the API>
+
+{
+  "fid": "<Firebase installation ID>"
+}
 \`\`\`
 
-Revokes the current session and clears both auth cookies, then responds with \`{ "success": true }\`. Browser apps that registered the device for push notifications also send its Firebase installation ID as \`fid\` in the JSON body so the device stops receiving pushes.
+- Revokes the current session and always clears both auth cookies. Response \`200\` is \`{ "success": true, "data": { "success": true } }\`.
+- \`fid\` is optional. Apps that registered the device for push notifications send its Firebase installation ID so the device stops receiving pushes for that user. An unknown device is ignored and sign out still succeeds.
 
 ## Errors
 
@@ -155,6 +163,8 @@ Errors use a standard envelope. Branch on \`error.code\`, never on the translate
 | 401 | \`auth.errors.session_revoked\`, \`auth.error_invalid_refresh_token\`, \`auth.error_expired_refresh_token\`, \`auth.errors.refresh_reused\` | The session is over. Sign in again. |
 | 401 | \`auth.errors.account_disabled\`, \`tenants.error_inactive\` | The account or business is deactivated. Do not refresh. |
 | 403 | \`auth.errors.csrf_rejected\` | Cookie-authenticated write from a non-first-party origin. Do not retry. |
+| 403 | \`auth.errors.tenant_portal_access_denied\`, \`auth.errors.system_portal_access_denied\`, \`auth.errors.tenant_principal_required\` | The account belongs to the other portal. Do not refresh or sign out. |
+| 403 | \`auth.error_insufficient_permissions\` | The user's role lacks this permission. Re-read \`/v1/auth/me\`, since permissions may have changed. |
 | 429 | \`auth.errors.too_many_login_attempts\` | Too many failed sign-ins for this account. Wait for the \`Retry-After\` header. |
 | 429 | (other) | Rate limited. Back off and retry. |
 | 5xx | (any) | Retry with exponential backoff. |
