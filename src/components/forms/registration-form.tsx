@@ -21,7 +21,14 @@ import {
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import * as React from 'react';
-import { saveThemePreference, saveLanguagePreference, getThemePreference } from '@/lib/utils/cross-app-sync';
+import { Button } from '@/components/ui/button';
+import { PortalLink } from '@/components/ui/portal-link';
+import {
+  saveThemePreference,
+  saveLanguagePreference,
+  getThemePreference,
+  isAuthenticated,
+} from '@/lib/utils/cross-app-sync';
 
 // ============================================================================
 // Constants (matching backend DTO)
@@ -86,6 +93,7 @@ interface FormErrors {
 
 export function RegistrationForm() {
   const t = useTranslations('register');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const router = useRouter();
   const isRtl = locale === 'ar';
@@ -101,6 +109,15 @@ export function RegistrationForm() {
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [hasTrackedFormStart, setHasTrackedFormStart] = React.useState(false);
+  const [isConfirmingSignedIn, setIsConfirmingSignedIn] = React.useState(false);
+  const signedInNoticeRef = React.useRef<HTMLDivElement>(null);
+
+  // Move focus to the notice so keyboard and screen reader users meet it
+  React.useEffect(() => {
+    if (isConfirmingSignedIn) {
+      signedInNoticeRef.current?.focus();
+    }
+  }, [isConfirmingSignedIn]);
 
   // Track form start when user begins typing
   const handleFormInteraction = React.useCallback(() => {
@@ -188,24 +205,19 @@ export function RegistrationForm() {
     return { ok: true, businessName: businessNameResult.value, contactPhone };
   };
 
-  // Handle form submit
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Prevent double submission
-    if (isSubmitting) return;
-
-    const validation = validateForm();
-    if (!validation.ok) return;
-
+  // Register with already-validated values
+  const submitRegistration = async (
+    businessName: string,
+    contactPhone: string
+  ): Promise<void> => {
     setIsSubmitting(true);
     setErrors({});
 
     try {
       const registerData: RegisterRequest = {
         // Persist the normalized value (same pipeline as the API)
-        businessName: validation.businessName,
-        contactPhone: validation.contactPhone,
+        businessName,
+        contactPhone,
         email: formData.email.trim(),
         password: formData.password,
       };
@@ -247,6 +259,39 @@ export function RegistrationForm() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Prevent double submission
+    if (isSubmitting) return;
+
+    const validation = validateForm();
+    if (!validation.ok) return;
+
+    // Registering signs this browser in as the new owner, and the API revokes
+    // the session it replaces. Ask first when the portal marked this browser
+    // as signed in (cv_auth_status); the account itself is not readable here.
+    if (isAuthenticated()) {
+      setIsConfirmingSignedIn(true);
+      return;
+    }
+
+    await submitRegistration(validation.businessName, validation.contactPhone);
+  };
+
+  // The merchant chose to replace the signed-in session
+  const handleConfirmSignedIn = async (): Promise<void> => {
+    setIsConfirmingSignedIn(false);
+    if (isSubmitting) return;
+
+    // Fields may have changed while the notice was open
+    const validation = validateForm();
+    if (!validation.ok) return;
+
+    await submitRegistration(validation.businessName, validation.contactPhone);
   };
 
   return (
@@ -353,47 +398,93 @@ export function RegistrationForm() {
         </div>
       )}
 
-      {/* Submit Button */}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        aria-busy={isSubmitting}
-        className={cn(
-          'w-full h-12 px-6 rounded-lg font-semibold text-primary-foreground',
-          'bg-primary hover:bg-primary/90 transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2',
-          'disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-primary'
-        )}
-      >
-        {isSubmitting ? (
-          <span className="inline-flex items-center justify-center gap-2">
-            <svg
-              className="animate-spin h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+      {/* Signed-in notice replaces the submit button until the merchant decides */}
+      {isConfirmingSignedIn ? (
+        <div
+          ref={signedInNoticeRef}
+          tabIndex={-1}
+          role="alertdialog"
+          aria-labelledby="signed-in-notice-title"
+          aria-describedby="signed-in-notice-message"
+          className="p-4 border border-dashed border-primary/50 space-y-4 focus:outline-none"
+        >
+          <div className="space-y-1">
+            <p id="signed-in-notice-title" className="font-semibold text-foreground">
+              {t('signedIn.title')}
+            </p>
+            <p id="signed-in-notice-message" className="text-sm text-muted-foreground">
+              {t('signedIn.message')}
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <Button
+              type="button"
+              className="sm:flex-1"
+              onClick={() => void handleConfirmSignedIn()}
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              />
-            </svg>
-            {t('submitting')}
-          </span>
-        ) : (
-          t('submit')
-        )}
-      </button>
+              {t('signedIn.confirm')}
+            </Button>
+            <PortalLink
+              variant="outline"
+              size="md"
+              path="/"
+              className="sm:flex-1"
+              trackLocation="register_signed_in"
+            >
+              {tCommon('goToDashboard')}
+            </PortalLink>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => setIsConfirmingSignedIn(false)}
+            >
+              {t('signedIn.cancel')}
+            </Button>
+          </div>
+        </div>
+      ) : (
+        /* Submit Button */
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+          className={cn(
+            'w-full h-12 px-6 rounded-lg font-semibold text-primary-foreground',
+            'bg-primary hover:bg-primary/90 transition-all duration-200',
+            'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2',
+            'disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-primary'
+          )}
+        >
+          {isSubmitting ? (
+            <span className="inline-flex items-center justify-center gap-2">
+              <svg
+                className="animate-spin h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
+              </svg>
+              {t('submitting')}
+            </span>
+          ) : (
+            t('submit')
+          )}
+        </button>
+      )}
 
       {/* Terms */}
       <p className="text-xs text-center text-muted-foreground">

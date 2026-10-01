@@ -5,20 +5,20 @@
  */
 
 import { httpClient } from '../client';
-import {  ApiResponse, PublicPlan, RequestConfig } from '../types';
+import { PublicPlan, RequestConfig } from '../types';
 
 /**
  * Plans Service - handles all plan-related API calls
+ *
+ * httpClient unwraps the `{ success, data }` envelope, so each method
+ * resolves to the payload itself.
  */
 export const plansService = {
   /**
    * Get all active public plans
    */
-  async getAll(config?: RequestConfig): Promise<ApiResponse<PublicPlan[]>>  {
-    return httpClient.get<ApiResponse<PublicPlan[]>>(
-      '/public/plans',
-      config
-    );
+  async getAll(config?: RequestConfig): Promise<PublicPlan[]> {
+    return httpClient.get<PublicPlan[]>('/public/plans', config);
   },
 
   /**
@@ -32,18 +32,14 @@ export const plansService = {
    * Get freemium plan only
    */
   async getFreemium(config?: RequestConfig): Promise<PublicPlan | null> {
-    const response = await httpClient.get<ApiResponse<PublicPlan[]>>(
-      '/public/plans',
-      {
-        ...config,
-        params: {
-          ...config?.params,
-          isFreemium: true,
-        },
-      }
-    );
+    const plans = await httpClient.get<PublicPlan[]>('/public/plans', {
+      ...config,
+      params: {
+        ...config?.params,
+        isFreemium: true,
+      },
+    });
 
-    return response.data[0] || null;
+    return plans[0] ?? null;
   },
 };
-

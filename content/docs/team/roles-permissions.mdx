@@ -44,6 +44,15 @@ Business-wide (tenant-scoped) assignments apply across every store. Store-scoped
 
 The **Tenant Admin** built-in role is identified by a stable system key, not by its display name. At least one active administrator must remain; the portal blocks changes that would remove the last active admin.
 
+### Passing access on
+
+You can only give out access you hold yourself, with the same reach:
+
+- When you create or edit a role, you can include only permissions you hold business-wide.
+- When you assign a role, you need all of its permissions business-wide for a business-wide assignment, or in that store for a store assignment.
+- Creating a new store needs business-wide access to stores.
+- Coupons and integrations follow their store: a team member with store-level access sees and manages only the coupons and integrations of their own stores.
+
 ## How Roles Affect the Interface
 
 When a user logs in, their assignments determine:

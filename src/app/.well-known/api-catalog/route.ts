@@ -5,6 +5,8 @@ export const revalidate = false;
 export function GET(): Response {
   const SITE_URL = siteConfig.url;
   const API_URL = siteConfig.api.url;
+  // Swagger and health are served version-neutral at the API root, not under /v1.
+  const API_BASE_URL = siteConfig.api.baseUrl;
 
   const catalog = {
     linkset: [
@@ -12,7 +14,7 @@ export function GET(): Response {
         anchor: `${API_URL}/`,
         'service-desc': [
           {
-            href: `${API_URL}/docs-json`,
+            href: `${API_BASE_URL}/docs-json`,
             type: 'application/json',
           },
         ],
@@ -40,7 +42,7 @@ export function GET(): Response {
         ],
         status: [
           {
-            href: `${API_URL}/health`,
+            href: `${API_BASE_URL}/health`,
             type: 'application/json',
           },
         ],

@@ -1210,6 +1210,12 @@
     },
     "submit": "Create Account",
     "submitting": "Creating your account...",
+    "signedIn": {
+      "title": "You're already signed in",
+      "message": "This browser is signed in to Cashvio. Creating a new business will sign you out of that session.",
+      "confirm": "Create new business",
+      "cancel": "Cancel"
+    },
     "success": {
       "title": "Account Created!",
       "message": "Your account has been created successfully.",

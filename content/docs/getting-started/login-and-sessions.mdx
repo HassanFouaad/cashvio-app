@@ -14,15 +14,20 @@ For first-time access, see [Creating Your Account](/docs/getting-started/signing
 1. Open the **account menu** in the top bar.
 2. Click **Log out**.
 
-You return to the login page. Other devices where you were signed in may stay signed in until their own session ends or an administrator changes your access.
+You return to the login page. Signing out also stops push notifications on that device. Sign in on it again to start receiving them. Other devices where you were signed in may stay signed in until their own session ends or an administrator changes your access.
+
+If the server can't confirm the sign-out (for example, because the connection dropped), the login page shows **Sign-out was not confirmed by the server** with a **Retry sign-out** button. Use it before you leave the device, especially a shared one. Cashvio also finishes the sign-out the next time it opens on that device.
 
 ## When Your Session Ends
 
 Cashvio may ask you to sign in again when:
 
 - Your session expires after a period of inactivity.
-- Your password was changed from **Settings > Account** or by an administrator.
+- You changed your password from **Settings > Account**. This signs you out on every device, including the one you used.
+- An administrator changed your password.
+- You confirmed a new account email. This signs you out on every device. Sign in with your new email.
 - Your account was deactivated or your subscription entered a blocked state.
+- You signed in to another account in the same browser. See [One Session per Browser](#one-session-per-browser).
 
 When this happens, Cashvio shows a short message on the login page explaining why you need to sign in again. After a successful sign-in, Cashvio returns you to your previous page when it is still allowed for your role and plan.
 
@@ -34,8 +39,15 @@ If Cashvio cannot reach the server, your current page stays open while Cashvio r
 
 Each browser tab shares the same signed-in session. If you sign out in one tab, other open tabs ask you to sign in again before protected work continues. Sign in on any tab to continue.
 
+## One Session per Browser
+
+A browser holds one Cashvio session at a time. If you sign in to a different account in the same browser, or to another Cashvio portal, that sign-in replaces the earlier session and signs the earlier account out of this browser. Creating a new business on the Cashvio website while you are signed in does the same, so the sign-up page asks you to confirm first.
+
+To work in two accounts at the same time, use a different browser or a separate browser profile for each one.
+
 ## If You Cannot Sign In
 
 - **Forgot password:** use **Forgot password?** on the login page. See [Creating Your Account](/docs/getting-started/signing-up) for the reset steps.
+- **Too many failed attempts:** after several wrong passwords in a row, Cashvio blocks sign-in for that account for a short time, and the login page tells you how long to wait. Wait, then try again. If you are not sure of your password, use **Forgot password?** to set a new one.
 - **Team member with a temporary password:** ask your business owner for updated credentials. See [Users and Roles](/docs/team/users).
 - **Account deactivated or subscription blocked:** contact your business owner or renew your plan. See [Business Settings](/docs/settings/business-settings).
