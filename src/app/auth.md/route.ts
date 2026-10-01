@@ -27,10 +27,11 @@ The rest of this document describes the browser contract used by the first-party
 
 | Cookie | Readable by JavaScript | Purpose |
 |--------|------------------------|---------|
-| \`cv_access_token\` | No (HttpOnly) | Short-lived access credential sent with API requests |
-| \`cv_refresh_token\` | No (HttpOnly) | Rotating refresh credential used by \`POST /v1/auth/refresh\` |
+| \`__Host-cv_access_token\` | No (HttpOnly) | Access credential sent with API requests |
+| \`__Host-cv_refresh_token\` | No (HttpOnly) | Rotating refresh credential used by \`POST /v1/auth/refresh\` |
 
-- Both cookies are \`SameSite=Lax\`, \`Secure\` in production, and scoped to the shared ${siteConfig.name} parent domain.
+- Both cookies are **host-only** on the API host: \`Secure\`, \`Path=/\`, \`SameSite=Lax\`, and no \`Domain\` attribute (the \`__Host-\` prefix enforces this). They are never shared with other ${siteConfig.name} subdomains.
+- Only local development uses the unprefixed names \`cv_access_token\` and \`cv_refresh_token\`.
 - Response bodies contain no \`accessToken\` or \`refreshToken\` field. Read \`expiresIn\` (seconds) from the response to schedule a refresh; do not assume a short lifetime.
 - A browser holds **one ${siteConfig.name} session at a time**. Signing in or registering replaces the session presented in the request's refresh cookie, and the backend revokes that previous session.
 - If \`GET /v1/auth/me\` shows that the session belongs to the other portal, do not call \`/v1/auth/logout\`: that would end the other portal's session. Clear local state instead.
@@ -109,11 +110,11 @@ Response \`200\` sets the auth cookies. The body has \`expiresIn\` and \`user\` 
 
 \`\`\`http
 POST ${API_URL}/auth/refresh
-Cookie: cv_refresh_token=<set by the API>
+Cookie: __Host-cv_refresh_token=<set by the API>
 x-cashvio-refresh-id: <UUIDv7>
 \`\`\`
 
-- The refresh credential comes from the \`cv_refresh_token\` cookie. Send the request without a body.
+- The refresh credential comes from the \`__Host-cv_refresh_token\` cookie. Send the request without a body.
 - \`x-cashvio-refresh-id\` is optional but strongly recommended: generate one UUIDv7 per refresh operation and reuse it on every retry of that same operation.
 - Run only one refresh at a time per browser. Without the header, a concurrent refresh that loses the race is treated as credential reuse and the whole session is revoked.
 - Response \`200\` rotates both cookies. The body contains only \`expiresIn\`.
@@ -123,7 +124,7 @@ x-cashvio-refresh-id: <UUIDv7>
 
 \`\`\`http
 GET ${API_URL}/auth/me
-Cookie: cv_access_token=<set by the API>
+Cookie: __Host-cv_access_token=<set by the API>
 \`\`\`
 
 Returns the signed-in user: profile, tenant, roles, permissions, and \`sessionId\` (the same value returned by sign in and register).
@@ -133,7 +134,7 @@ Returns the signed-in user: profile, tenant, roles, permissions, and \`sessionId
 \`\`\`http
 POST ${API_URL}/auth/logout
 Content-Type: application/json
-Cookie: cv_refresh_token=<set by the API>
+Cookie: __Host-cv_refresh_token=<set by the API>
 
 {
   "fid": "<Firebase installation ID>"
@@ -165,9 +166,13 @@ Errors use a standard envelope. Branch on \`error.code\`, never on the translate
 | 403 | \`auth.errors.csrf_rejected\` | Cookie-authenticated write from a non-first-party origin. Do not retry. |
 | 403 | \`auth.errors.tenant_portal_access_denied\`, \`auth.errors.system_portal_access_denied\`, \`auth.errors.tenant_principal_required\` | The account belongs to the other portal. Do not refresh or sign out. |
 | 403 | \`auth.error_insufficient_permissions\` | The user's role lacks this permission. Re-read \`/v1/auth/me\`, since permissions may have changed. |
+| 400 | \`auth.error_invalid_current_password\` | The current password is wrong (change password, change email). |
 | 429 | \`auth.errors.too_many_login_attempts\` | Too many failed sign-ins for this account. Wait for the \`Retry-After\` header. |
+| 429 | \`auth.errors.too_many_password_attempts\` | Too many wrong current passwords. Wait for the \`Retry-After\` header; the session stays signed in. |
 | 429 | (other) | Rate limited. Back off and retry. |
-| 5xx | (any) | Retry with exponential backoff. |
+| 503 | \`auth.errors.cache_unavailable\`, \`auth.errors.authorization_state_changed\` | Session state was briefly unavailable or changed mid-request. Retry once after a short random delay, then re-read \`/v1/auth/me\`. |
+| 503 | \`auth.errors.refresh_retry\` | A concurrent refresh is rotating the credential. Retry the refresh with the same \`x-cashvio-refresh-id\`. |
+| 5xx | (other) | Retry with exponential backoff. |
 
 ## Documentation
 

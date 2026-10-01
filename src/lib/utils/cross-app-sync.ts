@@ -193,6 +193,12 @@ export function getLanguagePreference(): string | null {
  * Check if user is authenticated on the portal
  * This reads the cv_auth_status cookie set by tenant-portal
  * Used to show "Go to Dashboard" instead of "Login/Register"
+ *
+ * A hint only. The auth cookies are HttpOnly and host-only on the API host,
+ * so this site cannot see them. Only the merchant portal sets this flag: an
+ * admin-portal session in the same browser is not detected, yet registering
+ * still replaces (and revokes) it, because the browser holds one session at
+ * a time. The flag can also be stale after that session ended elsewhere.
  */
 export function isAuthenticated(): boolean {
   const status = getSharedCookie(COOKIE_KEYS.authStatus);
