@@ -14,8 +14,10 @@ import { useLocale, useTranslations } from 'next-intl';
 import {
   getRegistrationSource,
   META_PIXEL_EVENTS,
+  SIGN_UP_METHODS,
   trackMetaEvent,
   trackSignUp,
+  type SignUpMethod,
 } from '@/lib/analytics';
 import { addStateToUrl, getThemePreference } from '@/lib/utils/cross-app-sync';
 
@@ -31,6 +33,15 @@ function getPlanFromQuery(): string | undefined {
   return new URLSearchParams(window.location.search).get('plan') || undefined;
 }
 
+/** `?method=google` marks a Google sign-up; anything else is email. */
+function getSignUpMethodFromQuery(): SignUpMethod {
+  if (typeof window === 'undefined') return SIGN_UP_METHODS.EMAIL;
+  const method = new URLSearchParams(window.location.search).get('method');
+  return method === SIGN_UP_METHODS.GOOGLE
+    ? SIGN_UP_METHODS.GOOGLE
+    : SIGN_UP_METHODS.EMAIL;
+}
+
 export function ThankYouRedirect({ portalUrl }: ThankYouRedirectProps) {
   const t = useTranslations('thankYou');
   const locale = useLocale();
@@ -39,7 +50,11 @@ export function ThankYouRedirect({ portalUrl }: ThankYouRedirectProps) {
   );
 
   useEffect(() => {
-    trackSignUp(getPlanFromQuery(), getRegistrationSource());
+    trackSignUp(
+      getPlanFromQuery(),
+      getRegistrationSource(),
+      getSignUpMethodFromQuery(),
+    );
     trackMetaEvent(META_PIXEL_EVENTS.COMPLETE_REGISTRATION);
 
     const countdownInterval = setInterval(() => {

@@ -1182,7 +1182,8 @@
       "businessName": "Business Name",
       "phone": "Phone Number",
       "email": "Email Address",
-      "password": "Password"
+      "password": "Password",
+      "name": "Name"
     },
     "placeholders": {
       "businessName": "My Awesome Store",
@@ -1205,8 +1206,10 @@
       "passwordRequired": "Password is required",
       "passwordMinLength": "Password must be at least 8 characters",
       "passwordTooLong": "Password is too long (max 128 characters)",
-      "userExists": "An account with this email already exists",
-      "registrationFailed": "Registration failed. Please try again."
+      "userExists": "An account with this email already exists.",
+      "registrationFailed": "Registration failed. Please try again.",
+      "tooManyAttempts": "Too many attempts. Wait a few minutes, then try again.",
+      "networkError": "We couldn't reach Cashvio. Check your connection and try again."
     },
     "submit": "Create Account",
     "submitting": "Creating your account...",
@@ -1214,7 +1217,28 @@
       "title": "You're already signed in",
       "message": "This browser is signed in to Cashvio. Creating a new business will sign you out of that session.",
       "confirm": "Create new business",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "googleMessage": "This browser is signed in to Cashvio. Continuing with Google will sign you out of that session.",
+      "googleConfirm": "Continue"
+    },
+    "google": {
+      "or": "or",
+      "finishTitle": "Finish creating your account",
+      "finishSubtitle": "You're signing up with Google. Add your business details to finish. You won't need a password.",
+      "useDifferentMethod": "Use a different method",
+      "checking": "Checking your Google account...",
+      "errors": {
+        "requiresPassword": "Google can't confirm this email address. Create your account with this email and a password below. You can connect Google later in Account settings.",
+        "linkedElsewhere": "This Google account already has a Cashvio account. Sign in to use it.",
+        "linkRequiresPassword": "An account with this email already exists. Sign in with your password, then connect Google in Account settings.",
+        "accountMismatch": "This Cashvio account is connected to a different Google account. Sign in with that Google account or with your password.",
+        "emailUnverified": "Your Google account email isn't verified. Verify it with Google, then try again.",
+        "tokenInvalid": "Google sign-in didn't go through. Choose your Google account again.",
+        "unavailable": "Sign up with Google isn't available right now. Create your account with your email and a password.",
+        "verificationUnavailable": "We couldn't reach Google to check your account. Try again in a moment.",
+        "accountDisabled": "This account is deactivated. Contact your business owner or our support team.",
+        "businessInactive": "This business is deactivated. Contact our support team."
+      }
     },
     "success": {
       "title": "Account Created!",

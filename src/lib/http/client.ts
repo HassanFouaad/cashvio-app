@@ -15,12 +15,16 @@ import {
 
 /**
  * Custom error class for API errors
+ *
+ * `code` is the stable `error.code` from the backend envelope (the i18n key,
+ * e.g. `auth.errors.user_already_exists`). Branch on it, never on `message`.
  */
 export class HttpError extends Error {
   constructor(
     public statusCode: number,
     message: string,
-    public details?: Record<string, unknown>
+    public details?: Record<string, unknown>,
+    public code?: string
   ) {
     super(message);
     this.name = 'HttpError';
@@ -120,7 +124,8 @@ class HttpClient {
         throw new HttpError(
           response.status,
           errorData.error?.message || errorData.message || 'An error occurred',
-          errorData.details
+          errorData.details,
+          errorData.error?.code
         );
       }
 

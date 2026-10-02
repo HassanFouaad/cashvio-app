@@ -59,8 +59,10 @@ export {
 
 export {
   SCROLL_DEPTH_MILESTONES,
+  SIGN_UP_METHODS,
   TIME_ON_PAGE_THRESHOLDS_SECONDS,
   type ScrollDepthMilestone,
+  type SignUpMethod,
 } from './constants';
 
 // Event tracking utilities

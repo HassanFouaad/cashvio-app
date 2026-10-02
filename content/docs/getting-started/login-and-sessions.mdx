@@ -1,13 +1,30 @@
 ---
 title: Login, Sessions, and Sign Out
-description: How Cashvio sessions work, what happens when your session ends, and how to get back to your work after signing in again.
+description: How Cashvio sessions work, how to sign in with your password or Google, what happens when your session ends, and how to get back to your work after signing in again.
 ---
 
 ## Signing In Again
 
-If Cashvio sends you to the login page while you were working, sign in with your **username or email** and **password**, then click **Sign in**. When possible, Cashvio returns you to the page you were on before the session ended.
+If Cashvio sends you to the login page while you were working, sign in with your **username or email** and **password**, then click **Sign in**. If you use Google, click **Continue with Google** instead. When possible, Cashvio returns you to the page you were on before the session ended.
 
 For first-time access, see [Creating Your Account](/docs/getting-started/signing-up).
+
+## Signing In with Google
+
+1. On the login page, click **Continue with Google**.
+2. Choose your Google account in the Google window.
+
+You are signed in when that Google account is connected to your Cashvio account, or when your Cashvio account uses the same Gmail or Google Workspace address. If no Cashvio account matches, the login page offers to create one on the Cashvio website. See [Signing Up with Google](/docs/getting-started/signing-up#signing-up-with-google).
+
+<Callout title="Your first Google sign-in on an existing account">
+If you created your account with an email and password and that email is a Gmail or Google Workspace address, your first **Continue with Google** connects Google to the account and Cashvio sends you a security email. If that password was never confirmed through your email (with a password reset, a confirmed email change, or by connecting Google in Account Settings), Cashvio also removes the old password and signs out your other devices. This protects your account in case someone else created it with your email. You can set a new password at any time with **Forgot password?**.
+</Callout>
+
+If your account email is any other address, **Continue with Google** can't connect it for you. Sign in with your password first, then connect Google from [Account Settings](/docs/settings/account-settings#google).
+
+<Callout title="Team members">
+If your business owner added you and your work email is different from your Google email, sign in with your **username** and password first. Then connect Google from [Account Settings](/docs/settings/account-settings#google). After that, **Continue with Google** signs you in.
+</Callout>
 
 ## Signing Out
 
@@ -26,6 +43,7 @@ Cashvio may ask you to sign in again when:
 - You changed your password from **Settings > Account**. This signs you out on every device, including the one you used.
 - An administrator changed your password.
 - You confirmed a new account email. This signs you out on every device. Sign in with your new email.
+- Your first **Continue with Google** removed a password that was never confirmed. This signs you out on your other devices. See [Signing In with Google](#signing-in-with-google).
 - Your account was deactivated or your subscription entered a blocked state.
 - You signed in to another account in the same browser. See [One Session per Browser](#one-session-per-browser).
 
@@ -48,6 +66,7 @@ To work in two accounts at the same time, use a different browser or a separate 
 ## If You Cannot Sign In
 
 - **Forgot password:** use **Forgot password?** on the login page. See [Creating Your Account](/docs/getting-started/signing-up) for the reset steps.
+- **Signed up with Google:** your account has no password until you set one. Use **Continue with Google**, or set a password with **Forgot password?**.
 - **Too many failed attempts:** after several wrong passwords in a row, Cashvio blocks sign-in for that account for a short time, and the login page tells you how long to wait. Wait, then try again. If you are not sure of your password, use **Forgot password?** to set a new one.
 - **Team member with a temporary password:** ask your business owner for updated credentials. See [Users and Roles](/docs/team/users).
 - **Account deactivated or subscription blocked:** contact your business owner or renew your plan. See [Business Settings](/docs/settings/business-settings).

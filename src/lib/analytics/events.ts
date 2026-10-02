@@ -19,6 +19,7 @@ import {
   type GAEventCategory,
   type GAEventName,
 } from './config';
+import { SIGN_UP_METHODS, type SignUpMethod } from './constants';
 
 /**
  * Base event parameters interface
@@ -262,7 +263,11 @@ export function trackRegistrationStart(source?: string): void {
  * Track successful signup (GA4 recommended: sign_up).
  * Canonical fire point is the thank-you page to avoid double-counting.
  */
-export function trackSignUp(planType?: string, source?: string): void {
+export function trackSignUp(
+  planType?: string,
+  source?: string,
+  method: SignUpMethod = SIGN_UP_METHODS.EMAIL
+): void {
   const registrationSource = source || getRegistrationSource();
 
   trackEvent(
@@ -270,7 +275,7 @@ export function trackSignUp(planType?: string, source?: string): void {
     withAttribution({
       event_category: GA_EVENT_CATEGORIES.CONVERSION,
       event_label: registrationSource,
-      method: 'email',
+      method,
       plan_type: planType,
       registration_source: registrationSource,
     })

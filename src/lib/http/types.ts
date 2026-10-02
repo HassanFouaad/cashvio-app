@@ -59,8 +59,9 @@ export interface RequestConfig {
   locale?: string; // Locale for Accept-Language header
   /**
    * Cookie mode for the request. Defaults to 'omit': the marketing site calls
-   * public endpoints and must not attach the portal's auth cookies. Only
-   * registration opts into 'include' so the browser accepts its Set-Cookie.
+   * public endpoints and must not attach the portal's auth cookies. Only the
+   * sign-up calls (register, Google sign-in and Google sign-up) opt into
+   * 'include' so the browser accepts their Set-Cookie.
    */
   credentials?: RequestCredentials;
 }
@@ -138,6 +139,103 @@ export interface RegisterResponse {
     name: string;
   };
 }
+
+/**
+ * Stable `error.code` values the sign-up form branches on. The code equals
+ * the backend i18n key; the translated text arrives in `error.message`.
+ */
+export enum AuthErrorCode {
+  USER_ALREADY_EXISTS = 'auth.errors.user_already_exists',
+  ACCOUNT_DISABLED = 'auth.errors.account_disabled',
+  TENANT_INACTIVE = 'tenants.error_inactive',
+  BUSINESS_NAME_REQUIRED = 'auth.errors.business_name_required',
+  BUSINESS_NAME_TOO_SHORT = 'auth.errors.business_name_too_short',
+  BUSINESS_NAME_TOO_LONG = 'auth.errors.business_name_too_long',
+  BUSINESS_NAME_MUST_CONTAIN_LETTER = 'auth.errors.business_name_must_contain_letter',
+  BUSINESS_NAME_INVALID_CHARS = 'auth.errors.business_name_invalid_chars',
+  CONTACT_PHONE_INVALID = 'auth.errors.contact_phone_invalid',
+  GOOGLE_SIGN_UP_REQUIRES_PASSWORD = 'auth.errors.google_sign_up_requires_password',
+  GOOGLE_ACCOUNT_LINKED_ELSEWHERE = 'auth.errors.google_account_linked_elsewhere',
+  GOOGLE_LINK_REQUIRES_PASSWORD = 'auth.errors.google_link_requires_password',
+  GOOGLE_ACCOUNT_MISMATCH = 'auth.errors.google_account_mismatch',
+  GOOGLE_EMAIL_UNVERIFIED = 'auth.errors.google_email_unverified',
+  GOOGLE_TOKEN_INVALID = 'auth.errors.google_token_invalid',
+  GOOGLE_TOKEN_REUSED = 'auth.errors.google_token_reused',
+  GOOGLE_SIGN_IN_UNAVAILABLE = 'auth.errors.google_sign_in_unavailable',
+  GOOGLE_VERIFICATION_UNAVAILABLE = 'auth.errors.google_verification_unavailable',
+}
+
+// ============================================================================
+// Google Sign-In Types
+// ============================================================================
+
+/**
+ * Result of POST /auth/google/sign-in
+ *
+ * SIGNED_IN: an account already uses this Google account or email; the
+ *   auth cookies are set on the response.
+ * SIGNUP_REQUIRED: no account yet and no cookies; finish with
+ *   POST /auth/google/sign-up and the same ID token.
+ */
+export enum GoogleSignInOutcome {
+  SIGNED_IN = 'SIGNED_IN',
+  SIGNUP_REQUIRED = 'SIGNUP_REQUIRED',
+}
+
+/**
+ * Google sign-in request. `idToken` is the Google Identity Services
+ * `credential`; never log it or send it to analytics.
+ */
+export interface GoogleSignInRequest {
+  idToken: string;
+}
+
+/** Google profile offered on the sign-up step (shown read-only). */
+export interface GoogleSignUpProfile {
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+/** Signed-in user returned with SIGNED_IN (the subset this site relies on). */
+export interface GoogleSignedInUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string | null;
+  sessionId?: string | null;
+}
+
+export interface GoogleSignedInResponse {
+  outcome: GoogleSignInOutcome.SIGNED_IN;
+  expiresIn: number;
+  user: GoogleSignedInUser;
+}
+
+export interface GoogleSignUpRequiredResponse {
+  outcome: GoogleSignInOutcome.SIGNUP_REQUIRED;
+  profile: GoogleSignUpProfile;
+}
+
+export type GoogleSignInResponse =
+  | GoogleSignedInResponse
+  | GoogleSignUpRequiredResponse;
+
+/**
+ * Google sign-up request: the business details of registration plus the same
+ * ID token that sign-in answered with SIGNUP_REQUIRED. There is no email or
+ * password field: the email comes from Google and no password is created.
+ */
+export interface GoogleSignUpRequest {
+  idToken: string;
+  businessName: string;
+  contactPhone: string;
+  secondaryContactPhone?: string;
+}
+
+/** Google sign-up answers with the registration body (cookies are set). */
+export type GoogleSignUpResponse = RegisterResponse;
 
 // ============================================================================
 // Contact Types
