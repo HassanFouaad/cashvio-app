@@ -1,0 +1,120 @@
+---
+title: Cash Sessions (Register Close)
+description: "Open a register with a float, record cash in and out, then count the drawer, explain any difference and print a Z report."
+---
+
+## What are cash sessions?
+
+A **cash session** follows one cash drawer from the moment you open it to the moment you count it. You start with an **opening float**, every cash sale, cash collection and cash refund in the store is added to that drawer automatically, and at the end you count the cash. Cashvio shows what should be in the drawer, the **difference** from your count, and keeps a **Z report** you can print or reprint later.
+
+Cash sessions are optional and work **per store**. Stores that do not turn them on keep selling exactly as before.
+
+## Turn cash sessions on
+
+1. Go to **Settings > Features** and turn on **Cash Sessions**.
+2. Go to **Stores**, open the store, then the **Cash registers** tab.
+3. Click **Add register** and give each drawer a name your team recognizes, for example *Front counter*.
+4. Turn on **Require cash sessions**.
+
+| Setting | What it does |
+|---------|--------------|
+| **Require cash sessions** | Every cash sale, collection and cash refund in this store must go through an open register. You need at least one active register to turn it on. |
+| **Rename** | Changes the register name. Past sessions keep the name they were closed with. |
+| **Deactivate** | Stops the register from being opened. Its past sessions stay in history. You cannot deactivate a register while it has an open session. |
+
+<Callout title="Turning it off">
+To turn **Require cash sessions** off, close every open register in the store first. Closed sessions always stay in your history.
+</Callout>
+
+## Open a register
+
+1. Open **New Sale** and pick your store.
+2. Choose the register you are selling from. A register that is already open (for example by a colleague on the same shift) continues straight to the sale screen.
+3. For a closed register, enter the **Opening float** (the cash already in the drawer) and tap **Open register**.
+
+Your device remembers the register you used last, but you can switch any time from the register name in the top bar (**Switch register**). Several cashiers can sell into the same open register; every amount records who entered it.
+
+## Sell with an open register
+
+Nothing changes at checkout. Cash sales are added to the open register automatically. Only the cash part of a payment counts: store credit, online payments and transfer receipts never change the drawer.
+
+If the register was closed by someone else while you were selling, the sale is not saved. Cashvio shows a message and takes you back to the register screen; your cart stays as it was.
+
+## Cash in, cash out and no sale
+
+Tap the register name in the top bar:
+
+| Action | Use it when | Effect on the drawer |
+|--------|-------------|----------------------|
+| **Cash in** | You add cash, for example extra change | Adds the amount |
+| **Cash out** | You remove cash, for example to pay a delivery driver | Removes the amount |
+
+Both need an amount and a **reason**.
+
+To open the drawer without a sale, tap the cash icon in the top bar, enter a reason, then tap **Log and open drawer**. The opening is logged first; the drawer opens through your paired receipt printer. Cashvio cannot see a drawer opened by hand, so the log is a record of the request, not proof.
+
+## Close the register and print the Z report
+
+1. Tap the register name, then **Close register**.
+2. Check the summary: opening float, cash sales, collections, refunds, cash in and cash out add up to **Expected in drawer**.
+3. Count the cash and enter **Counted cash**. To count note by note, turn on **Count by note and coin** and enter how many of each you have.
+4. If the count does not match, Cashvio shows **Over by** or **Short by**. Write the **Reason for the difference** — you cannot close without one.
+5. Tap **Close register**, then **Print Z report**.
+
+<Callout title="Closed is final">
+A closed session cannot be reopened or edited, so the Z report always matches what was counted. If you find a mistake later, record it as cash in or cash out on the next open session.
+</Callout>
+
+## Cash outside the New Sale screen
+
+In a store that requires cash sessions, Cashvio asks which open register receives or pays out the cash when you:
+
+- add a cash payment on an order (**Add Payment**),
+- approve a pending cash payment, for example a pay-later instalment,
+- create a cash refund you can process right away, or **Process** a pending cash refund.
+
+If no register is open, open one on **New Sale** first. Cash on delivery collected by a driver for an online-store order can be approved without a register, because that cash never entered a shop drawer.
+
+## Review past sessions
+
+Go to **Sales > Cash Sessions** to see every session with its opening and closing time, expected cash, counted cash and difference. Filter by store, status and opening date. Open a session to see:
+
+- the drawer summary and the reason for any difference,
+- **By staff member**: what each person recorded. The difference belongs to the shared drawer, not to one person,
+- **Drawer movements**: every sale, collection, refund, cash in, cash out and no-sale, with links to the orders.
+
+From a closed session you can reprint the Z report. From an open session (for example a drawer left open overnight) a manager can count and close it here.
+
+## Permissions
+
+| Permission | Allows |
+|------------|--------|
+| **View Cash Registers** | See a store's registers and which one is open (needed on New Sale) |
+| **Add Cash Registers** | Add registers to a store |
+| **Edit Cash Registers** | Rename, deactivate registers and turn **Require cash sessions** on or off |
+| **Open Cash Register** | Open a register with a float |
+| **Record Cash In/Out** | Record cash in and cash out |
+| **Open Drawer Without a Sale** | Log a no-sale drawer opening |
+| **Close Cash Register** | Count and close a register |
+| **View Cash Session Totals** | See a session's expected cash and movements |
+| **View Cash Session History** | Use **Sales > Cash Sessions** |
+
+The built-in **Cashier** role can view registers, open, record cash in and out, log no-sale and close. The built-in **Accountant** role can view registers, session totals and history. **Tenant Admin** can do everything.
+
+## Related Features
+
+- [Creating Orders](/docs/orders/creating-orders): the New Sale screen
+- [POS Cashier Shortcuts](/docs/orders/pos-cashier-shortcuts): pair a printer and open the drawer
+- [Today at This Store](/docs/orders/pos-daily-summary): a quick mid-day glance
+- [Roles & Permissions](/docs/team/roles-permissions)
+
+## FAQs
+
+**Q: Does Cashvio close registers automatically at midnight?**
+A: No. A session stays open until someone counts and closes it, even across midnight. The session keeps its own time zone for the Z report.
+
+**Q: What if the plan feature is turned off while a register is open?**
+A: New registers can no longer be opened and cash is not tracked per register, but you can still review history and close any session that is open from **Sales > Cash Sessions**.
+
+**Q: Who is responsible for a difference on a shared register?**
+A: The difference belongs to the drawer. **By staff member** shows what each person recorded, which helps you investigate, but it does not assign the difference to anyone.
