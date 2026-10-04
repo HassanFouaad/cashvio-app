@@ -54,7 +54,7 @@ export function GET() {
     `- [WhatsApp commerce](${SITE_URL}/features/whatsapp-commerce): Share order status and digital receipts on WhatsApp from one order queue`,
     `- [Barcode POS](${SITE_URL}/features/barcode-pos): USB barcode scanning, printable labels, and live stock updates at the register`,
     `- [Pricing](${SITE_URL}/pricing): Plans and pricing, including the free forever plan`,
-    `- [Register](${SITE_URL}/register): Create a free account`,
+    `- [Register](${siteConfig.links.portal}/register): Create a free account in the merchant portal`,
     '',
     `## Business types`,
     '',

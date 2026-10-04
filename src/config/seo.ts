@@ -487,7 +487,7 @@ export const schemaTemplates = {
         '@type': 'RegisterAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: `${urls.site}/register`,
+          urlTemplate: `${urls.portal}/register`,
         },
         name: 'Sign up for Cashvio',
       },
@@ -520,8 +520,8 @@ export const schemaTemplates = {
       name: `${brand.name} Documentation`,
       url: `${urls.site}/docs`,
     },
-    installUrl: `${urls.site}/register`,
-    downloadUrl: `${urls.site}/register`,
+    installUrl: `${urls.portal}/register`,
+    downloadUrl: `${urls.portal}/register`,
     url: urls.site,
     sameAs: [
       ...(social.x.url ? [social.x.url] : []),
@@ -697,7 +697,7 @@ export const schemaTemplates = {
         text: locale === 'ar' 
           ? 'سجل مجاناً باستخدام بريدك الإلكتروني ورقم الهاتف'
           : 'Sign up for free using your email and phone number',
-        url: `${urls.site}/register`,
+        url: `${urls.portal}/register`,
       },
       {
         '@type': 'HowToStep',

@@ -20,7 +20,7 @@ This document describes how authentication with the ${siteConfig.name} API works
 - Sessions are browser sessions. The API sets the credentials as **HttpOnly cookies** and never returns a token in a response body.
 - **Sign in with Google** is a first-party, browser-only feature of ${siteConfig.name}'s own web apps, not an OAuth flow you can use. The browser gets a Google ID token from Google Identity Services and posts it to the API, which answers with the same HttpOnly session cookies. The token must be issued to ${siteConfig.name}'s own Google client and the request must come from a first-party origin, so agents cannot call these endpoints. ${siteConfig.name} is not an OAuth provider.
 - Credentialed cross-origin requests are accepted only from ${siteConfig.name}'s own first-party web apps (the merchant portal, the admin portal, and this site). Other origins can call public endpoints without credentials.
-- To act for a merchant, send the human to sign up at ${SITE_URL}/register or sign in at ${PORTAL_URL}/login and let them complete the task there.
+- To act for a merchant, send the human to sign up at ${PORTAL_URL}/register or sign in at ${PORTAL_URL}/login and let them complete the task there.
 
 The rest of this document describes the browser contract used by the first-party apps.
 
@@ -111,7 +111,7 @@ Accounts created with Google have no password until the owner sets one through f
 
 ## Google sign-in (first-party browsers only)
 
-The merchant portal login page offers **Continue with Google**, and this site's sign-up page at ${SITE_URL}/register offers **Sign up with Google**. The four endpoints below exist only for those first-party pages:
+The merchant portal offers **Continue with Google** on its login page and on its sign-up page at ${PORTAL_URL}/register (this site's /register redirects there). The four endpoints below exist only for those first-party pages:
 
 - The browser gets a Google ID token (the Google Identity Services \`credential\`) from a **popup**. Redirect mode is not supported: its POST comes from accounts.google.com and is rejected.
 - Requests use \`credentials: "include"\` and must come from a first-party \`Origin\`. Any other origin gets \`403\` with \`auth.errors.csrf_rejected\`.

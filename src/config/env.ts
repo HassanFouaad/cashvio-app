@@ -12,7 +12,6 @@ const PORTAL_URL =
   process.env.NEXT_PUBLIC_PORTAL_URL || 'http://localhost:3002';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3005';
 const COOKIE_DOMAIN = process.env.NEXT_PUBLIC_COOKIE_DOMAIN || '.cash-vio.com';
-const GOOGLE_CLIENT_ID = (process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '').trim();
 
 export const env = {
   /**
@@ -32,9 +31,14 @@ export const env = {
   portal: {
     url: PORTAL_URL,
     loginPath: '/login',
+    /** Sign-up (password or Google) lives in the portal; /register redirects here. */
+    registerPath: '/register',
     dashboardPath: '/dashboard',
     get loginUrl() {
       return `${this.url}${this.loginPath}`;
+    },
+    get registerUrl() {
+      return `${this.url}${this.registerPath}`;
     },
     get dashboardUrl() {
       return `${this.url}${this.dashboardPath}`;
@@ -50,17 +54,6 @@ export const env = {
     description:
       process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
       'Free POS and free online store: complete business management for online and in-store operations',
-  },
-
-  /**
-   * Google Identity Services ("Sign up with Google" on /register).
-   * An empty client ID hides every Google surface.
-   */
-  google: {
-    clientId: GOOGLE_CLIENT_ID,
-    get isEnabled(): boolean {
-      return this.clientId.length > 0;
-    },
   },
 
   /**

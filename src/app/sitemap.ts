@@ -35,7 +35,6 @@ const staticPages: PageConfig[] = [
   { path: '/features/barcode-pos' },
   { path: '/pricing' },
   { path: '/contact' },
-  { path: '/register' },
   { path: '/docs' },
   { path: '/privacy' },
   { path: '/terms' },
