@@ -42,7 +42,16 @@ See [Coupons](/docs/marketing/coupons) for how to create and manage coupon codes
 
 1. Open the **Discount** option in the cart.
 2. Choose **Fixed Amount** (e.g., 50 EGP off) or **Percentage** (e.g., 10% off). For percentages, tap one of the quick chips (5%, 10%, 15%, 20%) or type any value.
-3. The dialog previews the discount and the amount **after discount**; the ticket total updates when you apply it.
+3. The dialog previews the discount and the amount **after discount**; the ticket total updates when you tap **Apply Discount**.
+
+**The dialog remembers your last discount.** On a ticket that has no discount yet, the dialog opens on the last discount you applied in this store (same type and amount, with the matching percentage chip highlighted), even after **New Sale** or a reload. It is only prefilled: nothing changes on the ticket until you tap **Apply Discount**.
+
+- A discount already on the ticket always wins: the dialog opens on that one.
+- Cancelling the dialog does not change what is remembered.
+- **Remove Discount** clears the discount from the ticket only; the dialog still opens on it next time.
+- A remembered fixed amount larger than the current subtotal is reduced to the subtotal.
+
+See [Favorites, Recent, and Remembered Defaults](/docs/orders/pos-remembered-defaults) for everything else the register remembers.
 
 ## Item Notes
 

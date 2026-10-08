@@ -1,6 +1,6 @@
 ---
 title: Barcode Scanning on New Sale
-description: "Scan products into New Sale with a USB or Bluetooth scanner or your device camera, including Quick Add Product for unknown barcodes."
+description: "Scan products into New Sale with a USB or Bluetooth scanner or your device camera, including Quick Add Product for unknown barcodes, quantity multipliers, and scan sounds."
 ---
 
 On **New Sale**, you can add catalogue items by scanning instead of tapping tiles. Scans work anywhere on the sale screen; you do not need to focus the search field first.
@@ -24,8 +24,37 @@ This works for both scanning methods. It appears only if your role can create pr
 The first camera scan asks for **camera permission** and may take a moment while the scanner component loads. If the camera does not start, check the browser's camera permission for the site.
 </Callout>
 
+## Add several units at once
+
+Selling six of the same item? Set the quantity first, then scan or tap the product once.
+
+- **Type `n*` in the search field**: for example type `6*`. The search clears and a **×6** chip appears in the search field. Any number from 2 to 999 works.
+- **Or tap the × button** (**Add several**) in the catalogue toolbar. **Quantity for the next item** opens with quick choices **×2**, **×3**, **×5** and **×10**, or type a number in **Other quantity** and tap **Set quantity**.
+
+The next product you add, by scanning, tapping a tile or list row, or from **Favorites** or **Recent**, goes on the ticket with that quantity, including after the option picker or the add-ons dialog. The chip then clears by itself, so only that one item is multiplied.
+
+- Stock and **Max quantity per order** still apply. If fewer units fit, the ticket gets what is available and you see a message such as **Only 4 of 6 added: not enough stock**.
+- To cancel the multiplier, tap the **×** on the chip, press Escape in an empty search field, or start a **New Sale**. Switching store also clears it.
+- Custom items ignore the multiplier.
+
+<Callout title="Scanners are not affected">
+`n*` only works when you type it. A barcode scanner's input is never read as a multiplier, so scanning keeps working as before.
+</Callout>
+
+## Scan and add sounds
+
+When **Sound and vibration** is on, the register confirms each scan without you looking at the screen:
+
+| What happens | Sound | Vibration (phones and tablets that support it) |
+|--------------|-------|-----------------------------------------------|
+| An item is added to the ticket | A short rising beep | One short buzz |
+| A scan or typed code finds no product, or the product is out of stock | A low double beep | A short double buzz |
+
+Sound and vibration are on by default. Turn them off for this register under **Display options > Sound and vibration** (see [Display options](/docs/orders/pos-remembered-defaults#display-options)). Sounds start after you first tap or click the sale screen, because browsers block sound until then. On devices without sound or vibration, nothing happens and the sale continues normally.
+
 ## Related
 
 - [Creating Orders (New Sale)](/docs/orders/creating-orders): Overview of the full sale screen
 - [Products](/docs/catalogue/products): Manage SKUs and catalogue items
 - [Barcode labels](/docs/catalogue/barcode-labels): Print scannable labels for your variants
+- [Favorites, Recent, and Remembered Defaults](/docs/orders/pos-remembered-defaults): Display options, including sound and vibration

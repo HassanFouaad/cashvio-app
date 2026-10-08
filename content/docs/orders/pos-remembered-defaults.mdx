@@ -1,0 +1,118 @@
+---
+title: Favorites, Recent, and Remembered Defaults
+description: "Pin your best sellers, re-add recent items in one tap, tune how the catalogue looks and sounds, and let New Sale remember your channel and last discount."
+---
+
+**New Sale** remembers the choices you repeat at the counter, so each new ticket starts the way you left the last one. Everything on this page is saved in the browser on this device, separately for each store.
+
+## What the register remembers
+
+| What | Remembered for | Cleared when |
+|------|----------------|--------------|
+| **Channel** (sales channel) | You, in this store, on this device | You clear the channel, or the channel is deactivated or removed from the store |
+| Last **Manual Discount** (type and amount) | You, in this store, on this device | Never by removing a discount; applying a new discount replaces it |
+| Catalogue view (**All**, **Favorites** or **Recent**) | This store on this device, for everyone | You pick another view |
+| **Favorites** and **Recent** lists | You, in this store, on this device | You sign out |
+| **Display options** (sort, tile size, hiding out-of-stock products, sound and vibration) | This store on this device, for everyone | You change them |
+
+### Sales channel
+
+When you pick a **Channel**, the register keeps it for the next ticket. It comes back after **New Sale**, after you hold a ticket and start a new one, and after you reload the page, as long as that channel is still active for the store.
+
+- If you clear the channel, the next tickets start without one until you pick a channel again.
+- If the channel is deactivated or removed from the store, it is dropped silently and the ticket starts without a channel.
+- A [held ticket](/docs/orders/pos-hold-tickets) you resume keeps its own channel.
+
+On desktop the **Channel** picker sits in the top bar; on phones it is in the cart.
+
+### Last discount
+
+After you apply a **Manual Discount**, the next time you open the discount dialog on a ticket without a discount, it opens on that same type and amount (and highlights the matching percentage chip). See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts#manual-discounts).
+
+The discount is only a starting point: nothing is applied until you tap **Apply Discount**.
+
+## Catalogue views: All, Favorites, Recent
+
+A switch above the products chooses what the catalogue shows:
+
+| View | Shows |
+|------|-------|
+| **All** | Your whole catalogue, with the category chips (**All categories** and each category) |
+| **Favorites** | The products you pinned, in the order you pinned them |
+| **Recent** | The last items you added to a sale on this register, newest first |
+
+On desktop the switch leads the category row; on phones it is a full-width row under the search field. Category chips appear only in **All**.
+
+The view you choose is remembered on this device: it stays selected after **New Sale** and after a reload. The category filter still resets to **All categories** for each new sale.
+
+Products in **Favorites** and **Recent** look and work exactly like they do in **All**: tap a tile or row to add it to the ticket, with the same stock checks, option picker and add-on choices.
+
+**Searching** filters the view you are in: the whole catalogue in **All**, only your pinned products in **Favorites**, and only recent items in **Recent**. **Scanning** a barcode always searches the whole catalogue, whichever view is open.
+
+## Pin products to Favorites
+
+Pinning puts a product in **Favorites**. You can pin up to **60** products per store.
+
+**With a mouse or trackpad**
+
+1. Point at a product tile or list row. A star appears in its top corner (at the end of a list row). You can also reach it with the Tab key.
+2. Click the star. A filled star means the product is pinned; pinned products always show their star.
+3. Click the star again to unpin.
+
+**On a touch screen**
+
+1. Press and hold a product for about half a second. The product is pinned (or unpinned if it was already pinned), with a short vibration when **Sound and vibration** is on and the device supports it. A long press never adds the product to the ticket.
+2. Pinned products show a small star. A normal tap still adds the product to the ticket.
+
+Each pin or unpin shows **Added to Favorites** or **Removed from Favorites** with an **Undo** button, so a mistaken tap is easy to reverse.
+
+### Edit favorites
+
+To pin or unpin many products at once:
+
+1. Open **Favorites** and tap **Edit** (next to the **n pinned** count). When **Favorites** is empty, tap **Choose favorites** instead; this opens the full catalogue in edit mode.
+2. A bar shows **Tap products to pin or unpin** and how many are pinned (for example **12 of 60**).
+3. Tap any product to pin or unpin it. While editing, taps never add products to the ticket and barcode scans are paused. Category chips and search still work so you can find products.
+4. Tap **Done** (or press Escape) to finish. Switching store also ends edit mode.
+
+<Callout title="Favorites is full">
+When 60 products are pinned, pinning another shows **Favorites is full (maximum 60). Unpin a product to add another.** Nothing is removed automatically.
+</Callout>
+
+When you unpin the last product while in **Favorites**, the view stays open and shows **No favorites yet** with **Choose favorites**.
+
+## Recent items
+
+**Recent** lists the last **12** different items you added to a sale on this register, newest first. Each tile or row is labelled with the option you sold (for example *Latte · Large*), and tapping it adds that exact option without opening the option picker. Products with add-ons still ask for them.
+
+An item moves to the front of **Recent** each time you add it from a tile, a list row, a scan, **Favorites** or **Recent**. Custom items, quantity changes on the ticket and resumed held tickets do not count. A product added with a [quantity multiplier](/docs/orders/pos-barcode-scanning#add-several-units-at-once) counts once.
+
+While **Recent** stays open, its tiles keep their places, so tapping the same tile again adds the same item. Items you add for the first time join at the end. The newest-first order shows the next time you open **Recent**.
+
+Before you sell anything, **Recent** shows **No recent items yet**.
+
+Products you delete or deactivate disappear from **Favorites** and **Recent** automatically.
+
+## Display options
+
+Tap **Display options** at the end of the catalogue toolbar (next to the grid/list switch) to tune the catalogue for this register. It opens a menu on desktop and a sheet on phones. Changes apply immediately.
+
+| Option | Choices |
+|--------|---------|
+| **Sort** | **Newest first** (the standard order, used until you pick another), **Name A–Z**, **Price: low to high**, **Price: high to low**. Applies to **All** and to search results; **Favorites** keeps your pinned order and **Recent** keeps newest first. |
+| **Tile size** | **Comfortable** (standard tiles) or **Compact** (smaller images and more tiles per row, about eight on a wide screen and four on a phone). The list view is unchanged. |
+| **Hide out-of-stock products** | Hides products whose tracked stock is used up in every view. Products without stock tracking always show. A line under the products tells you how many are hidden (for example **3 out-of-stock products hidden**). |
+| **Sound and vibration** | On by default. A short beep (and a short vibration on phones and tablets that support it) when an item is added; a low double beep when a scan finds nothing or a product is out of stock. Turn it off for a silent register. |
+
+Display options belong to the register, not to the cashier: they are saved for this store on this device and stay after you sign out.
+
+<Callout title="Signing out">
+Signing out clears **your** Favorites and Recent lists from this device, so the next cashier starts with their own. The view you chose and the display options stay on the device. Your remembered channel and discount are kept for your account on this device and come back when you sign in again.
+</Callout>
+
+## Related
+
+- [Creating Orders (New Sale)](/docs/orders/creating-orders): Overview of the full sale screen
+- [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts): Manual discounts and the rest of the ticket
+- [Barcode Scanning on New Sale](/docs/orders/pos-barcode-scanning): Scanning, quantity multipliers, and scan sounds
+- [POS Cashier Shortcuts](/docs/orders/pos-cashier-shortcuts): Keyboard navigation in search and other counter shortcuts

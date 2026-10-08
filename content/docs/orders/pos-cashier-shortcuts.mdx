@@ -1,6 +1,6 @@
 ---
 title: POS Cashier Shortcuts
-description: "Type bulk quantities on the ticket, open the cash drawer with no sale, and pair or test your receipt printer before customers arrive."
+description: "Type bulk quantities, search and add with the keyboard, set a quantity before adding, ring up a typed price, open the cash drawer with no sale, and pair or test your receipt printer."
 ---
 
 Small counter habits that save time on every sale. These work on the full-screen **New Sale** screen and in store **Receipt** settings.
@@ -16,6 +16,32 @@ The ticket stepper is fine for 1 or 2 units. For a case of 24 bottles, tapping *
 5. Type `0` to remove the line.
 
 Plus and minus still work for small adjustments.
+
+## Search with the keyboard
+
+With a keyboard you can find and add products without touching the screen. Click into the search field (it is focused when **New Sale** opens), then:
+
+| Key | What it does |
+|-----|--------------|
+| **↓ / ↑** | Move a highlight through the products shown, in the order you see them. The list scrolls to keep the highlight visible. Works in **All**, **Favorites** and **Recent**, with or without a search term. |
+| **Enter** | Adds the highlighted product, with the same checks as a tap (the option picker or add-ons dialog opens when the product needs them). With nothing highlighted, Enter works as before: an exact barcode or SKU, then a single clear name match. |
+| **Escape** | Clears the highlight first, then the search text, then an armed quantity multiplier. |
+
+Typing anything removes the highlight, so a barcode scanner (which types the code and presses Enter) keeps working exactly as before.
+
+## Set the quantity before adding (`n*`)
+
+Type `n*` in the search field, for example `12*`, to add the next product 12 times. A **×12** chip appears in the search field; scan or tap the product once and the chip clears. Any number from 2 to 999 works, and stock and **Max quantity per order** still apply. You can also tap the **×** button (**Add several**) in the catalogue toolbar. See [Add several units at once](/docs/orders/pos-barcode-scanning#add-several-units-at-once) for the details.
+
+## Type a price to ring up a custom item
+
+For an item that is not in your catalogue, type its price in the search field and press Enter, for example `35` or `12.50`.
+
+1. The register first checks for a product with that barcode or SKU, or a clear name match. If one exists, it is added as usual.
+2. If nothing matches, the **Custom Item** dialog opens with **Item Price** already filled in and the cursor in **Item Name**.
+3. Type the name, check the quantity, and tap **Add to Cart**.
+
+Only plain prices count: up to six digits before the decimal point and up to two after it (Arabic digits and the Arabic decimal separator also work). A number with leading zeros (such as `0012`), a longer number, or a scanned code is treated as a barcode, so unknown barcodes still open **Quick Add Product** as before.
 
 ## Open the cash drawer (no sale)
 
@@ -48,6 +74,7 @@ Your choice is remembered **per store on this browser**. Use **Remove** if you n
 ## Related Features
 
 - [Creating Orders](/docs/orders/creating-orders): the New Sale screen
+- [Favorites, Recent, and Remembered Defaults](/docs/orders/pos-remembered-defaults): pinned products, recent items, and display options
 - [Receipt Settings](/docs/stores/receipt-settings): header, footer, auto-print, and printer setup
 - [Print and Share Receipts](/docs/orders/print-share-receipts): print after a real order
 - [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): success screen print actions
