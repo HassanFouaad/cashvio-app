@@ -12,8 +12,12 @@ description: "Pin your best sellers, re-add recent items in one tap, tune how th
 | **Channel** (sales channel) | You, in this store, on this device | You clear the channel, or the channel is deactivated or removed from the store |
 | Last **Manual Discount** (type and amount) | You, in this store, on this device | Never by removing a discount; applying a new discount replaces it |
 | Catalogue view (**All**, **Favorites** or **Recent**) | This store on this device, for everyone | You pick another view |
-| **Favorites** and **Recent** lists | You, in this store, on this device | You sign out |
+| **Favorites** list | You, in this store, on this device | You unpin products; signing out keeps it |
+| **Recent** list | You, in this store, on this device | You sign out |
 | **Display options** (sort, tile size, hiding out-of-stock products, sound and vibration) | This store on this device, for everyone | You change them |
+| The **unfinished sale** you were working on | You, on this register in this store, on this device | The sale is completed, held or discarded, you empty the ticket, it is 24 hours old, or you sign out |
+
+The unfinished sale is offered back with **Resume unfinished sale?** after the app closes mid-sale. See [Unfinished sale saved automatically](/docs/orders/pos-hold-tickets#unfinished-sale-saved-automatically).
 
 ### Sales channel
 
@@ -37,11 +41,11 @@ A switch above the products chooses what the catalogue shows:
 
 | View | Shows |
 |------|-------|
-| **All** | Your whole catalogue, with the category chips (**All categories** and each category) |
+| **All** | Your whole catalogue |
 | **Favorites** | The products you pinned, in the order you pinned them |
 | **Recent** | The last items you added to a sale on this register, newest first |
 
-On desktop the switch leads the category row; on phones it is a full-width row under the search field. Category chips appear only in **All**.
+On desktop the category chips have their own row above the switch and stay visible in every view: choosing a category also narrows **Favorites** and **Recent** to that category. The switch shares the row below with the pinned count and **Edit** (in **Favorites**) and the register buttons. On phones the switch is a full-width row under the search field, and the category chips appear only in **All**.
 
 The view you choose is remembered on this device: it stays selected after **New Sale** and after a reload. The category filter still resets to **All categories** for each new sale.
 
@@ -55,14 +59,15 @@ Pinning puts a product in **Favorites**. You can pin up to **60** products per s
 
 **With a mouse or trackpad**
 
-1. Point at a product tile or list row. A star appears in its top corner (at the end of a list row). You can also reach it with the Tab key.
+1. In the list layout, every row shows a star at its end. In the grid layout, point at a product tile and a star appears in its top corner. You can also reach it with the Tab key.
 2. Click the star. A filled star means the product is pinned; pinned products always show their star.
 3. Click the star again to unpin.
 
 **On a touch screen**
 
 1. Press and hold a product for about half a second. The product is pinned (or unpinned if it was already pinned), with a short vibration when **Sound and vibration** is on and the device supports it. A long press never adds the product to the ticket.
-2. Pinned products show a small star. A normal tap still adds the product to the ticket.
+2. Pinned tiles show a small star. A normal tap still adds the product to the ticket.
+3. In the list layout, you can also tap the star at the end of any row to pin or unpin it.
 
 Each pin or unpin shows **Added to Favorites** or **Removed from Favorites** with an **Undo** button, so a mistaken tap is easy to reverse.
 
@@ -107,7 +112,7 @@ Tap **Display options** at the end of the catalogue toolbar (next to the grid/li
 Display options belong to the register, not to the cashier: they are saved for this store on this device and stay after you sign out.
 
 <Callout title="Signing out">
-Signing out clears **your** Favorites and Recent lists from this device, so the next cashier starts with their own. The view you chose and the display options stay on the device. Your remembered channel and discount are kept for your account on this device and come back when you sign in again.
+Signing out clears **your** Recent list and your unfinished sales from this device, so the next cashier starts with their own. Your Favorites, remembered channel and discount are kept for your account on this device and come back when you sign in again; other cashiers never see your pins. The view you chose and the display options stay on the device.
 </Callout>
 
 ## Related

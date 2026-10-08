@@ -1,6 +1,6 @@
 ---
 title: Hold and Resume Tickets
-description: "Hold a ticket on New Sale while you serve the next customer without losing the cart. Resume or discard from the top bar; up to 20 held tickets per register on this device."
+description: "Hold a ticket on New Sale while you serve the next customer without losing the cart. Resume or discard from the top bar; up to 20 held tickets per register on this device. The sale you are working on is also saved automatically, so you can resume it after the app closes."
 ---
 
 When a customer steps away or you need to ring up someone else first, **hold** saves the current ticket on this register. The cart clears so you can start a fresh sale. Nothing is charged and nothing hits the kitchen until you resume and complete payment.
@@ -31,6 +31,52 @@ Open the **held tickets** list from the top bar, select the ticket you no longer
 Hold saves a **cart snapshot**, not an order. Reports, order history, and the kitchen board stay unchanged until you charge. Resume, adjust if needed, then take payment like any other sale.
 </Callout>
 
+## Unfinished sale saved automatically
+
+**New Sale** also keeps a copy of the ticket you are working on, without you tapping anything. If the app closes, a tab is closed by accident or the device restarts in the middle of a sale, you can bring the sale back in one tap.
+
+- The copy is saved a moment after each change to the ticket (items, quantities, add-ons, customer, delivery details, table, notes, fees, discount and coupon) and again as soon as you switch away from the app.
+- There is one saved sale per register, for you, in each store on this device. Payment details are never saved.
+
+### Resume or discard
+
+When you open **New Sale** again on the same store and the ticket is empty, a sheet asks **Resume unfinished sale?** It shows the number of **Items**, the **Estimated total** and when the sale was **Saved** (for example *14 minutes ago*).
+
+- **Resume sale** puts the lines, add-ons, customer, fulfilment, table, fees, notes, discount and coupon back on the ticket. The sheet reminds you: **Prices, discounts and the total are recalculated when you resume.** **Charge** stays unavailable until the new total is ready.
+- **Discard** asks you to confirm with **Discard unfinished sale?** Tap **Discard sale** to remove it, or **Back** to return to the question with the sale still saved.
+
+You have to choose one: the sheet has no close button, and tapping outside it or pressing Escape does nothing, so a new ticket can never quietly replace the saved sale. Barcode scans are paused while the sheet is open.
+
+If the saved sale can't be restored, the sheet shows an error with **Retry**. The sale stays saved until you retry or discard it.
+
+### If the app closed while you were charging
+
+When the app closes after you started charging but before the sale finished, Cashvio can't tell whether the order was created. Instead of resuming, the sheet warns **This sale may already be complete**, with the item count, estimated total and time.
+
+1. Tap **View orders** (shown when you can view orders) and check whether the sale is in the list.
+2. Open **New Sale** again and tap **Dismiss**, then **Dismiss warning** to confirm.
+3. If the sale is not in your orders, ring it up again as a new sale.
+
+The warning never puts the ticket back, so the same sale is never charged twice by accident.
+
+### When the saved sale is deleted
+
+The saved copy is removed when:
+
+- the sale is completed, including with **Pay later**,
+- you hold the ticket,
+- you remove every item from the ticket,
+- you discard it, or dismiss the warning,
+- you switch store or leave **New Sale** and confirm that the cart is discarded,
+- it is more than **24 hours** old,
+- you sign out: your saved sales are removed from this device, and other cashiers keep theirs.
+
+If a charge is refused (for example because the register session was closed), the sale stays saved as a normal unfinished sale.
+
+<Callout title="Saved on this device only">
+The copy lives in this browser on this device. A change made in the last moment before the device switched off can be missing, and clearing site data removes it. Use one browser tab per register: two tabs on the same register can overwrite each other's saved sale.
+</Callout>
+
 ## Limits
 
 - Up to **20 held tickets** per register at one store. If you hit the limit, resume or discard one before holding another.
@@ -55,4 +101,4 @@ A: No. Holds are tied to the register key on the device where you held them.
 A: No. Kitchen and fulfillment flows run only after you submit a real order through payment.
 
 **Q: What happens if I close the browser?**
-A: Held tickets stay in this browser on this device. Open **New Sale** on the same store and browser and check the held tickets list. Clearing site data removes them.
+A: Held tickets stay in this browser on this device. Open **New Sale** on the same store and browser and check the held tickets list. Clearing site data removes them. The ticket you were working on is saved too: see [Unfinished sale saved automatically](#unfinished-sale-saved-automatically).
