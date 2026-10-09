@@ -1,40 +1,78 @@
 ---
 title: Analytics & Reports
-description: "How to use the reporting dashboard to track sales, profit, customer behavior, staff performance, and business insights."
+description: "How to move between reports, choose the period, comparison and store, read each report, open the records behind a figure, and export the rows."
 ---
 
-Go to **Reports** in the sidebar to see how your business is performing. Each tab focuses on a different area; use the cards below for full walkthroughs.
+Go to **Reports** in the sidebar to see how your business is doing. Every report starts with a one-sentence answer, then the key figures, then the details behind them.
 
-## Accessing Reports
+## Choosing a report
 
-Reports are organized in visible chips across the top: **Overview**, **Profit**, **Tax**, **Customers**, **Returns**, **Fulfillment**, **Staff**, **Dead stock**, **Inventory valuation**, and **Insights**. Every section is visible at all times, wrapping neatly onto multiple lines on smaller screens.
+Reports are grouped so you can find the right one quickly:
 
-### Filters
+| Group | Reports |
+|-------|---------|
+| **Sales & profit** | **Overview**, **Profit**, **Tax** |
+| **Customers** | **Customers** |
+| **Operations** | **Returns**, **Fulfillment**, **Staff** |
+| **Inventory** | **Dead stock**, **Inventory valuation** |
+| **Insights** | **Insights** |
 
-- **Day**, **Week**, **Month**, or **Custom** sets the reporting period. Open **Select Date** to choose the calendar period.
-- **Custom** uses **From** and **To** dates. Future dates and reversed ranges are not accepted.
-- Changes compare against the previous period when comparison data is available.
-- **Dead stock** uses its own inactivity window. **Inventory valuation** is a current stock snapshot. These two tabs do not use the reporting date filters.
+On a computer the reports appear as chips under the page title, and the open report is highlighted. On a phone, tap the button that shows the open report's name and pick another report from the grouped list.
 
-## Report tabs at a glance
+You only see the reports your role allows. **Dead stock** and **Inventory valuation** need the **View Inventory** permission. Every other report needs **View Order**.
 
-- **Overview**: Total revenue, orders, and sales trends across stores, channels, and products.
-- **Profit**: Margins and product profitability using your cost prices.
-- **Tax**: Tax collected and daily totals for the selected period.
-- **Customers**: Acquisition, retention, and spending patterns.
-- **Returns**: Return rates, reasons, and value by product.
-- **Fulfillment**: Delivery, pickup, and dine-in mix plus pending orders.
-- **Staff**: Revenue and orders handled per team member.
-- **Dead stock**: Inventory that has not sold in 30, 60, or 90 days.
-- **Inventory valuation**: Total stock value at cost and retail, potential profit, and breakdowns by store and category.
-- **Insights**: Health scores and plain-language recommendations from your data.
+## Choosing the period, comparison and store
+
+The bar above the report works for every report, and each change applies right away:
+
+- **Period**: **Today**, **Yesterday**, **This week**, **Last 7 days**, **This month**, **Last 30 days**, **This year**, or **Custom range** with **From** and **To** dates. A custom range can cover up to 365 days and cannot include future dates. When the dates are too far apart, a message under **To** says so.
+- The arrows beside the period move to the previous or next period. You cannot move past today.
+- **Compare with**: **Previous period**, **Same period last year**, or **No comparison**. This choice applies to the **Overview** figures and its sales trend. The other reports always compare with the previous period of the same length and say so next to each change.
+- **Store**: **All stores** or one store. It appears only when you can see more than one store.
+- The info icon shows the timezone used for days and hours, which is your device's timezone.
+
+**Dead stock** and **Inventory valuation** show your stock as it is now, so they only offer the store choice.
+
+The period, comparison and store are kept in the page address. Reloading, going back, or sharing the link opens the same view.
+
+## Reading a report
+
+Every report follows the same order:
+
+1. **The headline**: one sentence with the answer, such as the margin on your sales or how many returns came back. Under it you see the period, what the changes are compared with and, on **Overview** and **Insights**, **Updated** with how long ago the figures were calculated. When a figure is incomplete, a note under the sentence says why, for example orders without a cost price.
+2. **Key figures**: up to four tiles. A change shows its direction and what it is compared with, in green when it is good for your business and in red when it is not. **No comparison** means there is no earlier data to compare with.
+3. **Details**: lists and tables that explain the figures, largest first. Bars show each item's share.
+4. **Related reports** at the bottom, so you can follow up with the next question.
+
+While a new period loads, the figures you were reading stay on screen with a thin progress bar. If a report cannot load, it says so and offers **Retry**. If a refresh fails, the last figures stay visible with a note that they may be out of date.
+
+## Opening the records behind a figure
+
+When your role allows it, most figures open the records behind them:
+
+- Product, customer and staff rows open that product, customer or user. Products in **Profit** and **Returns** open the **Products** list filtered by the product name.
+- Store, payment method, channel, fulfillment and trend figures open the matching completed orders in **Sales** for the same dates, in the same store or in every store when **All stores** is selected.
+- **Returns by store** opens the **Returns** list for that store and period. **Low stock** in **Inventory valuation** opens the **Low Stock** list when the report covers a single store; with more than one store it is not a link.
+
+## Exporting
+
+Use **Export CSV** beside the headline to download the rows behind the report, for example the products in **Profit**, the days in **Tax**, or the products in **Dead stock**. The file opens in Excel with Arabic text intact. **Insights** has no export.
+
+## How fresh the numbers are
+
+New sales, returns, refunds and stock changes appear the next time a report loads. Changes to a product's cost or price can take up to a minute to reach **Inventory valuation**.
+
+## Tax and Inventory valuation
+
+- **Tax** shows **Tax collected**, **Sales excluding tax**, **Taxed orders** and the **Effective rate**, then **Tax by day** (select a day to open its completed orders) and the **Daily breakdown** table. Amounts are as collected on completed orders; refunds are not deducted.
+- **Inventory valuation** shows your stock at cost and at retail, the potential profit and the units on hand, then **Stock health** (trackable SKUs, low stock, out of stock, and retail value without a cost price), the value **By store** and **By category**, and the **Top items by cost value**. When some items have no cost price, the headline says how much retail value has no cost.
 
 <Cards>
-  <Card title="Sales Overview" href="/docs/reports/sales-overview-report" description="KPIs, charts, top products, store visits, and CSV export." />
-  <Card title="Profit Analysis" href="/docs/reports/profit-report" description="Revenue vs. cost, margins, and product profitability." />
-  <Card title="Customer Analytics" href="/docs/reports/customer-analytics" description="Acquisition, retention, lifetime value, and segmentation." />
-  <Card title="Staff Performance" href="/docs/reports/staff-performance" description="Sales and orders per team member with performance trends." />
-  <Card title="Returns and Fulfillment" href="/docs/reports/returns-fulfillment-reports" description="Return patterns and how completed sales reach customers." />
-  <Card title="Dead Stock Report" href="/docs/reports/dead-stock-analytics" description="Inventory idle for 30, 60, or 90 days and cash tied up at cost." />
-  <Card title="Business Insights" href="/docs/reports/business-insights" description="Health scores, warnings, opportunities, and recommended actions." />
+  <Card title="Sales Overview" href="/docs/reports/sales-overview-report" description="Headline, key figures, sales trend, needs attention, top products, sales sources and export." />
+  <Card title="Profit Analysis" href="/docs/reports/profit-report" description="Gross margin, cost coverage, revenue breakdown and product profitability." />
+  <Card title="Customer Analytics" href="/docs/reports/customer-analytics" description="New and returning customers, repeat rate, top and at-risk customers." />
+  <Card title="Staff Performance" href="/docs/reports/staff-performance" description="Team sales and a neutral ranking of sales by staff member." />
+  <Card title="Returns and Fulfillment" href="/docs/reports/returns-fulfillment-reports" description="Return rate and reasons, and how completed sales reach customers." />
+  <Card title="Dead Stock Report" href="/docs/reports/dead-stock-analytics" description="Stock with no sale for 30, 60 or 90 days and the cash tied up at cost." />
+  <Card title="Business Insights" href="/docs/reports/business-insights" description="Business health score and insights by severity with recommended actions." />
 </Cards>

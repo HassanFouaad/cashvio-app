@@ -1,21 +1,43 @@
 ---
 title: Profit Analysis Report
-description: "Understand margins, cost analysis, and product profitability on the Profit tab in Reports."
+description: "Read gross margin, cost coverage, the revenue breakdown and product profitability on the Profit report."
 ---
 
-The **Profit** report helps you understand your margins and where money is made or lost. Accurate **cost prices** on each variant are essential for trustworthy numbers.
+The **Profit** report shows how much of your sales you keep after the cost of goods. Accurate **cost prices** on each variant are essential for trustworthy numbers.
 
-## What you see
+## Headline and key figures
 
-- **Revenue vs. Cost**: Compare selling prices to cost prices
-- **Refunds**: See completed refunds separately from the revenue you kept
-- **Profit Margins**: See your gross profit by product or category
-- **Cost Analysis**: Track costs by supplier
-- **Product Profitability**: Identify your most and least profitable products
+The headline gives your gross margin on the period's sales and how it moved in percentage points against the previous period, for example "Gross margin 32.5% on EGP 42300.00 in sales, up 3.7 pts vs the previous period."
+
+When some completed orders have no cost price, a note under the headline says what share of orders is affected and that profit is overstated. The same note sits on the **Gross profit** tile.
+
+The four tiles are **Gross profit** (with its change against the previous period), **Gross margin** (change in points), **Net profit** and **Cost of goods sold**.
+
+## Revenue breakdown
+
+**Revenue breakdown** splits your sales before discounts into **Gross profit**, **Cost of goods sold** and **Total Discounts**, each with its share.
+
+## Product profitability
+
+- **Most profitable products**: highest gross profit first.
+- **Low-margin products**: lowest gross margin first.
+
+Each row shows the product with its variant and SKU, quantity, revenue, gross profit and margin. The margin badge is green from 30%, amber from 20% to under 30%, and red below 20%. Select a row to open the **Products** list filtered by that product's name.
+
+## Profit by store
+
+When you sell in more than one store, **Profit by store** shows revenue, gross profit, margin, orders and profit per order for each store. Select a store to open its completed orders for the period.
+
+## More metrics and export
+
+**More metrics** shows **Total Discounts**, **Discount rate**, **Net margin** and **Orders without cost** (the number of completed orders without a cost price, with their share).
+
+Choose **Export CSV** beside the headline to download both product lists with quantity, revenue, cost, gross profit and margin.
 
 <Callout title="Note">
   Profit calculations use the **cost price** you set on each product variant.
-  Make sure to keep cost prices up to date for accurate profit reporting.
+  Keep cost prices up to date; until then, orders without a cost count their
+  full revenue as profit.
 </Callout>
 
 ## How refunds affect profit
@@ -24,6 +46,5 @@ Revenue and product profit are shown after completed refunds. For a partial refu
 
 <Callout title="Fully refunded periods">
   If every sale in the selected period was fully refunded, revenue and gross
-  profit are zero, so the gross margin is shown as 0%. Check **Refunds** to
-  distinguish this from a period with no sales.
+  profit are zero, so the headline says there were no completed sales.
 </Callout>

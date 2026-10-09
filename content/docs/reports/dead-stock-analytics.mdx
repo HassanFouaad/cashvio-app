@@ -3,7 +3,7 @@ title: Dead Stock Report & Template Guide
 description: "Find inventory that has not sold in 30, 60, or 90 days, see sleeping stock value, and use our free printable dead stock report template."
 ---
 
-The **Dead stock** tab in Reports answers one question merchants screenshot and share: how much money is tied up in stock that is not moving.
+The **Dead stock** report in Reports answers one question merchants screenshot and share: how much money is tied up in stock that is not moving.
 
 ## Free Dead Stock Report Template
 
@@ -16,32 +16,35 @@ If you need a ready-to-use template to enter aging inventory manually, print an 
 ## Open the report in Cashvio
 
 1. Go to **Reports** in the sidebar.
-2. Open the **Dead stock** tab.
-3. Pick a window: **30d**, **60d**, or **90d**.
+2. Open **Dead stock** in the **Inventory** group.
+3. Pick a window beside the headline: **30 days**, **60 days**, or **90 days**.
+4. If you can see more than one store, use **Store** above the report to check one store.
 
-You need analytics on your plan and permission to view orders (same as the other report tabs).
+You need analytics on your plan and the **View Inventory** permission. The report shows your stock as it is now, so it has no period or comparison.
 
-## The headline
+## The headline and key figures
 
-At the top you see a line like:
+At the top you see a sentence like:
 
-> **EGP 12,000 sleeping on your shelves**
+> **EGP 12000.00 tied up in 12 products with no sale for 30+ days (340 units).**
 
-That is the **total value at cost** of active products that still have units on hand and had **no completed sales** in the selected window (or were never sold). Below it: how many SKUs and units that covers.
+That is the **total value at cost** of active products that still have units on hand and had **no completed sales** in the selected window (or were never sold).
+
+Three tiles follow: **Sleeping value**, **Products** and **Units**.
 
 ## The product list
 
-Each row shows:
+**Products** lists the stock lines by sleeping value, highest first:
 
 | Column | Meaning |
 |--------|---------|
 | **Product** | Name, variant, and SKU |
-| **Store** | Which store holds the stock |
+| **Store** | Which store holds the stock (shown when the list covers more than one store) |
 | **Units** | Quantity on hand |
 | **Value at cost** | Units × cost per unit |
 | **Last sale** | Date of the last completed sale, or **Never sold** |
 
-Tap a row to open that product in the catalogue.
+When there are more sleeping products than the list shows, a line under the title says how many of them you are seeing. Select a row to open that product in the catalogue.
 
 ## How stock is counted as "dead"
 
@@ -49,17 +52,17 @@ A SKU×store line appears when:
 
 - Quantity on hand is greater than zero
 - The product is **active**
-- There is no **completed** sale for that variant at that store in the last 30, 60, or 90 days (depending on the toggle), or there has never been a sale
+- There is no **completed** sale for that variant at that store in the last 30, 60, or 90 days (depending on the window), or there has never been a sale
 
 Cost comes from the inventory cost on hand, not the selling price.
 
 <Callout title="Tip">
-Start with **90d** to find the deepest sleepers, then tighten to **30d** when you want a weekly cleanup list for discounts or purchase pauses.
+Start with **90 days** to find the deepest sleepers, then tighten to **30 days** when you want a weekly cleanup list for discounts or purchase pauses.
 </Callout>
 
 ## Related Features
 
-- [Analytics & Reports](/docs/reports/analytics-reports): the other report tabs
+- [Analytics & Reports](/docs/reports/analytics-reports): the other reports
 - [Products](/docs/catalogue/products): edit cost, status, and variants
 - [Inventory](/docs/inventory/stock-management): adjust quantities and costs
 
@@ -69,4 +72,4 @@ Start with **90d** to find the deepest sleepers, then tighten to **30d** when yo
 A: Only **completed** sales count. Pending or cancelled orders do not clear dead stock.
 
 **Q: Can I export the list?**
-A: Not from this tab yet. Use the headline and table for decisions, or open products from the rows.
+A: Yes. Choose **Export CSV** beside the headline to download the products with variant, SKU, store, units, unit cost, value at cost and last sale date.
