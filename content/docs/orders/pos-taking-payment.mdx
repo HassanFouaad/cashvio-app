@@ -1,6 +1,6 @@
 ---
 title: Taking Payment and After the Sale
-description: "Charge the cart on New Sale with cash, online, receipt, or store credit, then print or share the receipt after checkout."
+description: "Charge the cart on New Sale with cash, online, receipt, or store credit, count cash with quick amounts or the on-screen keypad, then print or share the receipt after checkout."
 ---
 
 ## Taking Payment
@@ -20,13 +20,45 @@ Choose the method for the remaining amount:
 
 | Method | Description |
 |--------|-------------|
-| **Cash** | Quick-amount buttons let you tap the tendered cash in one touch; the **change due** is calculated automatically. |
+| **Cash** | Enter the **Cash received** or tap a quick amount; the **Change due** is calculated automatically. See [Cash Received and Change](#cash-received-and-change). |
 | **Online** | Digital payment (card, InstaPay, mobile wallet, bank transfer, etc.). |
 | **Receipt** | Transfer payment with an optional receipt image upload (JPEG, PNG, or WebP). |
 
 <Callout title="Note">
 Only payment methods **enabled** for the selected store appear. See [Payment Methods](/docs/stores/payment-methods) to configure them.
 </Callout>
+
+### Cash Received and Change
+
+When you choose **Cash**, a **Cash received** field appears, set to the amount to pay. Quick amounts sit right under it:
+
+- **Exact** means the customer handed over the exact amount, so there is no change. It is selected when you choose **Cash**.
+- Up to three suggested amounts round the total up to the next banknote of your store's currency. For example, a total of 143 in Egyptian pounds suggests 145, 150 and 160.
+
+Tap a quick amount, or type the amount you received in **Cash received**. When it is more than the amount to pay, **Change due** shows the difference. When it is less, the dialog warns **Cash received is less than the amount to pay** and **Charge** stays unavailable until you enter enough.
+
+| Store currency | Banknotes used |
+|----------------|----------------|
+| Egyptian pound (EGP) | 5, 10, 20, 50, 100, 200 |
+| Saudi riyal (SAR) | 5, 10, 50, 100, 500 |
+| UAE dirham (AED) | 5, 10, 20, 50, 100, 200 |
+| Any other currency | 10, 50, 100, 200 |
+
+With a keyboard, press Enter to charge. If the cursor is still in **Cash received**, the first Enter confirms the amount and the second one charges.
+
+#### Cash Keypad on Touch Screens
+
+On phones and tablets you use by touch (no mouse or trackpad), choosing **Cash** shows an on-screen keypad under **Cash received**, and tapping the field does not open the device keyboard. If a keyboard is connected to the device, you can still type into the field.
+
+| Keys | What they do |
+|------|--------------|
+| **Exact** and the suggested amounts | Set the cash received to that amount. |
+| Banknote keys (**+5**, **+10**, **+50** and so on) | Add that note to the cash received, so you can count notes as the customer hands them over. If the amount is still **Exact**, the first note starts from zero: **+100** then **+50** gives 150. |
+| **1** to **9**, **0** and **00** | Type the amount. After **Exact**, a suggested amount or a banknote key, the next digit starts a new amount. |
+| **.** | Starts the decimals, up to two digits. |
+| Delete key (on the right) | Removes the last digit. If you delete every digit, the cash received is zero and **Charge** stays unavailable until you enter enough. Tap **Exact** to go back to the exact amount. |
+
+The banknote keys use the notes of your store's currency from the table above. **Change due** updates with every tap. The keypad has the same layout in Arabic, with the digits in the same order.
 
 ### Partial and Scheduled Payments
 

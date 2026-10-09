@@ -1,6 +1,6 @@
 ---
 title: Creating Orders (New Sale)
-description: "Open the full-screen sale screen, browse the catalogue, build the cart, and take payment at the register."
+description: "Open the full-screen sale screen, browse the catalogue, build and edit the ticket, and take payment at the register."
 ---
 
 ## Opening the Sale Screen
@@ -40,6 +40,50 @@ To add items with a USB or Bluetooth scanner or your device camera, or to add se
 The cart panel shows everything about the current sale: customer, fulfillment method, line items, and the running total. On **mobile**, the cart appears as a bar at the bottom of the screen. Tap it to open the full cart drawer.
 
 From the cart you can attach a customer, apply coupons and manual discounts, add service or delivery fees, and sell custom items that are not in your catalogue. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts) for the full walkthrough.
+
+### See what was just added
+
+Every item you add gets a short confirmation, whether you tap it, scan it, pick it from **Favorites** or **Recent**, ring it up as a custom item or use **Duplicate**:
+
+- On phones, the cart bar at the bottom shows **+** and the item name for a moment and pulses once.
+- When the ticket is shown beside the catalogue, it scrolls to the added line and highlights it briefly.
+
+If the device is set to reduce motion, the pulse and highlight are off and the ticket moves to the line without animating.
+
+### Change a line
+
+Each line shows the item, its price and the quantity. Use **+** and **−** to change the quantity, or tap the number to type one (see [Type a quantity](/docs/orders/pos-cashier-shortcuts#type-a-quantity-bulk-packs)). At quantity 1 the minus button turns into a bin that removes the line.
+
+Tap a line (its name or price) to open the line sheet. With a mouse you can also right-click the line. With a keyboard, move to the line with Tab and press the menu key. The sheet shows the item with its quantity and price, then these actions and the line's note:
+
+| Action | What it does |
+|--------|--------------|
+| **Change extras** | Shown only for items with [extras](/docs/catalogue/modifiers), such as milk type or an extra shot. The extras picker opens with the line's current picks. Change them and tap **Update item**. The line keeps its quantity and note, and its price follows the new picks. If the line now matches another line of the same item, the two become one line with the quantities added together. |
+| **Duplicate** | Adds one more of the item as a separate line right below it, with the same extras but without the note, so it can get its own note or extras. If that extra unit would go over the available stock or **Max quantity per order**, you see the usual limit message and nothing is added. |
+| **Remove** | Takes the line off the ticket. You can bring it back with **Undo** (see below). |
+| **Note** | Type a kitchen instruction for this line (up to 500 characters) and tap **Save**. Save an empty note to clear it. See [Item Notes](/docs/orders/pos-cart-discounts#item-notes). |
+
+If the extras can't be loaded, a message tells you and the line stays as it is. A line resumed from an older held ticket may not show **Change extras**: remove it and add the item again to pick different extras.
+
+### Swipe to remove (touch screens)
+
+On a phone or tablet, swipe a line to the left to remove it (to the right when the screen is in Arabic). A red **Remove** label shows behind the line as it slides. Let go once the line has moved far enough and it is removed; let go earlier and it springs back. Scrolling the ticket up and down works as usual. With a mouse or trackpad, lines don't swipe.
+
+### Clear the ticket
+
+When the ticket has items, a row above the lines shows the item count and **Clear**.
+
+1. Tap **Clear**.
+2. **Clear this ticket?** lists what goes and what stays. Tap **Clear ticket** to confirm, or **Cancel** to keep everything.
+
+Clearing removes every item, the discount, the coupon, the order note, any fee changes and a quantity multiplier you set (such as **×6**). The customer, fulfillment method, delivery address, table number and sales channel stay on the ticket, so you can ring up the right items for the same customer straight away.
+
+### Undo a removal
+
+When you remove an item (with the bin button, by typing `0`, by swiping, or with **Remove** in the line sheet), an **Item removed** message appears with **Undo** for about 6 seconds. After **Clear**, the message reads **Ticket cleared**. Tap **Undo** to put back exactly what was removed: the line in its old place with its quantity, extras and note, or, after **Clear**, every line with the discount, coupon, order note and fee changes. A quantity multiplier does not come back.
+
+- Only the last removal can be undone. Removing another item replaces the earlier **Undo**.
+- **Undo** goes away as soon as the ticket changes in another way: adding an item, changing a quantity, extras or a note, duplicating a line, **New Sale**, **Hold**, resuming a held ticket or an unfinished sale, tapping **Charge**, or switching store.
 
 ## Taking Payment
 

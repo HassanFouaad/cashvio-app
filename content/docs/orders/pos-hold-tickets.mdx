@@ -1,6 +1,6 @@
 ---
 title: Hold and Resume Tickets
-description: "Hold a ticket on New Sale while you serve the next customer without losing the cart. Resume or discard from the top bar; up to 20 held tickets per register on this device. The sale you are working on is also saved automatically, so you can resume it after the app closes."
+description: "Hold a ticket on New Sale while you serve the next customer without losing the cart. Resume or discard from the top bar, where wider screens also show up to three held tickets as one-tap buttons; up to 20 held tickets per register on this device. The sale you are working on is also saved automatically, so you can resume it after the app closes."
 ---
 
 When a customer steps away or you need to ring up someone else first, **hold** saves the current ticket on this register. The cart clears so you can start a fresh sale. Nothing is charged and nothing hits the kitchen until you resume and complete payment.
@@ -9,19 +9,28 @@ When a customer steps away or you need to ring up someone else first, **hold** s
 
 1. Open **New Sale** and add at least one item to the ticket.
 2. Tap **Hold** on the ticket panel.
-3. Optionally type a **label** (for example a name or table number) so you can spot it later.
-4. Confirm. The cart empties and you can serve the next customer on the same screen.
+3. Check the **Label (optional)** field. Cashvio fills it in for you with the customer's name when a customer is attached. Without a customer, a dine-in ticket with a [table number](/docs/orders/pos-cart-discounts#table-number-dine-in) gets **Table** and the number (for example *Table 12*). Any other ticket starts with an empty label.
+4. Keep the suggested label or type your own. The suggestion is already selected, so the first key you press replaces it. To hold the ticket without a label, clear the field.
+5. Tap **Hold ticket**. The cart empties and you can serve the next customer on the same screen.
 
-The held ticket stays on **this register and this browser**. Other stations at the store do not see it.
+The held ticket stays on **this register and this browser**. Other stations at the store do not see it. A ticket held without a label shows as **Held ticket** in the list and **Untitled** in the top bar.
 
 ## Resume a held ticket
 
 1. On **New Sale**, tap **Held** in the top bar (on phones it is the pause icon). The count of held tickets shows on it.
-2. Pick the ticket you want (check the label, item count, or time if you saved several).
+2. In **Held tickets**, pick the ticket you want. Each one shows its label, how long ago it was held, the item count, the exact date and time it was held, and its total.
 3. Tap **Resume**. The cart loads with the saved lines, customer, notes, and discounts from the snapshot.
-4. If the current ticket already has items, Cashvio asks you to confirm **replace**. Resuming replaces the open cart; it does not merge two tickets.
+4. If the current ticket already has items, Cashvio asks **Replace current cart?** Tap **Replace & resume** to continue. Resuming replaces the open cart; it does not merge two tickets.
 
 Finish the sale normally (payment, receipt, kitchen) after you resume.
+
+How long ago a ticket was held reads **Just now** during its first minute, then whole minutes (**12 min**), hours (**2 h**) and days (**3 d**). The list updates it every minute while it is open.
+
+### Resume from the top bar
+
+On wide screens such as a computer or a large tablet held sideways, when one to three tickets are held on this register, each one also gets its own button next to **Held**. The button shows the ticket's label, or **Untitled**, with how long ago it was held. Tap it to resume that ticket in one step. If the current ticket has items, you still confirm **Replace & resume** first. Long labels are shortened on the button; point at it to see the full label.
+
+With four or more held tickets, the top bar shows only **Held** with the count, and you pick from the list. Phones and smaller tablets always show only the **Held** button.
 
 ## Discard a held ticket
 
@@ -65,7 +74,7 @@ The saved copy is removed when:
 
 - the sale is completed, including with **Pay later**,
 - you hold the ticket,
-- you remove every item from the ticket,
+- you remove every item from the ticket or clear it with **Clear** (if you then tap **Undo**, the sale is saved again),
 - you discard it, or dismiss the warning,
 - you switch store or leave **New Sale** and confirm that the cart is discarded,
 - it is more than **24 hours** old,

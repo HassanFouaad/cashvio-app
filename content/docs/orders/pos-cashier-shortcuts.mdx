@@ -1,6 +1,6 @@
 ---
 title: POS Cashier Shortcuts
-description: "Type bulk quantities, search and add with the keyboard, set a quantity before adding, ring up a typed price, open the cash drawer with no sale, and pair or test your receipt printer."
+description: "Type bulk quantities, edit, remove or clear ticket lines quickly, search and add with the keyboard, set a quantity before adding, ring up a typed price, open the cash drawer with no sale, and pair or test your receipt printer."
 ---
 
 Small counter habits that save time on every sale. These work on the full-screen **New Sale** screen and in store **Receipt** settings.
@@ -13,9 +13,21 @@ The ticket stepper is fine for 1 or 2 units. For a case of 24 bottles, tapping *
 2. Tap the **quantity number** between the minus and plus controls.
 3. Type the count (for example `24`) and press Enter, or tap outside the field.
 4. **Max quantity per order** and available stock still apply. If you type above either limit, you see an error and the line stays unchanged (same rules as the plus button).
-5. Type `0` to remove the line.
+5. Type `0` to remove the line. **Undo** appears for a few seconds in case you need it back.
 
 Plus and minus still work for small adjustments.
+
+## Edit, remove and clear ticket lines
+
+| Shortcut | What it does |
+|----------|--------------|
+| Right-click a line, or press the menu key on a line you reached with Tab | Opens the line sheet with **Change extras**, **Duplicate**, **Remove** and the note. The browser menu does not open on a line. |
+| **Ctrl+Enter** (**⌘+Enter** on Mac) in the note | Saves the note and closes the sheet. The cursor is already in the note when the sheet opens. |
+| Swipe a line to the left (to the right in Arabic) on a phone or tablet | Removes the line. A short swipe springs back. |
+| **Clear** above the lines | Empties the ticket after you confirm. The customer, fulfillment method, delivery address, table number and channel stay. |
+| **Undo** in the message | Brings back the last removed line, or the whole ticket after **Clear**. It stays for about 6 seconds and goes away as soon as you change the ticket in another way. |
+
+See [Change a line](/docs/orders/creating-orders#change-a-line) for what each action in the sheet does, and [Undo a removal](/docs/orders/creating-orders#undo-a-removal) for what **Undo** brings back.
 
 ## Search with the keyboard
 
@@ -83,6 +95,9 @@ Your choice is remembered **per store on this browser**. Use **Remove** if you n
 
 **Q: Does typing a quantity skip stock checks?**
 A: No. The same stock and max-per-order rules as the plus button still apply.
+
+**Q: I removed the wrong item. Can I get it back?**
+A: Yes, tap **Undo** in the **Item removed** message within about 6 seconds. Only the last removal can be undone, and **Undo** goes away once you add or change anything else on the ticket.
 
 **Q: Why is Open cash drawer missing?**
 A: The icon appears only when this browser supports thermal printing (Chrome or Edge with Web Serial or WebUSB). Pair and test from **Receipt** settings on a supported device.
