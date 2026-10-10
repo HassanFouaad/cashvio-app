@@ -29,7 +29,11 @@ The AI Assistant requires the **AI Assistant** plan feature. Analytics-style ans
 
 Suggested prompts respect your plan and permissions. Analytics-style chips appear only when the **Analytics** module and order-view permission are enabled. Recently used prompts move to the front of the grid on your next visit.
 
-The assistant streams its reply in real time. While it works, you may see a **Thinking** indicator or a short note that a tool is running. You can keep typing your next question in the composer during a reply; press **Enter** only after the current reply finishes. Press **Escape** to stop generation. Unsent drafts are saved per conversation, so switching threads and coming back keeps your text.
+The assistant streams its reply in real time. While it works, you may see a **Thinking** indicator or a short note that a tool is running. You can keep typing your next question in the composer during a reply; press **Enter** only after the current reply finishes. A message can be up to 8,000 characters; a counter appears near the limit.
+
+- **Stop**: press **Stop** (or **Escape**) to end a reply. The assistant stops within a moment and keeps what it already wrote, marked as stopped.
+- **Connection drops**: if your connection drops or you reload the page, the assistant keeps working on the server. The thread reconnects on its own and shows the finished answer. If it still cannot reconnect after a few tries, it shows **Reconnect** so you can try again when your connection is back. A dropped connection never cancels your request.
+- **Drafts**: unsent drafts are saved per conversation, so switching threads and coming back keeps your text. Drafts belong to your account on this browser and are erased when you sign out, so the next person who signs in on the same device cannot see them. If your first message in a new conversation is not accepted, its text stays in the composer so you can try again.
 
 To **archive** the open conversation, open **Other actions** in the header and choose **Archive conversation**. You can also archive from the row menu on any thread in the list.
 
@@ -44,6 +48,11 @@ To **archive** the open conversation, open **Other actions** in the header and c
 | **Analytics** | Sales overview, profit, top products, slow movers, inventory valuation (when Analytics is enabled) |
 
 The assistant only sees data your account can access. If you manage multiple stores, inventory tools use the store selected in your session.
+
+- **Which stores an answer covers**: analytics answers say which store they cover. Ask for "all stores" to get figures across every store, if your role can see all of them; otherwise the assistant says it cannot. Stores that sell in different currencies are never added into one total.
+- **Profit with missing costs**: if some sold products have no purchase cost, the assistant says the costs are missing and does not show a profit or margin as if those items cost nothing. Add the purchase cost to those products for a complete figure.
+- **Restocking**: products at or below their reorder point are always included in restock suggestions, even when they sold little recently.
+- **Searching**: a search with several words, such as "blue shirt", also finds products whose names contain those words in a different order.
 
 ## Monthly business snapshot
 
@@ -68,11 +77,25 @@ Examples of actions that require approval:
 
 Read-only lookups (search, details, analytics summaries) do not need approval.
 
+<Callout title="The approval matches what you saw">
+If the record changes between the preview and your approval (for example someone already added that customer, or the refundable amount changed), the action does not run. The card says the preview no longer matches; ask the assistant to prepare it again. Approving the same card twice never repeats the action.
+</Callout>
+
+After you approve, the **Action result** card shows what actually happened:
+
+| Result | Meaning |
+| --- | --- |
+| **Created** / **Updated** | The customer was added, or the existing customer was updated. |
+| **Refund requested** | The refund was saved. Cash and store-credit refunds usually show **Completed** right away. Card or online refunds show **Pending with the payment provider** until the provider confirms; use **Check status** to refresh. If the status changed since the action ran, the card also shows **At execution** with the earlier status. |
+| **Open record** | Opens the customer, order or refund in the portal. It appears only when your role can open that page. |
+
+The result card shows the time the action ran on the server. If your connection drops right after you approve, the card offers **Verify action result** instead of a second approval, so you can confirm what happened without running it again.
+
 ## Structured input forms
 
 When the assistant needs missing details before it can continue (for example refund amount, refund method, or an optional reason), it shows a compact **input card** in the thread instead of asking the same questions only in prose.
 
-- Answer with suggested choices or use **Other** for a custom text or number when offered.
+- Answer with suggested choices or use **Other** for a custom text or number when offered. Numbers can be typed with Arabic-Indic digits (for example ١٢٫٥٠); they are read the same as 12.50.
 - Optional fields are marked and may be left blank.
 - Tap **Continue** to submit. The assistant validates your answers and resumes the task.
 - You can still type a normal message in the composer. That message counts as your answer and disables the earlier card.
@@ -80,17 +103,22 @@ When the assistant needs missing details before it can continue (for example ref
 
 ## Daily usage limit
 
-Your plan includes a daily **token** budget for assistant messages. A progress strip above the message box shows how much remains. When the limit is reached:
+Your plan includes a daily **token** budget for assistant messages. A progress strip above the message box shows how much remains. Usage counts what replies actually used, plus room held for replies that are still running. If the AI service does not report how much a reply used, the assistant counts the full amount it held for that reply, so usage is never understated.
 
-- You cannot send new messages until the limit resets
-- **New conversation** is disabled
-- Suggested prompts and archive actions are disabled until reset
+When the limit is reached:
 
-The strip shows when usage resets (midnight in your tenant timezone).
+- You cannot send new messages or answer input cards until the limit resets; the card shows why
+- **New conversation** and suggested prompts are disabled
+- Your conversations, results and approval receipts stay available, and you can still archive threads
+
+If the limit is reached in the middle of a long reply, the assistant keeps the part it already finished and marks the answer as incomplete.
+
+The daily budget resets at midnight **UTC**. The strip shows the exact reset time in your local time.
 
 ## Managing conversations
 
-- **Search**: when you have many threads, use the search box in the sidebar.
+- **Search**: when you have many threads, use the search box in the sidebar. It searches the titles of all your conversations, not just the ones loaded on screen.
+- If the conversation list cannot load, the sidebar says so and offers **Retry**; it never shows an empty history by mistake.
 - **Archive**: remove a conversation from your list. Messages stay on record; archiving only hides the thread from the sidebar.
 - **Copy**: use the copy button under any assistant reply to grab its text.
 
@@ -99,6 +127,9 @@ The strip shows when usage resets (midnight in your tenant timezone).
 - Name the store or product when you manage more than one location or have similar item names.
 - For analytics, mention the date range you care about (today, this week, last 30 days).
 - If the assistant asks you to pick between similar orders or products, reply with the number or name it shows.
+- After a list, you can refer to items by position ("the second one"). The assistant remembers recent lists in the conversation; if it is not sure which list you mean, it asks. To see those lists, open the conversation's menu and choose **What the assistant remembers**; **Clear memory** makes it forget them while keeping your messages, results and AI usage.
+- Ask for **more** after a list to see the next page instead of the same results again.
+- Name another store and the assistant looks it up among the stores you can use. If the store is not available to you, it says so and asks which store you mean instead of using a different one.
 
 ## Related guides
 
