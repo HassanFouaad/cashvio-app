@@ -1,6 +1,6 @@
 ---
 title: POS Cashier Shortcuts
-description: "Type bulk quantities, edit, remove or clear ticket lines quickly, search and add with the keyboard, set a quantity before adding, ring up a typed price, open the cash drawer with no sale, and pair or test your receipt printer."
+description: "Type bulk quantities, edit, remove or clear ticket lines quickly, run common actions with single keys such as / and F9, search and add with the keyboard, set a quantity before adding, ring up a typed price, open the cash drawer with no sale, and pair or test your receipt printer."
 ---
 
 Small counter habits that save time on every sale. These work on the full-screen **New Sale** screen and in store **Receipt** settings.
@@ -28,6 +28,38 @@ Plus and minus still work for small adjustments.
 | **Undo** in the message | Brings back the last removed line, or the whole ticket after **Clear**. It stays for about 6 seconds and goes away as soon as you change the ticket in another way. |
 
 See [Change a line](/docs/orders/creating-orders#change-a-line) for what each action in the sheet does, and [Undo a removal](/docs/orders/creating-orders#undo-a-removal) for what **Undo** brings back.
+
+## Keyboard shortcuts
+
+On a computer with a keyboard, single keys run the main actions of the **New Sale** screen:
+
+| Key | What it does |
+|-----|--------------|
+| **/** | Moves the cursor to the product search field. |
+| **F2** | Opens the customer picker, when your plan includes customers. |
+| **F4** | Opens **Discount**. |
+| **F6** | Holds the ticket, like **Hold**. |
+| **F8** | Opens the order **Note**. |
+| **F9** | **Charge**: opens the payment dialog. |
+| **?** | Shows or hides the **Keyboard shortcuts** list. On an Arabic keyboard layout, **؟** works too. |
+
+Each key runs its button and follows the same rules, so when the button is unavailable the key does nothing. **F4** and **F6** need items on the ticket, and **F9** works only when **Charge** does.
+
+The F-keys also work while the cursor is in the search field: search, add the product with Enter, then press **F9** without reaching for the mouse.
+
+### When shortcuts don't work
+
+- A window, sheet, drawer or menu is open, such as the payment dialog or **Today's sales**. Close it first (Esc closes most windows). **?** still closes the shortcuts list.
+- You are holding Ctrl, Alt or ⌘ (the Windows key on a PC), so browser shortcuts such as Ctrl+F keep working.
+- You are typing in a field. **/** and **?** type the character as usual. The F-keys work from the search field only, not from other fields such as a quantity you are typing on a ticket line.
+- You are on the success screen after a sale, or you haven't chosen a store yet. On the success screen, Enter, Space or a scan start the next sale; to use a tile, **Create return** or the **Start the next sale automatically** switch, move to it with Tab and press Enter or Space (a scan still starts the next sale).
+- A barcode scanner is typing a code. A **/** inside a barcode doesn't jump to search, because the register tells scanner input apart by its speed.
+
+### The shortcuts list and key hints
+
+Press **?** to open **Keyboard shortcuts**, a list of every key and what it does. On wide screens with a mouse, the keyboard icon in the top bar (**Show keyboard shortcuts**) opens it too.
+
+On a computer with a mouse, **Discount**, **Hold**, **Note** and **Charge** show their key (**F4**, **F6**, **F8**, **F9**) as a small label. Touch screens and narrow windows don't show these hints.
 
 ## Search with the keyboard
 
@@ -59,7 +91,7 @@ Only plain prices count: up to six digits before the decimal point and up to two
 
 Use this when you need the drawer open without completing a sale (change, float check, or end-of-day).
 
-1. On **New Sale**, tap **Drawer** in the top bar (on phones it is the cash icon, **Open cash drawer**).
+1. On **New Sale**, tap **Drawer** in the top bar. On smaller screens it is the cash icon, **Open cash drawer**; on phones, open **More actions** in the top bar and choose **Open cash drawer**.
 2. Tap it. The paired thermal printer sends a drawer-kick pulse (same signal used after a cash sale print).
 3. If no printer is paired yet, the browser asks you to choose one first.
 
@@ -98,6 +130,9 @@ A: No. The same stock and max-per-order rules as the plus button still apply.
 
 **Q: I removed the wrong item. Can I get it back?**
 A: Yes, tap **Undo** in the **Item removed** message within about 6 seconds. Only the last removal can be undone, and **Undo** goes away once you add or change anything else on the ticket.
+
+**Q: Why aren't F1, F3 or F5 used?**
+A: The browser uses them for help, find and reload. The register only uses F2, F4, F6, F8 and F9, so the browser's own keys keep working.
 
 **Q: Why is Open cash drawer missing?**
 A: The icon appears only when this browser supports thermal printing (Chrome or Edge with Web Serial or WebUSB). Pair and test from **Receipt** settings on a supported device.

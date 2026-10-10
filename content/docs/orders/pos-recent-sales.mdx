@@ -1,0 +1,116 @@
+---
+title: Today's Sales (Reprint and Sell Again)
+description: "Open today's sales from the New Sale top bar to reprint a receipt, share it on WhatsApp, ring up the same items again, start a return or open the order."
+---
+
+On the full-screen **New Sale** screen, **Sales** in the top bar lists today's sales at the store you are selling from. You can reprint any of those receipts, send one on WhatsApp, ring up the same items again or start a return, without leaving the register to look for the order.
+
+## Open today's sales
+
+1. On **New Sale**, tap **Sales** in the top bar. On smaller screens it is the receipt icon, **Today's sales**; on phones, open **More actions** in the top bar and choose **Today's sales**.
+2. **Today's sales** opens with the store name and the number of sales in the list.
+
+On phones the list slides up from the bottom; on a computer it opens from the side. Barcode scans don't reach the ticket while the list is open.
+
+<Callout title="Who can see it">
+**Sales** appears when your role can view orders. It does not need analytics in your plan, so cashiers who don't see **Today** can still reprint receipts. If the icon is missing, ask an admin to check your role.
+</Callout>
+
+## What the list shows
+
+The list has every sale rung up on **New Sale** at this store today, on any device, newest first. "Today" is today on your device, as in [Today at This Store](/docs/orders/pos-daily-summary). Online store orders are not listed; find them under **Sales > All Sales**.
+
+Each sale shows the order number, the time, the customer's name when one was attached, the total and the payment status, such as **Paid** or **Partial**. The first 20 sales load when you open the list. Tap **Load more** at the bottom for the next 20. The list loads fresh every time you open it.
+
+The switch at the top chooses whose sales you see:
+
+- **All** shows everyone's sales at this store. It is the default, because on a shared register the receipt a customer asks for may be from a colleague's sale.
+- **Mine** shows only the sales you rang up.
+
+The choice is remembered for this store on this device. When there is nothing to show, the list reads **No sales yet today**, or **You have no sales yet today** under **Mine**.
+
+## Reprint a receipt
+
+Tap the printer icon on a sale (**Reprint receipt for order #…**). Cashvio loads the order and prints a copy with your current [receipt settings](/docs/stores/receipt-settings), the same way as **Print receipt** on the success screen. The paper is marked as a copy, like every reprint (see [Print and Share Receipts](/docs/orders/print-share-receipts)). Reprinting never opens the cash drawer.
+
+The icon spins while the receipt loads and prints, and one receipt prints at a time. If the order can't be loaded, a message tells you why. The job also shows under **Print jobs**, so you can check what happened after the list is closed.
+
+## More actions
+
+The three-dot icon on a sale (**More actions for order #…**) opens the other actions:
+
+| Action | What it does |
+|--------|--------------|
+| **Share on WhatsApp** | Opens WhatsApp with the same message as **Send via WhatsApp** on the success screen: a thank-you note with the digital receipt link. If the sale has a customer phone number, their chat opens directly. See [WhatsApp Sharing](/docs/orders/whatsapp-sharing). |
+| **Sell again** | Puts the same items on the ticket at today's prices. See [Sell again](#sell-again). |
+| **Create return** | Opens the return screen for this order. Shown only when your role can create returns or refunds. See [Create return](#create-return). |
+| **Open order** | Leaves **New Sale** and opens the order details, where you can download a PDF, copy the receipt link or show a QR code. |
+
+**Create return** and **Open order** leave the register. If the ticket has items, Cashvio first asks **Discard cart?**, because leaving discards the ticket. Tap **Keep order** to stay, and [hold the ticket](/docs/orders/pos-hold-tickets) first if you want to keep it.
+
+## Sell again
+
+**Sell again** builds a new ticket from a past sale: a customer who wants the same order again, or a sale you need to ring up a second time. You find it in the three-dot menu here and as a tile on the success screen after each sale (see [After the Sale](/docs/orders/pos-taking-payment#after-the-sale)).
+
+1. Open the three-dot menu on a sale and tap **Sell again**.
+2. If the ticket already has items, Cashvio asks **Replace the current ticket?** Tap **Replace ticket**, or **Cancel** to keep the ticket as it is. An empty ticket skips this question.
+3. The items go on the ticket and the list closes. A quantity multiplier you set (such as **×6**) is cleared. Check the ticket and charge as usual.
+
+Replacing removes the ticket's items, discount, coupon, order note and fee changes. The customer, fulfillment method, delivery address, table number and sales channel stay. **Undo** can't bring back a replaced ticket. If none of the old items can be added, nothing is replaced.
+
+While the items load, the three-dot icon spins, another **Sell again** has to wait, and the list stays open until the items are on the ticket. If the ticket changes while they load, for example when you tap **New sale** or scan an item on the success screen, Sell again stops with **The ticket changed, so Sell again was cancelled** and nothing is added.
+
+### What is copied
+
+Sell again repeats what was sold, not who bought it or how they paid.
+
+- Catalogue items come back with their quantity at **today's price**, not the price of the old sale.
+- Item notes come back. If the same item with the same extras and the same note was on two lines, it becomes one line with the quantities added together; lines with different notes stay separate.
+- [Extras](/docs/catalogue/modifiers) come back when every one of them still exists and the choice still fits the product's extras rules, such as how many you must or can pick.
+- Custom items come back with the same name, SKU and price they were sold at.
+
+The customer, discount, coupon, service and delivery fees, payment, fulfillment method, delivery address, table number and order note are not copied from the old sale. The totals are worked out again for the new ticket, like any other sale.
+
+### Items that can't be added as sold
+
+Cashvio checks every item against your catalogue as it is now, with the same stock and **Max quantity per order** limits as adding it by hand. An item that can't be sold is left out, and a quantity that doesn't fit is lowered.
+
+When that happens, a message such as **5 items from order #1042 weren't added as sold** names up to three of them with the reason and counts the rest (**and 2 more**):
+
+| Reason | Meaning |
+|--------|---------|
+| **no longer exists** | The variant that was sold (size, color and so on) was deleted from the product. |
+| **no longer sold at this store** | The product is inactive or not sold at this store. |
+| **out of stock** | There is no stock left. |
+| **per-order limit reached** | The ticket already has as many units as **Max quantity per order** allows. |
+| **extras changed** | One of the extras was removed, or the old choice no longer fits the product's extras rules. |
+| **3 of 5 added** (for example) | Only part of the quantity fit the available stock or **Max quantity per order**. |
+
+When everything fits, the message reads **Items from order #1042 are on the ticket**. When nothing can be added, it reads **Nothing from order #1042 could be added** and the ticket stays as it was (from the success screen you move on to an empty new sale).
+
+## Create return
+
+**Create return** opens the return screen for the order, the same one as **Create Return** on the order details page. Pick the items and finish the return as described in [Create a Return](/docs/returns-refunds/create-return); only items that can still be returned are offered.
+
+You find it in the three-dot menu here and under the tiles on the success screen. It appears only when your role can create returns or refunds (see [Roles & Permissions](/docs/team/roles-permissions)).
+
+## Related Features
+
+- [Taking Payment and After the Sale](/docs/orders/pos-taking-payment): the success screen, with **Sell again**, **Create return** and the automatic next sale
+- [Print and Share Receipts](/docs/orders/print-share-receipts): reprints, print jobs and digital receipts
+- [Today at This Store](/docs/orders/pos-daily-summary): today's revenue and cash totals for the store
+- [Hold and Resume Tickets](/docs/orders/pos-hold-tickets): park a ticket before you leave the register
+
+## FAQs
+
+**Q: Why don't I see Sales in the top bar?**
+A: Your role needs permission to view orders. Ask an admin to check it in [Roles & Permissions](/docs/team/roles-permissions).
+
+**Q: A sale from yesterday isn't in the list. Where is it?**
+A: The list only covers today. Open older orders from **Sales > All Sales** and use **Print / Share** to reprint.
+
+**Q: Does Sell again use the old prices?**
+A: No. Catalogue items use today's prices. Only custom items keep the price they were sold at.
+
+**Q: Does Sell again attach the same customer?**
+A: No. Choose a customer on the new ticket if you need one.

@@ -8,6 +8,7 @@
     "pos-hold-tickets",
     "pos-cart-discounts",
     "pos-taking-payment",
+    "pos-recent-sales",
     "managing-orders",
     "editing-orders",
     "order-fulfillment-status",
