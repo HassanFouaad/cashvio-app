@@ -98,12 +98,23 @@ The result card shows the time the action ran on the server. If your connection 
 Ask the assistant to prepare a purchase order draft for one store and one supplier. Give the product variants, whole-number quantities and each unit cost. You can include up to 20 different variants. If facts are missing, the assistant asks you to supply them. It does not use the selling price as a supplier quote or treat a missing cost as zero.
 
 1. Check the store, supplier and every line on the confirmation card. Review the quantity, unit cost, currency, tax, shipping and total. Pay particular attention to any line with zero cost and any tax or shipping shown as zero.
-2. Check when the facts were read and when the review expires. Ask for a fresh preview if you change the supplier, items, quantities or costs.
+2. Check when the facts were read and when the review expires. Ask for a fresh preview if you change the store, supplier or variants. Use **Edit review** for quantities and amounts on a pending purchase card.
 3. Choose **Approve** to save one **Draft** purchase order. The **Action result** shows its number, total and saved status. **Open record** appears when your role can view purchase orders.
 
 Saving the draft does not send it to the supplier, approve the purchase order, receive stock or make a payment. Review and complete those steps separately in [Purchase orders](/docs/suppliers/purchase-orders).
 
 Restock estimates may exclude incoming purchase quantities, supplier quotes and delivery lead times. The preview identifies unavailable facts. Check them before deciding what to order. If the connection drops after approval, use **Verify action result** to recover the saved result. Approving the same card again returns the same draft.
+
+## Correcting a pending purchase review
+
+1. Choose **Edit review** on a pending purchase card. The store, supplier and variants stay fixed so you can see exactly which draft you are correcting.
+2. Update the whole-number quantities, unit costs, tax or shipping together. Check the source currency and any amount you set to zero. Valid entries remain on the form after a validation or connection error.
+3. Choose **Review changes**. This creates a fresh review card and makes the previous card unavailable for approval. It does not save a purchase order.
+4. Check the updated facts and total on the new card, then choose **Approve** separately to save one draft.
+
+If the response to **Review changes** is lost, retry from the same form. The request keeps the same review rather than creating another purchase. If another session approved the original card first, check its saved result before taking another action. Closing a form with unsaved changes asks you to confirm discarding them.
+
+To change the store, supplier or variants, ask the assistant for a new preview. A card that has expired or already been resolved cannot be edited. Editing also requires permission to create purchase orders for that store.
 
 ## Reviewed help articles
 
