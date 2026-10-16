@@ -74,6 +74,7 @@ Examples of actions that require approval:
 - Adjust inventory quantities
 - Update order fulfillment status
 - Create a refund
+- Save a purchase order draft
 
 Read-only lookups (search, details, analytics summaries) do not need approval.
 
@@ -87,9 +88,26 @@ After you approve, the **Action result** card shows what actually happened:
 | --- | --- |
 | **Created** / **Updated** | The customer was added, or the existing customer was updated. |
 | **Refund requested** | The refund was saved. Cash and store-credit refunds usually show **Completed** right away. Card or online refunds show **Pending with the payment provider** until the provider confirms; use **Check status** to refresh. If the status changed since the action ran, the card also shows **At execution** with the earlier status. |
-| **Open record** | Opens the customer, order or refund in the portal. It appears only when your role can open that page. |
+| **Purchase draft saved** | One purchase order was saved as a **Draft**. It still needs your separate purchasing review. |
+| **Open record** | Opens the customer, order, refund or purchase order in the portal. It appears only when your role can open that page. |
 
 The result card shows the time the action ran on the server. If your connection drops right after you approve, the card offers **Verify action result** instead of a second approval, so you can confirm what happened without running it again.
+
+## Saving a purchase order draft
+
+Ask the assistant to prepare a purchase order draft for one store and one supplier. Give the product variants, whole-number quantities and each unit cost. You can include up to 20 different variants. If facts are missing, the assistant asks you to supply them. It does not use the selling price as a supplier quote or treat a missing cost as zero.
+
+1. Check the store, supplier and every line on the confirmation card. Review the quantity, unit cost, currency, tax, shipping and total. Pay particular attention to any line with zero cost and any tax or shipping shown as zero.
+2. Check when the facts were read and when the review expires. Ask for a fresh preview if you change the supplier, items, quantities or costs.
+3. Choose **Approve** to save one **Draft** purchase order. The **Action result** shows its number, total and saved status. **Open record** appears when your role can view purchase orders.
+
+Saving the draft does not send it to the supplier, approve the purchase order, receive stock or make a payment. Review and complete those steps separately in [Purchase orders](/docs/suppliers/purchase-orders).
+
+Restock estimates may exclude incoming purchase quantities, supplier quotes and delivery lead times. The preview identifies unavailable facts. Check them before deciding what to order. If the connection drops after approval, use **Verify action result** to recover the saved result. Approving the same card again returns the same draft.
+
+## Reviewed help articles
+
+Ask how to use a supported feature and the assistant can look up reviewed public guides in your language. Its answer links to the source guide. If there is no current reviewed guidance for your question, it says so; use **Get human help** to contact support. These answers do not include private support cases or staff notes.
 
 ## Structured input forms
 
@@ -133,7 +151,7 @@ Asking for help does not approve a pending assistant action or run it again. You
 - **Search**: when you have many threads, use the search box in the sidebar. It searches the titles of all your conversations, not just the ones loaded on screen.
 - If the conversation list cannot load, the sidebar says so and offers **Retry**; it never shows an empty history by mistake.
 - In a long conversation, use **Load older messages** at the top. If that page cannot load, the messages already shown stay available and an inline **Retry** lets you try again.
-- **Archive**: remove a conversation from your list. Messages stay on record; archiving only hides the thread from the sidebar.
+- **Archive**: hide a conversation from the sidebar. Archived conversations can later be removed under the retention settings. Archiving is not permanent storage or immediate erasure; unsettled actions and their evidence can be kept longer.
 - **Copy**: use the copy button under any assistant reply to grab its text.
 
 ## Tips for better answers
