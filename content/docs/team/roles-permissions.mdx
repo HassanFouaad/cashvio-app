@@ -7,7 +7,9 @@ description: "How roles and permissions control what each team member can access
 
 A **role** defines what a team member can see and do in Cashvio. Each role has a set of **permissions** that control access to different features. For example, a "Cashier" role might only have permission to create orders, while a "Manager" role might have full access.
 
-A **role definition** is not the same as an **assignment**. You define roles once, then assign one or more roles to each user. Each assignment is either **business-wide** (tenant scope) or **limited to one store**.
+Each team member has **one role in your business**. Choose their role, then choose where they can use it: **Business-wide access (all stores)** or specific **Assigned stores**. The same role applies to every selected store.
+
+For example, a cashier working in two branches has one **Cashier** role with both stores selected. For mixed duties, create one custom role with the permissions the person needs.
 
 ## How Permissions Work
 
@@ -42,13 +44,13 @@ When you grant any action on a resource, its **View** permission is added automa
 
 ## Scoped assignments and selected store
 
-Operational pages (orders, inventory, POS, online store settings) evaluate permissions in the **selected store** context. A cashier assignment at Store A does not grant order access at Store B, even if the same person also holds another role elsewhere.
+Operational pages (orders, inventory, POS, online store settings) evaluate permissions in the **selected store** context. A cashier assigned to Store A has no access to Store B unless you also select Store B.
 
-Business-wide (tenant-scoped) assignments apply across every store. Store-scoped assignments apply only at the chosen store.
+**Business-wide access (all stores)** applies across current and future stores. Otherwise, access applies only to the stores you select.
 
 A team member assigned to several stores works in all of them. Lists such as catalogue discounts, product reviews, store prices, product imports and store visits include every store where they hold the permission. Actions such as transferring stock work between any two of their stores.
 
-The **Tenant Admin** built-in role is identified by a stable system key, not by its display name. At least one active administrator must remain; the portal blocks changes that would remove the last active admin.
+**Business Admin** always has business-wide access. At least one active administrator must remain; the portal blocks changes that would remove the last active admin.
 
 ### Passing access on
 
@@ -63,12 +65,12 @@ You can only give out access you hold yourself, with the same reach:
 
 When a user logs in, their assignments determine:
 
-- **Which sidebar menu items they see**: Route access uses their combined assignments; store-bound actions respect the selected store.
+- **Which sidebar menu items they see**: Their role determines the available pages; store-bound actions respect their assigned stores.
 - **Which actions they can perform**: Buttons like "New Sale" or "Delete Product" only appear when the permission holds in the current store context (or tenant-wide when no store is required).
 - **Which Dashboard quick actions appear**: Only actions the user is allowed to perform are shown.
 
 <Callout title="Important">
-The account owner (business owner) always has full access to everything, regardless of role settings. Roles only restrict invited team members.
+**Business Admin** includes business administration and POS access. A Business Admin does not need an additional Cashier role. Changing a user's role replaces their previous role.
 </Callout>
 
 <Cards>

@@ -20,11 +20,13 @@ The users list shows each user's **name**, **username**, **email**, **status** (
 | **Email** | Their email address |
 | **Username** | The username they can log in with (login accepts username or email) |
 | **Hourly Rate** | Optional; used for staff cost reporting |
-| **Role assignments** | One or more rows. Each row binds a **role** to the whole business (tenant scope) or to a **specific store** |
+| **Select Role** | Choose one role for the user |
+| **Business-wide access (all stores)** | Apply the role across the business, including future stores |
+| **Assigned stores** | With business-wide access turned off, choose one or more stores for the same role |
 
 3. Click **Save**.
 
-You can assign multiple roles in one invitation. Example: **Cashier** at Store A plus **Inventory** at Store B. Duplicate role and store pairs are rejected.
+Each user has one role in your business. For example, select **Cashier** and assign Store A and Store B. A Business Admin already has POS access and needs no additional Cashier role.
 
 ### Sharing the temporary password
 
@@ -40,7 +42,7 @@ Click on a user to see their profile:
 
 - **Personal Information**: name, username, email
 - **Account Status**: Active / Inactive
-- **Role Assignments**: every role, scope (business-wide or store), and store target
+- **Role and Store Access**: their role and the stores they can access
 - **Last Activity**: most recent sign-in time
 
 ### Actions available
@@ -49,10 +51,12 @@ Click on a user to see their profile:
 |--------|--------------|
 | **Edit** | Update first name, last name, and hourly rate |
 | **Change Password** | Set a new password for the user (useful when the temporary password is lost) |
-| **Change Role** | Replace the full assignment set. Add, remove, or change rows. Saves only when you submit the complete list. |
+| **Change User Role** | Choose a replacement role and update business-wide access or assigned stores. The previous role is replaced when you save. |
 | **Activate / Deactivate** | Toggle whether the user can log in |
 
-If someone else edits assignments while you are on the form, save may fail with a conflict. Refresh the page and review the current assignments before saving again.
+If someone else changes access while you are editing, saving shows a conflict and reloads the current role and stores. Review them before making your changes again. Closing a form with unsaved changes asks whether to discard them.
+
+After a role change, the team member must sign in again to use their new access.
 
 <Callout title="Protected team members">
 You can change another team member's **password** or **Active / Inactive** status only when you hold every permission they have, in every store where they have it. For example, a manager of one store can't reset the password of someone with business-wide access. Ask someone with broader access, such as the business owner, to make the change.
