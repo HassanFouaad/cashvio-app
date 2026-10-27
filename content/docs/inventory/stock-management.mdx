@@ -20,22 +20,22 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 | **Product / Variant** | The product name and variant (with its SKU) |
 | **Status** | In Stock, Low Stock, or Out of Stock |
 | **Available** | Units that can still be sold |
-| **Reorder Point** | Minimum stock level before the item is treated as low stock |
+| **Reorder point** | Minimum stock level before the item is treated as low stock |
 | **Committed** | Units reserved by pending orders |
-| **On Hand** | Physical units in the store (available + committed) |
-| **Unit Cost** | Weighted-average cost per unit for this store (shown as "-" when unknown) |
-| **Total Value** | Value at cost: on-hand quantity × unit cost |
-| **Last Counted** | When this item was last included in a [stocktake](/docs/inventory/stocktake) (empty until you run one) |
+| **On hand** | Physical units in the store (available + committed) |
+| **Unit cost** | Weighted-average cost per unit for this store (shown as "-" when unknown) |
+| **Total value** | Value at cost: on-hand quantity × unit cost |
+| **Last counted** | When this item was last included in a [stocktake](/docs/inventory/stocktake) (empty until you run one) |
 
-Each row shows **Inventory details** and **Adjust Stock** directly. Other stock actions stay under **Actions**. You can **export the current view to CSV**. Open a row to see quantity KPIs first, then item metadata and recent adjustments.
+Each row shows **Inventory details** and **Adjust stock** directly. Other stock actions stay under **Actions**. You can **export the current view to CSV**. Open a row to see quantity KPIs first, then item metadata and recent adjustments.
 
 ## Stock Statuses
 
 | Status | Meaning |
 |--------|---------|
-| **In Stock** | On-hand stock is above the reorder point |
-| **Low Stock** | On-hand stock is at or below the reorder point |
-| **Out of Stock** | No available stock |
+| **In stock** | On-hand stock is above the reorder point |
+| **Low stock** | On-hand stock is at or below the reorder point |
+| **Out of stock** | No available stock |
 
 ### Available vs. Committed vs. On Hand
 
@@ -56,7 +56,7 @@ Stock levels change automatically based on business operations:
 | **Damaged/consumed** | Stock decreases |
 
 <Callout title="Important">
-Only products with **Track Inventory** enabled are affected by these stock changes. If a product has inventory tracking disabled, stock is not tracked.
+Only products with **Track inventory** enabled are affected by these stock changes. If a product has inventory tracking disabled, stock is not tracked.
 </Callout>
 
 <Cards>

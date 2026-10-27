@@ -12,14 +12,14 @@ A **bundle** is one product your customer buys once, made up of other products y
 | Question | Use |
 |----------|-----|
 | Does the customer pick add-ons on the same item? (extra shot, gift wrap) | **Extras** add to the price without touching stock |
-| Do you want a lower price on one SKU for a limited time? | **Catalogue discounts** mark a variant, product, or category down on a schedule |
+| Do you want a lower price on one SKU for a limited time? | **Catalog discounts** mark a variant, product, or category down on a schedule |
 | Do you sell a fixed set of products together as one line? | **Bundles** take stock from every component when one bundle sells |
 
 Extras stay on one SKU. Discounts change the price. Bundles combine separate products into one sellable item.
 
 ## Create a Bundle
 
-1. Open **Catalogue > Products** and click **Add New Product**.
+1. Open **Catalog > Products** and click **Add product**.
 2. On step 1, choose **Bundle** as the product type. Product type is set at creation and cannot be changed later.
 3. Fill in the name, category, and other general fields. Bundle products have **exactly one variant** and **inventory tracking stays off**. The bundle itself holds no stock.
 4. On step 2, add each component: search for a product variant, set **Quantity per bundle** (how many units of that item go into one bundle), and reorder rows for display.
@@ -64,7 +64,7 @@ Past orders keep a snapshot of what was inside each bundle, so receipts and orde
 
 | Surface | What customers and staff see |
 |---------|------------------------------|
-| **New Sale** | Bundle label on the tile; stock follows derived availability |
+| **New sale** | Bundle label on the tile; stock follows derived availability |
 | **POS ticket** | One line with a short "Contains N items" note |
 | **Receipts** | Bundle name plus indented component lines |
 | **Product list** | Bundle marker and derived stock |
@@ -78,12 +78,12 @@ These rules are intentional in this release:
 1. **No nesting**: a bundle cannot contain another bundle.
 2. **One variant only**: two colourways of the same set are two separate bundle products.
 3. **No stocktake row**: bundles do not appear in stocktake or low-stock alerts; track the components.
-4. **No CSV import**: you cannot create bundles through product import in this release. Create them with **Add New Product** and choose **Bundle**.
+4. **No CSV import**: you cannot create bundles through product import in this release. Create them with **Add product** and choose **Bundle**.
 5. **No dead-stock row**: the dead-stock report ranks products by stock movement. A bundle has none, so it never appears there.
 
 ## Related Features
 
 - [Products](/docs/catalogue/products): catalogue overview, duplicate, and status
 - [Product Extras and Add-ons](/docs/catalogue/modifiers): optional picks on a single item
-- [Catalogue discounts](/docs/marketing/catalogue-discounts): scheduled markdowns on existing SKUs
+- [Catalog discounts](/docs/marketing/catalogue-discounts): scheduled markdowns on existing SKUs
 - [Creating orders](/docs/orders/creating-orders): New Sale where bundle tiles appear
