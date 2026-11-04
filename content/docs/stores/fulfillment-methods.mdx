@@ -11,21 +11,21 @@ Fulfillment methods define **how orders are delivered to customers**. When creat
 
 | Method | Description | Available On |
 |--------|-------------|-------------|
-| **In-Store** | The customer purchases and receives the product at the store. | Portal only |
+| **In-store** | The customer purchases and receives the product at the store. | Portal only |
 | **Pickup** | The customer places the order and picks it up at the store later. | Portal + Storefront |
 | **Delivery** | The order is delivered to the customer's address. | Portal + Storefront |
-| **Dine-In** | The customer orders and eats at the store (for restaurants/cafes). Requires **Cafe/Restaurant Mode**. | Portal + Storefront |
+| **Dine-in** | The customer orders and eats at the store (for restaurants/cafes). Requires **Cafe/restaurant mode**. | Portal + Storefront |
 
 ## Dine-In and Table Numbers
 
 <Callout title="Enable Cafe/Restaurant Mode first">
-**Dine-In**, table numbers, and the [Kitchen board](/docs/orders/kitchen-board) need **Cafe/Restaurant Mode**. It is off by default. Enable it in **Settings > Features** (or Feature selection) before you expect those options to appear.
+**Dine-in**, table numbers, and the [Kitchen board](/docs/orders/kitchen-board) need **Cafe/restaurant mode**. It is off by default. Enable it in **Settings > Features** (or Feature selection) before you expect those options to appear.
 </Callout>
 
-When **Dine-In** is selected, a **table number** is optional (up to 50 characters). Use numbers or short labels such as `12`, `A1`, or `T3`.
+When **Dine-in** is selected, a **table number** is optional (up to 50 characters). Use numbers or short labels such as `12`, `A1`, or `T3`.
 
-- On **New Sale**, the cart shows an optional **Table** row. You can charge without it, or set the table later on the order. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts).
-- The **online storefront** does not ask for a table at checkout. Staff can set or edit it on **Order Details** after the order is placed.
+- On **New sale**, the cart shows an optional **Table** row. You can charge without it, or set the table later on the order. See [Cart, Discounts, and Fees](/docs/orders/pos-cart-discounts).
+- The **online storefront** does not ask for a table at checkout. Staff can set or edit it on **Order details** after the order is placed.
 - When set, the table number appears on the order, on receipts when shown, and on the [Kitchen board](/docs/orders/kitchen-board) so runners know where to deliver.
 
 ## How to Configure Fulfillment Methods
@@ -52,15 +52,15 @@ See [Delivery Zones](/docs/stores/delivery-zones) for setting up delivery areas 
 
 ## Storefront Fulfillment
 
-On your online storefront, customers can be offered **Delivery**, **Pickup**, and **Dine-In** (when each is enabled on the **Storefront (Online)** tab). Make sure at least one storefront method is enabled if you want customers to place orders online.
+On your online storefront, customers can be offered **Delivery**, **Pickup**, and **Dine-in** (when each is enabled on the **Storefront (Online)** tab). Make sure at least one storefront method is enabled if you want customers to place orders online.
 
 <Callout title="Important">
-**In-Store** can never be offered on the online storefront; it is a staff-only method for walk-in sales at the counter. The system rejects any attempt to enable it for online checkout, and online orders can never use it.
+**In-store** can never be offered on the online storefront; it is a staff-only method for walk-in sales at the counter. The system rejects any attempt to enable it for online checkout, and online orders can never use it.
 </Callout>
 
 ## Order Status Tracking
 
-Pickup, Delivery, and Dine-In orders follow a status flow that you update from the **Order Details** page:
+Pickup, Delivery, and Dine-In orders follow a status flow that you update from the **Order details** page:
 
 **Pickup / Dine-In:**
 1. **Pending**: Order created, waiting to be prepared
@@ -80,7 +80,7 @@ You can move directly to a later status (for example from Pending straight to Co
 For a live kitchen view of open tickets, use the [Kitchen board](/docs/orders/kitchen-board).
 
 <Callout title="Note">
-**In-Store** orders have no fulfillment tracking; the customer receives the items at the counter, so there is nothing to track.
+**In-store** orders have no fulfillment tracking; the customer receives the items at the counter, so there is nothing to track.
 </Callout>
 
 <Callout title="Tip">

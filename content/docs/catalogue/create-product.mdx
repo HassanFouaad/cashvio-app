@@ -3,7 +3,7 @@ title: Add a New Product
 description: "Create products with Quick Add or the full wizard: product info, variants, images, and store-specific pricing."
 ---
 
-Use this guide to add products from **Catalogue > Products**. For an overview of viewing, editing, and duplicating products, see [Products](/docs/catalogue/products).
+Use this guide to add products from **Catalog > Products**. For an overview of viewing, editing, and duplicating products, see [Products](/docs/catalogue/products).
 
 <Callout title="Tip">
 Set up your [categories](/docs/catalogue/categories) and [options](/docs/catalogue/options) **before** creating products. This makes the product creation process faster and more organized.
@@ -11,13 +11,13 @@ Set up your [categories](/docs/catalogue/categories) and [options](/docs/catalog
 
 ## How to Add a New Product
 
-1. Go to **Catalogue > Products** in the sidebar.
-2. Click **Add New Product**.
+1. Go to **Catalog > Products** in the sidebar.
+2. Click **Add product**.
 3. Choose your creation method:
-   - **Quick Add**: A simplified form for name, category, and price. The SKU is auto-generated from the name (Arabic names stay readable).
-   - **Full Form**: A multi-step wizard for products with variants and detailed configuration
+   - **Quick add**: A simplified form for name, category, and price. The SKU is auto-generated from the name (Arabic names stay readable).
+   - **Full form**: A multi-step wizard for products with variants and detailed configuration
 
-On **New Sale**, you can also open **Quick Add Product** from the catalogue menu, or when you [scan a barcode](/docs/orders/pos-barcode-scanning) that is not in your catalogue yet (the scanned code is saved as the product's barcode).
+On **New sale**, you can also open **Quick add product** from the catalogue menu, or when you [scan a barcode](/docs/orders/pos-barcode-scanning) that is not in your catalogue yet (the scanned code is saved as the product's barcode).
 
 ### Step 1: Selling Essentials
 
@@ -25,14 +25,14 @@ The form opens with what a product needs before it can be sold. Fill in the basi
 
 | Field | Description |
 |-------|-------------|
-| **Product Name** | The name of the product |
+| **Product name** | The name of the product |
 | **Category** | The category this product belongs to |
 
 ### Step 2: Variants and Pricing
 
-Add the product's variants. Each variant is added manually with **Add Another Variant**, or generated in bulk with **Generate from Options** when you have [options](/docs/catalogue/options) configured. A product can have up to **100 variants** in total.
+Add the product's variants. Each variant is added manually with **Add another variant**, or generated in bulk with **Generate from options** when you have [options](/docs/catalogue/options) configured. A product can have up to **100 variants** in total.
 
-When you use **Generate from Options**, select the option values to combine. If the combination count exceeds 100, deselect some values and generate in smaller groups, or add remaining variants manually until you reach the limit.
+When you use **Generate from options**, select the option values to combine. If the combination count exceeds 100, deselect some values and generate in smaller groups, or add remaining variants manually until you reach the limit.
 
 For each variant, set:
 
@@ -41,13 +41,13 @@ For each variant, set:
 | **SKU** | A unique stock keeping unit code (auto-suggested from the product name, including Arabic names; editable). Your internal reference for the variant. |
 | **Barcode** | The scannable code on the product, kept separate from the SKU like real retail systems do. It matches the SKU until you change it. Type the manufacturer's number (EAN/UPC), press the **Generate barcode** wand to get a unique in-store retail number, or clear it if the variant has no barcode. Used by [barcode labels](/docs/catalogue/barcode-labels) and [POS scanning](/docs/orders/pos-barcode-scanning). |
 | **Option Values** | The option values that identify this variant (e.g., "L / Red") |
-| **Selling Price** | The price the customer pays |
-| **Cost Price** | Your cost to acquire the product (needed for accurate profit reports) |
+| **Selling price** | The price the customer pays |
+| **Cost price** | Your cost to acquire the product (needed for accurate profit reports) |
 | **Unit of Measure** | How the product is sold: Piece, Kilogram, Liter, Meter, Square Meter, Cubic Meter, or Unit |
 | **Max Quantity per Order** | Optional cap on how many a customer can buy in one order (empty = unlimited) |
 
 <Callout title="Important">
-**Cost Price** is essential for profit reporting. Without accurate cost prices, profit calculations in the [Reports](/docs/reports/analytics-reports) section will be incorrect.
+**Cost price** is essential for profit reporting. Without accurate cost prices, profit calculations in the [Reports](/docs/reports/analytics-reports) section will be incorrect.
 </Callout>
 
 ### Step 3: Tax
@@ -56,9 +56,9 @@ Set the tax inputs:
 
 | Field | Description |
 |-------|-------------|
-| **Tax Category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
-| **Tax Rate** | The tax percentage applied to this product (shown for Standard VAT) |
-| **Tax Included** | Toggle to indicate if the selling price already includes tax |
+| **Tax category** | **Standard VAT** (with a tax rate) or **Exempt** (no tax) |
+| **Tax rate** | The tax percentage applied to this product (shown for Standard VAT) |
+| **Tax included** | Toggle to indicate if the selling price already includes tax |
 
 For how tax works after creation, see [Tax and inventory](/docs/catalogue/product-tax-inventory).
 
@@ -68,21 +68,21 @@ Optional storefront content, a product can be sold without filling this in.
 
 - **Description**: A rich-text description for your online store
 - **Multiple Images**: Add several images per product
-- **Primary Image**: The first image is the main image shown in product lists and on the storefront
+- **Primary image**: The first image is the main image shown in product lists and on the storefront
 
 <Callout title="Tip">
 Use high-quality images. They make a big difference on your online store.
 </Callout>
 
-### Step 5: Additional Configuration (Optional)
+### Step 5: Sales settings (optional)
 
-The rarely-changed settings sit collapsed in the **Additional Configuration** section at the bottom of the form, with their current values summarized in one line, for example "Active · Stock tracked · In online store", so you do not have to open it to know where things stand:
+The rarely-changed settings sit collapsed in the **Sales settings** section at the bottom of the form, with their current values summarized in one line, for example "Active · Stock tracked · In online store", so you do not have to open it to know where things stand:
 
 | Field | Description |
 |-------|-------------|
 | **Status** | Active or Inactive (see [Product Statuses](/docs/catalogue/products#product-statuses)) |
-| **Track Inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
-| **Available on Online Store** | On by default. Turn it off to keep the product out of your [online store](/docs/online-store/product-availability) and sell it in-store only. You can change this any time. |
+| **Track inventory** | Whether to track stock levels for this product (turn off for services or made-to-order items). **Set only at creation; it cannot be changed later.** |
+| **Available on online store** | On by default. Turn it off to keep the product out of your [online store](/docs/online-store/product-availability) and sell it in-store only. You can change this any time. |
 
 If one of these fields has a validation problem, the section opens on its own so the error is never hidden behind a closed section.
 
