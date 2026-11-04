@@ -1,6 +1,6 @@
 ---
 title: Barcode Labels
-description: "Print A4 barcode label sheets for product variants, with product name, price, and a scannable barcode (EAN-13, UPC, or Code 128)."
+description: "Print product barcode labels on A3, A4, A5, A6, Letter, Legal, individual label stock or custom paper sizes. Adjust sticker dimensions and spacing to fit."
 ---
 
 Print ready-to-stick price labels with a scannable barcode for any variant. Labels encode the variant's **Barcode** when it has one, and fall back to the **SKU** when it doesn't. Either way, the printed label scans at the [POS](/docs/orders/creating-orders) or with a dedicated scanner (see [Barcode scanning](/docs/orders/pos-barcode-scanning)).
@@ -9,8 +9,12 @@ Print ready-to-stick price labels with a scannable barcode for any variant. Labe
 
 1. Open the product details and find the variant (the variants table, or the details panel for single-variant products).
 2. Click **Print labels**.
-3. Choose the **Number of labels**. One A4 sheet fits **21 labels** (3 columns × 7 rows), and the dialog shows how many sheets will print.
-4. Click **Print labels** in the dialog. Your browser's print dialog opens with the sheet. Print it, or choose **Save as PDF**.
+3. Choose **Paper or label size**. Sheet presets include A3, A4, A5, A6, US Letter and US Legal. Individual label presets include 50 × 30 mm, 60 × 40 mm and 100 × 50 mm, with one label per printed page.
+4. For another size, choose **Custom size** and enter **Paper width (mm)** and **Paper height (mm)**. Enter a wider width than height for landscape stock. Editing either paper dimension also selects **Custom size**.
+5. Set **Label width (mm)** and **Label height (mm)** to match your stickers. Adjust **Left and right margins (mm)**, **Top and bottom margins (mm)**, **Gap between columns (mm)** and **Gap between rows (mm)** to match the stock. Each margin applies to both sides. You can edit these fields for any preset.
+6. Choose the **Number of labels**, from 1 to 210. The dialog calculates labels per page and pages to print. A4 initially uses 63.5 × 38.1 mm stickers, with 21 labels per sheet. Changing paper size keeps your requested quantity.
+7. If a complete label cannot fit, correct the dimensions or margins before printing. Dimensions must be positive; margins and gaps may be zero.
+8. Click **Print labels**. In the browser print dialog, select matching paper, use **Actual size** or **100%**, and turn off browser headers and footers. Print a sample, or choose **Save as PDF**.
 
 ### What's on each label
 
@@ -22,8 +26,10 @@ Labels use the same barcode types real retailers use. Standard retail numbers (E
 
 ### Printing tips
 
-- The layout matches common **A4 sticker sheets** (63.5 × 38.1 mm labels, 21 per sheet). You can also print on plain paper and cut along the dashed guides.
-- Scan a printed label at the POS to add that exact variant to a sale instantly.
+- For individual label stock, start with a matching label preset, or set custom paper and label dimensions to the same size with zero margins and gaps.
+- Your printer and its driver must support the selected stock. Select the same size in the driver. Printers with unprintable edges may need nonzero margins, so adjust the label dimensions to fit.
+- Small labels and long barcode values may be difficult to read or scan. Print and scan a sample before printing the full quantity.
+- You can also print on plain paper and cut along the dashed guides. Scan a printed label at the POS to add that exact variant to a sale.
 
 <Callout title="Note">
 If nothing opens when you click **Print labels**, allow popups for the portal in your browser and try again. Code 128 barcodes need **Latin** letters, numbers, and dashes. Arabic letters and other non-Latin characters cannot be encoded. The easiest fix: open the variant, press the **Generate barcode** wand on the **Barcode** field to get a standard retail number, save, and print again.
