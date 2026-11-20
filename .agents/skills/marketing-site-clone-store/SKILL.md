@@ -4,9 +4,9 @@ description: >-
   Clone a public shop webpage into a new Cashvio tenant: system refresh token,
   create tenant, scrape products with exact prices, seed catalog/images, apply
   industry-matched storefront theme and brand color, attach category + hero
-  images (scraped or Unsplash), output subdomain + admin credentials. Use when
-  the user provides a shop URL and a system-admin refreshToken, or asks to
-  clone/import/demo a store from a website.
+  images (scraped or Unsplash). Privileged operational workflow: use only for
+  an explicitly authorized sandbox clone/import with privately configured
+  system credentials; never include it in ordinary marketing verification.
 ---
 
 # Clone Store
@@ -15,7 +15,7 @@ End-to-end kit lives in `scripts/clone-store/`. **Start by reading** [`scripts/c
 
 ## When to use
 
-- User pastes a shop URL + system admin `refreshToken`
+- User authorizes a sandbox shop clone and privately configures the required system credential
 - User asks to clone / import / mirror a store into Cashvio for a demo
 - User wants credentials (subdomain + admin) for a freshly generated tenant from a real catalogue
 
@@ -24,29 +24,29 @@ End-to-end kit lives in `scripts/clone-store/`. **Start by reading** [`scripts/c
 | Input | Required | Source |
 | --- | --- | --- |
 | Shop URL | yes | user |
-| System refresh token | yes | user (`cv_refresh_token` from SYSTEM login) |
+| System refresh token | yes | privately configured `CASHVIO_SYSTEM_REFRESH_TOKEN`, never pasted into chat or command arguments |
 | Store name | no | scrape / `--name` |
 | Industry / theme | no | scrape guess / `--industry` / `--theme` |
 
 ## Agent workflow
 
 1. Open `scripts/clone-store/prompt.md` and `scripts/clone-store/README.md`
-2. Ensure Playwright chromium is available (`npx playwright install chromium`)
+2. Confirm the sandbox target, side effects and credential mechanism are authorized. Ensure Playwright chromium is available (`yarn playwright install chromium`).
 3. Prefer the orchestrator:
 
 ```bash
-npm run clone:store -- --url "URL" --refresh-token "TOKEN"
+node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --url "URL"
 ```
 
 4. If scrape looks thin (`catalog.json` productCount low or prices wrong):
    - Fix `scripts/clone-store/runs/<runId>/catalog.json` yourself (browser tools / page read)
    - **Must set** `industry` and ideally `brandColors.primary`
    - Optional: `headerImages[]`, `categoryDetails[{ name, imageUrl }]`
-   - Resume: `npm run clone:store -- --run <runId> --skip-scrape --refresh-token "TOKEN"`
+   - Resume with the same privately configured environment: `node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --run <runId> --skip-scrape`
 5. Step 09 deletes onboarding samples (`SAMPLE-*` products, Sample Category / القسم التجريبي) before seed
 6. Prefer industry-driven theme (step 07). Only pass `--theme` when the human forces it
 7. Confirm step 08 uploaded category + hero images (`credentials.visuals`)
-8. Present `credentials.json` (subdomain, storefront URL, admin email/password, theme, visuals)
+8. Report non-secret store/theme/count results. Deliver generated login credentials only through an owner-approved private mechanism; do not paste `credentials.json` into ordinary prompts or task artifacts.
 
 ## Tool map
 
@@ -82,7 +82,7 @@ Product/category/inventory/image upload patterns mirror `scripts/marketing-shots
 
 ## Security
 
-- Never print the system refresh token back to the user in full if avoidable
+- Never print system refresh/access tokens or pass them as command-line arguments
 - Never commit `runs/**` session/credential files
 - Generated admin passwords live only in `credentials.json` for that run
 

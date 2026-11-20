@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
 import { mainNavigation, type NavItem } from '@/config/navigation';
 import { cn } from '@/lib/utils/cn';
+import { useHasHydrated } from '@/lib/utils/client-snapshot';
 import { Logo } from './logo';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -78,12 +79,8 @@ function MobileNavGroup({ item, onNavigate }: MobileNavGroupProps) {
 
 export function MobileNav({ locale }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHasHydrated();
   const t = useTranslations('navigation');
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   /*
     Off-canvas drawer rendered through a portal on <body>.
@@ -125,7 +122,7 @@ export function MobileNav({ locale }: MobileNavProps) {
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
-              aria-label="Close menu"
+              aria-label={t('closeMenu')}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 6 6 18" />
@@ -173,7 +170,7 @@ export function MobileNav({ locale }: MobileNavProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-label={isOpen ? t('closeMenu') : t('openMenu')}
         aria-expanded={isOpen}
       >
         {isOpen ? (

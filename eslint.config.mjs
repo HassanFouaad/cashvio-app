@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Fumadocs-generated collections and local agent state are not source code.
+    ".source/**",
+    ".pi/**",
   ]),
 ]);
 

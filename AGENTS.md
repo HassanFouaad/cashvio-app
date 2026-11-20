@@ -2,6 +2,8 @@
 
 Index of project standards for Cashvio marketing website & merchant documentation (`my-app`). Read only what the task needs.
 
+This is a component of one Cashvio project. Whole-project work uses the shared `cashvio-workflow/tasks/` agreement and integrated acceptance record. Read the workspace project entry point when available; missing shared access is a dependency. Local skills provide technical detail within that task.
+
 Standards live in exactly two places:
 
 - `.agents/skills/<name>/SKILL.md` — task-specific standards and step-by-step workflows
@@ -56,19 +58,20 @@ Front-loaded because these are the easiest to violate by accident.
 ## Stack
 
 Next.js 16.2 (App Router + Turbopack) + React 19.2 + TypeScript. Tailwind CSS v4 + Lucide Icons + next-intl 4.7.
-Fumadocs MDX for merchant documentation. Dev port: **3005**.
+Fumadocs MDX for merchant documentation. Dev port: **3005**. Use the Node version in `.node-version` and Yarn Classic pinned in `package.json`; keep only `yarn.lock`.
 
 ## Commands
 
-- Dev `npm run dev` (port 3005) · build `npm run build`
-- Type-check `npm run type-check` (`tsc --noEmit`) · lint `npm run lint`
+- Dev `yarn dev` (port 3005) · build `yarn build`
+- Type-check `yarn type-check` (`next typegen`, Fumadocs collection generation, then `tsc --noEmit`) · lint `yarn lint` (ESLint)
+- `yarn verify:ci` runs foundation hygiene, lint, types, content/docs checks and the production build.
 - Preflight SEO content check: `node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs`
 
 ## Structure
 
 ```
 src/app/[locale]/       localized routes (pages, tools, industries, features, legal)
-src/app/[locale]/(export)/ digital receipt export route group (isolated layout)
+src/app/(export)/       unlocalized digital receipt export group (isolated layout)
 src/components/marketing/ marketing sections (ledger hero, receipts, comparisons, FAQs)
 src/components/ui/      reusable UI primitives (buttons, inputs, cards, badges)
 src/components/layout/  global shell components (header, footer, drawers, switchers)

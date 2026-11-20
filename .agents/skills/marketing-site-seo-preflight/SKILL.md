@@ -27,11 +27,11 @@ It also lists suspicious lines in `src/` containing banned characters; comments 
 ### 2. Types and build
 
 ```bash
-npm run type-check
-npm run build
+yarn type-check
+yarn build
 ```
 
-Note: stale `.next/types` errors after deleting routes disappear once `npm run build` regenerates them; build is authoritative.
+`type-check` runs `next typegen`, then the explicit `fumadocs-mdx` collection generator before TypeScript. It does not depend on a previous build leaving `.source/server.ts` populated. The production build remains a separate required check.
 
 ### 3. Page registration spot-checks (when pages were added or removed)
 

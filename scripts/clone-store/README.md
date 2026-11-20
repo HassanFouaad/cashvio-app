@@ -2,7 +2,7 @@
 
 Turn a public shop webpage into a Cashvio tenant: scrape products (exact prices), create the tenant, seed catalogue + images, apply a matching storefront theme/colors, attach category + hero imagery, and emit admin credentials.
 
-**Hand this folder + a shop URL + a system-admin refresh token to an AI agent.**  
+Use this only for an explicitly authorized sandbox operation. Give the agent the shop URL and non-secret task scope; privately configure the system credential in the ignored environment file. Never paste tokens into prompts or command arguments.
 Agent brief: [`prompt.md`](./prompt.md) · Cursor skill: [`.agents/skills/marketing-site-clone-store/`](../../.agents/skills/marketing-site-clone-store/)
 
 ## Quick start
@@ -12,9 +12,9 @@ Agent brief: [`prompt.md`](./prompt.md) · Cursor skill: [`.agents/skills/market
 cp scripts/clone-store/.env.example scripts/clone-store/.env.local
 # set CASHVIO_SYSTEM_REFRESH_TOKEN=...
 
-npx playwright install chromium   # once
+yarn playwright install chromium   # once
 
-npm run clone:store -- --url "https://some-shop.example" --refresh-token "$TOKEN"
+node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --url "https://some-shop.example"
 ```
 
 Output: `scripts/clone-store/runs/<runId>/credentials.json`
@@ -66,7 +66,7 @@ Scrapers miss platform-specific markup. Always glance at `catalog.json`:
 Then resume:
 
 ```bash
-npm run clone:store -- --run <runId> --skip-scrape --refresh-token "$TOKEN"
+node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --run <runId> --skip-scrape
 ```
 
 ## Themes + visuals
@@ -82,7 +82,7 @@ Force theme with `--theme EDITORIAL`. Skip visuals with `--skip-visuals`.
 
 ## Env
 
-See `.env.example`. Required: `CASHVIO_SYSTEM_REFRESH_TOKEN` (or `--refresh-token`).
+See `.env.example`. Privately configure `CASHVIO_SYSTEM_REFRESH_TOKEN`; do not use the legacy command-line token flag in agent workflows.
 
 Optional: `CLONE_PLAN_ID` if freemium lacks PRODUCTS / STOREFRONT modules on your environment.
 
@@ -90,3 +90,4 @@ Optional: `CLONE_PLAN_ID` if freemium lacks PRODUCTS / STOREFRONT modules on you
 
 - `.env.local` and `runs/*` (except `.gitkeep`) are gitignored
 - Never commit refresh tokens or generated passwords
+- Deliver generated login credentials only through an owner-approved private mechanism, not an ordinary agent transcript or task artifact.

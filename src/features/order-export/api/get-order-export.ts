@@ -2,7 +2,8 @@
  * Order Export API Service
  *
  * Server-side service for fetching order data for digital receipts.
- * Uses the public export endpoint with X-Store-Id header for authentication.
+ * Uses the public UUID capability-link export endpoint. X-Store-Id is optional
+ * context, not authentication.
  */
 
 import { env } from "@/config/env";
@@ -16,7 +17,7 @@ import type { OrderExportData } from "../types";
  *
  * @param orderId - The order UUID
  * @param locale - Language for localized content ('en' | 'ar')
- * @param storeId - Optional store UUID (required for X-Store-Id header if order requires store context)
+ * @param storeId - Optional store UUID supplied as request context, not authentication
  * @returns Order export data
  * @throws HttpError if the request fails
  */
@@ -69,7 +70,7 @@ export const getOrderExport = cache(
  *
  * @param orderId - The order UUID
  * @param locale - Language for localized content ('en' | 'ar')
- * @param storeId - Optional store UUID (required for X-Store-Id header if order requires store context)
+ * @param storeId - Optional store UUID supplied as request context, not authentication
  * @returns Object with order data or error information
  */
 export const getOrderExportWithErrorHandling = cache(

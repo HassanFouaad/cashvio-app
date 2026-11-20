@@ -1,6 +1,5 @@
 import { readFileSync } from 'fs';
-import { join, relative } from 'path';
-import { pathToFileURL } from 'url';
+import { join } from 'path';
 
 // Inline the same logic expectations without importing TS
 const docsDir = join(process.cwd(), 'content', 'docs');

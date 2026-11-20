@@ -2,12 +2,21 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "next dev --turbopack --port 3005",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "type-check": "next typegen && fumadocs-mdx && tsc --noEmit",
+    "postinstall": "fumadocs-mdx",
+    "quality:foundations": "node scripts/check-foundations.mjs",
+    "content:check": "node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs",
+    "docs:check": "node scripts/verify-docs-llm.mjs",
+    "test:lifecycle": "node --test tests/lifecycle.test.mjs",
+    "test:lifecycle:browser": "node scripts/check-lifecycle-browser.mjs",
+    "verify": "yarn lint && yarn type-check && yarn test:lifecycle && yarn content:check && yarn docs:check && yarn build",
+    "verify:ci": "yarn quality:foundations && yarn verify",
     "shots:seed": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/seed.mjs",
     "shots:seed-catalog": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/seed.mjs catalog",
     "shots:restock": "node --env-file=scripts/marketing-shots/.env.local scripts/marketing-shots/restock.mjs",
@@ -56,6 +65,6 @@
   },
   "engines": {
     "node": "^24.0.0",
-    "npm": "^11.0.0"
+    "yarn": "^1.22.22"
   }
 }

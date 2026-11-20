@@ -28,7 +28,7 @@ export default async function NotFound() {
   try {
     const { getLocale } = await import('next-intl/server');
     locale = (await getLocale()) as Locale;
-  } catch (error) {
+  } catch {
     // If we can't get locale, use English as default
     locale = 'en';
   }

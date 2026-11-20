@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils/cn';
+import { getChatwoot, useChatwootReady } from '@/lib/utils/chatwoot';
 
 const navItems = [
   {
@@ -35,42 +35,13 @@ const navItems = [
   },
 ] as const;
 
-interface ChatwootSDK {
-  toggle: (state?: 'open' | 'close') => void;
-}
-
 export function MobileFooterNav() {
   const t = useTranslations('navigation');
   const pathname = usePathname();
-  const [isChatReady, setIsChatReady] = useState(false);
-
-  useEffect(() => {
-    const getChatwoot = (): ChatwootSDK | undefined =>
-      (window as { $chatwoot?: ChatwootSDK }).$chatwoot;
-
-    if (getChatwoot()) {
-      setIsChatReady(true);
-      return;
-    }
-
-    const handleReady = () => setIsChatReady(true);
-    window.addEventListener('chatwoot:ready', handleReady);
-
-    const intervalId = window.setInterval(() => {
-      if (getChatwoot()) {
-        setIsChatReady(true);
-        window.clearInterval(intervalId);
-      }
-    }, 400);
-
-    return () => {
-      window.removeEventListener('chatwoot:ready', handleReady);
-      window.clearInterval(intervalId);
-    };
-  }, []);
+  const isChatReady = useChatwootReady(400);
 
   const openChat = () => {
-    const chatwoot = (window as { $chatwoot?: ChatwootSDK }).$chatwoot;
+    const chatwoot = getChatwoot();
     chatwoot?.toggle('open');
   };
 

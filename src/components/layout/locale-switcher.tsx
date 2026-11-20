@@ -15,7 +15,7 @@ interface LocaleSwitcherProps {
 export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const targetLocale = locale === 'en' ? 'ar' : 'en';
   const targetMeta = localeMetadata[targetLocale];
@@ -25,10 +25,7 @@ export function LocaleSwitcher({ locale, className }: LocaleSwitcherProps) {
     const isDark = document.documentElement.classList.contains('dark');
     const currentTheme = isDark ? 'dark' : 'light';
     
-    // Save to localStorage immediately (synchronous) - highest priority
-    localStorage.setItem('theme', currentTheme);
-    
-    // Save to cookie (for cross-subdomain and SSR)
+    // Save synchronously through the shared preference utility.
     saveThemePreference(currentTheme);
     
     // Save language preference

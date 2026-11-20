@@ -23,7 +23,7 @@ node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs
 ### 2. Type-Check Scan (10 seconds)
 Confirm zero TypeScript compilation or generic type errors:
 ```bash
-npm run type-check
+yarn type-check
 ```
 
 ### 3. Manual Inspection Checklist (10 seconds)

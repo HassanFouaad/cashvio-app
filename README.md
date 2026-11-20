@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cashvio marketing, merchant documentation and receipts
 
-## Getting Started
+This application is one component of the Cashvio project. It contains the public marketing site, paired English/Arabic merchant guides and isolated digital receipt pages.
 
-First, run the development server:
+## Start development
 
-```bash
-npm run dev
-# or
+Use the Node version in [.node-version](.node-version) and Yarn Classic pinned in [package.json](package.json). Preserve the existing `yarn.lock`; do not add another lockfile.
+
+```sh
+yarn install --frozen-lockfile
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Development is at `http://localhost:3005`. Localized marketing pages live under `src/app/[locale]/`; English URLs have no prefix and Arabic uses `/ar`. Merchant docs live in `content/docs/` as paired `.mdx` and `.ar.mdx` files. Receipt pages use the isolated `src/app/(export)/` group.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+next-intl owns locale resolution and internal rewrites. The middleware preserves a permanent direct `/en` canonical redirect only when next-intl actually returns a redirect response. Do not add eager `/en` redirects in middleware or `next.config.ts`: they also redirect internal rewrites and create a loop. Comparison-route protections remain in Next configuration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Work on one Cashvio task
 
-## Learn More
+Read [AGENTS.md](AGENTS.md) and the relevant skills. In the full workspace, start from `cashvio-workflow/PROJECT-WORKFLOW.md` and maintain one shared task under `cashvio-workflow/tasks/`. Marketing/docs/receipt work contributes to the same feature agreement and acceptance decision as backend, portal, admin, storefront and infrastructure work.
 
-To learn more about Next.js, take a look at the following resources:
+## Verification
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+yarn quality:foundations
+yarn lint
+yarn type-check
+yarn content:check
+yarn docs:check
+yarn verify:ci
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`type-check` runs Next route type generation, explicit Fumadocs collection generation, then TypeScript. The install hook also generates collections; verification does not depend on warm build output. `verify:ci` combines foundation hygiene with lint, types, content, documentation ordering and the production build. Relevant browser/SEO/bilingual acceptance remains part of the project task. Foundation hygiene checks filenames and toolchain entry points, not credential contents or production security.
 
-## Deploy on Vercel
+After a build, `yarn test:lifecycle:browser` starts an owned loopback production server and checks the documented locale redirects, en/ar hydration, public auth hints, theme preferences, mobile drawer and a controlled Chatwoot stub. It blocks external browser resources, requires an installed Playwright Chromium, and reports missing prerequisites without claiming a pass. This is not live authentication or Chatwoot provider evidence.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Operational boundaries
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Screenshot seed/clone scripts mutate data and use credentials. They are not tests and require their own authorized sandbox scope. Keep local `.env` and `.pi/` state out of Git. Privately review and rotate any credential confirmed exposed in existing history; ignore rules do not remediate past commits.
+
+Receipt URLs currently use a public order-UUID capability link. The optional store header is context, not authentication. Fetching is request-deduplicated with `cache: "no-store"`; do not infer a token-authenticated endpoint from old guidance.
+
+Build output runs as a Next server. `yarn start` uses the configured production `PORT` or explicit `-p`; the development port does not configure production. Verify actual deployment headers/cache behavior through the release plan.

@@ -1,15 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils/cn';
+import { getChatwoot, useChatwootReady } from '@/lib/utils/chatwoot';
 
 interface ChatButtonProps {
   className?: string;
-}
-
-interface ChatwootSDK {
-  toggle: (state?: 'open' | 'close') => void;
 }
 
 /**
@@ -22,38 +18,10 @@ interface ChatwootSDK {
  */
 export function ChatButton({ className }: ChatButtonProps) {
   const t = useTranslations('navigation');
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const getChatwoot = (): ChatwootSDK | undefined =>
-      (window as unknown as { $chatwoot?: ChatwootSDK }).$chatwoot;
-
-    if (getChatwoot()) {
-      setIsReady(true);
-      return;
-    }
-
-    // The SDK dispatches "chatwoot:ready" once it finishes loading. We also
-    // poll as a fallback in case the event fires before this effect runs.
-    const handleReady = () => setIsReady(true);
-    window.addEventListener('chatwoot:ready', handleReady);
-
-    const interval = window.setInterval(() => {
-      if (getChatwoot()) {
-        setIsReady(true);
-        window.clearInterval(interval);
-      }
-    }, 500);
-
-    return () => {
-      window.removeEventListener('chatwoot:ready', handleReady);
-      window.clearInterval(interval);
-    };
-  }, []);
+  const isReady = useChatwootReady();
 
   const openChat = () => {
-    const chatwoot = (window as unknown as { $chatwoot?: ChatwootSDK })
-      .$chatwoot;
+    const chatwoot = getChatwoot();
     chatwoot?.toggle('open');
   };
 

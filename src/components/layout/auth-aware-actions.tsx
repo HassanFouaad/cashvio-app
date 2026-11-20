@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { PortalLink } from '@/components/ui/portal-link';
 import { ctaLinks } from '@/config/navigation';
 import { isAuthenticated } from '@/lib/utils/cross-app-sync';
+import { useClientSnapshot } from '@/lib/utils/client-snapshot';
 import { TrackedButtonLink } from '@/lib/analytics';
 
 interface AuthAwareActionsProps {
@@ -17,18 +17,11 @@ interface AuthAwareActionsProps {
  * Shows "Login" and "Get Started" when not logged in
  */
 export function AuthAwareActions({ className }: AuthAwareActionsProps) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const isLoggedIn = useClientSnapshot(isAuthenticated);
   const tCommon = useTranslations('common');
 
-  useEffect(() => {
-    setMounted(true);
-    // Check auth status from shared cookie
-    setIsLoggedIn(isAuthenticated());
-  }, []);
-
   // Don't render until mounted to avoid hydration mismatch
-  if (!mounted) {
+  if (isLoggedIn === null) {
     return (
       <div className={className}>
         <div className="w-px h-6 bg-border mx-2" />
@@ -74,16 +67,10 @@ export function AuthAwareActions({ className }: AuthAwareActionsProps) {
  * Same logic but different layout for mobile
  */
 export function AuthAwareActionsMobile() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const isLoggedIn = useClientSnapshot(isAuthenticated);
   const tCommon = useTranslations('common');
 
-  useEffect(() => {
-    setMounted(true);
-    setIsLoggedIn(isAuthenticated());
-  }, []);
-
-  if (!mounted) {
+  if (isLoggedIn === null) {
     return (
       <div className="grid grid-cols-2 gap-2">
         <div className="h-10 rounded-lg bg-muted animate-pulse" />

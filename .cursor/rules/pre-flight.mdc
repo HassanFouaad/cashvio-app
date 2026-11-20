@@ -34,6 +34,6 @@ After writing or updating code, verify every item before presenting to the user:
 - [ ] **Async Params**: Page and layout `params` are awaited before property access.
 - [ ] **`setRequestLocale`**: Called at the top of every localized page and layout.
 - [ ] **Locale Navigation**: Links use `Link` from `@/i18n/navigation`, not bare `next/link`.
-- [ ] **Type-check & Preflight**: Passed `npm run type-check` and `node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs`.
+- [ ] **Type-check & Preflight**: Passed `yarn type-check` and `node .agents/skills/marketing-site-seo-preflight/scripts/check-content.mjs`.
 
 If any check fails, fix the violation immediately before finishing the turn.

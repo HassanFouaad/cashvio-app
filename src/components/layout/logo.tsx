@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
+import { useThemeSnapshot } from '@/lib/utils/client-snapshot';
 
 interface LogoProps {
   className?: string;
@@ -17,26 +17,8 @@ interface LogoProps {
  * - Light mode: uses logo-dark.png (dark text for light backgrounds)
  * - Dark mode: uses logo-light.png (light text for dark backgrounds)
  */
-export function Logo({ className, size = 'md', showBeta = true }: LogoProps) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check initial dark mode
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-
-    checkDarkMode();
-
-    // Watch for class changes on html element
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+export function Logo({ className, size = 'md' }: LogoProps) {
+  const isDark = useThemeSnapshot();
 
   const sizes = {
     sm: { width: 100, height: 32 },

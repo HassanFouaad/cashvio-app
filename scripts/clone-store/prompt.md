@@ -1,11 +1,11 @@
 # Clone Store — Agent Brief
 
-You are cloning a real shop page into a Cashvio demo tenant end to end.
+This is a privileged, explicitly authorized sandbox operation within one Cashvio task. Do not run it during ordinary marketing or foundation verification.
 
 ## Inputs you will receive
 
 1. **Source URL** — a shop / catalogue web page (any public storefront)
-2. **System admin refresh token** — value of `cv_refresh_token` from a Cashvio **SYSTEM** audience session (super admin)
+2. **Credential availability** — the owner privately configures `CASHVIO_SYSTEM_REFRESH_TOKEN` in the ignored environment file; the token is not supplied in this prompt.
 
 Optional: store name override, industry hint, forced theme key, plan id, max products.
 
@@ -21,11 +21,12 @@ Optional: store name override, industry hint, forced theme key, plan id, max pro
    - **choose storefront theme + brand color from industry** (and scraped primary when available)
    - **attach category images** (scraped, else Unsplash by category/industry)
    - **attach hero / header images** (scraped og/banner, else stylish Unsplash by industry)
-3. Return **only** the credentials output (subdomain + admin login) and the run folder path
+3. Return non-secret store/count/theme results and the run folder path. Deliver generated login credentials only through the owner's approved private mechanism.
 
 ## Non-negotiable rules
 
 - Never commit `.env.local`, refresh tokens, or `runs/**/credentials.json` / session files
+- Never print tokens/passwords into prompts, command arguments, ordinary logs or project task artifacts.
 - Keep scraped **selling prices exact** (do not invent discounts or round away cents unless the source has no decimals)
 - Product names max **64** characters (API constraint) — truncate carefully, keep meaning
 - If scrape quality is weak, **edit `catalog.json` yourself** (add/fix products) before seeding
@@ -38,20 +39,20 @@ Optional: store name override, industry hint, forced theme key, plan id, max pro
 
 ## One-command path (preferred when scrape looks good)
 
-From `my-app` repo root (Node 20+):
+From `my-app` repo root, using the Node version in `.node-version`:
 
 ```bash
 # once
 cp scripts/clone-store/.env.example scripts/clone-store/.env.local
-# put CASHVIO_SYSTEM_REFRESH_TOKEN in .env.local OR pass --refresh-token
+# privately configure CASHVIO_SYSTEM_REFRESH_TOKEN in .env.local
 
-npx playwright install chromium   # if not already installed
+yarn playwright install chromium   # if not already installed
 
-npm run clone:store -- --url "https://SOURCE_SHOP" --refresh-token "REFRESH_TOKEN"
+node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --url "https://SOURCE_SHOP"
 ```
 
 Artifacts land in `scripts/clone-store/runs/<runId>/`.
-Final file to present: `credentials.json`.
+Credential artifact: `credentials.json`, restricted to the approved private delivery mechanism.
 
 ## Step-by-step path (use when you need to review the catalog)
 
@@ -68,7 +69,7 @@ node --env-file=scripts/clone-store/.env.local \
 #    - optional: headerImages[], categoryDetails[{ name, imageUrl }]
 
 # 3) Finish the pipeline
-npm run clone:store -- --run <runId> --skip-scrape --refresh-token "REFRESH_TOKEN"
+node --env-file=scripts/clone-store/.env.local scripts/clone-store/tools/run.mjs --run <runId> --skip-scrape
 ```
 
 ## Individual tools
@@ -135,11 +136,11 @@ You are done when `credentials.json` exists and contains:
 }
 ```
 
-Present that JSON to the human. Mention product count, theme reason, and whether category/hero images were applied.
+Report product count, theme reason and whether category/hero images were applied. Do not paste that credential JSON into the transcript.
 
 ## Failure recovery
 
-- **401 on system calls** → re-run `01` with a fresh refresh token
+- **401 on system calls** → have the owner privately refresh the configured credential before retrying `01`
 - **Feature / plan errors on products or storefront** → wait and retry `05`/`07`/`08`; or pass `--plan` / `CLONE_PLAN_ID` for a plan that includes PRODUCTS_MODULE + STOREFRONT_MODULE
 - **Empty scrape** → manually build `catalog.json` from the page (browser tools), then `--skip-scrape`
 - **Image hotlink blocked** → seed without product images (`--skip-images`) or download manually into `runs/<id>/images/` and set `localImage` paths; category/hero can still run via Unsplash (`08`)

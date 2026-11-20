@@ -33,8 +33,6 @@ export function ReceiptPricing({
   amountRefunded,
   currency,
   payments,
-  paymentMethod,
-  paymentOption,
 }: ReceiptPricingProps) {
   const t = useTranslations("receipt");
   const tPaymentMethod = useTranslations("paymentMethod");

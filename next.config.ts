@@ -23,18 +23,8 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // Redirect /en/* to /* (English is default, no prefix needed)
-      // This fixes Google Search Console "Page with redirect" errors
-      {
-        source: '/en',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/en/:path*',
-        destination: '/:path*',
-        permanent: true,
-      },
+      // /en canonicalization belongs to the locale middleware. Duplicating it
+      // here redirects next-intl's internal /en rewrite back to / and loops.
       // Comparison pages were removed; send old URLs to the homepage
       {
         source: '/compare/:path*',

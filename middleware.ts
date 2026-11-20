@@ -4,7 +4,7 @@ import { routing } from './src/i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
 
   // Skip i18n middleware for export routes - they handle locale internally
@@ -19,26 +19,17 @@ export default function middleware(request: NextRequest) {
     return NextResponse.rewrite(new URL('/api/markdown', request.url));
   }
   
-  // 1. Redirect /en/* to /* (English is default, no prefix needed)
-  // This fixes Google Search Console "Page with redirect" errors
-  if (pathname.startsWith('/en/') || pathname === '/en') {
-    const newPath = pathname === '/en' ? '/' : pathname.replace(/^\/en/, '');
-    const url = request.nextUrl.clone();
-    url.pathname = newPath;
-    
-    // 301 Permanent redirect
-    return NextResponse.redirect(url, { status: 301 });
-  }
-  
-  // 2. Sync cv_language cookie with NEXT_LOCALE if present
+  // Let next-intl distinguish public locale URLs from its internal rewrites.
+  // Eagerly redirecting every /en pathname also redirects the root's rewrite.
+  const response = intlMiddleware(request);
+
+  // Sync cv_language cookie with NEXT_LOCALE if present
   // This ensures cross-subdomain language preference is respected
   const cvLanguage = request.cookies.get('cv_language')?.value;
   const nextLocale = request.cookies.get('NEXT_LOCALE')?.value;
   
   // If cv_language exists but NEXT_LOCALE doesn't match, sync them
   if (cvLanguage && cvLanguage !== nextLocale && (cvLanguage === 'en' || cvLanguage === 'ar')) {
-    const response = intlMiddleware(request);
-    
     // Set NEXT_LOCALE cookie to match cv_language
     response.cookies.set('NEXT_LOCALE', cvLanguage, {
       path: '/',
@@ -46,11 +37,18 @@ export default function middleware(request: NextRequest) {
       sameSite: 'lax',
     });
     
-    return response;
   }
-  
-  // 3. Run next-intl middleware for locale detection and routing
-  return intlMiddleware(request);
+
+  // Preserve permanent canonicalization only when next-intl actually returns
+  // a redirect for a public English-prefixed URL, never for a rewrite response.
+  if (
+    (pathname === '/en' || pathname.startsWith('/en/')) &&
+    response.status >= 300 && response.status < 400 &&
+    response.headers.has('location')
+  ) {
+    return new NextResponse(null, { status: 301, headers: response.headers });
+  }
+  return response;
 }
 
 export const config = {

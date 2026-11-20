@@ -53,31 +53,6 @@ export function ReceiptOrderSummary({
     });
   };
 
-  const getStatusColor = (status: OrderStatus) => {
-    switch (status) {
-      case "COMPLETED":
-        return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400";
-      case "CANCELLED":
-        return "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
-      default:
-        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
-    }
-  };
-
-  const getPaymentStatusColor = (status: PaymentStatus) => {
-    switch (status) {
-      case "PAID":
-        return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400";
-      case "REFUNDED":
-      case "PARTIALLY_REFUNDED":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400";
-      case "CANCELLED":
-        return "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400";
-      default:
-        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
-    }
-  };
-
   return (
     <div className="space-y-4">
       {/* Order Number & Date */}

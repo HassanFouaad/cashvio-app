@@ -1,27 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils/cn';
 import { trackThemeChange } from '@/lib/analytics';
 import { saveThemePreference } from '@/lib/utils/cross-app-sync';
+import { useThemeSnapshot } from '@/lib/utils/client-snapshot';
 
 interface ThemeToggleProps {
   className?: string;
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
-  }, []);
+  const isDark = useThemeSnapshot();
+  const t = useTranslations('common');
 
   const toggleTheme = () => {
     const newIsDark = !isDark;
-    setIsDark(newIsDark);
 
     const theme = newIsDark ? 'dark' : 'light';
 
@@ -38,14 +32,14 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     trackThemeChange(theme);
   };
 
-  if (!mounted) {
+  if (isDark === null) {
     return (
       <button
         className={cn(
           'p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors',
           className
         )}
-        aria-label="Toggle theme"
+        aria-label={t('toggleTheme')}
       >
         <div className="w-5 h-5" />
       </button>
@@ -59,7 +53,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         'p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors',
         className
       )}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={isDark ? t('switchToLightMode') : t('switchToDarkMode')}
     >
       {isDark ? (
         <svg
@@ -97,4 +91,3 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     </button>
   );
 }
-

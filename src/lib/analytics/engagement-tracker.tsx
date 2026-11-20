@@ -17,7 +17,7 @@ export function EngagementTracker() {
   const pathname = usePathname();
   const firedScrollRef = useRef<Set<ScrollDepthMilestone>>(new Set());
   const firedTimeRef = useRef<Set<number>>(new Set());
-  const startedAtRef = useRef<number>(Date.now());
+  const startedAtRef = useRef<number>(0);
 
   useEffect(() => {
     firedScrollRef.current = new Set();
