@@ -13,21 +13,17 @@ Inventory tracking is **optional per product**. Products with inventory tracking
 
 1. Go to **Inventory** in the sidebar.
 2. Use **Search**, the **Store** picker (when you manage more than one store), and **Low stock only** in the toolbar. Filters apply live and stay in the page URL so **Back** returns you to the same view.
-3. You will see a table showing:
+3. Review the table. Scroll sideways if the columns extend past the screen.
 
 | Column | Description |
 |--------|-------------|
 | **Product / Variant** | The product name and variant (with its SKU) |
 | **Status** | In Stock, Low Stock, or Out of Stock |
 | **Available** | Units that can still be sold |
-| **Reorder point** | Minimum stock level before the item is treated as low stock |
-| **Committed** | Units reserved by pending orders |
-| **On hand** | Physical units in the store (available + committed) |
-| **Unit cost** | Weighted-average cost per unit for this store (shown as "-" when unknown) |
-| **Total value** | Value at cost: on-hand quantity × unit cost |
-| **Last counted** | When this item was last included in a [stocktake](/docs/inventory/stocktake) (empty until you run one) |
+| **Stock levels** | **On hand** is the physical count, **Committed** is the quantity reserved for orders, and **Reorder point** is the low-stock threshold. |
+| **Stock value** | **Unit cost** is the average cost per unit at this store. **Total value** is the on-hand quantity multiplied by unit cost. |
 
-Each row shows **Inventory details** and **Adjust stock** directly. Other stock actions stay under **Actions**. You can **export the current view to CSV**. Open a row to see quantity KPIs first, then item metadata and recent adjustments.
+Each row shows **Stock details** and **Adjust stock** directly. Other stock actions stay under **Actions**. You can **export the current view to CSV**. Open a row to see quantity KPIs first, then item metadata and recent adjustments.
 
 ## Stock Statuses
 
