@@ -1,51 +1,39 @@
-'use client';
-
 import Image from 'next/image';
 import { cn } from '@/lib/utils/cn';
-import { useThemeSnapshot } from '@/lib/utils/client-snapshot';
 
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  showBeta?: boolean;
 }
 
-/**
- * Logo Component
- *
- * Theme-aware logo that switches between light and dark variants
- * - Light mode: uses logo-dark.png (dark text for light backgrounds)
- * - Dark mode: uses logo-light.png (light text for dark backgrounds)
- */
+const widths = {
+  sm: 'w-[120px]',
+  md: 'w-[120px] sm:w-[144px]',
+  lg: 'w-[160px]',
+  xl: 'w-[180px]',
+} as const;
+
 export function Logo({ className, size = 'md' }: LogoProps) {
-  const isDark = useThemeSnapshot();
-
-  const sizes = {
-    sm: { width: 100, height: 32 },
-    md: { width: 120, height: 40 },
-    lg: { width: 140, height: 48 },
-    xl: { width: 180, height: 60 },
-  };
-
-  const { width, height } = sizes[size];
-
   return (
-    <div className={cn('flex-shrink-0 flex flex-col items-start gap-0.5', className)}>
-      <div className="flex items-center gap-1.5">
-        <Image
-          src={isDark ? '/assets/logo-dark.png' : '/assets/logo-light.png'}
-          alt="Cashvio"
-          width={width}
-          height={height}
-          className="h-auto w-auto max-h-10 object-contain"
-          priority
-        />
-      {/*   {showBeta && (
-          <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide bg-primary/15 text-primary border border-primary/30">
-            Beta
-          </span>
-        )} */}
-      </div>
-    </div>
+    <span className={cn('block shrink-0', widths[size], className)}>
+      <Image
+        src="/assets/cashvio-wordmark.svg"
+        alt="Cashvio"
+        width={446}
+        height={83}
+        className="h-auto w-full dark:hidden"
+        loading="eager"
+        unoptimized
+      />
+      <Image
+        src="/assets/cashvio-wordmark-light.svg"
+        alt="Cashvio"
+        width={446}
+        height={83}
+        className="hidden h-auto w-full dark:block"
+        loading="eager"
+        unoptimized
+      />
+    </span>
   );
 }

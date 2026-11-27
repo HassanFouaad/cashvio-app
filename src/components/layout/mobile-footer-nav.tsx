@@ -54,8 +54,9 @@ export function MobileFooterNav() {
             <Link
               key={item.key}
               href={item.href}
+              aria-current={isActive ? "page" : undefined}
               className={cn(
-                'flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px]',
+                'touch-control flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px]',
                 isActive
                   ? 'text-primary'
                   : 'text-muted-foreground hover:text-foreground'
@@ -64,7 +65,7 @@ export function MobileFooterNav() {
               {item.icon}
               <span className="text-[10px] font-medium">{t(item.key)}</span>
               {isActive && (
-                <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />
+                <div className="w-1 h-1 rounded-full bg-action mt-0.5" />
               )}
             </Link>
           );
@@ -74,7 +75,7 @@ export function MobileFooterNav() {
           type="button"
           onClick={openChat}
           disabled={!isChatReady}
-          className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px] text-muted-foreground hover:text-foreground disabled:opacity-50"
+          className="touch-control flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-xl transition-all duration-200 min-w-[56px] text-muted-foreground hover:text-foreground disabled:opacity-50"
           aria-label={t('openChat')}
           title={t('support')}
         >

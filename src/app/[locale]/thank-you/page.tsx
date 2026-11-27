@@ -181,7 +181,7 @@ export default async function ThankYouPage({ params }: Props) {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a
                     href={portalUrl}
-                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-lg font-medium text-primary-foreground bg-primary hover:bg-primary-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-lg font-medium brand-action touch-control transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
                   >
                     {t('cta.goToDashboard')}
                     <svg

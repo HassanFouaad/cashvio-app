@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import { brandColors } from '@/config/theme';
+import { OgBrandMark } from '@/lib/og-brand-mark';
 import { getTranslations } from 'next-intl/server';
 
 import { loadArabicOgFonts } from '@/lib/og-fonts';
@@ -35,9 +37,7 @@ export default async function OGImage({
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#0f1219',
-          backgroundImage:
-            'radial-gradient(circle at 25% 25%, #1a2332 0%, transparent 50%), radial-gradient(circle at 75% 75%, #0d2818 0%, transparent 50%)',
+          backgroundColor: brandColors.dark,
           fontFamily: isArabic ? 'Tajawal' : 'Inter, sans-serif',
           padding: '60px 80px',
           position: 'relative',
@@ -52,7 +52,7 @@ export default async function OGImage({
             left: 0,
             right: 0,
             height: '6px',
-            background: 'linear-gradient(90deg, #34d399, #10b981, #059669)',
+            background: brandColors.saffron,
             display: 'flex',
           }}
         />
@@ -72,22 +72,22 @@ export default async function OGImage({
               width: '56px',
               height: '56px',
               borderRadius: '14px',
-              background: 'linear-gradient(135deg, #34d399, #10b981)',
+              background: brandColors.saffron,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '28px',
               fontWeight: 700,
-              color: '#0f1219',
+              color: brandColors.dark,
             }}
           >
-            C
+            <OgBrandMark />
           </div>
           <span
             style={{
               fontSize: '36px',
               fontWeight: 700,
-              color: '#ffffff',
+              color: brandColors.cream,
               letterSpacing: '-0.5px',
             }}
           >
@@ -99,7 +99,7 @@ export default async function OGImage({
         <div
           style={{
             fontSize: isArabic ? '28px' : '24px',
-            color: '#34d399',
+            color: brandColors.saffron,
             fontWeight: 600,
             marginBottom: '20px',
             textAlign: 'center',
@@ -114,7 +114,7 @@ export default async function OGImage({
         <div
           style={{
             fontSize: isArabic ? '22px' : '20px',
-            color: '#94a3b8',
+            color: brandColors.darkMuted,
             textAlign: 'center',
             lineHeight: 1.6,
             maxWidth: '800px',
@@ -144,7 +144,7 @@ export default async function OGImage({
                 borderRadius: '20px',
                 backgroundColor: 'rgba(52, 211, 153, 0.1)',
                 border: '1px solid rgba(52, 211, 153, 0.2)',
-                color: '#34d399',
+                color: brandColors.saffron,
                 fontSize: '16px',
                 fontWeight: 500,
                 display: 'flex',
@@ -163,12 +163,12 @@ export default async function OGImage({
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            color: '#64748b',
+            color: brandColors.darkMuted,
             fontSize: '16px',
           }}
         >
           <span>cash-vio.com</span>
-          <span style={{ color: '#334155' }}>|</span>
+          <span style={{ color: brandColors.darkBorder }}>|</span>
           <span>
             {isArabic ? 'ابدأ مجاناً' : 'Start Free'}
           </span>

@@ -14,7 +14,7 @@ The Cashvio marketing site and merchant documentation are 100% bilingual. Englis
 - **Navigation Registration Parity**: Update both `content/docs/<section>/meta.json` and `meta.ar.json` when adding doc pages.
 - **Locale Prefix Strategy**: English uses no prefix (`localePrefix: 'as-needed'`), Arabic uses `/ar`.
 - **No Locale Auto-Redirects**: `localeDetection` is permanently `false` to maintain deterministic URLs for search engine crawlers.
-- **RTL Typography**: `Tajawal` font is loaded for Arabic (`dir="rtl"`), and `Inter` for English (`dir="ltr"`). Use Tailwind logical properties (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`).
+- **RTL Typography**: `Tajawal` font is loaded for Arabic (`dir="rtl"`), and `IBM Plex Sans` for English (`dir="ltr"`) on marketing pages. Use Tailwind logical properties (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`).
 
 ## ❌ FORBIDDEN vs ✅ REQUIRED
 

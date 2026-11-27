@@ -9,16 +9,16 @@ The Cashvio marketing site features a distinctive "Shopkeeper's Ledger & Thermal
 
 ## Invariant Rules
 
-- **Brand Primary Hue**: Emerald brand primary (`#059669` light, `#10b981` dark). Never introduce arbitrary neon accents or mismatched hues.
+- **Brand Primary Hue**: Saffron `#F6BE3B` with plum `#321C32` labels for primary actions. Use the accessible `text-primary` ink for links and brand accents.
 - **Surface Foundations**:
-  - Light mode: Warm vintage ledger paper (`#faf9f7` background, `#f2efe9` muted card surface, `#e2ddd5` border).
-  - Dark mode: Emerald-tinted dark surfaces (`#0a1410` background, `#111d17` paper surface, `#24352c` border).
+  - Light mode: Warm paper (`#F9F4E9` background, `#FFFCF6` card, `#D9D0C4` border).
+  - Dark mode: Deep plum surfaces (`#110D12` background, `#1D151E` paper, `#3D303E` border).
 - **CSS-First Theming**: Semantic tokens are declared in `src/app/globals.css` with CSS variables and mapped via `@theme inline`. Never hardcode raw hex colors in component `.tsx` files.
 - **Thermal Receipt Aesthetics**:
   - Scalloped edges (`.receipt-edge`, `.receipt-edge-top`).
   - Perforated tear lines (`.tear-line` with repeating dashed dasharray).
   - Dot matrix / monospaced numerals via `var(--font-plex-mono)` and `.receipt-font`.
-  - Rubber stamp badges (`.stamp-badge` with `-3deg` tilt and dashed emerald border).
+  - Rubber stamp badges (`.stamp-badge` with `-3deg` tilt and a border in the theme ink).
 - **Icons**: Use pure, lightweight inline SVGs or Lucide icons matching the 24px/20px system grid.
 
 ## ❌ FORBIDDEN vs ✅ REQUIRED

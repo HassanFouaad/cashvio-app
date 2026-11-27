@@ -121,7 +121,7 @@ export function MobileNav({ locale }: MobileNavProps) {
             <Logo size="sm" />
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
+              className="touch-icon inline-flex items-center justify-center p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
               aria-label={t('closeMenu')}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -169,7 +169,7 @@ export function MobileNav({ locale }: MobileNavProps) {
     <div className="lg:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
+        className="touch-icon inline-flex items-center justify-center p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200"
         aria-label={isOpen ? t('closeMenu') : t('openMenu')}
         aria-expanded={isOpen}
       >

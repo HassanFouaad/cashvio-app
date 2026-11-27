@@ -37,7 +37,7 @@ export async function EndOfDay({ locale }: EndOfDayProps) {
   const tEnd = await getTranslations({ locale, namespace: 'home.endOfDay' });
 
   return (
-    <section aria-label="End of day" className="section-padding-sm ledger-rules border-y border-border">
+    <section aria-label={t('title')} className="section-padding-sm ledger-rules border-y border-border">
       <div className="container-wide">
         <LedgerHeading eyebrow={tEnd('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
@@ -52,12 +52,12 @@ export async function EndOfDay({ locale }: EndOfDayProps) {
 
           {benefitKeys.map((key) => (
             <div key={key} className="py-3.5 border-b border-dashed border-ledger-line">
-              <div className="flex items-baseline gap-3">
-                <h3 className="text-sm sm:text-base font-semibold text-foreground shrink-0">
+              <div className="flex items-baseline gap-2 sm:gap-3">
+                <h3 className="min-w-0 wrap-anywhere text-sm sm:text-base font-semibold text-foreground">
                   {t(`${key}.title`)}
                 </h3>
                 <span className="tear-line flex-1 self-center" aria-hidden="true" />
-                <span className="font-receipt text-xs text-primary shrink-0">
+                <span className="max-w-[45%] shrink-0 wrap-anywhere text-end font-receipt text-xs text-primary">
                   ✓ {tEnd('includedLabel')}
                 </span>
               </div>

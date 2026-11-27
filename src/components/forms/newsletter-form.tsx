@@ -97,8 +97,8 @@ export function NewsletterForm() {
           type="submit"
           disabled={status === 'submitting'}
           className={cn(
-            'h-10 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium',
-            'hover:bg-primary-dark transition-colors duration-200 shrink-0',
+            'h-10 px-4 rounded-lg brand-action touch-control text-sm font-medium',
+            'transition-colors duration-200 shrink-0',
             'focus:outline-none focus:ring-2 focus:ring-primary/30',
             'disabled:opacity-60 disabled:cursor-not-allowed'
           )}

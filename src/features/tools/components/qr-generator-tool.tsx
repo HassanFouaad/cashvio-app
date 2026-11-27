@@ -121,8 +121,8 @@ export function QrGeneratorTool() {
           onClick={handleDownload}
           disabled={!trimmed}
           className={cn(
-            'w-full h-12 px-6 rounded-lg font-semibold text-primary-foreground',
-            'bg-primary hover:bg-primary-dark transition-colors duration-200',
+            'w-full h-12 px-6 rounded-lg font-semibold',
+            'brand-action touch-control transition-colors duration-200',
             'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2',
             'disabled:opacity-60 disabled:cursor-not-allowed'
           )}

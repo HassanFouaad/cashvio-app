@@ -7,10 +7,11 @@ import {
   getMessages,
 } from "next-intl/server";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { Inter, Tajawal, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, Tajawal, IBM_Plex_Mono } from "next/font/google";
 
 import { routing, localeMetadata, type Locale } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { brandColors } from "@/config/theme";
 import {
   getCanonicalUrl,
   getAlternateUrls,
@@ -30,8 +31,9 @@ import {
 
 import "../globals.css";
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: "variable",
   display: "swap",
   variable: "--font-sans",
   preload: true,
@@ -56,9 +58,9 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-mono",
+  variable: "--font-plex-mono",
   preload: true,
-  fallback: ["ui-monospace", "monospace"],
+  adjustFontFallback: false,
 });
 
 export function generateStaticParams() {
@@ -170,8 +172,8 @@ export async function generateMetadata({
       other: [
         {
           rel: "mask-icon",
-          url: "/assets/favicon.svg",
-          color: "#34d399",
+          url: "/assets/cashvio-mark.svg",
+          color: brandColors.saffron,
         },
       ],
     },
@@ -180,8 +182,8 @@ export async function generateMetadata({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#1a1f2e" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: brandColors.dark },
+    { media: "(prefers-color-scheme: light)", color: brandColors.cream },
   ],
   colorScheme: "dark light",
   width: "device-width",
@@ -230,7 +232,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={direction}
       suppressHydrationWarning
-      className={`dark ${inter.variable} ${tajawal.variable} ${plexMono.variable}`}
+      className={`dark ${plexSans.variable} ${tajawal.variable} ${plexMono.variable}`}
     >
       <head>
         {/* Preconnect to critical third-party origins */}

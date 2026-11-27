@@ -333,7 +333,7 @@ export function ContactForm() {
           onClick={handleReset}
           className={cn(
             "inline-flex items-center gap-2 h-11 px-6 rounded-lg",
-            "bg-primary hover:bg-primary-dark text-primary-foreground font-medium",
+            "brand-action touch-control font-medium",
             "transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50",
           )}
         >
@@ -580,7 +580,7 @@ export function ContactForm() {
         disabled={isSubmitting || retryDelayMs > 0}
         className={cn(
           "w-full h-12 px-8 rounded-lg font-semibold",
-          "bg-primary text-primary-foreground hover:bg-primary-dark",
+          "brand-action touch-control",
           "transition-colors duration-200",
           "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2",
           "disabled:opacity-50 disabled:cursor-not-allowed",

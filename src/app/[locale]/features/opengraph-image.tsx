@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import { brandColors } from '@/config/theme';
+import { OgBrandMark } from '@/lib/og-brand-mark';
 import { getTranslations } from 'next-intl/server';
 
 import { loadArabicOgFonts } from '@/lib/og-fonts';
@@ -39,9 +41,7 @@ export default async function OGImage({
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#0f1219',
-          backgroundImage:
-            'radial-gradient(circle at 25% 25%, #1a2332 0%, transparent 50%), radial-gradient(circle at 75% 75%, #0d2818 0%, transparent 50%)',
+          backgroundColor: brandColors.dark,
           padding: '60px 80px',
           position: 'relative',
         ...(isArabic ? { fontFamily: 'Tajawal' } : {}),
@@ -55,7 +55,7 @@ export default async function OGImage({
             left: 0,
             right: 0,
             height: '6px',
-            background: 'linear-gradient(90deg, #34d399, #10b981, #059669)',
+            background: brandColors.saffron,
             display: 'flex',
           }}
         />
@@ -74,18 +74,18 @@ export default async function OGImage({
               width: '44px',
               height: '44px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #34d399, #10b981)',
+              background: brandColors.saffron,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '22px',
               fontWeight: 700,
-              color: '#0f1219',
+              color: brandColors.dark,
             }}
           >
-            C
+            <OgBrandMark />
           </div>
-          <span style={{ fontSize: '28px', fontWeight: 700, color: '#ffffff' }}>
+          <span style={{ fontSize: '28px', fontWeight: 700, color: brandColors.cream }}>
             Cashvio
           </span>
         </div>
@@ -95,7 +95,7 @@ export default async function OGImage({
           style={{
             fontSize: isArabic ? '44px' : '48px',
             fontWeight: 800,
-            color: '#ffffff',
+            color: brandColors.cream,
             textAlign: 'center',
             lineHeight: 1.2,
             marginBottom: '16px',
@@ -108,7 +108,7 @@ export default async function OGImage({
         <div
           style={{
             fontSize: '20px',
-            color: '#94a3b8',
+            color: brandColors.darkMuted,
             textAlign: 'center',
             lineHeight: 1.5,
             maxWidth: '800px',
@@ -135,7 +135,7 @@ export default async function OGImage({
                 borderRadius: '8px',
                 backgroundColor: 'rgba(52, 211, 153, 0.1)',
                 border: '1px solid rgba(52, 211, 153, 0.25)',
-                color: '#34d399',
+                color: brandColors.saffron,
                 fontSize: '15px',
                 fontWeight: 500,
                 display: 'flex',
@@ -150,7 +150,7 @@ export default async function OGImage({
           style={{
             position: 'absolute',
             bottom: '25px',
-            color: '#64748b',
+            color: brandColors.darkMuted,
             fontSize: '14px',
             display: 'flex',
           }}

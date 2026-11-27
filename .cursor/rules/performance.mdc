@@ -11,7 +11,7 @@ Core Web Vitals are a direct organic search ranking factor. Every page and compo
 
 - **Zero Eager Third-Party Scripts**: NEVER load third-party scripts (e.g. Chatwoot, Facebook SDK) eagerly in the root `<head>` or initial page bundle.
 - **Interaction/Idle Script Loading**: Defer non-critical customer support widgets (Chatwoot) until the first user interaction (`pointerdown`, `keydown`, `touchstart`, `scroll` with `{ once: true }`) or a delayed `requestIdleCallback` (4000ms–6000ms fallback).
-- **Google Fonts Invariant**: Load fonts ONLY via `next/font/google` (`Inter`, `Tajawal`, `IBM_Plex_Mono`) with `display: 'swap'`, `preload: true`, and explicit `weight` arrays. Never add raw `<link>` stylesheet tags.
+- **Google Fonts Invariant**: Load fonts ONLY via `next/font/google` (`IBM_Plex_Sans`, `Tajawal`, `IBM_Plex_Mono` on marketing pages) with `display: 'swap'`, `preload: true`, and explicit `weight` arrays. Never add raw `<link>` stylesheet tags.
 - **Image Optimization**:
   - Always use `next/image` (`<Image />`).
   - Hero / Above-the-fold screenshots MUST use `priority` on the active mode image.

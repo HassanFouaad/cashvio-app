@@ -316,8 +316,8 @@ export function PriceTagGeneratorTool() {
             type="button"
             onClick={handlePrint}
             className={cn(
-              'w-full h-12 px-6 rounded-lg font-semibold text-primary-foreground',
-              'bg-primary hover:bg-primary-dark transition-colors duration-200',
+              'w-full h-12 px-6 rounded-lg font-semibold',
+              'brand-action touch-control transition-colors duration-200',
               'focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2'
             )}
           >
@@ -336,7 +336,7 @@ export function PriceTagGeneratorTool() {
           </p>
           <Link
             href="/register"
-            className="inline-flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 h-10 px-5 rounded-lg text-sm font-semibold brand-action touch-control transition-colors"
           >
             Start free with Cashvio
           </Link>

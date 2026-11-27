@@ -94,7 +94,7 @@ export function MarginCalculatorTool() {
               'h-11 px-3 rounded-lg text-sm font-medium transition-colors duration-200',
               'focus:outline-none focus:ring-2 focus:ring-primary/30',
               mode === option
-                ? 'bg-primary text-primary-foreground'
+                ? 'bg-action text-action-ink'
                 : 'border border-dashed border-ledger-line text-muted-foreground hover:text-foreground'
             )}
           >

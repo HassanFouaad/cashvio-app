@@ -7,7 +7,7 @@
 
 /* ============================================
    CASHVIO DESIGN SYSTEM — "THE SHOPKEEPER'S LEDGER"
-   One brand hue (emerald) on warm paper. The site borrows
+   Saffron and plum on warm paper. The site borrows
    the artifacts of a shop: receipt paper (scalloped edges),
    tear lines, rubber stamps, ledger rules, mono numerals.
    Radii: 8px controls (rounded-lg), 12px cards (rounded-xl).
@@ -18,51 +18,63 @@
   /* Tell the browser which mode we're in so native UI (select popups,
      scrollbars, autofill, date pickers) renders in matching colors */
   color-scheme: light;
-  --background: #faf9f7;
-  --foreground: #101828;
-  --card: #ffffff;
-  --card-foreground: #101828;
-  --muted: #f1efec;
-  --muted-foreground: #5d6b7e;
-  --border: #e4e2dd;
+  --background: #F9F4E9;
+  --foreground: #321C32;
+  --card: #FFFCF6;
+  --card-foreground: var(--foreground);
+  --muted: #EEE7DB;
+  --muted-foreground: #6A5C68;
+  --border: #D9D0C4;
   /* Ledger lines (tear lines, ruled paper, dashed rules) need more
      contrast than regular borders — dashes read fainter than solids */
-  --ledger-line: #c3bfb5;
+  --ledger-line: #B7A693;
   /* Device chassis (receipt printer, POS terminal frame) — always dark,
      never flips to white in dark mode */
-  --chassis: #101828;
+  --chassis: #321C32;
 
-  --primary: #059669;
-  --primary-dark: #047857;
-  --primary-foreground: #ffffff;
+  --primary: #765018;
+  --primary-foreground: #FFFCF6;
 
-  --destructive: #dc2626;
+  --destructive: #AD262B;
   --destructive-foreground: #ffffff;
-  --success: #16a34a;
+  --success: #247049;
   --success-foreground: #ffffff;
+  /* Put Tajawal ahead of the generated system font fallbacks for Arabic glyphs. */
+  --receipt-font: 'IBM Plex Mono', var(--font-arabic, 'Tajawal'), var(--font-plex-mono, monospace);
+  --action: #F6BE3B;
+  --action-hover: #EAB12F;
+  --action-pressed: #D8A02F;
+  --action-ink: #321C32;
+  --action-disabled: #E3DCD2;
+  --field-outline: #837480;
+  --focus: #321C32;
+  --overlay: rgb(50 28 50 / 20%);
 }
 
-/* ---- Semantic color variables (dark — emerald-tinted surfaces) ---- */
+/* ---- Semantic color variables (dark) ---- */
 .dark {
   color-scheme: dark;
-  --background: #0a1410;
-  --foreground: #eaf1ec;
-  --card: #111d17;
-  --card-foreground: #eaf1ec;
-  --muted: #16241d;
-  --muted-foreground: #93a89b;
-  --border: #24352c;
-  --ledger-line: #3a5044;
-  --chassis: #2b3f34;
+  --background: #110D12;
+  --foreground: #F9F4E9;
+  --card: #1D151E;
+  --card-foreground: var(--foreground);
+  --muted: #2A1F2C;
+  --muted-foreground: #CBBCC8;
+  --border: #3D303E;
+  --ledger-line: #645264;
+  --chassis: #2A1F2C;
 
-  --primary: #10b981;
-  --primary-dark: #34d399;
-  --primary-foreground: #06231a;
+  --primary: #F6BE3B;
+  --primary-foreground: #321C32;
 
   --destructive: #f87171;
   --destructive-foreground: #200a0a;
   --success: #4ade80;
   --success-foreground: #0a2413;
+  --action-disabled: var(--muted);
+  --field-outline: #9A8C98;
+  --focus: var(--action);
+  --overlay: rgb(17 13 18 / 55%);
 }
 
 /* ---- Tailwind theme mapping ---- */
@@ -77,8 +89,10 @@
   --color-ledger-line: var(--ledger-line);
   --color-chassis: var(--chassis);
   --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-action: var(--action);
+  --color-action-ink: var(--action-ink);
+  --color-field-outline: var(--field-outline);
+  --color-focus: var(--focus);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
@@ -86,31 +100,30 @@
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-arabic: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono: var(--receipt-font);
 }
 
 /* ============================================
    FUMADOCS THEME — matches the site tokens
    ============================================ */
-@theme {
-  /* Light Mode */
-  --color-fd-background: hsl(40, 20%, 98%);
-  --color-fd-foreground: hsl(218, 43%, 11%);
-  --color-fd-primary: hsl(160, 94%, 30%);
-  --color-fd-primary-foreground: hsl(0, 0%, 100%);
-  --color-fd-border: hsla(40, 8%, 82%, 0.6);
-  --color-fd-ring: hsl(160, 94%, 30%);
-  --color-fd-accent: hsl(40, 12%, 93%);
-  --color-fd-accent-foreground: hsl(218, 43%, 11%);
-  --color-fd-muted: hsl(40, 12%, 94%);
-  --color-fd-muted-foreground: hsl(215, 15%, 43%);
-  --color-fd-secondary: hsl(40, 12%, 93%);
-  --color-fd-secondary-foreground: hsl(218, 43%, 11%);
-  --color-fd-card: hsl(0, 0%, 100%);
-  --color-fd-card-foreground: hsl(218, 43%, 11%);
-  --color-fd-popover: hsl(0, 0%, 100%);
-  --color-fd-popover-foreground: hsl(218, 43%, 11%);
-  --color-fd-overlay: hsla(0, 0%, 0%, 0.2);
+@theme inline {
+  --color-fd-background: var(--background);
+  --color-fd-foreground: var(--foreground);
+  --color-fd-primary: var(--primary);
+  --color-fd-primary-foreground: var(--primary-foreground);
+  --color-fd-border: var(--border);
+  --color-fd-ring: var(--focus);
+  --color-fd-accent: var(--muted);
+  --color-fd-accent-foreground: var(--foreground);
+  --color-fd-muted: var(--muted);
+  --color-fd-muted-foreground: var(--muted-foreground);
+  --color-fd-secondary: var(--muted);
+  --color-fd-secondary-foreground: var(--foreground);
+  --color-fd-card: var(--card);
+  --color-fd-card-foreground: var(--foreground);
+  --color-fd-popover: var(--card);
+  --color-fd-popover-foreground: var(--foreground);
+  --color-fd-overlay: var(--overlay);
 }
 
 /* Fumadocs static semantic colors */
@@ -124,26 +137,6 @@
   --color-fd-diff-remove-symbol: rgb(230, 10, 100);
   --color-fd-diff-add: rgba(14, 180, 100, 0.1);
   --color-fd-diff-add-symbol: rgb(10, 200, 100);
-}
-
-.dark {
-  --color-fd-background: hsl(160, 33%, 6%);
-  --color-fd-foreground: hsl(140, 15%, 93%);
-  --color-fd-primary: hsl(160, 84%, 39%);
-  --color-fd-primary-foreground: hsl(165, 71%, 8%);
-  --color-fd-border: hsla(150, 16%, 30%, 0.5);
-  --color-fd-ring: hsl(160, 84%, 39%);
-  --color-fd-accent: hsl(155, 20%, 13%);
-  --color-fd-accent-foreground: hsl(140, 15%, 93%);
-  --color-fd-muted: hsl(155, 20%, 12%);
-  --color-fd-muted-foreground: hsl(145, 10%, 62%);
-  --color-fd-secondary: hsl(155, 20%, 13%);
-  --color-fd-secondary-foreground: hsl(140, 15%, 93%);
-  --color-fd-card: hsl(158, 26%, 9%);
-  --color-fd-card-foreground: hsl(140, 15%, 93%);
-  --color-fd-popover: hsl(158, 26%, 9%);
-  --color-fd-popover-foreground: hsl(140, 15%, 93%);
-  --color-fd-overlay: hsla(160, 33%, 3%, 0.5);
 }
 
 /* ============================================
@@ -204,6 +197,38 @@
    LAYOUT COMPONENT CLASSES
    ============================================ */
 @layer components {
+  /* Paint the ticket cut behind the control so its focus ring stays whole. */
+  .brand-action {
+    position: relative;
+    isolation: isolate;
+    color: var(--action-ink);
+  }
+
+  .brand-action::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--action);
+    border-radius: inherit;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+    transition: background-color 150ms ease;
+  }
+
+  [dir='rtl'] .brand-action::before {
+    clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+  }
+
+  .brand-action:hover::before { background: var(--action-hover); }
+  .brand-action:active::before { background: var(--action-pressed); }
+  .brand-action:disabled::before { background: var(--action-disabled); }
+
+  @media (max-width: 767px), (any-pointer: coarse) {
+    .touch-control { min-height: 2.75rem; }
+    .touch-icon { min-width: 2.75rem; min-height: 2.75rem; }
+  }
+
   .container-narrow {
     @apply max-w-3xl mx-auto px-4 sm:px-6 lg:px-8;
   }
@@ -220,10 +245,10 @@
     @apply py-12 sm:py-16 md:py-20;
   }
 
-  /* Single restrained brand moment: a faint emerald wash at the top of heroes */
+  /* Warm saffron wash on the existing paper surface. */
   .hero-wash {
     background:
-      radial-gradient(ellipse 80% 55% at 50% -15%, color-mix(in oklab, var(--primary) 7%, transparent), transparent 65%),
+      radial-gradient(ellipse 80% 55% at 50% -15%, color-mix(in oklab, var(--action) 9%, transparent), transparent 65%),
       var(--background);
   }
 
@@ -233,7 +258,7 @@
 
   /* Mono micro-label: the eyebrow/annotation voice of the ledger */
   .mono-label {
-    font-family: var(--font-mono), ui-monospace, monospace;
+    font-family: var(--receipt-font);
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -241,7 +266,7 @@
   }
 
   .font-receipt {
-    font-family: var(--font-mono), ui-monospace, monospace;
+    font-family: var(--receipt-font);
   }
 
   /* Receipt paper: scalloped (perforated) top + bottom edges via mask.
@@ -332,7 +357,7 @@
     padding: 0.3125rem 0.75rem;
     border: 2px solid currentColor;
     border-radius: 0.375rem;
-    font-family: var(--font-mono), ui-monospace, monospace;
+    font-family: var(--receipt-font);
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -366,10 +391,11 @@
     padding-inline: 0.875rem 0.625rem;
     background-color: var(--muted);
     color: var(--muted-foreground);
-    font-family: var(--font-mono), ui-monospace, monospace;
+    font-family: var(--receipt-font);
     font-size: 0.6875rem;
     font-weight: 500;
-    white-space: nowrap;
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
     clip-path: polygon(0 50%, 9px 0, 100% 0, 100% 100%, 9px 100%);
   }
 
@@ -409,7 +435,8 @@
   .paper-input:focus,
   .paper-input:focus-visible {
     outline: none;
-    border-bottom-color: var(--primary);
+    border-bottom-color: var(--focus);
+    box-shadow: 0 1px var(--focus);
   }
 
   .paper-input-error {
@@ -487,9 +514,16 @@
    FOCUS / SELECTION / SCROLLBAR
    ============================================ */
 *:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
+
+.brand-action:disabled {
+  color: var(--muted-foreground);
+  opacity: 1;
+}
+
+[dir='rtl'] :is(.mono-label, .stamp) { letter-spacing: normal; }
 
 /* Paper form fields show focus through their dashed underline color
    instead of the global outline box (must stay unlayered to win) */

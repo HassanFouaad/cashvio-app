@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { brandColors } from '@/config/theme';
 
 /**
  * Web app manifest for brand identity signals (name, icons, colors).
@@ -16,8 +17,8 @@ export default function manifest(): MetadataRoute.Manifest {
       'Complete business management platform for online and in-store operations: sales, inventory, payments, and analytics.',
     start_url: '/',
     display: 'browser',
-    background_color: '#1a1f2e',
-    theme_color: '#34d399',
+    background_color: brandColors.dark,
+    theme_color: brandColors.saffron,
     icons: [
       {
         src: '/assets/favicon-96x96.png',

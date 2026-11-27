@@ -17,9 +17,9 @@ Architectural guide to Tailwind CSS v4 CSS-first theming and thermal receipt vis
 
 - **CSS-First Theme Variables**: Defined in `src/app/globals.css`. Never use raw hex values in components.
 - **Surface Palette**:
-  - Light mode: Warm vintage paper (`--background: #faf9f7`, `--card: #f2efe9`, `--border: #e2ddd5`).
-  - Dark mode: Emerald-tinted dark (`--background: #0a1410`, `--card: #111d17`, `--border: #24352c`).
-- **Brand Primary**: `#059669` (light) / `#10b981` (dark).
+  - Light mode: Warm paper (`--background: #F9F4E9`, `--card: #FFFCF6`, `--border: #D9D0C4`).
+  - Dark mode: Deep plum (`--background: #110D12`, `--card: #1D151E`, `--border: #3D303E`).
+- **Brand Primary**: Saffron `#F6BE3B` for primary actions with plum labels. Use `text-primary` for accessible accent ink and `brand-action` for the ticket-cut action surface.
 - **Receipt Primitives**:
   - `.receipt-edge`: Scalloped bottom edge.
   - `.receipt-edge-top`: Scalloped top edge.

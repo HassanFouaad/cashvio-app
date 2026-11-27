@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import { brandColors } from '@/config/theme';
+import { OgBrandMark } from '@/lib/og-brand-mark';
 import { getTranslations } from 'next-intl/server';
 
 import { loadArabicOgFonts } from '@/lib/og-fonts';
@@ -35,9 +37,7 @@ export default async function XCardImage({
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#0f1219',
-          backgroundImage:
-            'radial-gradient(circle at 25% 25%, #1a2332 0%, transparent 50%), radial-gradient(circle at 75% 75%, #0d2818 0%, transparent 50%)',
+          backgroundColor: brandColors.dark,
           padding: '50px 80px',
           position: 'relative',
           ...(isArabic ? { fontFamily: 'Tajawal' } : {}),
@@ -52,7 +52,7 @@ export default async function XCardImage({
             left: 0,
             right: 0,
             height: '5px',
-            background: 'linear-gradient(90deg, #34d399, #10b981, #059669)',
+            background: brandColors.saffron,
             display: 'flex',
           }}
         />
@@ -71,22 +71,22 @@ export default async function XCardImage({
               width: '48px',
               height: '48px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #34d399, #10b981)',
+              background: brandColors.saffron,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '24px',
               fontWeight: 700,
-              color: '#0f1219',
+              color: brandColors.dark,
             }}
           >
-            C
+            <OgBrandMark />
           </div>
           <span
             style={{
               fontSize: '32px',
               fontWeight: 700,
-              color: '#ffffff',
+              color: brandColors.cream,
             }}
           >
             {title}
@@ -97,7 +97,7 @@ export default async function XCardImage({
         <div
           style={{
             fontSize: isArabic ? '24px' : '22px',
-            color: '#34d399',
+            color: brandColors.saffron,
             fontWeight: 600,
             marginBottom: '16px',
             textAlign: 'center',
@@ -112,7 +112,7 @@ export default async function XCardImage({
         <div
           style={{
             fontSize: '18px',
-            color: '#94a3b8',
+            color: brandColors.darkMuted,
             textAlign: 'center',
             lineHeight: 1.5,
             maxWidth: '750px',
@@ -142,7 +142,7 @@ export default async function XCardImage({
                 borderRadius: '16px',
                 backgroundColor: 'rgba(52, 211, 153, 0.1)',
                 border: '1px solid rgba(52, 211, 153, 0.2)',
-                color: '#34d399',
+                color: brandColors.saffron,
                 fontSize: '14px',
                 fontWeight: 500,
                 display: 'flex',
@@ -159,7 +159,7 @@ export default async function XCardImage({
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            color: '#64748b',
+            color: brandColors.darkMuted,
             fontSize: '14px',
           }}
         >

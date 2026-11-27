@@ -345,7 +345,7 @@ export function InvoiceGeneratorTool() {
             className={cn(
               'w-full h-12 rounded-lg text-sm font-medium transition-colors duration-200',
               'focus:outline-none focus:ring-2 focus:ring-primary/30',
-              'bg-primary text-primary-foreground hover:opacity-90',
+              'brand-action touch-control',
               'disabled:opacity-40 disabled:cursor-not-allowed'
             )}
           >

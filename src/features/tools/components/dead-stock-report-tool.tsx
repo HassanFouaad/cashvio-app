@@ -375,7 +375,7 @@ export function DeadStockReportTool() {
           <button
             type="button"
             onClick={handlePrint}
-            className="h-11 px-5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors inline-flex items-center justify-center gap-2"
+            className="h-11 px-5 rounded-lg text-sm font-semibold brand-action touch-control transition-colors inline-flex items-center justify-center gap-2"
           >
             <Printer className="size-4" aria-hidden="true" />
             <span>{t('print')}</span>

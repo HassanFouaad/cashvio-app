@@ -1,0 +1,9 @@
+import { brandColors } from '@/config/theme';
+
+export function OgBrandMark() {
+  return (
+    <svg width="34" height="30" viewBox="0 0 92 80" aria-hidden="true">
+      <path fill={brandColors.plum} fillRule="evenodd" d="M0 25 L25 0 L92 0 L80 20 L34 20 L23 31 L23 49 L34 60 L80 60 L92 80 L25 80 L0 55 Z M16 40 C16 33 6 33 6 40 C6 47 16 47 16 40 Z" />
+    </svg>
+  );
+}
