@@ -38,7 +38,7 @@ When the customer pays **part of the total** at checkout:
 2. Enable **Put the rest on customer credit**.
 3. Optionally pick a **promised collection date** for the remainder.
 
-The order is marked **On credit** for the unpaid balance. Collect the rest later from the order details page.
+The order is marked **On credit** for the unpaid balance. You can collect later from the customer's profile or the order details page.
 
 <Callout title="Note">
 If **Customer credit (pay later)** is off but you take a partial payment, you can still use **Save the rest as money owed** with a due date. That path creates a scheduled payment you track under [Overdue Payments](/docs/orders/overdue-payments). On-credit orders keep the balance on the order itself instead.
@@ -70,6 +70,21 @@ The payment column shows **On credit** under the payment status for deferred ord
 Tiles that highlight orders needing attention link to the orders list with **Outstanding balance** applied so partial and on-credit sales are easy to find.
 
 ## Collecting Later
+
+### Receive one cash payment for several orders
+
+1. Open **Customers**, select the customer, and choose **Receive payment**. Select the **Store** where the credit orders were sold. You need access to that store's customer, order and payment details, plus permission to record payments.
+2. Enter the cash in **Amount received**. **Available to collect** excludes amounts already reserved by pending payments. Choose the receiving drawer if the store requires an open cash session.
+3. Choose **Review allocation** to see how much goes to each order. Cashvio settles orders with promised dates first, earliest date first. Orders without a promised date follow in sale-date order.
+4. Choose **Confirm payment**. The receipt shows which orders received money. You can reopen it from any of those orders using **View collection receipt**.
+
+For example, a customer owes EGP 300 on the first order and EGP 250 on the second. Enter EGP 400 once. The receipt shows EGP 300 applied to the first and EGP 100 to the second. The customer still owes EGP 150.
+
+If another cashier records a payment before you confirm, review the updated amounts. If the connection drops after you confirm, use the retry action for that payment. The same receipt opens when the payment has already been recorded.
+
+If you confirm the wrong amount, contact support with the receipt reference, the cash actually received and the reason for the correction. A merchandise refund records money returned to the customer and leaves the paid principal settled.
+
+### Collect against one order
 
 1. Open the order from **Sales** or the customer’s order history.
 2. Confirm **Payment terms** shows **On credit** and review **Due date** if one was set.
