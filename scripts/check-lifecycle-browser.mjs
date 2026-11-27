@@ -70,12 +70,13 @@ try {
     });
     const page = await context.newPage();
     page.on('pageerror', (error) => hydrationErrors.push(error.message));
-    page.on('console', (message) => { if (/hydration|didn't match|server rendered HTML/i.test(message.text())) hydrationErrors.push(message.text()); });
+    page.on('console', (message) => { if (/hydration|didn't match|server rendered HTML|script tag while rendering/i.test(message.text())) hydrationErrors.push(message.text()); });
     await page.routeWebSocket('**/*', (socket) => socket.close());
     const labels = locale === 'en'
       ? { dark: 'Switch to dark mode', light: 'Switch to light mode', login: 'Login', dashboard: 'Go to Dashboard', open: 'Open menu', close: 'Close menu', chat: 'Open support chat' }
       : { dark: 'التبديل إلى الوضع الداكن', light: 'التبديل إلى الوضع الفاتح', login: 'تسجيل الدخول', dashboard: 'الذهاب للوحة التحكم', open: 'افتح القائمة', close: 'أغلق القائمة', chat: 'افتح محادثة الدعم' };
     const url = `${base}${locale === 'en' ? '/' : '/ar'}`;
+    await context.addCookies([{ name: 'cv_theme', value: locale === 'en' ? 'dark' : 'light', url: base }]);
     await page.goto(url, { waitUntil: 'load' });
     await page.locator('header').getByRole('button', { name: labels.login, exact: true }).waitFor();
     await page.locator('header').getByRole('button', { name: new RegExp(`^(?:${labels.dark}|${labels.light})$`) }).waitFor();
@@ -104,8 +105,27 @@ try {
     if (screenshotDirectory) await page.screenshot({ path: join(screenshotDirectory, `cashvio-foundations-marketing-${locale}.png`), fullPage: false });
     await page.reload({ waitUntil: 'load' });
     await page.waitForFunction((label) => Array.from(document.querySelectorAll('button')).some((button) => button.getAttribute('aria-label') === label && button.disabled), labels.chat);
+    const targetLocale = locale === 'en' ? 'ar' : 'en';
+    const suffix = '?preview=locale#home-hero-title';
+    const targetUrl = base + (targetLocale === 'ar' ? '/ar' : '/') + suffix;
+    await page.goto(url + suffix, { waitUntil: 'load' });
+    if (locale === 'ar') {
+      await page.getByRole('button', { name: labels.open, exact: true }).click();
+    } else {
+      await page.setViewportSize({ width: 1365, height: 900 });
+    }
+    await Promise.all([
+      page.waitForURL(targetUrl, { waitUntil: 'load' }),
+      page.getByRole('button', { name: targetLocale === 'ar' ? 'العربية' : 'English', exact: true }).click(),
+    ]);
+    assert.equal(await page.locator('html').getAttribute('lang'), targetLocale);
+    assert.equal(await page.locator('html').getAttribute('dir'), targetLocale === 'ar' ? 'rtl' : 'ltr');
+    assert.equal(await page.locator('html').evaluate((html) => html.classList.contains('dark')), !initiallyDark);
+    const preferences = await context.cookies(base);
+    assert.equal(preferences.find((cookie) => cookie.name === 'cv_language')?.value, targetLocale);
+    assert.equal(preferences.find((cookie) => cookie.name === 'cv_theme')?.value, initiallyDark ? 'light' : 'dark');
     await context.close();
-    console.log(`PASS ${locale}: hydration, public auth hint, theme preference, mobile drawer and delayed Chatwoot stub readiness/toggle.`);
+    console.log(`PASS ${locale}: hydration, public auth hint, theme preference, language switching, mobile drawer and delayed Chatwoot stub readiness/toggle.`);
   }
   assert.deepEqual(hydrationErrors, [], 'Unexpected browser/hydration errors.');
   console.log(`Browser lifecycle PASS; ${blockedRequests} external-resource requests blocked. No live Chatwoot/auth provider or production data exercised.`);
