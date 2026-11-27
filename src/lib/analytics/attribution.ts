@@ -93,9 +93,14 @@ function isGtagAvailable(): boolean {
  * Read the stored first-touch attribution, if any.
  */
 export function getAttribution(): Attribution | null {
-  const raw = getSharedCookie(ATTRIBUTION_COOKIE);
-  if (!raw) return null;
-  return safeParse(raw);
+  try {
+    const raw = getSharedCookie(ATTRIBUTION_COOKIE);
+    if (!raw) return null;
+    return safeParse(raw);
+  } catch {
+    // A malformed acquisition cookie is not a dependency of request acceptance.
+    return null;
+  }
 }
 
 /**

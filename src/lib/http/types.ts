@@ -1,3 +1,5 @@
+import type { ContactFormId } from "./enums/contact-form-id.enum";
+
 /**
  * HTTP Module Types
  *
@@ -17,8 +19,6 @@ export interface ApiResponse<T> {
   message?: string;
   statusCode: number;
 }
-
-
 
 /**
  * API Error response
@@ -45,7 +45,7 @@ export interface ApiError {
 /**
  * HTTP Methods supported
  */
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 /**
  * Request configuration options
@@ -54,6 +54,8 @@ export interface RequestConfig {
   headers?: Record<string, string>;
   params?: Record<string, string | number | boolean | undefined>;
   signal?: AbortSignal;
+  /** Optional shorter deadline used by focused tests; production is capped. */
+  timeoutMs?: number;
   cache?: RequestCache;
   next?: NextFetchRequestConfig;
   locale?: string; // Locale for Accept-Language header
@@ -78,10 +80,10 @@ export interface NextFetchRequestConfig {
 // ============================================================================
 
 export enum PlanPeriod {
-  DAY = 'DAY',
-  WEEK = 'WEEK',
-  MONTH = 'MONTH',
-  YEAR = 'YEAR',
+  DAY = "DAY",
+  WEEK = "WEEK",
+  MONTH = "MONTH",
+  YEAR = "YEAR",
 }
 
 /**
@@ -105,11 +107,11 @@ export interface PublicPlan {
 // ============================================================================
 
 export enum InquiryType {
-  GENERAL = 'GENERAL',
-  DEMO = 'DEMO',
-  SUPPORT = 'SUPPORT',
-  SALES = 'SALES',
-  PARTNERSHIP = 'PARTNERSHIP',
+  GENERAL = "GENERAL",
+  DEMO = "DEMO",
+  SUPPORT = "SUPPORT",
+  SALES = "SALES",
+  PARTNERSHIP = "PARTNERSHIP",
 }
 
 /**
@@ -123,6 +125,30 @@ export interface ContactRequest {
   message: string;
   type?: InquiryType;
   locale?: string;
+  source?: ContactSourceRequest;
+}
+
+export interface ContactAttributionRequest {
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  ref?: string;
+  referrer?: string;
+  landingPage?: string;
+  firstTouchAt?: string;
+}
+
+export interface ContactSourceRequest {
+  formId: ContactFormId;
+  submissionPath?: string;
+  firstTouch?: ContactAttributionRequest;
+}
+
+export interface ContactRequestIntent {
+  key: string;
+  request: ContactRequest;
 }
 
 /**
@@ -137,4 +163,3 @@ export interface ContactResponse {
   type: InquiryType;
   createdAt: string;
 }
-

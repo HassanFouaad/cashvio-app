@@ -5,13 +5,11 @@
  * Supports both client-side and server-side usage in Next.js.
  */
 
-import { env } from '@/config/env';
-import {
-  ApiError,
-  ApiResponse,
-  HttpMethod,
-  RequestConfig,
-} from './types';
+import { env } from "@/config/env";
+import { parseRetryAfter } from "./retry-after";
+
+export const CONTACT_REQUEST_TIMEOUT_MS = 30_000;
+import { ApiError, ApiResponse, HttpMethod, RequestConfig } from "./types";
 
 /**
  * Custom error class for API errors
@@ -24,10 +22,11 @@ export class HttpError extends Error {
     public statusCode: number,
     message: string,
     public details?: Record<string, unknown>,
-    public code?: string
+    public code?: string,
+    public retryAfterMs?: number,
   ) {
     super(message);
-    this.name = 'HttpError';
+    this.name = "HttpError";
   }
 }
 
@@ -35,9 +34,9 @@ export class HttpError extends Error {
  * Build query string from params object
  */
 function buildQueryString(
-  params?: Record<string, string | number | boolean | undefined>
+  params?: Record<string, string | number | boolean | undefined>,
 ): string {
-  if (!params) return '';
+  if (!params) return "";
 
   const searchParams = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {
@@ -47,7 +46,7 @@ function buildQueryString(
   });
 
   const queryString = searchParams.toString();
-  return queryString ? `?${queryString}` : '';
+  return queryString ? `?${queryString}` : "";
 }
 
 /**
@@ -55,13 +54,13 @@ function buildQueryString(
  */
 function getDefaultHeaders(locale?: string): Record<string, string> {
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   };
 
   // Add Accept-Language header if locale is provided
   if (locale) {
-    headers['Accept-Language'] = locale;
+    headers["Accept-Language"] = locale;
   }
 
   return headers;
@@ -84,7 +83,7 @@ class HttpClient {
     method: HttpMethod,
     endpoint: string,
     data?: unknown,
-    config?: RequestConfig
+    config?: RequestConfig,
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}${buildQueryString(config?.params)}`;
 
@@ -92,14 +91,26 @@ class HttpClient {
       ...getDefaultHeaders(config?.locale),
       ...config?.headers,
     };
+    const timeoutMs = Math.min(
+      Math.max(config?.timeoutMs ?? CONTACT_REQUEST_TIMEOUT_MS, 1),
+      CONTACT_REQUEST_TIMEOUT_MS,
+    );
+    const timeoutController = new AbortController();
+    const handleCallerAbort = () =>
+      timeoutController.abort(config?.signal?.reason);
+    if (config?.signal?.aborted) handleCallerAbort();
+    else
+      config?.signal?.addEventListener("abort", handleCallerAbort, {
+        once: true,
+      });
 
     const fetchOptions: RequestInit = {
       method,
       headers,
-      signal: config?.signal,
+      signal: timeoutController.signal,
       cache: config?.cache,
       // Never send the shared auth cookies unless a call opts in explicitly
-      credentials: config?.credentials ?? 'omit',
+      credentials: config?.credentials ?? "omit",
     };
 
     // Add Next.js specific options
@@ -109,25 +120,36 @@ class HttpClient {
     }
 
     // Add body for non-GET requests
-    if (data && method !== 'GET') {
+    if (data && method !== "GET") {
       fetchOptions.body = JSON.stringify(data);
     }
 
+    const timeout = setTimeout(() => timeoutController.abort(), timeoutMs);
     try {
       const response = await fetch(url, fetchOptions);
-      const responseData = await response.json();
 
       if (!response.ok) {
-        const errorData = responseData as ApiError;
+        const errorData: ApiError | null = await response
+          .json()
+          .catch(() => null);
+        const retryAfterMs =
+          response.status === 429
+            ? parseRetryAfter(response.headers.get("retry-after"))
+            : undefined;
         // The backend envelope nests the translated message under `error`;
         // fall back to a top-level `message` for non-envelope responses.
         throw new HttpError(
           response.status,
-          errorData.error?.message || errorData.message || 'An error occurred',
-          errorData.details,
-          errorData.error?.code
+          errorData?.error?.message ||
+            errorData?.message ||
+            "An error occurred",
+          errorData?.details,
+          errorData?.error?.code,
+          retryAfterMs,
         );
       }
+
+      const responseData = await response.json();
 
       // Unwrap the response if it follows ApiResponse structure
       if (this.isApiResponse<T>(responseData)) {
@@ -140,12 +162,27 @@ class HttpClient {
         throw error;
       }
 
-      // Handle network errors
-      if (error instanceof TypeError && error.message.includes('fetch')) {
-        throw new HttpError(0, 'Network error. Please check your connection.');
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "name" in error &&
+        error.name === "AbortError"
+      ) {
+        throw new HttpError(
+          408,
+          "The request timed out. Please retry the saved request.",
+        );
       }
 
-      throw new HttpError(500, 'An unexpected error occurred');
+      // Handle network errors
+      if (error instanceof TypeError && error.message.includes("fetch")) {
+        throw new HttpError(0, "Network error. Please check your connection.");
+      }
+
+      throw new HttpError(500, "An unexpected error occurred");
+    } finally {
+      clearTimeout(timeout);
+      config?.signal?.removeEventListener("abort", handleCallerAbort);
     }
   }
 
@@ -155,10 +192,10 @@ class HttpClient {
    */
   private isApiResponse<T>(data: unknown): data is ApiResponse<T> {
     return (
-      typeof data === 'object' &&
+      typeof data === "object" &&
       data !== null &&
-      'data' in data &&
-      ('statusCode' in data || 'success' in data)
+      "data" in data &&
+      ("statusCode" in data || "success" in data)
     );
   }
 
@@ -166,7 +203,7 @@ class HttpClient {
    * GET request
    */
   async get<T>(endpoint: string, config?: RequestConfig): Promise<T> {
-    return this.request<T>('GET', endpoint, undefined, config);
+    return this.request<T>("GET", endpoint, undefined, config);
   }
 
   /**
@@ -175,9 +212,9 @@ class HttpClient {
   async post<T>(
     endpoint: string,
     data?: unknown,
-    config?: RequestConfig
+    config?: RequestConfig,
   ): Promise<T> {
-    return this.request<T>('POST', endpoint, data, config);
+    return this.request<T>("POST", endpoint, data, config);
   }
 
   /**
@@ -186,9 +223,9 @@ class HttpClient {
   async put<T>(
     endpoint: string,
     data?: unknown,
-    config?: RequestConfig
+    config?: RequestConfig,
   ): Promise<T> {
-    return this.request<T>('PUT', endpoint, data, config);
+    return this.request<T>("PUT", endpoint, data, config);
   }
 
   /**
@@ -197,16 +234,16 @@ class HttpClient {
   async patch<T>(
     endpoint: string,
     data?: unknown,
-    config?: RequestConfig
+    config?: RequestConfig,
   ): Promise<T> {
-    return this.request<T>('PATCH', endpoint, data, config);
+    return this.request<T>("PATCH", endpoint, data, config);
   }
 
   /**
    * DELETE request
    */
   async delete<T>(endpoint: string, config?: RequestConfig): Promise<T> {
-    return this.request<T>('DELETE', endpoint, undefined, config);
+    return this.request<T>("DELETE", endpoint, undefined, config);
   }
 }
 
@@ -215,4 +252,3 @@ export const httpClient = new HttpClient();
 
 // Export class for custom instances
 export { HttpClient };
-

@@ -16,10 +16,17 @@ export const contactService = {
    */
   async submit(
     data: ContactRequest,
-    config?: RequestConfig
+    config?: RequestConfig,
+    idempotencyKey?: string
   ): Promise<ContactResponse> {
     // httpClient unwraps the `{ success, data }` envelope
-    return httpClient.post<ContactResponse>('/public/contact', data, config);
+    return httpClient.post<ContactResponse>('/public/contact', data, {
+      ...config,
+      headers: {
+        ...config?.headers,
+        ...(idempotencyKey ? { 'Idempotency-Key': idempotencyKey } : {}),
+      },
+    });
   },
 };
 

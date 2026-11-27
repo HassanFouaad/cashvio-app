@@ -1796,7 +1796,7 @@
   },
   "contactForm": {
     "title": "Send us a Message",
-    "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+    "subtitle": "Share your question and contact details. We'll record your request for follow-up.",
     "fields": {
       "name": "Full Name",
       "email": "Email Address",
@@ -1832,13 +1832,20 @@
       "messageRequired": "Message is required",
       "messageMinLength": "Message must be at least 10 characters",
       "messageTooLong": "Message must be 5000 characters or less",
-      "submitFailed": "Failed to send message. Please try again."
+      "submitFailed": "We could not confirm receipt. Retry the saved request with the same details.",
+      "invalidRequest": "Check your contact details and try again. If receipt was uncertain, retry the saved request.",
+      "referenceUnavailable": "We could not confirm your request reference. Retry the saved request.",
+      "originalChanged": "The previous request may already be received. Retry its saved details before starting another request.",
+      "secureKeyUnavailable": "A secure request key is unavailable in this browser. Please use an updated browser and retry.",
+      "rateLimited": "Please wait before retrying your saved request. Its details and retry key are retained."
     },
     "submit": "Send Message",
     "submitting": "Sending...",
+    "retryOriginal": "Retry saved request",
     "success": {
-      "title": "Message Sent!",
-      "message": "Thank you for reaching out. We'll get back to you soon.",
+      "title": "Request received",
+      "message": "Your message is recorded. Keep this reference for follow-up.",
+      "reference": "Request reference: {reference}",
       "sendAnother": "Send another message"
     }
   },

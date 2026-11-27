@@ -9,10 +9,12 @@ export { httpClient, HttpClient, HttpError } from './client';
 
 // Types
 export * from './types';
+export * from './contact-submission';
+export * from './retry-after';
+export * from './enums/contact-form-id.enum';
 
 // Hooks
 export * from './use-locale-config';
 
 // Services
 export * from './services';
-
