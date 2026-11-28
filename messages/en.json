@@ -341,9 +341,9 @@
     "hero": {
       "badge": "Business Management Platform",
       "freeBadge": "Free Forever Plan",
-      "title": "POS and online store,",
-      "titleHighlight": "working from one inventory.",
-      "subtitle": "Sell at the counter or online. Manage products, orders and customers in one place, in English or Arabic. Start with the free plan.",
+      "title": "Cashvio for point of sale",
+      "titleHighlight": "and online stores",
+      "subtitle": "Sell at the counter or online using the same inventory. Manage products, orders, customers, and stock from one dashboard.",
       "cta": "Start Free",
       "secondaryCta": "Explore Features",
       "freeNote": "Free plan · No credit card required",
@@ -385,7 +385,9 @@
         "totalValue": "0.00",
         "stamp": "Free forever",
         "thanks": "Thank you for opening your shop with us"
-      }
+      },
+      "googleSignInNote": "When you use Google sign-in, Cashvio uses your Google account information to verify your identity and create or connect your Cashvio account.",
+      "privacyLink": "Privacy Policy"
     },
     "howItWorks": {
       "title": "Get Started in Minutes",
@@ -920,7 +922,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: July 18, 2026",
+    "lastUpdated": "Last updated: November 28, 2026",
     "tableOfContents": "Table of Contents",
     "intro": "At Cashvio, your trust is the foundation of everything we build. This Privacy Policy explains what information we collect, why we collect it, how we use and protect it, and the rights and choices you have over it.\n\nIt applies to the Cashvio website, the merchant dashboard, the point-of-sale applications, online storefronts we host for merchants, and all related services (together, the \"Services\"). By using the Services, you acknowledge that you have read and understood this policy.",
     "sections": {
@@ -940,6 +942,16 @@
           "Device and usage data: IP address, browser and device type, operating system, pages visited, features used, referral URLs, timestamps, and crash or error diagnostics.",
           "Cookies and similar technologies: as described in the \"Cookies and Analytics\" section below.",
           "Communications: messages, support requests, feedback, and recordings of support conversations where permitted by law."
+        ]
+      },
+      "googleSignIn": {
+        "title": "Sign in with Google",
+        "content": "You can choose Google to sign in to Cashvio, create an account, or connect Google to an existing account. Google sends Cashvio a signed identity credential for this purpose. The information Cashvio reads is limited to your Google account identifier, email address and verification status, profile name when available, and the Google Workspace domain when present. The Workspace domain helps us check whether Google manages the email address.",
+        "items": [
+          "Use. We verify your identity, find or connect the right Cashvio account, and use your name and email to set up your Cashvio profile if you register with Google. We also use account information to send security notices about changes to your sign-in methods.",
+          "Storage and protection. The signed credential is sent over HTTPS and verified on our servers. The browser can hold it temporarily while you finish registration. Cashvio discards the raw credential after sign-in or registration. We keep a short-lived credential fingerprint to prevent reuse, which expires with the credential. The connected account record stores the Google identifier and email. We protect those records with the access controls described under How We Protect Your Data.",
+          "Sharing. Our hosting and email delivery providers process the information needed to operate sign-in and deliver security notices. Support and product analytics providers can receive your Cashvio profile name and email, including when you joined with Google, to support your account and improve Cashvio features. We use PostHog for product analytics when enabled. We do not sell Google account information or use it for targeted advertising.",
+          "Retention and deletion. In Cashvio Account settings, choose Disconnect Google to remove the Google identifier and email from your connected sign-in record. If Google is your only sign-in method, set a password first. Your Cashvio profile and account history remain subject to the Data Retention section. You can use Delete account in Account settings or contact us to request deletion of your personal information, subject to applicable retention requirements."
         ]
       },
       "usage": {

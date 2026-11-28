@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 
+import { Link } from '@/i18n/navigation';
 import { type Locale } from '@/i18n/routing';
 import { ThemedShot } from '@/components/ui/themed-shot';
 import { SalesTicker } from '@/components/marketing';
@@ -59,6 +60,13 @@ export async function Hero({ locale }: HeroProps) {
 
               <p className="animate-fade-up animate-delay-300 mt-6 font-receipt text-xs sm:text-sm text-muted-foreground">
                 {t('freeNote')}
+              </p>
+
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                {t('googleSignInNote')}{' '}
+                <Link href="/privacy" className="font-medium text-primary underline underline-offset-4">
+                  {t('privacyLink')}
+                </Link>
               </p>
             </div>
 
